@@ -17,14 +17,14 @@ spacing = plot_settings.spacing;
 bp_spacing = plot_settings.bp_spacing;
 
 for k = 1:N
-    % first partner of base pair:
+    % first partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain1(k), helix.resnum1(k) );
     Residue1 = getappdata( gca, res_tag );
     Residue1.relpos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
     pos1 = helix.center + Residue1.relpos*R;
     setappdata( gca, res_tag, Residue1);
 
-    % second partner of base pair:
+    % second partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain2(N-k+1), helix.resnum2(N-k+1) );
     Residue2 = getappdata( gca, res_tag ); 
     Residue2.relpos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
@@ -67,7 +67,13 @@ end
 
 % draw any residues that are associated with the helix 
 for i = 1:length( helix.associated_residues )
-    draw_residue( helix.associated_residues{i}, helix_center, R, plot_settings );
+    res_tag = helix.associated_residues{i};
+    Residue = getappdata( gca, res_tag );
+    if ~isfield( Residue, 'relpos' ) 
+        Residue.relpos = set_default_relpos( Residue, helix, plot_settings ); 
+        setappdata( gca, res_tag, Residue );
+    end;
+    draw_residue( res_tag, helix_center, R, plot_settings );
 end
 
 helix_tag = helix.helix_tag;
@@ -109,10 +115,11 @@ setappdata( gca, helix_tag, helix );
 end
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = draw_residue( restag, helix_center, R, plot_settings );
 Residue = getappdata( gca, restag );
 if isfield( Residue, 'relpos' )
-    pos = helix_center + Residue.relpos * R ;
+    pos = helix_center +  Residue.relpos * R ;
     h = text( ...
         pos(1), pos(2),...
         Residue.nucleotide,...
@@ -123,6 +130,7 @@ if isfield( Residue, 'relpos' )
 end
 end
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = make_label( helix, plot_settings, theta, parity, R )
 % make label
 label_pos = helix.center + plot_settings.bp_spacing*[0 1]*R;
@@ -139,6 +147,23 @@ switch theta
         set( h,'horizontalalign','center','verticalalign','top');
     case 270
         set( h,'horizontalalign','right','verticalalign','middle'); end;
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function relpos = set_default_relpos( residue, helix, plot_settings )
+% need to find which helix strand to append to, and then go out a bit.
+dist1 = min( abs(helix.resnum1 - residue.resnum) );
+if ( residue.chain ~= helix.chain1(1) ) dist1 = Inf * dist1; end;
+dist2 = min( abs(helix.resnum2 - residue.resnum) );
+if ( residue.chain ~= helix.chain2(1) ) dist2 = Inf * dist2; end;
+[~,strand] = min( [min( dist1 ), min( dist2 )] );
+N = length( helix.resnum1 );
+if ( strand == 1 )   
+    relpos = [ plot_settings.spacing*((residue.resnum-helix.resnum1(1))-(N-1)/2), -plot_settings.bp_spacing/2];
+else
+    assert( strand == 2 );    
+    relpos = [ plot_settings.spacing*(-(residue.resnum-helix.resnum2(1))+(N-1)/2), +plot_settings.bp_spacing/2];  
+end
 end
 
 

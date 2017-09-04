@@ -5,7 +5,6 @@ clf;
 hold on
 t = zeros( 1, length(sequence ) );
 axis( [0 200 0 200] );
-
 for n = 1:length( helices )
     col = mod( n-1, 5 ) + 1;
     row = floor((n-1)/5);
@@ -16,7 +15,6 @@ for n = 1:length( helices )
         helices{n}.chain1(1),...
         helices{n}.resnum1(1));% this better be a unique identifier
 end
-
 % single stranded residues:
 for n = 1:length( helices )
     helix_start1(n) = helices{n}.resnum1(1);
@@ -57,7 +55,7 @@ for i = 1:length(sequence)
     res_tag_j = sprintf('Residue_%s%d',chains(j),resnum(j));
     linker.residue1 = res_tag_i;
     linker.residue2 = res_tag_j;
-    linker.handle = plot( [0,0],[0,0],'k' ); % dummy for now -- will get redrawn below.
+    linker.line_handle = plot( [0,0],[0,0],'k' ); % dummy for now -- will get redrawn below.
     % stick this linker information in the connected residues.
     residue = getappdata( gca, res_tag_i ); residue.linkers = [ residue.linkers, linker ]; setappdata( gca, res_tag_i, residue );
     residue = getappdata( gca, res_tag_j ); residue.linkers = [ residue.linkers, linker ]; setappdata( gca, res_tag_j, residue );

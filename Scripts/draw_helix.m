@@ -88,8 +88,17 @@ for i = 1:length( helix.associated_residues )
         residue2 = getappdata( gca, linker.residue2 );
         if ~isfield( residue1, 'plot_pos' ); continue; end;
         if ~isfield( residue2, 'plot_pos' ); continue; end;
-        set( linker.handle, 'xdata', [residue1.plot_pos(1),residue2.plot_pos(1)] );
-        set( linker.handle, 'ydata', [residue1.plot_pos(2),residue2.plot_pos(2)] );
+        pos1 = residue1.plot_pos;
+        pos2 = residue2.plot_pos;
+        if ( norm( pos1 - pos2 ) < 1.5*plot_settings.spacing ) visible = 'off'; else; visible = 'on'; end;
+        set( linker.line_handle, 'visible', visible);
+        % displace line a bit to not overlap with text
+        v = pos2 - pos1; v = v/norm(v);
+        pos1d = pos1 +  (bp_spacing/3)*v;
+        pos2d = pos2 -  (bp_spacing/3)*v;
+        set( linker.line_handle, 'xdata', [pos1d(1) pos2d(1)] );
+        set( linker.line_handle, 'ydata', [pos1d(2) pos2d(2)] );
+        % draw a triangle too
     end
 end
 
@@ -100,7 +109,7 @@ maxpos = max( [all_pos1; all_pos2 ] );
 h = rectangle( 'Position',...
     [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
     [-0.5 -0.5 1 1]*spacing,...
-    'edgecolor',[0.5 0.5 1]);
+    'edgecolor',[0.5 0.5 1],'clipping','off');
 setappdata(h,'helix_tag',helix.helix_tag); 
 draggable(h,'endfcn',@redraw_helix);
 helix.helix_rectangle = h;
@@ -108,7 +117,7 @@ helix.helix_rectangle = h;
 % clickable line of reflection
 line1 = helix_center + spacing*[-(N+1)/2, 0]*R;
 line2 = helix_center + spacing*[ (N+1)/2, 0]*R;
-h = plot( [line1(1),line2(1)], [line1(2), line2(2)], 'color',[0.5 0.5 1] );
+h = plot( [line1(1),line2(1)], [line1(2), line2(2)], 'color',[0.5 0.5 1],'clipping','off' );
 setappdata( h, 'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@reflect_helix,h});
 helix.reflect_line = h;
@@ -116,7 +125,7 @@ helix.reflect_line = h;
 % clickable center of rotation
 h = rectangle( 'Position',...
     [helix_center(1)-0.1*spacing helix_center(2)-0.1*spacing,...
-    0.2*spacing 0.2*spacing], 'edgecolor',[0.5 0.5 1],'facecolor',[0.5 0.5 1],'linewidth',1.5 );
+    0.2*spacing 0.2*spacing], 'edgecolor',[0.5 0.5 1],'facecolor',[0.5 0.5 1],'linewidth',1.5,'clipping','off' );
 setappdata( h, 'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@rotate_helix,h});
 helix.click_center = h;
@@ -129,7 +138,6 @@ setappdata( gca, helix.helix_tag, helix );
 
 end
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = draw_residue( restag, helix_center, R, plot_settings );
 residue = getappdata( gca, restag );
@@ -138,7 +146,9 @@ if isfield( residue, 'relpos' )
     h = text( ...
         pos(1), pos(2),...
         residue.nucleotide,...
-        'fontsize', plot_settings.fontsize, 'fontname','helvetica','horizontalalign','center','verticalalign','middle');
+        'fontsize', plot_settings.fontsize, ...
+        'fontname','helvetica','horizontalalign','center','verticalalign','middle',...
+        'clipping','off');
     residue.handle = h;
     residue.plot_pos = pos;
     setappdata( gca, restag, residue )

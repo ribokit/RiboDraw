@@ -23,14 +23,9 @@ for n = 1:length( helices )
     end
     helices{n}.strand1 = strand1;
     helices{n}.strand2 = strand2;
-    %    helices{n}.associated_res = associated_res{n};
 end
-
-% single stranded residues:
-
-
 for n = 1:length( helices )
-    draw_helix( helices{n} );
+    setappdata( gca, sprintf('Helix%d',helices{n}.resnum1(1)), draw_helix( helices{n} ) );
 end
 
 DRAW_ARROWS = 0;
@@ -51,9 +46,6 @@ if DRAW_ARROWS
         prev_idx = i;
     end
 end
-
-
-
 
 axis off
 axis equal

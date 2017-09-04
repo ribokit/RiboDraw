@@ -41,16 +41,19 @@ for k = 1:N
     end
     
     % draw little arrows into and out of each strand
-    if ( k == 1 )
-        helix.a_in1 = arrow( pos1-[spacing,0]*r, pos1-0.5*[spacing,0]*r,'length',5,...
-            'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
-        helix.a_out2 = arrow( pos2-0.5*[spacing,0]*r,pos2-[spacing,0]*r,'length',5,...
-            'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
-    elseif ( k == N )
-        helix.a_out1 = arrow( pos1+0.5*[spacing,0]*r, pos1+[spacing,0]*r,'length',5,...
-            'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
-        helix.a_in2 = arrow( pos2+[spacing,0]*r,pos2+0.5*[spacing,0]*r,'length',5,...
-            'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
+    DRAW_LITTLE_ARROWS = 0;
+    if DRAW_LITTLE_ARROWS
+        if ( k == 1 )
+            helix.a_in1 = arrow( pos1-[spacing,0]*r, pos1-0.5*[spacing,0]*r,'length',5,...
+                'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
+            helix.a_out2 = arrow( pos2-0.5*[spacing,0]*r,pos2-[spacing,0]*r,'length',5,...
+                'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
+        elseif ( k == N )
+            helix.a_out1 = arrow( pos1+0.5*[spacing,0]*r, pos1+[spacing,0]*r,'length',5,...
+                'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
+            helix.a_in2 = arrow( pos2+[spacing,0]*r,pos2+0.5*[spacing,0]*r,'length',5,...
+                'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
+        end
     end
     all_pos1(k,:) = pos1;
     all_pos2(k,:) = pos2;
@@ -58,7 +61,16 @@ end
 minpos = min( [all_pos1; all_pos2 ] );
 maxpos = max( [all_pos1; all_pos2 ] );
 
-h = rectangle( 'Position',[minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ] );
-setappdata(h,'startpos',helix.resnum1(1)); % this better be a unique identifier
+helix_tag = sprintf('Helix_%d%d',...
+    helix.chain1(1),...
+    helix.resnum1(1));% this better be a unique identifier
+setappdata( gca, helix_tag, helix );
+
+h = rectangle( 'Position',[minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ],...
+    'edgecolor',[0.5 0.5 1]);
+setappdata(h,'helix_tag',helix_tag); 
 draggable(h,'endfcn',@redraw_helix);
+
+
+
 

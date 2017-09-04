@@ -1,0 +1,20 @@
+function redraw_res_and_helix( h )
+pos = get(h,'position'); 
+res_tag = getappdata( h, 'res_tag' );
+delete( h );
+
+residue = getappdata(gca,res_tag );
+helix = getappdata( gca, residue.helix_tag );
+undraw_helix( helix );
+
+residue.plot_pos = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
+% need to figure out rel_pos back in the 'frame' of the helix.
+% for that I need to figure out rotation matrix.
+theta = helix.rotation;
+R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
+R = [1 0; 0 helix.parity] * R;
+residue.relpos = ( residue.plot_pos - helix.center ) * R';
+setappdata( gca, res_tag, residue );
+draw_helix( helix );
+
+

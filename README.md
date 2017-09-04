@@ -14,8 +14,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-
-* draw arrows on linkers
 * allow movement of residues
 * update noncanonical pairs (slaved)
 

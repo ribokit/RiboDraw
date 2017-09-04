@@ -1,7 +1,7 @@
 helices = read_helices( 'DomainIII_helices.txt' );
 [sequence,resnum,chains,non_standard_residues] = get_sequence( '4ybb_DomainIII.fasta' );
 
-clf;
+clf; set(gca,'Position',[0 0 1 1]);
 hold on
 t = zeros( 1, length(sequence ) );
 axis( [0 200 0 200] );
@@ -65,36 +65,6 @@ for n = 1:length( helices )
     draw_helix( helices{n} );
 end
 
-
-% DRAW_ARROWS = 0;
-% if DRAW_ARROWS
-%     % draw connectors
-%     hold on;
-%     in_loop = 1; prev_idx = 0;
-%     for i = 1:length(t)
-%         if t(i) == 0 & ~in_loop
-%             start_loop = prev_idx;
-%             in_loop = 1;
-%         end
-%         if t(i) > 0 & in_loop
-%             stop_loop = i;
-%             in_loop = 0;
-%             arrow( get(t(start_loop),'position'), get(t(stop_loop),'position') );
-%         end
-%         prev_idx = i;
-%     end
-% end
-% 
-
-
-
 axis off
 axis equal
 set(gcf,'color','white')
-%axis image
-
-
-%axis off
-%axis image
-
-

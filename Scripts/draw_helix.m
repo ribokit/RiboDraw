@@ -1,6 +1,6 @@
 function helix = draw_helix( helix )
 
-plot_settings.fontsize   = 8;
+plot_settings.fontsize   =10;
 plot_settings.spacing    = 3;
 plot_settings.bp_spacing = 6;
 
@@ -15,14 +15,16 @@ helix.l = make_label( helix, plot_settings, theta, helix.parity, R );
 
 spacing = plot_settings.spacing;
 bp_spacing = plot_settings.bp_spacing;
-
+helix_res_tags = {};
 for k = 1:N
+    % kind of clunky, and repeated code.
     % first partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain1(k), helix.resnum1(k) );
     residue1 = getappdata( gca, res_tag );
     residue1.relpos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
     pos1 = helix.center + residue1.relpos*R;
     setappdata( gca, res_tag, residue1);
+    helix_res_tags = [helix_res_tags, res_tag ];
 
     % second partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain2(N-k+1), helix.resnum2(N-k+1) );
@@ -30,7 +32,10 @@ for k = 1:N
     residue2.relpos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
     pos2 = helix.center + residue2.relpos*R;
     setappdata( gca, res_tag, residue2);
+    helix_res_tags = [helix_res_tags, res_tag ];
     
+    % should probably make the following 'linkers' -- can slave them to
+    % residue positions above.
     bp = [residue1.nucleotide,residue2.nucleotide];
     switch bp
         case {'AU','UA','GC','CG' }
@@ -44,28 +49,11 @@ for k = 1:N
                 bp_spacing*2/10, bp_spacing*2/10],...
                 'edgecolor','k','facecolor','k','curvature',[1 1]);
     end
-    
-    % draw little arrows into and out of each strand (get rid of this after
-    % writing code to draw linkers)
-    DRAW_LITTLE_ARROWS = 0;
-    if DRAW_LITTLE_ARROWS
-        if ( k == 1 )
-            helix.a_in1 = arrow( pos1-[spacing,0]*R, pos1-0.5*[spacing,0]*R,'length',5,...
-                'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
-            helix.a_out2 = arrow( pos2-0.5*[spacing,0]*R,pos2-[spacing,0]*R,'length',5,...
-                'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
-        elseif ( k == N )
-            helix.a_out1 = arrow( pos1+0.5*[spacing,0]*R, pos1+[spacing,0]*R,'length',5,...
-                'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
-            helix.a_in2 = arrow( pos2+[spacing,0]*R,pos2+0.5*[spacing,0]*R,'length',5,...
-                'edgecolor',[0.5 0.5 0.5],'facecolor',[0.5 0.5 0.5] );
-        end
-    end
     all_pos1(k,:) = pos1;
     all_pos2(k,:) = pos2;
 end
-
-% draw any residues that are associated with the helix 
+% draw all residues that are associated with the helix 
+not_helix_res_tags = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
@@ -74,6 +62,7 @@ for i = 1:length( helix.associated_residues )
         setappdata( gca, res_tag, residue );
     end;
     draw_residue( res_tag, helix_center, R, plot_settings );
+    if ~any(strcmp(  helix_res_tags, res_tag )) not_helix_res_tags = [not_helix_res_tags, res_tag]; end;
 end
 
 % update any linkers associated with these residues
@@ -141,6 +130,18 @@ h = rectangle( 'Position',...
 setappdata( h, 'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@rotate_helix,h});
 helix.click_center = h;
+
+% make single-stranded residues draggable...
+for i = 1:length( not_helix_res_tags )
+    res_tag = not_helix_res_tags{i};
+    residue = getappdata( gca, res_tag );
+    h = rectangle( 'position', [residue.plot_pos(1)-spacing/2, residue.plot_pos(2)-spacing/2, spacing, spacing],...
+        'edgecolor',[0.5 0.5 1],'clipping','off' );
+    setappdata(h, 'res_tag', res_tag );
+    draggable(h,'endfcn',@redraw_res_and_helix);
+    residue.residue_rectangle = h;
+    setappdata( gca, res_tag, residue );
+end
 
 %%%%%%%%%%%%%%%%%%%%%
 % DO THIS AT THE END

@@ -9,11 +9,20 @@ theta = helix.rotation;
 r = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
 N = length( helix.resnum1 );
 init = false;
-label_pos = helix_center + bp_spacing*[0 1.2]*r;
+label_pos = helix_center + bp_spacing*[0 1]*r;
 %if ~exist( 'firstdraw', 'var' ) firstdraw = 0; end;
 helix.l = text( label_pos(1), label_pos(2), helix.name,...
-    'fontsize', fontsize*1.5, 'fontname','helvetica','horizontalalign','center','verticalalign','middle');
-
+    'fontsize', fontsize*1.5, 'fontname','helvetica');
+switch theta
+    case 0
+        set( helix.l,'horizontalalign','center','verticalalign','bottom');
+    case 90
+        set( helix.l,'horizontalalign','left','verticalalign','middle');
+    case 180
+        set( helix.l,'horizontalalign','center','verticalalign','top');
+    case 270  
+        set( helix.l,'horizontalalign','right','verticalalign','middle'); end;
+    
 for k = 1:N
     pos1 = [helix_center(1) helix_center(2)] + [ spacing*((k-1)-(N-1)/2), -bp_spacing/2]*r;
     pos2 = [helix_center(1) helix_center(2)] + [ spacing*((k-1)-(N-1)/2), +bp_spacing/2]*r;
@@ -64,13 +73,27 @@ maxpos = max( [all_pos1; all_pos2 ] );
 helix_tag = sprintf('Helix_%d%d',...
     helix.chain1(1),...
     helix.resnum1(1));% this better be a unique identifier
-setappdata( gca, helix_tag, helix );
 
-h = rectangle( 'Position',[minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ],...
+% handles for editing
+% rectangle for dragging.
+h = rectangle( 'Position',...
+    [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
+    [-0.5 -0.5 1 1]*spacing,...
     'edgecolor',[0.5 0.5 1]);
 setappdata(h,'helix_tag',helix_tag); 
 draggable(h,'endfcn',@redraw_helix);
+helix.helix_rectangle = h;
 
+% clickable center of rotation
+h = rectangle( 'Position',...
+    [helix_center(1)-0.1*spacing helix_center(2)-0.1*spacing,...
+    0.2*spacing 0.2*spacing], 'edgecolor',[0.5 0.5 1],'linewidth',1.5 );
+setappdata( h, 'helix_tag', helix_tag);
+set(h,'ButtonDownFcn',{@rotate_helix,h});
+helix.clickcenter = h;
+
+% 'global data' (stored in figure)
+setappdata( gca, helix_tag, helix );
 
 
 

@@ -15,24 +15,14 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ### To get Single-domain graphs
 
-* Default starter locations for single residues
-
+* draw arrows on linkers
 * allow movement of residues
-
-* draw linker arrows between residues (slaved to residues, for now)
-
-* update_noncanonical_pairs (slaved)
+* update noncanonical pairs (slaved)
 
 ### Multidomain graphs
-
 * bounding box domain movement
-
 * residue colors
-
 * Grid lock
 
-
-
 * show motifs
-
-* save figure state to disk as JSON
+* save figure state to disk as JSON?

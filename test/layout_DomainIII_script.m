@@ -55,7 +55,8 @@ for i = 1:length(sequence)
     res_tag_j = sprintf('Residue_%s%d',chains(j),resnum(j));
     linker.residue1 = res_tag_i;
     linker.residue2 = res_tag_j;
-    linker.line_handle = plot( [0,0],[0,0],'k' ); % dummy for now -- will get redrawn below.
+    linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2 ); % dummy for now -- will get redrawn below.
+    linker.arrow = patch( [0,0,0],[0,0,0],'k' );
     % stick this linker information in the connected residues.
     residue = getappdata( gca, res_tag_i ); residue.linkers = [ residue.linkers, linker ]; setappdata( gca, res_tag_i, residue );
     residue = getappdata( gca, res_tag_j ); residue.linkers = [ residue.linkers, linker ]; setappdata( gca, res_tag_j, residue );

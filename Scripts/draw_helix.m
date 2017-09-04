@@ -99,6 +99,18 @@ for i = 1:length( helix.associated_residues )
         set( linker.line_handle, 'xdata', [pos1d(1) pos2d(1)] );
         set( linker.line_handle, 'ydata', [pos1d(2) pos2d(2)] );
         % draw a triangle too
+        if isfield(linker,'arrow')
+            ctr = (pos1+pos2)/2;
+            x = v * [0 1; -1 0]; % cross direction
+            set( linker.arrow, 'visible', visible);
+            a1 = ctr - spacing/2*v-spacing/5*x;
+            a2 = ctr - spacing/2*v+spacing/5*x;
+            a3 = ctr + spacing/2*v;
+            set( linker.arrow, 'xdata', ...
+                [a1(1) a2(1) a3(1)] );
+            set( linker.arrow, 'ydata', ...
+                [a1(2) a2(2) a3(2)] );
+        end
     end
 end
 
@@ -184,10 +196,10 @@ if ( residue.chain ~= helix.chain2(1) ) dist2 = Inf * dist2; end;
 [~,strand] = min( [min( dist1 ), min( dist2 )] );
 N = length( helix.resnum1 );
 if ( strand == 1 )   
-    relpos = [ plot_settings.spacing*((residue.resnum-helix.resnum1(1))-(N-1)/2), -plot_settings.bp_spacing/2];
+    relpos = [ plot_settings.spacing*(+(residue.resnum-helix.resnum1(1))-(N-1)/2), -plot_settings.bp_spacing/2-plot_settings.spacing/4];
 else
     assert( strand == 2 );    
-    relpos = [ plot_settings.spacing*(-(residue.resnum-helix.resnum2(1))+(N-1)/2), +plot_settings.bp_spacing/2];  
+    relpos = [ plot_settings.spacing*(-(residue.resnum-helix.resnum2(1))+(N-1)/2), +plot_settings.bp_spacing/2+plot_settings.spacing/4];  
 end
 end
 

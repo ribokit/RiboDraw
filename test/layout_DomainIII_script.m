@@ -12,6 +12,7 @@ for n = 1:length( helices )
     row = floor((n-1)/5);
     helices{n}.center = [col*30, row*20]+20;
     helices{n}.rotation =  180;
+    helices{n}.parity   = 1;
     strand1 = ''; strand2 = '';
     helix = helices{n};
     N = length( helix.resnum1 );

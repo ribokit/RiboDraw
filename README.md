@@ -29,6 +29,7 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 * bounding box domain movement
 
+* residue colors
 
 * Grid lock
 

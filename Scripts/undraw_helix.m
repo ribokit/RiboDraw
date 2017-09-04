@@ -9,6 +9,7 @@ if isfield( helix, 'a_in1' ) delete( helix.a_in1 ); end;
 if isfield( helix, 'a_in2' ) delete( helix.a_in2 ); end;
 if isfield( helix, 'a_out1' ) delete( helix.a_out1 ); end;
 if isfield( helix, 'a_out2' ) delete( helix.a_out2 ); end;
-if isfield( helix, 'clickcenter' ) delete( helix.clickcenter ); end;
+if isfield( helix, 'click_center' ) delete( helix.click_center ); end;
+if isfield( helix, 'reflect_line' ) delete( helix.reflect_line ); end;
 if isfield( helix, 'helix_rectangle' ) delete( helix.helix_rectangle ); end;
 

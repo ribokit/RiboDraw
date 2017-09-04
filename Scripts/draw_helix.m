@@ -1,8 +1,8 @@
 function helix = draw_helix( helix )
 
-fontsize = 8;
-spacing = 3;
-bp_spacing = 6;
+plot_settings.fontsize   = 8;
+plot_settings.spacing    = 3;
+plot_settings.bp_spacing = 6;
 
 helix_center = helix.center;
 theta = helix.rotation;
@@ -11,27 +11,33 @@ R = [1 0; 0 helix.parity] * R;
 N = length( helix.resnum1 );
 init = false;
 
-helix.l = make_label( helix, bp_spacing, fontsize, theta, helix.parity, R );
-    
+helix.l = make_label( helix, plot_settings, theta, helix.parity, R );
+
+spacing = plot_settings.spacing;
+bp_spacing = plot_settings.bp_spacing;
+
 for k = 1:N
-    pos1 = [helix_center(1) helix_center(2)] + [ spacing*((k-1)-(N-1)/2), -bp_spacing/2]*R;
-    pos2 = [helix_center(1) helix_center(2)] + [ spacing*((k-1)-(N-1)/2), +bp_spacing/2]*R;
-    helix.s1(k) = text( ...
-        pos1(1), pos1(2),...
-        upper(helix.strand1(k)),...
-        'fontsize', fontsize, 'fontname','helvetica','horizontalalign','center','verticalalign','middle');
-    helix.s2(k) = text( ...
-        pos2(1), pos2(2), ...
-        upper(helix.strand2(k)),...
-        'fontsize', fontsize, 'fontname','helvetica','horizontalalign','center','verticalalign','middle');
+    % first partner of base pair:
+    res_tag = sprintf( 'Residue_%s%d', helix.chain1(k), helix.resnum1(k) );
+    Residue1 = getappdata( gca, res_tag );
+    Residue1.relpos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
+    pos1 = helix.center + Residue1.relpos*R;
+    setappdata( gca, res_tag, Residue1);
+
+    % second partner of base pair:
+    res_tag = sprintf( 'Residue_%s%d', helix.chain2(N-k+1), helix.resnum2(N-k+1) );
+    Residue2 = getappdata( gca, res_tag ); 
+    Residue2.relpos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
+    pos2 = helix.center + Residue2.relpos*R;
+    setappdata( gca, res_tag, Residue2);
     
-    bp = [helix.strand1(k),helix.strand2(k)];
+    bp = [Residue1.nucleotide,Residue2.nucleotide];
     switch bp
-        case {'au','ua','gc','cg' }
+        case {'AU','UA','GC','CG' }
             bp_pos1 = pos1 + [0 bp_spacing/3]*R;
             bp_pos2 = pos2 + [0 -bp_spacing/3]*R;
             helix.bp(k) = plot( [bp_pos1(1),bp_pos2(1)],[bp_pos1(2),bp_pos2(2)],'k-','linewidth',1.5); hold on;
-        case {'gu','ug'}
+        case {'GU','UG'}
             bp_pos = (pos1+pos2)/2;
             helix.bp(k) = rectangle( 'position',...
                 [bp_pos(1)-bp_spacing/10, bp_pos(2)-bp_spacing/10,...
@@ -58,15 +64,18 @@ for k = 1:N
     all_pos1(k,:) = pos1;
     all_pos2(k,:) = pos2;
 end
-minpos = min( [all_pos1; all_pos2 ] );
-maxpos = max( [all_pos1; all_pos2 ] );
 
-helix_tag = sprintf('Helix_%d%d',...
-    helix.chain1(1),...
-    helix.resnum1(1));% this better be a unique identifier
+% draw any residues that are associated with the helix 
+for i = 1:length( helix.associated_residues )
+    draw_residue( helix.associated_residues{i}, helix_center, R, plot_settings );
+end
+
+helix_tag = helix.helix_tag;
 
 % handles for editing
 % rectangle for dragging.
+minpos = min( [all_pos1; all_pos2 ] );
+maxpos = max( [all_pos1; all_pos2 ] );
 h = rectangle( 'Position',...
     [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
     [-0.5 -0.5 1 1]*spacing,...
@@ -91,7 +100,6 @@ setappdata( h, 'helix_tag', helix_tag);
 set(h,'ButtonDownFcn',{@rotate_helix,h});
 helix.click_center = h;
 
-
 %%%%%%%%%%%%%%%%%%%%%
 % DO THIS AT THE END
 %%%%%%%%%%%%%%%%%%%%%
@@ -101,12 +109,26 @@ setappdata( gca, helix_tag, helix );
 end
 
 
-function h = make_label( helix, bp_spacing, fontsize, theta, parity, R )
+function h = draw_residue( restag, helix_center, R, plot_settings );
+Residue = getappdata( gca, restag );
+if isfield( Residue, 'relpos' )
+    pos = helix_center + Residue.relpos * R ;
+    h = text( ...
+        pos(1), pos(2),...
+        Residue.nucleotide,...
+        'fontsize', plot_settings.fontsize, 'fontname','helvetica','horizontalalign','center','verticalalign','middle');
+    Residue.handle = h;
+    Residue.pos = pos;
+    setappdata( gca, restag, Residue )
+end
+end
+
+function h = make_label( helix, plot_settings, theta, parity, R )
 % make label
-label_pos = helix.center + bp_spacing*[0 1]*R;
+label_pos = helix.center + plot_settings.bp_spacing*[0 1]*R;
 %if ~exist( 'firstdraw', 'var' ) firstdraw = 0; end;
 h = text( label_pos(1), label_pos(2), helix.name,...
-    'fontsize', fontsize*1.5, 'fontname','helvetica');
+    'fontsize', plot_settings.fontsize*1.5, 'fontname','helvetica');
 if ( parity < 0 ) theta = mod( theta + 180 , 360 ) ; end;
 switch theta
     case 0

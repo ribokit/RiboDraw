@@ -15,9 +15,7 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ### To get Single-domain graphs
 
-* Allow horizontal & vertical flips
-
-* Association of single residues with parent helices, default starter locations.
+* Default starter locations for single residues
 
 * allow movement of residues
 

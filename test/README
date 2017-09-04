@@ -1,0 +1,15 @@
+# note: creating a branch of Rosetta where I can get not just motifs but also stacked base pairs, which
+#  I'll feed into some MATLAB layout code
+
+rna_motif -mute all -s 4ybb_domain3.pdb 
+
+# This gave list of base pairs stacks. Then added (by hand) list of names of helices to get:
+
+cat DomainIII_helices.txt
+
+# Need to tell MATLAB the sequence:
+pdb2fasta.py 4ybb_DomainIII.pdb  > 4ybb_DomainIII.fasta
+
+# Note 6MZ at 1618 -- modified adenosine
+
+ 

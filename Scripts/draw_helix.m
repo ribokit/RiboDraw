@@ -19,19 +19,19 @@ bp_spacing = plot_settings.bp_spacing;
 for k = 1:N
     % first partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain1(k), helix.resnum1(k) );
-    Residue1 = getappdata( gca, res_tag );
-    Residue1.relpos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
-    pos1 = helix.center + Residue1.relpos*R;
-    setappdata( gca, res_tag, Residue1);
+    residue1 = getappdata( gca, res_tag );
+    residue1.relpos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
+    pos1 = helix.center + residue1.relpos*R;
+    setappdata( gca, res_tag, residue1);
 
     % second partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain2(N-k+1), helix.resnum2(N-k+1) );
-    Residue2 = getappdata( gca, res_tag ); 
-    Residue2.relpos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
-    pos2 = helix.center + Residue2.relpos*R;
-    setappdata( gca, res_tag, Residue2);
+    residue2 = getappdata( gca, res_tag ); 
+    residue2.relpos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
+    pos2 = helix.center + residue2.relpos*R;
+    setappdata( gca, res_tag, residue2);
     
-    bp = [Residue1.nucleotide,Residue2.nucleotide];
+    bp = [residue1.nucleotide,residue2.nucleotide];
     switch bp
         case {'AU','UA','GC','CG' }
             bp_pos1 = pos1 + [0 bp_spacing/3]*R;
@@ -68,17 +68,32 @@ end
 % draw any residues that are associated with the helix 
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
-    Residue = getappdata( gca, res_tag );
-    if ~isfield( Residue, 'relpos' ) 
-        Residue.relpos = set_default_relpos( Residue, helix, plot_settings ); 
-        setappdata( gca, res_tag, Residue );
+    residue = getappdata( gca, res_tag );
+    if ~isfield( residue, 'relpos' ) 
+        residue.relpos = set_default_relpos( residue, helix, plot_settings ); 
+        setappdata( gca, res_tag, residue );
     end;
     draw_residue( res_tag, helix_center, R, plot_settings );
 end
 
-helix_tag = helix.helix_tag;
+% update any linkers associated with these residues
+% in the future, these could include base pairs (incl. non-canonicals)/
+for i = 1:length( helix.associated_residues )
+    res_tag = helix.associated_residues{i};
+    residue = getappdata( gca, res_tag );
+    linkers = residue.linkers;
+    for k = 1 : length( linkers )
+        linker = linkers{k};
+        residue1 = getappdata( gca, linker.residue1 );
+        residue2 = getappdata( gca, linker.residue2 );
+        if ~isfield( residue1, 'plot_pos' ); continue; end;
+        if ~isfield( residue2, 'plot_pos' ); continue; end;
+        set( linker.handle, 'xdata', [residue1.plot_pos(1),residue2.plot_pos(1)] );
+        set( linker.handle, 'ydata', [residue1.plot_pos(2),residue2.plot_pos(2)] );
+    end
+end
 
-% handles for editing
+% handles for helix editing
 % rectangle for dragging.
 minpos = min( [all_pos1; all_pos2 ] );
 maxpos = max( [all_pos1; all_pos2 ] );
@@ -86,7 +101,7 @@ h = rectangle( 'Position',...
     [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
     [-0.5 -0.5 1 1]*spacing,...
     'edgecolor',[0.5 0.5 1]);
-setappdata(h,'helix_tag',helix_tag); 
+setappdata(h,'helix_tag',helix.helix_tag); 
 draggable(h,'endfcn',@redraw_helix);
 helix.helix_rectangle = h;
 
@@ -94,7 +109,7 @@ helix.helix_rectangle = h;
 line1 = helix_center + spacing*[-(N+1)/2, 0]*R;
 line2 = helix_center + spacing*[ (N+1)/2, 0]*R;
 h = plot( [line1(1),line2(1)], [line1(2), line2(2)], 'color',[0.5 0.5 1] );
-setappdata( h, 'helix_tag', helix_tag);
+setappdata( h, 'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@reflect_helix,h});
 helix.reflect_line = h;
 
@@ -102,7 +117,7 @@ helix.reflect_line = h;
 h = rectangle( 'Position',...
     [helix_center(1)-0.1*spacing helix_center(2)-0.1*spacing,...
     0.2*spacing 0.2*spacing], 'edgecolor',[0.5 0.5 1],'facecolor',[0.5 0.5 1],'linewidth',1.5 );
-setappdata( h, 'helix_tag', helix_tag);
+setappdata( h, 'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@rotate_helix,h});
 helix.click_center = h;
 
@@ -110,23 +125,23 @@ helix.click_center = h;
 % DO THIS AT THE END
 %%%%%%%%%%%%%%%%%%%%%
 % 'global data' (stored in figure)
-setappdata( gca, helix_tag, helix );
+setappdata( gca, helix.helix_tag, helix );
 
 end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = draw_residue( restag, helix_center, R, plot_settings );
-Residue = getappdata( gca, restag );
-if isfield( Residue, 'relpos' )
-    pos = helix_center +  Residue.relpos * R ;
+residue = getappdata( gca, restag );
+if isfield( residue, 'relpos' )
+    pos = helix_center +  residue.relpos * R ;
     h = text( ...
         pos(1), pos(2),...
-        Residue.nucleotide,...
+        residue.nucleotide,...
         'fontsize', plot_settings.fontsize, 'fontname','helvetica','horizontalalign','center','verticalalign','middle');
-    Residue.handle = h;
-    Residue.pos = pos;
-    setappdata( gca, restag, Residue )
+    residue.handle = h;
+    residue.plot_pos = pos;
+    setappdata( gca, restag, residue )
 end
 end
 

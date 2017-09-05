@@ -14,13 +14,14 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* allow movement of residues
-* update noncanonical pairs (slaved)
+* Fun: show noncanonical pairs (slaved)
+* proper datastructure for saving and loading
+* Snap to grid
+* move by residues, not by bounding rectangle
 
 ### Multidomain graphs
 * bounding box domain movement
 * residue colors
-* Grid lock
 
 * show motifs
 * save figure state to disk as JSON?

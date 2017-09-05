@@ -17,11 +17,17 @@ _(C) Rhiju Das, Stanford University, 2017_
 * Fun: show noncanonical pairs (slaved)
 * proper datastructure for saving and loading
 * Snap to grid
-* move by residues, not by bounding rectangle
+* move helix labels
+* put in residue labels
+* residue colors (incl. rainbow to allow visual comparison to pymol)
 
 ### Multidomain graphs
 * bounding box domain movement
 * residue colors
 
-* show motifs
-* save figure state to disk as JSON?
+### Future
+* Annnotation of motifs
+* in Rosetta/MATLAB, autocompute stacks
+* Calculate 3D helix axis vectors and use to cross-check 2D helix orientations
+* Create a 'score' for total number of harmonious elements [e.g. lack of explicit linkers, mainly horizontal and vertical lines]
+* For demo, produce 3-4 level 'game' 

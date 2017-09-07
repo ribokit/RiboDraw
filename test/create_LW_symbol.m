@@ -8,7 +8,7 @@ switch edge
         r = bp_spacing/10 * sqrt(2);
     case 'S'
         t = [0 2*pi/3 2*pi*2/3];
-        r = bp_spacing/10 * sqrt(3);
+        r = bp_spacing/10 * 1.5*sqrt(3)/2;
     otherwise
         fprintf( 'PROBLEM: edge should be W, H, S\n' );
 end

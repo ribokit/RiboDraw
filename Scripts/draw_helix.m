@@ -87,9 +87,9 @@ for i = 1:length( helix.associated_residues )
         pos2d = pos2 -  (bp_spacing/3)*v;
         set( linker.line_handle, 'xdata', [pos1d(1) pos2d(1)] );
         set( linker.line_handle, 'ydata', [pos1d(2) pos2d(2)] );
+        ctr = (pos1+pos2)/2;
         % draw a triangle too
         if isfield(linker,'arrow')
-            ctr = (pos1+pos2)/2;
             x = v * [0 1; -1 0]; % cross direction
             set( linker.arrow, 'visible', visible);
             a1 = ctr - spacing/2*v-spacing/5*x;
@@ -101,22 +101,13 @@ for i = 1:length( helix.associated_residues )
                 [a1(2) a2(2) a3(2)] );
         end
         if isfield(linker,'symbol')
-            ctr = (pos1+pos2)/2;
-            vertices = get(linker.symbol,'Vertices');
-            vertices  = vertices  + repmat( ctr - mean( vertices ), size(vertices,1), 1 );
-            set( linker.symbol, 'Vertices', vertices );
+            update_symbol( linker.symbol, ctr, v, 2, bp_spacing );
         end
         if isfield(linker,'symbol1')
-            ctr = (pos1+pos2)/2;
-            vertices = get(linker.symbol1,'Vertices');
-            vertices  = vertices  + repmat( ctr - mean( vertices ), size(vertices,1), 1 );
-            set( linker.symbol1, 'Vertices', vertices );
+            update_symbol( linker.symbol1, ctr -  (1.3*bp_spacing/10)*v, v, 1, bp_spacing );
         end
         if isfield(linker,'symbol2')
-            ctr = (pos1+pos2)/2;
-            vertices = get(linker.symbol2,'Vertices');
-            vertices  = vertices  + repmat( ctr - mean( vertices ), size(vertices,1), 1 );
-            set( linker.symbol2, 'Vertices', vertices );
+            update_symbol( linker.symbol2, ctr + (1.3*bp_spacing/10)*v, v, 2, bp_spacing );
         end
     end
 end
@@ -220,6 +211,28 @@ else
     assert( strand == 2 );    
     relpos = [ plot_settings.spacing*(-(residue.resnum-helix.resnum2(1))+(N-1)/2), +plot_settings.bp_spacing/2+plot_settings.spacing/4];  
 end
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function update_symbol( h, pos, v, which_symbol, bp_spacing );
+vertices = get(h,'Vertices');
+numv = size(vertices,1);
+rot = atan2( v(2), v(1) ); % rotate so that symbol 'aligns' with line.
+if which_symbol == 1; rot = rot + pi; end;
+switch numv
+    case 3
+        t = rot+[0 2*pi/3 2*pi*2/3];
+        r = bp_spacing/10 * 1.5*sqrt(3)/2;
+    case 4
+        t = rot+[0 pi/2 pi 3*pi/2]+pi/4;
+        r = bp_spacing/10 * sqrt(2);
+    otherwise
+        t = rot+linspace(0, 2*pi);
+        r = bp_spacing/10;
+end
+vertices = [r*cos(t); r*sin(t) ]' + repmat( pos, size(vertices,1), 1 );
+set( h, 'Vertices', vertices );
 end
 
 

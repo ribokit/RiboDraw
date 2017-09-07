@@ -1,15 +1,15 @@
-function [resnum,chains,ok] = resnum_from_tag( tag )
+function [resnum,chains,ok] = get_resnum_from_tag( tag )
 % Convert "A:1-4" to 'AAAA' and [1,2,3,4]
 resnum = [];
 chains = '';
 ok = false;
 if isempty( strfind( tag , ':' ) ) return; end;
 elems = strsplit( tag, ':' );
-chain = elems{1};
+chains = elems{1};
 dashes = strfind( elems{2}, '-' );
 if length( dashes ) == 0 | dashes(1) == 1;
     resnum = str2num( elems{2} );
-    return
+    return;
 end
 dash = dashes(1);
 if dash == 1; assert( length( dashes ) > 1 ); dash == dashes(2); end;

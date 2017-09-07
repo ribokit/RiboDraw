@@ -100,6 +100,24 @@ for i = 1:length( helix.associated_residues )
             set( linker.arrow, 'ydata', ...
                 [a1(2) a2(2) a3(2)] );
         end
+        if isfield(linker,'symbol')
+            ctr = (pos1+pos2)/2;
+            vertices = get(linker.symbol,'Vertices');
+            vertices  = vertices  + repmat( ctr - mean( vertices ), size(vertices,1), 1 );
+            set( linker.symbol, 'Vertices', vertices );
+        end
+        if isfield(linker,'symbol1')
+            ctr = (pos1+pos2)/2;
+            vertices = get(linker.symbol1,'Vertices');
+            vertices  = vertices  + repmat( ctr - mean( vertices ), size(vertices,1), 1 );
+            set( linker.symbol1, 'Vertices', vertices );
+        end
+        if isfield(linker,'symbol2')
+            ctr = (pos1+pos2)/2;
+            vertices = get(linker.symbol2,'Vertices');
+            vertices  = vertices  + repmat( ctr - mean( vertices ), size(vertices,1), 1 );
+            set( linker.symbol2, 'Vertices', vertices );
+        end
     end
 end
 

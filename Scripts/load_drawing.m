@@ -20,7 +20,7 @@ for i = 1:length( datafields )
     setappdata( gca, datafield, getfield( loaddata, datafield ) );
 end
 draw_dummy_linkers();
-%draw_dummy_basepairs();
+if isappdata( gca, 'base_pairs' ); draw_dummy_base_pairs( getappdata( gca, 'base_pairs' ) ); end;
 draw_helices();
 
 axis off

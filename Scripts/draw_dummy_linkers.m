@@ -15,13 +15,7 @@ for i = 1:length(sequence)
     linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2 ); % dummy for now -- will get redrawn later.
     linker.arrow = patch( [0,0,0],[0,0,0],'k' );
     % stick this linker information in the connected residues.
-    add_linker( res_tag_i, linker );
-    add_linker( res_tag_j, linker );
+    add_linker_to_residue( res_tag_i, linker );
+    add_linker_to_residue( res_tag_j, linker );
     residue = getappdata( gca, res_tag_j ); residue.linkers = [ residue.linkers, linker ]; setappdata( gca, res_tag_j, residue );
 end
-
-function add_linker( res_tag, linker )
-residue = getappdata( gca, res_tag );
-if ~isfield( residue, 'linkers' ) residue.linkers = {}; end;
-residue.linkers = [ residue.linkers, linker ]; 
-setappdata( gca, res_tag, residue );

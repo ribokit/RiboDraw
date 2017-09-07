@@ -1,11 +1,11 @@
 % eventually need to move these loops into separate functions.
-helices = read_stems( '4ybb_DomainIII_stems.txt' );
+helices = read_stems( '4ybb_DIII_stems.txt' );
 [sequence,resnum,chains,non_standard_residues] = get_sequence( '4ybb_DomainIII.fasta' );
 setappdata( gca, 'sequence', sequence );
 setappdata( gca, 'resnum', resnum );
 setappdata( gca, 'chains', chains );
 setappdata( gca, 'non_standard_residues', non_standard_residues );
-%base_pairs = read_base_pairs( '4ybb_DomainIII_base_pairs.txt' ); % includes noncanonical pairs.
+%base_pairs = read_base_pairs( '4ybb_DIII_base_pairs.txt' ); % includes noncanonical pairs.
 %setappdata( gca, 'base_pairs', base_pairs );
 
 clf; set(gca,'Position',[0 0 1 1]);
@@ -61,7 +61,7 @@ for i = 1:length(sequence)
     setappdata( gca, res_tag, residue );
 end
 draw_dummy_linkers();
-%draw_dummy_base_pairs( base_pairs )
+draw_dummy_base_pairs( base_pairs )
 for n = 1:length( helices )
     draw_helix( helices{n} );
 end

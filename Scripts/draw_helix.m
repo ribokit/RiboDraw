@@ -73,7 +73,7 @@ for i = 1:length( helix.associated_residues )
     linkers = residue.linkers;
     for k = 1 : length( linkers )
         linker = linkers{k};
-        residue1 = getappdata( gca, linker.residue1 );
+         residue1 = getappdata( gca, linker.residue1 );
         residue2 = getappdata( gca, linker.residue2 );
         if ~isfield( residue1, 'plot_pos' ); continue; end;
         if ~isfield( residue2, 'plot_pos' ); continue; end;
@@ -89,26 +89,10 @@ for i = 1:length( helix.associated_residues )
         set( linker.line_handle, 'ydata', [pos1d(2) pos2d(2)] );
         ctr = (pos1+pos2)/2;
         % draw a triangle too
-        if isfield(linker,'arrow')
-            x = v * [0 1; -1 0]; % cross direction
-            set( linker.arrow, 'visible', visible);
-            a1 = ctr - spacing/2*v-spacing/5*x;
-            a2 = ctr - spacing/2*v+spacing/5*x;
-            a3 = ctr + spacing/2*v;
-            set( linker.arrow, 'xdata', ...
-                [a1(1) a2(1) a3(1)] );
-            set( linker.arrow, 'ydata', ...
-                [a1(2) a2(2) a3(2)] );
-        end
-        if isfield(linker,'symbol')
-            update_symbol( linker.symbol, ctr, v, 2, bp_spacing );
-        end
-        if isfield(linker,'symbol1')
-            update_symbol( linker.symbol1, ctr -  (1.3*bp_spacing/10)*v, v, 1, bp_spacing );
-        end
-        if isfield(linker,'symbol2')
-            update_symbol( linker.symbol2, ctr + (1.3*bp_spacing/10)*v, v, 2, bp_spacing );
-        end
+        if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, spacing ); end;
+        if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, bp_spacing );  end
+        if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr -  (1.3*bp_spacing/10)*v, v, 1, bp_spacing );  end;
+        if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*bp_spacing/10)*v, v, 2, bp_spacing );  end
     end
 end
 
@@ -215,24 +199,39 @@ end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function update_arrow( h, ctr, v, visible, spacing );
+x = v * [0 1; -1 0]; % cross direction
+set( h, 'visible', visible);
+a1 = ctr - spacing/2*v-spacing/5*x;
+a2 = ctr - spacing/2*v+spacing/5*x;
+a3 = ctr + spacing/2*v;
+set( h, 'xdata', ...
+    [a1(1) a2(1) a3(1)] );
+set( h, 'ydata', ...
+    [a1(2) a2(2) a3(2)] );
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_symbol( h, pos, v, which_symbol, bp_spacing );
 vertices = get(h,'Vertices');
 numv = size(vertices,1);
 rot = atan2( v(2), v(1) ); % rotate so that symbol 'aligns' with line.
 if which_symbol == 1; rot = rot + pi; end;
 switch numv
-    case 3
+    case 3 % triangle
         t = rot+[0 2*pi/3 2*pi*2/3];
         r = bp_spacing/10 * 1.5*sqrt(3)/2;
-    case 4
+    case 4 % square
         t = rot+[0 pi/2 pi 3*pi/2]+pi/4;
         r = bp_spacing/10 * sqrt(2);
-    otherwise
+    otherwise % circle
         t = rot+linspace(0, 2*pi);
         r = bp_spacing/10;
 end
 vertices = [r*cos(t); r*sin(t) ]' + repmat( pos, size(vertices,1), 1 );
-set( h, 'Vertices', vertices );
+assert( numv == size( vertices, 1 ) );
+set( h, 'xdata', vertices(:,1) );
+set( h, 'ydata', vertices(:,2) );
 end
 
 

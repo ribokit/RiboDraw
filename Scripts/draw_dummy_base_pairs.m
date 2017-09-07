@@ -5,6 +5,7 @@ for i = 1:length( base_pairs )
     base_pair = base_pairs{i};
     res_tag1 = sprintf('Residue_%s%d',base_pair.chain1,base_pair.resnum1);
     res_tag2 = sprintf('Residue_%s%d',base_pair.chain2,base_pair.resnum2);
+    clear linker
     linker.residue1 = res_tag1;
     linker.residue2 = res_tag2;
     linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn below.

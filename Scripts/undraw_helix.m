@@ -2,8 +2,10 @@ function undraw_helix( helix )
 % also deletes residues in helix and associated with helix.
 % (C) R. Das, Stanford University, 2017
 
-for k = 1:length(helix.resnum1)
-    delete( helix.bp(k) ); % generalize this
+if isfield( helix, 'bp' )
+    for k = 1:length(helix.resnum1)
+        delete( helix.bp(k) ); % generalize this
+    end
 end
 
 associated_res = helix.associated_residues;

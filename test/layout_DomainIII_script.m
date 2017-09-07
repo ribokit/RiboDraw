@@ -1,10 +1,23 @@
-helices = read_helices( 'DomainIII_helices.txt' );
+% eventually need to move these loops into separate functions.
+helices = read_stems( '4ybb_DomainIII_stems.txt' );
 [sequence,resnum,chains,non_standard_residues] = get_sequence( '4ybb_DomainIII.fasta' );
+setappdata( gca, 'sequence', sequence );
+setappdata( gca, 'resnum', resnum );
+setappdata( gca, 'chains', chains );
+setappdata( gca, 'non_standard_residues', non_standard_residues );
+%base_pairs = read_base_pairs( '4ybb_DomainIII_base_pairs.txt' ); % includes noncanonical pairs.
+%setappdata( gca, 'base_pairs', base_pairs );
 
 clf; set(gca,'Position',[0 0 1 1]);
 hold on
 t = zeros( 1, length(sequence ) );
 axis( [0 200 0 200] );
+
+plot_settings.fontsize   =10;
+plot_settings.spacing    = 3;
+plot_settings.bp_spacing = 6;
+setappdata( gca, 'plot_settings', plot_settings );
+
 for n = 1:length( helices )
     col = mod( n-1, 5 ) + 1;
     row = floor((n-1)/5);
@@ -47,20 +60,8 @@ for i = 1:length(sequence)
     residue.linkers = {};
     setappdata( gca, res_tag, residue );
 end
-for i = 1:length(sequence)
-    j = i + 1;
-    if ( j > length( sequence ) ) continue; end;
-    if ( chains(j) ~= chains(i) ) continue; end;    
-    res_tag_i = sprintf('Residue_%s%d',chains(i),resnum(i));
-    res_tag_j = sprintf('Residue_%s%d',chains(j),resnum(j));
-    linker.residue1 = res_tag_i;
-    linker.residue2 = res_tag_j;
-    linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2 ); % dummy for now -- will get redrawn below.
-    linker.arrow = patch( [0,0,0],[0,0,0],'k' );
-    % stick this linker information in the connected residues.
-    residue = getappdata( gca, res_tag_i ); residue.linkers = [ residue.linkers, linker ]; setappdata( gca, res_tag_i, residue );
-    residue = getappdata( gca, res_tag_j ); residue.linkers = [ residue.linkers, linker ]; setappdata( gca, res_tag_j, residue );
-end
+draw_dummy_linkers();
+%draw_dummy_base_pairs( base_pairs )
 for n = 1:length( helices )
     draw_helix( helices{n} );
 end

@@ -1,0 +1,3758 @@
+{
+	"plot_settings": {
+		"fontsize": 10,
+		"spacing": 3,
+		"bp_spacing": 6
+	},
+	"sequence": "gauaaagcgggugaaaagcccgcucgccggaagaccaaggguuccuguccaacguuaaucggggcagggugagucgaccccuaaggcgaggccgaaaggcguagucgaugggaaacagguuaauauuccuguacuugguguuacugcgaaggggggacggagaaggcuauguuggccgggcgacgguugucccgguuuaagcguguaggcugguuuuccaggcaaauccggaaaaucaaggcugaggcgugaugacgaggcacuacggugcugaagcaacaaaugcccugcuuccaggaaaagccucuaagcaucagguaacaucaaaucguaccccaaaccgacacXgguggucagguagagaauaccaaggcgcu",
+	"resnum": [1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1312,1313,1314,1315,1316,1317,1318,1319,1320,1321,1322,1323,1324,1325,1326,1327,1328,1329,1330,1331,1332,1333,1334,1335,1336,1337,1338,1339,1340,1341,1342,1343,1344,1345,1346,1347,1348,1349,1350,1351,1352,1353,1354,1355,1356,1357,1358,1359,1360,1361,1362,1363,1364,1365,1366,1367,1368,1369,1370,1371,1372,1373,1374,1375,1376,1377,1378,1379,1380,1381,1382,1383,1384,1385,1386,1387,1388,1389,1390,1391,1392,1393,1394,1395,1396,1397,1398,1399,1400,1401,1402,1403,1404,1405,1406,1407,1408,1409,1410,1411,1412,1413,1414,1415,1416,1417,1418,1419,1420,1421,1422,1423,1424,1425,1426,1427,1428,1429,1430,1431,1432,1433,1434,1435,1436,1437,1438,1439,1440,1441,1442,1443,1444,1445,1446,1447,1448,1449,1450,1451,1452,1453,1454,1455,1456,1457,1458,1459,1460,1461,1462,1463,1464,1465,1466,1467,1468,1469,1470,1471,1472,1473,1474,1475,1476,1477,1478,1479,1480,1481,1482,1483,1484,1485,1486,1487,1488,1489,1490,1491,1492,1493,1494,1495,1496,1497,1498,1499,1500,1501,1502,1503,1504,1505,1506,1507,1508,1509,1510,1511,1512,1513,1514,1515,1516,1517,1518,1519,1520,1521,1522,1523,1524,1525,1526,1527,1528,1529,1530,1531,1532,1533,1534,1535,1536,1537,1538,1539,1540,1541,1542,1543,1544,1545,1546,1547,1548,1549,1550,1551,1552,1553,1554,1555,1556,1557,1558,1559,1560,1561,1562,1563,1564,1565,1566,1567,1568,1569,1570,1571,1572,1573,1574,1575,1576,1577,1578,1579,1580,1581,1582,1583,1584,1585,1586,1587,1588,1589,1590,1591,1592,1593,1594,1595,1596,1597,1598,1599,1600,1601,1602,1603,1604,1605,1606,1607,1608,1609,1610,1611,1612,1613,1614,1615,1616,1617,1618,1619,1620,1621,1622,1623,1624,1625,1626,1627,1628,1629,1630,1631,1632,1633,1634,1635,1636,1637,1638,1639,1640,1641,1642,1643,1644,1645,1646,1647],
+	"chains": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+	"non_standard_residues": [
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		"6MZ",
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null
+	],
+	"Residue_C1271": {
+		"resnum": 1271,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "G",
+		"relpos": [20.2184466,-11.51699029]
+	},
+	"Residue_C1272": {
+		"resnum": 1272,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "A",
+		"relpos": [8.516643551,-11.23959778]
+	},
+	"Residue_C1273": {
+		"resnum": 1273,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "U",
+		"relpos": [4.02704577,-9.575242718]
+	},
+	"Residue_C1274": {
+		"resnum": 1274,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "A",
+		"relpos": [1.756588072,-7.910887656]
+	},
+	"Residue_C1275": {
+		"resnum": 1275,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "A",
+		"relpos": [-1.346047157,-5.969140083]
+	},
+	"Residue_C1276": {
+		"resnum": 1276,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "A",
+		"relpos": [-7.5,-3]
+	},
+	"Residue_C1277": {
+		"resnum": 1277,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "G",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1278": {
+		"resnum": 1278,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "C",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1279": {
+		"resnum": 1279,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "G",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1280": {
+		"resnum": 1280,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "G",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1281": {
+		"resnum": 1281,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "G",
+		"relpos": [7.5,-3]
+	},
+	"Residue_C1282": {
+		"resnum": 1282,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "U",
+		"relpos": [10.22260749,-3.75]
+	},
+	"Residue_C1283": {
+		"resnum": 1283,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "G",
+		"relpos": [13.5,-3.75]
+	},
+	"Residue_C1284": {
+		"resnum": 1284,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "A",
+		"relpos": [16.5,-3.75]
+	},
+	"Residue_C1285": {
+		"resnum": 1285,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "A",
+		"relpos": [17.83564494,0.1334951456]
+	},
+	"Residue_C1286": {
+		"resnum": 1286,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "A",
+		"relpos": [16.5,3.75]
+	},
+	"Residue_C1287": {
+		"resnum": 1287,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "A",
+		"relpos": [13.5,3.75]
+	},
+	"Residue_C1288": {
+		"resnum": 1288,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "G",
+		"relpos": [11.05478502,4.02739251]
+	},
+	"Residue_C1289": {
+		"resnum": 1289,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "C",
+		"relpos": [7.5,3]
+	},
+	"Residue_C1290": {
+		"resnum": 1290,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "C",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1291": {
+		"resnum": 1291,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "C",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1292": {
+		"resnum": 1292,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "G",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1293": {
+		"resnum": 1293,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "C",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1294": {
+		"resnum": 1294,
+		"chain": "C",
+		"helix_tag": "Helix_C1276",
+		"nucleotide": "U",
+		"relpos": [-7.5,3]
+	},
+	"Residue_C1295": {
+		"resnum": 1295,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "C",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1296": {
+		"resnum": 1296,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1297": {
+		"resnum": 1297,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "C",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1298": {
+		"resnum": 1298,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "C",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1299": {
+		"resnum": 1299,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "G",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1300": {
+		"resnum": 1300,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "G",
+		"relpos": [9.390429958,-7.078710125]
+	},
+	"Residue_C1301": {
+		"resnum": 1301,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "A",
+		"relpos": [-7.726074896,-7.910887656]
+	},
+	"Residue_C1302": {
+		"resnum": 1302,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "A",
+		"relpos": [-7.5,-3.75]
+	},
+	"Residue_C1303": {
+		"resnum": 1303,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "G",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1304": {
+		"resnum": 1304,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "A",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1305": {
+		"resnum": 1305,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "C",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1306": {
+		"resnum": 1306,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "C",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1307": {
+		"resnum": 1307,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "A",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1308": {
+		"resnum": 1308,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "A",
+		"relpos": [-4.5,-3.75]
+	},
+	"Residue_C1309": {
+		"resnum": 1309,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1310": {
+		"resnum": 1310,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "G",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1311": {
+		"resnum": 1311,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "G",
+		"relpos": [4.5,-3.75]
+	},
+	"Residue_C1312": {
+		"resnum": 1312,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "U",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1313": {
+		"resnum": 1313,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "U",
+		"relpos": [-10.5,-3.75]
+	},
+	"Residue_C1314": {
+		"resnum": 1314,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "C",
+		"relpos": [-7.5,-3]
+	},
+	"Residue_C1315": {
+		"resnum": 1315,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "C",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1316": {
+		"resnum": 1316,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "U",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1317": {
+		"resnum": 1317,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "G",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1318": {
+		"resnum": 1318,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "U",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1319": {
+		"resnum": 1319,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "C",
+		"relpos": [7.5,-3]
+	},
+	"Residue_C1320": {
+		"resnum": 1320,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "C",
+		"relpos": [10.5,-3.75]
+	},
+	"Residue_C1321": {
+		"resnum": 1321,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "A",
+		"relpos": [13.5,-3.75]
+	},
+	"Residue_C1322": {
+		"resnum": 1322,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "A",
+		"relpos": [-4.5,-3.75]
+	},
+	"Residue_C1323": {
+		"resnum": 1323,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "C",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1324": {
+		"resnum": 1324,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "G",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1325": {
+		"resnum": 1325,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "U",
+		"relpos": [4.5,-3.75]
+	},
+	"Residue_C1326": {
+		"resnum": 1326,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "U",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1327": {
+		"resnum": 1327,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "A",
+		"relpos": [10.5,-3.75]
+	},
+	"Residue_C1328": {
+		"resnum": 1328,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "A",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1329": {
+		"resnum": 1329,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "U",
+		"relpos": [4.5,3.75]
+	},
+	"Residue_C1330": {
+		"resnum": 1330,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "C",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1331": {
+		"resnum": 1331,
+		"chain": "C",
+		"helix_tag": "Helix_C1323",
+		"nucleotide": "G",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1332": {
+		"resnum": 1332,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "G",
+		"relpos": [10.5,3.75]
+	},
+	"Residue_C1333": {
+		"resnum": 1333,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "G",
+		"relpos": [7.5,3]
+	},
+	"Residue_C1334": {
+		"resnum": 1334,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "G",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1335": {
+		"resnum": 1335,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "C",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1336": {
+		"resnum": 1336,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "A",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1337": {
+		"resnum": 1337,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "G",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1338": {
+		"resnum": 1338,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "G",
+		"relpos": [-7.5,3]
+	},
+	"Residue_C1339": {
+		"resnum": 1339,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "G",
+		"relpos": [-10.5,3.75]
+	},
+	"Residue_C1340": {
+		"resnum": 1340,
+		"chain": "C",
+		"helix_tag": "Helix_C1314",
+		"nucleotide": "U",
+		"relpos": [-13.5,3.75]
+	},
+	"Residue_C1341": {
+		"resnum": 1341,
+		"chain": "C",
+		"helix_tag": "Helix_C1343",
+		"nucleotide": "G",
+		"relpos": [5.814840499,-20.67094313]
+	},
+	"Residue_C1342": {
+		"resnum": 1342,
+		"chain": "C",
+		"helix_tag": "Helix_C1343",
+		"nucleotide": "A",
+		"relpos": [2.989597781,-20.67094313]
+	},
+	"Residue_C1343": {
+		"resnum": 1343,
+		"chain": "C",
+		"helix_tag": "Helix_C1343",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1344": {
+		"resnum": 1344,
+		"chain": "C",
+		"helix_tag": "Helix_C1343",
+		"nucleotide": "U",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1345": {
+		"resnum": 1345,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "C",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1346": {
+		"resnum": 1346,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "G",
+		"relpos": [0,-3]
+	},
+	"Residue_C1347": {
+		"resnum": 1347,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "A",
+		"relpos": [3,-3]
+	},
+	"Residue_C1348": {
+		"resnum": 1348,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "C",
+		"relpos": [7.386962552,-2.917822469]
+	},
+	"Residue_C1349": {
+		"resnum": 1349,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "C",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1350": {
+		"resnum": 1350,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "C",
+		"relpos": [0,-3]
+	},
+	"Residue_C1351": {
+		"resnum": 1351,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "C",
+		"relpos": [3,-3]
+	},
+	"Residue_C1352": {
+		"resnum": 1352,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "U",
+		"relpos": [6,-3.75]
+	},
+	"Residue_C1353": {
+		"resnum": 1353,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "A",
+		"relpos": [9,-3.75]
+	},
+	"Residue_C1354": {
+		"resnum": 1354,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "A",
+		"relpos": [-6,-3.75]
+	},
+	"Residue_C1355": {
+		"resnum": 1355,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "G",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1356": {
+		"resnum": 1356,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "G",
+		"relpos": [0,-3]
+	},
+	"Residue_C1357": {
+		"resnum": 1357,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "C",
+		"relpos": [3,-3]
+	},
+	"Residue_C1358": {
+		"resnum": 1358,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "G",
+		"relpos": [6,-3.75]
+	},
+	"Residue_C1359": {
+		"resnum": 1359,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "A",
+		"relpos": [9,-3.75]
+	},
+	"Residue_C1360": {
+		"resnum": 1360,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "G",
+		"relpos": [-6,-3.75]
+	},
+	"Residue_C1361": {
+		"resnum": 1361,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "G",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1362": {
+		"resnum": 1362,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "C",
+		"relpos": [0,-3]
+	},
+	"Residue_C1363": {
+		"resnum": 1363,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "C",
+		"relpos": [3,-3]
+	},
+	"Residue_C1364": {
+		"resnum": 1364,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "G",
+		"relpos": [6.832177531,-4.859570042]
+	},
+	"Residue_C1365": {
+		"resnum": 1365,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "A",
+		"relpos": [9.832177531,-1.530859917]
+	},
+	"Residue_C1366": {
+		"resnum": 1366,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "A",
+		"relpos": [9.832177531,2.640429958]
+	},
+	"Residue_C1367": {
+		"resnum": 1367,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "A",
+		"relpos": [6,3.75]
+	},
+	"Residue_C1368": {
+		"resnum": 1368,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "G",
+		"relpos": [3,3]
+	},
+	"Residue_C1369": {
+		"resnum": 1369,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "G",
+		"relpos": [0,3]
+	},
+	"Residue_C1370": {
+		"resnum": 1370,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "C",
+		"relpos": [-3,3]
+	},
+	"Residue_C1371": {
+		"resnum": 1371,
+		"chain": "C",
+		"helix_tag": "Helix_C1361",
+		"nucleotide": "G",
+		"relpos": [-6,3.75]
+	},
+	"Residue_C1372": {
+		"resnum": 1372,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "U",
+		"relpos": [9,3.75]
+	},
+	"Residue_C1373": {
+		"resnum": 1373,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "A",
+		"relpos": [6,3.75]
+	},
+	"Residue_C1374": {
+		"resnum": 1374,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "G",
+		"relpos": [3,3]
+	},
+	"Residue_C1375": {
+		"resnum": 1375,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "U",
+		"relpos": [0,3]
+	},
+	"Residue_C1376": {
+		"resnum": 1376,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "C",
+		"relpos": [-3,3]
+	},
+	"Residue_C1377": {
+		"resnum": 1377,
+		"chain": "C",
+		"helix_tag": "Helix_C1355",
+		"nucleotide": "G",
+		"relpos": [-6,3.75]
+	},
+	"Residue_C1378": {
+		"resnum": 1378,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "A",
+		"relpos": [9,3.75]
+	},
+	"Residue_C1379": {
+		"resnum": 1379,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "U",
+		"relpos": [6.27739251,3.75]
+	},
+	"Residue_C1380": {
+		"resnum": 1380,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "G",
+		"relpos": [3,3]
+	},
+	"Residue_C1381": {
+		"resnum": 1381,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "G",
+		"relpos": [0,3]
+	},
+	"Residue_C1382": {
+		"resnum": 1382,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "G",
+		"relpos": [-3,3]
+	},
+	"Residue_C1383": {
+		"resnum": 1383,
+		"chain": "C",
+		"helix_tag": "Helix_C1349",
+		"nucleotide": "A",
+		"relpos": [-6.27739251,2.640429958]
+	},
+	"Residue_C1384": {
+		"resnum": 1384,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "A",
+		"relpos": [-6.503467406,-24.83183079]
+	},
+	"Residue_C1385": {
+		"resnum": 1385,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "A",
+		"relpos": [-6,-3]
+	},
+	"Residue_C1386": {
+		"resnum": 1386,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "C",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1387": {
+		"resnum": 1387,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "A",
+		"relpos": [0,-3]
+	},
+	"Residue_C1388": {
+		"resnum": 1388,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "G",
+		"relpos": [3,-3]
+	},
+	"Residue_C1389": {
+		"resnum": 1389,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "G",
+		"relpos": [6,-3]
+	},
+	"Residue_C1390": {
+		"resnum": 1390,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "U",
+		"relpos": [9,-3.75]
+	},
+	"Residue_C1391": {
+		"resnum": 1391,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "U",
+		"relpos": [12,-3.75]
+	},
+	"Residue_C1392": {
+		"resnum": 1392,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "A",
+		"relpos": [15,-3.75]
+	},
+	"Residue_C1393": {
+		"resnum": 1393,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "A",
+		"relpos": [17.16782247,-0.6986823856]
+	},
+	"Residue_C1394": {
+		"resnum": 1394,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "U",
+		"relpos": [16.61303745,2.640429958]
+	},
+	"Residue_C1395": {
+		"resnum": 1395,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "A",
+		"relpos": [15,3.75]
+	},
+	"Residue_C1396": {
+		"resnum": 1396,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "U",
+		"relpos": [12,3.75]
+	},
+	"Residue_C1397": {
+		"resnum": 1397,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "U",
+		"relpos": [9.27739251,3.195214979]
+	},
+	"Residue_C1398": {
+		"resnum": 1398,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "C",
+		"relpos": [6,3]
+	},
+	"Residue_C1399": {
+		"resnum": 1399,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "C",
+		"relpos": [3,3]
+	},
+	"Residue_C1400": {
+		"resnum": 1400,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "U",
+		"relpos": [0,3]
+	},
+	"Residue_C1401": {
+		"resnum": 1401,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "G",
+		"relpos": [-3,3]
+	},
+	"Residue_C1402": {
+		"resnum": 1402,
+		"chain": "C",
+		"helix_tag": "Helix_C1385",
+		"nucleotide": "U",
+		"relpos": [-6,3]
+	},
+	"Residue_C1403": {
+		"resnum": 1403,
+		"chain": "C",
+		"helix_tag": "Helix_C1343",
+		"nucleotide": "A",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1404": {
+		"resnum": 1404,
+		"chain": "C",
+		"helix_tag": "Helix_C1343",
+		"nucleotide": "C",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1405": {
+		"resnum": 1405,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "U",
+		"relpos": [-15,-3]
+	},
+	"Residue_C1406": {
+		"resnum": 1406,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "U",
+		"relpos": [-12,-3]
+	},
+	"Residue_C1407": {
+		"resnum": 1407,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "G",
+		"relpos": [-9,-3]
+	},
+	"Residue_C1408": {
+		"resnum": 1408,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "G",
+		"relpos": [-6,-3]
+	},
+	"Residue_C1409": {
+		"resnum": 1409,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "U",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1410": {
+		"resnum": 1410,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "G",
+		"relpos": [0,-3]
+	},
+	"Residue_C1411": {
+		"resnum": 1411,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "U",
+		"relpos": [3,-3]
+	},
+	"Residue_C1412": {
+		"resnum": 1412,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "U",
+		"relpos": [6,-3]
+	},
+	"Residue_C1413": {
+		"resnum": 1413,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "A",
+		"relpos": [9,-3]
+	},
+	"Residue_C1414": {
+		"resnum": 1414,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "C",
+		"relpos": [12,-3]
+	},
+	"Residue_C1415": {
+		"resnum": 1415,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "U",
+		"relpos": [15,-3]
+	},
+	"Residue_C1416": {
+		"resnum": 1416,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1417": {
+		"resnum": 1417,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "C",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1418": {
+		"resnum": 1418,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "G",
+		"relpos": [5.609570042,-2.917822469]
+	},
+	"Residue_C1419": {
+		"resnum": 1419,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "A",
+		"relpos": [17.48613037,-3.195214979]
+	},
+	"Residue_C1420": {
+		"resnum": 1420,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "A",
+		"relpos": [-7.5,-3.75]
+	},
+	"Residue_C1421": {
+		"resnum": 1421,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "G",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1422": {
+		"resnum": 1422,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1423": {
+		"resnum": 1423,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "G",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1424": {
+		"resnum": 1424,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "G",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1425": {
+		"resnum": 1425,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "G",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1426": {
+		"resnum": 1426,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "G",
+		"relpos": [8.835644938,-6.523925104]
+	},
+	"Residue_C1427": {
+		"resnum": 1427,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "A",
+		"relpos": [-10.5,-3.75]
+	},
+	"Residue_C1428": {
+		"resnum": 1428,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "C",
+		"relpos": [-7.5,-3.75]
+	},
+	"Residue_C1429": {
+		"resnum": 1429,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "G",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1430": {
+		"resnum": 1430,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1431": {
+		"resnum": 1431,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "A",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1432": {
+		"resnum": 1432,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "G",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1433": {
+		"resnum": 1433,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "A",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1434": {
+		"resnum": 1434,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "A",
+		"relpos": [-7.941747573,-3.195214979]
+	},
+	"Residue_C1435": {
+		"resnum": 1435,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "G",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1436": {
+		"resnum": 1436,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "G",
+		"relpos": [0,-3]
+	},
+	"Residue_C1437": {
+		"resnum": 1437,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "C",
+		"relpos": [3,-3]
+	},
+	"Residue_C1438": {
+		"resnum": 1438,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "U",
+		"relpos": [6,-3.75]
+	},
+	"Residue_C1439": {
+		"resnum": 1439,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "A",
+		"relpos": [-9,-3.75]
+	},
+	"Residue_C1440": {
+		"resnum": 1440,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "U",
+		"relpos": [-6,-3]
+	},
+	"Residue_C1441": {
+		"resnum": 1441,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "G",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1442": {
+		"resnum": 1442,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "U",
+		"relpos": [0,-3]
+	},
+	"Residue_C1443": {
+		"resnum": 1443,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "U",
+		"relpos": [3,-3]
+	},
+	"Residue_C1444": {
+		"resnum": 1444,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "G",
+		"relpos": [6,-3]
+	},
+	"Residue_C1445": {
+		"resnum": 1445,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [-7.5,-3]
+	},
+	"Residue_C1446": {
+		"resnum": 1446,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "C",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1447": {
+		"resnum": 1447,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "C",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1448": {
+		"resnum": 1448,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1449": {
+		"resnum": 1449,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1450": {
+		"resnum": 1450,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [7.5,-3]
+	},
+	"Residue_C1451": {
+		"resnum": 1451,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "C",
+		"relpos": [10.77739251,-4.582177531]
+	},
+	"Residue_C1452": {
+		"resnum": 1452,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [13.77739251,-5.414355062]
+	},
+	"Residue_C1453": {
+		"resnum": 1453,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "A",
+		"relpos": [16.5,-4.582177531]
+	},
+	"Residue_C1454": {
+		"resnum": 1454,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "C",
+		"relpos": [18.94521498,-1.808252427]
+	},
+	"Residue_C1455": {
+		"resnum": 1455,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [20.28085992,0.6882801664]
+	},
+	"Residue_C1456": {
+		"resnum": 1456,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [20.55825243,3.47260749]
+	},
+	"Residue_C1457": {
+		"resnum": 1457,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "U",
+		"relpos": [18.94521498,5.414355062]
+	},
+	"Residue_C1458": {
+		"resnum": 1458,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "U",
+		"relpos": [16.22260749,6.801317614]
+	},
+	"Residue_C1459": {
+		"resnum": 1459,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [13.5,6.801317614]
+	},
+	"Residue_C1460": {
+		"resnum": 1460,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "U",
+		"relpos": [10.5,5.414355062]
+	},
+	"Residue_C1461": {
+		"resnum": 1461,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "C",
+		"relpos": [7.5,3]
+	},
+	"Residue_C1462": {
+		"resnum": 1462,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "C",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1463": {
+		"resnum": 1463,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "C",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1464": {
+		"resnum": 1464,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1465": {
+		"resnum": 1465,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "G",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1466": {
+		"resnum": 1466,
+		"chain": "C",
+		"helix_tag": "Helix_C1445",
+		"nucleotide": "U",
+		"relpos": [-7.5,3]
+	},
+	"Residue_C1467": {
+		"resnum": 1467,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "U",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1468": {
+		"resnum": 1468,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "U",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1469": {
+		"resnum": 1469,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "A",
+		"relpos": [4.5,-3.75]
+	},
+	"Residue_C1470": {
+		"resnum": 1470,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "A",
+		"relpos": [-7.5,-3.75]
+	},
+	"Residue_C1471": {
+		"resnum": 1471,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "G",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1472": {
+		"resnum": 1472,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "C",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1473": {
+		"resnum": 1473,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "G",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1474": {
+		"resnum": 1474,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "U",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1475": {
+		"resnum": 1475,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "G",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1476": {
+		"resnum": 1476,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "U",
+		"relpos": [10.5,-3.75]
+	},
+	"Residue_C1477": {
+		"resnum": 1477,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "A",
+		"relpos": [-7.5,-3.75]
+	},
+	"Residue_C1478": {
+		"resnum": 1478,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "G",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1479": {
+		"resnum": 1479,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1480": {
+		"resnum": 1480,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "C",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1481": {
+		"resnum": 1481,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "U",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1482": {
+		"resnum": 1482,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "G",
+		"relpos": [-10.5,-3]
+	},
+	"Residue_C1483": {
+		"resnum": 1483,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "G",
+		"relpos": [-7.5,-3]
+	},
+	"Residue_C1484": {
+		"resnum": 1484,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "U",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1485": {
+		"resnum": 1485,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "U",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1486": {
+		"resnum": 1486,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "U",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1487": {
+		"resnum": 1487,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "U",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1488": {
+		"resnum": 1488,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "C",
+		"relpos": [7.5,-3]
+	},
+	"Residue_C1489": {
+		"resnum": 1489,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "C",
+		"relpos": [10.5,-3]
+	},
+	"Residue_C1490": {
+		"resnum": 1490,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "A",
+		"relpos": [13.5,-3.75]
+	},
+	"Residue_C1491": {
+		"resnum": 1491,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1492": {
+		"resnum": 1492,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "G",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1493": {
+		"resnum": 1493,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "C",
+		"relpos": [5.054785021,-4.304785021]
+	},
+	"Residue_C1494": {
+		"resnum": 1494,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "A",
+		"relpos": [8.054785021,-3.47260749]
+	},
+	"Residue_C1495": {
+		"resnum": 1495,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "A",
+		"relpos": [10.22260749,0.410887656]
+	},
+	"Residue_C1496": {
+		"resnum": 1496,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "A",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1497": {
+		"resnum": 1497,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "U",
+		"relpos": [4.77739251,4.02739251]
+	},
+	"Residue_C1498": {
+		"resnum": 1498,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "C",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1499": {
+		"resnum": 1499,
+		"chain": "C",
+		"helix_tag": "Helix_C1491",
+		"nucleotide": "C",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1500": {
+		"resnum": 1500,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "G",
+		"relpos": [10.5,3]
+	},
+	"Residue_C1501": {
+		"resnum": 1501,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "G",
+		"relpos": [7.5,3]
+	},
+	"Residue_C1502": {
+		"resnum": 1502,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "A",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1503": {
+		"resnum": 1503,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "A",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1504": {
+		"resnum": 1504,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "A",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1505": {
+		"resnum": 1505,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "A",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1506": {
+		"resnum": 1506,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "U",
+		"relpos": [-7.5,3]
+	},
+	"Residue_C1507": {
+		"resnum": 1507,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "C",
+		"relpos": [-10.5,3]
+	},
+	"Residue_C1508": {
+		"resnum": 1508,
+		"chain": "C",
+		"helix_tag": "Helix_C1482",
+		"nucleotide": "A",
+		"relpos": [-13.5,3.75]
+	},
+	"Residue_C1509": {
+		"resnum": 1509,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "A",
+		"relpos": [8.332177531,2.640429958]
+	},
+	"Residue_C1510": {
+		"resnum": 1510,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "G",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1511": {
+		"resnum": 1511,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "G",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1512": {
+		"resnum": 1512,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "C",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1513": {
+		"resnum": 1513,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "U",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1514": {
+		"resnum": 1514,
+		"chain": "C",
+		"helix_tag": "Helix_C1478",
+		"nucleotide": "G",
+		"relpos": [-7.5,3.75]
+	},
+	"Residue_C1515": {
+		"resnum": 1515,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "A",
+		"relpos": [10.5,3.75]
+	},
+	"Residue_C1516": {
+		"resnum": 1516,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "G",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1517": {
+		"resnum": 1517,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "G",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1518": {
+		"resnum": 1518,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "C",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1519": {
+		"resnum": 1519,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "G",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1520": {
+		"resnum": 1520,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "U",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1521": {
+		"resnum": 1521,
+		"chain": "C",
+		"helix_tag": "Helix_C1471",
+		"nucleotide": "G",
+		"relpos": [-7.5,3.75]
+	},
+	"Residue_C1522": {
+		"resnum": 1522,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "A",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1523": {
+		"resnum": 1523,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "U",
+		"relpos": [4.5,3.75]
+	},
+	"Residue_C1524": {
+		"resnum": 1524,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "G",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1525": {
+		"resnum": 1525,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "A",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1526": {
+		"resnum": 1526,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "C",
+		"relpos": [-4.5,3.75]
+	},
+	"Residue_C1527": {
+		"resnum": 1527,
+		"chain": "C",
+		"helix_tag": "Helix_C1467",
+		"nucleotide": "G",
+		"relpos": [-7.5,3.75]
+	},
+	"Residue_C1528": {
+		"resnum": 1528,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "A",
+		"relpos": [-9,-3.75]
+	},
+	"Residue_C1529": {
+		"resnum": 1529,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "G",
+		"relpos": [-6,-3]
+	},
+	"Residue_C1530": {
+		"resnum": 1530,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "G",
+		"relpos": [-3,-3]
+	},
+	"Residue_C1531": {
+		"resnum": 1531,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "C",
+		"relpos": [0,-3]
+	},
+	"Residue_C1532": {
+		"resnum": 1532,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "A",
+		"relpos": [3,-3]
+	},
+	"Residue_C1533": {
+		"resnum": 1533,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "C",
+		"relpos": [6,-3]
+	},
+	"Residue_C1534": {
+		"resnum": 1534,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "U",
+		"relpos": [9,-3.75]
+	},
+	"Residue_C1535": {
+		"resnum": 1535,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "A",
+		"relpos": [12.55478502,-1.808252427]
+	},
+	"Residue_C1536": {
+		"resnum": 1536,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "C",
+		"relpos": [12.55478502,2.085644938]
+	},
+	"Residue_C1537": {
+		"resnum": 1537,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "G",
+		"relpos": [9,3.75]
+	},
+	"Residue_C1538": {
+		"resnum": 1538,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "G",
+		"relpos": [6,3]
+	},
+	"Residue_C1539": {
+		"resnum": 1539,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "U",
+		"relpos": [3,3]
+	},
+	"Residue_C1540": {
+		"resnum": 1540,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "G",
+		"relpos": [0,3]
+	},
+	"Residue_C1541": {
+		"resnum": 1541,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "C",
+		"relpos": [-3,3]
+	},
+	"Residue_C1542": {
+		"resnum": 1542,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "U",
+		"relpos": [-6,3]
+	},
+	"Residue_C1543": {
+		"resnum": 1543,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "G",
+		"relpos": [-9,3.75]
+	},
+	"Residue_C1544": {
+		"resnum": 1544,
+		"chain": "C",
+		"helix_tag": "Helix_C1529",
+		"nucleotide": "A",
+		"relpos": [-12,3.75]
+	},
+	"Residue_C1545": {
+		"resnum": 1545,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "A",
+		"relpos": [-9.081830791,24.55443828]
+	},
+	"Residue_C1546": {
+		"resnum": 1546,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "G",
+		"relpos": [-5.979195562,21.50312067]
+	},
+	"Residue_C1547": {
+		"resnum": 1547,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "C",
+		"relpos": [6,3]
+	},
+	"Residue_C1548": {
+		"resnum": 1548,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "A",
+		"relpos": [3,3]
+	},
+	"Residue_C1549": {
+		"resnum": 1549,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "A",
+		"relpos": [0,3]
+	},
+	"Residue_C1550": {
+		"resnum": 1550,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "C",
+		"relpos": [-3,3]
+	},
+	"Residue_C1551": {
+		"resnum": 1551,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "A",
+		"relpos": [-6,3]
+	},
+	"Residue_C1552": {
+		"resnum": 1552,
+		"chain": "C",
+		"helix_tag": "Helix_C1440",
+		"nucleotide": "A",
+		"relpos": [-9,3.75]
+	},
+	"Residue_C1553": {
+		"resnum": 1553,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "A",
+		"relpos": [9,3.75]
+	},
+	"Residue_C1554": {
+		"resnum": 1554,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "U",
+		"relpos": [6,3.75]
+	},
+	"Residue_C1555": {
+		"resnum": 1555,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "G",
+		"relpos": [3,3]
+	},
+	"Residue_C1556": {
+		"resnum": 1556,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "C",
+		"relpos": [0,3]
+	},
+	"Residue_C1557": {
+		"resnum": 1557,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "C",
+		"relpos": [-3,3]
+	},
+	"Residue_C1558": {
+		"resnum": 1558,
+		"chain": "C",
+		"helix_tag": "Helix_C1435",
+		"nucleotide": "C",
+		"relpos": [-6,3.75]
+	},
+	"Residue_C1559": {
+		"resnum": 1559,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "U",
+		"relpos": [10.5,3.75]
+	},
+	"Residue_C1560": {
+		"resnum": 1560,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "G",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1561": {
+		"resnum": 1561,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "C",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1562": {
+		"resnum": 1562,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "U",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1563": {
+		"resnum": 1563,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "U",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1564": {
+		"resnum": 1564,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "C",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1565": {
+		"resnum": 1565,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "C",
+		"relpos": [-7.5,3.75]
+	},
+	"Residue_C1566": {
+		"resnum": 1566,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "A",
+		"relpos": [-10.5,3.75]
+	},
+	"Residue_C1567": {
+		"resnum": 1567,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "G",
+		"relpos": [-10.7260749,6.523925104]
+	},
+	"Residue_C1568": {
+		"resnum": 1568,
+		"chain": "C",
+		"helix_tag": "Helix_C1429",
+		"nucleotide": "G",
+		"relpos": [-12.06171983,8.743065187]
+	},
+	"Residue_C1569": {
+		"resnum": 1569,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "A",
+		"relpos": [17.28085992,-5.126560333]
+	},
+	"Residue_C1570": {
+		"resnum": 1570,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "A",
+		"relpos": [15.39042996,-1.797850208]
+	},
+	"Residue_C1571": {
+		"resnum": 1571,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "A",
+		"relpos": [13.22260749,0.6986823856]
+	},
+	"Residue_C1572": {
+		"resnum": 1572,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "A",
+		"relpos": [10.22260749,2.085644938]
+	},
+	"Residue_C1573": {
+		"resnum": 1573,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "G",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1574": {
+		"resnum": 1574,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "C",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1575": {
+		"resnum": 1575,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "C",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1576": {
+		"resnum": 1576,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "U",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1577": {
+		"resnum": 1577,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "C",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1578": {
+		"resnum": 1578,
+		"chain": "C",
+		"helix_tag": "Helix_C1421",
+		"nucleotide": "U",
+		"relpos": [-4.448682386,17.0648405]
+	},
+	"Residue_C1579": {
+		"resnum": 1579,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "A",
+		"relpos": [8.886962552,3.47260749]
+	},
+	"Residue_C1580": {
+		"resnum": 1580,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "A",
+		"relpos": [4.77739251,3.47260749]
+	},
+	"Residue_C1581": {
+		"resnum": 1581,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "G",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1582": {
+		"resnum": 1582,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "C",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1583": {
+		"resnum": 1583,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "A",
+		"relpos": [-4.5,3.75]
+	},
+	"Residue_C1584": {
+		"resnum": 1584,
+		"chain": "C",
+		"helix_tag": "Helix_C1416",
+		"nucleotide": "U",
+		"relpos": [-7.5,3.75]
+	},
+	"Residue_C1585": {
+		"resnum": 1585,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "C",
+		"relpos": [21,3.75]
+	},
+	"Residue_C1586": {
+		"resnum": 1586,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "A",
+		"relpos": [18,3.75]
+	},
+	"Residue_C1587": {
+		"resnum": 1587,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "G",
+		"relpos": [15,3]
+	},
+	"Residue_C1588": {
+		"resnum": 1588,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "G",
+		"relpos": [12,3]
+	},
+	"Residue_C1589": {
+		"resnum": 1589,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "U",
+		"relpos": [9,3]
+	},
+	"Residue_C1590": {
+		"resnum": 1590,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "A",
+		"relpos": [6,3]
+	},
+	"Residue_C1591": {
+		"resnum": 1591,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "A",
+		"relpos": [3,3]
+	},
+	"Residue_C1592": {
+		"resnum": 1592,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "C",
+		"relpos": [0,3]
+	},
+	"Residue_C1593": {
+		"resnum": 1593,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "A",
+		"relpos": [-3,3]
+	},
+	"Residue_C1594": {
+		"resnum": 1594,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "U",
+		"relpos": [-6,3]
+	},
+	"Residue_C1595": {
+		"resnum": 1595,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "C",
+		"relpos": [-9,3]
+	},
+	"Residue_C1596": {
+		"resnum": 1596,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "A",
+		"relpos": [-12,3]
+	},
+	"Residue_C1597": {
+		"resnum": 1597,
+		"chain": "C",
+		"helix_tag": "Helix_C1405",
+		"nucleotide": "A",
+		"relpos": [-15,3]
+	},
+	"Residue_C1598": {
+		"resnum": 1598,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "A",
+		"relpos": [3.226074896,6.523925104]
+	},
+	"Residue_C1599": {
+		"resnum": 1599,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "U",
+		"relpos": [3,3]
+	},
+	"Residue_C1600": {
+		"resnum": 1600,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "C",
+		"relpos": [0,3]
+	},
+	"Residue_C1601": {
+		"resnum": 1601,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "G",
+		"relpos": [-3,3]
+	},
+	"Residue_C1602": {
+		"resnum": 1602,
+		"chain": "C",
+		"helix_tag": "Helix_C1345",
+		"nucleotide": "U",
+		"relpos": [-3.226074896,6.523925104]
+	},
+	"Residue_C1603": {
+		"resnum": 1603,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "A",
+		"relpos": [7.551317614,2.917822469]
+	},
+	"Residue_C1604": {
+		"resnum": 1604,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "C",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1605": {
+		"resnum": 1605,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "C",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1606": {
+		"resnum": 1606,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "C",
+		"relpos": [-4.77739251,0.976074896]
+	},
+	"Residue_C1607": {
+		"resnum": 1607,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "C",
+		"relpos": [-7.77739251,2.363037448]
+	},
+	"Residue_C1608": {
+		"resnum": 1608,
+		"chain": "C",
+		"helix_tag": "Helix_C1309",
+		"nucleotide": "A",
+		"relpos": [-8.003467406,4.02739251]
+	},
+	"Residue_C1609": {
+		"resnum": 1609,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "A",
+		"relpos": [-7.5,-3.75]
+	},
+	"Residue_C1610": {
+		"resnum": 1610,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "A",
+		"relpos": [-4.5,-3.75]
+	},
+	"Residue_C1611": {
+		"resnum": 1611,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "C",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1612": {
+		"resnum": 1612,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "C",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1613": {
+		"resnum": 1613,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "G",
+		"relpos": [4.5,-3.75]
+	},
+	"Residue_C1614": {
+		"resnum": 1614,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "A",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1615": {
+		"resnum": 1615,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "C",
+		"relpos": [10.77739251,-2.085644938]
+	},
+	"Residue_C1616": {
+		"resnum": 1616,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "A",
+		"relpos": [10.22260749,1.530859917]
+	},
+	"Residue_C1617": {
+		"resnum": 1617,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "C",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1618": {
+		"resnum": 1618,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "X",
+		"relpos": [4.5,3.75]
+	},
+	"Residue_C1619": {
+		"resnum": 1619,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "G",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1620": {
+		"resnum": 1620,
+		"chain": "C",
+		"helix_tag": "Helix_C1611",
+		"nucleotide": "G",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1621": {
+		"resnum": 1621,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "U",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1622": {
+		"resnum": 1622,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "G",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1623": {
+		"resnum": 1623,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "G",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1624": {
+		"resnum": 1624,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "U",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1625": {
+		"resnum": 1625,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "C",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1626": {
+		"resnum": 1626,
+		"chain": "C",
+		"helix_tag": "Helix_C1303",
+		"nucleotide": "A",
+		"relpos": [-7.5,3.75]
+	},
+	"Residue_C1627": {
+		"resnum": 1627,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "G",
+		"relpos": [-4.5,-3]
+	},
+	"Residue_C1628": {
+		"resnum": 1628,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "G",
+		"relpos": [-1.5,-3]
+	},
+	"Residue_C1629": {
+		"resnum": 1629,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "U",
+		"relpos": [1.5,-3]
+	},
+	"Residue_C1630": {
+		"resnum": 1630,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "A",
+		"relpos": [4.5,-3]
+	},
+	"Residue_C1631": {
+		"resnum": 1631,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "G",
+		"relpos": [7.5,-3.75]
+	},
+	"Residue_C1632": {
+		"resnum": 1632,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "A",
+		"relpos": [11.60957004,-3.47260749]
+	},
+	"Residue_C1633": {
+		"resnum": 1633,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "G",
+		"relpos": [13.77739251,-0.4212898752]
+	},
+	"Residue_C1634": {
+		"resnum": 1634,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "A",
+		"relpos": [11.33217753,3.195214979]
+	},
+	"Residue_C1635": {
+		"resnum": 1635,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "A",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1636": {
+		"resnum": 1636,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "U",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1637": {
+		"resnum": 1637,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "A",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1638": {
+		"resnum": 1638,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "C",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1639": {
+		"resnum": 1639,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "C",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1640": {
+		"resnum": 1640,
+		"chain": "C",
+		"helix_tag": "Helix_C1627",
+		"nucleotide": "A",
+		"relpos": [-3.893897365,31.48925104]
+	},
+	"Residue_C1641": {
+		"resnum": 1641,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "A",
+		"relpos": [7.5,3.75]
+	},
+	"Residue_C1642": {
+		"resnum": 1642,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "G",
+		"relpos": [4.5,3]
+	},
+	"Residue_C1643": {
+		"resnum": 1643,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "G",
+		"relpos": [1.5,3]
+	},
+	"Residue_C1644": {
+		"resnum": 1644,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "C",
+		"relpos": [-1.5,3]
+	},
+	"Residue_C1645": {
+		"resnum": 1645,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "G",
+		"relpos": [-4.5,3]
+	},
+	"Residue_C1646": {
+		"resnum": 1646,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "C",
+		"relpos": [-27.19486824,16.23266297]
+	},
+	"Residue_C1647": {
+		"resnum": 1647,
+		"chain": "C",
+		"helix_tag": "Helix_C1295",
+		"nucleotide": "U",
+		"relpos": [-37.129681,16.23266297]
+	},
+	"Helix_C1276": {
+		"resnum1": [1276,1277,1278,1279,1280,1281],
+		"chain1": "CCCCCC",
+		"resnum2": [1289,1290,1291,1292,1293,1294],
+		"chain2": "CCCCCC",
+		"name": "H47",
+		"center": [96.87933426,-4.931345354],
+		"rotation": 270,
+		"parity": 1,
+		"helix_tag": "Helix_C1276",
+		"associated_residues": [
+			"Residue_C1271",
+			"Residue_C1272",
+			"Residue_C1273",
+			"Residue_C1274",
+			"Residue_C1275",
+			"Residue_C1276",
+			"Residue_C1277",
+			"Residue_C1278",
+			"Residue_C1279",
+			"Residue_C1280",
+			"Residue_C1281",
+			"Residue_C1282",
+			"Residue_C1283",
+			"Residue_C1284",
+			"Residue_C1285",
+			"Residue_C1286",
+			"Residue_C1287",
+			"Residue_C1288",
+			"Residue_C1289",
+			"Residue_C1290",
+			"Residue_C1291",
+			"Residue_C1292",
+			"Residue_C1293",
+			"Residue_C1294"
+		]
+	},
+	"Helix_C1295": {
+		"resnum1": [1295,1296,1297,1298],
+		"chain1": "CCCC",
+		"resnum2": [1642,1643,1644,1645],
+		"chain2": "CCCC",
+		"name": "H48",
+		"center": [96.36615811,-22.16366158],
+		"rotation": 90,
+		"parity": 1,
+		"helix_tag": "Helix_C1295",
+		"associated_residues": [
+			"Residue_C1295",
+			"Residue_C1296",
+			"Residue_C1297",
+			"Residue_C1298",
+			"Residue_C1299",
+			"Residue_C1300",
+			"Residue_C1641",
+			"Residue_C1642",
+			"Residue_C1643",
+			"Residue_C1644",
+			"Residue_C1645",
+			"Residue_C1646",
+			"Residue_C1647"
+		]
+	},
+	"Helix_C1303": {
+		"resnum1": [1303,1304,1305,1306],
+		"chain1": "CCCC",
+		"resnum2": [1622,1623,1624,1625],
+		"chain2": "CCCC",
+		"name": "H49",
+		"center": [68.94590846,-23.79403606],
+		"rotation": 270,
+		"parity": 1,
+		"helix_tag": "Helix_C1303",
+		"associated_residues": [
+			"Residue_C1301",
+			"Residue_C1302",
+			"Residue_C1303",
+			"Residue_C1304",
+			"Residue_C1305",
+			"Residue_C1306",
+			"Residue_C1307",
+			"Residue_C1621",
+			"Residue_C1622",
+			"Residue_C1623",
+			"Residue_C1624",
+			"Residue_C1625",
+			"Residue_C1626"
+		]
+	},
+	"Helix_C1309": {
+		"resnum1": [1309,1310],
+		"chain1": "CC",
+		"resnum2": [1604,1605],
+		"chain2": "CC",
+		"name": "H49c*",
+		"center": [62.05270458,3.945214979],
+		"rotation": 270,
+		"parity": -1,
+		"helix_tag": "Helix_C1309",
+		"associated_residues": [
+			"Residue_C1308",
+			"Residue_C1309",
+			"Residue_C1310",
+			"Residue_C1311",
+			"Residue_C1312",
+			"Residue_C1603",
+			"Residue_C1604",
+			"Residue_C1605",
+			"Residue_C1606",
+			"Residue_C1607",
+			"Residue_C1608"
+		]
+	},
+	"Helix_C1314": {
+		"resnum1": [1314,1315,1316,1317,1318,1319],
+		"chain1": "CCCCCC",
+		"resnum2": [1333,1334,1335,1336,1337,1338],
+		"chain2": "CCCCCC",
+		"name": "H50a",
+		"center": [60.15256588,18.89042996],
+		"rotation": 0,
+		"parity": 1,
+		"helix_tag": "Helix_C1314",
+		"associated_residues": [
+			"Residue_C1313",
+			"Residue_C1314",
+			"Residue_C1315",
+			"Residue_C1316",
+			"Residue_C1317",
+			"Residue_C1318",
+			"Residue_C1319",
+			"Residue_C1320",
+			"Residue_C1321",
+			"Residue_C1332",
+			"Residue_C1333",
+			"Residue_C1334",
+			"Residue_C1335",
+			"Residue_C1336",
+			"Residue_C1337",
+			"Residue_C1338",
+			"Residue_C1339",
+			"Residue_C1340"
+		]
+	},
+	"Helix_C1323": {
+		"resnum1": [1323,1324],
+		"chain1": "CC",
+		"resnum2": [1330,1331],
+		"chain2": "CC",
+		"name": "H50b",
+		"center": [79.12621359,18.6407767],
+		"rotation": 0,
+		"parity": 1,
+		"helix_tag": "Helix_C1323",
+		"associated_residues": [
+			"Residue_C1322",
+			"Residue_C1323",
+			"Residue_C1324",
+			"Residue_C1325",
+			"Residue_C1326",
+			"Residue_C1327",
+			"Residue_C1328",
+			"Residue_C1329",
+			"Residue_C1330",
+			"Residue_C1331"
+		]
+	},
+	"Helix_C1343": {
+		"resnum1": [1343,1344],
+		"chain1": "CC",
+		"resnum2": [1403,1404],
+		"chain2": "CC",
+		"name": "PK*",
+		"center": [22.02496533,1.997226075],
+		"rotation": 0,
+		"parity": -1,
+		"helix_tag": "Helix_C1343",
+		"associated_residues": [
+			"Residue_C1341",
+			"Residue_C1342",
+			"Residue_C1343",
+			"Residue_C1344",
+			"Residue_C1403",
+			"Residue_C1404"
+		]
+	},
+	"Helix_C1345": {
+		"resnum1": [1345,1346,1347],
+		"chain1": "CCC",
+		"resnum2": [1599,1600,1601],
+		"chain2": "CCC",
+		"name": "H51",
+		"center": [11.80305132,18.6407767],
+		"rotation": 180,
+		"parity": 1,
+		"helix_tag": "Helix_C1345",
+		"associated_residues": [
+			"Residue_C1345",
+			"Residue_C1346",
+			"Residue_C1347",
+			"Residue_C1348",
+			"Residue_C1598",
+			"Residue_C1599",
+			"Residue_C1600",
+			"Residue_C1601",
+			"Residue_C1602"
+		]
+	},
+	"Helix_C1349": {
+		"resnum1": [1349,1350,1351],
+		"chain1": "CCC",
+		"resnum2": [1380,1381,1382],
+		"chain2": "CCC",
+		"name": "H52a",
+		"center": [-2.579750347,33.89736477],
+		"rotation": 270,
+		"parity": 1,
+		"helix_tag": "Helix_C1349",
+		"associated_residues": [
+			"Residue_C1349",
+			"Residue_C1350",
+			"Residue_C1351",
+			"Residue_C1352",
+			"Residue_C1353",
+			"Residue_C1378",
+			"Residue_C1379",
+			"Residue_C1380",
+			"Residue_C1381",
+			"Residue_C1382",
+			"Residue_C1383"
+		]
+	},
+	"Helix_C1355": {
+		"resnum1": [1355,1356,1357],
+		"chain1": "CCC",
+		"resnum2": [1374,1375,1376],
+		"chain2": "CCC",
+		"name": "H52b",
+		"center": [-2.53814147,51.92787795],
+		"rotation": 270,
+		"parity": 1,
+		"helix_tag": "Helix_C1355",
+		"associated_residues": [
+			"Residue_C1354",
+			"Residue_C1355",
+			"Residue_C1356",
+			"Residue_C1357",
+			"Residue_C1358",
+			"Residue_C1359",
+			"Residue_C1372",
+			"Residue_C1373",
+			"Residue_C1374",
+			"Residue_C1375",
+			"Residue_C1376",
+			"Residue_C1377"
+		]
+	},
+	"Helix_C1361": {
+		"resnum1": [1361,1362,1363],
+		"chain1": "CCC",
+		"resnum2": [1368,1369,1370],
+		"chain2": "CCC",
+		"name": "H52c",
+		"center": [-2.704576976,69.70873786],
+		"rotation": 270,
+		"parity": 1,
+		"helix_tag": "Helix_C1361",
+		"associated_residues": [
+			"Residue_C1360",
+			"Residue_C1361",
+			"Residue_C1362",
+			"Residue_C1363",
+			"Residue_C1364",
+			"Residue_C1365",
+			"Residue_C1366",
+			"Residue_C1367",
+			"Residue_C1368",
+			"Residue_C1369",
+			"Residue_C1370",
+			"Residue_C1371"
+		]
+	},
+	"Helix_C1385": {
+		"resnum1": [1385,1386,1387,1388,1389],
+		"chain1": "CCCCC",
+		"resnum2": [1398,1399,1400,1401,1402],
+		"chain2": "CCCCC",
+		"name": "H53",
+		"center": [33.95284327,2.558252427],
+		"rotation": 0,
+		"parity": -1,
+		"helix_tag": "Helix_C1385",
+		"associated_residues": [
+			"Residue_C1384",
+			"Residue_C1385",
+			"Residue_C1386",
+			"Residue_C1387",
+			"Residue_C1388",
+			"Residue_C1389",
+			"Residue_C1390",
+			"Residue_C1391",
+			"Residue_C1392",
+			"Residue_C1393",
+			"Residue_C1394",
+			"Residue_C1395",
+			"Residue_C1396",
+			"Residue_C1397",
+			"Residue_C1398",
+			"Residue_C1399",
+			"Residue_C1400",
+			"Residue_C1401",
+			"Residue_C1402"
+		]
+	},
+	"Helix_C1405": {
+		"resnum1": [1405,1406,1407,1408,1409,1410,1411,1412,1413,1414,1415],
+		"chain1": "CCCCCCCCCCC",
+		"resnum2": [1587,1588,1589,1590,1591,1592,1593,1594,1595,1596,1597],
+		"chain2": "CCCCCCCCCCC",
+		"name": "H54a",
+		"center": [-5.968793343,1.171289875],
+		"rotation": 180,
+		"parity": -1,
+		"helix_tag": "Helix_C1405",
+		"associated_residues": [
+			"Residue_C1405",
+			"Residue_C1406",
+			"Residue_C1407",
+			"Residue_C1408",
+			"Residue_C1409",
+			"Residue_C1410",
+			"Residue_C1411",
+			"Residue_C1412",
+			"Residue_C1413",
+			"Residue_C1414",
+			"Residue_C1415",
+			"Residue_C1585",
+			"Residue_C1586",
+			"Residue_C1587",
+			"Residue_C1588",
+			"Residue_C1589",
+			"Residue_C1590",
+			"Residue_C1591",
+			"Residue_C1592",
+			"Residue_C1593",
+			"Residue_C1594",
+			"Residue_C1595",
+			"Residue_C1596",
+			"Residue_C1597"
+		]
+	},
+	"Helix_C1416": {
+		"resnum1": [1416,1417],
+		"chain1": "CC",
+		"resnum2": [1581,1582],
+		"chain2": "CC",
+		"name": "H54b",
+		"center": [-36.97642164,0.8938973648],
+		"rotation": 180,
+		"parity": -1,
+		"helix_tag": "Helix_C1416",
+		"associated_residues": [
+			"Residue_C1416",
+			"Residue_C1417",
+			"Residue_C1418",
+			"Residue_C1419",
+			"Residue_C1579",
+			"Residue_C1580",
+			"Residue_C1581",
+			"Residue_C1582",
+			"Residue_C1583",
+			"Residue_C1584"
+		]
+	},
+	"Helix_C1421": {
+		"resnum1": [1421,1422,1423,1424],
+		"chain1": "CCCC",
+		"resnum2": [1574,1575,1576,1577],
+		"chain2": "CCCC",
+		"name": "H55",
+		"center": [-46.43897497,-12.69833564],
+		"rotation": 0,
+		"parity": 1,
+		"helix_tag": "Helix_C1421",
+		"associated_residues": [
+			"Residue_C1420",
+			"Residue_C1421",
+			"Residue_C1422",
+			"Residue_C1423",
+			"Residue_C1424",
+			"Residue_C1425",
+			"Residue_C1426",
+			"Residue_C1569",
+			"Residue_C1570",
+			"Residue_C1571",
+			"Residue_C1572",
+			"Residue_C1573",
+			"Residue_C1574",
+			"Residue_C1575",
+			"Residue_C1576",
+			"Residue_C1577",
+			"Residue_C1578"
+		]
+	},
+	"Helix_C1429": {
+		"resnum1": [1429,1430,1431,1432],
+		"chain1": "CCCC",
+		"resnum2": [1561,1562,1563,1564],
+		"chain2": "CCCC",
+		"name": "H56a",
+		"center": [-19.62552011,-35.72191401],
+		"rotation": 0,
+		"parity": 1,
+		"helix_tag": "Helix_C1429",
+		"associated_residues": [
+			"Residue_C1427",
+			"Residue_C1428",
+			"Residue_C1429",
+			"Residue_C1430",
+			"Residue_C1431",
+			"Residue_C1432",
+			"Residue_C1433",
+			"Residue_C1559",
+			"Residue_C1560",
+			"Residue_C1561",
+			"Residue_C1562",
+			"Residue_C1563",
+			"Residue_C1564",
+			"Residue_C1565",
+			"Residue_C1566",
+			"Residue_C1567",
+			"Residue_C1568"
+		]
+	},
+	"Helix_C1435": {
+		"resnum1": [1435,1436,1437],
+		"chain1": "CCC",
+		"resnum2": [1555,1556,1557],
+		"chain2": "CCC",
+		"name": "H56b",
+		"center": [-0.4438280166,-35.72191401],
+		"rotation": 0,
+		"parity": 1,
+		"helix_tag": "Helix_C1435",
+		"associated_residues": [
+			"Residue_C1434",
+			"Residue_C1435",
+			"Residue_C1436",
+			"Residue_C1437",
+			"Residue_C1438",
+			"Residue_C1553",
+			"Residue_C1554",
+			"Residue_C1555",
+			"Residue_C1556",
+			"Residue_C1557",
+			"Residue_C1558"
+		]
+	},
+	"Helix_C1440": {
+		"resnum1": [1440,1441,1442,1443,1444],
+		"chain1": "CCCCC",
+		"resnum2": [1547,1548,1549,1550,1551],
+		"chain2": "CCCCC",
+		"name": "H56c",
+		"center": [21.51178918,-35.95006935],
+		"rotation": 0,
+		"parity": -1,
+		"helix_tag": "Helix_C1440",
+		"associated_residues": [
+			"Residue_C1439",
+			"Residue_C1440",
+			"Residue_C1441",
+			"Residue_C1442",
+			"Residue_C1443",
+			"Residue_C1444",
+			"Residue_C1545",
+			"Residue_C1546",
+			"Residue_C1547",
+			"Residue_C1548",
+			"Residue_C1549",
+			"Residue_C1550",
+			"Residue_C1551",
+			"Residue_C1552"
+		]
+	},
+	"Helix_C1445": {
+		"resnum1": [1445,1446,1447,1448,1449,1450],
+		"chain1": "CCCCCC",
+		"resnum2": [1461,1462,1463,1464,1465,1466],
+		"chain2": "CCCCCC",
+		"name": "H57",
+		"center": [39.02912621,-36.27669903],
+		"rotation": 0,
+		"parity": -1,
+		"helix_tag": "Helix_C1445",
+		"associated_residues": [
+			"Residue_C1445",
+			"Residue_C1446",
+			"Residue_C1447",
+			"Residue_C1448",
+			"Residue_C1449",
+			"Residue_C1450",
+			"Residue_C1451",
+			"Residue_C1452",
+			"Residue_C1453",
+			"Residue_C1454",
+			"Residue_C1455",
+			"Residue_C1456",
+			"Residue_C1457",
+			"Residue_C1458",
+			"Residue_C1459",
+			"Residue_C1460",
+			"Residue_C1461",
+			"Residue_C1462",
+			"Residue_C1463",
+			"Residue_C1464",
+			"Residue_C1465",
+			"Residue_C1466"
+		]
+	},
+	"Helix_C1467": {
+		"resnum1": [1467,1468],
+		"chain1": "CC",
+		"resnum2": [1524,1525],
+		"chain2": "CC",
+		"name": "H58a",
+		"center": [1.900138696,-68.17683773],
+		"rotation": 180,
+		"parity": 1,
+		"helix_tag": "Helix_C1467",
+		"associated_residues": [
+			"Residue_C1467",
+			"Residue_C1468",
+			"Residue_C1469",
+			"Residue_C1522",
+			"Residue_C1523",
+			"Residue_C1524",
+			"Residue_C1525",
+			"Residue_C1526",
+			"Residue_C1527"
+		]
+	},
+	"Helix_C1471": {
+		"resnum1": [1471,1472,1473,1474],
+		"chain1": "CCCC",
+		"resnum2": [1517,1518,1519,1520],
+		"chain2": "CCCC",
+		"name": "H58b",
+		"center": [-15.74202497,-67.82246879],
+		"rotation": 180,
+		"parity": 1,
+		"helix_tag": "Helix_C1471",
+		"associated_residues": [
+			"Residue_C1470",
+			"Residue_C1471",
+			"Residue_C1472",
+			"Residue_C1473",
+			"Residue_C1474",
+			"Residue_C1475",
+			"Residue_C1476",
+			"Residue_C1515",
+			"Residue_C1516",
+			"Residue_C1517",
+			"Residue_C1518",
+			"Residue_C1519",
+			"Residue_C1520",
+			"Residue_C1521"
+		]
+	},
+	"Helix_C1478": {
+		"resnum1": [1478,1479,1480,1481],
+		"chain1": "CCCC",
+		"resnum2": [1510,1511,1512,1513],
+		"chain2": "CCCC",
+		"name": "H58c",
+		"center": [-37.61442441,-68.0998613],
+		"rotation": 180,
+		"parity": 1,
+		"helix_tag": "Helix_C1478",
+		"associated_residues": [
+			"Residue_C1477",
+			"Residue_C1478",
+			"Residue_C1479",
+			"Residue_C1480",
+			"Residue_C1481",
+			"Residue_C1509",
+			"Residue_C1510",
+			"Residue_C1511",
+			"Residue_C1512",
+			"Residue_C1513",
+			"Residue_C1514"
+		]
+	},
+	"Helix_C1482": {
+		"resnum1": [1482,1483,1484,1485,1486,1487,1488,1489],
+		"chain1": "CCCCCCCC",
+		"resnum2": [1500,1501,1502,1503,1504,1505,1506,1507],
+		"chain2": "CCCCCCCC",
+		"name": "H58d",
+		"center": [-48.20596589,-52.56588072],
+		"rotation": 270,
+		"parity": 1,
+		"helix_tag": "Helix_C1482",
+		"associated_residues": [
+			"Residue_C1482",
+			"Residue_C1483",
+			"Residue_C1484",
+			"Residue_C1485",
+			"Residue_C1486",
+			"Residue_C1487",
+			"Residue_C1488",
+			"Residue_C1489",
+			"Residue_C1490",
+			"Residue_C1500",
+			"Residue_C1501",
+			"Residue_C1502",
+			"Residue_C1503",
+			"Residue_C1504",
+			"Residue_C1505",
+			"Residue_C1506",
+			"Residue_C1507",
+			"Residue_C1508"
+		]
+	},
+	"Helix_C1491": {
+		"resnum1": [1491,1492],
+		"chain1": "CC",
+		"resnum2": [1498,1499],
+		"chain2": "CC",
+		"name": "H58e",
+		"center": [-48.32940493,-36.19972261],
+		"rotation": 270,
+		"parity": 1,
+		"helix_tag": "Helix_C1491",
+		"associated_residues": [
+			"Residue_C1491",
+			"Residue_C1492",
+			"Residue_C1493",
+			"Residue_C1494",
+			"Residue_C1495",
+			"Residue_C1496",
+			"Residue_C1497",
+			"Residue_C1498",
+			"Residue_C1499"
+		]
+	},
+	"Helix_C1529": {
+		"resnum1": [1529,1530,1531,1532,1533],
+		"chain1": "CCCCC",
+		"resnum2": [1538,1539,1540,1541,1542],
+		"chain2": "CCCCC",
+		"name": "H59",
+		"center": [24.09153953,-68.17683773],
+		"rotation": 0,
+		"parity": 1,
+		"helix_tag": "Helix_C1529",
+		"associated_residues": [
+			"Residue_C1528",
+			"Residue_C1529",
+			"Residue_C1530",
+			"Residue_C1531",
+			"Residue_C1532",
+			"Residue_C1533",
+			"Residue_C1534",
+			"Residue_C1535",
+			"Residue_C1536",
+			"Residue_C1537",
+			"Residue_C1538",
+			"Residue_C1539",
+			"Residue_C1540",
+			"Residue_C1541",
+			"Residue_C1542",
+			"Residue_C1543",
+			"Residue_C1544"
+		]
+	},
+	"Helix_C1611": {
+		"resnum1": [1611,1612],
+		"chain1": "CC",
+		"resnum2": [1619,1620],
+		"chain2": "CC",
+		"name": "H49a",
+		"center": [75.24271845,-6.213592233],
+		"rotation": 0,
+		"parity": -1,
+		"helix_tag": "Helix_C1611",
+		"associated_residues": [
+			"Residue_C1609",
+			"Residue_C1610",
+			"Residue_C1611",
+			"Residue_C1612",
+			"Residue_C1613",
+			"Residue_C1614",
+			"Residue_C1615",
+			"Residue_C1616",
+			"Residue_C1617",
+			"Residue_C1618",
+			"Residue_C1619",
+			"Residue_C1620"
+		]
+	},
+	"Helix_C1627": {
+		"resnum1": [1627,1628,1629,1630],
+		"chain1": "CCCC",
+		"resnum2": [1636,1637,1638,1639],
+		"chain2": "CCCC",
+		"name": "H60",
+		"center": [68.62690707,-39.60540915],
+		"rotation": 90,
+		"parity": 1,
+		"helix_tag": "Helix_C1627",
+		"associated_residues": [
+			"Residue_C1627",
+			"Residue_C1628",
+			"Residue_C1629",
+			"Residue_C1630",
+			"Residue_C1631",
+			"Residue_C1632",
+			"Residue_C1633",
+			"Residue_C1634",
+			"Residue_C1635",
+			"Residue_C1636",
+			"Residue_C1637",
+			"Residue_C1638",
+			"Residue_C1639",
+			"Residue_C1640"
+		]
+	},
+	"xlim": [-77.95908452,124.5374481],
+	"ylim": [-108.4604715,91.53952851]
+}

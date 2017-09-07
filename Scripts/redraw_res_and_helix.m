@@ -1,4 +1,8 @@
 function redraw_res_and_helix( h )
+% Redraw residue and any other residues associated with its parent helix.
+% Call this after dragging.
+% (C) R. Das, Stanford University, 2017
+
 pos = get(h,'position'); 
 res_tag = getappdata( h, 'res_tag' );
 delete( h );

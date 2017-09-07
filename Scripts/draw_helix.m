@@ -1,8 +1,8 @@
 function helix = draw_helix( helix )
+% helix = draw_helix( helix )
+% (C) R. Das, Stanford University, 2017
 
-plot_settings.fontsize   =10;
-plot_settings.spacing    = 3;
-plot_settings.bp_spacing = 6;
+plot_settings = getappdata( gca, 'plot_settings' );
 
 helix_center = helix.center;
 theta = helix.rotation;

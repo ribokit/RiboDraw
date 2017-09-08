@@ -95,7 +95,7 @@ h = rectangle( 'Position',...
     [-0.5 -0.5 1 1]*spacing,...
     'edgecolor',[0.5 0.5 1],'clipping','off');
 setappdata(h,'helix_tag',helix.helix_tag); 
-draggable(h,'endfcn',@redraw_helix);
+draggable(h,'n',[-inf inf -inf inf],'endfcn',@redraw_helix);
 helix.helix_rectangle = h;
 
 % clickable line of reflection
@@ -110,7 +110,7 @@ helix.reflect_line = h;
 h = rectangle( 'Position',...
     [helix_center(1)-0.1*spacing helix_center(2)-0.1*spacing,...
     0.2*spacing 0.2*spacing], 'edgecolor',[0.5 0.5 1],'facecolor',[0.5 0.5 1],'linewidth',1.5,'clipping','off' );
-setappdata( h, 'helix_tag', helix.helix_tag);
+setappdata( h,'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@rotate_helix,h});
 helix.click_center = h;
 
@@ -121,7 +121,7 @@ for i = 1:length( not_helix_res_tags )
     h = rectangle( 'position', [residue.plot_pos(1)-spacing/2, residue.plot_pos(2)-spacing/2, spacing, spacing],...
         'edgecolor',[0.5 0.5 1],'clipping','off' );
     setappdata(h, 'res_tag', res_tag );
-    draggable(h,'endfcn',@redraw_res_and_helix);
+    draggable(h,'n',[-inf inf -inf inf],'endfcn',@redraw_res_and_helix);
     residue.residue_rectangle = h;
     setappdata( gca, res_tag, residue );
 end

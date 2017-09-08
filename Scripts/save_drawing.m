@@ -20,6 +20,9 @@ for n = 1:length( objnames )
         residue.chain = figure_residue.chain;
         residue.helix_tag = figure_residue.helix_tag;
         residue.nucleotide = figure_residue.nucleotide;
+        if isfield( figure_residue, 'stem_partner' );
+            residue.stem_partner = figure_residue.stem_partner;
+        end;
         
         residue.relpos = figure_residue.relpos; % needed for drawing, rel. coordinate to helix
         savedata = setfield( savedata, objnames{n}, residue );

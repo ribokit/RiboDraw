@@ -5,7 +5,7 @@ chains = '';
 ok = false;
 if isempty( strfind( tag , ':' ) ) return; end;
 elems = strsplit( tag, ':' );
-chains = elems{1};
+chain = elems{1};
 dashes = strfind( elems{2}, '-' );
 if length( dashes ) == 0 | dashes(1) == 1;
     resnum = str2num( elems{2} );

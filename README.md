@@ -14,8 +14,7 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* Fun: show noncanonical pairs (slaved)
-* proper datastructure for saving and loading
+* do not draw noncanonical if there is canonical pair already
 * Snap to grid
 * move helix labels
 * put in residue labels

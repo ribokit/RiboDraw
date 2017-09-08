@@ -20,35 +20,29 @@ for k = 1:N
     % kind of clunky, and repeated code.
     % first partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain1(k), helix.resnum1(k) );
-    residue1 = getappdata( gca, res_tag );
-    residue1.relpos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
-    pos1 = helix.center + residue1.relpos*R;
-    setappdata( gca, res_tag, residue1);
+    pos1 = update_residue_pos( res_tag, [ spacing*((k-1)-(N-1)/2), -bp_spacing/2], helix.center, R );
     helix_res_tags = [helix_res_tags, res_tag ];
 
     % second partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain2(N-k+1), helix.resnum2(N-k+1) );
-    residue2 = getappdata( gca, res_tag ); 
-    residue2.relpos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
-    pos2 = helix.center + residue2.relpos*R;
-    setappdata( gca, res_tag, residue2);
+    pos2 = update_residue_pos( res_tag, [ spacing*((k-1)-(N-1)/2), +bp_spacing/2], helix.center, R );
     helix_res_tags = [helix_res_tags, res_tag ];
     
     % should probably make the following 'linkers' -- can slave them to
     % residue positions above.
-    bp = [residue1.nucleotide,residue2.nucleotide];
-    switch bp
-        case {'AU','UA','GC','CG' }
-            bp_pos1 = pos1 + [0 bp_spacing/3]*R;
-            bp_pos2 = pos2 + [0 -bp_spacing/3]*R;
-            helix.bp(k) = plot( [bp_pos1(1),bp_pos2(1)],[bp_pos1(2),bp_pos2(2)],'k-','linewidth',1.5); hold on;
-        case {'GU','UG'}
-            bp_pos = (pos1+pos2)/2;
-            helix.bp(k) = rectangle( 'position',...
-                [bp_pos(1)-bp_spacing/10, bp_pos(2)-bp_spacing/10,...
-                bp_spacing*2/10, bp_spacing*2/10],...
-                'edgecolor','k','facecolor','k','curvature',[1 1]);
-    end
+%     bp = [residue1.nucleotide,residue2.nucleotide];
+%     switch bp
+%         case {'AU','UA','GC','CG' }
+%             bp_pos1 = pos1 + [0 bp_spacing/3]*R;
+%             bp_pos2 = pos2 + [0 -bp_spacing/3]*R;
+%             helix.bp(k) = plot( [bp_pos1(1),bp_pos2(1)],[bp_pos1(2),bp_pos2(2)],'k-','linewidth',1.5); hold on;
+%         case {'GU','UG'}
+%             bp_pos = (pos1+pos2)/2;
+%             helix.bp(k) = rectangle( 'position',...
+%                 [bp_pos(1)-bp_spacing/10, bp_pos(2)-bp_spacing/10,...
+%                 bp_spacing*2/10, bp_spacing*2/10],...
+%                 'edgecolor','k','facecolor','k','curvature',[1 1]);
+%     end
     all_pos1(k,:) = pos1;
     all_pos2(k,:) = pos2;
 end
@@ -80,21 +74,17 @@ for i = 1:length( helix.associated_residues )
         pos1 = residue1.plot_pos;
         pos2 = residue2.plot_pos;
         if ( norm( pos1 - pos2 ) < 1.5*plot_settings.spacing ) visible = 'off'; else; visible = 'on'; end;
-        set( linker.line_handle, 'visible', visible);
-        % displace line a bit to not overlap with text
-        v = pos2 - pos1; v = v/norm(v);
-        pos1d = pos1 +  (bp_spacing/3)*v;
-        pos2d = pos2 -  (bp_spacing/3)*v;
-        set( linker.line_handle, 'xdata', [pos1d(1) pos2d(1)] );
-        set( linker.line_handle, 'ydata', [pos1d(2) pos2d(2)] );
-        ctr = (pos1+pos2)/2;
-        % draw a triangle too
+        if strcmp( linker.type, 'arrow' ) set( linker.line_handle, 'visible', visible); end;
+        ctr = (pos1+pos2)/2; % center of connecting line
+        v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
+        if isfield( linker, 'line_handle' ); update_line( linker.line_handle, pos1, pos2, v, visible, bp_spacing ); end;
         if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, spacing ); end;
         if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, bp_spacing );  end
         if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr -  (1.3*bp_spacing/10)*v, v, 1, bp_spacing );  end;
         if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*bp_spacing/10)*v, v, 2, bp_spacing );  end
     end
 end
+
 
 % handles for helix editing
 % rectangle for dragging.
@@ -199,6 +189,14 @@ end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function pos = update_residue_pos( res_tag, relpos, center, R );
+residue = getappdata( gca, res_tag );
+residue.relpos = relpos;
+pos = center + relpos*R;
+setappdata( gca, res_tag, residue);
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_arrow( h, ctr, v, visible, spacing );
 x = v * [0 1; -1 0]; % cross direction
 set( h, 'visible', visible);
@@ -209,6 +207,15 @@ set( h, 'xdata', ...
     [a1(1) a2(1) a3(1)] );
 set( h, 'ydata', ...
     [a1(2) a2(2) a3(2)] );
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function update_line( h, pos1, pos2, v, visible, bp_spacing)
+% displace line a bit to not overlap with text
+pos1d = pos1 +  (bp_spacing/3)*v;
+pos2d = pos2 -  (bp_spacing/3)*v;
+set( h, 'xdata', [pos1d(1) pos2d(1)] );
+set( h, 'ydata', [pos1d(2) pos2d(2)] );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -72,7 +72,6 @@ for i = 1:length( helix.associated_residues )
     end
 end
 
-
 % handles for helix editing
 % rectangle for dragging.
 minpos = min( [all_pos1; all_pos2 ] );
@@ -82,7 +81,7 @@ h = rectangle( 'Position',...
     [-0.5 -0.5 1 1]*spacing,...
     'edgecolor',[0.5 0.5 1],'clipping','off');
 setappdata(h,'helix_tag',helix.helix_tag); 
-draggable(h,'n',[-inf inf -inf inf],@move_rectangle,'endfcn',@redraw_helix);
+draggable(h,'n',[-inf inf -inf inf],@move_residue,'endfcn',@redraw_helix);
 helix.helix_rectangle = h;
 
 % clickable line of reflection
@@ -105,12 +104,14 @@ helix.click_center = h;
 for i = 1:length( not_helix_res_tags )
     res_tag = not_helix_res_tags{i};
     residue = getappdata( gca, res_tag );
-    h = rectangle( 'position', [residue.plot_pos(1)-spacing/2, residue.plot_pos(2)-spacing/2, spacing, spacing],...
-        'edgecolor',[0.5 0.5 1],'clipping','off' );
-    setappdata(h, 'res_tag', res_tag );
-    draggable(h,'n',[-inf inf -inf inf],@move_rectangle, 'endfcn',@redraw_res_and_helix);
-    residue.residue_rectangle = h;
-    setappdata( gca, res_tag, residue );
+    %     h = rectangle( 'position', [residue.plot_pos(1)-spacing/2, residue.plot_pos(2)-spacing/2, spacing, spacing],...
+    %         'edgecolor',[0.5 0.5 1],'clipping','off' );
+    %     setappdata(h, 'res_tag', res_tag );
+    %     draggable(h,'n',[-inf inf -inf inf],@move_residue, 'endfcn',@redraw_res_and_helix);
+    %     residue.residue_rectangle = h;
+    %  setappdata( gca, res_tag, residue );
+    draggable( residue.handle,@move_residue, 'endfcn', @redraw_res_and_helix )
+    setappdata(residue.handle, 'res_tag', res_tag );
 end
 
 % draggable helix label
@@ -122,7 +123,6 @@ draggable( helix.l, 'n',[-inf inf -inf inf], @move_helix_label, 'endfcn', @redra
 %%%%%%%%%%%%%%%%%%%%%
 % 'global data' (stored in figure)
 setappdata( gca, helix.helix_tag, helix );
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -304,25 +304,29 @@ set( h, 'ydata', vertices(:,2) );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function move_rectangle(h)
-% We first set up the figure pointer to "fleur"
-
-set(gcf,'Pointer','fleur');
-
+function move_residue(h)
+% works for both text (residue) and rectangle.
 % Then we retrieve the current rectangle position
-
 pos = get(h,'Position');
-rectangle_center = [pos(1)+pos(3)/2, pos(2)+pos(4)/2];
+if length( pos ) == 4 % rectangle
+    res_center = [pos(1)+pos(3)/2, pos(2)+pos(4)/2];
+else
+    res_center = pos(1:2); % text
+end
 
 % Computing the new position of the rectangle
 plot_settings = getappdata(gca,'plot_settings');
 grid_spacing = plot_settings.spacing/4;
-new_position = round(rectangle_center/grid_spacing)*grid_spacing;
+new_position = round(res_center/grid_spacing)*grid_spacing;
 
 % Updating the rectangle' XData and YData properties
+delta = new_position - res_center;
+if length( pos ) == 4 % rectangle
+    pos = pos + [delta, 0, 0];
+else
+    pos = pos + [delta, 0]; % text
+end
 
-delta = new_position - rectangle_center;
-pos = pos + [delta, 0, 0];
 set(h,'Position',pos );
 
 

@@ -3199,7 +3199,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1581",
-		"relpos": [4.5,-3.75]
+		"relpos": [4.5,-3]
 	},
 	"Residue_C1419": {
 		"resnum": 1419,
@@ -4495,7 +4495,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1421",
-		"relpos": [-4.5,18.75]
+		"relpos": [-4.5,18]
 	},
 	"Residue_C1579": {
 		"resnum": 1579,
@@ -4503,7 +4503,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1421",
-		"relpos": [8.25,3.75]
+		"relpos": [8.25,3]
 	},
 	"Residue_C1580": {
 		"resnum": 1580,
@@ -4512,7 +4512,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1421",
 		"tickrot": 90,
-		"relpos": [4.5,3.75]
+		"relpos": [4.5,3]
 	},
 	"Residue_C1581": {
 		"resnum": 1581,
@@ -5812,5 +5812,5 @@
 		]
 	},
 	"xlim": [-80.54065688,138.6744988],
-	"ylim": [-100.9898723,103.2398723]
+	"ylim": [-102.6409447,101.5887999]
 }

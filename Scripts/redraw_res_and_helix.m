@@ -11,7 +11,12 @@ residue = getappdata(gca,res_tag );
 helix = getappdata( gca, residue.helix_tag );
 undraw_helix( helix );
 
-residue.plot_pos = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
+if length( pos ) == 4 % rectangle
+    residue.plot_pos = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
+else
+    residue.plot_pos = pos(1:2);
+end
+
 % need to figure out rel_pos back in the 'frame' of the helix.
 % for that I need to figure out rotation matrix.
 theta = helix.rotation;

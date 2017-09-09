@@ -16,18 +16,18 @@ if isappdata( gca, 'base_pairs' ) savedata.base_pairs = getappdata( gca, 'base_p
 for n = 1:length( objnames )
     if ~isempty( strfind( objnames{n}, 'Residue_' ) );
         figure_residue = getappdata( gca, objnames{n} );
+        clear residue;
         residue.resnum = figure_residue.resnum;
         residue.chain = figure_residue.chain;
         residue.helix_tag = figure_residue.helix_tag;
         residue.nucleotide = figure_residue.nucleotide;
-        if isfield( figure_residue, 'stem_partner' );
-            residue.stem_partner = figure_residue.stem_partner;
-        end;
-        
+        if isfield( figure_residue, 'stem_partner' ); residue.stem_partner = figure_residue.stem_partner; end;
+        if isfield( figure_residue, 'tickrot' ); residue.tickrot = figure_residue.tickrot; end
         residue.relpos = figure_residue.relpos; % needed for drawing, rel. coordinate to helix
         savedata = setfield( savedata, objnames{n}, residue );
     elseif ~isempty( strfind( objnames{n}, 'Helix_' ) );
         figure_helix = getappdata( gca, objnames{n} );
+        clear helix;
         helix.resnum1 = figure_helix.resnum1;
         helix.chain1 = figure_helix.chain1;
         helix.resnum2 = figure_helix.resnum2;

@@ -152,9 +152,33 @@ if isfield( residue, 'relpos' )
         'clipping','off');
     residue.handle = h;
     residue.plot_pos = pos;
+    residue = draw_tick( residue, plot_settings.bp_spacing, R );
     setappdata( gca, restag, residue )
 end
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function residue = draw_tick( residue, bp_spacing, R )
+if isfield( residue, 'tickrot' )
+    if  isnan(residue.tickrot) residue = set_default_tickrot( residue ); end;
+    theta = residue.tickrot;
+    v = [cos(theta*pi/180), sin(theta*pi/180)]*R;
+    tickpos1 = residue.plot_pos + v*bp_spacing/3; 
+    tickpos2 = residue.plot_pos + v*bp_spacing*2/3;
+    %if isfield( residue, 'tick_handle' )
+    set( residue.tick_handle, 'xdata', [tickpos1(1) tickpos2(1)] );
+    set( residue.tick_handle, 'ydata', [tickpos1(2) tickpos2(2)] );
+    labelpos = residue.plot_pos + v*bp_spacing*2/3;
+    set( residue.tick_label, 'position', labelpos );
+    set_text_alignment( residue.tick_label, v );
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function residue = set_default_tickrot( residue )
+if ( sign( residue.relpos(2) ) > 0 ) 
+    residue.tickrot = 90;
+else
+    residue.tickrot = 270;
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = make_label( helix, plot_settings, R )
@@ -172,6 +196,30 @@ helix_tag = getappdata( h, 'helix_tag' );
 helix = getappdata( gca, helix_tag );
 v = pos(1:2) - helix.center;
 set_text_alignment( h, v );
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function redraw_helix_label(h)
+
+pos = get(h,'position'); 
+helix_tag = getappdata( h, 'helix_tag' );
+helix = getappdata( gca, helix_tag );
+
+% need to figure out rel_pos back in the 'frame' of the helix.
+% for that I need to figure out rotation matrix.
+theta = helix.rotation;
+R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
+R = [1 0; 0 helix.parity] * R;
+helix.label_relpos = ( pos(1:2) - helix.center ) * R';
+
+% snap to grid?
+plot_settings = getappdata( gca, 'plot_settings' );
+snap_spacing = plot_settings.bp_spacing/2;
+helix.label_relpos = round( helix.label_relpos / snap_spacing ) * snap_spacing;
+
+delete( h );
+undraw_helix( helix );
+draw_helix( helix );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function set_text_alignment( h, v )
@@ -279,27 +327,5 @@ delta = new_position - rectangle_center;
 pos = pos + [delta, 0, 0];
 set(h,'Position',pos );
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function redraw_helix_label(h)
-
-pos = get(h,'position'); 
-helix_tag = getappdata( h, 'helix_tag' );
-helix = getappdata( gca, helix_tag );
-
-% need to figure out rel_pos back in the 'frame' of the helix.
-% for that I need to figure out rotation matrix.
-theta = helix.rotation;
-R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
-R = [1 0; 0 helix.parity] * R;
-helix.label_relpos = ( pos(1:2) - helix.center ) * R';
-
-% snap to grid?
-plot_settings = getappdata( gca, 'plot_settings' );
-helix.label_relpos = round( helix.label_relpos / plot_settings.bp_spacing ) * plot_settings.bp_spacing;
-
-delete( h );
-undraw_helix( helix );
-draw_helix( helix );
 
 

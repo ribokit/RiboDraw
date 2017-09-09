@@ -25,3 +25,7 @@ end
 for n = 1:length( helices )
     draw_helix( helices{n} );
 end
+
+axis off
+axis equal
+set(gcf,'color','white')

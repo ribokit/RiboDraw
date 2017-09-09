@@ -1,4 +1,4 @@
-function save_drawing( filename );
+function savedata = save_drawing( filename );
 % pull information needed to render drawing from current figure ('gca'), and
 % save to a JSON file.
 %
@@ -37,6 +37,7 @@ for n = 1:length( objnames )
         helix.center = figure_helix.center; % needed for drawing, coordinate in global axes
         helix.rotation = figure_helix.rotation;
         helix.parity = figure_helix.parity;
+        helix.label_relpos = figure_helix.label_relpos;
 
         helix.helix_tag = figure_helix.helix_tag;
         helix.associated_residues = figure_helix.associated_residues; % 'daughters'

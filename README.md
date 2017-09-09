@@ -14,15 +14,15 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* do not draw noncanonical if there is canonical pair already
-* Snap to grid
 * move helix labels
 * put in residue labels
 * residue colors (incl. rainbow to allow visual comparison to pymol)
-
-### Multidomain graphs
+* noncanonical residue names
+* Multidomain graphs
 * bounding box domain movement
-* residue colors
+* protein representation
+* document JSON file format
+* document MATLAB functions --> move to RiboKit
 
 ### Future
 * Annnotation of motifs
@@ -30,3 +30,15 @@ _(C) Rhiju Das, Stanford University, 2017_
 * Calculate 3D helix axis vectors and use to cross-check 2D helix orientations
 * Create a 'score' for total number of harmonious elements [e.g. lack of explicit linkers, mainly horizontal and vertical lines]
 * For demo, produce 3-4 level 'game' 
+
+## Paper outline
+### Motivation
+Semi-automated: good for human to do layout (show hand-drawing of domain III), but then becomes tedious to put into illustrator & refine. particularly noncaonical pairs. Also difficult to share.
+
+We define file format.
+
+### Figures
+* From hand-drawn to initial ribodraw to complete refinement.  [show as flow chart]
+* compare 4-6 ribodraw figures to literature examples (glycine riboswitch, tRNA, group I intron, adenosylcobalamin riboswitch puzzle, ZMP puzzle, Zika puzzle)
+* E. coli 23S and 16S rRNA figures
+

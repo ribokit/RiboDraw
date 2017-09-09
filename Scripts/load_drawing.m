@@ -1,4 +1,4 @@
-function load_drawing( filename )
+function loaddata = load_drawing( filename )
 % load RiboDraw drawing from JSON drawing file.
 % (C) R. Das, Stanford University, 2017
 if isstruct( filename )

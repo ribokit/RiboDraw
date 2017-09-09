@@ -11,7 +11,8 @@ R = [1 0; 0 helix.parity] * R;
 N = length( helix.resnum1 );
 init = false;
 
-helix.l = make_label( helix, plot_settings, theta, helix.parity, R );
+if ~isfield( helix, 'label_relpos' ) helix.label_relpos = plot_settings.bp_spacing *[0 1]; end;
+helix.l = make_label( helix, plot_settings, R );
 
 spacing = plot_settings.spacing;
 bp_spacing = plot_settings.bp_spacing;
@@ -60,7 +61,7 @@ for i = 1:length( helix.associated_residues )
 end
 
 % update any linkers associated with these residues
-% in the future, these could include base pairs (incl. non-canonicals)/
+% in the future, these could include base pairs (incl. non-canonicals)
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
@@ -95,7 +96,7 @@ h = rectangle( 'Position',...
     [-0.5 -0.5 1 1]*spacing,...
     'edgecolor',[0.5 0.5 1],'clipping','off');
 setappdata(h,'helix_tag',helix.helix_tag); 
-draggable(h,'n',[-inf inf -inf inf],'endfcn',@redraw_helix);
+draggable(h,'n',[-inf inf -inf inf],@move_rectangle,'endfcn',@redraw_helix);
 helix.helix_rectangle = h;
 
 % clickable line of reflection
@@ -121,10 +122,14 @@ for i = 1:length( not_helix_res_tags )
     h = rectangle( 'position', [residue.plot_pos(1)-spacing/2, residue.plot_pos(2)-spacing/2, spacing, spacing],...
         'edgecolor',[0.5 0.5 1],'clipping','off' );
     setappdata(h, 'res_tag', res_tag );
-    draggable(h,'n',[-inf inf -inf inf],'endfcn',@redraw_res_and_helix);
+    draggable(h,'n',[-inf inf -inf inf],@move_rectangle, 'endfcn',@redraw_res_and_helix);
     residue.residue_rectangle = h;
     setappdata( gca, res_tag, residue );
 end
+
+% draggable helix label
+setappdata( helix.l, 'helix_tag', helix.helix_tag );
+draggable( helix.l, 'n',[-inf inf -inf inf], @move_helix_label, 'endfcn', @redraw_helix_label )
 
 %%%%%%%%%%%%%%%%%%%%%
 % DO THIS AT THE END
@@ -132,7 +137,7 @@ end
 % 'global data' (stored in figure)
 setappdata( gca, helix.helix_tag, helix );
 
-end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = draw_residue( restag, helix_center, R, plot_settings );
@@ -149,30 +154,43 @@ if isfield( residue, 'relpos' )
     residue.plot_pos = pos;
     setappdata( gca, restag, residue )
 end
-end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h = make_label( helix, plot_settings, theta, parity, R )
+function h = make_label( helix, plot_settings, R )
 % make label
-label_pos = helix.center + plot_settings.bp_spacing*[0 1]*R;
-%if ~exist( 'firstdraw', 'var' ) firstdraw = 0; end;
+label_pos = helix.center + helix.label_relpos * R;
 h = text( label_pos(1), label_pos(2), helix.name,...
     'fontsize', plot_settings.fontsize*1.5, 'fontname','helvetica');
-if ( parity < 0 ) theta = mod( theta + 180 , 360 ) ; end;
+v = label_pos - helix.center;
+set_text_alignment( h, v );
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function move_helix_label(h)
+pos = get(h,'position'); 
+helix_tag = getappdata( h, 'helix_tag' );
+helix = getappdata( gca, helix_tag );
+v = pos(1:2) - helix.center;
+set_text_alignment( h, v );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function set_text_alignment( h, v )
+theta = atan2( v(2), v(1) );
+theta =  90 * round( (theta * 180/pi)/90 );
+theta = mod( theta, 360 );
 switch theta
-    case 0
-        set( h,'horizontalalign','center','verticalalign','bottom');
     case 90
+        set( h,'horizontalalign','center','verticalalign','bottom');
+    case 0
         set( h,'horizontalalign','left','verticalalign','middle');
-    case 180
-        set( h,'horizontalalign','center','verticalalign','top');
     case 270
+        set( h,'horizontalalign','center','verticalalign','top');
+    case 180
         set( h,'horizontalalign','right','verticalalign','middle'); end;
-end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function relpos = set_default_relpos( residue, helix, plot_settings )
-% need to find which helix strand to append to, and then go out a bit.
+% need to find which helix st;rand to append to, and then go out a bit.
 dist1 = min( abs(helix.resnum1 - residue.resnum) );
 if ( residue.chain ~= helix.chain1(1) ) dist1 = Inf * dist1; end;
 dist2 = min( abs(helix.resnum2 - residue.resnum) );
@@ -185,8 +203,6 @@ else
     assert( strand == 2 );    
     relpos = [ plot_settings.spacing*(-(residue.resnum-helix.resnum2(1))+(N-1)/2), +plot_settings.bp_spacing/2+plot_settings.spacing/4];  
 end
-end
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function pos = update_residue_pos( res_tag, relpos, center, R );
@@ -194,7 +210,7 @@ residue = getappdata( gca, res_tag );
 residue.relpos = relpos;
 pos = center + relpos*R;
 setappdata( gca, res_tag, residue);
-end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_arrow( h, ctr, v, visible, spacing );
@@ -207,7 +223,7 @@ set( h, 'xdata', ...
     [a1(1) a2(1) a3(1)] );
 set( h, 'ydata', ...
     [a1(2) a2(2) a3(2)] );
-end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_line( h, pos1, pos2, v, visible, bp_spacing)
@@ -216,7 +232,7 @@ pos1d = pos1 +  (bp_spacing/3)*v;
 pos2d = pos2 -  (bp_spacing/3)*v;
 set( h, 'xdata', [pos1d(1) pos2d(1)] );
 set( h, 'ydata', [pos1d(2) pos2d(2)] );
-end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_symbol( h, pos, v, which_symbol, bp_spacing );
@@ -239,6 +255,51 @@ vertices = [r*cos(t); r*sin(t) ]' + repmat( pos, size(vertices,1), 1 );
 assert( numv == size( vertices, 1 ) );
 set( h, 'xdata', vertices(:,1) );
 set( h, 'ydata', vertices(:,2) );
-end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function move_rectangle(h)
+% We first set up the figure pointer to "fleur"
+
+set(gcf,'Pointer','fleur');
+
+% Then we retrieve the current rectangle position
+
+pos = get(h,'Position');
+rectangle_center = [pos(1)+pos(3)/2, pos(2)+pos(4)/2];
+
+% Computing the new position of the rectangle
+plot_settings = getappdata(gca,'plot_settings');
+grid_spacing = plot_settings.spacing/4;
+new_position = round(rectangle_center/grid_spacing)*grid_spacing;
+
+% Updating the rectangle' XData and YData properties
+
+delta = new_position - rectangle_center;
+pos = pos + [delta, 0, 0];
+set(h,'Position',pos );
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function redraw_helix_label(h)
+
+pos = get(h,'position'); 
+helix_tag = getappdata( h, 'helix_tag' );
+helix = getappdata( gca, helix_tag );
+
+% need to figure out rel_pos back in the 'frame' of the helix.
+% for that I need to figure out rotation matrix.
+theta = helix.rotation;
+R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
+R = [1 0; 0 helix.parity] * R;
+helix.label_relpos = ( pos(1:2) - helix.center ) * R';
+
+% snap to grid?
+plot_settings = getappdata( gca, 'plot_settings' );
+helix.label_relpos = round( helix.label_relpos / plot_settings.bp_spacing ) * plot_settings.bp_spacing;
+
+delete( h );
+undraw_helix( helix );
+draw_helix( helix );
 
 

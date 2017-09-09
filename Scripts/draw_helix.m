@@ -28,25 +28,11 @@ for k = 1:N
     res_tag = sprintf( 'Residue_%s%d', helix.chain2(N-k+1), helix.resnum2(N-k+1) );
     pos2 = update_residue_pos( res_tag, [ spacing*((k-1)-(N-1)/2), +bp_spacing/2], helix.center, R );
     helix_res_tags = [helix_res_tags, res_tag ];
-    
-    % should probably make the following 'linkers' -- can slave them to
-    % residue positions above.
-%     bp = [residue1.nucleotide,residue2.nucleotide];
-%     switch bp
-%         case {'AU','UA','GC','CG' }
-%             bp_pos1 = pos1 + [0 bp_spacing/3]*R;
-%             bp_pos2 = pos2 + [0 -bp_spacing/3]*R;
-%             helix.bp(k) = plot( [bp_pos1(1),bp_pos2(1)],[bp_pos1(2),bp_pos2(2)],'k-','linewidth',1.5); hold on;
-%         case {'GU','UG'}
-%             bp_pos = (pos1+pos2)/2;
-%             helix.bp(k) = rectangle( 'position',...
-%                 [bp_pos(1)-bp_spacing/10, bp_pos(2)-bp_spacing/10,...
-%                 bp_spacing*2/10, bp_spacing*2/10],...
-%                 'edgecolor','k','facecolor','k','curvature',[1 1]);
-%     end
+ 
     all_pos1(k,:) = pos1;
     all_pos2(k,:) = pos2;
 end
+
 % draw all residues that are associated with the helix 
 not_helix_res_tags = {};
 for i = 1:length( helix.associated_residues )
@@ -138,7 +124,10 @@ draggable( helix.l, 'n',[-inf inf -inf inf], @move_helix_label, 'endfcn', @redra
 setappdata( gca, helix.helix_tag, helix );
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Helper functions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = draw_residue( restag, helix_center, R, plot_settings );
 residue = getappdata( gca, restag );
@@ -224,17 +213,26 @@ draw_helix( helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function set_text_alignment( h, v )
 theta = atan2( v(2), v(1) );
-theta =  90 * round( (theta * 180/pi)/90 );
+theta =  45 * round( (theta * 180/pi)/45 );
 theta = mod( theta, 360 );
 switch theta
-    case 90
-        set( h,'horizontalalign','center','verticalalign','bottom');
     case 0
         set( h,'horizontalalign','left','verticalalign','middle');
+    case 45
+        set( h,'horizontalalign','left','verticalalign','bottom');
+    case 90
+        set( h,'horizontalalign','center','verticalalign','bottom');
+    case 135
+        set( h,'horizontalalign','right','verticalalign','bottom');
+    case 180
+        set( h,'horizontalalign','right','verticalalign','middle'); 
+    case 225
+        set( h,'horizontalalign','right','verticalalign','top'); 
     case 270
         set( h,'horizontalalign','center','verticalalign','top');
-    case 180
-        set( h,'horizontalalign','right','verticalalign','middle'); end;
+    case 315
+        set( h,'horizontalalign','left','verticalalign','top'); 
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function relpos = set_default_relpos( residue, helix, plot_settings )

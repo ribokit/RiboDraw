@@ -14,15 +14,15 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* move helix labels
-* put in residue labels
-* residue colors (incl. rainbow to allow visual comparison to pymol)
 * noncanonical residue names
-* Multidomain graphs
+* residue colors (incl. rainbow to allow visual comparison to pymol)
+* hand-write DIII near PK -- figure out needed controls for noncanonical annotations
+* hide linker arrows if there's a base pair
+
 * bounding box domain movement
-* protein representation
 * document JSON file format
 * document MATLAB functions --> move to RiboKit
+* protein representation
 
 ### Future
 * Annnotation of motifs

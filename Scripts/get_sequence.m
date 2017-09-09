@@ -14,7 +14,8 @@ raw_sequence = fasta.Sequence;
 resnum = [];
 chains = '';
 sequence = '';
-non_standard_residues = {};
+non_standard_residues.index = [];
+non_standard_residues.name  = {};
 i = 1;
 while (i <= length(raw_sequence) )
     sequence = [sequence, raw_sequence(i) ];
@@ -25,11 +26,11 @@ while (i <= length(raw_sequence) )
             non_standard_name = [non_standard_name, raw_sequence(i)];
             i = i+1;
         end
-        non_standard_residues{length(sequence)} = non_standard_name;
+        non_standard_residues.index = [non_standard_residues.index,length(sequence)];
+        non_standard_residues.name  = [non_standard_residues.name,non_standard_name];
     end
     i = i+1;
 end
-for i = length(non_standard_residues)+1 : length(sequence); non_standard_residues{i} = []; end;
 
 cols = strsplit( fasta.Header );
 for i = 1:length( cols )

@@ -1,6 +1,6 @@
 % eventually need to move these loops into separate functions.
 stems = read_stems( '4ybb_DIII_stems.txt' );
-[sequence,resnum,chains,non_standard_residues] = get_sequence( '4ybb_DomainIII.fasta' );
+[sequence,resnum,chains,non_standard_residues] = get_sequence( '4ybb_DIII.fasta' );
 setappdata( gca, 'sequence', sequence );
 setappdata( gca, 'resnum', resnum );
 setappdata( gca, 'chains', chains );
@@ -20,7 +20,7 @@ plot_settings.bp_spacing = 6;
 setappdata( gca, 'plot_settings', plot_settings );
 
 stems = set_default_stem_positions( stems );
-stems = setup_residues( stems, sequence, resnum, chains );
+stems = setup_residues( stems );
 setup_stem_partner( stems );
 initalize_ticks();
 draw_dummy_linkers();

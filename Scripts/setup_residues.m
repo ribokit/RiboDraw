@@ -1,16 +1,19 @@
-function stems = setup_residues( stems, sequence, resnum, chains );
+function stems = setup_residues( stems );
 % also creates residues in appdata for gca
 %
 % (C) R. Das, Stanford University, 2017
-
+sequence = getappdata( gca, 'sequence' );
+resnum   = getappdata( gca, 'resnum' );
+chains   = getappdata( gca, 'chains' );
+non_standard_residues = getappdata( gca, 'non_standard_residues' );
 % single stranded residues:
 for n = 1:length( stems )
     stem_start1(n) = stems{n}.resnum1(1);
     stem_stop1 (n) = stems{n}.resnum1(end);
-    stem_chain1 (n) = stems{n}.chain1(1);
+    stem_chain1(n) = stems{n}.chain1(1);
     stem_start2(n) = stems{n}.resnum2(1);
     stem_stop2 (n) = stems{n}.resnum2(end);
-    stem_chain2 (n) = stems{n}.chain2(1);
+    stem_chain2(n) = stems{n}.chain2(1);
     stems{n}.associated_residues = {};
 end
 for i = 1:length(sequence)
@@ -27,9 +30,10 @@ for i = 1:length(sequence)
     dists = min( dists1, dists2 );
     [~,n] = min( dists );
     stems{n}.associated_residues = [ stems{n}.associated_residues, res_tag ];
+
     residue.chain = chain;
     residue.resnum = res;
-    residue.stem_tag = stems{n}.stem_tag;
+    residue.helix_tag = stems{n}.helix_tag;
     seqpos = intersect(strfind(chains,chain), find(resnum==res));
     residue.nucleotide = upper(sequence(seqpos));
     residue.linkers = {};

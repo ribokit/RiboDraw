@@ -139,6 +139,7 @@ if isfield( residue, 'relpos' )
         'fontsize', plot_settings.fontsize, ...
         'fontname','helvetica','horizontalalign','center','verticalalign','middle',...
         'clipping','off');
+    if ( length( residue.nucleotide ) > 1 ) set( h, 'fontsize', plot_settings.fontsize*4/5); end;
     residue.handle = h;
     residue.plot_pos = pos;
     residue = draw_tick( residue, plot_settings.bp_spacing, R );

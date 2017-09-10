@@ -14,7 +14,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* noncanonical residue names
 * residue colors (incl. rainbow to allow visual comparison to pymol)
 * hand-write DIII near PK -- figure out needed controls for noncanonical annotations
 * hide linker arrows if there's a base pair

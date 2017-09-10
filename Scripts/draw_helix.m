@@ -100,18 +100,22 @@ setappdata( h,'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@rotate_helix,h});
 helix.click_center = h;
 
+% make ticklabels draggable
+for i = 1:length( helix.associated_residues )
+    res_tag = helix.associated_residues{i};
+    residue = getappdata( gca, res_tag );
+    if isfield( residue, 'tick_label' )
+        setappdata( residue.tick_label, 'res_tag', res_tag );
+        draggable( residue.tick_label, @move_tick, 'endfcn', @redraw_tick_res_and_helix );
+    end
+end
+
 % make single-stranded residues draggable...
 for i = 1:length( not_helix_res_tags )
     res_tag = not_helix_res_tags{i};
     residue = getappdata( gca, res_tag );
-    %     h = rectangle( 'position', [residue.plot_pos(1)-spacing/2, residue.plot_pos(2)-spacing/2, spacing, spacing],...
-    %         'edgecolor',[0.5 0.5 1],'clipping','off' );
-    %     setappdata(h, 'res_tag', res_tag );
-    %     draggable(h,'n',[-inf inf -inf inf],@move_residue, 'endfcn',@redraw_res_and_helix);
-    %     residue.residue_rectangle = h;
-    %  setappdata( gca, res_tag, residue );
     draggable( residue.handle,@move_residue, 'endfcn', @redraw_res_and_helix )
-    setappdata(residue.handle, 'res_tag', res_tag );
+    % setappdata(residue.handle, 'res_tag', res_tag ); % already done during text definition.
 end
 
 % draggable helix label
@@ -129,8 +133,8 @@ setappdata( gca, helix.helix_tag, helix );
 % Helper functions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h = draw_residue( restag, helix_center, R, plot_settings );
-residue = getappdata( gca, restag );
+function h = draw_residue( res_tag, helix_center, R, plot_settings );
+residue = getappdata( gca, res_tag );
 if isfield( residue, 'relpos' )
     pos = helix_center +  residue.relpos * R ;
     h = text( ...
@@ -141,9 +145,10 @@ if isfield( residue, 'relpos' )
         'clipping','off');
     if ( length( residue.nucleotide ) > 1 ) set( h, 'fontsize', plot_settings.fontsize*4/5); end;
     residue.handle = h;
+    setappdata( residue.handle, 'res_tag', res_tag );
     residue.plot_pos = pos;
     residue = draw_tick( residue, plot_settings.bp_spacing, R );
-    setappdata( gca, restag, residue )
+    setappdata( gca, res_tag, residue )
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,6 +174,45 @@ if ( sign( residue.relpos(2) ) > 0 )
 else
     residue.tickrot = 270;
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function move_tick(h)
+% snap to grid during movement.
+pos = get(h,'Position');
+pos = pos(1:2); % text
+residue = getappdata( gca, getappdata(h,'res_tag') );
+v = pos - residue.plot_pos;
+theta = atan2( v(2), v(1) );
+theta = round(theta*180/pi/45)*45;
+v = [cos(theta*pi/180),sin(theta*pi/180)];
+plot_settings = getappdata(gca,'plot_settings');
+labelpos = residue.plot_pos + v*plot_settings.bp_spacing*2/3;
+set(h,'Position',labelpos);
+set_text_alignment( h, v )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function redraw_tick_res_and_helix(h)
+
+pos = get(h,'Position');
+pos = pos(1:2); % text
+
+% position relative to residue will define tickrot
+res_tag =  getappdata(h,'res_tag');
+residue = getappdata( gca,res_tag );
+v = pos - residue.plot_pos;
+helix = getappdata( gca, residue.helix_tag );
+
+% need to get into 'helix frame';
+theta = helix.rotation;
+R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
+R = [1 0; 0 helix.parity] * R;
+v = v*R'; 
+tickrot = mod( round(atan2(v(2),v(1))*180/pi/45)*45, 360 );
+residue.tickrot = tickrot;
+setappdata( gca, res_tag, residue );
+
+% shortcut to redraw everything.
+redraw_res_and_helix( residue.handle );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = make_label( helix, plot_settings, R )
@@ -333,6 +377,4 @@ else
 end
 
 set(h,'Position',pos );
-
-
 

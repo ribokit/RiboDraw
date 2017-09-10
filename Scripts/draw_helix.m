@@ -11,9 +11,6 @@ R = [1 0; 0 helix.parity] * R;
 N = length( helix.resnum1 );
 init = false;
 
-if ~isfield( helix, 'label_relpos' ) helix.label_relpos = plot_settings.bp_spacing *[0 1]; end;
-helix.l = make_label( helix, plot_settings, R );
-
 spacing = plot_settings.spacing;
 bp_spacing = plot_settings.bp_spacing;
 helix_res_tags = {};
@@ -71,6 +68,9 @@ for i = 1:length( helix.associated_residues )
         if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*bp_spacing/10)*v, v, 2, bp_spacing );  end
     end
 end
+
+if ~isfield( helix, 'label_relpos' ) helix.label_relpos = plot_settings.bp_spacing *[0 1]; end;
+helix.l = make_helix_label( helix, plot_settings, R );
 
 % handles for helix editing
 % rectangle for dragging.
@@ -215,12 +215,14 @@ setappdata( gca, res_tag, residue );
 redraw_res_and_helix( residue.handle );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h = make_label( helix, plot_settings, R )
+% helix label
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function h = make_helix_label( helix, plot_settings, R )
 % make label
 label_pos = helix.center + helix.label_relpos * R;
 h = text( label_pos(1), label_pos(2), helix.name,...
     'fontsize', plot_settings.fontsize*1.5, 'fontname','helvetica');
-v = label_pos - helix.center;
+v = [0,sign(helix.label_relpos(2))]*R;
 set_text_alignment( h, v );
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -228,9 +230,13 @@ function move_helix_label(h)
 pos = get(h,'position'); 
 helix_tag = getappdata( h, 'helix_tag' );
 helix = getappdata( gca, helix_tag );
-v = pos(1:2) - helix.center;
-set_text_alignment( h, v );
 
+theta = helix.rotation;
+R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
+R = [1 0; 0 helix.parity] * R;
+relpos = (pos(1:2) - helix.center)*R';
+v = [0,sign(relpos(2))]*R;
+set_text_alignment( h, v );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function redraw_helix_label(h)
@@ -248,7 +254,7 @@ helix.label_relpos = ( pos(1:2) - helix.center ) * R';
 
 % snap to grid?
 plot_settings = getappdata( gca, 'plot_settings' );
-snap_spacing = plot_settings.bp_spacing/2;
+snap_spacing = plot_settings.bp_spacing/4;
 helix.label_relpos = round( helix.label_relpos / snap_spacing ) * snap_spacing;
 
 delete( h );
@@ -257,6 +263,7 @@ draw_helix( helix );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function set_text_alignment( h, v )
+
 theta = atan2( v(2), v(1) );
 theta =  45 * round( (theta * 180/pi)/45 );
 theta = mod( theta, 360 );

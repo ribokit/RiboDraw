@@ -1640,35 +1640,35 @@
 		"chain": "C",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
-		"relpos": [0.431345354,-10.37066574]
+		"relpos": [1.181345354,-9.62066574]
 	},
 	"Residue_C1272": {
 		"resnum": 1272,
 		"chain": "C",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
-		"relpos": [-3.318654646,-10.37066574]
+		"relpos": [-1.818654646,-9.62066574]
 	},
 	"Residue_C1273": {
 		"resnum": 1273,
 		"chain": "C",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "U",
-		"relpos": [-6.318654646,-10.37066574]
+		"relpos": [-4.818654646,-9.62066574]
 	},
 	"Residue_C1274": {
 		"resnum": 1274,
 		"chain": "C",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
-		"relpos": [-9.318654646,-8.87066574]
+		"relpos": [-13.81865465,-6.62066574]
 	},
 	"Residue_C1275": {
 		"resnum": 1275,
 		"chain": "C",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
-		"relpos": [-9.318654646,-5.12066574]
+		"relpos": [-10.06865465,-5.12066574]
 	},
 	"Residue_C1276": {
 		"resnum": 1276,
@@ -1725,7 +1725,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1289",
-		"relpos": [10.93134535,-2.87066574]
+		"relpos": [10.22260749,-3.75]
 	},
 	"Residue_C1283": {
 		"resnum": 1283,
@@ -1871,7 +1871,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1642",
 		"tickrot": -0,
-		"relpos": [11.25,-28.5]
+		"relpos": [10.5,-29.25]
 	},
 	"Residue_C1301": {
 		"resnum": 1301,
@@ -1935,7 +1935,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1622",
-		"relpos": [-4.5,-3.75]
+		"relpos": [-4.5,-3]
 	},
 	"Residue_C1309": {
 		"resnum": 1309,
@@ -1951,7 +1951,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1604",
-		"tickrot": 225,
+		"tickrot": 315,
 		"relpos": [1.5,-3]
 	},
 	"Residue_C1311": {
@@ -1968,7 +1968,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1604",
-		"relpos": [9,-4.5]
+		"relpos": [8.25,-3.75]
 	},
 	"Residue_C1313": {
 		"resnum": 1313,
@@ -1976,7 +1976,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1604",
-		"relpos": [-7.5,-6]
+		"relpos": [-7.5,-6.75]
 	},
 	"Residue_C1314": {
 		"resnum": 1314,
@@ -2032,7 +2032,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1333",
-		"tickrot": 225,
+		"tickrot": 270,
 		"relpos": [10.5,-2.25]
 	},
 	"Residue_C1321": {
@@ -2041,7 +2041,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1333",
-		"relpos": [12.75,0]
+		"relpos": [12.75,0.75]
 	},
 	"Residue_C1322": {
 		"resnum": 1322,
@@ -2081,7 +2081,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1330",
-		"relpos": [7.5,-1.5]
+		"relpos": [7.5,-3]
 	},
 	"Residue_C1327": {
 		"resnum": 1327,
@@ -2089,7 +2089,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1330",
-		"relpos": [7.5,1.5]
+		"relpos": [7.5,0.75]
 	},
 	"Residue_C1328": {
 		"resnum": 1328,
@@ -2097,7 +2097,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1330",
-		"relpos": [4.5,3]
+		"relpos": [5.25,3]
 	},
 	"Residue_C1329": {
 		"resnum": 1329,
@@ -2105,7 +2105,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1330",
-		"relpos": [3.75,6]
+		"relpos": [3.75,6.75]
 	},
 	"Residue_C1330": {
 		"resnum": 1330,
@@ -2608,7 +2608,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
-		"relpos": [11.25,-3.75]
+		"relpos": [12,-3.75]
 	},
 	"Residue_C1392": {
 		"resnum": 1392,
@@ -2616,7 +2616,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1398",
-		"relpos": [14.25,-2.25]
+		"relpos": [15,-3]
 	},
 	"Residue_C1393": {
 		"resnum": 1393,
@@ -2624,7 +2624,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1398",
-		"relpos": [13.5,1.5]
+		"relpos": [15.75,0.75]
 	},
 	"Residue_C1394": {
 		"resnum": 1394,
@@ -2632,7 +2632,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
-		"relpos": [11.25,3]
+		"relpos": [12.75,3]
 	},
 	"Residue_C1395": {
 		"resnum": 1395,
@@ -2648,7 +2648,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
-		"relpos": [8.25,6]
+		"relpos": [9,6]
 	},
 	"Residue_C1397": {
 		"resnum": 1397,
@@ -2656,7 +2656,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
-		"relpos": [6,6]
+		"relpos": [6.75,6]
 	},
 	"Residue_C1398": {
 		"resnum": 1398,
@@ -2680,7 +2680,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1387",
-		"tickrot": 90,
+		"tickrot": 135,
 		"relpos": [0,3]
 	},
 	"Residue_C1401": {
@@ -2923,7 +2923,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1563",
-		"tickrot": 270,
+		"tickrot": 225,
 		"relpos": [-1.5,-3]
 	},
 	"Residue_C1431": {
@@ -3409,7 +3409,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1500",
-		"tickrot": 225,
+		"tickrot": 270,
 		"relpos": [12.81588072,-5.45596589]
 	},
 	"Residue_C1491": {
@@ -3571,7 +3571,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1481",
-		"tickrot": 90,
+		"tickrot": 45,
 		"relpos": [4.5,3]
 	},
 	"Residue_C1511": {
@@ -4057,7 +4057,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
-		"tickrot": 0,
+		"tickrot": 90,
 		"relpos": [16.5,3]
 	},
 	"Residue_C1571": {
@@ -4349,7 +4349,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1309",
-		"relpos": [-4.5,2.25]
+		"relpos": [-4.5,3]
 	},
 	"Residue_C1607": {
 		"resnum": 1607,
@@ -4357,7 +4357,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1309",
-		"relpos": [-7.5,1.5]
+		"relpos": [-6.75,6]
 	},
 	"Residue_C1608": {
 		"resnum": 1608,
@@ -4365,7 +4365,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
-		"relpos": [-8.25,4.5]
+		"relpos": [-6.75,9.75]
 	},
 	"Residue_C1609": {
 		"resnum": 1609,
@@ -4373,7 +4373,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
-		"relpos": [-7.5,-3.75]
+		"relpos": [-4.5,-6.75]
 	},
 	"Residue_C1610": {
 		"resnum": 1610,
@@ -4381,8 +4381,8 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
-		"tickrot": 270,
-		"relpos": [-4.5,-3.75]
+		"tickrot": 225,
+		"relpos": [-2.25,-6.75]
 	},
 	"Residue_C1611": {
 		"resnum": 1611,
@@ -4414,7 +4414,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1619",
-		"relpos": [6.75,-3.75]
+		"relpos": [6.75,-4.5]
 	},
 	"Residue_C1615": {
 		"resnum": 1615,
@@ -4422,7 +4422,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1619",
-		"relpos": [9.75,-3]
+		"relpos": [9,-3]
 	},
 	"Residue_C1616": {
 		"resnum": 1616,
@@ -4430,7 +4430,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1619",
-		"relpos": [9.75,0]
+		"relpos": [9.75,0.75]
 	},
 	"Residue_C1617": {
 		"resnum": 1617,
@@ -4438,7 +4438,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1619",
-		"relpos": [7.5,3]
+		"relpos": [8.25,3.75]
 	},
 	"Residue_C1618": {
 		"resnum": 1618,
@@ -4446,7 +4446,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "m^2A",
 		"stem_partner": "Residue_C1619",
-		"relpos": [4.5,3.75]
+		"relpos": [4.5,4.5]
 	},
 	"Residue_C1619": {
 		"resnum": 1619,
@@ -4471,7 +4471,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1611",
-		"relpos": [7.5,3.75]
+		"relpos": [13.5,2.25]
 	},
 	"Residue_C1622": {
 		"resnum": 1622,
@@ -4692,7 +4692,7 @@
 		"center": [96.87933426,-4.931345354],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [6,-6],
+		"label_relpos": [7.5,-6],
 		"helix_tag": "Helix_C1276",
 		"associated_residues": [
 			"Residue_C1271",
@@ -4754,7 +4754,7 @@
 		"resnum2": [1622,1623,1624,1625],
 		"chain2": "CCCC",
 		"name": "H49",
-		"center": [69,-23.25],
+		"center": [68.25,-22.5],
 		"rotation": 270,
 		"parity": -1,
 		"label_relpos": [-0,-6],
@@ -4784,7 +4784,7 @@
 		"center": [60.75,3.75],
 		"rotation": 270,
 		"parity": -1,
-		"label_relpos": [-6,-3],
+		"label_relpos": [-9,-1.5],
 		"helix_tag": "Helix_C1309",
 		"associated_residues": [
 			"Residue_C1308",
@@ -4809,7 +4809,7 @@
 		"center": [60.75,21],
 		"rotation": 0,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [-1.5,6],
 		"helix_tag": "Helix_C1314",
 		"associated_residues": [
 			"Residue_C1313",
@@ -4865,7 +4865,7 @@
 		"center": [19.5,2.25],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [-0,6],
+		"label_relpos": [0,6],
 		"helix_tag": "Helix_C1343",
 		"associated_residues": [
 			"Residue_C1341",
@@ -4885,7 +4885,7 @@
 		"center": [14.25,19.5],
 		"rotation": 180,
 		"parity": 1,
-		"label_relpos": [6,-0],
+		"label_relpos": [0,-4.5],
 		"helix_tag": "Helix_C1345",
 		"associated_residues": [
 			"Residue_C1345",
@@ -4908,7 +4908,7 @@
 		"center": [-3,33.75],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [-0,6],
 		"helix_tag": "Helix_C1349",
 		"associated_residues": [
 			"Residue_C1349",
@@ -4933,7 +4933,7 @@
 		"center": [-3,49.5],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [-0,6],
 		"helix_tag": "Helix_C1355",
 		"associated_residues": [
 			"Residue_C1354",
@@ -4959,7 +4959,7 @@
 		"center": [-3,67.5],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [1.5,6],
 		"helix_tag": "Helix_C1361",
 		"associated_residues": [
 			"Residue_C1360",
@@ -4985,7 +4985,7 @@
 		"center": [33,2.25],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [-3,6],
+		"label_relpos": [3,6],
 		"helix_tag": "Helix_C1385",
 		"associated_residues": [
 			"Residue_C1384",
@@ -5018,7 +5018,7 @@
 		"center": [-4.5,2.25],
 		"rotation": 180,
 		"parity": -1,
-		"label_relpos": [-6,-6],
+		"label_relpos": [10.5,-6],
 		"helix_tag": "Helix_C1405",
 		"associated_residues": [
 			"Residue_C1405",
@@ -5056,7 +5056,7 @@
 		"center": [-33,-2.25],
 		"rotation": 90,
 		"parity": -1,
-		"label_relpos": [15,-9],
+		"label_relpos": [18,-6],
 		"helix_tag": "Helix_C1416",
 		"associated_residues": [
 			"Residue_C1416",
@@ -5080,7 +5080,7 @@
 		"center": [-33,-17.25],
 		"rotation": 90,
 		"parity": -1,
-		"label_relpos": [-24,-0],
+		"label_relpos": [-15,6],
 		"helix_tag": "Helix_C1421",
 		"associated_residues": [
 			"Residue_C1420",
@@ -5111,7 +5111,7 @@
 		"center": [-15,-36.75],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [-0,6],
+		"label_relpos": [1.5,-6],
 		"helix_tag": "Helix_C1429",
 		"associated_residues": [
 			"Residue_C1427",
@@ -5142,7 +5142,7 @@
 		"center": [1.5,-36.75],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [-0,6],
+		"label_relpos": [-1.5,-6],
 		"helix_tag": "Helix_C1435",
 		"associated_residues": [
 			"Residue_C1434",
@@ -5167,7 +5167,7 @@
 		"center": [21,-36.75],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [-0,-6],
+		"label_relpos": [3,-6],
 		"helix_tag": "Helix_C1440",
 		"associated_residues": [
 			"Residue_C1439",
@@ -5231,7 +5231,7 @@
 		"center": [-0.75,-68.25],
 		"rotation": 180,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [-3,6],
 		"helix_tag": "Helix_C1467",
 		"associated_residues": [
 			"Residue_C1467",
@@ -5254,7 +5254,7 @@
 		"center": [-16.5,-68.25],
 		"rotation": 180,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [4.5,6],
 		"helix_tag": "Helix_C1471",
 		"associated_residues": [
 			"Residue_C1470",
@@ -5282,7 +5282,7 @@
 		"center": [-37.5,-68.25],
 		"rotation": 180,
 		"parity": 1,
-		"label_relpos": [-3,6],
+		"label_relpos": [-1.5,6],
 		"helix_tag": "Helix_C1478",
 		"associated_residues": [
 			"Residue_C1477",
@@ -5362,7 +5362,7 @@
 		"center": [19.5,-68.25],
 		"rotation": 0,
 		"parity": 1,
-		"label_relpos": [3,-6],
+		"label_relpos": [4.5,-6],
 		"helix_tag": "Helix_C1529",
 		"associated_residues": [
 			"Residue_C1528",
@@ -5390,10 +5390,10 @@
 		"resnum2": [1619,1620],
 		"chain2": "CC",
 		"name": "H49a",
-		"center": [74.25,-6],
+		"center": [75,-6],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [6,9],
+		"label_relpos": [7.5,7.5],
 		"helix_tag": "Helix_C1611",
 		"associated_residues": [
 			"Residue_C1609",

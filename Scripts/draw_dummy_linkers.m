@@ -15,10 +15,10 @@ for i = 1:length(sequence)
     linker.residue1 = res_tag_i;
     linker.residue2 = res_tag_j;
     linker.type = 'arrow';
-    linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2 ); % dummy for now -- will get redrawn later.
-    linker.arrow = patch( [0,0,0],[0,0,0],'k' );
+    linker_tag = sprintf('Linker_%s%d_%s%d_%s', chains(i),resnum(i),chains(j),resnum(j),linker.type);
+    linker.linker_tag = linker_tag;
     % stick this linker information in the connected residues.
-    add_linker_to_residue( res_tag_i, linker );
-    add_linker_to_residue( res_tag_j, linker );
-    residue = getappdata( gca, res_tag_j ); residue.linkers = [ residue.linkers, linker ]; setappdata( gca, res_tag_j, residue );
+    add_linker_to_residue( res_tag_i, linker_tag );
+    add_linker_to_residue( res_tag_j, linker_tag );
+    setappdata( gca, linker_tag, linker );
 end

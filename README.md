@@ -14,7 +14,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* hand-write DIII near PK -- figure out needed controls for noncanonical annotations
 * hide linker arrows if there's a base pair
 * allow user to better guide paths of linkers (and store that information)
 * bounding box domain movement

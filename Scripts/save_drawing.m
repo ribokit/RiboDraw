@@ -26,6 +26,7 @@ for n = 1:length( objnames )
         if isfield( figure_residue, 'tickrot' ); residue.tickrot = figure_residue.tickrot; end
         if isfield( figure_residue, 'rgb_color' ); residue.rgb_color = figure_residue.rgb_color; end
         residue.relpos = figure_residue.relpos; % needed for drawing, rel. coordinate to helix
+        if isfield( figure_residue, 'linkers' ); residue.linkers = figure_residue.linkers; end
         savedata = setfield( savedata, objnames{n}, residue );
     elseif ~isempty( strfind( objnames{n}, 'Helix_' ) );
         figure_helix = getappdata( gca, objnames{n} );
@@ -45,6 +46,17 @@ for n = 1:length( objnames )
         helix.associated_residues = figure_helix.associated_residues; % 'daughters'
         
         savedata = setfield( savedata, objnames{n}, helix );
+    elseif ~isempty( strfind( objnames{n}, 'Linker_' ) );
+        figure_linker = getappdata( gca, objnames{n} );
+        clear linker;
+        linker.residue1 = figure_linker.residue1;
+        linker.residue2 = figure_linker.residue2;
+        linker.type = figure_linker.type;
+        linker.linker_tag = figure_linker.linker_tag;
+        if isfield( figure_residue, 'edge1' ); residue.edge1 = figure_residue.edge1; end;
+        if isfield( figure_residue, 'edge2' ); residue.edge2 = figure_residue.edge2; end;
+        if isfield( figure_residue, 'LW_orientation' ); residue.LW_orientation = figure_residue.LW_orientation; end;
+        savedata = setfield( savedata, objnames{n}, linker );
     end
 end
 

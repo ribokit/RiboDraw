@@ -48,15 +48,16 @@ end
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
-    linkers = residue.linkers;
-    for k = 1 : length( linkers )
-        linker = linkers{k};
-         residue1 = getappdata( gca, linker.residue1 );
+    linker_tags = residue.linkers;
+    for k = 1 : length( linker_tags )
+        linker = getappdata( gca, linker_tags{k} );
+        residue1 = getappdata( gca, linker.residue1 );
         residue2 = getappdata( gca, linker.residue2 );
         if ~isfield( residue1, 'plot_pos' ); continue; end;
         if ~isfield( residue2, 'plot_pos' ); continue; end;
         pos1 = residue1.plot_pos;
         pos2 = residue2.plot_pos;
+        linker = draw_default_linker( linker );
         if ( norm( pos1 - pos2 ) < 1.5*plot_settings.spacing ) visible = 'off'; else; visible = 'on'; end;
         if strcmp( linker.type, 'arrow' ) set( linker.line_handle, 'visible', visible); end;
         ctr = (pos1+pos2)/2; % center of connecting line
@@ -335,6 +336,43 @@ pos2d = pos2 -  (bp_spacing/3)*v;
 set( h, 'xdata', [pos1d(1) pos2d(1)] );
 set( h, 'ydata', [pos1d(2) pos2d(2)] );
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linker = draw_default_linker( linker );
+
+switch linker.type
+    case 'stem_pair'
+        if ~isfield( linker, 'line_handle' ) & ~isfield( linker, 'symbol' )
+            residue1 = getappdata( gca, linker.residue1 );
+            residue2 = getappdata( gca, linker.residue2 );
+            bp = [residue1.nucleotide,residue2.nucleotide];
+            switch bp
+                case {'AU','UA','GC','CG' }
+                    linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.
+                case {'GU','UG'}
+                    plot_settings = getappdata( gca, 'plot_settings' );
+                    linker.symbol = create_LW_symbol( 'W', 'C', plot_settings.bp_spacing );
+            end
+            setappdata( gca, linker.linker_tag, linker );
+        end
+    case 'noncanonical_pair'
+        if ~isfield( linker, 'line_handle' )
+            plot_settings = getappdata( gca, 'plot_settings' );
+            linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.
+            if ( linker.edge1 == linker.edge2 )
+                linker.symbol = create_LW_symbol( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
+            else
+                linker.symbol1 = create_LW_symbol( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
+                linker.symbol2 = create_LW_symbol( linker.edge2, linker.LW_orientation, plot_settings.bp_spacing );
+            end
+            setappdata( gca, linker.linker_tag, linker );
+        end
+    case 'arrow'
+        if ~isfield( linker, 'line_handle' )
+            linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2 ); % dummy for now -- will get redrawn later.
+            linker.arrow = patch( [0,0,0],[0,0,0],'k' );
+            setappdata( gca, linker.linker_tag, linker );
+        end
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_symbol( h, pos, v, which_symbol, bp_spacing );

@@ -26,4 +26,5 @@ initalize_ticks();
 draw_dummy_linkers();
 draw_dummy_base_pairs( base_pairs, canonical_pair_map )
 draw_dummy_ticks();
+initialize_linker_objects();
 draw_helices( stems );

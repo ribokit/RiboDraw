@@ -1,4 +1,5 @@
-function set_default_stem_positions
+function set_default_stem_positions()
+% set_default_stem_positions()
 for n = 1:length( stems )
     col = mod( n-1, 5 ) + 1;
     row = floor((n-1)/5);

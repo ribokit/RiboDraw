@@ -1,10 +1,6 @@
-function draw_dummy_linkers()
+function draw_dummy_linkers(resnum,chains)
 % draw_dummy_linkers()
 % draw arrows at dummy locations.
-
-sequence = getappdata( gca, 'sequence' );
-resnum   = getappdata( gca, 'resnum' );
-chains   = getappdata( gca, 'chains' );
 
 for i = 1:length(sequence)
     j = i + 1;

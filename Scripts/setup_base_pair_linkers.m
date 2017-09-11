@@ -1,4 +1,4 @@
-function draw_dummy_base_pairs( base_pairs, stem_pair_map )
+function setup_base_pair_linkers( base_pairs, stem_pair_map )
 % draw_dummy_base_pairs( base_pairs )
 %
 % This also initializes linker objects if they are not defined yet.

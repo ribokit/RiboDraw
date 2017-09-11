@@ -1,12 +1,7 @@
-function stems = setup_residues( stems );
+function stems = setup_residues( stems, sequence, resnum, chains );
 % also creates residues in appdata for gca
 %
 % (C) R. Das, Stanford University, 2017
-sequence = getappdata( gca, 'sequence' );
-resnum   = getappdata( gca, 'resnum' );
-chains   = getappdata( gca, 'chains' );
-non_standard_residues = getappdata( gca, 'non_standard_residues' );
-% single stranded residues:
 
 % following could probably be replaced with logic in
 % reassign_parent_helix()

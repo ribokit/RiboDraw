@@ -7,12 +7,6 @@ function savedata = save_drawing( filename );
 vals = getappdata( gca );
 objnames = fields( vals );
 savedata = struct();
-savedata.plot_settings = getappdata( gca, 'plot_settings' );
-savedata.sequence = getappdata( gca, 'sequence' );
-savedata.resnum = getappdata( gca, 'resnum' );
-savedata.chains = getappdata( gca, 'chains' );
-savedata.non_standard_residues = getappdata( gca, 'non_standard_residues' );
-if isappdata( gca, 'base_pairs' ) savedata.base_pairs = getappdata( gca, 'base_pairs' ); end;
 for n = 1:length( objnames )
     if ~isempty( strfind( objnames{n}, 'Residue_' ) );
         figure_residue = getappdata( gca, objnames{n} );
@@ -60,6 +54,7 @@ for n = 1:length( objnames )
     end
 end
 
+savedata.plot_settings = getappdata( gca, 'plot_settings' );
 savedata.xlim = get(gca, 'xlim' );
 savedata.ylim = get(gca, 'ylim' );
 

@@ -19,8 +19,6 @@ for i = 1:length( datafields )
     datafield = datafields{i};
     setappdata( gca, datafield, getfield( loaddata, datafield ) );
 end
-%draw_dummy_linkers();
-%if isappdata( gca, 'base_pairs' ); draw_dummy_base_pairs( getappdata( gca, 'base_pairs' ) ); end;
 draw_dummy_ticks();
 draw_helices();
 

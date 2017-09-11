@@ -1638,6 +1638,7 @@
 	"Residue_C1271": {
 		"resnum": 1271,
 		"chain": "C",
+		"res_tag": "Residue_C1271",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"rgb_color": [0.002001,0,1],
@@ -1646,6 +1647,7 @@
 	"Residue_C1272": {
 		"resnum": 1272,
 		"chain": "C",
+		"res_tag": "Residue_C1272",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"rgb_color": [0,0,1],
@@ -1654,6 +1656,7 @@
 	"Residue_C1273": {
 		"resnum": 1273,
 		"chain": "C",
+		"res_tag": "Residue_C1273",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "U",
 		"rgb_color": [0,0,1],
@@ -1662,6 +1665,7 @@
 	"Residue_C1274": {
 		"resnum": 1274,
 		"chain": "C",
+		"res_tag": "Residue_C1274",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"rgb_color": [0,0,1],
@@ -1670,6 +1674,7 @@
 	"Residue_C1275": {
 		"resnum": 1275,
 		"chain": "C",
+		"res_tag": "Residue_C1275",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"rgb_color": [0,0,1],
@@ -1678,6 +1683,7 @@
 	"Residue_C1276": {
 		"resnum": 1276,
 		"chain": "C",
+		"res_tag": "Residue_C1276",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1294",
@@ -1687,6 +1693,7 @@
 	"Residue_C1277": {
 		"resnum": 1277,
 		"chain": "C",
+		"res_tag": "Residue_C1277",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1293",
@@ -1696,6 +1703,7 @@
 	"Residue_C1278": {
 		"resnum": 1278,
 		"chain": "C",
+		"res_tag": "Residue_C1278",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1292",
@@ -1705,6 +1713,7 @@
 	"Residue_C1279": {
 		"resnum": 1279,
 		"chain": "C",
+		"res_tag": "Residue_C1279",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1291",
@@ -1714,6 +1723,7 @@
 	"Residue_C1280": {
 		"resnum": 1280,
 		"chain": "C",
+		"res_tag": "Residue_C1280",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1290",
@@ -1724,6 +1734,7 @@
 	"Residue_C1281": {
 		"resnum": 1281,
 		"chain": "C",
+		"res_tag": "Residue_C1281",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1289",
@@ -1733,6 +1744,7 @@
 	"Residue_C1282": {
 		"resnum": 1282,
 		"chain": "C",
+		"res_tag": "Residue_C1282",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1289",
@@ -1742,6 +1754,7 @@
 	"Residue_C1283": {
 		"resnum": 1283,
 		"chain": "C",
+		"res_tag": "Residue_C1283",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1289",
@@ -1751,6 +1764,7 @@
 	"Residue_C1284": {
 		"resnum": 1284,
 		"chain": "C",
+		"res_tag": "Residue_C1284",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
@@ -1760,6 +1774,7 @@
 	"Residue_C1285": {
 		"resnum": 1285,
 		"chain": "C",
+		"res_tag": "Residue_C1285",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
@@ -1769,6 +1784,7 @@
 	"Residue_C1286": {
 		"resnum": 1286,
 		"chain": "C",
+		"res_tag": "Residue_C1286",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
@@ -1778,6 +1794,7 @@
 	"Residue_C1287": {
 		"resnum": 1287,
 		"chain": "C",
+		"res_tag": "Residue_C1287",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
@@ -1787,6 +1804,7 @@
 	"Residue_C1288": {
 		"resnum": 1288,
 		"chain": "C",
+		"res_tag": "Residue_C1288",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1289",
@@ -1796,6 +1814,7 @@
 	"Residue_C1289": {
 		"resnum": 1289,
 		"chain": "C",
+		"res_tag": "Residue_C1289",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1281",
@@ -1805,6 +1824,7 @@
 	"Residue_C1290": {
 		"resnum": 1290,
 		"chain": "C",
+		"res_tag": "Residue_C1290",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1280",
@@ -1815,6 +1835,7 @@
 	"Residue_C1291": {
 		"resnum": 1291,
 		"chain": "C",
+		"res_tag": "Residue_C1291",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1279",
@@ -1824,6 +1845,7 @@
 	"Residue_C1292": {
 		"resnum": 1292,
 		"chain": "C",
+		"res_tag": "Residue_C1292",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1278",
@@ -1833,6 +1855,7 @@
 	"Residue_C1293": {
 		"resnum": 1293,
 		"chain": "C",
+		"res_tag": "Residue_C1293",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1277",
@@ -1842,6 +1865,7 @@
 	"Residue_C1294": {
 		"resnum": 1294,
 		"chain": "C",
+		"res_tag": "Residue_C1294",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1276",
@@ -1851,6 +1875,7 @@
 	"Residue_C1295": {
 		"resnum": 1295,
 		"chain": "C",
+		"res_tag": "Residue_C1295",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1645",
@@ -1860,6 +1885,7 @@
 	"Residue_C1296": {
 		"resnum": 1296,
 		"chain": "C",
+		"res_tag": "Residue_C1296",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1644",
@@ -1869,6 +1895,7 @@
 	"Residue_C1297": {
 		"resnum": 1297,
 		"chain": "C",
+		"res_tag": "Residue_C1297",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1643",
@@ -1878,6 +1905,7 @@
 	"Residue_C1298": {
 		"resnum": 1298,
 		"chain": "C",
+		"res_tag": "Residue_C1298",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1642",
@@ -1887,6 +1915,7 @@
 	"Residue_C1299": {
 		"resnum": 1299,
 		"chain": "C",
+		"res_tag": "Residue_C1299",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1642",
@@ -1896,6 +1925,7 @@
 	"Residue_C1300": {
 		"resnum": 1300,
 		"chain": "C",
+		"res_tag": "Residue_C1300",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1642",
@@ -1906,6 +1936,7 @@
 	"Residue_C1301": {
 		"resnum": 1301,
 		"chain": "C",
+		"res_tag": "Residue_C1301",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1642",
@@ -1915,6 +1946,7 @@
 	"Residue_C1302": {
 		"resnum": 1302,
 		"chain": "C",
+		"res_tag": "Residue_C1302",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1642",
@@ -1924,6 +1956,7 @@
 	"Residue_C1303": {
 		"resnum": 1303,
 		"chain": "C",
+		"res_tag": "Residue_C1303",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1625",
@@ -1933,6 +1966,7 @@
 	"Residue_C1304": {
 		"resnum": 1304,
 		"chain": "C",
+		"res_tag": "Residue_C1304",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1624",
@@ -1942,6 +1976,7 @@
 	"Residue_C1305": {
 		"resnum": 1305,
 		"chain": "C",
+		"res_tag": "Residue_C1305",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1623",
@@ -1951,6 +1986,7 @@
 	"Residue_C1306": {
 		"resnum": 1306,
 		"chain": "C",
+		"res_tag": "Residue_C1306",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1622",
@@ -1960,6 +1996,7 @@
 	"Residue_C1307": {
 		"resnum": 1307,
 		"chain": "C",
+		"res_tag": "Residue_C1307",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1622",
@@ -1969,6 +2006,7 @@
 	"Residue_C1308": {
 		"resnum": 1308,
 		"chain": "C",
+		"res_tag": "Residue_C1308",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1622",
@@ -1978,6 +2016,7 @@
 	"Residue_C1309": {
 		"resnum": 1309,
 		"chain": "C",
+		"res_tag": "Residue_C1309",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1605",
@@ -1987,6 +2026,7 @@
 	"Residue_C1310": {
 		"resnum": 1310,
 		"chain": "C",
+		"res_tag": "Residue_C1310",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1604",
@@ -1997,6 +2037,7 @@
 	"Residue_C1311": {
 		"resnum": 1311,
 		"chain": "C",
+		"res_tag": "Residue_C1311",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1604",
@@ -2006,6 +2047,7 @@
 	"Residue_C1312": {
 		"resnum": 1312,
 		"chain": "C",
+		"res_tag": "Residue_C1312",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1604",
@@ -2015,6 +2057,7 @@
 	"Residue_C1313": {
 		"resnum": 1313,
 		"chain": "C",
+		"res_tag": "Residue_C1313",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1604",
@@ -2024,6 +2067,7 @@
 	"Residue_C1314": {
 		"resnum": 1314,
 		"chain": "C",
+		"res_tag": "Residue_C1314",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1338",
@@ -2033,6 +2077,7 @@
 	"Residue_C1315": {
 		"resnum": 1315,
 		"chain": "C",
+		"res_tag": "Residue_C1315",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1337",
@@ -2042,6 +2087,7 @@
 	"Residue_C1316": {
 		"resnum": 1316,
 		"chain": "C",
+		"res_tag": "Residue_C1316",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1336",
@@ -2051,6 +2097,7 @@
 	"Residue_C1317": {
 		"resnum": 1317,
 		"chain": "C",
+		"res_tag": "Residue_C1317",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1335",
@@ -2060,6 +2107,7 @@
 	"Residue_C1318": {
 		"resnum": 1318,
 		"chain": "C",
+		"res_tag": "Residue_C1318",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1334",
@@ -2069,6 +2117,7 @@
 	"Residue_C1319": {
 		"resnum": 1319,
 		"chain": "C",
+		"res_tag": "Residue_C1319",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1333",
@@ -2078,6 +2127,7 @@
 	"Residue_C1320": {
 		"resnum": 1320,
 		"chain": "C",
+		"res_tag": "Residue_C1320",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1333",
@@ -2088,6 +2138,7 @@
 	"Residue_C1321": {
 		"resnum": 1321,
 		"chain": "C",
+		"res_tag": "Residue_C1321",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1333",
@@ -2097,6 +2148,7 @@
 	"Residue_C1322": {
 		"resnum": 1322,
 		"chain": "C",
+		"res_tag": "Residue_C1322",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1333",
@@ -2106,6 +2158,7 @@
 	"Residue_C1323": {
 		"resnum": 1323,
 		"chain": "C",
+		"res_tag": "Residue_C1323",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1331",
@@ -2115,6 +2168,7 @@
 	"Residue_C1324": {
 		"resnum": 1324,
 		"chain": "C",
+		"res_tag": "Residue_C1324",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1330",
@@ -2124,6 +2178,7 @@
 	"Residue_C1325": {
 		"resnum": 1325,
 		"chain": "C",
+		"res_tag": "Residue_C1325",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1330",
@@ -2133,6 +2188,7 @@
 	"Residue_C1326": {
 		"resnum": 1326,
 		"chain": "C",
+		"res_tag": "Residue_C1326",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1330",
@@ -2142,6 +2198,7 @@
 	"Residue_C1327": {
 		"resnum": 1327,
 		"chain": "C",
+		"res_tag": "Residue_C1327",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1330",
@@ -2151,6 +2208,7 @@
 	"Residue_C1328": {
 		"resnum": 1328,
 		"chain": "C",
+		"res_tag": "Residue_C1328",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1330",
@@ -2160,6 +2218,7 @@
 	"Residue_C1329": {
 		"resnum": 1329,
 		"chain": "C",
+		"res_tag": "Residue_C1329",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1330",
@@ -2169,6 +2228,7 @@
 	"Residue_C1330": {
 		"resnum": 1330,
 		"chain": "C",
+		"res_tag": "Residue_C1330",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1324",
@@ -2179,6 +2239,7 @@
 	"Residue_C1331": {
 		"resnum": 1331,
 		"chain": "C",
+		"res_tag": "Residue_C1331",
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1323",
@@ -2188,6 +2249,7 @@
 	"Residue_C1332": {
 		"resnum": 1332,
 		"chain": "C",
+		"res_tag": "Residue_C1332",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1323",
@@ -2197,6 +2259,7 @@
 	"Residue_C1333": {
 		"resnum": 1333,
 		"chain": "C",
+		"res_tag": "Residue_C1333",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1319",
@@ -2206,6 +2269,7 @@
 	"Residue_C1334": {
 		"resnum": 1334,
 		"chain": "C",
+		"res_tag": "Residue_C1334",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1318",
@@ -2215,6 +2279,7 @@
 	"Residue_C1335": {
 		"resnum": 1335,
 		"chain": "C",
+		"res_tag": "Residue_C1335",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1317",
@@ -2224,6 +2289,7 @@
 	"Residue_C1336": {
 		"resnum": 1336,
 		"chain": "C",
+		"res_tag": "Residue_C1336",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1316",
@@ -2233,6 +2299,7 @@
 	"Residue_C1337": {
 		"resnum": 1337,
 		"chain": "C",
+		"res_tag": "Residue_C1337",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1315",
@@ -2242,6 +2309,7 @@
 	"Residue_C1338": {
 		"resnum": 1338,
 		"chain": "C",
+		"res_tag": "Residue_C1338",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1314",
@@ -2251,6 +2319,7 @@
 	"Residue_C1339": {
 		"resnum": 1339,
 		"chain": "C",
+		"res_tag": "Residue_C1339",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1314",
@@ -2260,6 +2329,7 @@
 	"Residue_C1340": {
 		"resnum": 1340,
 		"chain": "C",
+		"res_tag": "Residue_C1340",
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1314",
@@ -2270,6 +2340,7 @@
 	"Residue_C1341": {
 		"resnum": 1341,
 		"chain": "C",
+		"res_tag": "Residue_C1341",
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1314",
@@ -2279,15 +2350,17 @@
 	"Residue_C1342": {
 		"resnum": 1342,
 		"chain": "C",
-		"helix_tag": "Helix_C1343",
+		"res_tag": "Residue_C1342",
+		"helix_tag": "Helix_C1345",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1314",
 		"rgb_color": [0,0.827999,1],
-		"relpos": [0.75,-14.25]
+		"relpos": [-6,-3]
 	},
 	"Residue_C1343": {
 		"resnum": 1343,
 		"chain": "C",
+		"res_tag": "Residue_C1343",
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1404",
@@ -2297,6 +2370,7 @@
 	"Residue_C1344": {
 		"resnum": 1344,
 		"chain": "C",
+		"res_tag": "Residue_C1344",
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1403",
@@ -2306,6 +2380,7 @@
 	"Residue_C1345": {
 		"resnum": 1345,
 		"chain": "C",
+		"res_tag": "Residue_C1345",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1601",
@@ -2315,6 +2390,7 @@
 	"Residue_C1346": {
 		"resnum": 1346,
 		"chain": "C",
+		"res_tag": "Residue_C1346",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1600",
@@ -2324,6 +2400,7 @@
 	"Residue_C1347": {
 		"resnum": 1347,
 		"chain": "C",
+		"res_tag": "Residue_C1347",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1599",
@@ -2333,6 +2410,7 @@
 	"Residue_C1348": {
 		"resnum": 1348,
 		"chain": "C",
+		"res_tag": "Residue_C1348",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1599",
@@ -2342,6 +2420,7 @@
 	"Residue_C1349": {
 		"resnum": 1349,
 		"chain": "C",
+		"res_tag": "Residue_C1349",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1382",
@@ -2351,6 +2430,7 @@
 	"Residue_C1350": {
 		"resnum": 1350,
 		"chain": "C",
+		"res_tag": "Residue_C1350",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1381",
@@ -2361,6 +2441,7 @@
 	"Residue_C1351": {
 		"resnum": 1351,
 		"chain": "C",
+		"res_tag": "Residue_C1351",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1380",
@@ -2370,6 +2451,7 @@
 	"Residue_C1352": {
 		"resnum": 1352,
 		"chain": "C",
+		"res_tag": "Residue_C1352",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1380",
@@ -2379,6 +2461,7 @@
 	"Residue_C1353": {
 		"resnum": 1353,
 		"chain": "C",
+		"res_tag": "Residue_C1353",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1380",
@@ -2388,6 +2471,7 @@
 	"Residue_C1354": {
 		"resnum": 1354,
 		"chain": "C",
+		"res_tag": "Residue_C1354",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1380",
@@ -2397,6 +2481,7 @@
 	"Residue_C1355": {
 		"resnum": 1355,
 		"chain": "C",
+		"res_tag": "Residue_C1355",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1376",
@@ -2406,6 +2491,7 @@
 	"Residue_C1356": {
 		"resnum": 1356,
 		"chain": "C",
+		"res_tag": "Residue_C1356",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1375",
@@ -2415,6 +2501,7 @@
 	"Residue_C1357": {
 		"resnum": 1357,
 		"chain": "C",
+		"res_tag": "Residue_C1357",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1374",
@@ -2424,6 +2511,7 @@
 	"Residue_C1358": {
 		"resnum": 1358,
 		"chain": "C",
+		"res_tag": "Residue_C1358",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1374",
@@ -2433,6 +2521,7 @@
 	"Residue_C1359": {
 		"resnum": 1359,
 		"chain": "C",
+		"res_tag": "Residue_C1359",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1374",
@@ -2442,6 +2531,7 @@
 	"Residue_C1360": {
 		"resnum": 1360,
 		"chain": "C",
+		"res_tag": "Residue_C1360",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1374",
@@ -2452,6 +2542,7 @@
 	"Residue_C1361": {
 		"resnum": 1361,
 		"chain": "C",
+		"res_tag": "Residue_C1361",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1370",
@@ -2461,6 +2552,7 @@
 	"Residue_C1362": {
 		"resnum": 1362,
 		"chain": "C",
+		"res_tag": "Residue_C1362",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1369",
@@ -2470,6 +2562,7 @@
 	"Residue_C1363": {
 		"resnum": 1363,
 		"chain": "C",
+		"res_tag": "Residue_C1363",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1368",
@@ -2479,6 +2572,7 @@
 	"Residue_C1364": {
 		"resnum": 1364,
 		"chain": "C",
+		"res_tag": "Residue_C1364",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1368",
@@ -2488,6 +2582,7 @@
 	"Residue_C1365": {
 		"resnum": 1365,
 		"chain": "C",
+		"res_tag": "Residue_C1365",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1368",
@@ -2497,6 +2592,7 @@
 	"Residue_C1366": {
 		"resnum": 1366,
 		"chain": "C",
+		"res_tag": "Residue_C1366",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1368",
@@ -2506,6 +2602,7 @@
 	"Residue_C1367": {
 		"resnum": 1367,
 		"chain": "C",
+		"res_tag": "Residue_C1367",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1368",
@@ -2515,6 +2612,7 @@
 	"Residue_C1368": {
 		"resnum": 1368,
 		"chain": "C",
+		"res_tag": "Residue_C1368",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1363",
@@ -2524,6 +2622,7 @@
 	"Residue_C1369": {
 		"resnum": 1369,
 		"chain": "C",
+		"res_tag": "Residue_C1369",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1362",
@@ -2533,6 +2632,7 @@
 	"Residue_C1370": {
 		"resnum": 1370,
 		"chain": "C",
+		"res_tag": "Residue_C1370",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1361",
@@ -2543,6 +2643,7 @@
 	"Residue_C1371": {
 		"resnum": 1371,
 		"chain": "C",
+		"res_tag": "Residue_C1371",
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1361",
@@ -2552,6 +2653,7 @@
 	"Residue_C1372": {
 		"resnum": 1372,
 		"chain": "C",
+		"res_tag": "Residue_C1372",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1361",
@@ -2561,6 +2663,7 @@
 	"Residue_C1373": {
 		"resnum": 1373,
 		"chain": "C",
+		"res_tag": "Residue_C1373",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1361",
@@ -2570,6 +2673,7 @@
 	"Residue_C1374": {
 		"resnum": 1374,
 		"chain": "C",
+		"res_tag": "Residue_C1374",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1357",
@@ -2579,6 +2683,7 @@
 	"Residue_C1375": {
 		"resnum": 1375,
 		"chain": "C",
+		"res_tag": "Residue_C1375",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1356",
@@ -2588,6 +2693,7 @@
 	"Residue_C1376": {
 		"resnum": 1376,
 		"chain": "C",
+		"res_tag": "Residue_C1376",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1355",
@@ -2597,6 +2703,7 @@
 	"Residue_C1377": {
 		"resnum": 1377,
 		"chain": "C",
+		"res_tag": "Residue_C1377",
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1355",
@@ -2606,6 +2713,7 @@
 	"Residue_C1378": {
 		"resnum": 1378,
 		"chain": "C",
+		"res_tag": "Residue_C1378",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1355",
@@ -2615,6 +2723,7 @@
 	"Residue_C1379": {
 		"resnum": 1379,
 		"chain": "C",
+		"res_tag": "Residue_C1379",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1355",
@@ -2624,6 +2733,7 @@
 	"Residue_C1380": {
 		"resnum": 1380,
 		"chain": "C",
+		"res_tag": "Residue_C1380",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1351",
@@ -2634,6 +2744,7 @@
 	"Residue_C1381": {
 		"resnum": 1381,
 		"chain": "C",
+		"res_tag": "Residue_C1381",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1350",
@@ -2643,6 +2754,7 @@
 	"Residue_C1382": {
 		"resnum": 1382,
 		"chain": "C",
+		"res_tag": "Residue_C1382",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1349",
@@ -2652,6 +2764,7 @@
 	"Residue_C1383": {
 		"resnum": 1383,
 		"chain": "C",
+		"res_tag": "Residue_C1383",
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1349",
@@ -2661,6 +2774,7 @@
 	"Residue_C1384": {
 		"resnum": 1384,
 		"chain": "C",
+		"res_tag": "Residue_C1384",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1349",
@@ -2670,6 +2784,7 @@
 	"Residue_C1385": {
 		"resnum": 1385,
 		"chain": "C",
+		"res_tag": "Residue_C1385",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1402",
@@ -2679,6 +2794,7 @@
 	"Residue_C1386": {
 		"resnum": 1386,
 		"chain": "C",
+		"res_tag": "Residue_C1386",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1401",
@@ -2688,6 +2804,7 @@
 	"Residue_C1387": {
 		"resnum": 1387,
 		"chain": "C",
+		"res_tag": "Residue_C1387",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1400",
@@ -2697,6 +2814,7 @@
 	"Residue_C1388": {
 		"resnum": 1388,
 		"chain": "C",
+		"res_tag": "Residue_C1388",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1399",
@@ -2706,6 +2824,7 @@
 	"Residue_C1389": {
 		"resnum": 1389,
 		"chain": "C",
+		"res_tag": "Residue_C1389",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1398",
@@ -2715,6 +2834,7 @@
 	"Residue_C1390": {
 		"resnum": 1390,
 		"chain": "C",
+		"res_tag": "Residue_C1390",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
@@ -2725,6 +2845,7 @@
 	"Residue_C1391": {
 		"resnum": 1391,
 		"chain": "C",
+		"res_tag": "Residue_C1391",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
@@ -2734,6 +2855,7 @@
 	"Residue_C1392": {
 		"resnum": 1392,
 		"chain": "C",
+		"res_tag": "Residue_C1392",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1398",
@@ -2743,6 +2865,7 @@
 	"Residue_C1393": {
 		"resnum": 1393,
 		"chain": "C",
+		"res_tag": "Residue_C1393",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1398",
@@ -2752,6 +2875,7 @@
 	"Residue_C1394": {
 		"resnum": 1394,
 		"chain": "C",
+		"res_tag": "Residue_C1394",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
@@ -2761,6 +2885,7 @@
 	"Residue_C1395": {
 		"resnum": 1395,
 		"chain": "C",
+		"res_tag": "Residue_C1395",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1398",
@@ -2770,6 +2895,7 @@
 	"Residue_C1396": {
 		"resnum": 1396,
 		"chain": "C",
+		"res_tag": "Residue_C1396",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
@@ -2779,6 +2905,7 @@
 	"Residue_C1397": {
 		"resnum": 1397,
 		"chain": "C",
+		"res_tag": "Residue_C1397",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
@@ -2788,6 +2915,7 @@
 	"Residue_C1398": {
 		"resnum": 1398,
 		"chain": "C",
+		"res_tag": "Residue_C1398",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1389",
@@ -2797,6 +2925,7 @@
 	"Residue_C1399": {
 		"resnum": 1399,
 		"chain": "C",
+		"res_tag": "Residue_C1399",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1388",
@@ -2806,6 +2935,7 @@
 	"Residue_C1400": {
 		"resnum": 1400,
 		"chain": "C",
+		"res_tag": "Residue_C1400",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1387",
@@ -2816,6 +2946,7 @@
 	"Residue_C1401": {
 		"resnum": 1401,
 		"chain": "C",
+		"res_tag": "Residue_C1401",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1386",
@@ -2825,6 +2956,7 @@
 	"Residue_C1402": {
 		"resnum": 1402,
 		"chain": "C",
+		"res_tag": "Residue_C1402",
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1385",
@@ -2834,6 +2966,7 @@
 	"Residue_C1403": {
 		"resnum": 1403,
 		"chain": "C",
+		"res_tag": "Residue_C1403",
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1344",
@@ -2843,6 +2976,7 @@
 	"Residue_C1404": {
 		"resnum": 1404,
 		"chain": "C",
+		"res_tag": "Residue_C1404",
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1343",
@@ -2852,6 +2986,7 @@
 	"Residue_C1405": {
 		"resnum": 1405,
 		"chain": "C",
+		"res_tag": "Residue_C1405",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1597",
@@ -2861,6 +2996,7 @@
 	"Residue_C1406": {
 		"resnum": 1406,
 		"chain": "C",
+		"res_tag": "Residue_C1406",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1596",
@@ -2870,6 +3006,7 @@
 	"Residue_C1407": {
 		"resnum": 1407,
 		"chain": "C",
+		"res_tag": "Residue_C1407",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1595",
@@ -2879,6 +3016,7 @@
 	"Residue_C1408": {
 		"resnum": 1408,
 		"chain": "C",
+		"res_tag": "Residue_C1408",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1594",
@@ -2888,6 +3026,7 @@
 	"Residue_C1409": {
 		"resnum": 1409,
 		"chain": "C",
+		"res_tag": "Residue_C1409",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1593",
@@ -2897,6 +3036,7 @@
 	"Residue_C1410": {
 		"resnum": 1410,
 		"chain": "C",
+		"res_tag": "Residue_C1410",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1592",
@@ -2907,6 +3047,7 @@
 	"Residue_C1411": {
 		"resnum": 1411,
 		"chain": "C",
+		"res_tag": "Residue_C1411",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1591",
@@ -2916,6 +3057,7 @@
 	"Residue_C1412": {
 		"resnum": 1412,
 		"chain": "C",
+		"res_tag": "Residue_C1412",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1590",
@@ -2925,6 +3067,7 @@
 	"Residue_C1413": {
 		"resnum": 1413,
 		"chain": "C",
+		"res_tag": "Residue_C1413",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1589",
@@ -2934,6 +3077,7 @@
 	"Residue_C1414": {
 		"resnum": 1414,
 		"chain": "C",
+		"res_tag": "Residue_C1414",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1588",
@@ -2943,6 +3087,7 @@
 	"Residue_C1415": {
 		"resnum": 1415,
 		"chain": "C",
+		"res_tag": "Residue_C1415",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1587",
@@ -2952,6 +3097,7 @@
 	"Residue_C1416": {
 		"resnum": 1416,
 		"chain": "C",
+		"res_tag": "Residue_C1416",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1582",
@@ -2961,6 +3107,7 @@
 	"Residue_C1417": {
 		"resnum": 1417,
 		"chain": "C",
+		"res_tag": "Residue_C1417",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1581",
@@ -2970,6 +3117,7 @@
 	"Residue_C1418": {
 		"resnum": 1418,
 		"chain": "C",
+		"res_tag": "Residue_C1418",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1581",
@@ -2979,6 +3127,7 @@
 	"Residue_C1419": {
 		"resnum": 1419,
 		"chain": "C",
+		"res_tag": "Residue_C1419",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1581",
@@ -2988,6 +3137,7 @@
 	"Residue_C1420": {
 		"resnum": 1420,
 		"chain": "C",
+		"res_tag": "Residue_C1420",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1581",
@@ -2998,6 +3148,7 @@
 	"Residue_C1421": {
 		"resnum": 1421,
 		"chain": "C",
+		"res_tag": "Residue_C1421",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1577",
@@ -3007,6 +3158,7 @@
 	"Residue_C1422": {
 		"resnum": 1422,
 		"chain": "C",
+		"res_tag": "Residue_C1422",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1576",
@@ -3016,6 +3168,7 @@
 	"Residue_C1423": {
 		"resnum": 1423,
 		"chain": "C",
+		"res_tag": "Residue_C1423",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1575",
@@ -3025,6 +3178,7 @@
 	"Residue_C1424": {
 		"resnum": 1424,
 		"chain": "C",
+		"res_tag": "Residue_C1424",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1574",
@@ -3034,6 +3188,7 @@
 	"Residue_C1425": {
 		"resnum": 1425,
 		"chain": "C",
+		"res_tag": "Residue_C1425",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1574",
@@ -3043,6 +3198,7 @@
 	"Residue_C1426": {
 		"resnum": 1426,
 		"chain": "C",
+		"res_tag": "Residue_C1426",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1574",
@@ -3052,24 +3208,27 @@
 	"Residue_C1427": {
 		"resnum": 1427,
 		"chain": "C",
-		"helix_tag": "Helix_C1429",
+		"res_tag": "Residue_C1427",
+		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1574",
 		"rgb_color": [0.030399,1,0],
-		"relpos": [-15,-6]
+		"relpos": [13.5,-3]
 	},
 	"Residue_C1428": {
 		"resnum": 1428,
 		"chain": "C",
-		"helix_tag": "Helix_C1429",
+		"res_tag": "Residue_C1428",
+		"helix_tag": "Helix_C1421",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1574",
 		"rgb_color": [0.041599,1,0],
-		"relpos": [-15,-3]
+		"relpos": [16.5,-3]
 	},
 	"Residue_C1429": {
 		"resnum": 1429,
 		"chain": "C",
+		"res_tag": "Residue_C1429",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1564",
@@ -3079,6 +3238,7 @@
 	"Residue_C1430": {
 		"resnum": 1430,
 		"chain": "C",
+		"res_tag": "Residue_C1430",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1563",
@@ -3089,6 +3249,7 @@
 	"Residue_C1431": {
 		"resnum": 1431,
 		"chain": "C",
+		"res_tag": "Residue_C1431",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1562",
@@ -3098,6 +3259,7 @@
 	"Residue_C1432": {
 		"resnum": 1432,
 		"chain": "C",
+		"res_tag": "Residue_C1432",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1561",
@@ -3107,6 +3269,7 @@
 	"Residue_C1433": {
 		"resnum": 1433,
 		"chain": "C",
+		"res_tag": "Residue_C1433",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1561",
@@ -3116,6 +3279,7 @@
 	"Residue_C1434": {
 		"resnum": 1434,
 		"chain": "C",
+		"res_tag": "Residue_C1434",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1561",
@@ -3125,6 +3289,7 @@
 	"Residue_C1435": {
 		"resnum": 1435,
 		"chain": "C",
+		"res_tag": "Residue_C1435",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1557",
@@ -3134,6 +3299,7 @@
 	"Residue_C1436": {
 		"resnum": 1436,
 		"chain": "C",
+		"res_tag": "Residue_C1436",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1556",
@@ -3143,6 +3309,7 @@
 	"Residue_C1437": {
 		"resnum": 1437,
 		"chain": "C",
+		"res_tag": "Residue_C1437",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1555",
@@ -3152,6 +3319,7 @@
 	"Residue_C1438": {
 		"resnum": 1438,
 		"chain": "C",
+		"res_tag": "Residue_C1438",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1555",
@@ -3161,6 +3329,7 @@
 	"Residue_C1439": {
 		"resnum": 1439,
 		"chain": "C",
+		"res_tag": "Residue_C1439",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1555",
@@ -3170,6 +3339,7 @@
 	"Residue_C1440": {
 		"resnum": 1440,
 		"chain": "C",
+		"res_tag": "Residue_C1440",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1551",
@@ -3180,6 +3350,7 @@
 	"Residue_C1441": {
 		"resnum": 1441,
 		"chain": "C",
+		"res_tag": "Residue_C1441",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1550",
@@ -3189,6 +3360,7 @@
 	"Residue_C1442": {
 		"resnum": 1442,
 		"chain": "C",
+		"res_tag": "Residue_C1442",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1549",
@@ -3198,6 +3370,7 @@
 	"Residue_C1443": {
 		"resnum": 1443,
 		"chain": "C",
+		"res_tag": "Residue_C1443",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1548",
@@ -3207,6 +3380,7 @@
 	"Residue_C1444": {
 		"resnum": 1444,
 		"chain": "C",
+		"res_tag": "Residue_C1444",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1547",
@@ -3216,6 +3390,7 @@
 	"Residue_C1445": {
 		"resnum": 1445,
 		"chain": "C",
+		"res_tag": "Residue_C1445",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1466",
@@ -3225,6 +3400,7 @@
 	"Residue_C1446": {
 		"resnum": 1446,
 		"chain": "C",
+		"res_tag": "Residue_C1446",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1465",
@@ -3234,6 +3410,7 @@
 	"Residue_C1447": {
 		"resnum": 1447,
 		"chain": "C",
+		"res_tag": "Residue_C1447",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1464",
@@ -3243,6 +3420,7 @@
 	"Residue_C1448": {
 		"resnum": 1448,
 		"chain": "C",
+		"res_tag": "Residue_C1448",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1463",
@@ -3252,6 +3430,7 @@
 	"Residue_C1449": {
 		"resnum": 1449,
 		"chain": "C",
+		"res_tag": "Residue_C1449",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1462",
@@ -3261,6 +3440,7 @@
 	"Residue_C1450": {
 		"resnum": 1450,
 		"chain": "C",
+		"res_tag": "Residue_C1450",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
@@ -3271,6 +3451,7 @@
 	"Residue_C1451": {
 		"resnum": 1451,
 		"chain": "C",
+		"res_tag": "Residue_C1451",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1461",
@@ -3280,6 +3461,7 @@
 	"Residue_C1452": {
 		"resnum": 1452,
 		"chain": "C",
+		"res_tag": "Residue_C1452",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
@@ -3289,6 +3471,7 @@
 	"Residue_C1453": {
 		"resnum": 1453,
 		"chain": "C",
+		"res_tag": "Residue_C1453",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1461",
@@ -3298,6 +3481,7 @@
 	"Residue_C1454": {
 		"resnum": 1454,
 		"chain": "C",
+		"res_tag": "Residue_C1454",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1461",
@@ -3307,6 +3491,7 @@
 	"Residue_C1455": {
 		"resnum": 1455,
 		"chain": "C",
+		"res_tag": "Residue_C1455",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
@@ -3316,6 +3501,7 @@
 	"Residue_C1456": {
 		"resnum": 1456,
 		"chain": "C",
+		"res_tag": "Residue_C1456",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
@@ -3325,6 +3511,7 @@
 	"Residue_C1457": {
 		"resnum": 1457,
 		"chain": "C",
+		"res_tag": "Residue_C1457",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1461",
@@ -3334,6 +3521,7 @@
 	"Residue_C1458": {
 		"resnum": 1458,
 		"chain": "C",
+		"res_tag": "Residue_C1458",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1461",
@@ -3343,6 +3531,7 @@
 	"Residue_C1459": {
 		"resnum": 1459,
 		"chain": "C",
+		"res_tag": "Residue_C1459",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
@@ -3352,6 +3541,7 @@
 	"Residue_C1460": {
 		"resnum": 1460,
 		"chain": "C",
+		"res_tag": "Residue_C1460",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1461",
@@ -3362,6 +3552,7 @@
 	"Residue_C1461": {
 		"resnum": 1461,
 		"chain": "C",
+		"res_tag": "Residue_C1461",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1450",
@@ -3371,6 +3562,7 @@
 	"Residue_C1462": {
 		"resnum": 1462,
 		"chain": "C",
+		"res_tag": "Residue_C1462",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1449",
@@ -3380,6 +3572,7 @@
 	"Residue_C1463": {
 		"resnum": 1463,
 		"chain": "C",
+		"res_tag": "Residue_C1463",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1448",
@@ -3389,6 +3582,7 @@
 	"Residue_C1464": {
 		"resnum": 1464,
 		"chain": "C",
+		"res_tag": "Residue_C1464",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1447",
@@ -3398,6 +3592,7 @@
 	"Residue_C1465": {
 		"resnum": 1465,
 		"chain": "C",
+		"res_tag": "Residue_C1465",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1446",
@@ -3407,6 +3602,7 @@
 	"Residue_C1466": {
 		"resnum": 1466,
 		"chain": "C",
+		"res_tag": "Residue_C1466",
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1445",
@@ -3416,6 +3612,7 @@
 	"Residue_C1467": {
 		"resnum": 1467,
 		"chain": "C",
+		"res_tag": "Residue_C1467",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1525",
@@ -3425,6 +3622,7 @@
 	"Residue_C1468": {
 		"resnum": 1468,
 		"chain": "C",
+		"res_tag": "Residue_C1468",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1524",
@@ -3434,6 +3632,7 @@
 	"Residue_C1469": {
 		"resnum": 1469,
 		"chain": "C",
+		"res_tag": "Residue_C1469",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1524",
@@ -3443,6 +3642,7 @@
 	"Residue_C1470": {
 		"resnum": 1470,
 		"chain": "C",
+		"res_tag": "Residue_C1470",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1524",
@@ -3453,6 +3653,7 @@
 	"Residue_C1471": {
 		"resnum": 1471,
 		"chain": "C",
+		"res_tag": "Residue_C1471",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1520",
@@ -3462,6 +3663,7 @@
 	"Residue_C1472": {
 		"resnum": 1472,
 		"chain": "C",
+		"res_tag": "Residue_C1472",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1519",
@@ -3471,6 +3673,7 @@
 	"Residue_C1473": {
 		"resnum": 1473,
 		"chain": "C",
+		"res_tag": "Residue_C1473",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1518",
@@ -3480,6 +3683,7 @@
 	"Residue_C1474": {
 		"resnum": 1474,
 		"chain": "C",
+		"res_tag": "Residue_C1474",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1517",
@@ -3489,6 +3693,7 @@
 	"Residue_C1475": {
 		"resnum": 1475,
 		"chain": "C",
+		"res_tag": "Residue_C1475",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1517",
@@ -3498,6 +3703,7 @@
 	"Residue_C1476": {
 		"resnum": 1476,
 		"chain": "C",
+		"res_tag": "Residue_C1476",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1517",
@@ -3507,6 +3713,7 @@
 	"Residue_C1477": {
 		"resnum": 1477,
 		"chain": "C",
+		"res_tag": "Residue_C1477",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1517",
@@ -3516,6 +3723,7 @@
 	"Residue_C1478": {
 		"resnum": 1478,
 		"chain": "C",
+		"res_tag": "Residue_C1478",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1513",
@@ -3525,6 +3733,7 @@
 	"Residue_C1479": {
 		"resnum": 1479,
 		"chain": "C",
+		"res_tag": "Residue_C1479",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1512",
@@ -3534,6 +3743,7 @@
 	"Residue_C1480": {
 		"resnum": 1480,
 		"chain": "C",
+		"res_tag": "Residue_C1480",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1511",
@@ -3544,6 +3754,7 @@
 	"Residue_C1481": {
 		"resnum": 1481,
 		"chain": "C",
+		"res_tag": "Residue_C1481",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1510",
@@ -3553,6 +3764,7 @@
 	"Residue_C1482": {
 		"resnum": 1482,
 		"chain": "C",
+		"res_tag": "Residue_C1482",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1507",
@@ -3562,6 +3774,7 @@
 	"Residue_C1483": {
 		"resnum": 1483,
 		"chain": "C",
+		"res_tag": "Residue_C1483",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1506",
@@ -3571,6 +3784,7 @@
 	"Residue_C1484": {
 		"resnum": 1484,
 		"chain": "C",
+		"res_tag": "Residue_C1484",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1505",
@@ -3580,6 +3794,7 @@
 	"Residue_C1485": {
 		"resnum": 1485,
 		"chain": "C",
+		"res_tag": "Residue_C1485",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1504",
@@ -3589,6 +3804,7 @@
 	"Residue_C1486": {
 		"resnum": 1486,
 		"chain": "C",
+		"res_tag": "Residue_C1486",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1503",
@@ -3598,6 +3814,7 @@
 	"Residue_C1487": {
 		"resnum": 1487,
 		"chain": "C",
+		"res_tag": "Residue_C1487",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1502",
@@ -3607,6 +3824,7 @@
 	"Residue_C1488": {
 		"resnum": 1488,
 		"chain": "C",
+		"res_tag": "Residue_C1488",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1501",
@@ -3616,6 +3834,7 @@
 	"Residue_C1489": {
 		"resnum": 1489,
 		"chain": "C",
+		"res_tag": "Residue_C1489",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1500",
@@ -3625,6 +3844,7 @@
 	"Residue_C1490": {
 		"resnum": 1490,
 		"chain": "C",
+		"res_tag": "Residue_C1490",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1500",
@@ -3635,6 +3855,7 @@
 	"Residue_C1491": {
 		"resnum": 1491,
 		"chain": "C",
+		"res_tag": "Residue_C1491",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1499",
@@ -3644,6 +3865,7 @@
 	"Residue_C1492": {
 		"resnum": 1492,
 		"chain": "C",
+		"res_tag": "Residue_C1492",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1498",
@@ -3653,6 +3875,7 @@
 	"Residue_C1493": {
 		"resnum": 1493,
 		"chain": "C",
+		"res_tag": "Residue_C1493",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1498",
@@ -3662,6 +3885,7 @@
 	"Residue_C1494": {
 		"resnum": 1494,
 		"chain": "C",
+		"res_tag": "Residue_C1494",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1498",
@@ -3671,6 +3895,7 @@
 	"Residue_C1495": {
 		"resnum": 1495,
 		"chain": "C",
+		"res_tag": "Residue_C1495",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1498",
@@ -3680,6 +3905,7 @@
 	"Residue_C1496": {
 		"resnum": 1496,
 		"chain": "C",
+		"res_tag": "Residue_C1496",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1498",
@@ -3689,6 +3915,7 @@
 	"Residue_C1497": {
 		"resnum": 1497,
 		"chain": "C",
+		"res_tag": "Residue_C1497",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1498",
@@ -3698,6 +3925,7 @@
 	"Residue_C1498": {
 		"resnum": 1498,
 		"chain": "C",
+		"res_tag": "Residue_C1498",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1492",
@@ -3707,6 +3935,7 @@
 	"Residue_C1499": {
 		"resnum": 1499,
 		"chain": "C",
+		"res_tag": "Residue_C1499",
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1491",
@@ -3716,6 +3945,7 @@
 	"Residue_C1500": {
 		"resnum": 1500,
 		"chain": "C",
+		"res_tag": "Residue_C1500",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1489",
@@ -3726,6 +3956,7 @@
 	"Residue_C1501": {
 		"resnum": 1501,
 		"chain": "C",
+		"res_tag": "Residue_C1501",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1488",
@@ -3735,6 +3966,7 @@
 	"Residue_C1502": {
 		"resnum": 1502,
 		"chain": "C",
+		"res_tag": "Residue_C1502",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1487",
@@ -3744,6 +3976,7 @@
 	"Residue_C1503": {
 		"resnum": 1503,
 		"chain": "C",
+		"res_tag": "Residue_C1503",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1486",
@@ -3753,6 +3986,7 @@
 	"Residue_C1504": {
 		"resnum": 1504,
 		"chain": "C",
+		"res_tag": "Residue_C1504",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1485",
@@ -3762,6 +3996,7 @@
 	"Residue_C1505": {
 		"resnum": 1505,
 		"chain": "C",
+		"res_tag": "Residue_C1505",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1484",
@@ -3771,6 +4006,7 @@
 	"Residue_C1506": {
 		"resnum": 1506,
 		"chain": "C",
+		"res_tag": "Residue_C1506",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1483",
@@ -3780,6 +4016,7 @@
 	"Residue_C1507": {
 		"resnum": 1507,
 		"chain": "C",
+		"res_tag": "Residue_C1507",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1482",
@@ -3789,6 +4026,7 @@
 	"Residue_C1508": {
 		"resnum": 1508,
 		"chain": "C",
+		"res_tag": "Residue_C1508",
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1482",
@@ -3798,6 +4036,7 @@
 	"Residue_C1509": {
 		"resnum": 1509,
 		"chain": "C",
+		"res_tag": "Residue_C1509",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1482",
@@ -3807,6 +4046,7 @@
 	"Residue_C1510": {
 		"resnum": 1510,
 		"chain": "C",
+		"res_tag": "Residue_C1510",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1481",
@@ -3817,6 +4057,7 @@
 	"Residue_C1511": {
 		"resnum": 1511,
 		"chain": "C",
+		"res_tag": "Residue_C1511",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1480",
@@ -3826,6 +4067,7 @@
 	"Residue_C1512": {
 		"resnum": 1512,
 		"chain": "C",
+		"res_tag": "Residue_C1512",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1479",
@@ -3835,6 +4077,7 @@
 	"Residue_C1513": {
 		"resnum": 1513,
 		"chain": "C",
+		"res_tag": "Residue_C1513",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1478",
@@ -3844,6 +4087,7 @@
 	"Residue_C1514": {
 		"resnum": 1514,
 		"chain": "C",
+		"res_tag": "Residue_C1514",
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1478",
@@ -3853,6 +4097,7 @@
 	"Residue_C1515": {
 		"resnum": 1515,
 		"chain": "C",
+		"res_tag": "Residue_C1515",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1478",
@@ -3862,6 +4107,7 @@
 	"Residue_C1516": {
 		"resnum": 1516,
 		"chain": "C",
+		"res_tag": "Residue_C1516",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1478",
@@ -3871,6 +4117,7 @@
 	"Residue_C1517": {
 		"resnum": 1517,
 		"chain": "C",
+		"res_tag": "Residue_C1517",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1474",
@@ -3880,6 +4127,7 @@
 	"Residue_C1518": {
 		"resnum": 1518,
 		"chain": "C",
+		"res_tag": "Residue_C1518",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1473",
@@ -3889,6 +4137,7 @@
 	"Residue_C1519": {
 		"resnum": 1519,
 		"chain": "C",
+		"res_tag": "Residue_C1519",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1472",
@@ -3898,6 +4147,7 @@
 	"Residue_C1520": {
 		"resnum": 1520,
 		"chain": "C",
+		"res_tag": "Residue_C1520",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1471",
@@ -3908,6 +4158,7 @@
 	"Residue_C1521": {
 		"resnum": 1521,
 		"chain": "C",
+		"res_tag": "Residue_C1521",
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1471",
@@ -3917,6 +4168,7 @@
 	"Residue_C1522": {
 		"resnum": 1522,
 		"chain": "C",
+		"res_tag": "Residue_C1522",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1471",
@@ -3926,6 +4178,7 @@
 	"Residue_C1523": {
 		"resnum": 1523,
 		"chain": "C",
+		"res_tag": "Residue_C1523",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1471",
@@ -3935,6 +4188,7 @@
 	"Residue_C1524": {
 		"resnum": 1524,
 		"chain": "C",
+		"res_tag": "Residue_C1524",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1468",
@@ -3944,6 +4198,7 @@
 	"Residue_C1525": {
 		"resnum": 1525,
 		"chain": "C",
+		"res_tag": "Residue_C1525",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1467",
@@ -3953,6 +4208,7 @@
 	"Residue_C1526": {
 		"resnum": 1526,
 		"chain": "C",
+		"res_tag": "Residue_C1526",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1467",
@@ -3962,6 +4218,7 @@
 	"Residue_C1527": {
 		"resnum": 1527,
 		"chain": "C",
+		"res_tag": "Residue_C1527",
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1467",
@@ -3971,6 +4228,7 @@
 	"Residue_C1528": {
 		"resnum": 1528,
 		"chain": "C",
+		"res_tag": "Residue_C1528",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1467",
@@ -3980,6 +4238,7 @@
 	"Residue_C1529": {
 		"resnum": 1529,
 		"chain": "C",
+		"res_tag": "Residue_C1529",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1542",
@@ -3989,6 +4248,7 @@
 	"Residue_C1530": {
 		"resnum": 1530,
 		"chain": "C",
+		"res_tag": "Residue_C1530",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1541",
@@ -3999,6 +4259,7 @@
 	"Residue_C1531": {
 		"resnum": 1531,
 		"chain": "C",
+		"res_tag": "Residue_C1531",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1540",
@@ -4008,6 +4269,7 @@
 	"Residue_C1532": {
 		"resnum": 1532,
 		"chain": "C",
+		"res_tag": "Residue_C1532",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1539",
@@ -4017,6 +4279,7 @@
 	"Residue_C1533": {
 		"resnum": 1533,
 		"chain": "C",
+		"res_tag": "Residue_C1533",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1538",
@@ -4026,6 +4289,7 @@
 	"Residue_C1534": {
 		"resnum": 1534,
 		"chain": "C",
+		"res_tag": "Residue_C1534",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1538",
@@ -4035,6 +4299,7 @@
 	"Residue_C1535": {
 		"resnum": 1535,
 		"chain": "C",
+		"res_tag": "Residue_C1535",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1538",
@@ -4044,6 +4309,7 @@
 	"Residue_C1536": {
 		"resnum": 1536,
 		"chain": "C",
+		"res_tag": "Residue_C1536",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1538",
@@ -4053,6 +4319,7 @@
 	"Residue_C1537": {
 		"resnum": 1537,
 		"chain": "C",
+		"res_tag": "Residue_C1537",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1538",
@@ -4062,6 +4329,7 @@
 	"Residue_C1538": {
 		"resnum": 1538,
 		"chain": "C",
+		"res_tag": "Residue_C1538",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1533",
@@ -4071,6 +4339,7 @@
 	"Residue_C1539": {
 		"resnum": 1539,
 		"chain": "C",
+		"res_tag": "Residue_C1539",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1532",
@@ -4080,6 +4349,7 @@
 	"Residue_C1540": {
 		"resnum": 1540,
 		"chain": "C",
+		"res_tag": "Residue_C1540",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1531",
@@ -4090,6 +4360,7 @@
 	"Residue_C1541": {
 		"resnum": 1541,
 		"chain": "C",
+		"res_tag": "Residue_C1541",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1530",
@@ -4099,6 +4370,7 @@
 	"Residue_C1542": {
 		"resnum": 1542,
 		"chain": "C",
+		"res_tag": "Residue_C1542",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1529",
@@ -4108,6 +4380,7 @@
 	"Residue_C1543": {
 		"resnum": 1543,
 		"chain": "C",
+		"res_tag": "Residue_C1543",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1529",
@@ -4117,6 +4390,7 @@
 	"Residue_C1544": {
 		"resnum": 1544,
 		"chain": "C",
+		"res_tag": "Residue_C1544",
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1529",
@@ -4126,6 +4400,7 @@
 	"Residue_C1545": {
 		"resnum": 1545,
 		"chain": "C",
+		"res_tag": "Residue_C1545",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1529",
@@ -4135,6 +4410,7 @@
 	"Residue_C1546": {
 		"resnum": 1546,
 		"chain": "C",
+		"res_tag": "Residue_C1546",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1529",
@@ -4144,6 +4420,7 @@
 	"Residue_C1547": {
 		"resnum": 1547,
 		"chain": "C",
+		"res_tag": "Residue_C1547",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1444",
@@ -4153,6 +4430,7 @@
 	"Residue_C1548": {
 		"resnum": 1548,
 		"chain": "C",
+		"res_tag": "Residue_C1548",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1443",
@@ -4162,6 +4440,7 @@
 	"Residue_C1549": {
 		"resnum": 1549,
 		"chain": "C",
+		"res_tag": "Residue_C1549",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1442",
@@ -4171,6 +4450,7 @@
 	"Residue_C1550": {
 		"resnum": 1550,
 		"chain": "C",
+		"res_tag": "Residue_C1550",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1441",
@@ -4181,6 +4461,7 @@
 	"Residue_C1551": {
 		"resnum": 1551,
 		"chain": "C",
+		"res_tag": "Residue_C1551",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1440",
@@ -4190,6 +4471,7 @@
 	"Residue_C1552": {
 		"resnum": 1552,
 		"chain": "C",
+		"res_tag": "Residue_C1552",
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1440",
@@ -4199,6 +4481,7 @@
 	"Residue_C1553": {
 		"resnum": 1553,
 		"chain": "C",
+		"res_tag": "Residue_C1553",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1440",
@@ -4208,6 +4491,7 @@
 	"Residue_C1554": {
 		"resnum": 1554,
 		"chain": "C",
+		"res_tag": "Residue_C1554",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1440",
@@ -4217,6 +4501,7 @@
 	"Residue_C1555": {
 		"resnum": 1555,
 		"chain": "C",
+		"res_tag": "Residue_C1555",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1437",
@@ -4226,6 +4511,7 @@
 	"Residue_C1556": {
 		"resnum": 1556,
 		"chain": "C",
+		"res_tag": "Residue_C1556",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1436",
@@ -4235,6 +4521,7 @@
 	"Residue_C1557": {
 		"resnum": 1557,
 		"chain": "C",
+		"res_tag": "Residue_C1557",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1435",
@@ -4244,6 +4531,7 @@
 	"Residue_C1558": {
 		"resnum": 1558,
 		"chain": "C",
+		"res_tag": "Residue_C1558",
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1435",
@@ -4253,6 +4541,7 @@
 	"Residue_C1559": {
 		"resnum": 1559,
 		"chain": "C",
+		"res_tag": "Residue_C1559",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1435",
@@ -4262,6 +4551,7 @@
 	"Residue_C1560": {
 		"resnum": 1560,
 		"chain": "C",
+		"res_tag": "Residue_C1560",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1435",
@@ -4272,6 +4562,7 @@
 	"Residue_C1561": {
 		"resnum": 1561,
 		"chain": "C",
+		"res_tag": "Residue_C1561",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1432",
@@ -4281,6 +4572,7 @@
 	"Residue_C1562": {
 		"resnum": 1562,
 		"chain": "C",
+		"res_tag": "Residue_C1562",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1431",
@@ -4290,6 +4582,7 @@
 	"Residue_C1563": {
 		"resnum": 1563,
 		"chain": "C",
+		"res_tag": "Residue_C1563",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1430",
@@ -4299,6 +4592,7 @@
 	"Residue_C1564": {
 		"resnum": 1564,
 		"chain": "C",
+		"res_tag": "Residue_C1564",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1429",
@@ -4308,6 +4602,7 @@
 	"Residue_C1565": {
 		"resnum": 1565,
 		"chain": "C",
+		"res_tag": "Residue_C1565",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1429",
@@ -4317,6 +4612,7 @@
 	"Residue_C1566": {
 		"resnum": 1566,
 		"chain": "C",
+		"res_tag": "Residue_C1566",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
@@ -4326,6 +4622,7 @@
 	"Residue_C1567": {
 		"resnum": 1567,
 		"chain": "C",
+		"res_tag": "Residue_C1567",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1429",
@@ -4335,6 +4632,7 @@
 	"Residue_C1568": {
 		"resnum": 1568,
 		"chain": "C",
+		"res_tag": "Residue_C1568",
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1429",
@@ -4344,6 +4642,7 @@
 	"Residue_C1569": {
 		"resnum": 1569,
 		"chain": "C",
+		"res_tag": "Residue_C1569",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
@@ -4353,6 +4652,7 @@
 	"Residue_C1570": {
 		"resnum": 1570,
 		"chain": "C",
+		"res_tag": "Residue_C1570",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
@@ -4363,6 +4663,7 @@
 	"Residue_C1571": {
 		"resnum": 1571,
 		"chain": "C",
+		"res_tag": "Residue_C1571",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
@@ -4372,6 +4673,7 @@
 	"Residue_C1572": {
 		"resnum": 1572,
 		"chain": "C",
+		"res_tag": "Residue_C1572",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
@@ -4381,6 +4683,7 @@
 	"Residue_C1573": {
 		"resnum": 1573,
 		"chain": "C",
+		"res_tag": "Residue_C1573",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1429",
@@ -4390,6 +4693,7 @@
 	"Residue_C1574": {
 		"resnum": 1574,
 		"chain": "C",
+		"res_tag": "Residue_C1574",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1424",
@@ -4399,6 +4703,7 @@
 	"Residue_C1575": {
 		"resnum": 1575,
 		"chain": "C",
+		"res_tag": "Residue_C1575",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1423",
@@ -4408,6 +4713,7 @@
 	"Residue_C1576": {
 		"resnum": 1576,
 		"chain": "C",
+		"res_tag": "Residue_C1576",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1422",
@@ -4417,6 +4723,7 @@
 	"Residue_C1577": {
 		"resnum": 1577,
 		"chain": "C",
+		"res_tag": "Residue_C1577",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1421",
@@ -4426,6 +4733,7 @@
 	"Residue_C1578": {
 		"resnum": 1578,
 		"chain": "C",
+		"res_tag": "Residue_C1578",
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1421",
@@ -4435,6 +4743,7 @@
 	"Residue_C1579": {
 		"resnum": 1579,
 		"chain": "C",
+		"res_tag": "Residue_C1579",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1421",
@@ -4444,6 +4753,7 @@
 	"Residue_C1580": {
 		"resnum": 1580,
 		"chain": "C",
+		"res_tag": "Residue_C1580",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1421",
@@ -4454,6 +4764,7 @@
 	"Residue_C1581": {
 		"resnum": 1581,
 		"chain": "C",
+		"res_tag": "Residue_C1581",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1417",
@@ -4463,6 +4774,7 @@
 	"Residue_C1582": {
 		"resnum": 1582,
 		"chain": "C",
+		"res_tag": "Residue_C1582",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1416",
@@ -4472,6 +4784,7 @@
 	"Residue_C1583": {
 		"resnum": 1583,
 		"chain": "C",
+		"res_tag": "Residue_C1583",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1416",
@@ -4481,6 +4794,7 @@
 	"Residue_C1584": {
 		"resnum": 1584,
 		"chain": "C",
+		"res_tag": "Residue_C1584",
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1416",
@@ -4490,6 +4804,7 @@
 	"Residue_C1585": {
 		"resnum": 1585,
 		"chain": "C",
+		"res_tag": "Residue_C1585",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1416",
@@ -4499,6 +4814,7 @@
 	"Residue_C1586": {
 		"resnum": 1586,
 		"chain": "C",
+		"res_tag": "Residue_C1586",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1416",
@@ -4508,6 +4824,7 @@
 	"Residue_C1587": {
 		"resnum": 1587,
 		"chain": "C",
+		"res_tag": "Residue_C1587",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1415",
@@ -4517,6 +4834,7 @@
 	"Residue_C1588": {
 		"resnum": 1588,
 		"chain": "C",
+		"res_tag": "Residue_C1588",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1414",
@@ -4526,6 +4844,7 @@
 	"Residue_C1589": {
 		"resnum": 1589,
 		"chain": "C",
+		"res_tag": "Residue_C1589",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1413",
@@ -4535,6 +4854,7 @@
 	"Residue_C1590": {
 		"resnum": 1590,
 		"chain": "C",
+		"res_tag": "Residue_C1590",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1412",
@@ -4545,6 +4865,7 @@
 	"Residue_C1591": {
 		"resnum": 1591,
 		"chain": "C",
+		"res_tag": "Residue_C1591",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1411",
@@ -4554,6 +4875,7 @@
 	"Residue_C1592": {
 		"resnum": 1592,
 		"chain": "C",
+		"res_tag": "Residue_C1592",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1410",
@@ -4563,6 +4885,7 @@
 	"Residue_C1593": {
 		"resnum": 1593,
 		"chain": "C",
+		"res_tag": "Residue_C1593",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1409",
@@ -4572,6 +4895,7 @@
 	"Residue_C1594": {
 		"resnum": 1594,
 		"chain": "C",
+		"res_tag": "Residue_C1594",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1408",
@@ -4581,6 +4905,7 @@
 	"Residue_C1595": {
 		"resnum": 1595,
 		"chain": "C",
+		"res_tag": "Residue_C1595",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1407",
@@ -4590,6 +4915,7 @@
 	"Residue_C1596": {
 		"resnum": 1596,
 		"chain": "C",
+		"res_tag": "Residue_C1596",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1406",
@@ -4599,6 +4925,7 @@
 	"Residue_C1597": {
 		"resnum": 1597,
 		"chain": "C",
+		"res_tag": "Residue_C1597",
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1405",
@@ -4608,6 +4935,7 @@
 	"Residue_C1598": {
 		"resnum": 1598,
 		"chain": "C",
+		"res_tag": "Residue_C1598",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1405",
@@ -4617,6 +4945,7 @@
 	"Residue_C1599": {
 		"resnum": 1599,
 		"chain": "C",
+		"res_tag": "Residue_C1599",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1347",
@@ -4626,6 +4955,7 @@
 	"Residue_C1600": {
 		"resnum": 1600,
 		"chain": "C",
+		"res_tag": "Residue_C1600",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1346",
@@ -4636,6 +4966,7 @@
 	"Residue_C1601": {
 		"resnum": 1601,
 		"chain": "C",
+		"res_tag": "Residue_C1601",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1345",
@@ -4645,6 +4976,7 @@
 	"Residue_C1602": {
 		"resnum": 1602,
 		"chain": "C",
+		"res_tag": "Residue_C1602",
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1345",
@@ -4654,6 +4986,7 @@
 	"Residue_C1603": {
 		"resnum": 1603,
 		"chain": "C",
+		"res_tag": "Residue_C1603",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1345",
@@ -4663,6 +4996,7 @@
 	"Residue_C1604": {
 		"resnum": 1604,
 		"chain": "C",
+		"res_tag": "Residue_C1604",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1310",
@@ -4672,6 +5006,7 @@
 	"Residue_C1605": {
 		"resnum": 1605,
 		"chain": "C",
+		"res_tag": "Residue_C1605",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1309",
@@ -4681,6 +5016,7 @@
 	"Residue_C1606": {
 		"resnum": 1606,
 		"chain": "C",
+		"res_tag": "Residue_C1606",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1309",
@@ -4690,6 +5026,7 @@
 	"Residue_C1607": {
 		"resnum": 1607,
 		"chain": "C",
+		"res_tag": "Residue_C1607",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1309",
@@ -4699,6 +5036,7 @@
 	"Residue_C1608": {
 		"resnum": 1608,
 		"chain": "C",
+		"res_tag": "Residue_C1608",
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
@@ -4708,6 +5046,7 @@
 	"Residue_C1609": {
 		"resnum": 1609,
 		"chain": "C",
+		"res_tag": "Residue_C1609",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
@@ -4717,6 +5056,7 @@
 	"Residue_C1610": {
 		"resnum": 1610,
 		"chain": "C",
+		"res_tag": "Residue_C1610",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
@@ -4727,6 +5067,7 @@
 	"Residue_C1611": {
 		"resnum": 1611,
 		"chain": "C",
+		"res_tag": "Residue_C1611",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1620",
@@ -4736,6 +5077,7 @@
 	"Residue_C1612": {
 		"resnum": 1612,
 		"chain": "C",
+		"res_tag": "Residue_C1612",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1619",
@@ -4745,6 +5087,7 @@
 	"Residue_C1613": {
 		"resnum": 1613,
 		"chain": "C",
+		"res_tag": "Residue_C1613",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1619",
@@ -4754,6 +5097,7 @@
 	"Residue_C1614": {
 		"resnum": 1614,
 		"chain": "C",
+		"res_tag": "Residue_C1614",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1619",
@@ -4763,6 +5107,7 @@
 	"Residue_C1615": {
 		"resnum": 1615,
 		"chain": "C",
+		"res_tag": "Residue_C1615",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1619",
@@ -4772,6 +5117,7 @@
 	"Residue_C1616": {
 		"resnum": 1616,
 		"chain": "C",
+		"res_tag": "Residue_C1616",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1619",
@@ -4781,6 +5127,7 @@
 	"Residue_C1617": {
 		"resnum": 1617,
 		"chain": "C",
+		"res_tag": "Residue_C1617",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1619",
@@ -4790,6 +5137,7 @@
 	"Residue_C1618": {
 		"resnum": 1618,
 		"chain": "C",
+		"res_tag": "Residue_C1618",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "m^2A",
 		"stem_partner": "Residue_C1619",
@@ -4799,6 +5147,7 @@
 	"Residue_C1619": {
 		"resnum": 1619,
 		"chain": "C",
+		"res_tag": "Residue_C1619",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1612",
@@ -4808,6 +5157,7 @@
 	"Residue_C1620": {
 		"resnum": 1620,
 		"chain": "C",
+		"res_tag": "Residue_C1620",
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1611",
@@ -4818,6 +5168,7 @@
 	"Residue_C1621": {
 		"resnum": 1621,
 		"chain": "C",
+		"res_tag": "Residue_C1621",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1611",
@@ -4827,6 +5178,7 @@
 	"Residue_C1622": {
 		"resnum": 1622,
 		"chain": "C",
+		"res_tag": "Residue_C1622",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1306",
@@ -4836,6 +5188,7 @@
 	"Residue_C1623": {
 		"resnum": 1623,
 		"chain": "C",
+		"res_tag": "Residue_C1623",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1305",
@@ -4845,6 +5198,7 @@
 	"Residue_C1624": {
 		"resnum": 1624,
 		"chain": "C",
+		"res_tag": "Residue_C1624",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1304",
@@ -4854,6 +5208,7 @@
 	"Residue_C1625": {
 		"resnum": 1625,
 		"chain": "C",
+		"res_tag": "Residue_C1625",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1303",
@@ -4863,6 +5218,7 @@
 	"Residue_C1626": {
 		"resnum": 1626,
 		"chain": "C",
+		"res_tag": "Residue_C1626",
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1303",
@@ -4872,6 +5228,7 @@
 	"Residue_C1627": {
 		"resnum": 1627,
 		"chain": "C",
+		"res_tag": "Residue_C1627",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1639",
@@ -4881,6 +5238,7 @@
 	"Residue_C1628": {
 		"resnum": 1628,
 		"chain": "C",
+		"res_tag": "Residue_C1628",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1638",
@@ -4890,6 +5248,7 @@
 	"Residue_C1629": {
 		"resnum": 1629,
 		"chain": "C",
+		"res_tag": "Residue_C1629",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1637",
@@ -4899,6 +5258,7 @@
 	"Residue_C1630": {
 		"resnum": 1630,
 		"chain": "C",
+		"res_tag": "Residue_C1630",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1636",
@@ -4909,6 +5269,7 @@
 	"Residue_C1631": {
 		"resnum": 1631,
 		"chain": "C",
+		"res_tag": "Residue_C1631",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1636",
@@ -4918,6 +5279,7 @@
 	"Residue_C1632": {
 		"resnum": 1632,
 		"chain": "C",
+		"res_tag": "Residue_C1632",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1636",
@@ -4927,6 +5289,7 @@
 	"Residue_C1633": {
 		"resnum": 1633,
 		"chain": "C",
+		"res_tag": "Residue_C1633",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1636",
@@ -4936,6 +5299,7 @@
 	"Residue_C1634": {
 		"resnum": 1634,
 		"chain": "C",
+		"res_tag": "Residue_C1634",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1636",
@@ -4945,6 +5309,7 @@
 	"Residue_C1635": {
 		"resnum": 1635,
 		"chain": "C",
+		"res_tag": "Residue_C1635",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1636",
@@ -4954,6 +5319,7 @@
 	"Residue_C1636": {
 		"resnum": 1636,
 		"chain": "C",
+		"res_tag": "Residue_C1636",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1630",
@@ -4963,6 +5329,7 @@
 	"Residue_C1637": {
 		"resnum": 1637,
 		"chain": "C",
+		"res_tag": "Residue_C1637",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1629",
@@ -4972,6 +5339,7 @@
 	"Residue_C1638": {
 		"resnum": 1638,
 		"chain": "C",
+		"res_tag": "Residue_C1638",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1628",
@@ -4981,6 +5349,7 @@
 	"Residue_C1639": {
 		"resnum": 1639,
 		"chain": "C",
+		"res_tag": "Residue_C1639",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1627",
@@ -4990,6 +5359,7 @@
 	"Residue_C1640": {
 		"resnum": 1640,
 		"chain": "C",
+		"res_tag": "Residue_C1640",
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1627",
@@ -5000,6 +5370,7 @@
 	"Residue_C1641": {
 		"resnum": 1641,
 		"chain": "C",
+		"res_tag": "Residue_C1641",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1627",
@@ -5009,6 +5380,7 @@
 	"Residue_C1642": {
 		"resnum": 1642,
 		"chain": "C",
+		"res_tag": "Residue_C1642",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1298",
@@ -5018,6 +5390,7 @@
 	"Residue_C1643": {
 		"resnum": 1643,
 		"chain": "C",
+		"res_tag": "Residue_C1643",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1297",
@@ -5027,6 +5400,7 @@
 	"Residue_C1644": {
 		"resnum": 1644,
 		"chain": "C",
+		"res_tag": "Residue_C1644",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1296",
@@ -5036,6 +5410,7 @@
 	"Residue_C1645": {
 		"resnum": 1645,
 		"chain": "C",
+		"res_tag": "Residue_C1645",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1295",
@@ -5045,6 +5420,7 @@
 	"Residue_C1646": {
 		"resnum": 1646,
 		"chain": "C",
+		"res_tag": "Residue_C1646",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1295",
@@ -5054,6 +5430,7 @@
 	"Residue_C1647": {
 		"resnum": 1647,
 		"chain": "C",
+		"res_tag": "Residue_C1647",
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1295",
@@ -5246,7 +5623,6 @@
 		"helix_tag": "Helix_C1343",
 		"associated_residues": [
 			"Residue_C1341",
-			"Residue_C1342",
 			"Residue_C1343",
 			"Residue_C1344",
 			"Residue_C1403",
@@ -5265,6 +5641,7 @@
 		"label_relpos": [0,-4.5],
 		"helix_tag": "Helix_C1345",
 		"associated_residues": [
+			"Residue_C1342",
 			"Residue_C1345",
 			"Residue_C1346",
 			"Residue_C1347",
@@ -5467,6 +5844,8 @@
 			"Residue_C1424",
 			"Residue_C1425",
 			"Residue_C1426",
+			"Residue_C1427",
+			"Residue_C1428",
 			"Residue_C1569",
 			"Residue_C1570",
 			"Residue_C1571",
@@ -5491,8 +5870,6 @@
 		"label_relpos": [1.5,-6],
 		"helix_tag": "Helix_C1429",
 		"associated_residues": [
-			"Residue_C1427",
-			"Residue_C1428",
 			"Residue_C1429",
 			"Residue_C1430",
 			"Residue_C1431",

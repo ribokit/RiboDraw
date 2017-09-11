@@ -146,6 +146,7 @@ if isfield( residue, 'relpos' )
     if ( length( residue.nucleotide ) > 1 ) set( h, 'fontsize', plot_settings.fontsize*4/5); end;
     residue.handle = h;
     setappdata( residue.handle, 'res_tag', res_tag );
+    residue.res_tag = res_tag;
     residue.plot_pos = pos;
     residue = draw_tick( residue, plot_settings.bp_spacing, R );
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;

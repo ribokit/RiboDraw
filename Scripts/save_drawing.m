@@ -19,6 +19,7 @@ for n = 1:length( objnames )
         clear residue;
         residue.resnum = figure_residue.resnum;
         residue.chain = figure_residue.chain;
+        residue.res_tag = figure_residue.res_tag;
         residue.helix_tag = figure_residue.helix_tag;
         residue.nucleotide = figure_residue.nucleotide;
         if isfield( figure_residue, 'stem_partner' ); residue.stem_partner = figure_residue.stem_partner; end;

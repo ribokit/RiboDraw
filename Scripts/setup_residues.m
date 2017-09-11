@@ -7,6 +7,9 @@ resnum   = getappdata( gca, 'resnum' );
 chains   = getappdata( gca, 'chains' );
 non_standard_residues = getappdata( gca, 'non_standard_residues' );
 % single stranded residues:
+
+% following could probably be replaced with logic in
+% reassign_parent_helix()
 for n = 1:length( stems )
     stem_start1(n) = stems{n}.resnum1(1);
     stem_stop1 (n) = stems{n}.resnum1(end);

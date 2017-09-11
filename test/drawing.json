@@ -10348,7 +10348,10 @@
 		"residue1": "Residue_C1526",
 		"residue2": "Residue_C1546",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1526_C1546_noncanonical_pair"
+		"linker_tag": "Linker_C1526_C1546_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1414_C1588_stem_pair": {
 		"residue1": "Residue_C1414",
@@ -10540,7 +10543,10 @@
 		"residue1": "Residue_C1565",
 		"residue2": "Residue_C1568",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1565_C1568_noncanonical_pair"
+		"linker_tag": "Linker_C1565_C1568_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1629_C1637_stem_pair": {
 		"residue1": "Residue_C1629",
@@ -10726,7 +10732,10 @@
 		"residue1": "Residue_C1451",
 		"residue2": "Residue_C1459",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1451_C1459_noncanonical_pair"
+		"linker_tag": "Linker_C1451_C1459_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1310_C1604_stem_pair": {
 		"residue1": "Residue_C1310",
@@ -10780,7 +10789,10 @@
 		"residue1": "Residue_C1313",
 		"residue2": "Residue_C1603",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1313_C1603_noncanonical_pair"
+		"linker_tag": "Linker_C1313_C1603_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1407_C1595_stem_pair": {
 		"residue1": "Residue_C1407",
@@ -10912,61 +10924,91 @@
 		"residue1": "Residue_C1438",
 		"residue2": "Residue_C1553",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1438_C1553_noncanonical_pair"
+		"linker_tag": "Linker_C1438_C1553_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1554_C1634_noncanonical_pair": {
 		"residue1": "Residue_C1554",
 		"residue2": "Residue_C1634",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1554_C1634_noncanonical_pair"
+		"linker_tag": "Linker_C1554_C1634_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1342_C1602_noncanonical_pair": {
 		"residue1": "Residue_C1342",
 		"residue2": "Residue_C1602",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1342_C1602_noncanonical_pair"
+		"linker_tag": "Linker_C1342_C1602_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1419_C1578_noncanonical_pair": {
 		"residue1": "Residue_C1419",
 		"residue2": "Residue_C1578",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1419_C1578_noncanonical_pair"
+		"linker_tag": "Linker_C1419_C1578_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1390_C1395_noncanonical_pair": {
 		"residue1": "Residue_C1390",
 		"residue2": "Residue_C1395",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1390_C1395_noncanonical_pair"
+		"linker_tag": "Linker_C1390_C1395_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1608_C1621_noncanonical_pair": {
 		"residue1": "Residue_C1608",
 		"residue2": "Residue_C1621",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1608_C1621_noncanonical_pair"
+		"linker_tag": "Linker_C1608_C1621_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1476_C1515_noncanonical_pair": {
 		"residue1": "Residue_C1476",
 		"residue2": "Residue_C1515",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1476_C1515_noncanonical_pair"
+		"linker_tag": "Linker_C1476_C1515_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1282_C1286_noncanonical_pair": {
 		"residue1": "Residue_C1282",
 		"residue2": "Residue_C1286",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1282_C1286_noncanonical_pair"
+		"linker_tag": "Linker_C1282_C1286_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1359_C1372_noncanonical_pair": {
 		"residue1": "Residue_C1359",
 		"residue2": "Residue_C1372",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1359_C1372_noncanonical_pair"
+		"linker_tag": "Linker_C1359_C1372_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1352_C1378_noncanonical_pair": {
 		"residue1": "Residue_C1352",
 		"residue2": "Residue_C1378",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1352_C1378_noncanonical_pair"
+		"linker_tag": "Linker_C1352_C1378_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1481_C1510_stem_pair": {
 		"residue1": "Residue_C1481",
@@ -11056,97 +11098,145 @@
 		"residue1": "Residue_C1631",
 		"residue2": "Residue_C1635",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1631_C1635_noncanonical_pair"
+		"linker_tag": "Linker_C1631_C1635_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1358_C1373_noncanonical_pair": {
 		"residue1": "Residue_C1358",
 		"residue2": "Residue_C1373",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1358_C1373_noncanonical_pair"
+		"linker_tag": "Linker_C1358_C1373_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1299_C1641_noncanonical_pair": {
 		"residue1": "Residue_C1299",
 		"residue2": "Residue_C1641",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1299_C1641_noncanonical_pair"
+		"linker_tag": "Linker_C1299_C1641_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1354_C1377_noncanonical_pair": {
 		"residue1": "Residue_C1354",
 		"residue2": "Residue_C1377",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1354_C1377_noncanonical_pair"
+		"linker_tag": "Linker_C1354_C1377_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1426_C1572_noncanonical_pair": {
 		"residue1": "Residue_C1426",
 		"residue2": "Residue_C1572",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1426_C1572_noncanonical_pair"
+		"linker_tag": "Linker_C1426_C1572_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1477_C1514_noncanonical_pair": {
 		"residue1": "Residue_C1477",
 		"residue2": "Residue_C1514",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1477_C1514_noncanonical_pair"
+		"linker_tag": "Linker_C1477_C1514_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1470_C1521_noncanonical_pair": {
 		"residue1": "Residue_C1470",
 		"residue2": "Residue_C1521",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1470_C1521_noncanonical_pair"
+		"linker_tag": "Linker_C1470_C1521_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1495_C1578_noncanonical_pair": {
 		"residue1": "Residue_C1495",
 		"residue2": "Residue_C1578",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1495_C1578_noncanonical_pair"
+		"linker_tag": "Linker_C1495_C1578_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "S",
+		"LW_orientation": "C"
 	},
 	"Linker_C1527_C1545_noncanonical_pair": {
 		"residue1": "Residue_C1527",
 		"residue2": "Residue_C1545",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1527_C1545_noncanonical_pair"
+		"linker_tag": "Linker_C1527_C1545_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1418_C1580_noncanonical_pair": {
 		"residue1": "Residue_C1418",
 		"residue2": "Residue_C1580",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1418_C1580_noncanonical_pair"
+		"linker_tag": "Linker_C1418_C1580_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1338_C1393_noncanonical_pair": {
 		"residue1": "Residue_C1338",
 		"residue2": "Residue_C1393",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1338_C1393_noncanonical_pair"
+		"linker_tag": "Linker_C1338_C1393_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1311_C1603_noncanonical_pair": {
 		"residue1": "Residue_C1311",
 		"residue2": "Residue_C1603",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1311_C1603_noncanonical_pair"
+		"linker_tag": "Linker_C1311_C1603_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1312_C1340_noncanonical_pair": {
 		"residue1": "Residue_C1312",
 		"residue2": "Residue_C1340",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1312_C1340_noncanonical_pair"
+		"linker_tag": "Linker_C1312_C1340_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1436_C1515_noncanonical_pair": {
 		"residue1": "Residue_C1436",
 		"residue2": "Residue_C1515",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1436_C1515_noncanonical_pair"
+		"linker_tag": "Linker_C1436_C1515_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1320_C1331_noncanonical_pair": {
 		"residue1": "Residue_C1320",
 		"residue2": "Residue_C1331",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1320_C1331_noncanonical_pair"
+		"linker_tag": "Linker_C1320_C1331_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1465_C1545_noncanonical_pair": {
 		"residue1": "Residue_C1465",
 		"residue2": "Residue_C1545",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1465_C1545_noncanonical_pair"
+		"linker_tag": "Linker_C1465_C1545_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1322_C1333_stem_pair": {
 		"residue1": "Residue_C1322",
@@ -11158,241 +11248,361 @@
 		"residue1": "Residue_C1469",
 		"residue2": "Residue_C1522",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1469_C1522_noncanonical_pair"
+		"linker_tag": "Linker_C1469_C1522_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1353_C1379_noncanonical_pair": {
 		"residue1": "Residue_C1353",
 		"residue2": "Residue_C1379",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1353_C1379_noncanonical_pair"
+		"linker_tag": "Linker_C1353_C1379_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1427_C1571_noncanonical_pair": {
 		"residue1": "Residue_C1427",
 		"residue2": "Residue_C1571",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1427_C1571_noncanonical_pair"
+		"linker_tag": "Linker_C1427_C1571_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1283_C1285_noncanonical_pair": {
 		"residue1": "Residue_C1283",
 		"residue2": "Residue_C1285",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1283_C1285_noncanonical_pair"
+		"linker_tag": "Linker_C1283_C1285_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1439_C1552_noncanonical_pair": {
 		"residue1": "Residue_C1439",
 		"residue2": "Residue_C1552",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1439_C1552_noncanonical_pair"
+		"linker_tag": "Linker_C1439_C1552_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1380_C1570_noncanonical_pair": {
 		"residue1": "Residue_C1380",
 		"residue2": "Residue_C1570",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1380_C1570_noncanonical_pair"
+		"linker_tag": "Linker_C1380_C1570_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1308_C1608_noncanonical_pair": {
 		"residue1": "Residue_C1308",
 		"residue2": "Residue_C1608",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1308_C1608_noncanonical_pair"
+		"linker_tag": "Linker_C1308_C1608_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1391_C1393_noncanonical_pair": {
 		"residue1": "Residue_C1391",
 		"residue2": "Residue_C1393",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1391_C1393_noncanonical_pair"
+		"linker_tag": "Linker_C1391_C1393_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1419_C1494_noncanonical_pair": {
 		"residue1": "Residue_C1419",
 		"residue2": "Residue_C1494",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1419_C1494_noncanonical_pair"
+		"linker_tag": "Linker_C1419_C1494_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1301_C1641_noncanonical_pair": {
 		"residue1": "Residue_C1301",
 		"residue2": "Residue_C1641",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1301_C1641_noncanonical_pair"
+		"linker_tag": "Linker_C1301_C1641_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1328_C1647_noncanonical_pair": {
 		"residue1": "Residue_C1328",
 		"residue2": "Residue_C1647",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1328_C1647_noncanonical_pair"
+		"linker_tag": "Linker_C1328_C1647_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1428_C1570_noncanonical_pair": {
 		"residue1": "Residue_C1428",
 		"residue2": "Residue_C1570",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1428_C1570_noncanonical_pair"
+		"linker_tag": "Linker_C1428_C1570_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1348_C1598_noncanonical_pair": {
 		"residue1": "Residue_C1348",
 		"residue2": "Residue_C1598",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1348_C1598_noncanonical_pair"
+		"linker_tag": "Linker_C1348_C1598_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1288_C1326_noncanonical_pair": {
 		"residue1": "Residue_C1288",
 		"residue2": "Residue_C1326",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1288_C1326_noncanonical_pair"
+		"linker_tag": "Linker_C1288_C1326_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1274_C1644_noncanonical_pair": {
 		"residue1": "Residue_C1274",
 		"residue2": "Residue_C1644",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1274_C1644_noncanonical_pair"
+		"linker_tag": "Linker_C1274_C1644_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1433_C1560_noncanonical_pair": {
 		"residue1": "Residue_C1433",
 		"residue2": "Residue_C1560",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1433_C1560_noncanonical_pair"
+		"linker_tag": "Linker_C1433_C1560_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1343_C1384_noncanonical_pair": {
 		"residue1": "Residue_C1343",
 		"residue2": "Residue_C1384",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1343_C1384_noncanonical_pair"
+		"linker_tag": "Linker_C1343_C1384_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1324_C1616_noncanonical_pair": {
 		"residue1": "Residue_C1324",
 		"residue2": "Residue_C1616",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1324_C1616_noncanonical_pair"
+		"linker_tag": "Linker_C1324_C1616_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1351_C1571_noncanonical_pair": {
 		"residue1": "Residue_C1351",
 		"residue2": "Residue_C1571",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1351_C1571_noncanonical_pair"
+		"linker_tag": "Linker_C1351_C1571_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "S",
+		"LW_orientation": "C"
 	},
 	"Linker_C1386_C1469_noncanonical_pair": {
 		"residue1": "Residue_C1386",
 		"residue2": "Residue_C1469",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1386_C1469_noncanonical_pair"
+		"linker_tag": "Linker_C1386_C1469_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1528_C1543_noncanonical_pair": {
 		"residue1": "Residue_C1528",
 		"residue2": "Residue_C1543",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1528_C1543_noncanonical_pair"
+		"linker_tag": "Linker_C1528_C1543_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1402_C1470_noncanonical_pair": {
 		"residue1": "Residue_C1402",
 		"residue2": "Residue_C1470",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1402_C1470_noncanonical_pair"
+		"linker_tag": "Linker_C1402_C1470_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1301_C1626_noncanonical_pair": {
 		"residue1": "Residue_C1301",
 		"residue2": "Residue_C1626",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1301_C1626_noncanonical_pair"
+		"linker_tag": "Linker_C1301_C1626_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1582_C1585_noncanonical_pair": {
 		"residue1": "Residue_C1582",
 		"residue2": "Residue_C1585",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1582_C1585_noncanonical_pair"
+		"linker_tag": "Linker_C1582_C1585_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1320_C1322_noncanonical_pair": {
 		"residue1": "Residue_C1320",
 		"residue2": "Residue_C1322",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1320_C1322_noncanonical_pair"
+		"linker_tag": "Linker_C1320_C1322_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "C"
 	},
 	"Linker_C1378_C1569_noncanonical_pair": {
 		"residue1": "Residue_C1378",
 		"residue2": "Residue_C1569",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1378_C1569_noncanonical_pair"
+		"linker_tag": "Linker_C1378_C1569_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1274_C1297_noncanonical_pair": {
 		"residue1": "Residue_C1274",
 		"residue2": "Residue_C1297",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1274_C1297_noncanonical_pair"
+		"linker_tag": "Linker_C1274_C1297_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "S",
+		"LW_orientation": "C"
 	},
 	"Linker_C1364_C1367_noncanonical_pair": {
 		"residue1": "Residue_C1364",
 		"residue2": "Residue_C1367",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1364_C1367_noncanonical_pair"
+		"linker_tag": "Linker_C1364_C1367_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1496_C1577_noncanonical_pair": {
 		"residue1": "Residue_C1496",
 		"residue2": "Residue_C1577",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1496_C1577_noncanonical_pair"
+		"linker_tag": "Linker_C1496_C1577_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "S",
+		"LW_orientation": "C"
 	},
 	"Linker_C1447_C1544_noncanonical_pair": {
 		"residue1": "Residue_C1447",
 		"residue2": "Residue_C1544",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1447_C1544_noncanonical_pair"
+		"linker_tag": "Linker_C1447_C1544_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "C"
 	},
 	"Linker_C1386_C1396_noncanonical_pair": {
 		"residue1": "Residue_C1386",
 		"residue2": "Residue_C1396",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1386_C1396_noncanonical_pair"
+		"linker_tag": "Linker_C1386_C1396_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1434_C1558_noncanonical_pair": {
 		"residue1": "Residue_C1434",
 		"residue2": "Residue_C1558",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1434_C1558_noncanonical_pair"
+		"linker_tag": "Linker_C1434_C1558_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1425_C1573_noncanonical_pair": {
 		"residue1": "Residue_C1425",
 		"residue2": "Residue_C1573",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1425_C1573_noncanonical_pair"
+		"linker_tag": "Linker_C1425_C1573_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1475_C1476_noncanonical_pair": {
 		"residue1": "Residue_C1475",
 		"residue2": "Residue_C1476",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1475_C1476_noncanonical_pair"
+		"linker_tag": "Linker_C1475_C1476_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "C"
 	},
 	"Linker_C1360_C1371_noncanonical_pair": {
 		"residue1": "Residue_C1360",
 		"residue2": "Residue_C1371",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1360_C1371_noncanonical_pair"
+		"linker_tag": "Linker_C1360_C1371_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1422_C1498_noncanonical_pair": {
 		"residue1": "Residue_C1422",
 		"residue2": "Residue_C1498",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1422_C1498_noncanonical_pair"
+		"linker_tag": "Linker_C1422_C1498_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1477_C1557_noncanonical_pair": {
 		"residue1": "Residue_C1477",
 		"residue2": "Residue_C1557",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1477_C1557_noncanonical_pair"
+		"linker_tag": "Linker_C1477_C1557_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "S",
+		"LW_orientation": "T"
 	},
 	"Linker_C1271_C1615_noncanonical_pair": {
 		"residue1": "Residue_C1271",
 		"residue2": "Residue_C1615",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1271_C1615_noncanonical_pair"
+		"linker_tag": "Linker_C1271_C1615_noncanonical_pair",
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "T"
 	},
 	"Linker_C1607_C1622_noncanonical_pair": {
 		"residue1": "Residue_C1607",
 		"residue2": "Residue_C1622",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1607_C1622_noncanonical_pair"
+		"linker_tag": "Linker_C1607_C1622_noncanonical_pair",
+		"edge1": "H",
+		"edge2": "H",
+		"LW_orientation": "T"
 	},
 	"Linker_C1454_C1455_noncanonical_pair": {
 		"residue1": "Residue_C1454",
 		"residue2": "Residue_C1455",
 		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1454_C1455_noncanonical_pair"
+		"linker_tag": "Linker_C1454_C1455_noncanonical_pair",
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "C"
 	},
 	"xlim": [-80.94352084,138.2716348],
 	"ylim": [-108.5546695,107.5025247]

@@ -53,9 +53,9 @@ for n = 1:length( objnames )
         linker.residue2 = figure_linker.residue2;
         linker.type = figure_linker.type;
         linker.linker_tag = figure_linker.linker_tag;
-        if isfield( figure_residue, 'edge1' ); residue.edge1 = figure_residue.edge1; end;
-        if isfield( figure_residue, 'edge2' ); residue.edge2 = figure_residue.edge2; end;
-        if isfield( figure_residue, 'LW_orientation' ); residue.LW_orientation = figure_residue.LW_orientation; end;
+        if isfield( figure_linker, 'edge1' ); linker.edge1 = figure_linker.edge1; end;
+        if isfield( figure_linker, 'edge2' ); linker.edge2 = figure_linker.edge2; end;
+        if isfield( figure_linker, 'LW_orientation' ); linker.LW_orientation = figure_linker.LW_orientation; end;
         savedata = setfield( savedata, objnames{n}, linker );
     end
 end

@@ -20,5 +20,5 @@ for i = 1:length(sequence)
     % stick this linker information in the connected residues.
     add_linker_to_residue( res_tag_i, linker_tag );
     add_linker_to_residue( res_tag_j, linker_tag );
-    setappdata( gca, linker_tag, linker );
+    if ~isappdata( gca, linker_tag ) setappdata( gca, linker_tag, linker ); end;
 end

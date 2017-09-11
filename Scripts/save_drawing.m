@@ -23,6 +23,7 @@ for n = 1:length( objnames )
         residue.nucleotide = figure_residue.nucleotide;
         if isfield( figure_residue, 'stem_partner' ); residue.stem_partner = figure_residue.stem_partner; end;
         if isfield( figure_residue, 'tickrot' ); residue.tickrot = figure_residue.tickrot; end
+        if isfield( figure_residue, 'rgb_color' ); residue.rgb_color = figure_residue.rgb_color; end
         residue.relpos = figure_residue.relpos; % needed for drawing, rel. coordinate to helix
         savedata = setfield( savedata, objnames{n}, residue );
     elseif ~isempty( strfind( objnames{n}, 'Helix_' ) );

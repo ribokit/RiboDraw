@@ -148,7 +148,8 @@ if isfield( residue, 'relpos' )
     setappdata( residue.handle, 'res_tag', res_tag );
     residue.plot_pos = pos;
     residue = draw_tick( residue, plot_settings.bp_spacing, R );
-    setappdata( gca, res_tag, residue )
+    if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
+    setappdata( gca, res_tag, residue );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

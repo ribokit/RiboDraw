@@ -14,10 +14,9 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* residue colors (incl. rainbow to allow visual comparison to pymol)
 * hand-write DIII near PK -- figure out needed controls for noncanonical annotations
 * hide linker arrows if there's a base pair
-
+* allow user to better guide paths of linkers (and store that information)
 * bounding box domain movement
 * document JSON file format
 * document MATLAB functions --> move to RiboKit

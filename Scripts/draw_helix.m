@@ -111,12 +111,12 @@ for i = 1:length( helix.associated_residues )
     linker_tags = residue.linkers;
     for k = 1 : length( linker_tags )
         linker = getappdata( gca, linker_tags{k} );
-        if strcmp(get(linker.line_handle,'visible'),'off'); continue; end;
         if strcmp(linker.type,'stem_pair'); continue; end;
         if ~isfield( linker, 'vtx' ) 
             linker.vtx = {}; 
+            visible = get(linker.line_handle,'visible');
             for i = 1:length( linker.plot_pos ) 
-                linker.vtx{i}  = create_draggable_linker_vertex(linker.plot_pos(i,:), linker.linker_tag );
+                linker.vtx{i}  = create_draggable_linker_vertex(linker.plot_pos(i,:), linker.linker_tag, visible );
             end
             setappdata( linker.vtx{1}, 'at_start', 1 );
             set( linker.vtx{1}  , 'markerfacecolor','w','markersize',spacing);
@@ -360,6 +360,7 @@ if isfield( linker, 'arrow' )
     else 
         visible = 'on'; 
     end;
+    if ( check_for_base_pair( linker.residue1, linker.residue2 ) ) visible = 'off'; end;
     set( linker.line_handle, 'visible', visible); 
     if isfield( linker, 'vtx' ) ; 
         for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', visible ); end;
@@ -458,9 +459,14 @@ set( h, 'ydata', vertices(:,2) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function h_new = create_draggable_linker_vertex( pos, linker_tag )
+function h_new = create_draggable_linker_vertex( pos, linker_tag, visible )
+if ~exist( 'visible', 'var' ) visible = 'on'; end;
 plot_settings = getappdata( gca, 'plot_settings' );
-h_new = plot( pos(1),pos(2),'o','markersize',plot_settings.bp_spacing,'color',[0.5 0.5 1],'markerfacecolor',[0.5 0.5 1]);
+h_new = plot( pos(1),pos(2),'o',...
+    'markersize',plot_settings.bp_spacing,...
+    'color',[0.5 0.5 1],...
+    'markerfacecolor',[0.5 0.5 1],...
+    'visible',visible);
 draggable( h_new, 'n',[-inf inf -inf inf], 'endfcn', @redraw_linker_vtx );
 setappdata( h_new, 'linker_tag', linker_tag );
 
@@ -505,6 +511,23 @@ for n = 1:length( linker.vtx )
 end
 
 linker = draw_linker( linker )
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function base_paired = check_for_base_pair( res_tag1, res_tag2 )
+residue1 = getappdata( gca, res_tag1 );
+base_paired = false;
+for i = 1:length( residue1.linkers )
+    linker_tag = residue1.linkers{i};
+    linker = getappdata( gca, linker_tag );
+    if ~strcmp( linker.type,'arrow' )
+        if ( strcmp( linker.residue1 , res_tag1 ) && strcmp( linker.residue2, res_tag2 ) ) 
+            base_paired = true; return;
+        end
+        if ( strcmp( linker.residue1 , res_tag2 ) && strcmp( linker.residue2, res_tag1 ) ) 
+            base_paired = true; return;
+        end
+    end
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ticks

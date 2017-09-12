@@ -14,8 +14,10 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* allow user to better guide paths of linkers (and store that information)
 * hide linker arrows if there's a base pair
+* snap linker vtx to grid
+* delete vtx if close to endpoint
+* hide and show linker_controls
 * show stacks
 * document JSON file format
 * document MATLAB functions --> move to RiboKit

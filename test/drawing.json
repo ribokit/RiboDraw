@@ -209,7 +209,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
 		"rgb_color": [0,0,1],
-		"relpos": [14.68134535,3.12933426],
+		"relpos": [13.93134535,3.12933426],
 		"linkers": [
 			"Linker_C1284_C1285_arrow",
 			"Linker_C1285_C1286_arrow",
@@ -917,7 +917,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1323",
 		"rgb_color": [0,0.665599,1],
-		"relpos": [21,2.25],
+		"relpos": [21,3],
 		"linkers": [
 			"Linker_C1331_C1332_arrow",
 			"Linker_C1332_C1333_arrow"
@@ -2535,7 +2535,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1555",
 		"rgb_color": [0.170399,1,0],
-		"relpos": [-9,-3.75],
+		"relpos": [-9,-3],
 		"linkers": [
 			"Linker_C1438_C1439_arrow",
 			"Linker_C1439_C1440_arrow",
@@ -6532,14 +6532,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1284_C1285_arrow",
 		"relpos1": [16.18134535,-0.62066574],
-		"relpos2": [14.68134535,3.12933426]
+		"relpos2": [13.93134535,3.12933426]
 	},
 	"Linker_C1285_C1286_arrow": {
 		"residue1": "Residue_C1285",
 		"residue2": "Residue_C1286",
 		"type": "arrow",
 		"linker_tag": "Linker_C1285_C1286_arrow",
-		"relpos1": [14.68134535,3.12933426],
+		"relpos1": [13.93134535,3.12933426],
 		"relpos2": [10.18134535,3.12933426]
 	},
 	"Linker_C1286_C1287_arrow": {
@@ -6908,14 +6908,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1331_C1332_arrow",
 		"relpos1": [-1.5,3],
-		"relpos2": [21,2.25]
+		"relpos2": [21,3]
 	},
 	"Linker_C1332_C1333_arrow": {
 		"residue1": "Residue_C1332",
 		"residue2": "Residue_C1333",
 		"type": "arrow",
 		"linker_tag": "Linker_C1332_C1333_arrow",
-		"relpos1": [21,2.25],
+		"relpos1": [21,3],
 		"relpos2": [7.5,3]
 	},
 	"Linker_C1333_C1334_arrow": {
@@ -7764,14 +7764,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1438_C1439_arrow",
 		"relpos1": [6.75,-3],
-		"relpos2": [-9,-3.75]
+		"relpos2": [-9,-3]
 	},
 	"Linker_C1439_C1440_arrow": {
 		"residue1": "Residue_C1439",
 		"residue2": "Residue_C1440",
 		"type": "arrow",
 		"linker_tag": "Linker_C1439_C1440_arrow",
-		"relpos1": [-9,-3.75],
+		"relpos1": [-9,-3],
 		"relpos2": [-6,-3]
 	},
 	"Linker_C1440_C1441_arrow": {
@@ -10685,7 +10685,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1283_C1285_noncanonical_pair",
 		"relpos1": [13.18134535,-3.62066574],
-		"relpos2": [14.68134535,3.12933426],
+		"relpos2": [13.93134535,3.12933426],
 		"edge1": "S",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -10695,7 +10695,7 @@
 		"residue2": "Residue_C1552",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1439_C1552_noncanonical_pair",
-		"relpos1": [-9,-3.75],
+		"relpos1": [-9,-3],
 		"relpos2": [-9,3],
 		"edge1": "H",
 		"edge2": "S",

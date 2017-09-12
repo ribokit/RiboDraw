@@ -1,6 +1,7 @@
-stems = read_stems( '4ybb_DIII_stems.txt' );
-[sequence,resnum,chains,non_standard_residues] = get_sequence( '4ybb_DIII.fasta' );
-base_pairs = read_base_pairs( '4ybb_DIII_base_pairs.txt' ); % includes noncanonical pairs.
+tag = '4ybb_DIII.pdb';
+stems = read_stems( [tag,'.stems.txt'] );
+[sequence,resnum,chains,non_standard_residues] = get_sequence( [tag,'.fasta']);
+base_pairs = read_base_pairs( [tag,'.base_pairs.txt'] ); % includes noncanonical pairs.
 
 clf; set(gca,'Position',[0 0 1 1]);
 hold on

@@ -38,3 +38,8 @@ for i = 1:length(resnum)
     residue.linkers = {};
     setappdata( gca, res_tag, residue );
 end
+
+for n = 1:length( stems )
+    setappdata( gca, stems{n}.helix_tag, stems{n} );
+end
+    

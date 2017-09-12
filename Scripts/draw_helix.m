@@ -209,10 +209,10 @@ if ( residue.chain ~= helix.chain2(1) ) dist2 = Inf * dist2; end;
 [~,strand] = min( [min( dist1 ), min( dist2 )] );
 N = length( helix.resnum1 );
 if ( strand == 1 )   
-    relpos = [ plot_settings.spacing*(+(residue.resnum-helix.resnum1(1))-(N-1)/2), -plot_settings.bp_spacing/2-plot_settings.spacing/4];
+    relpos = [ plot_settings.spacing*(+(residue.resnum-helix.resnum1(1))-(N-1)/2), -plot_settings.bp_spacing/2];
 else
     assert( strand == 2 );    
-    relpos = [ plot_settings.spacing*(-(residue.resnum-helix.resnum2(1))+(N-1)/2), +plot_settings.bp_spacing/2+plot_settings.spacing/4];  
+    relpos = [ plot_settings.spacing*(-(residue.resnum-helix.resnum2(1))+(N-1)/2), +plot_settings.bp_spacing/2];  
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -299,8 +299,10 @@ if ~isfield( linker, relpos_field )
 end;
 relpos = getfield( linker, relpos_field );
 residue = getappdata( gca, res_tag );
-if ( at_start > 0) relpos(1,:)   = residue.relpos;
-else               relpos(end,:) = residue.relpos;
+if isfield( residue,'relpos' )
+    if ( at_start > 0) relpos(1,:)   = residue.relpos;
+    else               relpos(end,:) = residue.relpos;
+    end
 end
 linker = setfield( linker, relpos_field, relpos);
 setappdata( gca, linker.linker_tag, linker );
@@ -352,10 +354,11 @@ plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
 plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
 plot_pos = [plot_pos1; plot_pos2 ];
 
-% hide linkers connecting consecutive residues if they are close
-% (this is a choice; could also show linker without arrow)
 plot_settings = getappdata( gca, 'plot_settings' );
+
 if isfield( linker, 'arrow' ) 
+    % hide linkers connecting consecutive residues if they are close
+    % (this is a choice; could also show linker without arrow)
     if ( size( plot_pos, 1 ) == 2 & ...
             norm( plot_pos(2,:) - plot_pos(1,:) ) < 1.5*plot_settings.spacing );
         visible = 'off'; 
@@ -369,6 +372,13 @@ if isfield( linker, 'arrow' )
         if ( isfield( plot_settings, 'show_linker_controls' ) & ~plot_settings.show_linker_controls ) vtx_visible = 'off'; end;
         for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', vtx_visible ); end;
     end;
+    residue1 = getappdata( gca, linker.residue1 );
+    % color setting
+    color = 'k';  %black is default
+    if ( isfield( plot_settings, 'color_arrows' ) & plot_settings.color_arrows & isfield( residue1, 'rgb_color' ) ); color = residue1.rgb_color; end
+    set( linker.line_handle, 'color',color);
+    set( linker.arrow, 'edgecolor',color );
+    set( linker.arrow, 'facecolor',color );
 end;
 
 % nudge beginning and end of linker away from residue.

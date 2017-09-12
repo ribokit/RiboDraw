@@ -28,16 +28,6 @@ for n = 1:length( objnames )
     end
 end
 
-% % redraw everything.
-% appdata = getappdata( gca );
-% objnames = fields( appdata );
-% for n = 1:length( objnames )
-%     if ~isempty( strfind( objnames{n}, 'Helix_' ) );
-%         undraw_helix(getappdata(gca,objnames{n}));
-%         draw_helix(getappdata(gca,objnames{n}));
-%     end
-% end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function nres = get_nres()
 nres = 0;

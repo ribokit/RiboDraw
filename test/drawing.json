@@ -4489,7 +4489,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
 		"rgb_color": [1,0.4559265319,0],
-		"relpos": [17.25,4.5],
+		"relpos": [17.25,5.25],
 		"linkers": [
 			"Linker_C1568_C1569_arrow",
 			"Linker_C1569_C1570_arrow",
@@ -6037,7 +6037,7 @@
 		"resnum2": [1581,1582],
 		"chain2": "CC",
 		"name": "H54b",
-		"center": [-33,0],
+		"center": [-34.5,0],
 		"rotation": 90,
 		"parity": -1,
 		"label_relpos": [18,-6],
@@ -6061,7 +6061,7 @@
 		"resnum2": [1574,1575,1576,1577],
 		"chain2": "CCCC",
 		"name": "H55",
-		"center": [-33,-18],
+		"center": [-34.5,-18],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [-15,6],
@@ -7718,9 +7718,11 @@
 		"residue2": "Residue_C1429",
 		"type": "arrow",
 		"linker_tag": "Linker_C1428_C1429_arrow",
-		"relpos1": [16.5,-3],
+		"relpos1": [
+			[16.5,-3],
+			[19.5,-3]
+		],
 		"relpos2": [
-			[-21,0.75],
 			[-12.75,0.75],
 			[-12.75,-3],
 			[-4.5,-3]
@@ -8856,14 +8858,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1568_C1569_arrow",
 		"relpos1": [-8.25,-1.5],
-		"relpos2": [17.25,4.5]
+		"relpos2": [17.25,5.25]
 	},
 	"Linker_C1569_C1570_arrow": {
 		"residue1": "Residue_C1569",
 		"residue2": "Residue_C1570",
 		"type": "arrow",
 		"linker_tag": "Linker_C1569_C1570_arrow",
-		"relpos1": [17.25,4.5],
+		"relpos1": [17.25,5.25],
 		"relpos2": [16.5,3]
 	},
 	"Linker_C1570_C1571_arrow": {
@@ -10993,7 +10995,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1378_C1569_noncanonical_pair",
 		"relpos1": [6,3],
-		"relpos2": [17.25,4.5],
+		"relpos2": [17.25,5.25],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "T"
@@ -11156,8 +11158,9 @@
 		"fontsize": 10,
 		"spacing": 3,
 		"bp_spacing": 6,
-		"show_linker_controls": 1
+		"show_linker_controls": 0,
+		"color_arrows": 0
 	},
-	"xlim": [-80.93257781,138.2825778],
-	"ylim": [-108.5546695,107.5025247]
+	"xlim": [-72.78663216,130.1366322],
+	"ylim": [-93.4226553,106.5773447]
 }

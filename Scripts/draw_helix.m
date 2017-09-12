@@ -493,7 +493,7 @@ h_new = create_draggable_linker_vertex( pos, linker_tag );
 plot_settings = getappdata( gca, 'plot_settings' );
 if ( h == linker.vtx{1} )
     relpos = get_relpos_based_on_restag( pos, linker.residue1 );
-    if ( norm( linker.relpos1(1,:) - relpos ) > plot_settings.bp_spacing/2 )
+    if ( norm( linker.relpos1(1,:) - relpos ) >= plot_settings.bp_spacing/4 )
         linker.relpos1 = [ linker.relpos1(1,:); relpos; linker.relpos1(2:end,:)];
         linker.vtx = [linker.vtx(1), {h_new}, linker.vtx(2:end)];
     else
@@ -502,7 +502,7 @@ if ( h == linker.vtx{1} )
 else
     assert( h == linker.vtx{end} );
     relpos = get_relpos_based_on_restag( pos, linker.residue2 );
-    if ( norm( linker.relpos2(end,:) - relpos ) > plot_settings.bp_spacing/2 )
+    if ( norm( linker.relpos2(end,:) - relpos ) >= plot_settings.bp_spacing/4 )
         linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)]
         linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
     else
@@ -527,7 +527,7 @@ for n = 1:length( linker.vtx )
     if ( linker.vtx{n} == h )
         if n <= n1
             linker.relpos1( n, : ) = get_relpos_based_on_restag( pos, linker.residue1 );
-            if ( norm( linker.relpos1(n,:) - linker.relpos1(1,:) ) <= plot_settings.bp_spacing/2 ) 
+            if ( norm( linker.relpos1(n,:) - linker.relpos1(1,:) ) < plot_settings.bp_spacing/4 ) 
                 delete( h );
                 linker.relpos1 = linker.relpos1( [1:n-1, n+1:end], : );
                 linker.vtx = linker.vtx( [1:n-1, n+1:end] );
@@ -536,7 +536,7 @@ for n = 1:length( linker.vtx )
         else
             n_off = n - n1;
             linker.relpos2( n_off, : ) = get_relpos_based_on_restag( pos, linker.residue2 );
-            if ( norm( linker.relpos2( n_off, :) - linker.relpos2(end,:) ) <= plot_settings.bp_spacing/2 )
+            if ( norm( linker.relpos2( n_off, :) - linker.relpos2(end,:) ) < plot_settings.bp_spacing/4 )
                 delete( h );
                 linker.relpos2 = linker.relpos2( [1:n_off-1, n_off+1:end], : );
                 linker.vtx = linker.vtx( [1:n-1, n+1:end] );

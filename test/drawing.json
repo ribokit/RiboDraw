@@ -7005,8 +7005,14 @@
 		"residue2": "Residue_C1343",
 		"type": "arrow",
 		"linker_tag": "Linker_C1342_C1343_arrow",
-		"relpos1": [-6,-3],
-		"relpos2": [-1.5,-3]
+		"relpos1": [
+			[-6,-3],
+			[-6,-6]
+		],
+		"relpos2": [
+			[-1.5,-8.25],
+			[-1.5,-3]
+		]
 	},
 	"Linker_C1343_C1344_arrow": {
 		"residue1": "Residue_C1343",
@@ -7021,8 +7027,14 @@
 		"residue2": "Residue_C1345",
 		"type": "arrow",
 		"linker_tag": "Linker_C1344_C1345_arrow",
-		"relpos1": [1.5,-3],
-		"relpos2": [-3,-3]
+		"relpos1": [
+			[1.5,-3],
+			[1.5,-8.25]
+		],
+		"relpos2": [
+			[-3,-6.75],
+			[-3,-3]
+		]
 	},
 	"Linker_C1345_C1346_arrow": {
 		"residue1": "Residue_C1345",

@@ -26,7 +26,6 @@ function set_control_handle_visibility( visible )
 % hide all blue stuff that was used for interactive movement.
 vals = getappdata( gca );
 objnames = fields( vals );
-hide_handles = {};
 for n = 1:length( objnames )
     if ~isempty( strfind( objnames{n}, 'Residue_' ) );
         residue = getappdata( gca, objnames{n} );
@@ -43,9 +42,3 @@ for n = 1:length( objnames )
         end;
     end
 end
-for i = 1:length( hide_handles ); 
-    get( hide_handles{i} )
-    set( hide_handles{i}, 'visible','off' );
-end;
-
-

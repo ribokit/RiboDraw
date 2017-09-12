@@ -7,6 +7,7 @@ function savedata = save_drawing( filename );
 vals = getappdata( gca );
 objnames = fields( vals );
 savedata = struct();
+savedata.version = '0.5';
 for n = 1:length( objnames )
     if ~isempty( strfind( objnames{n}, 'Residue_' ) );
         figure_residue = getappdata( gca, objnames{n} );

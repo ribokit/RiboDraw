@@ -362,8 +362,10 @@ if isfield( linker, 'arrow' )
     end;
     if ( check_for_base_pair( linker.residue1, linker.residue2 ) ) visible = 'off'; end;
     set( linker.line_handle, 'visible', visible); 
-    if isfield( linker, 'vtx' ) ; 
-        for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', visible ); end;
+    if isfield( linker, 'vtx' ); 
+        vtx_visible = visible;
+        if ( isfield( plot_settings, 'show_linker_controls' ) & ~plot_settings.show_linker_controls ) vtx_visible = 'off'; end;
+        for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', vtx_visible ); end;
     end;
 end;
 
@@ -462,6 +464,7 @@ set( h, 'ydata', vertices(:,2) );
 function h_new = create_draggable_linker_vertex( pos, linker_tag, visible )
 if ~exist( 'visible', 'var' ) visible = 'on'; end;
 plot_settings = getappdata( gca, 'plot_settings' );
+if ( isfield(plot_settings,'show_linker_controls') & ~plot_settings.show_linker_controls ) visible = 'off'; end; % user-override
 h_new = plot( pos(1),pos(2),'o',...
     'markersize',plot_settings.bp_spacing,...
     'color',[0.5 0.5 1],...

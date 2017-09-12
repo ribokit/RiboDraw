@@ -14,11 +14,12 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* hide linker arrows if there's a base pair
 * allow user to better guide paths of linkers (and store that information)
-* bounding box domain movement
+* hide linker arrows if there's a base pair
+* show stacks
 * document JSON file format
 * document MATLAB functions --> move to RiboKit
+* bounding box domain movement
 * protein representation
 
 ### Future
@@ -31,6 +32,9 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## Paper outline
 ### Motivation
 Semi-automated: good for human to do layout (show hand-drawing of domain III), but then becomes tedious to put into illustrator & refine. particularly noncaonical pairs. Also difficult to share.
+
+Errors in published diagrams (Williams 16S rRNA?)
+Oversights (cross-compare motifs from ribodraw and riboswitch representations).
 
 We define file format.
 

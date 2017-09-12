@@ -14,10 +14,10 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* snap linker vtx to grid
-* cleanup directory structure
 * delete vtx if close to endpoint
 * show stacks
+* cleanup directory structure
+* put in docstrings for all files
 * document JSON file format
 * document MATLAB functions --> move to RiboKit
 * bounding box domain movement

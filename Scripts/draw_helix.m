@@ -61,7 +61,7 @@ minpos = min( [all_pos1; all_pos2 ] );
 maxpos = max( [all_pos1; all_pos2 ] );
 h = rectangle( 'Position',...
     [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
-    [-0.5 -0.5 1 1]*spacing,...
+    [-0.5 -0.5 1 1]*0.5*spacing,...
     'edgecolor',[0.5 0.5 1],'clipping','off');
 setappdata(h,'helix_tag',helix.helix_tag); 
 draggable(h,'n',[-inf inf -inf inf],@move_snapgrid,'endfcn',@redraw_helix);
@@ -119,10 +119,9 @@ for i = 1:length( helix.associated_residues )
                 linker.vtx{i}  = create_draggable_linker_vertex(linker.plot_pos(i,:), linker.linker_tag, visible );
             end
         end;
-        for i = 1:length( linker.plot_pos )
+        for i = 1:size( linker.plot_pos, 1 )
             set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
         end
-        setappdata( linker.vtx{1}, 'at_start', 1 );
         setup_endpoint_linker_vertex( linker.vtx{1} );
         setup_endpoint_linker_vertex( linker.vtx{end} );
         setappdata(gca, linker.linker_tag, linker ); 
@@ -484,43 +483,74 @@ draggable( h,  'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @new_linker_vt
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function new_linker_vtx( h )
 pos = [get(h,'XData' ), get(h,'YData' )];
-at_start = isappdata( h, 'at_start' );
 linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );
 
 % create new draggable symbol
-h_new = create_draggable_linker_vertex( pos, linker_tag )
+h_new = create_draggable_linker_vertex( pos, linker_tag );
 
 % install this new vertex in linker vertices.
-if ( at_start == 1 )
+plot_settings = getappdata( gca, 'plot_settings' );
+if ( h == linker.vtx{1} )
     relpos = get_relpos_based_on_restag( pos, linker.residue1 );
-    linker.relpos1 = [ linker.relpos1(1,:); relpos; linker.relpos1(2:end,:)];
-    linker.vtx = [linker.vtx(1), {h_new}, linker.vtx(2:end)];
+    if ( norm( linker.relpos1(1,:) - relpos ) > plot_settings.bp_spacing/2 )
+        linker.relpos1 = [ linker.relpos1(1,:); relpos; linker.relpos1(2:end,:)];
+        linker.vtx = [linker.vtx(1), {h_new}, linker.vtx(2:end)];
+    else
+        delete( h_new );
+    end
 else
+    assert( h == linker.vtx{end} );
     relpos = get_relpos_based_on_restag( pos, linker.residue2 );
-    linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)]
-    linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
+    if ( norm( linker.relpos2(end,:) - relpos ) > plot_settings.bp_spacing/2 )
+        linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)]
+        linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
+    else
+        delete( h_new );
+    end
 end
+
 linker = draw_linker( linker );
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function redraw_linker_vtx( h )
+% can also delete if vtx comes close to endpoint
 pos = [get(h,'XData' ), get(h,'YData' )];
 linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );
 
-n1 = length( linker.relpos1 );
+n1 = size( linker.relpos1, 1 );
+
+plot_settings = getappdata( gca, 'plot_settings' );
 for n = 1:length( linker.vtx )
     if ( linker.vtx{n} == h )
         if n <= n1
             linker.relpos1( n, : ) = get_relpos_based_on_restag( pos, linker.residue1 );
+            if ( norm( linker.relpos1(n,:) - linker.relpos1(1,:) ) <= plot_settings.bp_spacing/2 ) 
+                delete( h );
+                linker.relpos1 = linker.relpos1( [1:n-1, n+1:end], : );
+                linker.vtx = linker.vtx( [1:n-1, n+1:end] );
+            end
+            break;
         else
-            linker.relpos2( n - n1, : ) = get_relpos_based_on_restag( pos, linker.residue2 );
+            n_off = n - n1;
+            linker.relpos2( n_off, : ) = get_relpos_based_on_restag( pos, linker.residue2 );
+            if ( norm( linker.relpos2( n_off, :) - linker.relpos2(end,:) ) <= plot_settings.bp_spacing/2 )
+                delete( h );
+                linker.relpos2 = linker.relpos2( [1:n_off-1, n_off+1:end], : );
+                linker.vtx = linker.vtx( [1:n-1, n+1:end] );
+            end
+            break;
         end
     end
 end
+linker
+% above loop should find a vertex match and break!
+assert( n <= length( linker.vtx ) );
+assert( size( [linker.relpos1;linker.relpos2], 1 ) == length(linker.vtx) );
 
-linker = draw_linker( linker )
+draw_linker( linker );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function base_paired = check_for_base_pair( res_tag1, res_tag2 )

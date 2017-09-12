@@ -1,11 +1,10 @@
-function setup_base_pair_linkers( base_pairs, stem_pair_map )
+function setup_base_pair_linkers( base_pairs )
 % draw_dummy_base_pairs( base_pairs )
 %
 % This also initializes linker objects if they are not defined yet.
 % Might be better to do the actual drawing in draw_helix master function.
 %
 
-if ~exist( 'stem_pair_map', 'var'); stem_pair_map.partner1 = {}; stem_pair_map.partner2 = {} ; end;
 plot_settings = getappdata(gca,'plot_settings');
 for i = 1:length( base_pairs )
     base_pair = base_pairs{i};
@@ -27,7 +26,7 @@ for i = 1:length( base_pairs )
     linker_tag = sprintf('Linker_%s%d_%s%d_%s', base_pair.chain1,base_pair.resnum1,base_pair.chain2,base_pair.resnum2,linker.type);
     add_linker_to_residue( res_tag1, linker_tag );
     add_linker_to_residue( res_tag2, linker_tag );
-    linker.linker_tag = linker_tag; setappdata( gca, linker_tag, linker );
+    linker.linker_tag = linker_tag; 
     if ~isappdata( gca, linker_tag );  setappdata( gca, linker_tag, linker );  end
 end
 

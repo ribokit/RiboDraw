@@ -338,7 +338,6 @@ set( h, 'ydata', [pos1d(2) pos2d(2)] );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_default_linker( linker );
-
 switch linker.type
     case 'stem_pair'
         if ~isfield( linker, 'line_handle' ) & ~isfield( linker, 'symbol' )
@@ -354,7 +353,7 @@ switch linker.type
             end
             setappdata( gca, linker.linker_tag, linker );
         end
-    case 'noncanonical_pair'
+    case 'noncanonical_pair'        
         if ~isfield( linker, 'line_handle' )
             plot_settings = getappdata( gca, 'plot_settings' );
             linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.

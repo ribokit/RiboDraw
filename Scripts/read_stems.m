@@ -11,5 +11,6 @@ while ~feof( fid )
         [helix.resnum2,helix.chain2] = get_resnum_from_tag( cols{2} );
         helix.name = cols{3};
         helices = [helices,helix];
+        helix.helix_tag = sprintf('Helix_%s%d',helix.chain1(1),helix.resnum1(1));
     end;
 end

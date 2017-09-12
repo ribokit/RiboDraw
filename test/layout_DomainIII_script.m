@@ -17,9 +17,8 @@ stems = set_default_stem_positions( stems );
 stems = setup_residues(  stems, sequence, resnum, chains );
 setup_stem_partner( stems );
 draw_dummy_linkers(resnum,chains);
-setup_base_pair_linkers( base_pairs, canonical_pair_map )
+setup_base_pair_linkers( base_pairs  )
 draw_dummy_ticks();
-initialize_linker_objects();
-initalize_ticks();
+initialize_ticks();
 
 draw_helices( stems );

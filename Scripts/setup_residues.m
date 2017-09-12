@@ -14,7 +14,7 @@ for n = 1:length( stems )
     stem_chain2(n) = stems{n}.chain2(1);
     stems{n}.associated_residues = {};
 end
-for i = 1:length(sequence)
+for i = 1:length(resnum)
     % find which helix is closest to the residue.
     chain = chains(i);
     res   = resnum(i);
@@ -34,6 +34,7 @@ for i = 1:length(sequence)
     residue.helix_tag = stems{n}.helix_tag;
     seqpos = intersect(strfind(chains,chain), find(resnum==res));
     residue.nucleotide = upper(sequence(seqpos));
+    residue.res_tag = res_tag;
     residue.linkers = {};
     setappdata( gca, res_tag, residue );
 end

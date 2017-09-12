@@ -22,9 +22,7 @@ undraw_helix( helix );
 
 % need to figure out rel_pos back in the 'frame' of the helix.
 % for that I need to figure out rotation matrix.
-theta = helix.rotation;
-R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
-R = [1 0; 0 helix.parity] * R;
+R = get_helix_rotation_matrix( helix );
 residue.relpos = ( residue.plot_pos - helix.center ) * R';
 setappdata( gca, res_tag, residue );
 draw_helix( helix );

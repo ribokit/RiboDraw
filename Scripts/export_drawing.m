@@ -36,6 +36,11 @@ for n = 1:length( objnames )
         if isfield( helix, 'click_center' )   set( helix.click_center,'visible', visible); end;
         if isfield( helix, 'reflect_line' )   set( helix.reflect_line, 'visible', visible); end;
         if isfield( helix, 'helix_rectangle' ) set( helix.helix_rectangle, 'visible', visible); end;
+    elseif ~isempty( strfind( objnames{n}, 'Linker_' ) );
+        linker = getappdata( gca, objnames{n} );
+        if isfield( linker, 'vtx' ) 
+            for i = 1:length( linker.vtx ) set( linker.vtx{i},'visible', visible);  end;
+        end;
     end
 end
 for i = 1:length( hide_handles ); 

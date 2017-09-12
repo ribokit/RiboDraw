@@ -116,18 +116,17 @@ for i = 1:length( helix.associated_residues )
         if ~isfield( linker, 'vtx' ) 
             linker.vtx = {}; 
             for i = 1:length( linker.plot_pos ) 
-                linker.vtx{i} = plot( 0,0,'o','markersize',bp_spacing,'color',[0.5 0.5 1],'markerfacecolor',[0.5 0.5 1]);
-                setappdata( linker.vtx{i}, 'linker_tag', linker.linker_tag );
+                linker.vtx{i}  = create_draggable_linker_vertex(linker.plot_pos(i,:), linker.linker_tag );
             end
             setappdata( linker.vtx{1}, 'at_start', 1 );
-            set( linker.vtx{1}, 'markerfacecolor','w','markersize',spacing);
+            set( linker.vtx{1}  , 'markerfacecolor','w','markersize',spacing);
             set( linker.vtx{end}, 'markerfacecolor','w','markersize',spacing);
         end;
         for i = 1:length( linker.plot_pos )
             set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
         end
-        draggable( linker.vtx{1}, 'endfcn', @new_linker_vtx );
-        draggable( linker.vtx{end}, 'endfcn', @new_linker_vtx );
+        draggable( linker.vtx{1},  'n',[-inf inf -inf inf], 'endfcn', @new_linker_vtx );
+        draggable( linker.vtx{end},'n',[-inf inf -inf inf], 'endfcn', @new_linker_vtx );
         setappdata(gca, linker.linker_tag, linker ); 
     end
 end
@@ -341,7 +340,10 @@ relpos = (plot_pos - repmat(helix.center,size(plot_pos,1),1))*R';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_linker( linker )
 linker = draw_default_linker( linker );
-
+if ( getappdata(gca,'showstuff') == 1 )
+    linker
+end
+    
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
 linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
@@ -351,6 +353,10 @@ linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
 plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
 plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
 plot_pos = [plot_pos1; plot_pos2 ];
+
+if ( getappdata(gca,'showstuff') == 1 )
+    plot_pos
+end
 
 % nudge beginning and end of linker away from residue.
 plot_settings = getappdata( gca, 'plot_settings' );
@@ -379,7 +385,15 @@ if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, plot_se
 if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  end
 if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  end;
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
+
+% if there are vertex symbols at end points, re-draw them.
+if isfield( linker, 'vtx' )
+    set( linker.vtx{1}  , 'XData', plot_pos(1,1)  , 'YData', plot_pos(1,2) );
+    set( linker.vtx{end}, 'XData', plot_pos(end,1), 'YData', plot_pos(end,2) );
+end
+
 setappdata( gca, linker.linker_tag, linker );
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_default_linker( linker );
@@ -443,30 +457,54 @@ set( h, 'xdata', vertices(:,1) );
 set( h, 'ydata', vertices(:,2) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+function h_new = create_draggable_linker_vertex( pos, linker_tag )
+plot_settings = getappdata( gca, 'plot_settings' );
+h_new = plot( pos(1),pos(2),'o','markersize',plot_settings.bp_spacing,'color',[0.5 0.5 1],'markerfacecolor',[0.5 0.5 1]);
+draggable( h_new, 'n',[-inf inf -inf inf], 'endfcn', @redraw_linker_vtx );
+setappdata( h_new, 'linker_tag', linker_tag );
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function new_linker_vtx( h )
 pos = [get(h,'XData' ), get(h,'YData' )];
 at_start = isappdata( h, 'at_start' );
 linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );
-plot_settings = getappdata( gca, 'plot_settings' );
+
 % create new draggable symbol
-h_new = plot( pos(1),pos(2),'o','markersize',plot_settings.bp_spacing,'color',[0.5 0.5 1],'markerfacecolor',[0.5 0.5 1]);
+h_new = create_draggable_linker_vertex( pos, linker_tag )
+
+% install this new vertex in linker vertices.
 if ( at_start == 1 )
     relpos = get_relpos( pos, linker.residue1 );
     linker.relpos1 = [ linker.relpos1(1,:); relpos; linker.relpos1(2:end,:)];
-    linker = draw_linker( linker );
-    % restore end point.
-    set(h,'XData',linker.plot_pos(1,1),'YData',linker.plot_pos(1,2) );
     linker.vtx = [linker.vtx(1), {h_new}, linker.vtx(2:end)];
 else
     relpos = get_relpos( pos, linker.residue2 );
     linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)]
-    linker = draw_linker( linker);
-    % restore end point.
-    set(h,'XData',linker.plot_pos(end,1),'YData',linker.plot_pos(end,2) );
     linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
 end
-setappdata( gca, linker.linker_tag, linker );
+linker = draw_linker( linker );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function redraw_linker_vtx( h )
+pos = [get(h,'XData' ), get(h,'YData' )];
+linker_tag = getappdata( h, 'linker_tag' );
+linker = getappdata( gca, linker_tag );
+
+n1 = length( linker.relpos1 );
+for n = 1:length( linker.vtx )
+    if ( linker.vtx{n} == h )
+        if n <= n1
+            linker.relpos1( n, : ) = get_relpos( pos, linker.residue1 );
+        else
+            linker.relpos2( n - n1, : ) = get_relpos( pos, linker.residue2 );
+        end
+    end
+end
+
+linker = draw_linker( linker )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ticks

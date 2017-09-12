@@ -172,15 +172,17 @@ function move_snapgrid(h)
 % snap to grid during movement.
 
 % works for both text (residue) and rectangle (helix).
-if isfield( h, 'Position' )
+if strcmp( h.Type, 'line' )
+    % line/symbol
+    pos = [ get( h, 'XData' ), get( h, 'YData' ) ];
+    res_center = pos;
+else
     pos = get(h,'Position');
     if length( pos ) == 4 % rectangle
         res_center = [pos(1)+pos(3)/2, pos(2)+pos(4)/2];
     else
         res_center = pos(1:2); % text
     end
-else % symbol/line
-    res_center = [ get( h, 'XData' ), get( h, 'YData' ) ];
 end
 
 % Computing the new position of the rectangle
@@ -190,16 +192,12 @@ new_position = round(res_center/grid_spacing)*grid_spacing;
 
 % Updating the rectangle' XData and YData properties
 delta = new_position - res_center;
-if length( pos ) == 4 % rectangle
-    pos = pos + [delta, 0, 0];
-else
-    pos = pos + [delta, 0]; % text
-end
+pos(1:2) = pos(1:2) + delta;
 
-if isfield( h, 'Position' )
-    set(h,'Position',pos );
-else
+if strcmp( h.Type, 'line' )
     set(h,'XData',pos(1),'YData',pos(2) );
+else
+    set(h,'Position',pos );    
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

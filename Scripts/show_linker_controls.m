@@ -13,8 +13,10 @@ objnames = fields( vals );
 for n = 1:length( objnames )
     if ~isempty( strfind( objnames{n}, 'Linker_' ) );
         linker = getappdata( gca, objnames{n} );
-        if isfield( linker, 'vtx' ) 
-            for i = 1:length( linker.vtx ) set( linker.vtx{i},'visible', visible);  end;
+        if isfield( linker, 'vtx' ) & isfield( linker, 'line_handle' ) 
+            vtx_visible = visible;
+            if strcmp( get( linker.line_handle, 'visible' ), 'off' ) vtx_visible = 'off'; end;
+            for i = 1:length( linker.vtx ) set( linker.vtx{i},'visible', vtx_visible);  end;
         end;
     end
 end

@@ -64,7 +64,7 @@ h = rectangle( 'Position',...
     [-0.5 -0.5 1 1]*spacing,...
     'edgecolor',[0.5 0.5 1],'clipping','off');
 setappdata(h,'helix_tag',helix.helix_tag); 
-draggable(h,'n',[-inf inf -inf inf],@move_residue,'endfcn',@redraw_helix);
+draggable(h,'n',[-inf inf -inf inf],@move_snapgrid,'endfcn',@redraw_helix);
 helix.helix_rectangle = h;
 
 % clickable line of reflection
@@ -97,7 +97,7 @@ end
 for i = 1:length( not_helix_res_tags )
     res_tag = not_helix_res_tags{i};
     residue = getappdata( gca, res_tag );
-    draggable( residue.handle,@move_residue, 'endfcn', @redraw_res_and_helix )
+    draggable( residue.handle,@move_snapgrid, 'endfcn', @redraw_res_and_helix )
 end
 
 % draggable helix label
@@ -118,15 +118,13 @@ for i = 1:length( helix.associated_residues )
             for i = 1:length( linker.plot_pos ) 
                 linker.vtx{i}  = create_draggable_linker_vertex(linker.plot_pos(i,:), linker.linker_tag, visible );
             end
-            setappdata( linker.vtx{1}, 'at_start', 1 );
-            set( linker.vtx{1}  , 'markerfacecolor','w','markersize',spacing);
-            set( linker.vtx{end}, 'markerfacecolor','w','markersize',spacing);
         end;
         for i = 1:length( linker.plot_pos )
             set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
         end
-        draggable( linker.vtx{1},  'n',[-inf inf -inf inf], 'endfcn', @new_linker_vtx );
-        draggable( linker.vtx{end},'n',[-inf inf -inf inf], 'endfcn', @new_linker_vtx );
+        setappdata( linker.vtx{1}, 'at_start', 1 );
+        setup_endpoint_linker_vertex( linker.vtx{1} );
+        setup_endpoint_linker_vertex( linker.vtx{end} );
         setappdata(gca, linker.linker_tag, linker ); 
     end
 end
@@ -170,16 +168,19 @@ if isfield( residue, 'relpos' )
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function move_residue(h)
-% don't really need this function, but allows
+function move_snapgrid(h)
 % snap to grid during movement.
 
 % works for both text (residue) and rectangle (helix).
-pos = get(h,'Position');
-if length( pos ) == 4 % rectangle
-    res_center = [pos(1)+pos(3)/2, pos(2)+pos(4)/2];
-else
-    res_center = pos(1:2); % text
+if isfield( h, 'Position' )
+    pos = get(h,'Position');
+    if length( pos ) == 4 % rectangle
+        res_center = [pos(1)+pos(3)/2, pos(2)+pos(4)/2];
+    else
+        res_center = pos(1:2); % text
+    end
+else % symbol/line
+    res_center = [ get( h, 'XData' ), get( h, 'YData' ) ];
 end
 
 % Computing the new position of the rectangle
@@ -195,7 +196,11 @@ else
     pos = pos + [delta, 0]; % text
 end
 
-set(h,'Position',pos );
+if isfield( h, 'Position' )
+    set(h,'Position',pos );
+else
+    set(h,'XData',pos(1),'YData',pos(2) );
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function relpos = set_default_relpos( residue, helix, plot_settings )
@@ -460,19 +465,23 @@ set( h, 'xdata', vertices(:,1) );
 set( h, 'ydata', vertices(:,2) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 function h_new = create_draggable_linker_vertex( pos, linker_tag, visible )
 if ~exist( 'visible', 'var' ) visible = 'on'; end;
 plot_settings = getappdata( gca, 'plot_settings' );
 if ( isfield(plot_settings,'show_linker_controls') & ~plot_settings.show_linker_controls ) visible = 'off'; end; % user-override
 h_new = plot( pos(1),pos(2),'o',...
-    'markersize',plot_settings.bp_spacing,...
+    'markersize',plot_settings.spacing*1.5,...
     'color',[0.5 0.5 1],...
     'markerfacecolor',[0.5 0.5 1],...
     'visible',visible);
-draggable( h_new, 'n',[-inf inf -inf inf], 'endfcn', @redraw_linker_vtx );
+draggable( h_new, 'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @redraw_linker_vtx );
 setappdata( h_new, 'linker_tag', linker_tag );
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function setup_endpoint_linker_vertex( h )
+plot_settings = getappdata( gca, 'plot_settings' );
+set( h, 'markerfacecolor','w','markersize',plot_settings.spacing);
+draggable( h,  'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @new_linker_vtx );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function new_linker_vtx( h )

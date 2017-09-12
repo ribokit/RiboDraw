@@ -14,7 +14,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* hide and show linker_controls
 * snap linker vtx to grid
 * cleanup directory structure
 * delete vtx if close to endpoint

@@ -1,4 +1,5 @@
 {
+	"version": "0.5",
 	"Residue_C1271": {
 		"resnum": 1271,
 		"chain": "C",
@@ -11089,7 +11090,8 @@
 	"plot_settings": {
 		"fontsize": 10,
 		"spacing": 3,
-		"bp_spacing": 6
+		"bp_spacing": 6,
+		"show_linker_controls": 0
 	},
 	"xlim": [-80.93257781,138.2825778],
 	"ylim": [-108.5546695,107.5025247]

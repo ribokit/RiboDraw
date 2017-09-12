@@ -1235,7 +1235,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1380",
 		"rgb_color": [0,0.956799,1],
-		"relpos": [-6.75,-6],
+		"relpos": [-6,-6],
 		"linkers": [
 			"Linker_C1352_C1353_arrow",
 			"Linker_C1353_C1354_arrow",
@@ -1626,7 +1626,7 @@
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1355",
 		"rgb_color": [0,1,0.7102180213],
-		"relpos": [5.25,6.75],
+		"relpos": [3.75,6.75],
 		"linkers": [
 			"Linker_C1378_C1379_arrow",
 			"Linker_C1379_C1380_arrow",
@@ -1640,7 +1640,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1351",
-		"tickrot": 90,
+		"tickrot": 135,
 		"rgb_color": [0,1,0.694401],
 		"relpos": [3,3],
 		"linkers": [
@@ -5889,10 +5889,10 @@
 		"resnum2": [1380,1381,1382],
 		"chain2": "CCC",
 		"name": "H52a",
-		"center": [-3,32.25],
+		"center": [-3,34.5],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [-0,6],
+		"label_relpos": [3,10.5],
 		"helix_tag": "Helix_C1349",
 		"associated_residues": [
 			"Residue_C1349",
@@ -7076,14 +7076,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1352_C1353_arrow",
 		"relpos1": [6,-3],
-		"relpos2": [-6.75,-6]
+		"relpos2": [-6,-6]
 	},
 	"Linker_C1353_C1354_arrow": {
 		"residue1": "Residue_C1353",
 		"residue2": "Residue_C1354",
 		"type": "arrow",
 		"linker_tag": "Linker_C1353_C1354_arrow",
-		"relpos1": [-6.75,-6],
+		"relpos1": [-6,-6],
 		"relpos2": [-6,-3]
 	},
 	"Linker_C1354_C1355_arrow": {
@@ -7284,14 +7284,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1378_C1379_arrow",
 		"relpos1": [6,3],
-		"relpos2": [5.25,6.75]
+		"relpos2": [3.75,6.75]
 	},
 	"Linker_C1379_C1380_arrow": {
 		"residue1": "Residue_C1379",
 		"residue2": "Residue_C1380",
 		"type": "arrow",
 		"linker_tag": "Linker_C1379_C1380_arrow",
-		"relpos1": [5.25,6.75],
+		"relpos1": [3.75,6.75],
 		"relpos2": [3,3]
 	},
 	"Linker_C1380_C1381_arrow": {
@@ -10657,12 +10657,12 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1353_C1379_noncanonical_pair",
 		"relpos1": [
-			[-6.75,-6],
-			[-9.226275871,-6.093424727]
+			[-6,-6],
+			[-7.91045861,-6.093424727]
 		],
 		"relpos2": [
-			[7.890595345,6.665108346],
-			[5.25,6.75]
+			[7.101104988,6.665108346],
+			[3.75,6.75]
 		],
 		"edge1": "W",
 		"edge2": "W",

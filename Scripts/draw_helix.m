@@ -331,7 +331,7 @@ R = get_helix_rotation_matrix( helix );
 plot_pos = repmat(helix.center,size(relpos,1),1) + relpos*R;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function relpos = get_relpos( plot_pos, res_tag );
+function relpos = get_relpos_based_on_restag( plot_pos, res_tag );
 residue = getappdata( gca, res_tag );
 helix = getappdata( gca, residue.helix_tag );
 relpos = get_relpos( plot_pos, helix );
@@ -350,8 +350,23 @@ plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
 plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
 plot_pos = [plot_pos1; plot_pos2 ];
 
-% nudge beginning and end of linker away from residue.
+% hide linkers connecting consecutive residues if they are close
+% (this is a choice; could also show linker without arrow)
 plot_settings = getappdata( gca, 'plot_settings' );
+if isfield( linker, 'arrow' ) 
+    if ( size( plot_pos, 1 ) == 2 & ...
+            norm( plot_pos(2,:) - plot_pos(1,:) ) < 1.5*plot_settings.spacing );
+        visible = 'off'; 
+    else 
+        visible = 'on'; 
+    end;
+    set( linker.line_handle, 'visible', visible); 
+    if isfield( linker, 'vtx' ) ; 
+        for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', visible ); end;
+    end;
+end;
+
+% nudge beginning and end of linker away from residue.
 plot_pos1(1,:)   = nudge_pos( plot_pos(1,:),   plot_pos(2,:),     plot_settings.bp_spacing );
 plot_pos2(end,:) = nudge_pos( plot_pos(end,:), plot_pos(end-1,:), plot_settings.bp_spacing );
 plot_pos(1,:)   = plot_pos1(1,:);
@@ -360,18 +375,6 @@ linker.plot_pos = plot_pos;
 
 % replot the line
 set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
-
-% hide linkers connecting consecutive residues if they are close
-% (this is a choice; could also show linker without arrow)
-if ( isfield( linker, 'arrow' ) & ...
-        length( plot_pos ) == 2 & ...
-        norm( plot_pos(2,:) - plot_pos(1,:) ) < 1.5*plot_settings.spacing ), visible = 'off'; else; visible = 'on'; end;
-if strcmp( linker.type, 'arrow' ) 
-    set( linker.line_handle, 'visible', visible); 
-    if isfield( linker, 'vtx' ) ; 
-        for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', visible ); end;
-    end;
-end;
 
 % place symbols on central segment
 pos1 = plot_pos1( end, : );
@@ -474,11 +477,11 @@ h_new = create_draggable_linker_vertex( pos, linker_tag )
 
 % install this new vertex in linker vertices.
 if ( at_start == 1 )
-    relpos = get_relpos( pos, linker.residue1 );
+    relpos = get_relpos_based_on_restag( pos, linker.residue1 );
     linker.relpos1 = [ linker.relpos1(1,:); relpos; linker.relpos1(2:end,:)];
     linker.vtx = [linker.vtx(1), {h_new}, linker.vtx(2:end)];
 else
-    relpos = get_relpos( pos, linker.residue2 );
+    relpos = get_relpos_based_on_restag( pos, linker.residue2 );
     linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)]
     linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
 end
@@ -494,9 +497,9 @@ n1 = length( linker.relpos1 );
 for n = 1:length( linker.vtx )
     if ( linker.vtx{n} == h )
         if n <= n1
-            linker.relpos1( n, : ) = get_relpos( pos, linker.residue1 );
+            linker.relpos1( n, : ) = get_relpos_based_on_restag( pos, linker.residue1 );
         else
-            linker.relpos2( n - n1, : ) = get_relpos( pos, linker.residue2 );
+            linker.relpos2( n - n1, : ) = get_relpos_based_on_restag( pos, linker.residue2 );
         end
     end
 end

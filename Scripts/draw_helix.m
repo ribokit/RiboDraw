@@ -48,41 +48,7 @@ for i = 1:length( helix.associated_residues )
     linker_tags = residue.linkers;
     for k = 1 : length( linker_tags )
         linker = getappdata( gca, linker_tags{k} );
-        linker = draw_default_linker( linker );
-
-        % linker starts at res1 and ends at res2
-        linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
-        linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
-        
-        % figure out positions in figure frame, based on each residue's
-        % helix frame:
-        plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
-        plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
-        plot_pos = [plot_pos1; plot_pos2 ];
-        % nudge beginning and end of linker away from residue.
-        plot_pos1(1,:)   = nudge_pos( plot_pos(1,:), plot_pos(2,:), bp_spacing );
-        plot_pos2(end,:) = nudge_pos( plot_pos(end,:), plot_pos(end-1,:), bp_spacing );
-        plot_pos(1,:)   = plot_pos1(1,:);
-        plot_pos(end,:) = plot_pos2(end,:);
-        % replot the line
-        set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
-        
-        % hide linkers connecting consecutive residues if they are close 
-        % (this is a choice; could also show linker without arrow)
-        if ( isfield( linker, 'arrow' ) & ...
-                length( plot_pos ) == 2 & ...
-                norm( plot_pos(2,:) - plot_pos(1,:) ) < 1.5*plot_settings.spacing ), visible = 'off'; else; visible = 'on'; end;
-        if strcmp( linker.type, 'arrow' ) set( linker.line_handle, 'visible', visible); end;
-
-        % place symbols on central segment
-        pos1 = plot_pos1( end, : );
-        pos2 = plot_pos2(   1, : );
-        ctr = (pos1+pos2)/2; % center of connecting line
-        v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
-        if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, spacing ); end;
-        if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, bp_spacing );  end
-        if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr -  (1.3*bp_spacing/10)*v, v, 1, bp_spacing );  end;
-        if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*bp_spacing/10)*v, v, 2, bp_spacing );  end
+        draw_linker( linker );
     end
 end
 
@@ -132,12 +98,39 @@ for i = 1:length( not_helix_res_tags )
     res_tag = not_helix_res_tags{i};
     residue = getappdata( gca, res_tag );
     draggable( residue.handle,@move_residue, 'endfcn', @redraw_res_and_helix )
-    % setappdata(residue.handle, 'res_tag', res_tag ); % already done during text definition.
 end
 
 % draggable helix label
 setappdata( helix.l, 'helix_tag', helix.helix_tag );
 draggable( helix.l, 'n',[-inf inf -inf inf], @move_helix_label, 'endfcn', @redraw_helix_label )
+
+% draggable linker vertices
+for i = 1:length( helix.associated_residues )
+    res_tag = helix.associated_residues{i};
+    residue = getappdata( gca, res_tag );
+    linker_tags = residue.linkers;
+    for k = 1 : length( linker_tags )
+        linker = getappdata( gca, linker_tags{k} );
+        if strcmp(get(linker.line_handle,'visible'),'off'); continue; end;
+        if strcmp(linker.type,'stem_pair'); continue; end;
+        if ~isfield( linker, 'vtx' ) 
+            linker.vtx = {}; 
+            for i = 1:length( linker.plot_pos ) 
+                linker.vtx{i} = plot( 0,0,'o','markersize',bp_spacing,'color',[0.5 0.5 1],'markerfacecolor',[0.5 0.5 1]);
+                setappdata( linker.vtx{i}, 'linker_tag', linker.linker_tag );
+            end
+            setappdata( linker.vtx{1}, 'at_start', 1 );
+            set( linker.vtx{1}, 'markerfacecolor','w','markersize',spacing);
+            set( linker.vtx{end}, 'markerfacecolor','w','markersize',spacing);
+        end;
+        for i = 1:length( linker.plot_pos )
+            set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
+        end
+        draggable( linker.vtx{1}, 'endfcn', @new_linker_vtx );
+        draggable( linker.vtx{end}, 'endfcn', @new_linker_vtx );
+        setappdata(gca, linker.linker_tag, linker ); 
+    end
+end
 
 %%%%%%%%%%%%%%%%%%%%%
 % DO THIS AT THE END
@@ -152,20 +145,23 @@ setappdata( gca, helix.helix_tag, helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Residue level
+% Residue 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = draw_residue( res_tag, helix_center, R, plot_settings );
 residue = getappdata( gca, res_tag );
 if isfield( residue, 'relpos' )
     pos = helix_center +  residue.relpos * R ;
-    h = text( ...
-        pos(1), pos(2),...
-        residue.nucleotide,...
-        'fontsize', plot_settings.fontsize, ...
-        'fontname','helvetica','horizontalalign','center','verticalalign','middle',...
-        'clipping','off');
+    if ~isfield( residue, 'handle' )
+        residue.handle = text( ...
+            0, 0,...
+            residue.nucleotide,...
+            'fontsize', plot_settings.fontsize, ...
+            'fontname','helvetica','horizontalalign','center','verticalalign','middle',...
+            'clipping','off');
+    end
+    h = residue.handle;
+    set( h, 'Position', pos );
     if ( length( residue.nucleotide ) > 1 ) set( h, 'fontsize', plot_settings.fontsize*4/5); end;
-    residue.handle = h;
     setappdata( residue.handle, 'res_tag', res_tag );
     residue.res_tag = res_tag;
     residue.plot_pos = pos;
@@ -227,7 +223,7 @@ setappdata( gca, res_tag, residue);
         
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% helix label
+% Helix label
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = make_helix_label( helix, plot_settings, R )
 % make label
@@ -242,7 +238,6 @@ function move_helix_label(h)
 pos = get(h,'position'); 
 helix_tag = getappdata( h, 'helix_tag' );
 helix = getappdata( gca, helix_tag );
-
 R = get_helix_rotation_matrix( helix );
 relpos = (pos(1:2) - helix.center)*R';
 v = [0,sign(relpos(2))]*R;
@@ -303,8 +298,9 @@ if ~isfield( linker, relpos_field )
 end;
 relpos = getfield( linker, relpos_field );
 residue = getappdata( gca, res_tag );
-if ( at_start ) relpos(1,:) = residue.relpos;
-else relpos(end,:) = residue.relpos; end
+if ( at_start > 0) relpos(1,:)   = residue.relpos;
+else               relpos(end,:) = residue.relpos;
+end
 linker = setfield( linker, relpos_field, relpos);
 setappdata( gca, linker.linker_tag, linker );
 
@@ -333,7 +329,57 @@ function plot_pos = get_plot_pos( res_tag, relpos );
 residue = getappdata( gca, res_tag );
 helix = getappdata( gca, residue.helix_tag );
 R = get_helix_rotation_matrix( helix );
-plot_pos = helix.center + relpos*R;
+plot_pos = repmat(helix.center,size(relpos,1),1) + relpos*R;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function relpos = get_relpos( plot_pos, res_tag );
+residue = getappdata( gca, res_tag );
+helix = getappdata( gca, residue.helix_tag );
+R = get_helix_rotation_matrix( helix );
+relpos = (plot_pos - repmat(helix.center,size(plot_pos,1),1))*R';
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linker = draw_linker( linker )
+linker = draw_default_linker( linker );
+
+% linker starts at res1 and ends at res2
+linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
+linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
+
+% figure out positions in figure frame, based on each residue's
+% helix frame:
+plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
+plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
+plot_pos = [plot_pos1; plot_pos2 ];
+
+% nudge beginning and end of linker away from residue.
+plot_settings = getappdata( gca, 'plot_settings' );
+plot_pos1(1,:)   = nudge_pos( plot_pos(1,:),   plot_pos(2,:),     plot_settings.bp_spacing );
+plot_pos2(end,:) = nudge_pos( plot_pos(end,:), plot_pos(end-1,:), plot_settings.bp_spacing );
+plot_pos(1,:)   = plot_pos1(1,:);
+plot_pos(end,:) = plot_pos2(end,:);
+linker.plot_pos = plot_pos;
+
+% replot the line
+set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
+
+% hide linkers connecting consecutive residues if they are close
+% (this is a choice; could also show linker without arrow)
+if ( isfield( linker, 'arrow' ) & ...
+        length( plot_pos ) == 2 & ...
+        norm( plot_pos(2,:) - plot_pos(1,:) ) < 1.5*plot_settings.spacing ), visible = 'off'; else; visible = 'on'; end;
+if strcmp( linker.type, 'arrow' ) set( linker.line_handle, 'visible', visible); end;
+
+% place symbols on central segment
+pos1 = plot_pos1( end, : );
+pos2 = plot_pos2(   1, : );
+ctr = (pos1+pos2)/2; % center of connecting line
+v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
+if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, plot_settings.spacing ); end;
+if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  end
+if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  end;
+if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
+setappdata( gca, linker.linker_tag, linker );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_default_linker( linker );
@@ -396,7 +442,31 @@ assert( numv == size( vertices, 1 ) );
 set( h, 'xdata', vertices(:,1) );
 set( h, 'ydata', vertices(:,2) );
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function new_linker_vtx( h )
+pos = [get(h,'XData' ), get(h,'YData' )];
+at_start = isappdata( h, 'at_start' );
+linker_tag = getappdata( h, 'linker_tag' );
+linker = getappdata( gca, linker_tag );
+plot_settings = getappdata( gca, 'plot_settings' );
+% create new draggable symbol
+h_new = plot( pos(1),pos(2),'o','markersize',plot_settings.bp_spacing,'color',[0.5 0.5 1],'markerfacecolor',[0.5 0.5 1]);
+if ( at_start == 1 )
+    relpos = get_relpos( pos, linker.residue1 );
+    linker.relpos1 = [ linker.relpos1(1,:); relpos; linker.relpos1(2:end,:)];
+    linker = draw_linker( linker );
+    % restore end point.
+    set(h,'XData',linker.plot_pos(1,1),'YData',linker.plot_pos(1,2) );
+    linker.vtx = [linker.vtx(1), {h_new}, linker.vtx(2:end)];
+else
+    relpos = get_relpos( pos, linker.residue2 );
+    linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)]
+    linker = draw_linker( linker);
+    % restore end point.
+    set(h,'XData',linker.plot_pos(end,1),'YData',linker.plot_pos(end,2) );
+    linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
+end
+setappdata( gca, linker.linker_tag, linker );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ticks

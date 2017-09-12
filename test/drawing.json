@@ -180,7 +180,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1289",
 		"rgb_color": [0,0,1],
-		"relpos": [13.5,-3.75],
+		"relpos": [13.18134535,-3.62066574],
 		"linkers": [
 			"Linker_C1282_C1283_arrow",
 			"Linker_C1283_C1284_arrow",
@@ -195,7 +195,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
 		"rgb_color": [0,0,1],
-		"relpos": [16.93134535,-0.62066574],
+		"relpos": [16.18134535,-0.62066574],
 		"linkers": [
 			"Linker_C1283_C1284_arrow",
 			"Linker_C1284_C1285_arrow"
@@ -209,7 +209,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
 		"rgb_color": [0,0,1],
-		"relpos": [13.93134535,3.12933426],
+		"relpos": [14.68134535,3.12933426],
 		"linkers": [
 			"Linker_C1284_C1285_arrow",
 			"Linker_C1285_C1286_arrow",
@@ -6504,21 +6504,21 @@
 		"residue2": "Residue_C1283",
 		"type": "arrow",
 		"linker_tag": "Linker_C1282_C1283_arrow",
-		"relpos1": [13.5,-3.75]
+		"relpos1": [13.18134535,-3.62066574]
 	},
 	"Linker_C1283_C1284_arrow": {
 		"residue1": "Residue_C1283",
 		"residue2": "Residue_C1284",
 		"type": "arrow",
 		"linker_tag": "Linker_C1283_C1284_arrow",
-		"relpos1": [16.93134535,-0.62066574]
+		"relpos1": [16.18134535,-0.62066574]
 	},
 	"Linker_C1284_C1285_arrow": {
 		"residue1": "Residue_C1284",
 		"residue2": "Residue_C1285",
 		"type": "arrow",
 		"linker_tag": "Linker_C1284_C1285_arrow",
-		"relpos1": [13.93134535,3.12933426]
+		"relpos1": [14.68134535,3.12933426]
 	},
 	"Linker_C1285_C1286_arrow": {
 		"residue1": "Residue_C1285",
@@ -10159,7 +10159,7 @@
 		"residue2": "Residue_C1285",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1283_C1285_noncanonical_pair",
-		"relpos1": [13.93134535,3.12933426],
+		"relpos1": [14.68134535,3.12933426],
 		"edge1": "S",
 		"edge2": "H",
 		"LW_orientation": "T"

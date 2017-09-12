@@ -17,7 +17,7 @@ if (switched_helix) residue.plot_pos = original_plot_pos; end;
 
 helix = getappdata( gca, residue.helix_tag );
 blink_helix_rectangle( helix );
-delete( h );
+%delete( h );
 undraw_helix( helix );
 
 % need to figure out rel_pos back in the 'frame' of the helix.

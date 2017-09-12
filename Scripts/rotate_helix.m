@@ -3,6 +3,6 @@ helix_tag = getappdata( h, 'helix_tag' );
 helix = getappdata(gca,helix_tag );
 helix.rotation = mod( helix.rotation + 90, 360 );
 undraw_helix( helix );
+setappdata( gca, helix_tag, helix );
 draw_helix( helix );
-
 

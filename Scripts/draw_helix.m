@@ -334,16 +334,12 @@ plot_pos = repmat(helix.center,size(relpos,1),1) + relpos*R;
 function relpos = get_relpos( plot_pos, res_tag );
 residue = getappdata( gca, res_tag );
 helix = getappdata( gca, residue.helix_tag );
-R = get_helix_rotation_matrix( helix );
-relpos = (plot_pos - repmat(helix.center,size(plot_pos,1),1))*R';
+relpos = get_relpos( plot_pos, helix );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_linker( linker )
 linker = draw_default_linker( linker );
-if ( getappdata(gca,'showstuff') == 1 )
-    linker
-end
-    
+   
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
 linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
@@ -353,10 +349,6 @@ linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
 plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
 plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
 plot_pos = [plot_pos1; plot_pos2 ];
-
-if ( getappdata(gca,'showstuff') == 1 )
-    plot_pos
-end
 
 % nudge beginning and end of linker away from residue.
 plot_settings = getappdata( gca, 'plot_settings' );
@@ -374,7 +366,12 @@ set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 if ( isfield( linker, 'arrow' ) & ...
         length( plot_pos ) == 2 & ...
         norm( plot_pos(2,:) - plot_pos(1,:) ) < 1.5*plot_settings.spacing ), visible = 'off'; else; visible = 'on'; end;
-if strcmp( linker.type, 'arrow' ) set( linker.line_handle, 'visible', visible); end;
+if strcmp( linker.type, 'arrow' ) 
+    set( linker.line_handle, 'visible', visible); 
+    if isfield( linker, 'vtx' ) ; 
+        for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', visible ); end;
+    end;
+end;
 
 % place symbols on central segment
 pos1 = plot_pos1( end, : );

@@ -22,8 +22,20 @@ undraw_helix( helix );
 
 % need to figure out rel_pos back in the 'frame' of the helix.
 % for that I need to figure out rotation matrix.
-R = get_helix_rotation_matrix( helix );
-residue.relpos = ( residue.plot_pos - helix.center ) * R';
+residue.relpos = get_relpos( residue.plot_pos, helix );
+linker_tags = residue.linkers;
+for k = 1 : length( linker_tags )
+    linker = getappdata( gca, linker_tags{k} );
+    if strcmp(linker.residue1, res_tag )
+        n1 = size(linker.relpos1,1);
+        linker.relpos1 = get_relpos( linker.plot_pos(1:n1,:), helix );
+    end
+    if strcmp(linker.residue2, res_tag )
+        n2 = size(linker.relpos2,1);
+        linker.relpos2 = get_relpos( linker.plot_pos(end-n2+1:end,:), helix );
+    end
+    setappdata( gca, linker_tags{k}, linker );
+end
 setappdata( gca, res_tag, residue );
 draw_helix( helix );
 
@@ -70,7 +82,7 @@ for n = 1:length( stems )
         setappdata( gca, other_helix.helix_tag, other_helix );
         
         residue.helix_tag = other_helix.helix_tag;
-        return;
+         return;
     end
 end
 

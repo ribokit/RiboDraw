@@ -1,4 +1,5 @@
 function redraw_helix( h )
+delete_crosshair();
 pos = get(h,'position'); 
 helix_tag = getappdata( h, 'helix_tag' );
 helix = getappdata(gca,helix_tag );

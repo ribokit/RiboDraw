@@ -14,16 +14,20 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
+* check that noncanonical pairs can be rectified.
+* allow visible stack lines to be draggable.
 * cleanup directory structure
+* fix stems to helices
+* try domain I
+* combine domain I and domain II (incl. bounding boxes)
+* domains -- autoidentify coax stacks
 * put in docstrings for all files
 * document JSON file format
-* document MATLAB functions --> move to RiboKit
-* bounding box domain movement
+* document MATLAB functions in .md --> move to RiboKit
 * protein representation
 
 ### Future
 * Annnotation of motifs
-* in Rosetta/MATLAB, autocompute stacks
 * Calculate 3D helix axis vectors and use to cross-check 2D helix orientations
 * Create a 'score' for total number of harmonious elements [e.g. lack of explicit linkers, mainly horizontal and vertical lines]
 * For demo, produce 3-4 level 'game' 

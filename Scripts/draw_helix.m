@@ -170,6 +170,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function move_snapgrid(h)
 % snap to grid during movement.
+% show crosshairs too
 
 % works for both text (residue) and rectangle (helix).
 if strcmp( h.Type, 'line' )
@@ -199,6 +200,8 @@ if strcmp( h.Type, 'line' )
 else
     set(h,'Position',pos );    
 end
+
+make_crosshair( pos );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function relpos = set_default_relpos( residue, helix, plot_settings )
@@ -326,7 +329,7 @@ set( h, 'ydata', ...
 function pos1 = nudge_pos( pos1, pos2, bp_spacing );
 v = pos2 - pos1; 
 v = v/norm(v);
-pos1 = pos1 +  (bp_spacing/3)*v;
+pos1 = pos1 +  (bp_spacing/5)*v;
       
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function plot_pos = get_plot_pos( res_tag, relpos );
@@ -501,6 +504,7 @@ draggable( h,  'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @new_linker_vt
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function new_linker_vtx( h )
+delete_crosshair();
 pos = [get(h,'XData' ), get(h,'YData' )];
 linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );
@@ -535,6 +539,7 @@ linker = draw_linker( linker );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function redraw_linker_vtx( h )
 % can also delete if vtx comes close to endpoint
+delete_crosshair();
 pos = [get(h,'XData' ), get(h,'YData' )];
 linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );

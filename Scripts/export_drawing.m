@@ -37,5 +37,6 @@ for n = 1:length( objnames )
         if isfield( helix, 'helix_rectangle' ) set( helix.helix_rectangle, 'visible', visible); end;
     end
 end
-show_linker_controls( strcmp(visible,'on') );
+plot_settings = getappdata( gca, 'plot_settings' );
+show_linker_controls( strcmp(visible,'on') & plot_settings.show_linker_controls );
 

@@ -658,7 +658,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1604",
-		"tickrot": 270,
+		"tickrot": 315,
 		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
@@ -1187,7 +1187,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1314",
 		"rgb_color": [0,0,0],
-		"relpos": [24.75,-21.75],
+		"relpos": [27,-21.75],
 		"linkers": [
 			"Linker_C1340_C1341_arrow",
 			"Linker_C1341_C1342_arrow"
@@ -1337,7 +1337,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1381",
-		"tickrot": 270,
+		"tickrot": 315,
 		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
@@ -1907,7 +1907,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1349",
 		"rgb_color": [0,0,0],
-		"relpos": [-19.5,-12.75],
+		"relpos": [-9.75,-13.5],
 		"linkers": [
 			"Linker_C1382_C1383_arrow",
 			"Linker_C1383_C1384_arrow",
@@ -3472,7 +3472,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1517",
 		"rgb_color": [0,0,0],
-		"relpos": [10.5,-6.75],
+		"relpos": [10.5,-8.25],
 		"linkers": [
 			"Linker_C1474_C1475_arrow",
 			"Linker_C1475_C1476_arrow",
@@ -5234,7 +5234,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1421",
 		"rgb_color": [0,0,0],
-		"relpos": [6.75,5.25],
+		"relpos": [6,5.25],
 		"linkers": [
 			"Linker_C1578_C1579_arrow",
 			"Linker_C1579_C1580_arrow",
@@ -5330,7 +5330,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1416",
 		"rgb_color": [0,0,0],
-		"relpos": [21.75,3],
+		"relpos": [22.5,3],
 		"linkers": [
 			"Linker_C1584_C1585_arrow",
 			"Linker_C1585_C1586_arrow",
@@ -5346,7 +5346,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1416",
 		"rgb_color": [0,0,0],
-		"relpos": [18,3],
+		"relpos": [18.75,3],
 		"linkers": [
 			"Linker_C1585_C1586_arrow",
 			"Linker_C1586_C1587_arrow",
@@ -6448,7 +6448,7 @@
 		"resnum2": [1622,1623,1624,1625],
 		"chain2": "CCCC",
 		"name": "H49",
-		"center": [60.75,-15.75],
+		"center": [60.75,-16.5],
 		"rotation": 270,
 		"parity": -1,
 		"label_relpos": [-0,-6],
@@ -6478,7 +6478,7 @@
 		"center": [60.75,-2.25],
 		"rotation": 270,
 		"parity": -1,
-		"label_relpos": [-1.5,-4.5],
+		"label_relpos": [-4.5,-4.5],
 		"helix_tag": "Helix_C1309",
 		"associated_residues": [
 			"Residue_C1308",
@@ -6577,7 +6577,7 @@
 		"center": [12.75,23.25],
 		"rotation": 180,
 		"parity": -1,
-		"label_relpos": [-6,7.5],
+		"label_relpos": [-9,4.5],
 		"helix_tag": "Helix_C1345",
 		"associated_residues": [
 			"Residue_C1342",
@@ -6598,10 +6598,10 @@
 		"resnum2": [1380,1381,1382],
 		"chain2": "CCC",
 		"name": "H52a",
-		"center": [-3,34.5],
+		"center": [-3.75,24.75],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [4.5,-6],
+		"label_relpos": [-4.5,7.5],
 		"helix_tag": "Helix_C1349",
 		"associated_residues": [
 			"Residue_C1349",
@@ -6622,10 +6622,10 @@
 		"resnum2": [1374,1375,1376],
 		"chain2": "CCC",
 		"name": "H52b",
-		"center": [-3,49.5],
+		"center": [-3.75,39.75],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [-0,-6],
+		"label_relpos": [0,7.5],
 		"helix_tag": "Helix_C1355",
 		"associated_residues": [
 			"Residue_C1353",
@@ -6649,10 +6649,10 @@
 		"resnum2": [1368,1369,1370],
 		"chain2": "CCC",
 		"name": "H52c",
-		"center": [-3,67.5],
+		"center": [-3.75,57.75],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [0,-6],
+		"label_relpos": [1.5,7.5],
 		"helix_tag": "Helix_C1361",
 		"associated_residues": [
 			"Residue_C1360",
@@ -6749,7 +6749,7 @@
 		"center": [-34.5,0],
 		"rotation": 90,
 		"parity": -1,
-		"label_relpos": [16.5,10.5],
+		"label_relpos": [21,4.5],
 		"helix_tag": "Helix_C1416",
 		"associated_residues": [
 			"Residue_C1416",
@@ -8093,8 +8093,8 @@
 		"residue2": "Residue_C1384",
 		"type": "stack",
 		"linker_tag": "Linker_C1383_C1384_stack",
-		"relpos1": [-19.5,-15],
-		"relpos2": [-18.75,-12.75]
+		"relpos1": [-9.75,-13.5],
+		"relpos2": [-17.25,-12.75]
 	},
 	"Linker_C1385_C1386_stack": {
 		"residue1": "Residue_C1385",
@@ -10240,7 +10240,7 @@
 		"linker_tag": "Linker_C1299_C1300_arrow",
 		"relpos1": [7.5,-3],
 		"relpos2": [
-			[-14.25,-3],
+			[-13.5,-3],
 			[-9.75,-3]
 		]
 	},
@@ -10582,7 +10582,7 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1340_C1341_arrow",
 		"relpos1": [-13.5,3],
-		"relpos2": [24.75,-21.75]
+		"relpos2": [27,-21.75]
 	},
 	"Linker_C1341_C1342_arrow": {
 		"residue1": "Residue_C1341",
@@ -10590,8 +10590,8 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1341_C1342_arrow",
 		"relpos1": [
-			[24.75,-21.75],
-			[24.75,-18]
+			[27,-21.75],
+			[27,-18]
 		],
 		"relpos2": [-6,-3]
 	},
@@ -10656,7 +10656,7 @@
 		"linker_tag": "Linker_C1348_C1349_arrow",
 		"relpos1": [6,-3],
 		"relpos2": [
-			[-14.25,-3],
+			[-4.5,-3],
 			[-3,-3]
 		]
 	},
@@ -10931,8 +10931,8 @@
 		"linker_tag": "Linker_C1382_C1383_arrow",
 		"relpos1": [-3,3],
 		"relpos2": [
-			[-19.5,3],
-			[-19.5,-12.75]
+			[-9.75,3],
+			[-9.75,-13.5]
 		]
 	},
 	"Linker_C1383_C1384_arrow": {
@@ -10940,7 +10940,7 @@
 		"residue2": "Residue_C1384",
 		"type": "arrow",
 		"linker_tag": "Linker_C1383_C1384_arrow",
-		"relpos1": [-19.5,-12.75],
+		"relpos1": [-9.75,-13.5],
 		"relpos2": [-17.25,-12.75]
 	},
 	"Linker_C1384_C1385_arrow": {
@@ -11691,14 +11691,14 @@
 			[4.5,-3],
 			[4.5,-6.75]
 		],
-		"relpos2": [10.5,-6.75]
+		"relpos2": [10.5,-8.25]
 	},
 	"Linker_C1475_C1476_arrow": {
 		"residue1": "Residue_C1475",
 		"residue2": "Residue_C1476",
 		"type": "arrow",
 		"linker_tag": "Linker_C1475_C1476_arrow",
-		"relpos1": [10.5,-6.75],
+		"relpos1": [10.5,-8.25],
 		"relpos2": [10.5,-3]
 	},
 	"Linker_C1476_C1477_arrow": {
@@ -12532,7 +12532,7 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1578_C1579_arrow",
 		"relpos1": [-10.5,-3],
-		"relpos2": [6.75,5.25]
+		"relpos2": [6,5.25]
 	},
 	"Linker_C1579_C1580_arrow": {
 		"residue1": "Residue_C1579",
@@ -12580,7 +12580,7 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1584_C1585_arrow",
 		"relpos1": [-5.25,3],
-		"relpos2": [21.75,3]
+		"relpos2": [22.5,3]
 	},
 	"Linker_C1585_C1586_arrow": {
 		"residue1": "Residue_C1585",
@@ -12771,12 +12771,9 @@
 		"linker_tag": "Linker_C1606_C1607_arrow",
 		"relpos1": [
 			[-4.5,3],
-			[-9,7.5]
+			[-6.75,5.25]
 		],
-		"relpos2": [
-			[-9,14.25],
-			[-6.75,14.25]
-		]
+		"relpos2": [-6.75,14.25]
 	},
 	"Linker_C1607_C1608_arrow": {
 		"residue1": "Residue_C1607",
@@ -12937,7 +12934,7 @@
 		"linker_tag": "Linker_C1626_C1627_arrow",
 		"relpos1": [
 			[-7.5,3],
-			[-18.75,3]
+			[-18,3]
 		],
 		"relpos2": [-4.5,-3]
 	},
@@ -14101,7 +14098,7 @@
 			[-9,-3]
 		],
 		"relpos2": [
-			[2.25,-14.25],
+			[3,-14.25],
 			[6,-14.25],
 			[6,3],
 			[7.5,3]
@@ -14115,8 +14112,14 @@
 		"residue2": "Residue_C1608",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1308_C1608_noncanonical_pair",
-		"relpos1": [-4.5,-3],
-		"relpos2": [-4.5,-3],
+		"relpos1": [
+			[-4.5,-3],
+			[-3,-3]
+		],
+		"relpos2": [
+			[-3,-3],
+			[-4.5,-3]
+		],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "T"
@@ -14228,7 +14231,7 @@
 			[-9.75,3]
 		],
 		"relpos2": [
-			[18,2.25],
+			[21,2.25],
 			[12.75,2.25]
 		],
 		"edge1": "S",
@@ -14725,7 +14728,7 @@
 		"residue2": "Residue_C1476",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1475_C1476_noncanonical_pair",
-		"relpos1": [10.5,-6.75],
+		"relpos1": [10.5,-8.25],
 		"relpos2": [10.5,-3],
 		"edge1": "S",
 		"edge2": "H",
@@ -14864,8 +14867,14 @@
 		"residue2": "Residue_C1585",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1582_C1585_noncanonical_pair",
-		"relpos1": [-1.5,3],
-		"relpos2": [21.75,3],
+		"relpos1": [
+			[-1.5,3],
+			[-3.75,3]
+		],
+		"relpos2": [
+			[22.5,1.5],
+			[22.5,3]
+		],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -14875,7 +14884,10 @@
 		"residue2": "Residue_C1622",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1607_C1622_noncanonical_pair",
-		"relpos1": [-6.75,14.25],
+		"relpos1": [
+			[-6.75,14.25],
+			[-9.75,14.25]
+		],
 		"relpos2": [4.5,3],
 		"edge1": "H",
 		"edge2": "H",

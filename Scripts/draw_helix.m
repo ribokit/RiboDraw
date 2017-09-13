@@ -470,7 +470,7 @@ switch linker.type
         linker.arrow = patch( [0,0,0],[0,0,0],'k' );
         setappdata( gca, linker.linker_tag, linker );
     case 'stack'
-        linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linewidth',3 ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5 ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
 end
 
@@ -649,7 +649,7 @@ v = [cos(theta*pi/180),sin(theta*pi/180)];
 plot_settings = getappdata(gca,'plot_settings');
 labelpos = residue.plot_pos + v*plot_settings.bp_spacing*2/3;
 set(h,'Position',labelpos);
-set_text_alignment( h, v )
+set_text_alignment( h, v );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function redraw_tick_res_and_helix(h)

@@ -6,7 +6,7 @@
 		"res_tag": "Residue_C1271",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
-		"rgb_color": [0.002001,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [0.431345354,-9.62066574],
 		"linkers": [
 			"Linker_C1271_C1272_arrow",
@@ -19,8 +19,8 @@
 		"res_tag": "Residue_C1272",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
-		"rgb_color": [0,0,1],
-		"relpos": [-1.818654646,-9.62066574],
+		"rgb_color": [0,0,0],
+		"relpos": [-2.25,-9.75],
 		"linkers": [
 			"Linker_C1271_C1272_arrow",
 			"Linker_C1272_C1273_arrow",
@@ -33,7 +33,7 @@
 		"res_tag": "Residue_C1273",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "U",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.818654646,-9.62066574],
 		"linkers": [
 			"Linker_C1272_C1273_arrow",
@@ -46,7 +46,7 @@
 		"res_tag": "Residue_C1274",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-9.75,-7.5],
 		"linkers": [
 			"Linker_C1273_C1274_arrow",
@@ -63,7 +63,7 @@
 		"res_tag": "Residue_C1275",
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-8.25,-5.25],
 		"linkers": [
 			"Linker_C1274_C1275_arrow",
@@ -77,7 +77,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1294",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,-3],
 		"linkers": [
 			"Linker_C1275_C1276_arrow",
@@ -94,7 +94,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1293",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1276_C1277_arrow",
@@ -111,7 +111,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1292",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1277_C1278_arrow",
@@ -127,7 +127,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1291",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1278_C1279_arrow",
@@ -145,7 +145,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1290",
 		"tickrot": 270,
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1279_C1280_arrow",
@@ -163,7 +163,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1289",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C1280_C1281_arrow",
@@ -181,7 +181,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1289",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [10.22260749,-3.75],
 		"linkers": [
 			"Linker_C1281_C1282_arrow",
@@ -198,7 +198,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1289",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [13.18134535,-3.62066574],
 		"linkers": [
 			"Linker_C1282_C1283_arrow",
@@ -214,7 +214,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [15.75,-2.893228063e-15],
 		"linkers": [
 			"Linker_C1283_C1284_arrow",
@@ -229,7 +229,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [13.18134535,3.12933426],
 		"linkers": [
 			"Linker_C1284_C1285_arrow",
@@ -246,7 +246,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
-		"rgb_color": [0,0,1],
+		"rgb_color": [0,0,0],
 		"relpos": [10.18134535,3.12933426],
 		"linkers": [
 			"Linker_C1285_C1286_arrow",
@@ -263,8 +263,8 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1289",
-		"rgb_color": [0,0,1],
-		"relpos": [10.18134535,6.87933426],
+		"rgb_color": [0,0,0],
+		"relpos": [10.5,6.75],
 		"linkers": [
 			"Linker_C1286_C1287_arrow",
 			"Linker_C1287_C1288_arrow",
@@ -278,8 +278,8 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1289",
-		"rgb_color": [0,0,1],
-		"relpos": [7.931345354,6.87933426],
+		"rgb_color": [0,0,0],
+		"relpos": [8.25,6.75],
 		"linkers": [
 			"Linker_C1287_C1288_arrow",
 			"Linker_C1288_C1289_arrow",
@@ -295,7 +295,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1281",
-		"rgb_color": [0,0.01024255319,1],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3],
 		"linkers": [
 			"Linker_C1288_C1289_arrow",
@@ -313,7 +313,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1280",
 		"tickrot": 90,
-		"rgb_color": [0,0.0232,1],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1289_C1290_arrow",
@@ -331,7 +331,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1279",
-		"rgb_color": [0,0.0344,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1290_C1291_arrow",
@@ -349,7 +349,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1278",
-		"rgb_color": [0,0.0456,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1291_C1292_arrow",
@@ -367,7 +367,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1277",
-		"rgb_color": [0,0.0568,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1292_C1293_arrow",
@@ -384,7 +384,7 @@
 		"helix_tag": "Helix_C1276",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1276",
-		"rgb_color": [0,0.068,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,3],
 		"linkers": [
 			"Linker_C1293_C1294_arrow",
@@ -401,7 +401,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1645",
-		"rgb_color": [0,0.0792,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1294_C1295_arrow",
@@ -419,7 +419,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1644",
-		"rgb_color": [0,0.0904,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1295_C1296_arrow",
@@ -437,7 +437,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1643",
-		"rgb_color": [0,0.1016,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1296_C1297_arrow",
@@ -455,7 +455,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1642",
-		"rgb_color": [0,0.1129638298,1],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1297_C1298_arrow",
@@ -472,7 +472,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1642",
-		"rgb_color": [0,0.124,1],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C1298_C1299_arrow",
@@ -490,7 +490,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1642",
 		"tickrot": 270,
-		"rgb_color": [0,0.1376574468,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-9.75,-3],
 		"linkers": [
 			"Linker_C1299_C1300_arrow",
@@ -505,7 +505,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1642",
-		"rgb_color": [0,0.152,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,-3],
 		"linkers": [
 			"Linker_C1300_C1301_arrow",
@@ -522,7 +522,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1642",
-		"rgb_color": [0,0.1623510638,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-6],
 		"linkers": [
 			"Linker_C1301_C1302_arrow",
@@ -537,7 +537,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1625",
-		"rgb_color": [0,0.1744,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1302_C1303_arrow",
@@ -554,7 +554,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1624",
-		"rgb_color": [0,0.1856,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1303_C1304_arrow",
@@ -572,7 +572,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1623",
-		"rgb_color": [0,0.1968,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1304_C1305_arrow",
@@ -589,7 +589,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1622",
-		"rgb_color": [0,0.212,1],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1305_C1306_arrow",
@@ -607,7 +607,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1622",
-		"rgb_color": [0,0.228799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [6.75,-3],
 		"linkers": [
 			"Linker_C1306_C1307_arrow",
@@ -624,7 +624,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1622",
-		"rgb_color": [0,0.245599,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1307_C1308_arrow",
@@ -641,7 +641,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1605",
-		"rgb_color": [0,0.262399,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1308_C1309_arrow",
@@ -659,7 +659,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1604",
 		"tickrot": 270,
-		"rgb_color": [0,0.279199,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1309_C1310_arrow",
@@ -677,7 +677,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1604",
-		"rgb_color": [0,0.2976075106,1],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1310_C1311_arrow",
@@ -693,7 +693,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1604",
-		"rgb_color": [0,0.3203277234,1],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-4.5],
 		"linkers": [
 			"Linker_C1311_C1312_arrow",
@@ -709,7 +709,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1604",
-		"rgb_color": [0,0.3346479362,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-12.75],
 		"linkers": [
 			"Linker_C1312_C1313_arrow",
@@ -724,7 +724,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1338",
-		"rgb_color": [0,0.354799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,-3],
 		"linkers": [
 			"Linker_C1313_C1314_arrow",
@@ -740,7 +740,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1337",
-		"rgb_color": [0,0.371599,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1314_C1315_arrow",
@@ -758,7 +758,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1336",
-		"rgb_color": [0,0.388399,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1315_C1316_arrow",
@@ -776,7 +776,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1335",
-		"rgb_color": [0,0.405199,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1316_C1317_arrow",
@@ -794,7 +794,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1334",
-		"rgb_color": [0,0.421999,1],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1317_C1318_arrow",
@@ -811,7 +811,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1333",
-		"rgb_color": [0,0.438799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C1318_C1319_arrow",
@@ -829,7 +829,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1333",
 		"tickrot": 225,
-		"rgb_color": [0,0.455599,1],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,-2.25],
 		"linkers": [
 			"Linker_C1319_C1320_arrow",
@@ -847,8 +847,8 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1333",
-		"rgb_color": [0,0.4744096383,1],
-		"relpos": [12.75,0.75],
+		"rgb_color": [0,0,0],
+		"relpos": [20.25,1.5],
 		"linkers": [
 			"Linker_C1320_C1321_arrow",
 			"Linker_C1321_C1322_arrow",
@@ -862,8 +862,8 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1333",
-		"rgb_color": [0,0.489199,1],
-		"relpos": [-4.5,-3],
+		"rgb_color": [0,0,0],
+		"relpos": [-3.75,-3],
 		"linkers": [
 			"Linker_C1321_C1322_arrow",
 			"Linker_C1322_C1323_arrow",
@@ -880,7 +880,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1331",
-		"rgb_color": [0,0.5114500638,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1322_C1323_arrow",
@@ -897,7 +897,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1330",
-		"rgb_color": [0,0.5257702766,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1323_C1324_arrow",
@@ -916,7 +916,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1330",
-		"rgb_color": [0,0.547999,1],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3.75],
 		"linkers": [
 			"Linker_C1324_C1325_arrow",
@@ -930,7 +930,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1330",
-		"rgb_color": [0,0.564799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [6.75,-2.25],
 		"linkers": [
 			"Linker_C1325_C1326_arrow",
@@ -946,7 +946,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1330",
-		"rgb_color": [0,0.581599,1],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,0.75],
 		"linkers": [
 			"Linker_C1326_C1327_arrow",
@@ -963,7 +963,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1330",
-		"rgb_color": [0,0.598399,1],
+		"rgb_color": [0,0,0],
 		"relpos": [5.25,3],
 		"linkers": [
 			"Linker_C1327_C1328_arrow",
@@ -981,7 +981,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1330",
-		"rgb_color": [0,0.615199,1],
+		"rgb_color": [0,0,0],
 		"relpos": [3.75,6.75],
 		"linkers": [
 			"Linker_C1328_C1329_arrow",
@@ -998,7 +998,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1324",
 		"tickrot": 90,
-		"rgb_color": [0,0.631999,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1329_C1330_arrow",
@@ -1015,7 +1015,7 @@
 		"helix_tag": "Helix_C1323",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1323",
-		"rgb_color": [0,0.648799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1330_C1331_arrow",
@@ -1034,8 +1034,8 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1323",
-		"rgb_color": [0,0.665599,1],
-		"relpos": [21,3],
+		"rgb_color": [0,0,0],
+		"relpos": [27.75,5.25],
 		"linkers": [
 			"Linker_C1331_C1332_arrow",
 			"Linker_C1332_C1333_arrow",
@@ -1049,7 +1049,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1319",
-		"rgb_color": [0,0.682399,1],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3],
 		"linkers": [
 			"Linker_C1332_C1333_arrow",
@@ -1067,7 +1067,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1318",
-		"rgb_color": [0,0.7025724043,1],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1333_C1334_arrow",
@@ -1083,7 +1083,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1317",
-		"rgb_color": [0,0.716892617,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1334_C1335_arrow",
@@ -1100,7 +1100,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1316",
-		"rgb_color": [0,0.7396128298,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1335_C1336_arrow",
@@ -1118,7 +1118,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1315",
-		"rgb_color": [0,0.757999,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1336_C1337_arrow",
@@ -1136,7 +1136,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1314",
-		"rgb_color": [0,0.774799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,3],
 		"linkers": [
 			"Linker_C1337_C1338_arrow",
@@ -1155,7 +1155,7 @@
 		"helix_tag": "Helix_C1314",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1314",
-		"rgb_color": [0,0.791599,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-10.5,3],
 		"linkers": [
 			"Linker_C1338_C1339_arrow",
@@ -1171,7 +1171,7 @@
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1314",
 		"tickrot": 90,
-		"rgb_color": [0,0.8056,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-13.5,3],
 		"linkers": [
 			"Linker_C1339_C1340_arrow",
@@ -1186,7 +1186,7 @@
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1314",
-		"rgb_color": [0,0.8168,1],
+		"rgb_color": [0,0,0],
 		"relpos": [24.75,-21.75],
 		"linkers": [
 			"Linker_C1340_C1341_arrow",
@@ -1200,7 +1200,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1314",
-		"rgb_color": [0,0.827999,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-3],
 		"linkers": [
 			"Linker_C1341_C1342_arrow",
@@ -1217,7 +1217,7 @@
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1404",
-		"rgb_color": [0,0.839199,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1342_C1343_arrow",
@@ -1235,7 +1235,7 @@
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1403",
-		"rgb_color": [0,0.850399,1],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1343_C1344_arrow",
@@ -1251,7 +1251,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1601",
-		"rgb_color": [0,0.8624636755,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1344_C1345_arrow",
@@ -1268,7 +1268,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1600",
-		"rgb_color": [0,0.872799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1345_C1346_arrow",
@@ -1286,7 +1286,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1599",
-		"rgb_color": [0,0.8871564468,1],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1346_C1347_arrow",
@@ -1303,7 +1303,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1599",
-		"rgb_color": [0,0.900799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [6,-3],
 		"linkers": [
 			"Linker_C1347_C1348_arrow",
@@ -1320,7 +1320,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1382",
-		"rgb_color": [0,0.9118500638,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1348_C1349_arrow",
@@ -1338,7 +1338,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1381",
 		"tickrot": 270,
-		"rgb_color": [0,0.923199,1],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1349_C1350_arrow",
@@ -1356,7 +1356,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1380",
-		"rgb_color": [0,0.934399,1],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1350_C1351_arrow",
@@ -1375,7 +1375,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1380",
-		"rgb_color": [0,0.945599,1],
+		"rgb_color": [0,0,0],
 		"relpos": [6,-3],
 		"linkers": [
 			"Linker_C1351_C1352_arrow",
@@ -1392,7 +1392,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1380",
-		"rgb_color": [0,0.956799,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,-6],
 		"linkers": [
 			"Linker_C1352_C1353_arrow",
@@ -1409,7 +1409,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1380",
-		"rgb_color": [0,0.967999,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-3],
 		"linkers": [
 			"Linker_C1353_C1354_arrow",
@@ -1426,7 +1426,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1376",
-		"rgb_color": [0,0.979199,1],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1354_C1355_arrow",
@@ -1443,7 +1443,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1375",
-		"rgb_color": [0,0.990399,1],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1355_C1356_arrow",
@@ -1460,7 +1460,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1374",
-		"rgb_color": [0,1,0.9949754681],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1356_C1357_arrow",
@@ -1477,7 +1477,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1374",
-		"rgb_color": [0,1,0.9854286596],
+		"rgb_color": [0,0,0],
 		"relpos": [6,-3],
 		"linkers": [
 			"Linker_C1357_C1358_arrow",
@@ -1494,7 +1494,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1374",
-		"rgb_color": [0,1,0.970401],
+		"rgb_color": [0,0,0],
 		"relpos": [9,-3],
 		"linkers": [
 			"Linker_C1358_C1359_arrow",
@@ -1512,7 +1512,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1374",
 		"tickrot": 270,
-		"rgb_color": [0,1,0.9607350426],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-3],
 		"linkers": [
 			"Linker_C1359_C1360_arrow",
@@ -1529,7 +1529,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1370",
-		"rgb_color": [0,1,0.948001],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1360_C1361_arrow",
@@ -1546,7 +1546,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1369",
-		"rgb_color": [0,1,0.936801],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1361_C1362_arrow",
@@ -1563,7 +1563,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1368",
-		"rgb_color": [0,1,0.925601],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1362_C1363_arrow",
@@ -1581,7 +1581,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1368",
-		"rgb_color": [0,1,0.914401],
+		"rgb_color": [0,0,0],
 		"relpos": [6.04126214,-3.454576976],
 		"linkers": [
 			"Linker_C1363_C1364_arrow",
@@ -1598,7 +1598,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1368",
-		"rgb_color": [0,1,0.903201],
+		"rgb_color": [0,0,0],
 		"relpos": [9,-1.5],
 		"linkers": [
 			"Linker_C1364_C1365_arrow",
@@ -1613,7 +1613,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1368",
-		"rgb_color": [0,1,0.892001],
+		"rgb_color": [0,0,0],
 		"relpos": [9,1.5],
 		"linkers": [
 			"Linker_C1365_C1366_arrow",
@@ -1629,7 +1629,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1368",
-		"rgb_color": [0,1,0.880801],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3.75],
 		"linkers": [
 			"Linker_C1366_C1367_arrow",
@@ -1645,7 +1645,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1363",
-		"rgb_color": [0,1,0.8675605745],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1367_C1368_arrow",
@@ -1662,7 +1662,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1362",
-		"rgb_color": [0,1,0.858013766],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1368_C1369_arrow",
@@ -1681,7 +1681,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1361",
 		"tickrot": 90,
-		"rgb_color": [0,1,0.8428669574],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1369_C1370_arrow",
@@ -1698,7 +1698,7 @@
 		"helix_tag": "Helix_C1361",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1361",
-		"rgb_color": [0,1,0.8333201489],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,3],
 		"linkers": [
 			"Linker_C1370_C1371_arrow",
@@ -1716,7 +1716,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1361",
-		"rgb_color": [0,1,0.819201],
+		"rgb_color": [0,0,0],
 		"relpos": [9,3],
 		"linkers": [
 			"Linker_C1371_C1372_arrow",
@@ -1733,7 +1733,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1361",
-		"rgb_color": [0,1,0.808001],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C1372_C1373_arrow",
@@ -1751,7 +1751,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1357",
-		"rgb_color": [0,1,0.795201],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1373_C1374_arrow",
@@ -1768,7 +1768,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1356",
-		"rgb_color": [0,1,0.778401],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1374_C1375_arrow",
@@ -1785,7 +1785,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1355",
-		"rgb_color": [0,1,0.761601],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1375_C1376_arrow",
@@ -1802,7 +1802,7 @@
 		"helix_tag": "Helix_C1355",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1355",
-		"rgb_color": [0,1,0.744801],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,3],
 		"linkers": [
 			"Linker_C1376_C1377_arrow",
@@ -1819,7 +1819,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1355",
-		"rgb_color": [0,1,0.728001],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C1377_C1378_arrow",
@@ -1837,7 +1837,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1355",
-		"rgb_color": [0,1,0.7102180213],
+		"rgb_color": [0,0,0],
 		"relpos": [3.75,6.75],
 		"linkers": [
 			"Linker_C1378_C1379_arrow",
@@ -1853,7 +1853,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1351",
 		"tickrot": 135,
-		"rgb_color": [0,1,0.694401],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1379_C1380_arrow",
@@ -1871,7 +1871,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1350",
-		"rgb_color": [0,1,0.6731775957],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1380_C1381_arrow",
@@ -1889,7 +1889,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1349",
-		"rgb_color": [0,1,0.658857383],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1381_C1382_arrow",
@@ -1906,7 +1906,7 @@
 		"helix_tag": "Helix_C1349",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1349",
-		"rgb_color": [0,1,0.6361371702],
+		"rgb_color": [0,0,0],
 		"relpos": [-19.5,-15],
 		"linkers": [
 			"Linker_C1382_C1383_arrow",
@@ -1921,7 +1921,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1349",
-		"rgb_color": [0,1,0.618801],
+		"rgb_color": [0,0,0],
 		"relpos": [-18.75,-12.75],
 		"linkers": [
 			"Linker_C1383_C1384_arrow",
@@ -1937,7 +1937,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1402",
-		"rgb_color": [0,1,0.602001],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-3],
 		"linkers": [
 			"Linker_C1384_C1385_arrow",
@@ -1954,7 +1954,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1401",
-		"rgb_color": [0,1,0.568401],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1385_C1386_arrow",
@@ -1973,7 +1973,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1400",
-		"rgb_color": [0,1,0.5536563191],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1386_C1387_arrow",
@@ -1990,7 +1990,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1399",
-		"rgb_color": [0,1,0.534801],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1387_C1388_arrow",
@@ -2008,7 +2008,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1398",
-		"rgb_color": [0,1,0.518001],
+		"rgb_color": [0,0,0],
 		"relpos": [6,-3],
 		"linkers": [
 			"Linker_C1388_C1389_arrow",
@@ -2026,7 +2026,7 @@
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
 		"tickrot": 270,
-		"rgb_color": [0,1,0.501201],
+		"rgb_color": [0,0,0],
 		"relpos": [9,-3.75],
 		"linkers": [
 			"Linker_C1389_C1390_arrow",
@@ -2042,7 +2042,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
-		"rgb_color": [0,1,0.484401],
+		"rgb_color": [0,0,0],
 		"relpos": [12.75,-3.75],
 		"linkers": [
 			"Linker_C1390_C1391_arrow",
@@ -2058,7 +2058,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1398",
-		"rgb_color": [0,1,0.467601],
+		"rgb_color": [0,0,0],
 		"relpos": [15,0],
 		"linkers": [
 			"Linker_C1391_C1392_arrow",
@@ -2073,7 +2073,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1398",
-		"rgb_color": [0,1,0.450801],
+		"rgb_color": [0,0,0],
 		"relpos": [12.75,2.25],
 		"linkers": [
 			"Linker_C1392_C1393_arrow",
@@ -2090,7 +2090,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
-		"rgb_color": [0,1,0.434001],
+		"rgb_color": [0,0,0],
 		"relpos": [11.25,3.75],
 		"linkers": [
 			"Linker_C1393_C1394_arrow",
@@ -2106,7 +2106,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1398",
-		"rgb_color": [0,1,0.417201],
+		"rgb_color": [0,0,0],
 		"relpos": [9,3],
 		"linkers": [
 			"Linker_C1394_C1395_arrow",
@@ -2123,7 +2123,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
-		"rgb_color": [0,1,0.3995744043],
+		"rgb_color": [0,0,0],
 		"relpos": [9,6.75],
 		"linkers": [
 			"Linker_C1395_C1396_arrow",
@@ -2138,7 +2138,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1398",
-		"rgb_color": [0,1,0.3768541915],
+		"rgb_color": [0,0,0],
 		"relpos": [6,6.75],
 		"linkers": [
 			"Linker_C1396_C1397_arrow",
@@ -2153,7 +2153,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1389",
-		"rgb_color": [0,1,0.3625339787],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C1397_C1398_arrow",
@@ -2170,7 +2170,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1388",
-		"rgb_color": [0,1,0.341601],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1398_C1399_arrow",
@@ -2188,7 +2188,7 @@
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1387",
 		"tickrot": 135,
-		"rgb_color": [0,1,0.3254935532],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1399_C1400_arrow",
@@ -2206,7 +2206,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1386",
-		"rgb_color": [0,1,0.308001],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1400_C1401_arrow",
@@ -2223,7 +2223,7 @@
 		"helix_tag": "Helix_C1385",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1385",
-		"rgb_color": [0,1,0.291201],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,3],
 		"linkers": [
 			"Linker_C1401_C1402_arrow",
@@ -2240,7 +2240,7 @@
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1344",
-		"rgb_color": [0,1,0.274401],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1402_C1403_arrow",
@@ -2257,7 +2257,7 @@
 		"helix_tag": "Helix_C1343",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1343",
-		"rgb_color": [0,1,0.257601],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1403_C1404_arrow",
@@ -2274,7 +2274,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1597",
-		"rgb_color": [0,1,0.240801],
+		"rgb_color": [0,0,0],
 		"relpos": [-15,-3],
 		"linkers": [
 			"Linker_C1404_C1405_arrow",
@@ -2291,7 +2291,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1596",
-		"rgb_color": [0,1,0.224001],
+		"rgb_color": [0,0,0],
 		"relpos": [-12,-3],
 		"linkers": [
 			"Linker_C1405_C1406_arrow",
@@ -2308,7 +2308,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1595",
-		"rgb_color": [0,1,0.207201],
+		"rgb_color": [0,0,0],
 		"relpos": [-9,-3],
 		"linkers": [
 			"Linker_C1406_C1407_arrow",
@@ -2326,7 +2326,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1594",
-		"rgb_color": [0,1,0.190488234],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-3],
 		"linkers": [
 			"Linker_C1407_C1408_arrow",
@@ -2344,7 +2344,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1593",
-		"rgb_color": [0,1,0.1809414255],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1408_C1409_arrow",
@@ -2362,7 +2362,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1592",
 		"tickrot": 315,
-		"rgb_color": [0,1,0.165794617],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1409_C1410_arrow",
@@ -2380,7 +2380,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1591",
-		"rgb_color": [0,1,0.1562478085],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1410_C1411_arrow",
@@ -2397,7 +2397,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1590",
-		"rgb_color": [0,1,0.143201],
+		"rgb_color": [0,0,0],
 		"relpos": [6,-3],
 		"linkers": [
 			"Linker_C1411_C1412_arrow",
@@ -2414,7 +2414,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1589",
-		"rgb_color": [0,1,0.132001],
+		"rgb_color": [0,0,0],
 		"relpos": [9,-3],
 		"linkers": [
 			"Linker_C1412_C1413_arrow",
@@ -2432,7 +2432,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1588",
-		"rgb_color": [0,1,0.120801],
+		"rgb_color": [0,0,0],
 		"relpos": [12,-3],
 		"linkers": [
 			"Linker_C1413_C1414_arrow",
@@ -2449,7 +2449,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1587",
-		"rgb_color": [0,1,0.109601],
+		"rgb_color": [0,0,0],
 		"relpos": [15,-3],
 		"linkers": [
 			"Linker_C1414_C1415_arrow",
@@ -2465,7 +2465,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1582",
-		"rgb_color": [0,1,0.098401],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1415_C1416_arrow",
@@ -2481,7 +2481,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1581",
-		"rgb_color": [0,1,0.087201],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1416_C1417_arrow",
@@ -2498,7 +2498,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1581",
-		"rgb_color": [0,1,0.076001],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1417_C1418_arrow",
@@ -2515,7 +2515,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1581",
-		"rgb_color": [0,1,0.06307334043],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C1418_C1419_arrow",
@@ -2534,7 +2534,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1581",
 		"tickrot": 270,
-		"rgb_color": [0,1,0.05352653191],
+		"rgb_color": [0,0,0],
 		"relpos": [-6.75,-3],
 		"linkers": [
 			"Linker_C1419_C1420_arrow",
@@ -2548,7 +2548,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1577",
-		"rgb_color": [0,1,0.0383797234],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1420_C1421_arrow",
@@ -2565,7 +2565,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1576",
-		"rgb_color": [0,1,0.025601],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1421_C1422_arrow",
@@ -2584,7 +2584,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1575",
-		"rgb_color": [0,1,0.014401],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1422_C1423_arrow",
@@ -2601,7 +2601,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1574",
-		"rgb_color": [0,1,0.003201],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1423_C1424_arrow",
@@ -2619,7 +2619,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1574",
-		"rgb_color": [0.007999,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C1424_C1425_arrow",
@@ -2636,7 +2636,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1574",
-		"rgb_color": [0.019199,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,-3],
 		"linkers": [
 			"Linker_C1425_C1426_arrow",
@@ -2653,7 +2653,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1574",
-		"rgb_color": [0.030399,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [13.5,-3],
 		"linkers": [
 			"Linker_C1426_C1427_arrow",
@@ -2669,7 +2669,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1574",
-		"rgb_color": [0.041599,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [16.5,-3],
 		"linkers": [
 			"Linker_C1427_C1428_arrow",
@@ -2684,7 +2684,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1564",
-		"rgb_color": [0.052799,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1428_C1429_arrow",
@@ -2702,7 +2702,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1563",
 		"tickrot": 225,
-		"rgb_color": [0.06434155319,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1429_C1430_arrow",
@@ -2720,7 +2720,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1562",
-		"rgb_color": [0.075199,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1430_C1431_arrow",
@@ -2737,7 +2737,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1561",
-		"rgb_color": [0.08903517021,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1431_C1432_arrow",
@@ -2754,7 +2754,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1561",
-		"rgb_color": [0.103199,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C1432_C1433_arrow",
@@ -2771,7 +2771,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1561",
-		"rgb_color": [0.1137287872,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-3],
 		"linkers": [
 			"Linker_C1433_C1434_arrow",
@@ -2788,7 +2788,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1557",
-		"rgb_color": [0.125599,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1434_C1435_arrow",
@@ -2805,7 +2805,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1556",
-		"rgb_color": [0.136799,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1435_C1436_arrow",
@@ -2824,7 +2824,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1555",
-		"rgb_color": [0.147999,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1436_C1437_arrow",
@@ -2841,7 +2841,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1555",
-		"rgb_color": [0.159199,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6.75,-3],
 		"linkers": [
 			"Linker_C1437_C1438_arrow",
@@ -2859,7 +2859,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1555",
-		"rgb_color": [0.170399,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-9,-3],
 		"linkers": [
 			"Linker_C1438_C1439_arrow",
@@ -2878,7 +2878,7 @@
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1551",
 		"tickrot": 270,
-		"rgb_color": [0.181599,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-3],
 		"linkers": [
 			"Linker_C1439_C1440_arrow",
@@ -2895,7 +2895,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1550",
-		"rgb_color": [0.192799,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1440_C1441_arrow",
@@ -2913,7 +2913,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1549",
-		"rgb_color": [0.205999,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1441_C1442_arrow",
@@ -2930,7 +2930,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1548",
-		"rgb_color": [0.2246755957,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1442_C1443_arrow",
@@ -2947,7 +2947,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1547",
-		"rgb_color": [0.2473958085,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6,-3],
 		"linkers": [
 			"Linker_C1443_C1444_arrow",
@@ -2965,7 +2965,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1466",
-		"rgb_color": [0.2617160213,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,-3],
 		"linkers": [
 			"Linker_C1444_C1445_arrow",
@@ -2983,7 +2983,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1465",
-		"rgb_color": [0.281599,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1445_C1446_arrow",
@@ -3000,7 +3000,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1464",
-		"rgb_color": [0.298398,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1446_C1447_arrow",
@@ -3018,7 +3018,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1463",
-		"rgb_color": [0.315199,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1447_C1448_arrow",
@@ -3036,7 +3036,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1462",
-		"rgb_color": [0.331998,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1448_C1449_arrow",
@@ -3055,7 +3055,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
 		"tickrot": 270,
-		"rgb_color": [0.348798,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C1449_C1450_arrow",
@@ -3073,7 +3073,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.365598,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,-3],
 		"linkers": [
 			"Linker_C1450_C1451_arrow",
@@ -3090,7 +3090,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.382398,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [12.75,-6],
 		"linkers": [
 			"Linker_C1451_C1452_arrow",
@@ -3104,7 +3104,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.399198,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [15.75,-6],
 		"linkers": [
 			"Linker_C1452_C1453_arrow",
@@ -3118,7 +3118,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.415998,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [18.67457899,-3.702704389],
 		"linkers": [
 			"Linker_C1453_C1454_arrow",
@@ -3133,7 +3133,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.4385171489,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [20.25,1.5],
 		"linkers": [
 			"Linker_C1454_C1455_arrow",
@@ -3149,7 +3149,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.4528373617,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [18,3.75],
 		"linkers": [
 			"Linker_C1455_C1456_arrow",
@@ -3165,7 +3165,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.474798,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [15,5.25],
 		"linkers": [
 			"Linker_C1456_C1457_arrow",
@@ -3180,7 +3180,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.491598,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [12,4.5],
 		"linkers": [
 			"Linker_C1457_C1458_arrow",
@@ -3196,7 +3196,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1461",
-		"rgb_color": [0.508398,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,3],
 		"linkers": [
 			"Linker_C1458_C1459_arrow",
@@ -3214,7 +3214,7 @@
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1461",
 		"tickrot": 90,
-		"rgb_color": [0.525198,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [8.876184032,6.49689904],
 		"linkers": [
 			"Linker_C1459_C1460_arrow",
@@ -3228,7 +3228,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1450",
-		"rgb_color": [0.541998,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3],
 		"linkers": [
 			"Linker_C1460_C1461_arrow",
@@ -3245,7 +3245,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1449",
-		"rgb_color": [0.558798,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1461_C1462_arrow",
@@ -3263,7 +3263,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1448",
-		"rgb_color": [0.575598,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1462_C1463_arrow",
@@ -3281,7 +3281,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1447",
-		"rgb_color": [0.5925990638,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1463_C1464_arrow",
@@ -3299,7 +3299,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1446",
-		"rgb_color": [0.609198,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1464_C1465_arrow",
@@ -3317,7 +3317,7 @@
 		"helix_tag": "Helix_C1445",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1445",
-		"rgb_color": [0.6296394894,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,3],
 		"linkers": [
 			"Linker_C1465_C1466_arrow",
@@ -3333,7 +3333,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1525",
-		"rgb_color": [0.6439597021,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1466_C1467_arrow",
@@ -3349,7 +3349,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1524",
-		"rgb_color": [0.6666799149,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1467_C1468_arrow",
@@ -3366,7 +3366,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1524",
-		"rgb_color": [0.684798,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [5.25,-3],
 		"linkers": [
 			"Linker_C1468_C1469_arrow",
@@ -3384,7 +3384,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1524",
 		"tickrot": 270,
-		"rgb_color": [0.701598,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,-3],
 		"linkers": [
 			"Linker_C1469_C1470_arrow",
@@ -3402,7 +3402,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1520",
-		"rgb_color": [0.718398,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1470_C1471_arrow",
@@ -3419,7 +3419,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1519",
-		"rgb_color": [0.735198,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1471_C1472_arrow",
@@ -3436,7 +3436,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1518",
-		"rgb_color": [0.751998,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1472_C1473_arrow",
@@ -3454,7 +3454,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1517",
-		"rgb_color": [0.768798,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1473_C1474_arrow",
@@ -3471,7 +3471,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1517",
-		"rgb_color": [0.785598,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,-6.75],
 		"linkers": [
 			"Linker_C1474_C1475_arrow",
@@ -3487,7 +3487,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1517",
-		"rgb_color": [0.801599,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,-3],
 		"linkers": [
 			"Linker_C1475_C1476_arrow",
@@ -3505,7 +3505,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1517",
-		"rgb_color": [0.8138415532,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,-3],
 		"linkers": [
 			"Linker_C1476_C1477_arrow",
@@ -3524,7 +3524,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1513",
-		"rgb_color": [0.823999,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1477_C1478_arrow",
@@ -3542,7 +3542,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1512",
-		"rgb_color": [0.8385351702,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1478_C1479_arrow",
@@ -3561,7 +3561,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1511",
 		"tickrot": 270,
-		"rgb_color": [0.851999,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1479_C1480_arrow",
@@ -3578,7 +3578,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1510",
-		"rgb_color": [0.863199,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1480_C1481_arrow",
@@ -3594,7 +3594,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1507",
-		"rgb_color": [0.874399,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-10.5,-3],
 		"linkers": [
 			"Linker_C1481_C1482_arrow",
@@ -3611,7 +3611,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1506",
-		"rgb_color": [0.885599,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,-3],
 		"linkers": [
 			"Linker_C1482_C1483_arrow",
@@ -3628,7 +3628,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1505",
-		"rgb_color": [0.896799,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1483_C1484_arrow",
@@ -3645,7 +3645,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1504",
-		"rgb_color": [0.907999,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1484_C1485_arrow",
@@ -3662,7 +3662,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1503",
-		"rgb_color": [0.919199,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1485_C1486_arrow",
@@ -3679,7 +3679,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1502",
-		"rgb_color": [0.930399,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1486_C1487_arrow",
@@ -3696,7 +3696,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1501",
-		"rgb_color": [0.941599,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C1487_C1488_arrow",
@@ -3714,7 +3714,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1500",
-		"rgb_color": [0.952799,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,-3],
 		"linkers": [
 			"Linker_C1488_C1489_arrow",
@@ -3732,7 +3732,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1500",
 		"tickrot": 270,
-		"rgb_color": [0.9659500638,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [12.81588072,-5.45596589],
 		"linkers": [
 			"Linker_C1489_C1490_arrow",
@@ -3746,7 +3746,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1499",
-		"rgb_color": [0.980799,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1490_C1491_arrow",
@@ -3763,7 +3763,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1498",
-		"rgb_color": [0.9906436809,1,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1491_C1492_arrow",
@@ -3781,7 +3781,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1498",
-		"rgb_color": [1,0.998401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3.75],
 		"linkers": [
 			"Linker_C1492_C1493_arrow",
@@ -3795,7 +3795,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1498",
-		"rgb_color": [1,0.992801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-2.25],
 		"linkers": [
 			"Linker_C1493_C1494_arrow",
@@ -3811,7 +3811,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1498",
-		"rgb_color": [1,0.987201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [8.25,0.75],
 		"linkers": [
 			"Linker_C1494_C1495_arrow",
@@ -3828,7 +3828,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1498",
-		"rgb_color": [1,0.981601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C1495_C1496_arrow",
@@ -3846,7 +3846,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1498",
-		"rgb_color": [1,0.976001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3.75,5.25],
 		"linkers": [
 			"Linker_C1496_C1497_arrow",
@@ -3860,7 +3860,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1492",
-		"rgb_color": [1,0.970401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1497_C1498_arrow",
@@ -3878,7 +3878,7 @@
 		"helix_tag": "Helix_C1491",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1491",
-		"rgb_color": [1,0.964801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1498_C1499_arrow",
@@ -3897,7 +3897,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1489",
 		"tickrot": 90,
-		"rgb_color": [1,0.9580914255,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,3],
 		"linkers": [
 			"Linker_C1499_C1500_arrow",
@@ -3915,7 +3915,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1488",
-		"rgb_color": [1,0.9533180213,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3],
 		"linkers": [
 			"Linker_C1500_C1501_arrow",
@@ -3933,7 +3933,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1487",
-		"rgb_color": [1,0.945744617,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1501_C1502_arrow",
@@ -3951,7 +3951,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1486",
-		"rgb_color": [1,0.9409712128,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1502_C1503_arrow",
@@ -3968,7 +3968,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1485",
-		"rgb_color": [1,0.934001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1503_C1504_arrow",
@@ -3985,7 +3985,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1484",
-		"rgb_color": [1,0.928401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1504_C1505_arrow",
@@ -4002,7 +4002,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1483",
-		"rgb_color": [1,0.922801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,3],
 		"linkers": [
 			"Linker_C1505_C1506_arrow",
@@ -4019,7 +4019,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1482",
-		"rgb_color": [1,0.917201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-10.5,3],
 		"linkers": [
 			"Linker_C1506_C1507_arrow",
@@ -4035,7 +4035,7 @@
 		"helix_tag": "Helix_C1482",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1482",
-		"rgb_color": [1,0.911601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-13.5,3.75],
 		"linkers": [
 			"Linker_C1507_C1508_arrow",
@@ -4051,7 +4051,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1482",
-		"rgb_color": [1,0.906001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [8.25,3],
 		"linkers": [
 			"Linker_C1508_C1509_arrow",
@@ -4068,7 +4068,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1481",
 		"tickrot": 45,
-		"rgb_color": [1,0.900401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1509_C1510_arrow",
@@ -4085,7 +4085,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1480",
-		"rgb_color": [1,0.8915754681,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1510_C1511_arrow",
@@ -4102,7 +4102,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1479",
-		"rgb_color": [1,0.883801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1511_C1512_arrow",
@@ -4119,7 +4119,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1478",
-		"rgb_color": [1,0.8730552553,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1512_C1513_arrow",
@@ -4137,7 +4137,7 @@
 		"helix_tag": "Helix_C1478",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1478",
-		"rgb_color": [1,0.8658951489,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,3],
 		"linkers": [
 			"Linker_C1513_C1514_arrow",
@@ -4154,7 +4154,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1478",
-		"rgb_color": [1,0.8545350426,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,3],
 		"linkers": [
 			"Linker_C1514_C1515_arrow",
@@ -4172,7 +4172,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1478",
-		"rgb_color": [1,0.846001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3],
 		"linkers": [
 			"Linker_C1515_C1516_arrow",
@@ -4189,7 +4189,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1474",
-		"rgb_color": [1,0.837601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1516_C1517_arrow",
@@ -4206,7 +4206,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1473",
-		"rgb_color": [1,0.829201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1517_C1518_arrow",
@@ -4223,7 +4223,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1472",
-		"rgb_color": [1,0.820801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1518_C1519_arrow",
@@ -4242,7 +4242,7 @@
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1471",
 		"tickrot": 90,
-		"rgb_color": [1,0.812401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1519_C1520_arrow",
@@ -4259,7 +4259,7 @@
 		"helix_tag": "Helix_C1471",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1471",
-		"rgb_color": [1,0.804001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,3],
 		"linkers": [
 			"Linker_C1520_C1521_arrow",
@@ -4276,7 +4276,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1471",
-		"rgb_color": [1,0.795601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [5.25,3],
 		"linkers": [
 			"Linker_C1521_C1522_arrow",
@@ -4294,7 +4294,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1471",
-		"rgb_color": [1,0.787201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3.75,6],
 		"linkers": [
 			"Linker_C1522_C1523_arrow",
@@ -4308,7 +4308,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1468",
-		"rgb_color": [1,0.7774940851,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1523_C1524_arrow",
@@ -4325,7 +4325,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1467",
-		"rgb_color": [1,0.7703339787,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1524_C1525_arrow",
@@ -4342,7 +4342,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1467",
-		"rgb_color": [1,0.7589738723,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1525_C1526_arrow",
@@ -4359,7 +4359,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1467",
-		"rgb_color": [1,0.749401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6.75,3],
 		"linkers": [
 			"Linker_C1526_C1527_arrow",
@@ -4375,7 +4375,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1467",
-		"rgb_color": [1,0.741001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-9.75,-3],
 		"linkers": [
 			"Linker_C1527_C1528_arrow",
@@ -4391,7 +4391,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1542",
-		"rgb_color": [1,0.732601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,-3],
 		"linkers": [
 			"Linker_C1528_C1529_arrow",
@@ -4408,7 +4408,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1541",
 		"tickrot": 270,
-		"rgb_color": [1,0.724201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,-3],
 		"linkers": [
 			"Linker_C1529_C1530_arrow",
@@ -4425,7 +4425,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1540",
-		"rgb_color": [1,0.715801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [0,-3],
 		"linkers": [
 			"Linker_C1530_C1531_arrow",
@@ -4442,7 +4442,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1539",
-		"rgb_color": [1,0.707401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3,-3],
 		"linkers": [
 			"Linker_C1531_C1532_arrow",
@@ -4460,7 +4460,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1538",
-		"rgb_color": [1,0.699001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6,-3],
 		"linkers": [
 			"Linker_C1532_C1533_arrow",
@@ -4477,7 +4477,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1538",
-		"rgb_color": [1,0.690601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [9,-3.75],
 		"linkers": [
 			"Linker_C1533_C1534_arrow",
@@ -4492,7 +4492,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1538",
-		"rgb_color": [1,0.6819329149,0],
+		"rgb_color": [0,0,0],
 		"relpos": [12.55478502,-1.808252427],
 		"linkers": [
 			"Linker_C1534_C1535_arrow",
@@ -4506,7 +4506,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1538",
-		"rgb_color": [1,0.6705728085,0],
+		"rgb_color": [0,0,0],
 		"relpos": [12.55478502,2.085644938],
 		"linkers": [
 			"Linker_C1535_C1536_arrow",
@@ -4520,7 +4520,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1538",
-		"rgb_color": [1,0.6634127021,0],
+		"rgb_color": [0,0,0],
 		"relpos": [9,3.75],
 		"linkers": [
 			"Linker_C1536_C1537_arrow",
@@ -4534,7 +4534,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1533",
-		"rgb_color": [1,0.652801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C1537_C1538_arrow",
@@ -4550,7 +4550,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1532",
-		"rgb_color": [1,0.6448924894,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1538_C1539_arrow",
@@ -4568,7 +4568,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1531",
 		"tickrot": 45,
-		"rgb_color": [1,0.636001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1539_C1540_arrow",
@@ -4586,7 +4586,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1530",
-		"rgb_color": [1,0.627601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1540_C1541_arrow",
@@ -4603,7 +4603,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1529",
-		"rgb_color": [1,0.619201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,3],
 		"linkers": [
 			"Linker_C1541_C1542_arrow",
@@ -4620,7 +4620,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1529",
-		"rgb_color": [1,0.610801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-9.75,3],
 		"linkers": [
 			"Linker_C1542_C1543_arrow",
@@ -4636,7 +4636,7 @@
 		"helix_tag": "Helix_C1529",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1529",
-		"rgb_color": [1,0.602401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-11.25,4.5],
 		"linkers": [
 			"Linker_C1543_C1544_arrow",
@@ -4653,7 +4653,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1529",
-		"rgb_color": [1,0.596001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6.75,-3],
 		"linkers": [
 			"Linker_C1544_C1545_arrow",
@@ -4671,7 +4671,7 @@
 		"helix_tag": "Helix_C1467",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1529",
-		"rgb_color": [1,0.590401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1545_C1546_arrow",
@@ -4687,7 +4687,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1444",
-		"rgb_color": [1,0.5833414255,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C1546_C1547_arrow",
@@ -4704,7 +4704,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1443",
-		"rgb_color": [1,0.5785680213,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1547_C1548_arrow",
@@ -4722,7 +4722,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1442",
-		"rgb_color": [1,0.570994617,0],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1548_C1549_arrow",
@@ -4740,7 +4740,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1441",
 		"tickrot": 90,
-		"rgb_color": [1,0.5662212128,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1549_C1550_arrow",
@@ -4757,7 +4757,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1440",
-		"rgb_color": [1,0.559601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,3],
 		"linkers": [
 			"Linker_C1550_C1551_arrow",
@@ -4775,7 +4775,7 @@
 		"helix_tag": "Helix_C1440",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1440",
-		"rgb_color": [1,0.554001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-9,3],
 		"linkers": [
 			"Linker_C1551_C1552_arrow",
@@ -4791,7 +4791,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1440",
-		"rgb_color": [1,0.548401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6.75,3],
 		"linkers": [
 			"Linker_C1552_C1553_arrow",
@@ -4808,7 +4808,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1440",
-		"rgb_color": [1,0.542801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,6.75],
 		"linkers": [
 			"Linker_C1553_C1554_arrow",
@@ -4823,7 +4823,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1437",
-		"rgb_color": [1,0.537201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1554_C1555_arrow",
@@ -4841,7 +4841,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1436",
-		"rgb_color": [1,0.531601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1555_C1556_arrow",
@@ -4858,7 +4858,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1435",
-		"rgb_color": [1,0.526001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1556_C1557_arrow",
@@ -4877,7 +4877,7 @@
 		"helix_tag": "Helix_C1435",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1435",
-		"rgb_color": [1,0.5196339787,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,3],
 		"linkers": [
 			"Linker_C1557_C1558_arrow",
@@ -4894,7 +4894,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1435",
-		"rgb_color": [1,0.514801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [9,6.75],
 		"linkers": [
 			"Linker_C1558_C1559_arrow",
@@ -4909,7 +4909,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1435",
 		"tickrot": 90,
-		"rgb_color": [1,0.5072871702,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3],
 		"linkers": [
 			"Linker_C1559_C1560_arrow",
@@ -4926,7 +4926,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1432",
-		"rgb_color": [1,0.502513766,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1560_C1561_arrow",
@@ -4943,7 +4943,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1431",
-		"rgb_color": [1,0.495201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1561_C1562_arrow",
@@ -4960,7 +4960,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1430",
-		"rgb_color": [1,0.489601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1562_C1563_arrow",
@@ -4977,7 +4977,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.484001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1563_C1564_arrow",
@@ -4995,7 +4995,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.478401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-8.25,3],
 		"linkers": [
 			"Linker_C1564_C1565_arrow",
@@ -5012,7 +5012,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.472801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-11.25,2.25],
 		"linkers": [
 			"Linker_C1565_C1566_arrow",
@@ -5026,7 +5026,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.467201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-11.25,-0.75],
 		"linkers": [
 			"Linker_C1566_C1567_arrow",
@@ -5041,7 +5041,7 @@
 		"helix_tag": "Helix_C1429",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.461601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-8.25,-2.25],
 		"linkers": [
 			"Linker_C1567_C1568_arrow",
@@ -5057,7 +5057,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.4559265319,0],
+		"rgb_color": [0,0,0],
 		"relpos": [19.5,3],
 		"linkers": [
 			"Linker_C1568_C1569_arrow",
@@ -5074,7 +5074,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
 		"tickrot": 135,
-		"rgb_color": [1,0.450401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [16.5,3],
 		"linkers": [
 			"Linker_C1569_C1570_arrow",
@@ -5092,7 +5092,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.4435797234,0],
+		"rgb_color": [0,0,0],
 		"relpos": [13.5,3],
 		"linkers": [
 			"Linker_C1570_C1571_arrow",
@@ -5110,7 +5110,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.436401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [10.5,3],
 		"linkers": [
 			"Linker_C1571_C1572_arrow",
@@ -5127,7 +5127,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1429",
-		"rgb_color": [1,0.4312329149,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3],
 		"linkers": [
 			"Linker_C1572_C1573_arrow",
@@ -5144,7 +5144,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1424",
-		"rgb_color": [1,0.425201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1573_C1574_arrow",
@@ -5161,7 +5161,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1423",
-		"rgb_color": [1,0.419601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1574_C1575_arrow",
@@ -5179,7 +5179,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1422",
-		"rgb_color": [1,0.414001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1575_C1576_arrow",
@@ -5196,7 +5196,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1421",
-		"rgb_color": [1,0.408401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1576_C1577_arrow",
@@ -5215,7 +5215,7 @@
 		"helix_tag": "Helix_C1421",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1421",
-		"rgb_color": [1,0.402801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-10.5,-3],
 		"linkers": [
 			"Linker_C1577_C1578_arrow",
@@ -5233,7 +5233,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1421",
-		"rgb_color": [1,0.397201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6.75,5.25],
 		"linkers": [
 			"Linker_C1578_C1579_arrow",
@@ -5250,7 +5250,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1421",
 		"tickrot": 90,
-		"rgb_color": [1,0.391601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1579_C1580_arrow",
@@ -5266,7 +5266,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1417",
-		"rgb_color": [1,0.386001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1580_C1581_arrow",
@@ -5282,7 +5282,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1416",
-		"rgb_color": [1,0.3798722766,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1581_C1582_arrow",
@@ -5300,7 +5300,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1416",
-		"rgb_color": [1,0.3722988723,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3.75,4.5],
 		"linkers": [
 			"Linker_C1582_C1583_arrow",
@@ -5315,7 +5315,7 @@
 		"helix_tag": "Helix_C1416",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1416",
-		"rgb_color": [1,0.3675254681,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-5.25,3],
 		"linkers": [
 			"Linker_C1583_C1584_arrow",
@@ -5329,7 +5329,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1416",
-		"rgb_color": [1,0.360801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [21.75,3],
 		"linkers": [
 			"Linker_C1584_C1585_arrow",
@@ -5345,7 +5345,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1416",
-		"rgb_color": [1,0.355201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [18,3],
 		"linkers": [
 			"Linker_C1585_C1586_arrow",
@@ -5361,7 +5361,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1415",
-		"rgb_color": [1,0.349601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [15,3],
 		"linkers": [
 			"Linker_C1586_C1587_arrow",
@@ -5378,7 +5378,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1414",
-		"rgb_color": [1,0.344001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [12,3],
 		"linkers": [
 			"Linker_C1587_C1588_arrow",
@@ -5395,7 +5395,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1413",
-		"rgb_color": [1,0.338401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [9,3],
 		"linkers": [
 			"Linker_C1588_C1589_arrow",
@@ -5413,7 +5413,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1412",
 		"tickrot": 90,
-		"rgb_color": [1,0.332801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C1589_C1590_arrow",
@@ -5431,7 +5431,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1411",
-		"rgb_color": [1,0.327201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1590_C1591_arrow",
@@ -5448,7 +5448,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1410",
-		"rgb_color": [1,0.321601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1591_C1592_arrow",
@@ -5465,7 +5465,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1409",
-		"rgb_color": [1,0.316001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1592_C1593_arrow",
@@ -5483,7 +5483,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1408",
-		"rgb_color": [1,0.3085914255,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,3],
 		"linkers": [
 			"Linker_C1593_C1594_arrow",
@@ -5500,7 +5500,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1407",
-		"rgb_color": [1,0.3038180213,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-9,3],
 		"linkers": [
 			"Linker_C1594_C1595_arrow",
@@ -5518,7 +5518,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1406",
-		"rgb_color": [1,0.296401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-12,3],
 		"linkers": [
 			"Linker_C1595_C1596_arrow",
@@ -5536,7 +5536,7 @@
 		"helix_tag": "Helix_C1405",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1405",
-		"rgb_color": [1,0.2914712128,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-15,3],
 		"linkers": [
 			"Linker_C1596_C1597_arrow",
@@ -5553,7 +5553,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1405",
-		"rgb_color": [1,0.285201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C1597_C1598_arrow",
@@ -5569,7 +5569,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1347",
-		"rgb_color": [1,0.279601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C1598_C1599_arrow",
@@ -5587,7 +5587,7 @@
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1346",
 		"tickrot": 90,
-		"rgb_color": [1,0.274001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [0,3],
 		"linkers": [
 			"Linker_C1599_C1600_arrow",
@@ -5604,7 +5604,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1345",
-		"rgb_color": [1,0.268401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3,3],
 		"linkers": [
 			"Linker_C1600_C1601_arrow",
@@ -5622,7 +5622,7 @@
 		"helix_tag": "Helix_C1345",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1345",
-		"rgb_color": [1,0.262801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6,3],
 		"linkers": [
 			"Linker_C1601_C1602_arrow",
@@ -5638,7 +5638,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1345",
-		"rgb_color": [1,0.257201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1602_C1603_arrow",
@@ -5656,7 +5656,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1310",
-		"rgb_color": [1,0.251601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1603_C1604_arrow",
@@ -5673,7 +5673,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1309",
-		"rgb_color": [1,0.2448839787,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1604_C1605_arrow",
@@ -5690,7 +5690,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1309",
-		"rgb_color": [1,0.2401105745,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1605_C1606_arrow",
@@ -5704,7 +5704,7 @@
 		"helix_tag": "Helix_C1309",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1309",
-		"rgb_color": [1,0.2325371702,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6.75,14.25],
 		"linkers": [
 			"Linker_C1606_C1607_arrow",
@@ -5720,7 +5720,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
-		"rgb_color": [1,0.226401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1607_C1608_arrow",
@@ -5737,7 +5737,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
-		"rgb_color": [1,0.220801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-3.75,-5.25],
 		"linkers": [
 			"Linker_C1608_C1609_arrow",
@@ -5754,7 +5754,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1309",
 		"tickrot": 225,
-		"rgb_color": [1,0.215201,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-5.25],
 		"linkers": [
 			"Linker_C1609_C1610_arrow",
@@ -5768,7 +5768,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1620",
-		"rgb_color": [1,0.209601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1610_C1611_arrow",
@@ -5785,7 +5785,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1619",
-		"rgb_color": [1,0.204001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1611_C1612_arrow",
@@ -5802,7 +5802,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1619",
-		"rgb_color": [1,0.196801,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1612_C1613_arrow",
@@ -5818,7 +5818,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1619",
-		"rgb_color": [1,0.185601,0],
+		"rgb_color": [0,0,0],
 		"relpos": [6.75,-3.75],
 		"linkers": [
 			"Linker_C1613_C1614_arrow",
@@ -5832,7 +5832,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1619",
-		"rgb_color": [1,0.174401,0],
+		"rgb_color": [0,0,0],
 		"relpos": [9,-1.5],
 		"linkers": [
 			"Linker_C1614_C1615_arrow",
@@ -5848,7 +5848,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1619",
-		"rgb_color": [1,0.1623520638,0],
+		"rgb_color": [0,0,0],
 		"relpos": [9.75,0.75],
 		"linkers": [
 			"Linker_C1615_C1616_arrow",
@@ -5864,7 +5864,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1619",
-		"rgb_color": [1,0.152001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [8.25,3.75],
 		"linkers": [
 			"Linker_C1616_C1617_arrow",
@@ -5880,7 +5880,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "m^2A",
 		"stem_partner": "Residue_C1619",
-		"rgb_color": [1,0.1376584468,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,4.5],
 		"linkers": [
 			"Linker_C1617_C1618_arrow",
@@ -5895,7 +5895,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1612",
-		"rgb_color": [1,0.124001,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1618_C1619_arrow",
@@ -5913,7 +5913,7 @@
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1611",
 		"tickrot": 45,
-		"rgb_color": [1,0.1129658005,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1619_C1620_arrow",
@@ -5931,7 +5931,7 @@
 		"helix_tag": "Helix_C1611",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1611",
-		"rgb_color": [1,0.101602,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1620_C1621_arrow",
@@ -5948,7 +5948,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1306",
-		"rgb_color": [1,0.090402,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1621_C1622_arrow",
@@ -5966,7 +5966,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1305",
-		"rgb_color": [1,0.079202,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1622_C1623_arrow",
@@ -5984,7 +5984,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1304",
-		"rgb_color": [1,0.068002,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1623_C1624_arrow",
@@ -6001,7 +6001,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1303",
-		"rgb_color": [1,0.056802,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1624_C1625_arrow",
@@ -6019,7 +6019,7 @@
 		"helix_tag": "Helix_C1303",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1303",
-		"rgb_color": [1,0.045602,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-7.5,3],
 		"linkers": [
 			"Linker_C1625_C1626_arrow",
@@ -6036,7 +6036,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1639",
-		"rgb_color": [1,0.034402,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,-3],
 		"linkers": [
 			"Linker_C1626_C1627_arrow",
@@ -6052,7 +6052,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1638",
-		"rgb_color": [1,0.023202,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,-3],
 		"linkers": [
 			"Linker_C1627_C1628_arrow",
@@ -6069,7 +6069,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1637",
-		"rgb_color": [1,0.01024455319,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,-3],
 		"linkers": [
 			"Linker_C1628_C1629_arrow",
@@ -6087,7 +6087,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1636",
 		"tickrot": 270,
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C1629_C1630_arrow",
@@ -6104,7 +6104,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1636",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,-3.75],
 		"linkers": [
 			"Linker_C1630_C1631_arrow",
@@ -6120,7 +6120,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1636",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [11.25,-1.5],
 		"linkers": [
 			"Linker_C1631_C1632_arrow",
@@ -6135,7 +6135,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1636",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [11.25,2.25],
 		"linkers": [
 			"Linker_C1632_C1633_arrow",
@@ -6151,7 +6151,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1636",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [9.75,6],
 		"linkers": [
 			"Linker_C1633_C1634_arrow",
@@ -6166,7 +6166,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1636",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3.75],
 		"linkers": [
 			"Linker_C1634_C1635_arrow",
@@ -6183,7 +6183,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1630",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1635_C1636_arrow",
@@ -6200,7 +6200,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1629",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1636_C1637_arrow",
@@ -6217,7 +6217,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1628",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1637_C1638_arrow",
@@ -6234,7 +6234,7 @@
 		"helix_tag": "Helix_C1627",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1627",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1638_C1639_arrow",
@@ -6253,7 +6253,7 @@
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1627",
 		"tickrot": 90,
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-6.75,4.5],
 		"linkers": [
 			"Linker_C1639_C1640_arrow",
@@ -6269,7 +6269,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C1627",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [7.5,3],
 		"linkers": [
 			"Linker_C1640_C1641_arrow",
@@ -6287,7 +6287,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1298",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [4.5,3],
 		"linkers": [
 			"Linker_C1641_C1642_arrow",
@@ -6304,7 +6304,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1297",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [1.5,3],
 		"linkers": [
 			"Linker_C1642_C1643_arrow",
@@ -6321,7 +6321,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1296",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-1.5,3],
 		"linkers": [
 			"Linker_C1643_C1644_arrow",
@@ -6339,7 +6339,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1295",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,3],
 		"linkers": [
 			"Linker_C1644_C1645_arrow",
@@ -6356,7 +6356,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1295",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-4.5,15],
 		"linkers": [
 			"Linker_C1645_C1646_arrow",
@@ -6371,7 +6371,7 @@
 		"helix_tag": "Helix_C1295",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C1295",
-		"rgb_color": [1,0,0],
+		"rgb_color": [0,0,0],
 		"relpos": [-18.75,15],
 		"linkers": [
 			"Linker_C1646_C1647_arrow",
@@ -6531,7 +6531,7 @@
 		"resnum2": [1330,1331],
 		"chain2": "CC",
 		"name": "H50b",
-		"center": [81.75,15],
+		"center": [84,15],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [-3,6],
@@ -7086,7 +7086,7 @@
 		"center": [72,-2.25],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [-1.5,-9],
+		"label_relpos": [-6,-6],
 		"helix_tag": "Helix_C1611",
 		"associated_residues": [
 			"Residue_C1608",
@@ -7539,23 +7539,26 @@
 		"residue2": "Residue_C1321",
 		"type": "arrow",
 		"linker_tag": "Linker_C1320_C1321_arrow",
-		"relpos1": [10.5,-2.25],
-		"relpos2": [12.75,0.75]
+		"relpos1": [
+			[10.5,-2.25],
+			[10.5,1.5]
+		],
+		"relpos2": [20.25,1.5]
 	},
 	"Linker_C1321_C1322_arrow": {
 		"residue1": "Residue_C1321",
 		"residue2": "Residue_C1322",
 		"type": "arrow",
 		"linker_tag": "Linker_C1321_C1322_arrow",
-		"relpos1": [12.75,0.75],
-		"relpos2": [-4.5,-3]
+		"relpos1": [20.25,1.5],
+		"relpos2": [-3.75,-3]
 	},
 	"Linker_C1322_C1323_arrow": {
 		"residue1": "Residue_C1322",
 		"residue2": "Residue_C1323",
 		"type": "arrow",
 		"linker_tag": "Linker_C1322_C1323_arrow",
-		"relpos1": [-4.5,-3],
+		"relpos1": [-3.75,-3],
 		"relpos2": [-1.5,-3]
 	},
 	"Linker_C1323_C1324_arrow": {
@@ -7627,16 +7630,22 @@
 		"residue2": "Residue_C1332",
 		"type": "arrow",
 		"linker_tag": "Linker_C1331_C1332_arrow",
-		"relpos1": [-1.5,3],
-		"relpos2": [21,3]
+		"relpos1": [
+			[-1.5,3],
+			[-1.5,4.5]
+		],
+		"relpos2": [27.75,5.25]
 	},
 	"Linker_C1332_C1333_arrow": {
 		"residue1": "Residue_C1332",
 		"residue2": "Residue_C1333",
 		"type": "arrow",
 		"linker_tag": "Linker_C1332_C1333_arrow",
-		"relpos1": [21,3],
-		"relpos2": [7.5,3]
+		"relpos1": [27.75,5.25],
+		"relpos2": [
+			[7.5,5.25],
+			[7.5,3]
+		]
 	},
 	"Linker_C1333_C1334_arrow": {
 		"residue1": "Residue_C1333",
@@ -7720,7 +7729,7 @@
 		"linker_tag": "Linker_C1342_C1343_arrow",
 		"relpos1": [
 			[-6,-3],
-			[-3,-7.5]
+			[-3,-6.75]
 		],
 		"relpos2": [-1.5,-3]
 	},
@@ -7739,7 +7748,7 @@
 		"linker_tag": "Linker_C1344_C1345_arrow",
 		"relpos1": [1.5,-3],
 		"relpos2": [
-			[-6,-7.5],
+			[-6,-6.75],
 			[-3,-3]
 		]
 	},
@@ -10849,7 +10858,10 @@
 		"residue2": "Residue_C1603",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1313_C1603_noncanonical_pair",
-		"relpos1": [-6,-12.75],
+		"relpos1": [
+			[-6,-12.75],
+			[-2.25,-12.75]
+		],
 		"relpos2": [4.5,3],
 		"edge1": "W",
 		"edge2": "W",
@@ -11427,7 +11439,10 @@
 		"residue2": "Residue_C1331",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1320_C1331_noncanonical_pair",
-		"relpos1": [10.5,-2.25],
+		"relpos1": [
+			[10.5,-2.25],
+			[10.5,-4.5]
+		],
 		"relpos2": [-1.5,3],
 		"edge1": "W",
 		"edge2": "H",
@@ -11455,7 +11470,7 @@
 		"residue2": "Residue_C1333",
 		"type": "stem_pair",
 		"linker_tag": "Linker_C1322_C1333_stem_pair",
-		"relpos1": [-4.5,-3],
+		"relpos1": [-3.75,-3],
 		"relpos2": [7.5,3]
 	},
 	"Linker_C1469_C1522_noncanonical_pair": {
@@ -11637,9 +11652,9 @@
 		"residue2": "Residue_C1326",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1288_C1326_noncanonical_pair",
-		"relpos1": [7.931345354,6.87933426],
+		"relpos1": [8.25,6.75],
 		"relpos2": [
-			[12,-2.25],
+			[11.25,-2.25],
 			[6.75,-2.25]
 		],
 		"edge1": "H",
@@ -11794,7 +11809,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1320_C1322_noncanonical_pair",
 		"relpos1": [10.5,-2.25],
-		"relpos2": [-4.5,-3],
+		"relpos2": [-3.75,-3],
 		"edge1": "S",
 		"edge2": "H",
 		"LW_orientation": "C"
@@ -11981,11 +11996,11 @@
 		"linker_tag": "Linker_C1271_C1615_noncanonical_pair",
 		"relpos1": [
 			[0.431345354,-9.62066574],
-			[0.431345354,12.12933426]
+			[0.75,12]
 		],
 		"relpos2": [
-			[-2.25,-6],
-			[9,-6],
+			[-1.5,-7.5],
+			[9,-7.5],
 			[9,-1.5]
 		],
 		"edge1": "W",
@@ -12019,8 +12034,14 @@
 		"residue2": "Residue_C1618",
 		"type": "stack",
 		"linker_tag": "Linker_C1272_C1618_stack",
-		"relpos1": [-1.818654646,-9.62066574],
-		"relpos2": [4.5,4.5]
+		"relpos1": [
+			[-2.25,-9.75],
+			[-2.25,9.75]
+		],
+		"relpos2": [
+			[4.5,-15],
+			[4.5,4.5]
+		]
 	},
 	"Linker_C1274_C1302_stack": {
 		"residue1": "Residue_C1274",
@@ -12028,7 +12049,10 @@
 		"type": "stack",
 		"linker_tag": "Linker_C1274_C1302_stack",
 		"relpos1": [-9.75,-7.5],
-		"relpos2": [-6,-6]
+		"relpos2": [
+			[-6,43.5],
+			[-6,-6]
+		]
 	},
 	"Linker_C1274_C1646_stack": {
 		"residue1": "Residue_C1274",
@@ -12467,8 +12491,8 @@
 		"residue2": "Residue_C1322",
 		"type": "stack",
 		"linker_tag": "Linker_C1321_C1322_stack",
-		"relpos1": [12.75,0.75],
-		"relpos2": [-4.5,-3]
+		"relpos1": [20.25,1.5],
+		"relpos2": [-3.75,-3]
 	},
 	"Linker_C1322_C1323_stack": {
 		"residue1": "Residue_C1322",
@@ -12539,7 +12563,10 @@
 		"residue2": "Residue_C1333",
 		"type": "stack",
 		"linker_tag": "Linker_C1331_C1333_stack",
-		"relpos1": [-1.5,3],
+		"relpos1": [
+			[-1.5,3],
+			[-9,3]
+		],
 		"relpos2": [7.5,3]
 	},
 	"Linker_C1332_C1609_stack": {
@@ -12547,8 +12574,14 @@
 		"residue2": "Residue_C1609",
 		"type": "stack",
 		"linker_tag": "Linker_C1332_C1609_stack",
-		"relpos1": [21,3],
-		"relpos2": [-3.75,-5.25]
+		"relpos1": [
+			[27.75,5.25],
+			[21.75,5.25]
+		],
+		"relpos2": [
+			[-3.75,-10.5],
+			[-3.75,-5.25]
+		]
 	},
 	"Linker_C1334_C1335_stack": {
 		"residue1": "Residue_C1334",
@@ -12723,7 +12756,10 @@
 		"residue2": "Residue_C1378",
 		"type": "stack",
 		"linker_tag": "Linker_C1353_C1378_stack",
-		"relpos1": [-7.5,-6],
+		"relpos1": [
+			[-7.5,-6],
+			[-9,-6]
+		],
 		"relpos2": [6,3]
 	},
 	"Linker_C1354_C1355_stack": {
@@ -14635,8 +14671,14 @@
 		"residue2": "Residue_C1616",
 		"type": "stack",
 		"linker_tag": "Linker_C1609_C1616_stack",
-		"relpos1": [-3.75,-5.25],
-		"relpos2": [9.75,0.75]
+		"relpos1": [
+			[-3.75,-5.25],
+			[5.25,-5.25]
+		],
+		"relpos2": [
+			[5.25,0.75],
+			[9.75,0.75]
+		]
 	},
 	"Linker_C1611_C1612_stack": {
 		"residue1": "Residue_C1611",

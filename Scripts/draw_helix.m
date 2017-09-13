@@ -41,13 +41,16 @@ end
 
 % update any linkers associated with these residues
 % in the future, these could include base pairs (incl. non-canonicals)
+redrawn_linkers = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
     linker_tags = residue.linkers;
     for k = 1 : length( linker_tags )
+        if any( strcmp( redrawn_linkers, linker_tags{k} ) ); continue; end; % don't double-render, to save time.
         linker = getappdata( gca, linker_tags{k} );
         draw_linker( linker );
+        redrawn_linkers = [ redrawn_linkers, linker.linker_tag ];
     end
 end
 
@@ -110,17 +113,17 @@ for i = 1:length( helix.associated_residues )
     linker_tags = residue.linkers;
     for k = 1 : length( linker_tags )
         linker = getappdata( gca, linker_tags{k} );
+        if ~isfield( linker, 'line_handle' ) continue; end;
         if strcmp(linker.type,'stem_pair'); continue; end;
-        if strcmp(linker.type,'stack'); continue; end;
+        if ~strcmp(get(linker.line_handle,'visible'),'on'); continue; end;
         if ~isfield( linker, 'vtx' ) 
             linker.vtx = {}; 
-            visible = get(linker.line_handle,'visible');
             nvtx = size(linker.plot_pos,1);
-            linker.vtx{1}  = create_endpoint_linker_vertex(linker.plot_pos(1,:), linker.linker_tag, visible); 
+            linker.vtx{1}  = create_endpoint_linker_vertex(linker.plot_pos(1,:), linker.linker_tag ); 
             for i = 2:(nvtx-1)
-                linker.vtx{i}  = create_draggable_linker_vertex(linker.plot_pos(i,:), linker.linker_tag, visible );
+                linker.vtx{i}  = create_draggable_linker_vertex(linker.plot_pos(i,:), linker.linker_tag  );
             end
-            linker.vtx{nvtx}  = create_endpoint_linker_vertex( linker.plot_pos(nvtx,:), linker.linker_tag, visible); 
+            linker.vtx{nvtx}  = create_endpoint_linker_vertex( linker.plot_pos(nvtx,:), linker.linker_tag ); 
         end;
         for i = 1:size( linker.plot_pos, 1 )
             set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
@@ -346,6 +349,22 @@ relpos = get_relpos( plot_pos, helix );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_linker( linker )
+% the rendering in this function  ends up being rate limiting for
+% draw_helix -- early return if we don't have to make anything
+plot_settings = getappdata( gca, 'plot_settings' );
+if ~isfield( linker, 'line_handle' )     
+    residue1 = getappdata( gca, linker.residue1 );
+    residue2 = getappdata( gca, linker.residue2 );
+    if ~isfield( residue1, 'plot_pos' ) return; end;
+    if ~isfield( residue2, 'plot_pos' ) return; end;
+    if strcmp(linker.type,'stack' ) 
+        if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) return; end;
+    end
+    if strcmp(linker.type,'arrow' ) 
+        if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) return; end;
+    end
+end
+
 linker = draw_default_linker( linker );
    
 % linker starts at res1 and ends at res2
@@ -358,7 +377,6 @@ plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
 plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
 plot_pos = [plot_pos1; plot_pos2 ];
 
-plot_settings = getappdata( gca, 'plot_settings' );
 
 if isfield( linker, 'arrow' ) 
     % hide linkers connecting consecutive residues if they are close
@@ -479,9 +497,9 @@ set( h, 'xdata', vertices(:,1) );
 set( h, 'ydata', vertices(:,2) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h_new = create_linker_vertex( pos, linker_tag, visible );
-if ~exist( 'visible', 'var' ) visible = 'on'; end;
+function h_new = create_linker_vertex( pos, linker_tag );
 plot_settings = getappdata( gca, 'plot_settings' );
+visible = 'on';
 if ( isfield(plot_settings,'show_linker_controls') & ~plot_settings.show_linker_controls ) visible = 'off'; end; % user-override
 h_new = plot( pos(1),pos(2),'o',...
     'markersize',plot_settings.spacing*1.5,...
@@ -491,13 +509,13 @@ h_new = plot( pos(1),pos(2),'o',...
 setappdata( h_new, 'linker_tag', linker_tag );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h_new = create_draggable_linker_vertex( pos, linker_tag, visible )
-h_new = create_linker_vertex( pos, linker_tag, visible );
+function h_new = create_draggable_linker_vertex( pos, linker_tag )
+h_new = create_linker_vertex( pos, linker_tag );
 draggable( h_new, 'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @redraw_linker_vtx );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h = create_endpoint_linker_vertex( pos, linker_tag, visible )
-h = create_linker_vertex( pos, linker_tag, visible );
+function h = create_endpoint_linker_vertex( pos, linker_tag )
+h = create_linker_vertex( pos, linker_tag );
 plot_settings = getappdata( gca, 'plot_settings' );
 set( h, 'markerfacecolor','w','markersize',plot_settings.spacing);
 draggable( h,  'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @new_linker_vtx );
@@ -510,7 +528,7 @@ linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );
 
 % create new draggable symbol
-h_new = create_draggable_linker_vertex( pos, linker_tag,'on' );
+h_new = create_draggable_linker_vertex( pos, linker_tag );
 
 % install this new vertex in linker vertices.
 plot_settings = getappdata( gca, 'plot_settings' );

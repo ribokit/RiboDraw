@@ -26,6 +26,7 @@ residue.relpos = get_relpos( residue.plot_pos, helix );
 linker_tags = residue.linkers;
 for k = 1 : length( linker_tags )
     linker = getappdata( gca, linker_tags{k} );
+    if ~isfield( linker, 'line_handle' ) continue; end; % may not have been rendered yet.
     if strcmp(linker.residue1, res_tag )
         n1 = size(linker.relpos1,1);
         linker.relpos1 = get_relpos( linker.plot_pos(1:n1,:), helix );

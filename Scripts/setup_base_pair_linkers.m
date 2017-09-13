@@ -1,8 +1,6 @@
 function setup_base_pair_linkers( base_pairs )
 % draw_dummy_base_pairs( base_pairs )
 %
-% This also initializes linker objects if they are not defined yet.
-% Might be better to do the actual drawing in draw_helix master function.
 %
 
 plot_settings = getappdata(gca,'plot_settings');

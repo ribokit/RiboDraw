@@ -12,7 +12,6 @@ spacing = plot_settings.spacing;
 bp_spacing = plot_settings.bp_spacing;
 helix_res_tags = {};
 for k = 1:N
-    % kind of clunky, and repeated code.
     % first partner of base pair -- will draw below.
     res_tag = sprintf( 'Residue_%s%d', helix.chain1(k), helix.resnum1(k) );
     pos1 = update_residue_pos( res_tag, [ spacing*((k-1)-(N-1)/2), -bp_spacing/2], helix.center, R );
@@ -112,18 +111,20 @@ for i = 1:length( helix.associated_residues )
     for k = 1 : length( linker_tags )
         linker = getappdata( gca, linker_tags{k} );
         if strcmp(linker.type,'stem_pair'); continue; end;
+        if strcmp(linker.type,'stack'); continue; end;
         if ~isfield( linker, 'vtx' ) 
             linker.vtx = {}; 
             visible = get(linker.line_handle,'visible');
-            for i = 1:length( linker.plot_pos ) 
+            nvtx = size(linker.plot_pos,1);
+            linker.vtx{1}  = create_endpoint_linker_vertex(linker.plot_pos(1,:), linker.linker_tag, visible); 
+            for i = 2:(nvtx-1)
                 linker.vtx{i}  = create_draggable_linker_vertex(linker.plot_pos(i,:), linker.linker_tag, visible );
             end
+            linker.vtx{nvtx}  = create_endpoint_linker_vertex( linker.plot_pos(nvtx,:), linker.linker_tag, visible); 
         end;
         for i = 1:size( linker.plot_pos, 1 )
             set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
         end
-        setup_endpoint_linker_vertex( linker.vtx{1} );
-        setup_endpoint_linker_vertex( linker.vtx{end} );
         setappdata(gca, linker.linker_tag, linker ); 
     end
 end
@@ -380,7 +381,11 @@ if isfield( linker, 'arrow' )
     set( linker.arrow, 'edgecolor',color );
     set( linker.arrow, 'facecolor',color );
 end;
-
+if strcmp( linker.type, 'stack' )  % to guide the eye.
+    if ( norm( plot_pos(end,:) - plot_pos(1,:) ) < 1.5 * plot_settings.bp_spacing ); visible = 'off'; else visible = 'on'; end;
+    set( linker.line_handle, 'visible', visible);
+end
+    
 % nudge beginning and end of linker away from residue.
 plot_pos1(1,:)   = nudge_pos( plot_pos(1,:),   plot_pos(2,:),     plot_settings.bp_spacing );
 plot_pos2(end,:) = nudge_pos( plot_pos(end,:), plot_pos(end-1,:), plot_settings.bp_spacing );
@@ -412,41 +417,40 @@ setappdata( gca, linker.linker_tag, linker );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_default_linker( linker );
+% already drawn?
+if isfield( linker, 'line_handle' ); return; end;
 switch linker.type
     case 'stem_pair'
-        if ~isfield( linker, 'line_handle' ) & ~isfield( linker, 'symbol' )
-            residue1 = getappdata( gca, linker.residue1 );
-            residue2 = getappdata( gca, linker.residue2 );
-            bp = [residue1.nucleotide,residue2.nucleotide];
-            linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.
-            switch bp
-                case {'AU','UA','GC','CG' } % could also show double lines for G-C. Not my preference.
-                    set( linker.line_handle, 'visible', 'on' );
-                case {'GU','UG'}
-                    plot_settings = getappdata( gca, 'plot_settings' );
-                    linker.symbol = create_LW_symbol( 'W', 'C', plot_settings.bp_spacing );
-                    set( linker.line_handle, 'visible', 'off' ); % convention for G*U in stems is to not show line.
-            end
-            setappdata( gca, linker.linker_tag, linker );
+        residue1 = getappdata( gca, linker.residue1 );
+        residue2 = getappdata( gca, linker.residue2 );
+        bp = [residue1.nucleotide,residue2.nucleotide];
+        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.
+        switch bp
+            case {'AU','UA','GC','CG' } % could also show double lines for G-C. Not my preference.
+                set( linker.line_handle, 'visible', 'on' );
+            case {'GU','UG'}
+                plot_settings = getappdata( gca, 'plot_settings' );
+                linker.symbol = create_LW_symbol( 'W', 'C', plot_settings.bp_spacing );
+                set( linker.line_handle, 'visible', 'off' ); % convention for G*U in stems is to not show line.
         end
-    case 'noncanonical_pair'        
-        if ~isfield( linker, 'line_handle' )
-            plot_settings = getappdata( gca, 'plot_settings' );
-            linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.
-            if ( linker.edge1 == linker.edge2 )
-                linker.symbol = create_LW_symbol( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
-            else
-                linker.symbol1 = create_LW_symbol( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
-                linker.symbol2 = create_LW_symbol( linker.edge2, linker.LW_orientation, plot_settings.bp_spacing );
-            end
-            setappdata( gca, linker.linker_tag, linker );
+        setappdata( gca, linker.linker_tag, linker );
+    case 'noncanonical_pair'
+        plot_settings = getappdata( gca, 'plot_settings' );
+        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.
+        if ( linker.edge1 == linker.edge2 )
+            linker.symbol = create_LW_symbol( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
+        else
+            linker.symbol1 = create_LW_symbol( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
+            linker.symbol2 = create_LW_symbol( linker.edge2, linker.LW_orientation, plot_settings.bp_spacing );
         end
+        setappdata( gca, linker.linker_tag, linker );
     case 'arrow'
-        if ~isfield( linker, 'line_handle' )
-            linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2 ); % dummy for now -- will get redrawn later.
-            linker.arrow = patch( [0,0,0],[0,0,0],'k' );
-            setappdata( gca, linker.linker_tag, linker );
-        end
+        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2 ); % dummy for now -- will get redrawn later.
+        linker.arrow = patch( [0,0,0],[0,0,0],'k' );
+        setappdata( gca, linker.linker_tag, linker );
+    case 'stack'
+        linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linewidth',3 ); % dummy for now -- will get redrawn later.
+        setappdata( gca, linker.linker_tag, linker );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -472,7 +476,7 @@ set( h, 'xdata', vertices(:,1) );
 set( h, 'ydata', vertices(:,2) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h_new = create_draggable_linker_vertex( pos, linker_tag, visible )
+function h_new = create_linker_vertex( pos, linker_tag, visible );
 if ~exist( 'visible', 'var' ) visible = 'on'; end;
 plot_settings = getappdata( gca, 'plot_settings' );
 if ( isfield(plot_settings,'show_linker_controls') & ~plot_settings.show_linker_controls ) visible = 'off'; end; % user-override
@@ -481,11 +485,16 @@ h_new = plot( pos(1),pos(2),'o',...
     'color',[0.5 0.5 1],...
     'markerfacecolor',[0.5 0.5 1],...
     'visible',visible);
-draggable( h_new, 'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @redraw_linker_vtx );
 setappdata( h_new, 'linker_tag', linker_tag );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function setup_endpoint_linker_vertex( h )
+function h_new = create_draggable_linker_vertex( pos, linker_tag, visible )
+h_new = create_linker_vertex( pos, linker_tag, visible );
+draggable( h_new, 'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @redraw_linker_vtx );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function h = create_endpoint_linker_vertex( pos, linker_tag, visible )
+h = create_linker_vertex( pos, linker_tag, visible );
 plot_settings = getappdata( gca, 'plot_settings' );
 set( h, 'markerfacecolor','w','markersize',plot_settings.spacing);
 draggable( h,  'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @new_linker_vtx );
@@ -497,7 +506,7 @@ linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );
 
 % create new draggable symbol
-h_new = create_draggable_linker_vertex( pos, linker_tag );
+h_new = create_draggable_linker_vertex( pos, linker_tag,'on' );
 
 % install this new vertex in linker vertices.
 plot_settings = getappdata( gca, 'plot_settings' );
@@ -530,9 +539,8 @@ pos = [get(h,'XData' ), get(h,'YData' )];
 linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );
 
-n1 = size( linker.relpos1, 1 );
-
 plot_settings = getappdata( gca, 'plot_settings' );
+n1 = size( linker.relpos1, 1 );
 for n = 1:length( linker.vtx )
     if ( linker.vtx{n} == h )
         if n <= n1
@@ -555,7 +563,7 @@ for n = 1:length( linker.vtx )
         end
     end
 end
-linker
+
 % above loop should find a vertex match and break!
 assert( n <= length( linker.vtx ) );
 assert( size( [linker.relpos1;linker.relpos2], 1 ) == length(linker.vtx) );
@@ -569,7 +577,7 @@ base_paired = false;
 for i = 1:length( residue1.linkers )
     linker_tag = residue1.linkers{i};
     linker = getappdata( gca, linker_tag );
-    if ~strcmp( linker.type,'arrow' )
+    if strcmp( linker.type,'noncanonical_pair' ) | strcmp( linker.type,'stem_pair' )
         if ( strcmp( linker.residue1 , res_tag1 ) && strcmp( linker.residue2, res_tag2 ) ) 
             base_paired = true; return;
         end

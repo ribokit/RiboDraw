@@ -1,5 +1,5 @@
-function draw_dummy_linkers(resnum,chains)
-% draw_dummy_linkers()
+function setup_arrow_linkers(resnum,chains)
+% setup_arrow_linkers(resnum,chains)
 % draw arrows at dummy locations.
 
 for i = 1:length(resnum)

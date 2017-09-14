@@ -14,8 +14,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* fix: DI tick marks
-* fix: DI stacks
 * fix: DI clipping
 * cleanup directory structure
 * fix words: stems to helices

@@ -430,7 +430,7 @@
 		"helix_tag": "Helix_C121",
 		"nucleotide": "A",
 		"rgb_color": [0,0.962399,1],
-		"relpos": [9,-3],
+		"relpos": [8.25,-1.5],
 		"linkers": [
 			"Linker_C124_C125_arrow",
 			"Linker_C125_C126_arrow"
@@ -443,7 +443,7 @@
 		"helix_tag": "Helix_C121",
 		"nucleotide": "A",
 		"rgb_color": [0,0.973599,1],
-		"relpos": [9,3],
+		"relpos": [8.25,0.75],
 		"linkers": [
 			"Linker_C125_C126_arrow",
 			"Linker_C126_C127_arrow",
@@ -674,7 +674,7 @@
 		"helix_tag": "Helix_C131",
 		"nucleotide": "U",
 		"rgb_color": [0,1,0.914401],
-		"relpos": [15,-3],
+		"relpos": [15,-2.25],
 		"linkers": [
 			"Linker_C138_C139_arrow",
 			"Linker_C139_C140_arrow"
@@ -704,7 +704,7 @@
 		"nucleotide": "C",
 		"tickrot": 90,
 		"rgb_color": [0,1,0.908801],
-		"relpos": [15,3],
+		"relpos": [15,1.5],
 		"linkers": [
 			"Linker_C139_C140_arrow",
 			"Linker_C140_C141_arrow"
@@ -1454,10 +1454,10 @@
 		"resnum": 181,
 		"chain": "C",
 		"res_tag": "Residue_C181",
-		"helix_tag": "Helix_C46",
+		"helix_tag": "Helix_C184",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.4212702607],
-		"relpos": [-7.5,3],
+		"relpos": [-15,-3],
 		"linkers": [
 			"Linker_C180_C181_arrow",
 			"Linker_C181_C182_arrow",
@@ -1676,7 +1676,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "U",
 		"rgb_color": [0,1,0.266001],
-		"relpos": [26,-6.75],
+		"relpos": [21,-3],
 		"linkers": [
 			"Linker_C192_C193_arrow",
 			"Linker_C193_C194_arrow",
@@ -1709,7 +1709,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.240801],
-		"relpos": [33.5,-5.25],
+		"relpos": [27,-3],
 		"linkers": [
 			"Linker_C194_C195_arrow",
 			"Linker_C195_C196_arrow",
@@ -1725,7 +1725,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.2319107276],
-		"relpos": [30,-3],
+		"relpos": [29.25,-4.5],
 		"linkers": [
 			"Linker_C195_C196_arrow",
 			"Linker_C196_C197_arrow"
@@ -1738,7 +1738,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.215601],
-		"relpos": [33,-3],
+		"relpos": [31.5,-0.75],
 		"linkers": [
 			"Linker_C196_C197_arrow",
 			"Linker_C197_C198_arrow",
@@ -1752,7 +1752,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "C",
 		"rgb_color": [0,1,0.2045550856],
-		"relpos": [36,-3],
+		"relpos": [30,1.5],
 		"linkers": [
 			"Linker_C197_C198_arrow",
 			"Linker_C198_C199_arrow",
@@ -1768,7 +1768,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.193601],
-		"relpos": [33,3],
+		"relpos": [29.25,5.25],
 		"linkers": [
 			"Linker_C198_C199_arrow",
 			"Linker_C199_C200_arrow"
@@ -1800,7 +1800,7 @@
 		"nucleotide": "U",
 		"tickrot": 90,
 		"rgb_color": [0,1,0.1846235681],
-		"relpos": [30,3],
+		"relpos": [27,3],
 		"linkers": [
 			"Linker_C199_C200_arrow",
 			"Linker_C200_C201_arrow",
@@ -1815,7 +1815,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "C",
 		"rgb_color": [0,1,0.176801],
-		"relpos": [27,3],
+		"relpos": [24,3],
 		"linkers": [
 			"Linker_C200_C201_arrow",
 			"Linker_C201_C202_arrow",
@@ -1832,7 +1832,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "U",
 		"rgb_color": [0,1,0.1662982763],
-		"relpos": [24,3],
+		"relpos": [21,3],
 		"linkers": [
 			"Linker_C201_C202_arrow",
 			"Linker_C202_C203_arrow",
@@ -1849,7 +1849,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.160001],
-		"relpos": [21,3],
+		"relpos": [18,3],
 		"linkers": [
 			"Linker_C202_C203_arrow",
 			"Linker_C203_C204_arrow",
@@ -1865,7 +1865,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.148801],
-		"relpos": [18,3],
+		"relpos": [15,3],
 		"linkers": [
 			"Linker_C203_C204_arrow",
 			"Linker_C204_C205_arrow",
@@ -1881,7 +1881,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "G",
 		"rgb_color": [0,1,0.143201],
-		"relpos": [15,3],
+		"relpos": [12,7.5],
 		"linkers": [
 			"Linker_C204_C205_arrow",
 			"Linker_C205_C206_arrow",
@@ -2038,7 +2038,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.076001],
-		"relpos": [-9,3],
+		"relpos": [-8.25,5.25],
 		"linkers": [
 			"Linker_C212_C213_arrow",
 			"Linker_C213_C214_arrow",
@@ -2053,7 +2053,7 @@
 		"helix_tag": "Helix_C184",
 		"nucleotide": "G",
 		"rgb_color": [0,1,0.064801],
-		"relpos": [-12,3],
+		"relpos": [-11.25,5.25],
 		"linkers": [
 			"Linker_C213_C214_arrow",
 			"Linker_C214_C215_arrow",
@@ -2280,7 +2280,7 @@
 		"helix_tag": "Helix_C224",
 		"nucleotide": "A",
 		"rgb_color": [0.047199,1,0],
-		"relpos": [7.5,-3],
+		"relpos": [7.5,-1.5],
 		"linkers": [
 			"Linker_C226_C227_arrow",
 			"Linker_C227_C228_arrow",
@@ -2295,7 +2295,7 @@
 		"helix_tag": "Helix_C224",
 		"nucleotide": "C",
 		"rgb_color": [0.052799,1,0],
-		"relpos": [7.5,3],
+		"relpos": [7.5,1.5],
 		"linkers": [
 			"Linker_C227_C228_arrow",
 			"Linker_C228_C229_arrow",
@@ -2563,10 +2563,10 @@
 		"resnum": 242,
 		"chain": "C",
 		"res_tag": "Residue_C242",
-		"helix_tag": "Helix_C235",
+		"helix_tag": "Helix_C245",
 		"nucleotide": "G",
 		"rgb_color": [0.175999,1,0],
-		"relpos": [15,-3],
+		"relpos": [-7.5,-8.25],
 		"linkers": [
 			"Linker_C241_C242_arrow",
 			"Linker_C242_C243_arrow",
@@ -2681,7 +2681,7 @@
 		"helix_tag": "Helix_C245",
 		"nucleotide": "C",
 		"rgb_color": [0.247999,1,0],
-		"relpos": [10.5,-3],
+		"relpos": [9,-5.510910596e-16],
 		"linkers": [
 			"Linker_C248_C249_arrow",
 			"Linker_C249_C250_arrow",
@@ -3192,7 +3192,7 @@
 		"helix_tag": "Helix_C271",
 		"nucleotide": "G",
 		"rgb_color": [0.609198,1,0],
-		"relpos": [13.5,-3],
+		"relpos": [12.75,-2.342137003e-15],
 		"linkers": [
 			"Linker_C276_C277_arrow",
 			"Linker_C277_C278_arrow"
@@ -3202,10 +3202,10 @@
 		"resnum": 278,
 		"chain": "C",
 		"res_tag": "Residue_C278",
-		"helix_tag": "Helix_C281",
+		"helix_tag": "Helix_C271",
 		"nucleotide": "A",
 		"rgb_color": [0.6194937198,1,0],
-		"relpos": [-27,-3],
+		"relpos": [10.5,3],
 		"linkers": [
 			"Linker_C277_C278_arrow",
 			"Linker_C278_C279_arrow",
@@ -3232,10 +3232,10 @@
 		"resnum": 28,
 		"chain": "C",
 		"res_tag": "Residue_C28",
-		"helix_tag": "Helix_C31",
+		"helix_tag": "Helix_C15",
 		"nucleotide": "A",
 		"rgb_color": [0,0,1],
-		"relpos": [-10.5,-3],
+		"relpos": [25.5,-3],
 		"linkers": [
 			"Linker_C27_C28_arrow",
 			"Linker_C28_C29_arrow",
@@ -3418,10 +3418,10 @@
 		"resnum": 29,
 		"chain": "C",
 		"res_tag": "Residue_C29",
-		"helix_tag": "Helix_C31",
+		"helix_tag": "Helix_C15",
 		"nucleotide": "U",
 		"rgb_color": [0,0,1],
-		"relpos": [-7.5,-3],
+		"relpos": [28.5,-3],
 		"linkers": [
 			"Linker_C28_C29_arrow",
 			"Linker_C29_C30_arrow",
@@ -3602,11 +3602,11 @@
 		"resnum": 30,
 		"chain": "C",
 		"res_tag": "Residue_C30",
-		"helix_tag": "Helix_C31",
+		"helix_tag": "Helix_C15",
 		"nucleotide": "G",
 		"tickrot": 270,
 		"rgb_color": [0,0,1],
-		"relpos": [-4.5,-3],
+		"relpos": [31.5,-3],
 		"linkers": [
 			"Linker_C29_C30_arrow",
 			"Linker_C30_C31_arrow",
@@ -4146,7 +4146,7 @@
 		"helix_tag": "Helix_C31",
 		"nucleotide": "C",
 		"rgb_color": [0,0,1],
-		"relpos": [4.5,-3],
+		"relpos": [5.25,-3],
 		"linkers": [
 			"Linker_C32_C33_arrow",
 			"Linker_C33_C34_arrow",
@@ -4326,7 +4326,7 @@
 		"helix_tag": "Helix_C35",
 		"nucleotide": "U",
 		"rgb_color": [0,0,1],
-		"relpos": [-4.5,-3],
+		"relpos": [-5.25,-6],
 		"linkers": [
 			"Linker_C33_C34_arrow",
 			"Linker_C34_C35_arrow"
@@ -4726,10 +4726,10 @@
 		"resnum": 361,
 		"chain": "C",
 		"res_tag": "Residue_C361",
-		"helix_tag": "Helix_C271",
+		"helix_tag": "Helix_C281",
 		"nucleotide": "G",
 		"rgb_color": [1,0.757801,0],
-		"relpos": [10.5,3],
+		"relpos": [-24,3],
 		"linkers": [
 			"Linker_C360_C361_arrow",
 			"Linker_C361_C362_arrow",
@@ -4891,7 +4891,7 @@
 		"nucleotide": "G",
 		"tickrot": 90,
 		"rgb_color": [1,0.699001,0],
-		"relpos": [-16.5,3],
+		"relpos": [-17.25,16.5],
 		"linkers": [
 			"Linker_C369_C370_arrow",
 			"Linker_C370_C371_arrow",
@@ -4907,7 +4907,7 @@
 		"helix_tag": "Helix_C375",
 		"nucleotide": "A",
 		"rgb_color": [1,0.6931585875,0],
-		"relpos": [-22.5,-3],
+		"relpos": [-19.5,-3],
 		"linkers": [
 			"Linker_C370_C371_arrow",
 			"Linker_C371_C372_arrow",
@@ -4922,7 +4922,7 @@
 		"helix_tag": "Helix_C375",
 		"nucleotide": "G",
 		"rgb_color": [1,0.686401,0],
-		"relpos": [-19.5,-3],
+		"relpos": [-16.5,-7.5],
 		"linkers": [
 			"Linker_C371_C372_arrow",
 			"Linker_C372_C373_arrow",
@@ -5146,7 +5146,7 @@
 		"helix_tag": "Helix_C375",
 		"nucleotide": "A",
 		"rgb_color": [1,0.610801,0],
-		"relpos": [16.5,-3],
+		"relpos": [16.5,-3.75],
 		"linkers": [
 			"Linker_C383_C384_arrow",
 			"Linker_C384_C385_arrow",
@@ -5160,7 +5160,7 @@
 		"helix_tag": "Helix_C375",
 		"nucleotide": "C",
 		"rgb_color": [1,0.602401,0],
-		"relpos": [19.5,-3],
+		"relpos": [19.5,-3.75],
 		"linkers": [
 			"Linker_C384_C385_arrow",
 			"Linker_C385_C386_arrow",
@@ -5176,7 +5176,7 @@
 		"helix_tag": "Helix_C375",
 		"nucleotide": "G",
 		"rgb_color": [1,0.598801,0],
-		"relpos": [22.5,-3],
+		"relpos": [21.75,-2.25],
 		"linkers": [
 			"Linker_C385_C386_arrow",
 			"Linker_C386_C387_arrow",
@@ -5190,7 +5190,7 @@
 		"helix_tag": "Helix_C375",
 		"nucleotide": "U",
 		"rgb_color": [1,0.593201,0],
-		"relpos": [25.5,-3],
+		"relpos": [23.25,-1.423651904e-15],
 		"linkers": [
 			"Linker_C386_C387_arrow",
 			"Linker_C387_C388_arrow",
@@ -5204,7 +5204,7 @@
 		"helix_tag": "Helix_C375",
 		"nucleotide": "G",
 		"rgb_color": [1,0.5898235681,0],
-		"relpos": [22.5,3],
+		"relpos": [21.75,3],
 		"linkers": [
 			"Linker_C387_C388_arrow",
 			"Linker_C388_C389_arrow",
@@ -5219,7 +5219,7 @@
 		"helix_tag": "Helix_C375",
 		"nucleotide": "G",
 		"rgb_color": [1,0.584801,0],
-		"relpos": [19.5,3],
+		"relpos": [19.5,5.25],
 		"linkers": [
 			"Linker_C388_C389_arrow",
 			"Linker_C389_C390_arrow"
@@ -5251,7 +5251,7 @@
 		"nucleotide": "U",
 		"tickrot": 90,
 		"rgb_color": [1,0.5806609222,0],
-		"relpos": [16.5,3],
+		"relpos": [16.5,3.75],
 		"linkers": [
 			"Linker_C389_C390_arrow",
 			"Linker_C390_C391_arrow",
@@ -5488,7 +5488,7 @@
 		"helix_tag": "Helix_C406",
 		"nucleotide": "U",
 		"rgb_color": [1,0.526001,0],
-		"relpos": [-15,-3],
+		"relpos": [-12.75,-8.25],
 		"linkers": [
 			"Linker_C402_C403_arrow",
 			"Linker_C403_C404_arrow",
@@ -5633,7 +5633,7 @@
 		"helix_tag": "Helix_C406",
 		"nucleotide": "G",
 		"rgb_color": [1,0.4900531401,0],
-		"relpos": [9,-3],
+		"relpos": [9,-3.75],
 		"linkers": [
 			"Linker_C410_C411_arrow",
 			"Linker_C411_C412_arrow",
@@ -5648,7 +5648,7 @@
 		"helix_tag": "Helix_C406",
 		"nucleotide": "A",
 		"rgb_color": [1,0.486801,0],
-		"relpos": [12,-3],
+		"relpos": [12,-3.75],
 		"linkers": [
 			"Linker_C411_C412_arrow",
 			"Linker_C412_C413_arrow",
@@ -5662,7 +5662,7 @@
 		"helix_tag": "Helix_C406",
 		"nucleotide": "C",
 		"rgb_color": [1,0.481201,0],
-		"relpos": [15,-3],
+		"relpos": [15,-2.25],
 		"linkers": [
 			"Linker_C412_C413_arrow",
 			"Linker_C413_C414_arrow",
@@ -5677,7 +5677,7 @@
 		"helix_tag": "Helix_C406",
 		"nucleotide": "C",
 		"rgb_color": [1,0.478401,0],
-		"relpos": [15,3],
+		"relpos": [15,1.5],
 		"linkers": [
 			"Linker_C413_C414_arrow",
 			"Linker_C414_C415_arrow",
@@ -5692,7 +5692,7 @@
 		"helix_tag": "Helix_C406",
 		"nucleotide": "A",
 		"rgb_color": [1,0.472801,0],
-		"relpos": [12,3],
+		"relpos": [12,3.75],
 		"linkers": [
 			"Linker_C414_C415_arrow",
 			"Linker_C415_C416_arrow",
@@ -5707,7 +5707,7 @@
 		"helix_tag": "Helix_C406",
 		"nucleotide": "U",
 		"rgb_color": [1,0.470001,0],
-		"relpos": [9,3],
+		"relpos": [9,3.75],
 		"linkers": [
 			"Linker_C415_C416_arrow",
 			"Linker_C416_C417_arrow",
@@ -5843,7 +5843,7 @@
 		"helix_tag": "Helix_C266",
 		"nucleotide": "A",
 		"rgb_color": [1,0.439201,0],
-		"relpos": [6,3],
+		"relpos": [5.25,15],
 		"linkers": [
 			"Linker_C422_C423_arrow",
 			"Linker_C423_C424_arrow",
@@ -6214,7 +6214,7 @@
 		"helix_tag": "Helix_C35",
 		"nucleotide": "A",
 		"rgb_color": [1,0.3546508054,0],
-		"relpos": [4.5,3],
+		"relpos": [3.75,4.5],
 		"linkers": [
 			"Linker_C442_C443_arrow",
 			"Linker_C443_C444_arrow"
@@ -6263,7 +6263,7 @@
 		"helix_tag": "Helix_C35",
 		"nucleotide": "G",
 		"rgb_color": [1,0.341201,0],
-		"relpos": [-4.5,3],
+		"relpos": [-5.25,3],
 		"linkers": [
 			"Linker_C445_C446_arrow",
 			"Linker_C446_C447_arrow",
@@ -6275,10 +6275,10 @@
 		"resnum": 447,
 		"chain": "C",
 		"res_tag": "Residue_C447",
-		"helix_tag": "Helix_C35",
+		"helix_tag": "Helix_C31",
 		"nucleotide": "A",
 		"rgb_color": [1,0.3363255136,0],
-		"relpos": [-7.5,3],
+		"relpos": [5.25,3],
 		"linkers": [
 			"Linker_C446_C447_arrow",
 			"Linker_C447_C448_arrow",
@@ -6294,7 +6294,7 @@
 		"helix_tag": "Helix_C35",
 		"nucleotide": "U",
 		"rgb_color": [1,0.332801,0],
-		"relpos": [-10.5,3],
+		"relpos": [-5.25,6.75],
 		"linkers": [
 			"Linker_C447_C448_arrow",
 			"Linker_C448_C449_arrow"
@@ -6307,7 +6307,7 @@
 		"helix_tag": "Helix_C35",
 		"nucleotide": "A",
 		"rgb_color": [1,0.3299628677,0],
-		"relpos": [-13.5,3],
+		"relpos": [-3.75,8.25],
 		"linkers": [
 			"Linker_C448_C449_arrow",
 			"Linker_C449_C450_arrow",
@@ -6339,9 +6339,9 @@
 		"res_tag": "Residue_C450",
 		"helix_tag": "Helix_C35",
 		"nucleotide": "G",
-		"tickrot": 90,
+		"tickrot": 45,
 		"rgb_color": [1,0.324401,0],
-		"relpos": [-16.5,3],
+		"relpos": [-0.75,9.75],
 		"linkers": [
 			"Linker_C449_C450_arrow",
 			"Linker_C450_C451_arrow",
@@ -6356,7 +6356,7 @@
 		"helix_tag": "Helix_C35",
 		"nucleotide": "U",
 		"rgb_color": [1,0.3208002218,0],
-		"relpos": [-19.5,3],
+		"relpos": [-0.75,12.75],
 		"linkers": [
 			"Linker_C450_C451_arrow",
 			"Linker_C451_C452_arrow",
@@ -6370,7 +6370,7 @@
 		"helix_tag": "Helix_C35",
 		"nucleotide": "G",
 		"rgb_color": [1,0.316001,0],
-		"relpos": [-22.5,3],
+		"relpos": [-3,13.5],
 		"linkers": [
 			"Linker_C451_C452_arrow",
 			"Linker_C452_C453_arrow",
@@ -6386,7 +6386,7 @@
 		"helix_tag": "Helix_C35",
 		"nucleotide": "A",
 		"rgb_color": [1,0.3116375759,0],
-		"relpos": [-25.5,3],
+		"relpos": [-7.5,7.5],
 		"linkers": [
 			"Linker_C452_C453_arrow",
 			"Linker_C453_C454_arrow",
@@ -6398,10 +6398,10 @@
 		"resnum": 454,
 		"chain": "C",
 		"res_tag": "Residue_C454",
-		"helix_tag": "Helix_C461",
+		"helix_tag": "Helix_C35",
 		"nucleotide": "A",
 		"rgb_color": [1,0.307601,0],
-		"relpos": [-22.5,-3],
+		"relpos": [-5.25,-3],
 		"linkers": [
 			"Linker_C453_C454_arrow",
 			"Linker_C454_C455_arrow",
@@ -6415,10 +6415,10 @@
 		"resnum": 455,
 		"chain": "C",
 		"res_tag": "Residue_C455",
-		"helix_tag": "Helix_C461",
+		"helix_tag": "Helix_C35",
 		"nucleotide": "C",
 		"rgb_color": [1,0.30247493,0],
-		"relpos": [-19.5,-3],
+		"relpos": [-12,7.5],
 		"linkers": [
 			"Linker_C454_C455_arrow",
 			"Linker_C455_C456_arrow",
@@ -6432,7 +6432,7 @@
 		"helix_tag": "Helix_C461",
 		"nucleotide": "C",
 		"rgb_color": [1,0.299201,0],
-		"relpos": [-16.5,-3],
+		"relpos": [-13.5,-3],
 		"linkers": [
 			"Linker_C455_C456_arrow",
 			"Linker_C456_C457_arrow",
@@ -6446,7 +6446,7 @@
 		"helix_tag": "Helix_C461",
 		"nucleotide": "A",
 		"rgb_color": [1,0.293601,0],
-		"relpos": [-13.5,-3],
+		"relpos": [-10.5,-3],
 		"linkers": [
 			"Linker_C456_C457_arrow",
 			"Linker_C457_C458_arrow",
@@ -6462,7 +6462,7 @@
 		"helix_tag": "Helix_C461",
 		"nucleotide": "G",
 		"rgb_color": [1,0.290801,0],
-		"relpos": [-10.5,-3],
+		"relpos": [-7.5,-7.5],
 		"linkers": [
 			"Linker_C457_C458_arrow",
 			"Linker_C458_C459_arrow",
@@ -6707,10 +6707,10 @@
 		"resnum": 471,
 		"chain": "C",
 		"res_tag": "Residue_C471",
-		"helix_tag": "Helix_C31",
+		"helix_tag": "Helix_C461",
 		"nucleotide": "A",
 		"rgb_color": [1,0.234801,0],
-		"relpos": [7.5,3],
+		"relpos": [-10.5,3],
 		"linkers": [
 			"Linker_C470_C471_arrow",
 			"Linker_C471_C472_arrow",
@@ -6723,10 +6723,10 @@
 		"resnum": 472,
 		"chain": "C",
 		"res_tag": "Residue_C472",
-		"helix_tag": "Helix_C31",
+		"helix_tag": "Helix_C461",
 		"nucleotide": "A",
 		"rgb_color": [1,0.2301924397,0],
-		"relpos": [4.5,3],
+		"relpos": [-13.5,3],
 		"linkers": [
 			"Linker_C471_C472_arrow",
 			"Linker_C472_C473_arrow",
@@ -6839,7 +6839,7 @@
 		"helix_tag": "Helix_C31",
 		"nucleotide": "A",
 		"rgb_color": [1,0.2007644241,0],
-		"relpos": [-16.5,3],
+		"relpos": [-15.75,18.75],
 		"linkers": [
 			"Linker_C478_C479_arrow",
 			"Linker_C479_C480_arrow",
@@ -7026,7 +7026,7 @@
 		"helix_tag": "Helix_C484",
 		"nucleotide": "G",
 		"rgb_color": [1,0.1158193599,0],
-		"relpos": [10.5,-3],
+		"relpos": [10.5,-2.25],
 		"linkers": [
 			"Linker_C488_C489_arrow",
 			"Linker_C489_C490_arrow",
@@ -7040,7 +7040,7 @@
 		"helix_tag": "Helix_C46",
 		"nucleotide": "A",
 		"rgb_color": [0,0.1158178988,1],
-		"relpos": [7.5,-3],
+		"relpos": [9,-3.75],
 		"linkers": [
 			"Linker_C48_C49_arrow",
 			"Linker_C49_C50_arrow",
@@ -7058,7 +7058,7 @@
 		"nucleotide": "C",
 		"tickrot": 270,
 		"rgb_color": [1,0.107202,0],
-		"relpos": [13.5,-3],
+		"relpos": [12,-7.347880795e-16],
 		"linkers": [
 			"Linker_C489_C490_arrow",
 			"Linker_C490_C491_arrow"
@@ -7071,7 +7071,7 @@
 		"helix_tag": "Helix_C484",
 		"nucleotide": "G",
 		"rgb_color": [1,0.097494607,0],
-		"relpos": [10.5,3],
+		"relpos": [10.5,2.25],
 		"linkers": [
 			"Linker_C490_C491_arrow",
 			"Linker_C491_C492_arrow",
@@ -7300,7 +7300,7 @@
 		"helix_tag": "Helix_C484",
 		"nucleotide": "A",
 		"rgb_color": [1,0,0],
-		"relpos": [-28.5,3],
+		"relpos": [-26.25,12],
 		"linkers": [
 			"Linker_C503_C504_arrow",
 			"Linker_C504_C505_arrow"
@@ -7313,7 +7313,7 @@
 		"helix_tag": "Helix_C484",
 		"nucleotide": "A",
 		"rgb_color": [1,0,0],
-		"relpos": [-31.5,3],
+		"relpos": [-28.5,12.75],
 		"linkers": [
 			"Linker_C504_C505_arrow",
 			"Linker_C505_C506_arrow",
@@ -7330,7 +7330,7 @@
 		"helix_tag": "Helix_C15",
 		"nucleotide": "G",
 		"rgb_color": [1,0,0],
-		"relpos": [43.5,3],
+		"relpos": [33.75,13.5],
 		"linkers": [
 			"Linker_C505_C506_arrow",
 			"Linker_C506_C507_arrow",
@@ -7347,7 +7347,7 @@
 		"helix_tag": "Helix_C15",
 		"nucleotide": "A",
 		"rgb_color": [1,0,0],
-		"relpos": [40.5,3],
+		"relpos": [30.75,12],
 		"linkers": [
 			"Linker_C506_C507_arrow",
 			"Linker_C507_C508_arrow",
@@ -7362,7 +7362,7 @@
 		"helix_tag": "Helix_C15",
 		"nucleotide": "A",
 		"rgb_color": [1,0,0],
-		"relpos": [37.5,3],
+		"relpos": [30,9],
 		"linkers": [
 			"Linker_C507_C508_arrow",
 			"Linker_C508_C509_arrow"
@@ -7375,7 +7375,7 @@
 		"helix_tag": "Helix_C15",
 		"nucleotide": "C",
 		"rgb_color": [1,0,0],
-		"relpos": [34.5,3],
+		"relpos": [31.5,6],
 		"linkers": [
 			"Linker_C508_C509_arrow",
 			"Linker_C509_C510_arrow",
@@ -7403,7 +7403,7 @@
 		"res_tag": "Residue_C510",
 		"helix_tag": "Helix_C15",
 		"nucleotide": "C",
-		"tickrot": 90,
+		"tickrot": 135,
 		"rgb_color": [1,0,0],
 		"relpos": [31.5,3],
 		"linkers": [
@@ -8478,8 +8478,8 @@
 		"resnum2": [128,129,130],
 		"chain2": "CCC",
 		"name": "H8",
-		"center": [30.75,57.75],
-		"rotation": 270,
+		"center": [36.75,7.5],
+		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
 		"helix_tag": "Helix_C121",
@@ -8504,9 +8504,9 @@
 		"resnum2": [142,143,144,145,146,147,148],
 		"chain2": "CCCCCCC",
 		"name": "H9",
-		"center": [18.75,33.75],
-		"rotation": 90,
-		"parity": -1,
+		"center": [36.75,33.75],
+		"rotation": 270,
+		"parity": 1,
 		"label_relpos": [0,6],
 		"helix_tag": "Helix_C131",
 		"associated_residues": [
@@ -8559,6 +8559,9 @@
 			"Residue_C25",
 			"Residue_C26",
 			"Residue_C27",
+			"Residue_C28",
+			"Residue_C29",
+			"Residue_C30",
 			"Residue_C506",
 			"Residue_C507",
 			"Residue_C508",
@@ -8588,7 +8591,7 @@
 		"resnum2": [168,169,170,171,172,173,174,175,176],
 		"chain2": "CCCCCCCCC",
 		"name": "H10",
-		"center": [1.5,51],
+		"center": [14.25,60.75],
 		"rotation": 180,
 		"parity": -1,
 		"label_relpos": [0,6],
@@ -8629,12 +8632,13 @@
 		"resnum2": [208,209,210,211,212],
 		"chain2": "CCCCC",
 		"name": "H11",
-		"center": [48.75,108.75],
+		"center": [48,102],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
 		"helix_tag": "Helix_C184",
 		"associated_residues": [
+			"Residue_C181",
 			"Residue_C182",
 			"Residue_C183",
 			"Residue_C184",
@@ -8680,7 +8684,7 @@
 		"resnum2": [230,231],
 		"chain2": "CC",
 		"name": "H12",
-		"center": [18,102.75],
+		"center": [0,107.25],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -8709,7 +8713,7 @@
 		"resnum2": [258,259,260,261,262],
 		"chain2": "CCCCC",
 		"name": "H13a",
-		"center": [31.5,107.25],
+		"center": [18.75,107.25],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -8723,7 +8727,6 @@
 			"Residue_C239",
 			"Residue_C240",
 			"Residue_C241",
-			"Residue_C242",
 			"Residue_C256",
 			"Residue_C257",
 			"Residue_C258",
@@ -8741,12 +8744,13 @@
 		"resnum2": [252,253],
 		"chain2": "CC",
 		"name": "H13b",
-		"center": [33.75,80.25],
+		"center": [18.75,84],
 		"rotation": 90,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [-0,-7.5],
 		"helix_tag": "Helix_C245",
 		"associated_residues": [
+			"Residue_C242",
 			"Residue_C243",
 			"Residue_C244",
 			"Residue_C245",
@@ -8768,7 +8772,7 @@
 		"resnum2": [424,425,426],
 		"chain2": "CCC",
 		"name": "H14",
-		"center": [-11.25,138],
+		"center": [-13.5,138],
 		"rotation": 180,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -8794,9 +8798,9 @@
 		"resnum2": [363,364,365,366],
 		"chain2": "CCCC",
 		"name": "H16",
-		"center": [-9,154.5],
+		"center": [-36,152.25],
 		"rotation": 270,
-		"parity": 1,
+		"parity": -1,
 		"label_relpos": [0,6],
 		"helix_tag": "Helix_C271",
 		"associated_residues": [
@@ -8808,7 +8812,7 @@
 			"Residue_C275",
 			"Residue_C276",
 			"Residue_C277",
-			"Residue_C361",
+			"Residue_C278",
 			"Residue_C362",
 			"Residue_C363",
 			"Residue_C364",
@@ -8832,7 +8836,6 @@
 		"label_relpos": [0,6],
 		"helix_tag": "Helix_C281",
 		"associated_residues": [
-			"Residue_C278",
 			"Residue_C279",
 			"Residue_C280",
 			"Residue_C281",
@@ -8864,7 +8867,8 @@
 			"Residue_C357",
 			"Residue_C358",
 			"Residue_C359",
-			"Residue_C360"
+			"Residue_C360",
+			"Residue_C361"
 		]
 	},
 	"Helix_C295": {
@@ -8929,20 +8933,16 @@
 		"resnum2": [473,474],
 		"chain2": "CC",
 		"name": "H3",
-		"center": [97.5,136.5],
+		"center": [79.5,137.25],
 		"rotation": 180,
 		"parity": 1,
 		"label_relpos": [0,6],
 		"helix_tag": "Helix_C31",
 		"associated_residues": [
-			"Residue_C28",
-			"Residue_C29",
-			"Residue_C30",
 			"Residue_C31",
 			"Residue_C32",
 			"Residue_C33",
-			"Residue_C471",
-			"Residue_C472",
+			"Residue_C447",
 			"Residue_C473",
 			"Residue_C474",
 			"Residue_C475",
@@ -9008,7 +9008,7 @@
 		"resnum2": [444,445],
 		"chain2": "CC",
 		"name": "H4a",
-		"center": [64.5,137.25],
+		"center": [63,137.25],
 		"rotation": 180,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -9021,13 +9021,14 @@
 			"Residue_C444",
 			"Residue_C445",
 			"Residue_C446",
-			"Residue_C447",
 			"Residue_C448",
 			"Residue_C449",
 			"Residue_C450",
 			"Residue_C451",
 			"Residue_C452",
-			"Residue_C453"
+			"Residue_C453",
+			"Residue_C454",
+			"Residue_C455"
 		]
 	},
 	"Helix_C37": {
@@ -9065,7 +9066,7 @@
 		"resnum2": [392,393,394,395,396,397,398,399],
 		"chain2": "CCCCCCCC",
 		"name": "H21",
-		"center": [-12.75,99],
+		"center": [-40.5,99],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -9111,7 +9112,7 @@
 		"resnum2": [417,418,419,420,421],
 		"chain2": "CCCCC",
 		"name": "H22",
-		"center": [1.5,109.5],
+		"center": [-21.75,110.25],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -9166,22 +9167,21 @@
 		"resnum2": [178,179],
 		"chain2": "CC",
 		"name": "H4d",
-		"center": [17.25,138],
-		"rotation": 180,
+		"center": [31.5,93],
+		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
 		"helix_tag": "Helix_C46",
 		"associated_residues": [
-			"Residue_C46",
-			"Residue_C47",
-			"Residue_C48",
-			"Residue_C49",
-			"Residue_C50",
 			"Residue_C177",
 			"Residue_C178",
 			"Residue_C179",
 			"Residue_C180",
-			"Residue_C181"
+			"Residue_C46",
+			"Residue_C47",
+			"Residue_C48",
+			"Residue_C49",
+			"Residue_C50"
 		]
 	},
 	"Helix_C461": {
@@ -9190,14 +9190,12 @@
 		"resnum2": [467,468],
 		"chain2": "CC",
 		"name": "H23",
-		"center": [90,111],
+		"center": [76.5,111.75],
 		"rotation": 90,
-		"parity": -1,
+		"parity": 1,
 		"label_relpos": [0,6],
 		"helix_tag": "Helix_C461",
 		"associated_residues": [
-			"Residue_C454",
-			"Residue_C455",
 			"Residue_C456",
 			"Residue_C457",
 			"Residue_C458",
@@ -9212,7 +9210,9 @@
 			"Residue_C467",
 			"Residue_C468",
 			"Residue_C469",
-			"Residue_C470"
+			"Residue_C470",
+			"Residue_C471",
+			"Residue_C472"
 		]
 	},
 	"Helix_C484": {
@@ -9261,7 +9261,7 @@
 		"resnum2": [114,115,116],
 		"chain2": "CCC",
 		"name": "H5",
-		"center": [60.75,59.25],
+		"center": [43.5,60.75],
 		"rotation": 0,
 		"parity": -1,
 		"label_relpos": [0,6],
@@ -9288,7 +9288,7 @@
 		"resnum2": [68,69,70],
 		"chain2": "CCC",
 		"name": "H6",
-		"center": [85.5,59.25],
+		"center": [70.5,60.75],
 		"rotation": 0,
 		"parity": -1,
 		"label_relpos": [0,-7.5],
@@ -9314,7 +9314,7 @@
 		"resnum2": [88,89,90],
 		"chain2": "CCC",
 		"name": "PK6-7",
-		"center": [102,59.25],
+		"center": [90,60],
 		"rotation": 180,
 		"parity": -1,
 		"label_relpos": [0,6],
@@ -9338,7 +9338,7 @@
 		"resnum2": [104,105,106,107,108,109,110],
 		"chain2": "CCCCCCC",
 		"name": "H7a",
-		"center": [79.5,44.25],
+		"center": [74.25,45],
 		"rotation": 0,
 		"parity": -1,
 		"label_relpos": [0,6],
@@ -9373,7 +9373,7 @@
 		"resnum2": [95,96,97],
 		"chain2": "CCC",
 		"name": "H7b",
-		"center": [109.5,44.25],
+		"center": [103.5,45],
 		"rotation": 0,
 		"parity": -1,
 		"label_relpos": [0,6],
@@ -9659,7 +9659,9 @@
 		"residue1": "Residue_C149",
 		"residue2": "Residue_C150",
 		"type": "stack",
-		"linker_tag": "Linker_C149_C150_stack"
+		"linker_tag": "Linker_C149_C150_stack",
+		"relpos1": [-12,3],
+		"relpos2": [-12,-3]
 	},
 	"Linker_C14_C15_stack": {
 		"residue1": "Residue_C14",
@@ -9871,7 +9873,9 @@
 		"residue1": "Residue_C179",
 		"residue2": "Residue_C180",
 		"type": "stack",
-		"linker_tag": "Linker_C179_C180_stack"
+		"linker_tag": "Linker_C179_C180_stack",
+		"relpos1": [-1.5,3],
+		"relpos2": [-4.5,3]
 	},
 	"Linker_C17_C18_stack": {
 		"residue1": "Residue_C17",
@@ -9890,7 +9894,7 @@
 		"residue2": "Residue_C182",
 		"type": "stack",
 		"linker_tag": "Linker_C181_C182_stack",
-		"relpos1": [-7.5,3],
+		"relpos1": [-15,-3],
 		"relpos2": [-12,-3]
 	},
 	"Linker_C181_C435_stack": {
@@ -9898,7 +9902,7 @@
 		"residue2": "Residue_C435",
 		"type": "stack",
 		"linker_tag": "Linker_C181_C435_stack",
-		"relpos1": [-7.5,3],
+		"relpos1": [-15,-3],
 		"relpos2": [12,3]
 	},
 	"Linker_C182_C183_stack": {
@@ -9965,7 +9969,9 @@
 		"residue1": "Residue_C189",
 		"residue2": "Residue_C205",
 		"type": "stack",
-		"linker_tag": "Linker_C189_C205_stack"
+		"linker_tag": "Linker_C189_C205_stack",
+		"relpos1": [9,-3],
+		"relpos2": [12,7.5]
 	},
 	"Linker_C18_C19_stack": {
 		"residue1": "Residue_C18",
@@ -10009,19 +10015,23 @@
 		"type": "stack",
 		"linker_tag": "Linker_C194_C195_stack",
 		"relpos1": [24,-3],
-		"relpos2": [33.5,-5.25]
+		"relpos2": [27,-3]
 	},
 	"Linker_C194_C202_stack": {
 		"residue1": "Residue_C194",
 		"residue2": "Residue_C202",
 		"type": "stack",
-		"linker_tag": "Linker_C194_C202_stack"
+		"linker_tag": "Linker_C194_C202_stack",
+		"relpos1": [24,-3],
+		"relpos2": [21,3]
 	},
 	"Linker_C195_C198_stack": {
 		"residue1": "Residue_C195",
 		"residue2": "Residue_C198",
 		"type": "stack",
-		"linker_tag": "Linker_C195_C198_stack"
+		"linker_tag": "Linker_C195_C198_stack",
+		"relpos1": [27,-3],
+		"relpos2": [30,1.5]
 	},
 	"Linker_C197_C198_stack": {
 		"residue1": "Residue_C197",
@@ -10353,14 +10363,16 @@
 		"residue1": "Residue_C241",
 		"residue2": "Residue_C243",
 		"type": "stack",
-		"linker_tag": "Linker_C241_C243_stack"
+		"linker_tag": "Linker_C241_C243_stack",
+		"relpos1": [12,-3],
+		"relpos2": [-7.5,-3]
 	},
 	"Linker_C242_C254_stack": {
 		"residue1": "Residue_C242",
 		"residue2": "Residue_C254",
 		"type": "stack",
 		"linker_tag": "Linker_C242_C254_stack",
-		"relpos1": [15,-3],
+		"relpos1": [-7.5,-8.25],
 		"relpos2": [-4.5,3]
 	},
 	"Linker_C243_C244_stack": {
@@ -10399,7 +10411,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C246_C249_stack",
 		"relpos1": [1.5,-3],
-		"relpos2": [10.5,-3]
+		"relpos2": [9,-5.510910596e-16]
 	},
 	"Linker_C247_C252_stack": {
 		"residue1": "Residue_C247",
@@ -10453,7 +10465,9 @@
 		"residue1": "Residue_C255",
 		"residue2": "Residue_C256",
 		"type": "stack",
-		"linker_tag": "Linker_C255_C256_stack"
+		"linker_tag": "Linker_C255_C256_stack",
+		"relpos1": [-7.5,3],
+		"relpos2": [12,3]
 	},
 	"Linker_C256_C257_stack": {
 		"residue1": "Residue_C256",
@@ -10565,7 +10579,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C270_C370_stack",
 		"relpos1": [-7.5,-3],
-		"relpos2": [-16.5,3]
+		"relpos2": [-17.25,16.5]
 	},
 	"Linker_C271_C272_stack": {
 		"residue1": "Residue_C271",
@@ -10602,7 +10616,7 @@
 		"residue2": "Residue_C362",
 		"type": "stack",
 		"linker_tag": "Linker_C278_C362_stack",
-		"relpos1": [-27,-3],
+		"relpos1": [10.5,3],
 		"relpos2": [7.5,3]
 	},
 	"Linker_C279_C280_stack": {
@@ -10693,14 +10707,16 @@
 		"residue1": "Residue_C28",
 		"residue2": "Residue_C29",
 		"type": "stack",
-		"linker_tag": "Linker_C28_C29_stack"
+		"linker_tag": "Linker_C28_C29_stack",
+		"relpos1": [25.5,-3],
+		"relpos2": [28.5,-3]
 	},
 	"Linker_C28_C513_stack": {
 		"residue1": "Residue_C28",
 		"residue2": "Residue_C513",
 		"type": "stack",
 		"linker_tag": "Linker_C28_C513_stack",
-		"relpos1": [-10.5,-3],
+		"relpos1": [25.5,-3],
 		"relpos2": [22.5,3]
 	},
 	"Linker_C291_C292_stack": {
@@ -10783,13 +10799,17 @@
 		"residue1": "Residue_C29",
 		"residue2": "Residue_C30",
 		"type": "stack",
-		"linker_tag": "Linker_C29_C30_stack"
+		"linker_tag": "Linker_C29_C30_stack",
+		"relpos1": [28.5,-3],
+		"relpos2": [31.5,-3]
 	},
 	"Linker_C29_C31_stack": {
 		"residue1": "Residue_C29",
 		"residue2": "Residue_C31",
 		"type": "stack",
-		"linker_tag": "Linker_C29_C31_stack"
+		"linker_tag": "Linker_C29_C31_stack",
+		"relpos1": [28.5,-3],
+		"relpos2": [-1.5,-3]
 	},
 	"Linker_C301_C302_stack": {
 		"residue1": "Residue_C301",
@@ -10873,7 +10893,9 @@
 		"residue1": "Residue_C30",
 		"residue2": "Residue_C31",
 		"type": "stack",
-		"linker_tag": "Linker_C30_C31_stack"
+		"linker_tag": "Linker_C30_C31_stack",
+		"relpos1": [31.5,-3],
+		"relpos2": [-1.5,-3]
 	},
 	"Linker_C310_C312_stack": {
 		"residue1": "Residue_C310",
@@ -11001,7 +11023,9 @@
 		"residue1": "Residue_C32",
 		"residue2": "Residue_C33",
 		"type": "stack",
-		"linker_tag": "Linker_C32_C33_stack"
+		"linker_tag": "Linker_C32_C33_stack",
+		"relpos1": [1.5,-3],
+		"relpos2": [5.25,-3]
 	},
 	"Linker_C32_C474_stack": {
 		"residue1": "Residue_C32",
@@ -11053,7 +11077,9 @@
 		"residue1": "Residue_C33",
 		"residue2": "Residue_C454",
 		"type": "stack",
-		"linker_tag": "Linker_C33_C454_stack"
+		"linker_tag": "Linker_C33_C454_stack",
+		"relpos1": [5.25,-3],
+		"relpos2": [-5.25,-3]
 	},
 	"Linker_C340_C341_stack": {
 		"residue1": "Residue_C340",
@@ -11157,7 +11183,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C35_C454_stack",
 		"relpos1": [-1.5,-3],
-		"relpos2": [-22.5,-3]
+		"relpos2": [-5.25,-3]
 	},
 	"Linker_C360_C361_stack": {
 		"residue1": "Residue_C360",
@@ -11165,7 +11191,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C360_C361_stack",
 		"relpos1": [-21,3],
-		"relpos2": [10.5,3]
+		"relpos2": [-24,3]
 	},
 	"Linker_C362_C363_stack": {
 		"residue1": "Residue_C362",
@@ -11225,7 +11251,9 @@
 		"residue1": "Residue_C370",
 		"residue2": "Residue_C424",
 		"type": "stack",
-		"linker_tag": "Linker_C370_C424_stack"
+		"linker_tag": "Linker_C370_C424_stack",
+		"relpos1": [-17.25,16.5],
+		"relpos2": [3,3]
 	},
 	"Linker_C371_C373_stack": {
 		"residue1": "Residue_C371",
@@ -11237,7 +11265,9 @@
 		"residue1": "Residue_C372",
 		"residue2": "Residue_C400",
 		"type": "stack",
-		"linker_tag": "Linker_C372_C400_stack"
+		"linker_tag": "Linker_C372_C400_stack",
+		"relpos1": [-16.5,-7.5],
+		"relpos2": [-13.5,3]
 	},
 	"Linker_C373_C374_stack": {
 		"residue1": "Residue_C373",
@@ -11383,7 +11413,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C391_C411_stack",
 		"relpos1": [13.5,3],
-		"relpos2": [9,-3]
+		"relpos2": [9,-3.75]
 	},
 	"Linker_C392_C393_stack": {
 		"residue1": "Residue_C392",
@@ -11451,7 +11481,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C402_C403_stack",
 		"relpos1": [-19.5,3],
-		"relpos2": [-15,-3]
+		"relpos2": [-12.75,-8.25]
 	},
 	"Linker_C404_C406_stack": {
 		"residue1": "Residue_C404",
@@ -11561,7 +11591,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C422_C423_stack",
 		"relpos1": [-9,3],
-		"relpos2": [6,3]
+		"relpos2": [5.25,15]
 	},
 	"Linker_C424_C425_stack": {
 		"residue1": "Residue_C424",
@@ -11677,29 +11707,33 @@
 		"residue1": "Residue_C445",
 		"residue2": "Residue_C446",
 		"type": "stack",
-		"linker_tag": "Linker_C445_C446_stack"
+		"linker_tag": "Linker_C445_C446_stack",
+		"relpos1": [-1.5,3],
+		"relpos2": [-5.25,3]
 	},
 	"Linker_C447_C454_stack": {
 		"residue1": "Residue_C447",
 		"residue2": "Residue_C454",
 		"type": "stack",
 		"linker_tag": "Linker_C447_C454_stack",
-		"relpos1": [-7.5,3],
-		"relpos2": [-22.5,-3]
+		"relpos1": [5.25,3],
+		"relpos2": [-5.25,-3]
 	},
 	"Linker_C447_C473_stack": {
 		"residue1": "Residue_C447",
 		"residue2": "Residue_C473",
 		"type": "stack",
 		"linker_tag": "Linker_C447_C473_stack",
-		"relpos1": [-7.5,3],
+		"relpos1": [5.25,3],
 		"relpos2": [1.5,3]
 	},
 	"Linker_C449_C450_stack": {
 		"residue1": "Residue_C449",
 		"residue2": "Residue_C450",
 		"type": "stack",
-		"linker_tag": "Linker_C449_C450_stack"
+		"linker_tag": "Linker_C449_C450_stack",
+		"relpos1": [-3.75,8.25],
+		"relpos2": [-0.75,9.75]
 	},
 	"Linker_C44_C45_stack": {
 		"residue1": "Residue_C44",
@@ -11711,39 +11745,49 @@
 		"residue1": "Residue_C451",
 		"residue2": "Residue_C453",
 		"type": "stack",
-		"linker_tag": "Linker_C451_C453_stack"
+		"linker_tag": "Linker_C451_C453_stack",
+		"relpos1": [-0.75,12.75],
+		"relpos2": [-7.5,7.5]
 	},
 	"Linker_C452_C453_stack": {
 		"residue1": "Residue_C452",
 		"residue2": "Residue_C453",
 		"type": "stack",
-		"linker_tag": "Linker_C452_C453_stack"
+		"linker_tag": "Linker_C452_C453_stack",
+		"relpos1": [-3,13.5],
+		"relpos2": [-7.5,7.5]
 	},
 	"Linker_C452_C458_stack": {
 		"residue1": "Residue_C452",
 		"residue2": "Residue_C458",
 		"type": "stack",
 		"linker_tag": "Linker_C452_C458_stack",
-		"relpos1": [-22.5,3],
-		"relpos2": [-10.5,-3]
+		"relpos1": [-3,13.5],
+		"relpos2": [-7.5,-7.5]
 	},
 	"Linker_C455_C472_stack": {
 		"residue1": "Residue_C455",
 		"residue2": "Residue_C472",
 		"type": "stack",
-		"linker_tag": "Linker_C455_C472_stack"
+		"linker_tag": "Linker_C455_C472_stack",
+		"relpos1": [-12,7.5],
+		"relpos2": [-13.5,3]
 	},
 	"Linker_C457_C459_stack": {
 		"residue1": "Residue_C457",
 		"residue2": "Residue_C459",
 		"type": "stack",
-		"linker_tag": "Linker_C457_C459_stack"
+		"linker_tag": "Linker_C457_C459_stack",
+		"relpos1": [-10.5,-3],
+		"relpos2": [-7.5,-3]
 	},
 	"Linker_C458_C469_stack": {
 		"residue1": "Residue_C458",
 		"residue2": "Residue_C469",
 		"type": "stack",
-		"linker_tag": "Linker_C458_C469_stack"
+		"linker_tag": "Linker_C458_C469_stack",
+		"relpos1": [-7.5,-7.5],
+		"relpos2": [-4.5,3]
 	},
 	"Linker_C459_C460_stack": {
 		"residue1": "Residue_C459",
@@ -11823,7 +11867,9 @@
 		"residue1": "Residue_C46",
 		"residue2": "Residue_C180",
 		"type": "stack",
-		"linker_tag": "Linker_C46_C180_stack"
+		"linker_tag": "Linker_C46_C180_stack",
+		"relpos1": [-1.5,-3],
+		"relpos2": [-4.5,3]
 	},
 	"Linker_C46_C47_stack": {
 		"residue1": "Residue_C46",
@@ -11837,13 +11883,15 @@
 		"type": "stack",
 		"linker_tag": "Linker_C470_C471_stack",
 		"relpos1": [-7.5,3],
-		"relpos2": [7.5,3]
+		"relpos2": [-10.5,3]
 	},
 	"Linker_C471_C472_stack": {
 		"residue1": "Residue_C471",
 		"residue2": "Residue_C472",
 		"type": "stack",
-		"linker_tag": "Linker_C471_C472_stack"
+		"linker_tag": "Linker_C471_C472_stack",
+		"relpos1": [-10.5,3],
+		"relpos2": [-13.5,3]
 	},
 	"Linker_C474_C510_stack": {
 		"residue1": "Residue_C474",
@@ -11873,7 +11921,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C475_C509_stack",
 		"relpos1": [-4.5,3],
-		"relpos2": [34.5,3]
+		"relpos2": [31.5,6]
 	},
 	"Linker_C476_C479_stack": {
 		"residue1": "Residue_C476",
@@ -11881,7 +11929,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C476_C479_stack",
 		"relpos1": [-7.5,3],
-		"relpos2": [-16.5,3]
+		"relpos2": [-15.75,18.75]
 	},
 	"Linker_C477_C478_stack": {
 		"residue1": "Residue_C477",
@@ -11902,7 +11950,7 @@
 		"residue2": "Residue_C480",
 		"type": "stack",
 		"linker_tag": "Linker_C479_C480_stack",
-		"relpos1": [-16.5,3],
+		"relpos1": [-15.75,18.75],
 		"relpos2": [-16.5,-3]
 	},
 	"Linker_C479_C481_stack": {
@@ -11910,7 +11958,7 @@
 		"residue2": "Residue_C481",
 		"type": "stack",
 		"linker_tag": "Linker_C479_C481_stack",
-		"relpos1": [-16.5,3],
+		"relpos1": [-15.75,18.75],
 		"relpos2": [-13.5,-3]
 	},
 	"Linker_C47_C48_stack": {
@@ -11925,7 +11973,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C481_C507_stack",
 		"relpos1": [-13.5,-3],
-		"relpos2": [40.5,3]
+		"relpos2": [30.75,12]
 	},
 	"Linker_C482_C506_stack": {
 		"residue1": "Residue_C482",
@@ -11933,7 +11981,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C482_C506_stack",
 		"relpos1": [-10.5,-3],
-		"relpos2": [43.5,3]
+		"relpos2": [33.75,13.5]
 	},
 	"Linker_C483_C484_stack": {
 		"residue1": "Residue_C483",
@@ -12054,7 +12102,7 @@
 		"residue2": "Residue_C118",
 		"type": "stack",
 		"linker_tag": "Linker_C49_C118_stack",
-		"relpos1": [7.5,-3],
+		"relpos1": [9,-3.75],
 		"relpos2": [-9,3]
 	},
 	"Linker_C49_C177_stack": {
@@ -12075,13 +12123,15 @@
 		"type": "stack",
 		"linker_tag": "Linker_C502_C505_stack",
 		"relpos1": [-22.5,3],
-		"relpos2": [-31.5,3]
+		"relpos2": [-28.5,12.75]
 	},
 	"Linker_C503_C505_stack": {
 		"residue1": "Residue_C503",
 		"residue2": "Residue_C505",
 		"type": "stack",
-		"linker_tag": "Linker_C503_C505_stack"
+		"linker_tag": "Linker_C503_C505_stack",
+		"relpos1": [-25.5,3],
+		"relpos2": [-28.5,12.75]
 	},
 	"Linker_C503_C506_stack": {
 		"residue1": "Residue_C503",
@@ -12089,7 +12139,7 @@
 		"type": "stack",
 		"linker_tag": "Linker_C503_C506_stack",
 		"relpos1": [-25.5,3],
-		"relpos2": [43.5,3]
+		"relpos2": [33.75,13.5]
 	},
 	"Linker_C510_C511_stack": {
 		"residue1": "Residue_C510",
@@ -12275,7 +12325,9 @@
 		"residue1": "Residue_C66",
 		"residue2": "Residue_C67",
 		"type": "stack",
-		"linker_tag": "Linker_C66_C67_stack"
+		"linker_tag": "Linker_C66_C67_stack",
+		"relpos1": [3,-3],
+		"relpos2": [6,3]
 	},
 	"Linker_C67_C68_stack": {
 		"residue1": "Residue_C67",
@@ -12638,8 +12690,8 @@
 		"residue2": "Residue_C126",
 		"type": "arrow",
 		"linker_tag": "Linker_C125_C126_arrow",
-		"relpos1": [9,-3],
-		"relpos2": [9,3]
+		"relpos1": [8.25,-1.5],
+		"relpos2": [8.25,0.75]
 	},
 	"Linker_C126_C127_arrow": {
 		"residue1": "Residue_C126",
@@ -12732,8 +12784,8 @@
 		"residue2": "Residue_C140",
 		"type": "arrow",
 		"linker_tag": "Linker_C139_C140_arrow",
-		"relpos1": [15,-3],
-		"relpos2": [15,3]
+		"relpos1": [15,-2.25],
+		"relpos2": [15,1.5]
 	},
 	"Linker_C13_C14_arrow": {
 		"residue1": "Residue_C13",
@@ -13003,7 +13055,9 @@
 		"residue1": "Residue_C179",
 		"residue2": "Residue_C180",
 		"type": "arrow",
-		"linker_tag": "Linker_C179_C180_arrow"
+		"linker_tag": "Linker_C179_C180_arrow",
+		"relpos1": [-1.5,3],
+		"relpos2": [-4.5,3]
 	},
 	"Linker_C17_C18_arrow": {
 		"residue1": "Residue_C17",
@@ -13015,14 +13069,16 @@
 		"residue1": "Residue_C180",
 		"residue2": "Residue_C181",
 		"type": "arrow",
-		"linker_tag": "Linker_C180_C181_arrow"
+		"linker_tag": "Linker_C180_C181_arrow",
+		"relpos1": [-4.5,3],
+		"relpos2": [-15,-3]
 	},
 	"Linker_C181_C182_arrow": {
 		"residue1": "Residue_C181",
 		"residue2": "Residue_C182",
 		"type": "arrow",
 		"linker_tag": "Linker_C181_C182_arrow",
-		"relpos1": [-7.5,3],
+		"relpos1": [-15,-3],
 		"relpos2": [-12,-3]
 	},
 	"Linker_C182_C183_arrow": {
@@ -13097,14 +13153,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C192_C193_arrow",
 		"relpos1": [18,-3],
-		"relpos2": [26,-6.75]
+		"relpos2": [21,-3]
 	},
 	"Linker_C193_C194_arrow": {
 		"residue1": "Residue_C193",
 		"residue2": "Residue_C194",
 		"type": "arrow",
 		"linker_tag": "Linker_C193_C194_arrow",
-		"relpos1": [26,-6.75],
+		"relpos1": [21,-3],
 		"relpos2": [24,-3]
 	},
 	"Linker_C194_C195_arrow": {
@@ -13113,7 +13169,7 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C194_C195_arrow",
 		"relpos1": [24,-3],
-		"relpos2": [33.5,-5.25]
+		"relpos2": [27,-3]
 	},
 	"Linker_C195_C196_arrow": {
 		"residue1": "Residue_C195",
@@ -13125,27 +13181,33 @@
 		"residue1": "Residue_C196",
 		"residue2": "Residue_C197",
 		"type": "arrow",
-		"linker_tag": "Linker_C196_C197_arrow"
+		"linker_tag": "Linker_C196_C197_arrow",
+		"relpos1": [29.25,-4.5],
+		"relpos2": [31.5,-0.75]
 	},
 	"Linker_C197_C198_arrow": {
 		"residue1": "Residue_C197",
 		"residue2": "Residue_C198",
 		"type": "arrow",
-		"linker_tag": "Linker_C197_C198_arrow"
+		"linker_tag": "Linker_C197_C198_arrow",
+		"relpos1": [31.5,-0.75],
+		"relpos2": [30,1.5]
 	},
 	"Linker_C198_C199_arrow": {
 		"residue1": "Residue_C198",
 		"residue2": "Residue_C199",
 		"type": "arrow",
 		"linker_tag": "Linker_C198_C199_arrow",
-		"relpos1": [36,-3],
-		"relpos2": [33,3]
+		"relpos1": [30,1.5],
+		"relpos2": [29.25,5.25]
 	},
 	"Linker_C199_C200_arrow": {
 		"residue1": "Residue_C199",
 		"residue2": "Residue_C200",
 		"type": "arrow",
-		"linker_tag": "Linker_C199_C200_arrow"
+		"linker_tag": "Linker_C199_C200_arrow",
+		"relpos1": [29.25,5.25],
+		"relpos2": [27,3]
 	},
 	"Linker_C19_C20_arrow": {
 		"residue1": "Residue_C19",
@@ -13157,37 +13219,49 @@
 		"residue1": "Residue_C200",
 		"residue2": "Residue_C201",
 		"type": "arrow",
-		"linker_tag": "Linker_C200_C201_arrow"
+		"linker_tag": "Linker_C200_C201_arrow",
+		"relpos1": [27,3],
+		"relpos2": [24,3]
 	},
 	"Linker_C201_C202_arrow": {
 		"residue1": "Residue_C201",
 		"residue2": "Residue_C202",
 		"type": "arrow",
-		"linker_tag": "Linker_C201_C202_arrow"
+		"linker_tag": "Linker_C201_C202_arrow",
+		"relpos1": [24,3],
+		"relpos2": [21,3]
 	},
 	"Linker_C202_C203_arrow": {
 		"residue1": "Residue_C202",
 		"residue2": "Residue_C203",
 		"type": "arrow",
-		"linker_tag": "Linker_C202_C203_arrow"
+		"linker_tag": "Linker_C202_C203_arrow",
+		"relpos1": [21,3],
+		"relpos2": [18,3]
 	},
 	"Linker_C203_C204_arrow": {
 		"residue1": "Residue_C203",
 		"residue2": "Residue_C204",
 		"type": "arrow",
-		"linker_tag": "Linker_C203_C204_arrow"
+		"linker_tag": "Linker_C203_C204_arrow",
+		"relpos1": [18,3],
+		"relpos2": [15,3]
 	},
 	"Linker_C204_C205_arrow": {
 		"residue1": "Residue_C204",
 		"residue2": "Residue_C205",
 		"type": "arrow",
-		"linker_tag": "Linker_C204_C205_arrow"
+		"linker_tag": "Linker_C204_C205_arrow",
+		"relpos1": [15,3],
+		"relpos2": [12,7.5]
 	},
 	"Linker_C205_C206_arrow": {
 		"residue1": "Residue_C205",
 		"residue2": "Residue_C206",
 		"type": "arrow",
-		"linker_tag": "Linker_C205_C206_arrow"
+		"linker_tag": "Linker_C205_C206_arrow",
+		"relpos1": [12,7.5],
+		"relpos2": [12,3]
 	},
 	"Linker_C206_C207_arrow": {
 		"residue1": "Residue_C206",
@@ -13241,13 +13315,17 @@
 		"residue1": "Residue_C213",
 		"residue2": "Residue_C214",
 		"type": "arrow",
-		"linker_tag": "Linker_C213_C214_arrow"
+		"linker_tag": "Linker_C213_C214_arrow",
+		"relpos1": [-8.25,5.25],
+		"relpos2": [-11.25,5.25]
 	},
 	"Linker_C214_C215_arrow": {
 		"residue1": "Residue_C214",
 		"residue2": "Residue_C215",
 		"type": "arrow",
-		"linker_tag": "Linker_C214_C215_arrow"
+		"linker_tag": "Linker_C214_C215_arrow",
+		"relpos1": [-11.25,5.25],
+		"relpos2": [-15,3]
 	},
 	"Linker_C215_C216_arrow": {
 		"residue1": "Residue_C215",
@@ -13334,8 +13412,8 @@
 		"residue2": "Residue_C228",
 		"type": "arrow",
 		"linker_tag": "Linker_C227_C228_arrow",
-		"relpos1": [7.5,-3],
-		"relpos2": [7.5,3]
+		"relpos1": [7.5,-1.5],
+		"relpos2": [7.5,1.5]
 	},
 	"Linker_C228_C229_arrow": {
 		"residue1": "Residue_C228",
@@ -13433,14 +13511,16 @@
 		"residue1": "Residue_C241",
 		"residue2": "Residue_C242",
 		"type": "arrow",
-		"linker_tag": "Linker_C241_C242_arrow"
+		"linker_tag": "Linker_C241_C242_arrow",
+		"relpos1": [12,-3],
+		"relpos2": [-7.5,-8.25]
 	},
 	"Linker_C242_C243_arrow": {
 		"residue1": "Residue_C242",
 		"residue2": "Residue_C243",
 		"type": "arrow",
 		"linker_tag": "Linker_C242_C243_arrow",
-		"relpos1": [15,-3],
+		"relpos1": [-7.5,-8.25],
 		"relpos2": [-7.5,-3]
 	},
 	"Linker_C243_C244_arrow": {
@@ -13484,7 +13564,7 @@
 		"residue2": "Residue_C250",
 		"type": "arrow",
 		"linker_tag": "Linker_C249_C250_arrow",
-		"relpos1": [10.5,-3],
+		"relpos1": [9,-5.510910596e-16],
 		"relpos2": [7.5,3]
 	},
 	"Linker_C24_C25_arrow": {
@@ -13673,21 +13753,25 @@
 		"residue1": "Residue_C276",
 		"residue2": "Residue_C277",
 		"type": "arrow",
-		"linker_tag": "Linker_C276_C277_arrow"
+		"linker_tag": "Linker_C276_C277_arrow",
+		"relpos1": [10.5,-3],
+		"relpos2": [12.75,-2.342137003e-15]
 	},
 	"Linker_C277_C278_arrow": {
 		"residue1": "Residue_C277",
 		"residue2": "Residue_C278",
 		"type": "arrow",
 		"linker_tag": "Linker_C277_C278_arrow",
-		"relpos1": [13.5,-3],
-		"relpos2": [-27,-3]
+		"relpos1": [12.75,-2.342137003e-15],
+		"relpos2": [10.5,3]
 	},
 	"Linker_C278_C279_arrow": {
 		"residue1": "Residue_C278",
 		"residue2": "Residue_C279",
 		"type": "arrow",
-		"linker_tag": "Linker_C278_C279_arrow"
+		"linker_tag": "Linker_C278_C279_arrow",
+		"relpos1": [10.5,3],
+		"relpos2": [-24,-3]
 	},
 	"Linker_C279_C280_arrow": {
 		"residue1": "Residue_C279",
@@ -13701,7 +13785,7 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C27_C28_arrow",
 		"relpos1": [22.5,-3],
-		"relpos2": [-10.5,-3]
+		"relpos2": [25.5,-3]
 	},
 	"Linker_C280_C281_arrow": {
 		"residue1": "Residue_C280",
@@ -13767,7 +13851,9 @@
 		"residue1": "Residue_C28",
 		"residue2": "Residue_C29",
 		"type": "arrow",
-		"linker_tag": "Linker_C28_C29_arrow"
+		"linker_tag": "Linker_C28_C29_arrow",
+		"relpos1": [25.5,-3],
+		"relpos2": [28.5,-3]
 	},
 	"Linker_C290_C291_arrow": {
 		"residue1": "Residue_C290",
@@ -13837,7 +13923,9 @@
 		"residue1": "Residue_C29",
 		"residue2": "Residue_C30",
 		"type": "arrow",
-		"linker_tag": "Linker_C29_C30_arrow"
+		"linker_tag": "Linker_C29_C30_arrow",
+		"relpos1": [28.5,-3],
+		"relpos2": [31.5,-3]
 	},
 	"Linker_C300_C301_arrow": {
 		"residue1": "Residue_C300",
@@ -13905,7 +13993,9 @@
 		"residue1": "Residue_C30",
 		"residue2": "Residue_C31",
 		"type": "arrow",
-		"linker_tag": "Linker_C30_C31_arrow"
+		"linker_tag": "Linker_C30_C31_arrow",
+		"relpos1": [31.5,-3],
+		"relpos2": [-1.5,-3]
 	},
 	"Linker_C310_C311_arrow": {
 		"residue1": "Residue_C310",
@@ -14043,7 +14133,9 @@
 		"residue1": "Residue_C32",
 		"residue2": "Residue_C33",
 		"type": "arrow",
-		"linker_tag": "Linker_C32_C33_arrow"
+		"linker_tag": "Linker_C32_C33_arrow",
+		"relpos1": [1.5,-3],
+		"relpos2": [5.25,-3]
 	},
 	"Linker_C330_C331_arrow": {
 		"residue1": "Residue_C330",
@@ -14114,8 +14206,8 @@
 		"residue2": "Residue_C34",
 		"type": "arrow",
 		"linker_tag": "Linker_C33_C34_arrow",
-		"relpos1": [4.5,-3],
-		"relpos2": [-4.5,-3]
+		"relpos1": [5.25,-3],
+		"relpos2": [-5.25,-6]
 	},
 	"Linker_C340_C341_arrow": {
 		"residue1": "Residue_C340",
@@ -14185,7 +14277,9 @@
 		"residue1": "Residue_C34",
 		"residue2": "Residue_C35",
 		"type": "arrow",
-		"linker_tag": "Linker_C34_C35_arrow"
+		"linker_tag": "Linker_C34_C35_arrow",
+		"relpos1": [-5.25,-6],
+		"relpos2": [-1.5,-3]
 	},
 	"Linker_C350_C351_arrow": {
 		"residue1": "Residue_C350",
@@ -14259,13 +14353,15 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C360_C361_arrow",
 		"relpos1": [-21,3],
-		"relpos2": [10.5,3]
+		"relpos2": [-24,3]
 	},
 	"Linker_C361_C362_arrow": {
 		"residue1": "Residue_C361",
 		"residue2": "Residue_C362",
 		"type": "arrow",
-		"linker_tag": "Linker_C361_C362_arrow"
+		"linker_tag": "Linker_C361_C362_arrow",
+		"relpos1": [-24,3],
+		"relpos2": [7.5,3]
 	},
 	"Linker_C362_C363_arrow": {
 		"residue1": "Residue_C362",
@@ -14313,7 +14409,9 @@
 		"residue1": "Residue_C369",
 		"residue2": "Residue_C370",
 		"type": "arrow",
-		"linker_tag": "Linker_C369_C370_arrow"
+		"linker_tag": "Linker_C369_C370_arrow",
+		"relpos1": [-13.5,3],
+		"relpos2": [-17.25,16.5]
 	},
 	"Linker_C36_C37_arrow": {
 		"residue1": "Residue_C36",
@@ -14328,20 +14426,24 @@
 		"residue2": "Residue_C371",
 		"type": "arrow",
 		"linker_tag": "Linker_C370_C371_arrow",
-		"relpos1": [-16.5,3],
-		"relpos2": [-22.5,-3]
+		"relpos1": [-17.25,16.5],
+		"relpos2": [-19.5,-3]
 	},
 	"Linker_C371_C372_arrow": {
 		"residue1": "Residue_C371",
 		"residue2": "Residue_C372",
 		"type": "arrow",
-		"linker_tag": "Linker_C371_C372_arrow"
+		"linker_tag": "Linker_C371_C372_arrow",
+		"relpos1": [-19.5,-3],
+		"relpos2": [-16.5,-7.5]
 	},
 	"Linker_C372_C373_arrow": {
 		"residue1": "Residue_C372",
 		"residue2": "Residue_C373",
 		"type": "arrow",
-		"linker_tag": "Linker_C372_C373_arrow"
+		"linker_tag": "Linker_C372_C373_arrow",
+		"relpos1": [-16.5,-7.5],
+		"relpos2": [-16.5,-3]
 	},
 	"Linker_C373_C374_arrow": {
 		"residue1": "Residue_C373",
@@ -14438,8 +14540,8 @@
 		"residue2": "Residue_C388",
 		"type": "arrow",
 		"linker_tag": "Linker_C387_C388_arrow",
-		"relpos1": [25.5,-3],
-		"relpos2": [22.5,3]
+		"relpos1": [23.25,-1.423651904e-15],
+		"relpos2": [21.75,3]
 	},
 	"Linker_C388_C389_arrow": {
 		"residue1": "Residue_C388",
@@ -14543,13 +14645,15 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C402_C403_arrow",
 		"relpos1": [-19.5,3],
-		"relpos2": [-15,-3]
+		"relpos2": [-12.75,-8.25]
 	},
 	"Linker_C403_C404_arrow": {
 		"residue1": "Residue_C403",
 		"residue2": "Residue_C404",
 		"type": "arrow",
-		"linker_tag": "Linker_C403_C404_arrow"
+		"linker_tag": "Linker_C403_C404_arrow",
+		"relpos1": [-12.75,-8.25],
+		"relpos2": [-12,-3]
 	},
 	"Linker_C404_C405_arrow": {
 		"residue1": "Residue_C404",
@@ -14616,8 +14720,8 @@
 		"residue2": "Residue_C414",
 		"type": "arrow",
 		"linker_tag": "Linker_C413_C414_arrow",
-		"relpos1": [15,-3],
-		"relpos2": [15,3]
+		"relpos1": [15,-2.25],
+		"relpos2": [15,1.5]
 	},
 	"Linker_C414_C415_arrow": {
 		"residue1": "Residue_C414",
@@ -14679,13 +14783,15 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C422_C423_arrow",
 		"relpos1": [-9,3],
-		"relpos2": [6,3]
+		"relpos2": [5.25,15]
 	},
 	"Linker_C423_C424_arrow": {
 		"residue1": "Residue_C423",
 		"residue2": "Residue_C424",
 		"type": "arrow",
-		"linker_tag": "Linker_C423_C424_arrow"
+		"linker_tag": "Linker_C423_C424_arrow",
+		"relpos1": [5.25,15],
+		"relpos2": [3,3]
 	},
 	"Linker_C424_C425_arrow": {
 		"residue1": "Residue_C424",
@@ -14837,31 +14943,41 @@
 		"residue1": "Residue_C445",
 		"residue2": "Residue_C446",
 		"type": "arrow",
-		"linker_tag": "Linker_C445_C446_arrow"
+		"linker_tag": "Linker_C445_C446_arrow",
+		"relpos1": [-1.5,3],
+		"relpos2": [-5.25,3]
 	},
 	"Linker_C446_C447_arrow": {
 		"residue1": "Residue_C446",
 		"residue2": "Residue_C447",
 		"type": "arrow",
-		"linker_tag": "Linker_C446_C447_arrow"
+		"linker_tag": "Linker_C446_C447_arrow",
+		"relpos1": [-5.25,3],
+		"relpos2": [5.25,3]
 	},
 	"Linker_C447_C448_arrow": {
 		"residue1": "Residue_C447",
 		"residue2": "Residue_C448",
 		"type": "arrow",
-		"linker_tag": "Linker_C447_C448_arrow"
+		"linker_tag": "Linker_C447_C448_arrow",
+		"relpos1": [5.25,3],
+		"relpos2": [-5.25,6.75]
 	},
 	"Linker_C448_C449_arrow": {
 		"residue1": "Residue_C448",
 		"residue2": "Residue_C449",
 		"type": "arrow",
-		"linker_tag": "Linker_C448_C449_arrow"
+		"linker_tag": "Linker_C448_C449_arrow",
+		"relpos1": [-5.25,6.75],
+		"relpos2": [-3.75,8.25]
 	},
 	"Linker_C449_C450_arrow": {
 		"residue1": "Residue_C449",
 		"residue2": "Residue_C450",
 		"type": "arrow",
-		"linker_tag": "Linker_C449_C450_arrow"
+		"linker_tag": "Linker_C449_C450_arrow",
+		"relpos1": [-3.75,8.25],
+		"relpos2": [-0.75,9.75]
 	},
 	"Linker_C44_C45_arrow": {
 		"residue1": "Residue_C44",
@@ -14873,57 +14989,73 @@
 		"residue1": "Residue_C450",
 		"residue2": "Residue_C451",
 		"type": "arrow",
-		"linker_tag": "Linker_C450_C451_arrow"
+		"linker_tag": "Linker_C450_C451_arrow",
+		"relpos1": [-0.75,9.75],
+		"relpos2": [-0.75,12.75]
 	},
 	"Linker_C451_C452_arrow": {
 		"residue1": "Residue_C451",
 		"residue2": "Residue_C452",
 		"type": "arrow",
-		"linker_tag": "Linker_C451_C452_arrow"
+		"linker_tag": "Linker_C451_C452_arrow",
+		"relpos1": [-0.75,12.75],
+		"relpos2": [-3,13.5]
 	},
 	"Linker_C452_C453_arrow": {
 		"residue1": "Residue_C452",
 		"residue2": "Residue_C453",
 		"type": "arrow",
-		"linker_tag": "Linker_C452_C453_arrow"
+		"linker_tag": "Linker_C452_C453_arrow",
+		"relpos1": [-3,13.5],
+		"relpos2": [-7.5,7.5]
 	},
 	"Linker_C453_C454_arrow": {
 		"residue1": "Residue_C453",
 		"residue2": "Residue_C454",
 		"type": "arrow",
 		"linker_tag": "Linker_C453_C454_arrow",
-		"relpos1": [-25.5,3],
-		"relpos2": [-22.5,-3]
+		"relpos1": [-7.5,7.5],
+		"relpos2": [-5.25,-3]
 	},
 	"Linker_C454_C455_arrow": {
 		"residue1": "Residue_C454",
 		"residue2": "Residue_C455",
 		"type": "arrow",
-		"linker_tag": "Linker_C454_C455_arrow"
+		"linker_tag": "Linker_C454_C455_arrow",
+		"relpos1": [-5.25,-3],
+		"relpos2": [-12,7.5]
 	},
 	"Linker_C455_C456_arrow": {
 		"residue1": "Residue_C455",
 		"residue2": "Residue_C456",
 		"type": "arrow",
-		"linker_tag": "Linker_C455_C456_arrow"
+		"linker_tag": "Linker_C455_C456_arrow",
+		"relpos1": [-12,7.5],
+		"relpos2": [-13.5,-3]
 	},
 	"Linker_C456_C457_arrow": {
 		"residue1": "Residue_C456",
 		"residue2": "Residue_C457",
 		"type": "arrow",
-		"linker_tag": "Linker_C456_C457_arrow"
+		"linker_tag": "Linker_C456_C457_arrow",
+		"relpos1": [-13.5,-3],
+		"relpos2": [-10.5,-3]
 	},
 	"Linker_C457_C458_arrow": {
 		"residue1": "Residue_C457",
 		"residue2": "Residue_C458",
 		"type": "arrow",
-		"linker_tag": "Linker_C457_C458_arrow"
+		"linker_tag": "Linker_C457_C458_arrow",
+		"relpos1": [-10.5,-3],
+		"relpos2": [-7.5,-7.5]
 	},
 	"Linker_C458_C459_arrow": {
 		"residue1": "Residue_C458",
 		"residue2": "Residue_C459",
 		"type": "arrow",
-		"linker_tag": "Linker_C458_C459_arrow"
+		"linker_tag": "Linker_C458_C459_arrow",
+		"relpos1": [-7.5,-7.5],
+		"relpos2": [-7.5,-3]
 	},
 	"Linker_C459_C460_arrow": {
 		"residue1": "Residue_C459",
@@ -15013,19 +15145,23 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C470_C471_arrow",
 		"relpos1": [-7.5,3],
-		"relpos2": [7.5,3]
+		"relpos2": [-10.5,3]
 	},
 	"Linker_C471_C472_arrow": {
 		"residue1": "Residue_C471",
 		"residue2": "Residue_C472",
 		"type": "arrow",
-		"linker_tag": "Linker_C471_C472_arrow"
+		"linker_tag": "Linker_C471_C472_arrow",
+		"relpos1": [-10.5,3],
+		"relpos2": [-13.5,3]
 	},
 	"Linker_C472_C473_arrow": {
 		"residue1": "Residue_C472",
 		"residue2": "Residue_C473",
 		"type": "arrow",
-		"linker_tag": "Linker_C472_C473_arrow"
+		"linker_tag": "Linker_C472_C473_arrow",
+		"relpos1": [-13.5,3],
+		"relpos2": [1.5,3]
 	},
 	"Linker_C473_C474_arrow": {
 		"residue1": "Residue_C473",
@@ -15061,14 +15197,16 @@
 		"residue1": "Residue_C478",
 		"residue2": "Residue_C479",
 		"type": "arrow",
-		"linker_tag": "Linker_C478_C479_arrow"
+		"linker_tag": "Linker_C478_C479_arrow",
+		"relpos1": [-13.5,3],
+		"relpos2": [-15.75,18.75]
 	},
 	"Linker_C479_C480_arrow": {
 		"residue1": "Residue_C479",
 		"residue2": "Residue_C480",
 		"type": "arrow",
 		"linker_tag": "Linker_C479_C480_arrow",
-		"relpos1": [-16.5,3],
+		"relpos1": [-15.75,18.75],
 		"relpos2": [-16.5,-3]
 	},
 	"Linker_C47_C48_arrow": {
@@ -15129,27 +15267,33 @@
 		"residue1": "Residue_C488",
 		"residue2": "Residue_C489",
 		"type": "arrow",
-		"linker_tag": "Linker_C488_C489_arrow"
+		"linker_tag": "Linker_C488_C489_arrow",
+		"relpos1": [7.5,-3],
+		"relpos2": [10.5,-2.25]
 	},
 	"Linker_C489_C490_arrow": {
 		"residue1": "Residue_C489",
 		"residue2": "Residue_C490",
 		"type": "arrow",
-		"linker_tag": "Linker_C489_C490_arrow"
+		"linker_tag": "Linker_C489_C490_arrow",
+		"relpos1": [10.5,-2.25],
+		"relpos2": [12,-7.347880795e-16]
 	},
 	"Linker_C48_C49_arrow": {
 		"residue1": "Residue_C48",
 		"residue2": "Residue_C49",
 		"type": "arrow",
-		"linker_tag": "Linker_C48_C49_arrow"
+		"linker_tag": "Linker_C48_C49_arrow",
+		"relpos1": [4.5,-3],
+		"relpos2": [9,-3.75]
 	},
 	"Linker_C490_C491_arrow": {
 		"residue1": "Residue_C490",
 		"residue2": "Residue_C491",
 		"type": "arrow",
 		"linker_tag": "Linker_C490_C491_arrow",
-		"relpos1": [13.5,-3],
-		"relpos2": [10.5,3]
+		"relpos1": [12,-7.347880795e-16],
+		"relpos2": [10.5,2.25]
 	},
 	"Linker_C491_C492_arrow": {
 		"residue1": "Residue_C491",
@@ -15233,39 +15377,49 @@
 		"residue1": "Residue_C503",
 		"residue2": "Residue_C504",
 		"type": "arrow",
-		"linker_tag": "Linker_C503_C504_arrow"
+		"linker_tag": "Linker_C503_C504_arrow",
+		"relpos1": [-25.5,3],
+		"relpos2": [-26.25,12]
 	},
 	"Linker_C504_C505_arrow": {
 		"residue1": "Residue_C504",
 		"residue2": "Residue_C505",
 		"type": "arrow",
-		"linker_tag": "Linker_C504_C505_arrow"
+		"linker_tag": "Linker_C504_C505_arrow",
+		"relpos1": [-26.25,12],
+		"relpos2": [-28.5,12.75]
 	},
 	"Linker_C505_C506_arrow": {
 		"residue1": "Residue_C505",
 		"residue2": "Residue_C506",
 		"type": "arrow",
 		"linker_tag": "Linker_C505_C506_arrow",
-		"relpos1": [-31.5,3],
-		"relpos2": [43.5,3]
+		"relpos1": [-28.5,12.75],
+		"relpos2": [33.75,13.5]
 	},
 	"Linker_C506_C507_arrow": {
 		"residue1": "Residue_C506",
 		"residue2": "Residue_C507",
 		"type": "arrow",
-		"linker_tag": "Linker_C506_C507_arrow"
+		"linker_tag": "Linker_C506_C507_arrow",
+		"relpos1": [33.75,13.5],
+		"relpos2": [30.75,12]
 	},
 	"Linker_C507_C508_arrow": {
 		"residue1": "Residue_C507",
 		"residue2": "Residue_C508",
 		"type": "arrow",
-		"linker_tag": "Linker_C507_C508_arrow"
+		"linker_tag": "Linker_C507_C508_arrow",
+		"relpos1": [30.75,12],
+		"relpos2": [30,9]
 	},
 	"Linker_C508_C509_arrow": {
 		"residue1": "Residue_C508",
 		"residue2": "Residue_C509",
 		"type": "arrow",
-		"linker_tag": "Linker_C508_C509_arrow"
+		"linker_tag": "Linker_C508_C509_arrow",
+		"relpos1": [30,9],
+		"relpos2": [31.5,6]
 	},
 	"Linker_C509_C510_arrow": {
 		"residue1": "Residue_C509",
@@ -16811,7 +16965,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C183_C214_noncanonical_pair",
 		"relpos1": [-9,-3],
-		"relpos2": [-12,3],
+		"relpos2": [-11.25,5.25],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -16855,7 +17009,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C191_C204_noncanonical_pair",
 		"relpos1": [15,-3],
-		"relpos2": [18,3],
+		"relpos2": [15,3],
 		"edge1": "H",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -16866,7 +17020,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C192_C203_noncanonical_pair",
 		"relpos1": [18,-3],
-		"relpos2": [21,3],
+		"relpos2": [18,3],
 		"edge1": "H",
 		"edge2": "S",
 		"LW_orientation": "T"
@@ -16876,8 +17030,8 @@
 		"residue2": "Residue_C202",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C193_C202_noncanonical_pair",
-		"relpos1": [26,-6.75],
-		"relpos2": [24,3],
+		"relpos1": [21,-3],
+		"relpos2": [21,3],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -16888,7 +17042,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C194_C201_noncanonical_pair",
 		"relpos1": [24,-3],
-		"relpos2": [27,3],
+		"relpos2": [24,3],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -16898,8 +17052,8 @@
 		"residue2": "Residue_C200",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C195_C200_noncanonical_pair",
-		"relpos1": [33.5,-5.25],
-		"relpos2": [30,3],
+		"relpos1": [27,-3],
+		"relpos2": [27,3],
 		"edge1": "W",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -16909,7 +17063,7 @@
 		"residue2": "Residue_C248",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C198_C248_noncanonical_pair",
-		"relpos1": [36,-3],
+		"relpos1": [30,1.5],
 		"relpos2": [7.5,-3],
 		"edge1": "W",
 		"edge2": "W",
@@ -16920,7 +17074,7 @@
 		"residue2": "Residue_C250",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C201_C250_noncanonical_pair",
-		"relpos1": [27,3],
+		"relpos1": [24,3],
 		"relpos2": [7.5,3],
 		"edge1": "S",
 		"edge2": "W",
@@ -16931,7 +17085,7 @@
 		"residue2": "Residue_C206",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C205_C206_noncanonical_pair",
-		"relpos1": [15,3],
+		"relpos1": [12,7.5],
 		"relpos2": [12,3],
 		"edge1": "S",
 		"edge2": "H",
@@ -16942,7 +17096,7 @@
 		"residue2": "Residue_C216",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C214_C216_noncanonical_pair",
-		"relpos1": [-12,3],
+		"relpos1": [-11.25,5.25],
 		"relpos2": [-18,3],
 		"edge1": "S",
 		"edge2": "S",
@@ -17041,7 +17195,7 @@
 		"residue2": "Residue_C418",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C227_C418_noncanonical_pair",
-		"relpos1": [7.5,-3],
+		"relpos1": [7.5,-1.5],
 		"relpos2": [3,3],
 		"edge1": "W",
 		"edge2": "S",
@@ -17052,7 +17206,7 @@
 		"residue2": "Residue_C417",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C228_C417_noncanonical_pair",
-		"relpos1": [7.5,3],
+		"relpos1": [7.5,1.5],
 		"relpos2": [6,3],
 		"edge1": "W",
 		"edge2": "S",
@@ -17096,7 +17250,7 @@
 		"residue2": "Residue_C243",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C242_C243_noncanonical_pair",
-		"relpos1": [15,-3],
+		"relpos1": [-7.5,-8.25],
 		"relpos2": [-7.5,-3],
 		"edge1": "S",
 		"edge2": "H",
@@ -17141,7 +17295,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C251_C386_noncanonical_pair",
 		"relpos1": [4.5,3],
-		"relpos2": [22.5,-3],
+		"relpos2": [21.75,-2.25],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17185,7 +17339,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C269_C370_noncanonical_pair",
 		"relpos1": [6,-3],
-		"relpos2": [-16.5,3],
+		"relpos2": [-17.25,16.5],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17218,7 +17372,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C276_C278_noncanonical_pair",
 		"relpos1": [10.5,-3],
-		"relpos2": [-27,-3],
+		"relpos2": [10.5,3],
 		"edge1": "S",
 		"edge2": "H",
 		"LW_orientation": "C"
@@ -17229,7 +17383,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C279_C361_noncanonical_pair",
 		"relpos1": [-24,-3],
-		"relpos2": [10.5,3],
+		"relpos2": [-24,3],
 		"edge1": "H",
 		"edge2": "S",
 		"LW_orientation": "T"
@@ -17261,7 +17415,7 @@
 		"residue2": "Residue_C512",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C28_C512_noncanonical_pair",
-		"relpos1": [-10.5,-3],
+		"relpos1": [25.5,-3],
 		"relpos2": [25.5,3],
 		"edge1": "H",
 		"edge2": "S",
@@ -17305,7 +17459,7 @@
 		"residue2": "Residue_C511",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C29_C511_noncanonical_pair",
-		"relpos1": [-7.5,-3],
+		"relpos1": [28.5,-3],
 		"relpos2": [28.5,3],
 		"edge1": "W",
 		"edge2": "W",
@@ -17360,7 +17514,7 @@
 		"residue2": "Residue_C510",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C30_C510_noncanonical_pair",
-		"relpos1": [-4.5,-3],
+		"relpos1": [31.5,-3],
 		"relpos2": [31.5,3],
 		"edge1": "W",
 		"edge2": "W",
@@ -17415,8 +17569,8 @@
 		"residue2": "Residue_C447",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C33_C447_noncanonical_pair",
-		"relpos1": [4.5,-3],
-		"relpos2": [-7.5,3],
+		"relpos1": [5.25,-3],
+		"relpos2": [5.25,3],
 		"edge1": "W",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -17438,7 +17592,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C35_C450_noncanonical_pair",
 		"relpos1": [-1.5,-3],
-		"relpos2": [-16.5,3],
+		"relpos2": [-0.75,9.75],
 		"edge1": "S",
 		"edge2": "S",
 		"LW_orientation": "T"
@@ -17448,7 +17602,7 @@
 		"residue2": "Residue_C402",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C371_C402_noncanonical_pair",
-		"relpos1": [-22.5,-3],
+		"relpos1": [-19.5,-3],
 		"relpos2": [-19.5,3],
 		"edge1": "H",
 		"edge2": "H",
@@ -17459,7 +17613,7 @@
 		"residue2": "Residue_C373",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C372_C373_noncanonical_pair",
-		"relpos1": [-19.5,-3],
+		"relpos1": [-16.5,-7.5],
 		"relpos2": [-16.5,-3],
 		"edge1": "S",
 		"edge2": "H",
@@ -17482,7 +17636,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C373_C423_noncanonical_pair",
 		"relpos1": [-16.5,-3],
-		"relpos2": [6,3],
+		"relpos2": [5.25,15],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17514,8 +17668,8 @@
 		"residue2": "Residue_C411",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C385_C411_noncanonical_pair",
-		"relpos1": [19.5,-3],
-		"relpos2": [9,-3],
+		"relpos1": [19.5,-3.75],
+		"relpos2": [9,-3.75],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17548,7 +17702,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C445_C449_noncanonical_pair",
 		"relpos1": [-1.5,3],
-		"relpos2": [-13.5,3],
+		"relpos2": [-3.75,8.25],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17558,8 +17712,8 @@
 		"residue2": "Residue_C454",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C446_C454_noncanonical_pair",
-		"relpos1": [-4.5,3],
-		"relpos2": [-22.5,-3],
+		"relpos1": [-5.25,3],
+		"relpos2": [-5.25,-3],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "T"
@@ -17569,8 +17723,8 @@
 		"residue2": "Residue_C457",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C452_C457_noncanonical_pair",
-		"relpos1": [-22.5,3],
-		"relpos2": [-13.5,-3],
+		"relpos1": [-3,13.5],
+		"relpos2": [-10.5,-3],
 		"edge1": "S",
 		"edge2": "S",
 		"LW_orientation": "T"
@@ -17580,8 +17734,8 @@
 		"residue2": "Residue_C471",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C457_C471_noncanonical_pair",
-		"relpos1": [-13.5,-3],
-		"relpos2": [7.5,3],
+		"relpos1": [-10.5,-3],
+		"relpos2": [-10.5,3],
 		"edge1": "H",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -17591,7 +17745,7 @@
 		"residue2": "Residue_C459",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C458_C459_noncanonical_pair",
-		"relpos1": [-10.5,-3],
+		"relpos1": [-7.5,-7.5],
 		"relpos2": [-7.5,-3],
 		"edge1": "S",
 		"edge2": "H",
@@ -17614,7 +17768,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C45_C181_noncanonical_pair",
 		"relpos1": [1.5,-3],
-		"relpos2": [-7.5,3],
+		"relpos2": [-15,-3],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "T"
@@ -17647,7 +17801,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C475_C479_noncanonical_pair",
 		"relpos1": [-4.5,3],
-		"relpos2": [-16.5,3],
+		"relpos2": [-15.75,18.75],
 		"edge1": "W",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -17658,7 +17812,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C475_C505_noncanonical_pair",
 		"relpos1": [-4.5,3],
-		"relpos2": [-31.5,3],
+		"relpos2": [-28.5,12.75],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17690,7 +17844,7 @@
 		"residue2": "Residue_C503",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C479_C503_noncanonical_pair",
-		"relpos1": [-16.5,3],
+		"relpos1": [-15.75,18.75],
 		"relpos2": [-25.5,3],
 		"edge1": "W",
 		"edge2": "W",
@@ -17713,7 +17867,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C481_C506_noncanonical_pair",
 		"relpos1": [-13.5,-3],
-		"relpos2": [43.5,3],
+		"relpos2": [33.75,13.5],
 		"edge1": "S",
 		"edge2": "S",
 		"LW_orientation": "T"
@@ -17724,7 +17878,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C481_C509_noncanonical_pair",
 		"relpos1": [-13.5,-3],
-		"relpos2": [34.5,3],
+		"relpos2": [31.5,6],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17735,7 +17889,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C482_C507_noncanonical_pair",
 		"relpos1": [-10.5,-3],
-		"relpos2": [40.5,3],
+		"relpos2": [30.75,12],
 		"edge1": "H",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -17779,7 +17933,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C48_C49_noncanonical_pair",
 		"relpos1": [4.5,-3],
-		"relpos2": [7.5,-3],
+		"relpos2": [9,-3.75],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17790,7 +17944,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C498_C506_noncanonical_pair",
 		"relpos1": [-10.5,3],
-		"relpos2": [43.5,3],
+		"relpos2": [33.75,13.5],
 		"edge1": "W",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -17811,7 +17965,7 @@
 		"residue2": "Residue_C120",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C49_C120_noncanonical_pair",
-		"relpos1": [7.5,-3],
+		"relpos1": [9,-3.75],
 		"relpos2": [-6,-3],
 		"edge1": "H",
 		"edge2": "W",
@@ -17823,7 +17977,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C500_C505_noncanonical_pair",
 		"relpos1": [-16.5,3],
-		"relpos2": [-31.5,3],
+		"relpos2": [-28.5,12.75],
 		"edge1": "S",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -17911,7 +18065,7 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C65_C456_noncanonical_pair",
 		"relpos1": [0,-3],
-		"relpos2": [-16.5,-3],
+		"relpos2": [-13.5,-3],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -17966,6 +18120,6 @@
 		"bp_spacing": 6,
 		"show_linker_controls": 0
 	},
-	"xlim": [-46.34775339,206.5153553],
-	"ylim": [0.385626825,205.5143732]
+	"xlim": [-59.7560149,193.1070938],
+	"ylim": [-6.710021744,198.4187246]
 }

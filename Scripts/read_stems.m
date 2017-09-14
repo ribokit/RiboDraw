@@ -6,10 +6,14 @@ while ~feof( fid )
     line = fgetl( fid );
     % A:1-4 B:5-8 HelixX
     cols = strsplit( line, ' ' );
-    if length( cols ) == 3
+    if length( cols ) >= 2
         [helix.resnum1,helix.chain1] = get_resnum_from_tag( cols{1} );
         [helix.resnum2,helix.chain2] = get_resnum_from_tag( cols{2} );
-        helix.name = cols{3};
+        if length( cols ) > 2 
+            helix.name = cols{3};
+        else
+            helix.name = '';
+        end
         helices = [helices,helix];
         helix.helix_tag = sprintf('Helix_%s%d',helix.chain1(1),helix.resnum1(1));
     end;

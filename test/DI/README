@@ -1,0 +1,15 @@
+# note: creating a branch of Rosetta where I can get not just motifs but also stacked base pairs, which
+#  I'll feed into some MATLAB layout code
+#rna_motif -mute all -s 4ybb_DI.pdb 
+
+# This gave list of stems. Then added (by hand) list of names of helices to get:
+
+cat 4ybb_DI.pdb.stems.txt
+cat 4ybb_DI.pdb.base_pairs.txt
+
+# Need to tell MATLAB the sequence:
+pdb2fasta.py 4ybb_DI.pdb  > 4ybb_DI.pdb.fasta
+
+
+
+ 

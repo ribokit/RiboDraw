@@ -8,7 +8,8 @@ function color_drawing( color, selection )
 %
 % (C) R. Das, Stanford University.
 
-nres = get_nres();
+resnum = get_resnum();
+nres = length( resnum );
 if ischar( color ) & strcmp(color,'rainbow')
     res_colors = pymol_rainbow( nres );
 else
@@ -20,8 +21,8 @@ vals = getappdata( gca );
 objnames = fields( vals );
 for n = 1:length( objnames )
     if ~isempty( strfind( objnames{n}, 'Residue_' ) );
-        count = count + 1;
         residue = getappdata( gca, objnames{n} );
+        count = find( resnum == residue.resnum );
         residue.rgb_color = res_colors(count,:);
         if isfield( residue, 'handle' ) set( residue.handle, 'color', residue.rgb_color ); end;
         setappdata( gca, objnames{n}, residue);
@@ -29,12 +30,14 @@ for n = 1:length( objnames )
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function nres = get_nres()
-nres = 0;
+function resnum = get_resnum()
+resnum = [];
 vals = getappdata( gca );
 objnames = fields( vals );
 for n = 1:length( objnames )
     if ~isempty( strfind( objnames{n}, 'Residue_' ) );
-        nres = nres + 1;
+        residue = getappdata( gca, objnames{n} );
+        resnum = [resnum, residue.resnum ];
     end
 end
+resnum = sort( resnum );

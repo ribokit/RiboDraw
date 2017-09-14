@@ -6,7 +6,7 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ## Development Notes
 
-* Testing on large ribosomal subunit (23S rRNA) of _E. coli_, initially on Domain III.
+* Testing on large ribosomal subunit (23S rRNA) of _E. coli_, initially on Domains I and III.
 
 * May have dependencies on various functions in RiboKit.
 
@@ -14,11 +14,11 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### To get Single-domain graphs
-* check that noncanonical pairs can be rectified.
-* allow visible stack lines to be draggable.
+* fix: DI tick marks
+* fix: DI stacks
+* fix: DI clipping
 * cleanup directory structure
-* fix stems to helices
-* try domain I
+* fix words: stems to helices
 * combine domain I and domain II (incl. bounding boxes)
 * domains -- autoidentify coax stacks
 * put in docstrings for all files

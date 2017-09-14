@@ -46,6 +46,7 @@ for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
     linker_tags = residue.linkers;
+    % silly cleanup
     for k = 1 : length( linker_tags )
         if any( strcmp( redrawn_linkers, linker_tags{k} ) ); continue; end; % don't double-render, to save time.
         linker = getappdata( gca, linker_tags{k} );
@@ -167,6 +168,12 @@ if isfield( residue, 'relpos' )
     residue.plot_pos = pos;
     residue = draw_tick( residue, plot_settings.bp_spacing, R );
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
+    % quick linker cleanup
+    if isfield( residue, 'linkers' );
+        linker_tags = residue.linkers;
+        for k = 1 : length( linker_tags );  ok_linker(k) = isappdata( gca, linker_tags{k} );     end
+        residue.linkers = linker_tags( ok_linker );
+    end
     setappdata( gca, res_tag, residue );
 end
 
@@ -471,6 +478,7 @@ switch linker.type
         setappdata( gca, linker.linker_tag, linker );
     case 'stack'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5 ); % dummy for now -- will get redrawn later.
+        %linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',5 ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
 end
 

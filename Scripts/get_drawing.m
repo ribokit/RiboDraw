@@ -26,6 +26,7 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Residue_' ) ) );
     figure_residue = getappdata( gca, objnames{n} );
     clear residue;
+    if ~isfield( figure_residue, 'resnum' ) continue; end; 
     residue.resnum = figure_residue.resnum;
     residue.chain = figure_residue.chain;
     residue.res_tag = figure_residue.res_tag;

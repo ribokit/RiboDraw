@@ -22,7 +22,7 @@ setup_base_stack_linkers( base_stacks );
 setup_arrow_linkers(resnum,chains);
 setup_base_pair_linkers( base_pairs );
 
-draw_dummy_ticks();
 initialize_ticks();
+draw_dummy_ticks();
 
 draw_helices( stems );

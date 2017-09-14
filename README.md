@@ -15,10 +15,10 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ### To get Single-domain graphs
 * fix: DI clipping
+* domains -- autoidentify coax stacks
 * cleanup directory structure
 * fix words: stems to helices
 * combine domain I and domain II (incl. bounding boxes)
-* domains -- autoidentify coax stacks
 * put in docstrings for all files
 * document JSON file format
 * document MATLAB functions in .md --> move to RiboKit

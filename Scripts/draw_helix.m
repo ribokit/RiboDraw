@@ -244,7 +244,7 @@ function h = make_helix_label( helix, plot_settings, R )
 % make label
 label_pos = helix.center + helix.label_relpos * R;
 h = text( label_pos(1), label_pos(2), helix.name,...
-    'fontsize', plot_settings.fontsize*1.5, 'fontname','helvetica');
+    'fontsize', plot_settings.fontsize*1.5, 'fontname','helvetica','clipping','off');
 v = [0,sign(helix.label_relpos(2))]*R;
 set_text_alignment( h, v );
     
@@ -452,7 +452,7 @@ switch linker.type
         residue1 = getappdata( gca, linker.residue1 );
         residue2 = getappdata( gca, linker.residue2 );
         bp = [residue1.nucleotide,residue2.nucleotide];
-        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         switch bp
             case {'AU','UA','GC','CG' } % could also show double lines for G-C. Not my preference.
                 set( linker.line_handle, 'visible', 'on' );
@@ -464,7 +464,7 @@ switch linker.type
         setappdata( gca, linker.linker_tag, linker );
     case 'noncanonical_pair'
         plot_settings = getappdata( gca, 'plot_settings' );
-        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5 ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.
         if ( linker.edge1 == linker.edge2 )
             linker.symbol = create_LW_symbol( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
         else
@@ -473,11 +473,11 @@ switch linker.type
         end
         setappdata( gca, linker.linker_tag, linker );
     case 'arrow'
-        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2 ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.arrow = patch( [0,0,0],[0,0,0],'k' );
         setappdata( gca, linker.linker_tag, linker );
     case 'stack'
-        linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5 ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         %linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',5 ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
 end
@@ -513,7 +513,7 @@ h_new = plot( pos(1),pos(2),'o',...
     'markersize',plot_settings.spacing*1.5,...
     'color',[0.5 0.5 1],...
     'markerfacecolor',[0.5 0.5 1],...
-    'visible',visible);
+    'visible',visible,'clipping','off');
 setappdata( h_new, 'linker_tag', linker_tag );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -25,3 +25,5 @@ switch orientation
         set( h, 'facecolor', 'r' );
 end
 
+set( h, 'clipping','off' );
+

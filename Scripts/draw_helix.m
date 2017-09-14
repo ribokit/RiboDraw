@@ -64,24 +64,34 @@ minpos = min( [all_pos1; all_pos2 ] );
 maxpos = max( [all_pos1; all_pos2 ] );
 h = rectangle( 'Position',...
     [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
-    [-0.5 -0.5 1 1]*0.5*spacing,...
+    [-0.5 -0.5 1 1]*0.75*spacing,...
     'edgecolor',[0.5 0.5 1],'clipping','off');
 setappdata(h,'helix_tag',helix.helix_tag); 
 draggable(h,'n',[-inf inf -inf inf],@move_snapgrid,'endfcn',@redraw_helix);
 helix.helix_rectangle = h;
 
 % clickable line of reflection
-line1 = helix_center + spacing*[-(N+1)/2, 0]*R;
-line2 = helix_center + spacing*[ (N+1)/2, 0]*R;
-h = plot( [line1(1),line2(1)], [line1(2), line2(2)], 'color',[0.5 0.5 1],'clipping','off' );
+line1 = helix_center + spacing*[-(N+0.25)/2, 0]*R;
+line1x = helix_center + spacing*[-(N-0.75)/2, 0]*R;
+h = plot( [line1(1),line1x(1)], [line1(2), line1x(2)], 'color',[0.5 0.5 1],'clipping','off' );
 setappdata( h, 'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@reflect_helix,h});
-helix.reflect_line = h;
+helix.reflect_line1 = h;
+
+line2 = helix_center + spacing*[ (N+0.25)/2, 0]*R;
+line2x = helix_center + spacing*[ (N-0.75)/2, 0]*R;
+h = plot( [line2(1),line2x(1)], [line2x(2), line2(2)], 'color',[0.5 0.5 1],'clipping','off' );
+setappdata( h, 'helix_tag', helix.helix_tag);
+set(h,'ButtonDownFcn',{@reflect_helix,h});
+helix.reflect_line2 = h;
 
 % clickable center of rotation
 h = rectangle( 'Position',...
-    [helix_center(1)-0.1*spacing helix_center(2)-0.1*spacing,...
-    0.2*spacing 0.2*spacing], 'edgecolor',[0.5 0.5 1],'facecolor',[0.5 0.5 1],'linewidth',1.5,'clipping','off' );
+    [helix_center(1)-0.15*spacing helix_center(2)-0.15*spacing,...
+    0.3*spacing 0.3*spacing], ...
+    'curvature',[0.5 0.5],...
+    'edgecolor',[0.5 0.5 1],...
+    'facecolor',[0.5 0.5 1],'linewidth',1.5,'clipping','off' );
 setappdata( h,'helix_tag', helix.helix_tag);
 set(h,'ButtonDownFcn',{@rotate_helix,h});
 helix.click_center = h;

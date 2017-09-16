@@ -1,0 +1,9 @@
+function new_pair = reverse_pair( base_pair );
+new_pair.resnum1 = base_pair.resnum2;
+new_pair.chain1 = base_pair.chain2;
+new_pair.edge1 = base_pair.edge2;
+new_pair.resnum2 = base_pair.resnum1;
+new_pair.chain2 = base_pair.chain1;
+new_pair.edge2 = base_pair.edge1;
+new_pair.orientation = base_pair.orientation;
+new_pair.LW_orientation = base_pair.LW_orientation;

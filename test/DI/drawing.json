@@ -241,7 +241,7 @@
 			"Linker_C114_C115_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C115": {
@@ -262,7 +262,7 @@
 			"Linker_C115_C116_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C116": {
@@ -283,7 +283,7 @@
 			"Linker_C116_C117_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C117": {
@@ -302,7 +302,7 @@
 			"Linker_C117_C119_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C118": {
@@ -338,7 +338,7 @@
 			"Linker_C118_C119_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C12": {
@@ -355,7 +355,7 @@
 			"Linker_C12_C13_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C120": {
@@ -374,7 +374,7 @@
 			"Linker_C120_C149_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C121": {
@@ -537,7 +537,7 @@
 			"Linker_C13_C526_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C130": {
@@ -720,7 +720,7 @@
 			"Linker_C14_C526_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C140": {
@@ -885,7 +885,7 @@
 			"Linker_C149_C150_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C15": {
@@ -905,7 +905,7 @@
 			"Linker_C15_C16_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C150": {
@@ -926,7 +926,7 @@
 			"Linker_C150_C151_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C151": {
@@ -946,7 +946,7 @@
 			"Linker_C151_C152_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C152": {
@@ -967,7 +967,7 @@
 			"Linker_C152_C175_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C153": {
@@ -987,7 +987,7 @@
 			"Linker_C153_C154_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C154": {
@@ -1008,7 +1008,7 @@
 			"Linker_C154_C173_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C155": {
@@ -1029,7 +1029,7 @@
 			"Linker_C155_C172_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C156": {
@@ -1049,7 +1049,7 @@
 			"Linker_C156_C157_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C157": {
@@ -1069,7 +1069,7 @@
 			"Linker_C157_C158_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C158": {
@@ -1089,7 +1089,7 @@
 			"Linker_C158_C159_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C159": {
@@ -1107,7 +1107,7 @@
 			"Linker_C158_C159_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C16": {
@@ -1127,7 +1127,7 @@
 			"Linker_C16_C17_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C160": {
@@ -1147,7 +1147,7 @@
 			"Linker_C160_C167_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C166"
+			"CoaxialStack_C160"
 		]
 	},
 	"Residue_C161": {
@@ -1166,7 +1166,7 @@
 			"Linker_C161_C162_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C166"
+			"CoaxialStack_C160"
 		]
 	},
 	"Residue_C162": {
@@ -1184,7 +1184,7 @@
 			"Linker_C161_C162_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C166"
+			"CoaxialStack_C160"
 		]
 	},
 	"Residue_C163": {
@@ -1217,7 +1217,7 @@
 			"Linker_C164_C165_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C166"
+			"CoaxialStack_C160"
 		]
 	},
 	"Residue_C165": {
@@ -1236,7 +1236,7 @@
 			"Linker_C165_C166_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C166"
+			"CoaxialStack_C160"
 		]
 	},
 	"Residue_C166": {
@@ -1255,7 +1255,7 @@
 			"Linker_C166_C167_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C166"
+			"CoaxialStack_C160"
 		]
 	},
 	"Residue_C167": {
@@ -1275,7 +1275,7 @@
 			"Linker_C167_C168_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C168": {
@@ -1295,7 +1295,7 @@
 			"Linker_C168_C169_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C169": {
@@ -1315,7 +1315,7 @@
 			"Linker_C169_C170_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C17": {
@@ -1336,7 +1336,7 @@
 			"Linker_C17_C524_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C170": {
@@ -1357,7 +1357,7 @@
 			"Linker_C170_C171_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C171": {
@@ -1377,7 +1377,7 @@
 			"Linker_C171_C172_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C172": {
@@ -1398,7 +1398,7 @@
 			"Linker_C172_C173_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C173": {
@@ -1419,7 +1419,7 @@
 			"Linker_C173_C174_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C174": {
@@ -1439,7 +1439,7 @@
 			"Linker_C174_C175_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C175": {
@@ -1460,7 +1460,7 @@
 			"Linker_C175_C176_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C176": {
@@ -1480,7 +1480,7 @@
 			"Linker_C176_C177_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C177": {
@@ -1500,7 +1500,7 @@
 			"Linker_C176_C177_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C178": {
@@ -1554,7 +1554,7 @@
 			"Linker_C18_C19_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C180": {
@@ -1640,7 +1640,7 @@
 			"Linker_C183_C184_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C185": {
@@ -1660,7 +1660,7 @@
 			"Linker_C185_C212_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C186": {
@@ -1681,7 +1681,7 @@
 			"Linker_C186_C211_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C187": {
@@ -1702,7 +1702,7 @@
 			"Linker_C187_C210_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C188": {
@@ -1723,7 +1723,7 @@
 			"Linker_C188_C209_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C189": {
@@ -1742,7 +1742,7 @@
 			"Linker_C189_C205_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C19": {
@@ -1763,7 +1763,7 @@
 			"Linker_C19_C522_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C190": {
@@ -1783,7 +1783,7 @@
 			"Linker_C190_C207_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C191": {
@@ -1802,7 +1802,7 @@
 			"Linker_C191_C192_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C192": {
@@ -1821,7 +1821,7 @@
 			"Linker_C192_C193_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C193": {
@@ -1840,7 +1840,7 @@
 			"Linker_C193_C194_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C194": {
@@ -1860,7 +1860,7 @@
 			"Linker_C194_C202_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C195": {
@@ -1879,7 +1879,7 @@
 			"Linker_C195_C198_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C196": {
@@ -1956,7 +1956,7 @@
 			"Linker_C20_C21_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C200": {
@@ -1975,7 +1975,7 @@
 			"Linker_C200_C201_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C201": {
@@ -1995,7 +1995,7 @@
 			"Linker_C201_C202_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C202": {
@@ -2015,7 +2015,7 @@
 			"Linker_C202_C203_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C203": {
@@ -2034,7 +2034,7 @@
 			"Linker_C203_C204_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C204": {
@@ -2053,7 +2053,7 @@
 			"Linker_C204_C206_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206"
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C205": {
@@ -2071,7 +2071,7 @@
 			"Linker_C189_C205_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C206": {
@@ -2091,8 +2091,8 @@
 			"Linker_C206_C207_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C206",
-			"CoaxialStack_C212"
+			"CoaxialStack_C184",
+			"CoaxialStack_C190"
 		]
 	},
 	"Residue_C207": {
@@ -2112,7 +2112,7 @@
 			"Linker_C207_C208_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C208": {
@@ -2132,7 +2132,7 @@
 			"Linker_C208_C209_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C209": {
@@ -2153,7 +2153,7 @@
 			"Linker_C209_C210_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C21": {
@@ -2174,7 +2174,7 @@
 			"Linker_C21_C520_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C210": {
@@ -2196,7 +2196,7 @@
 			"Linker_C210_C211_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C211": {
@@ -2217,7 +2217,7 @@
 			"Linker_C211_C212_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C212": {
@@ -2238,7 +2238,7 @@
 			"Linker_C212_C213_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Residue_C213": {
@@ -2273,7 +2273,7 @@
 			"Linker_C214_C215_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Residue_C215": {
@@ -2292,7 +2292,7 @@
 			"Linker_C214_C215_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Residue_C216": {
@@ -2312,7 +2312,7 @@
 			"Linker_C216_C432_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Residue_C217": {
@@ -2361,7 +2361,7 @@
 			"Linker_C219_C220_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C22": {
@@ -2381,7 +2381,7 @@
 			"Linker_C22_C23_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C220": {
@@ -2401,7 +2401,7 @@
 			"Linker_C220_C427_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C221": {
@@ -2420,7 +2420,7 @@
 			"Linker_C221_C266_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C222": {
@@ -2438,7 +2438,7 @@
 			"Linker_C222_C224_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Residue_C223": {
@@ -2473,7 +2473,7 @@
 			"Linker_C224_C225_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Residue_C225": {
@@ -2494,7 +2494,7 @@
 			"Linker_C225_C231_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Residue_C226": {
@@ -2513,7 +2513,7 @@
 			"Linker_C226_C227_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Residue_C227": {
@@ -2560,7 +2560,7 @@
 			"Linker_C229_C230_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Residue_C23": {
@@ -2581,7 +2581,7 @@
 			"Linker_C23_C518_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C230": {
@@ -2602,7 +2602,7 @@
 			"Linker_C230_C231_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Residue_C231": {
@@ -2623,7 +2623,7 @@
 			"Linker_C231_C232_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Residue_C232": {
@@ -2641,7 +2641,7 @@
 			"Linker_C231_C232_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Residue_C233": {
@@ -2660,7 +2660,7 @@
 			"Linker_C233_C234_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C234": {
@@ -2680,7 +2680,7 @@
 			"Linker_C234_C235_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C235": {
@@ -2701,7 +2701,7 @@
 			"Linker_C235_C430_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C236": {
@@ -2721,7 +2721,7 @@
 			"Linker_C236_C237_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C237": {
@@ -2742,7 +2742,7 @@
 			"Linker_C237_C261_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C238": {
@@ -2763,7 +2763,7 @@
 			"Linker_C238_C260_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C239": {
@@ -2784,7 +2784,7 @@
 			"Linker_C239_C259_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C24": {
@@ -2805,7 +2805,7 @@
 			"Linker_C24_C517_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C240": {
@@ -2825,7 +2825,7 @@
 			"Linker_C240_C241_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C241": {
@@ -2844,7 +2844,7 @@
 			"Linker_C241_C243_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C242": {
@@ -2862,7 +2862,7 @@
 			"Linker_C242_C254_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C243": {
@@ -2882,8 +2882,8 @@
 			"Linker_C243_C244_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251",
-			"CoaxialStack_C430"
+			"CoaxialStack_C242",
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C244": {
@@ -2903,7 +2903,7 @@
 			"Linker_C244_C255_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C245": {
@@ -2923,7 +2923,7 @@
 			"Linker_C245_C246_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C246": {
@@ -2944,7 +2944,7 @@
 			"Linker_C246_C249_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C247": {
@@ -2963,7 +2963,7 @@
 			"Linker_C247_C252_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C248": {
@@ -3011,7 +3011,7 @@
 			"Linker_C25_C26_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C250": {
@@ -3048,7 +3048,7 @@
 			"Linker_C251_C252_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C252": {
@@ -3069,7 +3069,7 @@
 			"Linker_C252_C253_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C253": {
@@ -3089,7 +3089,7 @@
 			"Linker_C253_C254_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C254": {
@@ -3108,7 +3108,7 @@
 			"Linker_C253_C254_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Residue_C255": {
@@ -3127,7 +3127,7 @@
 			"Linker_C255_C256_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C256": {
@@ -3146,7 +3146,7 @@
 			"Linker_C256_C257_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C257": {
@@ -3165,7 +3165,7 @@
 			"Linker_C257_C258_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C258": {
@@ -3185,7 +3185,7 @@
 			"Linker_C258_C259_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C259": {
@@ -3206,7 +3206,7 @@
 			"Linker_C259_C260_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C26": {
@@ -3225,7 +3225,7 @@
 			"Linker_C26_C27_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C260": {
@@ -3247,7 +3247,7 @@
 			"Linker_C260_C261_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C261": {
@@ -3268,7 +3268,7 @@
 			"Linker_C261_C262_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C262": {
@@ -3288,7 +3288,7 @@
 			"Linker_C262_C263_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C263": {
@@ -3307,7 +3307,7 @@
 			"Linker_C263_C264_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C264": {
@@ -3356,7 +3356,7 @@
 			"Linker_C266_C267_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C267": {
@@ -3376,7 +3376,7 @@
 			"Linker_C267_C268_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C268": {
@@ -3397,7 +3397,7 @@
 			"Linker_C268_C426_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C269": {
@@ -3417,7 +3417,7 @@
 			"Linker_C269_C424_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C27": {
@@ -3436,7 +3436,7 @@
 			"Linker_C27_C512_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C270": {
@@ -3472,7 +3472,7 @@
 			"Linker_C271_C367_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C272": {
@@ -3492,7 +3492,7 @@
 			"Linker_C272_C273_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C273": {
@@ -3512,7 +3512,7 @@
 			"Linker_C273_C274_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C274": {
@@ -3532,7 +3532,7 @@
 			"Linker_C274_C275_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C275": {
@@ -3550,7 +3550,7 @@
 			"Linker_C274_C275_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C276": {
@@ -3610,7 +3610,7 @@
 			"Linker_C279_C280_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C28": {
@@ -3629,7 +3629,7 @@
 			"Linker_C28_C513_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C280": {
@@ -3649,7 +3649,7 @@
 			"Linker_C280_C281_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C281": {
@@ -3669,7 +3669,7 @@
 			"Linker_C281_C282_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C282": {
@@ -3690,7 +3690,7 @@
 			"Linker_C282_C359_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C283": {
@@ -3710,7 +3710,7 @@
 			"Linker_C283_C284_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C284": {
@@ -3729,7 +3729,7 @@
 			"Linker_C283_C284_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C285": {
@@ -3749,7 +3749,7 @@
 			"Linker_C285_C356_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C286": {
@@ -3769,7 +3769,7 @@
 			"Linker_C286_C287_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C287": {
@@ -3790,7 +3790,7 @@
 			"Linker_C287_C354_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C288": {
@@ -3809,7 +3809,7 @@
 			"Linker_C287_C288_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C289": {
@@ -3829,7 +3829,7 @@
 			"Linker_C289_C352_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C29": {
@@ -3849,7 +3849,7 @@
 			"Linker_C29_C31_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C290": {
@@ -3869,7 +3869,7 @@
 			"Linker_C289_C290_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C291": {
@@ -3889,7 +3889,7 @@
 			"Linker_C291_C350_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C292": {
@@ -3909,7 +3909,7 @@
 			"Linker_C292_C293_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C293": {
@@ -3928,7 +3928,7 @@
 			"Linker_C292_C293_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C294": {
@@ -3964,7 +3964,7 @@
 			"Linker_C295_C344_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Residue_C296": {
@@ -3985,7 +3985,7 @@
 			"Linker_C296_C343_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Residue_C297": {
@@ -4006,7 +4006,7 @@
 			"Linker_C297_C342_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Residue_C298": {
@@ -4024,7 +4024,7 @@
 			"Linker_C297_C298_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Residue_C299": {
@@ -4043,7 +4043,7 @@
 			"Linker_C299_C322_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C339"
+			"CoaxialStack_C299"
 		]
 	},
 	"Residue_C30": {
@@ -4063,7 +4063,7 @@
 			"Linker_C30_C31_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C300": {
@@ -4099,7 +4099,7 @@
 			"Linker_C301_C317_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C302": {
@@ -4119,7 +4119,7 @@
 			"Linker_C302_C303_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C303": {
@@ -4140,7 +4140,7 @@
 			"Linker_C303_C315_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C304": {
@@ -4160,7 +4160,7 @@
 			"Linker_C304_C305_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C305": {
@@ -4181,7 +4181,7 @@
 			"Linker_C305_C313_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C306": {
@@ -4200,7 +4200,7 @@
 			"Linker_C306_C307_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C307": {
@@ -4234,7 +4234,7 @@
 			"Linker_C308_C501_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C501"
+			"CoaxialStack_C308"
 		]
 	},
 	"Residue_C309": {
@@ -4271,7 +4271,7 @@
 			"Linker_C31_C32_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C310": {
@@ -4291,7 +4291,7 @@
 			"Linker_C310_C330_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C311": {
@@ -4326,7 +4326,7 @@
 			"Linker_C312_C313_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C313": {
@@ -4347,7 +4347,7 @@
 			"Linker_C313_C314_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C314": {
@@ -4366,7 +4366,7 @@
 			"Linker_C313_C314_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C315": {
@@ -4386,7 +4386,7 @@
 			"Linker_C315_C316_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C316": {
@@ -4405,7 +4405,7 @@
 			"Linker_C315_C316_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Residue_C317": {
@@ -4475,7 +4475,7 @@
 			"Linker_C32_C474_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C320": {
@@ -4522,7 +4522,7 @@
 			"Linker_C322_C340_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C339"
+			"CoaxialStack_C299"
 		]
 	},
 	"Residue_C323": {
@@ -4554,7 +4554,7 @@
 			"Linker_C324_C325_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C325": {
@@ -4574,7 +4574,7 @@
 			"Linker_C325_C326_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C326": {
@@ -4595,7 +4595,7 @@
 			"Linker_C326_C337_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C327": {
@@ -4616,7 +4616,7 @@
 			"Linker_C327_C336_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C328": {
@@ -4635,7 +4635,7 @@
 			"Linker_C327_C328_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C329": {
@@ -4653,7 +4653,7 @@
 			"Linker_C329_C477_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C501"
+			"CoaxialStack_C308"
 		]
 	},
 	"Residue_C33": {
@@ -4672,7 +4672,7 @@
 			"Linker_C33_C454_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C330": {
@@ -4720,7 +4720,7 @@
 			"Linker_C332_C335_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C333": {
@@ -4774,7 +4774,7 @@
 			"Linker_C335_C336_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C336": {
@@ -4795,7 +4795,7 @@
 			"Linker_C336_C337_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C337": {
@@ -4816,7 +4816,7 @@
 			"Linker_C337_C338_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C338": {
@@ -4836,8 +4836,8 @@
 			"Linker_C338_C339_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338",
-			"CoaxialStack_C339"
+			"CoaxialStack_C299",
+			"CoaxialStack_C324"
 		]
 	},
 	"Residue_C339": {
@@ -4855,7 +4855,7 @@
 			"Linker_C338_C339_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C339"
+			"CoaxialStack_C299"
 		]
 	},
 	"Residue_C34": {
@@ -4888,7 +4888,7 @@
 			"Linker_C340_C341_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Residue_C341": {
@@ -4908,7 +4908,7 @@
 			"Linker_C341_C342_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Residue_C342": {
@@ -4929,7 +4929,7 @@
 			"Linker_C342_C343_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Residue_C343": {
@@ -4949,7 +4949,7 @@
 			"Linker_C342_C343_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Residue_C344": {
@@ -5014,7 +5014,7 @@
 			"Linker_C347_C348_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C348": {
@@ -5034,7 +5034,7 @@
 			"Linker_C348_C349_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C349": {
@@ -5053,7 +5053,7 @@
 			"Linker_C348_C349_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C35": {
@@ -5074,7 +5074,7 @@
 			"Linker_C35_C454_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C350": {
@@ -5095,7 +5095,7 @@
 			"Linker_C350_C351_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C351": {
@@ -5115,7 +5115,7 @@
 			"Linker_C351_C352_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C352": {
@@ -5136,7 +5136,7 @@
 			"Linker_C352_C353_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C353": {
@@ -5156,7 +5156,7 @@
 			"Linker_C353_C354_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C354": {
@@ -5177,7 +5177,7 @@
 			"Linker_C354_C355_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C355": {
@@ -5196,7 +5196,7 @@
 			"Linker_C354_C355_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C356": {
@@ -5216,7 +5216,7 @@
 			"Linker_C356_C357_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C357": {
@@ -5236,7 +5236,7 @@
 			"Linker_C357_C358_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C358": {
@@ -5256,7 +5256,7 @@
 			"Linker_C358_C359_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C359": {
@@ -5277,7 +5277,7 @@
 			"Linker_C359_C360_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C36": {
@@ -5298,7 +5298,7 @@
 			"Linker_C36_C445_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C360": {
@@ -5318,7 +5318,7 @@
 			"Linker_C360_C361_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C361": {
@@ -5336,7 +5336,7 @@
 			"Linker_C360_C361_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Residue_C362": {
@@ -5355,7 +5355,7 @@
 			"Linker_C362_C363_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C363": {
@@ -5375,7 +5375,7 @@
 			"Linker_C363_C364_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C364": {
@@ -5395,7 +5395,7 @@
 			"Linker_C364_C365_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C365": {
@@ -5415,7 +5415,7 @@
 			"Linker_C365_C366_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C366": {
@@ -5435,7 +5435,7 @@
 			"Linker_C366_C367_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Residue_C367": {
@@ -5500,7 +5500,7 @@
 			"Linker_C37_C38_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C370": {
@@ -5520,7 +5520,7 @@
 			"Linker_C370_C424_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C371": {
@@ -5538,7 +5538,7 @@
 			"Linker_C371_C373_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C402"
+			"CoaxialStack_C371"
 		]
 	},
 	"Residue_C372": {
@@ -5556,7 +5556,7 @@
 			"Linker_C372_C400_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C373": {
@@ -5577,8 +5577,8 @@
 			"Linker_C373_C374_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C402",
-			"CoaxialStack_C411"
+			"CoaxialStack_C371",
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C374": {
@@ -5598,7 +5598,7 @@
 			"Linker_C374_C401_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C375": {
@@ -5618,7 +5618,7 @@
 			"Linker_C375_C376_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C376": {
@@ -5638,7 +5638,7 @@
 			"Linker_C376_C399_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C377": {
@@ -5658,7 +5658,7 @@
 			"Linker_C377_C398_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C378": {
@@ -5678,7 +5678,7 @@
 			"Linker_C378_C379_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C379": {
@@ -5699,7 +5699,7 @@
 			"Linker_C379_C396_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C38": {
@@ -5720,7 +5720,7 @@
 			"Linker_C38_C442_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C380": {
@@ -5741,7 +5741,7 @@
 			"Linker_C380_C381_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C381": {
@@ -5762,7 +5762,7 @@
 			"Linker_C381_C394_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C382": {
@@ -5783,7 +5783,7 @@
 			"Linker_C382_C393_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C383": {
@@ -5802,7 +5802,7 @@
 			"Linker_C383_C385_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C384": {
@@ -5835,7 +5835,7 @@
 			"Linker_C384_C385_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C386": {
@@ -5912,7 +5912,7 @@
 			"Linker_C39_C441_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C390": {
@@ -5946,7 +5946,7 @@
 			"Linker_C391_C411_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C392": {
@@ -5966,7 +5966,7 @@
 			"Linker_C392_C393_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C393": {
@@ -5987,7 +5987,7 @@
 			"Linker_C393_C394_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C394": {
@@ -6008,7 +6008,7 @@
 			"Linker_C394_C395_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C395": {
@@ -6027,7 +6027,7 @@
 			"Linker_C394_C395_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C396": {
@@ -6047,7 +6047,7 @@
 			"Linker_C396_C397_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C397": {
@@ -6067,7 +6067,7 @@
 			"Linker_C397_C398_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C398": {
@@ -6088,7 +6088,7 @@
 			"Linker_C398_C399_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C399": {
@@ -6109,7 +6109,7 @@
 			"Linker_C399_C400_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C40": {
@@ -6130,7 +6130,7 @@
 			"Linker_C40_C41_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C400": {
@@ -6150,7 +6150,7 @@
 			"Linker_C399_C400_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C401": {
@@ -6169,7 +6169,7 @@
 			"Linker_C401_C402_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C402"
+			"CoaxialStack_C371"
 		]
 	},
 	"Residue_C402": {
@@ -6189,7 +6189,7 @@
 			"Linker_C402_C403_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C402"
+			"CoaxialStack_C371"
 		]
 	},
 	"Residue_C403": {
@@ -6320,7 +6320,7 @@
 			"Linker_C41_C42_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C410": {
@@ -6355,7 +6355,7 @@
 			"Linker_C391_C411_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Residue_C412": {
@@ -6502,7 +6502,7 @@
 			"Linker_C42_C43_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C420": {
@@ -6589,7 +6589,7 @@
 			"Linker_C424_C425_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C425": {
@@ -6609,7 +6609,7 @@
 			"Linker_C425_C426_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C426": {
@@ -6630,7 +6630,7 @@
 			"Linker_C426_C427_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C427": {
@@ -6650,7 +6650,7 @@
 			"Linker_C426_C427_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Residue_C428": {
@@ -6701,7 +6701,7 @@
 			"Linker_C43_C437_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C430": {
@@ -6722,7 +6722,7 @@
 			"Linker_C429_C430_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Residue_C431": {
@@ -6758,7 +6758,7 @@
 			"Linker_C432_C433_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Residue_C433": {
@@ -6779,7 +6779,7 @@
 			"Linker_C433_C434_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Residue_C434": {
@@ -6799,7 +6799,7 @@
 			"Linker_C433_C434_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Residue_C435": {
@@ -6834,7 +6834,7 @@
 			"Linker_C435_C436_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C437": {
@@ -6854,7 +6854,7 @@
 			"Linker_C437_C438_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C438": {
@@ -6874,7 +6874,7 @@
 			"Linker_C438_C439_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C439": {
@@ -6894,7 +6894,7 @@
 			"Linker_C439_C440_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C44": {
@@ -6914,7 +6914,7 @@
 			"Linker_C44_C45_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Residue_C440": {
@@ -6935,7 +6935,7 @@
 			"Linker_C440_C441_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C441": {
@@ -6955,7 +6955,7 @@
 			"Linker_C440_C441_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C442": {
@@ -6975,7 +6975,7 @@
 			"Linker_C442_C444_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C443": {
@@ -7008,7 +7008,7 @@
 			"Linker_C444_C445_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C445": {
@@ -7030,7 +7030,7 @@
 			"Linker_C445_C446_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C446": {
@@ -7048,7 +7048,7 @@
 			"Linker_C445_C446_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C447": {
@@ -7067,7 +7067,7 @@
 			"Linker_C447_C473_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C448": {
@@ -7116,7 +7116,7 @@
 			"Linker_C45_C215_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Residue_C450": {
@@ -7165,7 +7165,7 @@
 			"Linker_C452_C458_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Residue_C453": {
@@ -7200,7 +7200,7 @@
 			"Linker_C447_C454_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Residue_C455": {
@@ -7247,8 +7247,8 @@
 			"Linker_C457_C459_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467",
-			"CoaxialStack_C471"
+			"CoaxialStack_C452",
+			"CoaxialStack_C457"
 		]
 	},
 	"Residue_C458": {
@@ -7267,7 +7267,7 @@
 			"Linker_C458_C469_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Residue_C459": {
@@ -7287,8 +7287,8 @@
 			"Linker_C459_C460_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467",
-			"CoaxialStack_C471"
+			"CoaxialStack_C452",
+			"CoaxialStack_C457"
 		]
 	},
 	"Residue_C46": {
@@ -7326,7 +7326,7 @@
 			"Linker_C460_C470_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Residue_C461": {
@@ -7346,7 +7346,7 @@
 			"Linker_C461_C462_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Residue_C462": {
@@ -7367,7 +7367,7 @@
 			"Linker_C462_C468_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Residue_C463": {
@@ -7447,7 +7447,7 @@
 			"Linker_C467_C468_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Residue_C468": {
@@ -7468,7 +7468,7 @@
 			"Linker_C468_C469_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Residue_C469": {
@@ -7487,7 +7487,7 @@
 			"Linker_C468_C469_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Residue_C47": {
@@ -7524,7 +7524,7 @@
 			"Linker_C470_C471_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C471"
+			"CoaxialStack_C457"
 		]
 	},
 	"Residue_C471": {
@@ -7543,7 +7543,7 @@
 			"Linker_C471_C472_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C471"
+			"CoaxialStack_C457"
 		]
 	},
 	"Residue_C472": {
@@ -7577,7 +7577,7 @@
 			"Linker_C447_C473_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C474": {
@@ -7597,7 +7597,7 @@
 			"Linker_C474_C510_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C475": {
@@ -7618,7 +7618,7 @@
 			"Linker_C475_C509_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C509"
+			"CoaxialStack_C476"
 		]
 	},
 	"Residue_C476": {
@@ -7637,7 +7637,7 @@
 			"Linker_C476_C479_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C509"
+			"CoaxialStack_C476"
 		]
 	},
 	"Residue_C477": {
@@ -7656,7 +7656,7 @@
 			"Linker_C477_C478_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C501"
+			"CoaxialStack_C308"
 		]
 	},
 	"Residue_C478": {
@@ -7692,8 +7692,8 @@
 			"Linker_C479_C481_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C507",
-			"CoaxialStack_C509"
+			"CoaxialStack_C476",
+			"CoaxialStack_C479"
 		]
 	},
 	"Residue_C48": {
@@ -7731,7 +7731,7 @@
 			"Linker_C479_C480_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C509"
+			"CoaxialStack_C476"
 		]
 	},
 	"Residue_C481": {
@@ -7752,8 +7752,8 @@
 			"Linker_C481_C507_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C507",
-			"CoaxialStack_C509"
+			"CoaxialStack_C476",
+			"CoaxialStack_C479"
 		]
 	},
 	"Residue_C482": {
@@ -7771,7 +7771,7 @@
 			"Linker_C482_C506_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C507"
+			"CoaxialStack_C479"
 		]
 	},
 	"Residue_C483": {
@@ -7789,7 +7789,7 @@
 			"Linker_C483_C484_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C484": {
@@ -7809,7 +7809,7 @@
 			"Linker_C484_C485_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C485": {
@@ -7830,7 +7830,7 @@
 			"Linker_C485_C496_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C486": {
@@ -7851,7 +7851,7 @@
 			"Linker_C486_C495_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C487": {
@@ -7872,7 +7872,7 @@
 			"Linker_C487_C494_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C488": {
@@ -7890,7 +7890,7 @@
 			"Linker_C487_C488_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C489": {
@@ -7924,7 +7924,7 @@
 			"Linker_C49_C177_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Residue_C490": {
@@ -7972,7 +7972,7 @@
 			"Linker_C492_C493_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C493": {
@@ -7992,7 +7992,7 @@
 			"Linker_C493_C494_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C494": {
@@ -8013,7 +8013,7 @@
 			"Linker_C494_C495_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C495": {
@@ -8034,7 +8034,7 @@
 			"Linker_C495_C496_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C496": {
@@ -8055,7 +8055,7 @@
 			"Linker_C496_C497_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C497": {
@@ -8074,7 +8074,7 @@
 			"Linker_C497_C498_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Residue_C498": {
@@ -8093,7 +8093,7 @@
 			"Linker_C498_C499_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C506"
+			"CoaxialStack_C498"
 		]
 	},
 	"Residue_C499": {
@@ -8113,7 +8113,7 @@
 			"Linker_C499_C500_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C506"
+			"CoaxialStack_C498"
 		]
 	},
 	"Residue_C50": {
@@ -8146,7 +8146,7 @@
 			"Linker_C499_C500_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C506"
+			"CoaxialStack_C498"
 		]
 	},
 	"Residue_C501": {
@@ -8165,7 +8165,7 @@
 			"Linker_C501_C502_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C501"
+			"CoaxialStack_C308"
 		]
 	},
 	"Residue_C502": {
@@ -8200,8 +8200,8 @@
 			"Linker_C503_C506_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C506",
-			"CoaxialStack_C507"
+			"CoaxialStack_C479",
+			"CoaxialStack_C498"
 		]
 	},
 	"Residue_C504": {
@@ -8234,7 +8234,7 @@
 			"Linker_C503_C505_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C506"
+			"CoaxialStack_C498"
 		]
 	},
 	"Residue_C506": {
@@ -8254,8 +8254,8 @@
 			"Linker_C503_C506_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C506",
-			"CoaxialStack_C507"
+			"CoaxialStack_C479",
+			"CoaxialStack_C498"
 		]
 	},
 	"Residue_C507": {
@@ -8273,7 +8273,7 @@
 			"Linker_C481_C507_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C507"
+			"CoaxialStack_C479"
 		]
 	},
 	"Residue_C508": {
@@ -8304,7 +8304,7 @@
 			"Linker_C475_C509_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C509"
+			"CoaxialStack_C476"
 		]
 	},
 	"Residue_C51": {
@@ -8339,7 +8339,7 @@
 			"Linker_C510_C512_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C511": {
@@ -8358,7 +8358,7 @@
 			"Linker_C511_C512_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C512": {
@@ -8378,7 +8378,7 @@
 			"Linker_C511_C512_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C513": {
@@ -8397,7 +8397,7 @@
 			"Linker_C513_C514_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C514": {
@@ -8416,7 +8416,7 @@
 			"Linker_C514_C515_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C515": {
@@ -8434,7 +8434,7 @@
 			"Linker_C514_C515_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Residue_C516": {
@@ -8453,7 +8453,7 @@
 			"Linker_C516_C517_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C517": {
@@ -8473,7 +8473,7 @@
 			"Linker_C516_C517_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C518": {
@@ -8493,7 +8493,7 @@
 			"Linker_C518_C519_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C519": {
@@ -8513,7 +8513,7 @@
 			"Linker_C519_C520_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C52": {
@@ -8532,7 +8532,7 @@
 			"Linker_C52_C118_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C520": {
@@ -8554,7 +8554,7 @@
 			"Linker_C520_C521_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C521": {
@@ -8574,7 +8574,7 @@
 			"Linker_C521_C522_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C522": {
@@ -8595,7 +8595,7 @@
 			"Linker_C522_C523_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C523": {
@@ -8615,7 +8615,7 @@
 			"Linker_C523_C524_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C524": {
@@ -8636,7 +8636,7 @@
 			"Linker_C524_C525_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C525": {
@@ -8656,7 +8656,7 @@
 			"Linker_C524_C525_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C526": {
@@ -8674,7 +8674,7 @@
 			"Linker_C14_C526_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Residue_C53": {
@@ -8693,7 +8693,7 @@
 			"Linker_C53_C54_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C54": {
@@ -8713,7 +8713,7 @@
 			"Linker_C54_C55_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C55": {
@@ -8735,7 +8735,7 @@
 			"Linker_C55_C116_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C56": {
@@ -8756,7 +8756,7 @@
 			"Linker_C56_C115_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C57": {
@@ -8776,7 +8776,7 @@
 			"Linker_C57_C58_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C58": {
@@ -8797,7 +8797,7 @@
 			"Linker_C58_C70_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C59": {
@@ -8816,7 +8816,7 @@
 			"Linker_C58_C59_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C60": {
@@ -8879,7 +8879,7 @@
 			"Linker_C63_C64_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Residue_C64": {
@@ -8899,7 +8899,7 @@
 			"Linker_C64_C65_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Residue_C65": {
@@ -8920,7 +8920,7 @@
 			"Linker_C65_C66_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Residue_C66": {
@@ -8940,7 +8940,7 @@
 			"Linker_C66_C67_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Residue_C67": {
@@ -8978,7 +8978,7 @@
 			"Linker_C68_C74_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C69": {
@@ -8998,7 +8998,7 @@
 			"Linker_C69_C70_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C70": {
@@ -9021,7 +9021,7 @@
 			"Linker_C70_C114_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Residue_C71": {
@@ -9314,7 +9314,7 @@
 			"Linker_C88_C89_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Residue_C89": {
@@ -9335,7 +9335,7 @@
 			"Linker_C89_C90_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Residue_C90": {
@@ -9356,7 +9356,7 @@
 			"Linker_C90_C91_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Residue_C91": {
@@ -9374,7 +9374,7 @@
 			"Linker_C90_C91_stack"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Residue_C92": {
@@ -9617,7 +9617,7 @@
 			"Residue_C526"
 		],
 		"associated_domains": [
-			"CoaxialStack_C526"
+			"CoaxialStack_C12"
 		]
 	},
 	"Helix_C150": {
@@ -9664,7 +9664,7 @@
 			"Residue_C49"
 		],
 		"associated_domains": [
-			"CoaxialStack_C167"
+			"CoaxialStack_C49"
 		]
 	},
 	"Helix_C184": {
@@ -9718,7 +9718,7 @@
 			"Residue_C218"
 		],
 		"associated_domains": [
-			"CoaxialStack_C212"
+			"CoaxialStack_C184"
 		]
 	},
 	"Helix_C224": {
@@ -9750,7 +9750,7 @@
 			"Residue_C233"
 		],
 		"associated_domains": [
-			"CoaxialStack_C232"
+			"CoaxialStack_C222"
 		]
 	},
 	"Helix_C235": {
@@ -9784,7 +9784,7 @@
 			"Residue_C264"
 		],
 		"associated_domains": [
-			"CoaxialStack_C430"
+			"CoaxialStack_C243"
 		]
 	},
 	"Helix_C245": {
@@ -9815,7 +9815,7 @@
 			"Residue_C255"
 		],
 		"associated_domains": [
-			"CoaxialStack_C251"
+			"CoaxialStack_C242"
 		]
 	},
 	"Helix_C266": {
@@ -9844,7 +9844,7 @@
 			"Residue_C429"
 		],
 		"associated_domains": [
-			"CoaxialStack_C370"
+			"CoaxialStack_C219"
 		]
 	},
 	"Helix_C271": {
@@ -9879,7 +9879,7 @@
 			"Residue_C370"
 		],
 		"associated_domains": [
-			"CoaxialStack_C366"
+			"CoaxialStack_C271"
 		]
 	},
 	"Helix_C281": {
@@ -9929,7 +9929,7 @@
 			"Residue_C361"
 		],
 		"associated_domains": [
-			"CoaxialStack_C361"
+			"CoaxialStack_C279"
 		]
 	},
 	"Helix_C295": {
@@ -9959,7 +9959,7 @@
 			"Residue_C344"
 		],
 		"associated_domains": [
-			"CoaxialStack_C343"
+			"CoaxialStack_C295"
 		]
 	},
 	"Helix_C301": {
@@ -9993,7 +9993,7 @@
 			"Residue_C316"
 		],
 		"associated_domains": [
-			"CoaxialStack_C316"
+			"CoaxialStack_C301"
 		]
 	},
 	"Helix_C31": {
@@ -10021,7 +10021,7 @@
 			"Residue_C479"
 		],
 		"associated_domains": [
-			"CoaxialStack_C515"
+			"CoaxialStack_C25"
 		]
 	},
 	"Helix_C317": {
@@ -10072,7 +10072,7 @@
 			"Residue_C337"
 		],
 		"associated_domains": [
-			"CoaxialStack_C338"
+			"CoaxialStack_C324"
 		]
 	},
 	"Helix_C35": {
@@ -10104,7 +10104,7 @@
 			"Residue_C455"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Helix_C37": {
@@ -10137,7 +10137,7 @@
 			"Residue_C442"
 		],
 		"associated_domains": [
-			"CoaxialStack_C454"
+			"CoaxialStack_C43"
 		]
 	},
 	"Helix_C375": {
@@ -10186,7 +10186,7 @@
 			"Residue_C402"
 		],
 		"associated_domains": [
-			"CoaxialStack_C411"
+			"CoaxialStack_C372"
 		]
 	},
 	"Helix_C406": {
@@ -10244,7 +10244,7 @@
 			"Residue_C434"
 		],
 		"associated_domains": [
-			"CoaxialStack_C434"
+			"CoaxialStack_C44"
 		]
 	},
 	"Helix_C46": {
@@ -10299,7 +10299,7 @@
 			"Residue_C472"
 		],
 		"associated_domains": [
-			"CoaxialStack_C467"
+			"CoaxialStack_C452"
 		]
 	},
 	"Helix_C484": {
@@ -10341,7 +10341,7 @@
 			"Residue_C504"
 		],
 		"associated_domains": [
-			"CoaxialStack_C497"
+			"CoaxialStack_C483"
 		]
 	},
 	"Helix_C54": {
@@ -10371,7 +10371,7 @@
 			"Residue_C118"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Helix_C57": {
@@ -10397,7 +10397,7 @@
 			"Residue_C70"
 		],
 		"associated_domains": [
-			"CoaxialStack_C119"
+			"CoaxialStack_C52"
 		]
 	},
 	"Helix_C64": {
@@ -10424,7 +10424,7 @@
 			"Residue_C92"
 		],
 		"associated_domains": [
-			"CoaxialStack_C91"
+			"CoaxialStack_C63"
 		]
 	},
 	"Helix_C76": {
@@ -19310,83 +19310,123 @@
 		"edge2": "H",
 		"LW_orientation": "T"
 	},
-	"CoaxialStack_C119": {
+	"CoaxialStack_C12": {
 		"coax_pairs": [
 			{
-				"resnum1": 119,
+				"resnum1": 12,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 52,
+				"resnum2": 526,
 				"chain2": "C",
+				"edge1": "W",
 				"edge2": "H",
-				"orientation": "P",
-				"LW_orientation": "T"
+				"LW_orientation": "T",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 117,
+				"resnum1": 13,
 				"chain1": "C",
+				"resnum2": 14,
+				"chain2": "C",
 				"edge1": "S",
-				"resnum2": 53,
-				"chain2": "C",
 				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
+				"LW_orientation": "C",
+				"orientation": "P"
 			},
 			{
-				"resnum1": 116,
+				"resnum1": 525,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 54,
+				"resnum2": 15,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
 				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 115,
+				"resnum1": 524,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 55,
+				"resnum2": 16,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
 				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 114,
+				"resnum1": 523,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 56,
+				"resnum2": 17,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
 				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 70,
+				"resnum1": 522,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 57,
+				"resnum2": 18,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
 				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 69,
+				"resnum1": 521,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 58,
+				"resnum2": 19,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
 				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 68,
+				"resnum1": 520,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 59,
+				"resnum2": 20,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 519,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 21,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 518,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 22,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 517,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 23,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 516,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 24,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
@@ -19394,1048 +19434,291 @@
 			}
 		],
 		"associated_residues": [
-			"Residue_C119",
-			"Residue_C52",
-			"Residue_C117",
-			"Residue_C53",
-			"Residue_C116",
-			"Residue_C54",
-			"Residue_C115",
-			"Residue_C55",
-			"Residue_C114",
-			"Residue_C56",
-			"Residue_C70",
-			"Residue_C57",
-			"Residue_C69",
-			"Residue_C58",
-			"Residue_C68",
-			"Residue_C59"
+			"Residue_C12",
+			"Residue_C526",
+			"Residue_C13",
+			"Residue_C14",
+			"Residue_C525",
+			"Residue_C15",
+			"Residue_C524",
+			"Residue_C16",
+			"Residue_C523",
+			"Residue_C17",
+			"Residue_C522",
+			"Residue_C18",
+			"Residue_C521",
+			"Residue_C19",
+			"Residue_C520",
+			"Residue_C20",
+			"Residue_C519",
+			"Residue_C21",
+			"Residue_C518",
+			"Residue_C22",
+			"Residue_C517",
+			"Residue_C23",
+			"Residue_C516",
+			"Residue_C24"
 		],
 		"associated_helices": [
-			"Helix_C54",
-			"Helix_C57"
+			"Helix_C15"
 		],
-		"coaxial_stack_tag": "CoaxialStack_C119"
+		"coaxial_stack_tag": "CoaxialStack_C12"
 	},
-	"CoaxialStack_C166": {
+	"CoaxialStack_C160": {
 		"coax_pairs": [
 			{
-				"resnum1": 166,
+				"resnum1": 160,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 160,
+				"resnum2": 166,
 				"chain2": "C",
+				"edge1": "H",
+				"edge2": "W",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 161,
+				"chain1": "C",
+				"resnum2": 165,
+				"chain2": "C",
+				"edge1": "H",
+				"edge2": "W",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 162,
+				"chain1": "C",
+				"resnum2": 164,
+				"chain2": "C",
+				"edge1": "W",
 				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 165,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 161,
-				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 164,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 162,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "P",
-				"LW_orientation": "C"
-			}
-		],
-		"associated_residues": [
-			"Residue_C166",
-			"Residue_C160",
-			"Residue_C165",
-			"Residue_C161",
-			"Residue_C164",
-			"Residue_C162"
-		],
-		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C166"
-	},
-	"CoaxialStack_C167": {
-		"coax_pairs": [
-			{
-				"resnum1": 167,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 159,
-				"chain2": "C",
-				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 168,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 158,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 169,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 157,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 170,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 156,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 171,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 155,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 172,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 154,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 173,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 153,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 174,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 152,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 175,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 151,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 176,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 150,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 177,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 149,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "P",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 49,
-				"chain1": "C",
-				"resnum2": 120,
-				"chain2": "C",
-				"edge1": "H",
-				"edge2": "W",
 				"LW_orientation": "C",
 				"orientation": "P"
 			}
 		],
 		"associated_residues": [
-			"Residue_C167",
-			"Residue_C159",
-			"Residue_C168",
-			"Residue_C158",
-			"Residue_C169",
-			"Residue_C157",
-			"Residue_C170",
-			"Residue_C156",
-			"Residue_C171",
-			"Residue_C155",
-			"Residue_C172",
-			"Residue_C154",
-			"Residue_C173",
-			"Residue_C153",
-			"Residue_C174",
-			"Residue_C152",
-			"Residue_C175",
-			"Residue_C151",
-			"Residue_C176",
-			"Residue_C150",
-			"Residue_C177",
-			"Residue_C149",
-			"Residue_C49",
-			"Residue_C120"
-		],
-		"associated_helices": [
-			"Helix_C150"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C167"
-	},
-	"CoaxialStack_C206": {
-		"coax_pairs": [
-			{
-				"resnum1": 206,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 190,
-				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 204,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 191,
-				"chain2": "C",
-				"edge2": "H",
-				"orientation": "P",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 203,
-				"chain1": "C",
-				"edge1": "S",
-				"resnum2": 192,
-				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 202,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 193,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 201,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 194,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 200,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 195,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "T"
-			}
-		],
-		"associated_residues": [
-			"Residue_C206",
-			"Residue_C190",
-			"Residue_C204",
-			"Residue_C191",
-			"Residue_C203",
-			"Residue_C192",
-			"Residue_C202",
-			"Residue_C193",
-			"Residue_C201",
-			"Residue_C194",
-			"Residue_C200",
-			"Residue_C195"
+			"Residue_C160",
+			"Residue_C166",
+			"Residue_C161",
+			"Residue_C165",
+			"Residue_C162",
+			"Residue_C164"
 		],
 		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C206"
+		"coaxial_stack_tag": "CoaxialStack_C160"
 	},
-	"CoaxialStack_C212": {
+	"CoaxialStack_C184": {
 		"coax_pairs": [
 			{
-				"resnum1": 212,
+				"resnum1": 184,
 				"chain1": "C",
+				"resnum2": 212,
+				"chain2": "C",
 				"edge1": "W",
-				"resnum2": 184,
-				"chain2": "C",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 211,
+				"resnum1": 185,
 				"chain1": "C",
+				"resnum2": 211,
+				"chain2": "C",
 				"edge1": "W",
-				"resnum2": 185,
-				"chain2": "C",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 210,
+				"resnum1": 186,
 				"chain1": "C",
+				"resnum2": 210,
+				"chain2": "C",
 				"edge1": "W",
-				"resnum2": 186,
-				"chain2": "C",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 209,
+				"resnum1": 187,
 				"chain1": "C",
+				"resnum2": 209,
+				"chain2": "C",
 				"edge1": "W",
-				"resnum2": 187,
-				"chain2": "C",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 208,
+				"resnum1": 188,
 				"chain1": "C",
+				"resnum2": 208,
+				"chain2": "C",
 				"edge1": "W",
-				"resnum2": 188,
-				"chain2": "C",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 207,
+				"resnum1": 189,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 189,
+				"resnum2": 207,
 				"chain2": "C",
-				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "T"
+				"edge1": "S",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 206,
+				"resnum1": 205,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 205,
+				"resnum2": 206,
 				"chain2": "C",
-				"edge2": "S",
-				"orientation": "P",
-				"LW_orientation": "C"
+				"edge1": "S",
+				"edge2": "H",
+				"LW_orientation": "C",
+				"orientation": "P"
 			}
 		],
 		"associated_residues": [
-			"Residue_C212",
 			"Residue_C184",
-			"Residue_C211",
+			"Residue_C212",
 			"Residue_C185",
-			"Residue_C210",
+			"Residue_C211",
 			"Residue_C186",
-			"Residue_C209",
+			"Residue_C210",
 			"Residue_C187",
-			"Residue_C208",
+			"Residue_C209",
 			"Residue_C188",
-			"Residue_C207",
+			"Residue_C208",
 			"Residue_C189",
-			"Residue_C206",
-			"Residue_C205"
+			"Residue_C207",
+			"Residue_C205",
+			"Residue_C206"
 		],
 		"associated_helices": [
 			"Helix_C184"
 		],
-		"coaxial_stack_tag": "CoaxialStack_C212"
+		"coaxial_stack_tag": "CoaxialStack_C184"
 	},
-	"CoaxialStack_C232": {
+	"CoaxialStack_C190": {
 		"coax_pairs": [
 			{
-				"resnum1": 232,
+				"resnum1": 190,
 				"chain1": "C",
-				"edge1": "S",
-				"resnum2": 222,
+				"resnum2": 206,
 				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 231,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 224,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 230,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 225,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 229,
-				"chain1": "C",
 				"edge1": "H",
-				"resnum2": 226,
-				"chain2": "C",
-				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "T"
-			}
-		],
-		"associated_residues": [
-			"Residue_C232",
-			"Residue_C222",
-			"Residue_C231",
-			"Residue_C224",
-			"Residue_C230",
-			"Residue_C225",
-			"Residue_C229",
-			"Residue_C226"
-		],
-		"associated_helices": [
-			"Helix_C224"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C232"
-	},
-	"CoaxialStack_C251": {
-		"coax_pairs": [
+				"edge2": "W",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
 			{
-				"resnum1": 251,
+				"resnum1": 191,
 				"chain1": "C",
+				"resnum2": 204,
+				"chain2": "C",
 				"edge1": "H",
-				"resnum2": 247,
-				"chain2": "C",
-				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 252,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 246,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 253,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 245,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 254,
-				"chain1": "C",
-				"edge1": "S",
-				"resnum2": 244,
-				"chain2": "C",
 				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 242,
-				"chain1": "C",
-				"resnum2": 243,
-				"chain2": "C",
-				"edge1": "S",
-				"edge2": "H",
-				"LW_orientation": "C",
+				"LW_orientation": "T",
 				"orientation": "P"
-			}
-		],
-		"associated_residues": [
-			"Residue_C251",
-			"Residue_C247",
-			"Residue_C252",
-			"Residue_C246",
-			"Residue_C253",
-			"Residue_C245",
-			"Residue_C254",
-			"Residue_C244",
-			"Residue_C242",
-			"Residue_C243"
-		],
-		"associated_helices": [
-			"Helix_C245"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C251"
-	},
-	"CoaxialStack_C316": {
-		"coax_pairs": [
-			{
-				"resnum1": 316,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 301,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 315,
+				"resnum1": 192,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 302,
+				"resnum2": 203,
 				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 314,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 303,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 313,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 304,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 312,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 305,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 310,
-				"chain1": "C",
 				"edge1": "H",
-				"resnum2": 306,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "T"
-			}
-		],
-		"associated_residues": [
-			"Residue_C316",
-			"Residue_C301",
-			"Residue_C315",
-			"Residue_C302",
-			"Residue_C314",
-			"Residue_C303",
-			"Residue_C313",
-			"Residue_C304",
-			"Residue_C312",
-			"Residue_C305",
-			"Residue_C310",
-			"Residue_C306"
-		],
-		"associated_helices": [
-			"Helix_C301"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C316"
-	},
-	"CoaxialStack_C338": {
-		"coax_pairs": [
-			{
-				"resnum1": 338,
-				"chain1": "C",
-				"edge1": "S",
-				"resnum2": 324,
-				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 337,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 325,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 336,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 326,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 335,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 327,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 332,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 328,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "T"
-			}
-		],
-		"associated_residues": [
-			"Residue_C338",
-			"Residue_C324",
-			"Residue_C337",
-			"Residue_C325",
-			"Residue_C336",
-			"Residue_C326",
-			"Residue_C335",
-			"Residue_C327",
-			"Residue_C332",
-			"Residue_C328"
-		],
-		"associated_helices": [
-			"Helix_C325"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C338"
-	},
-	"CoaxialStack_C339": {
-		"coax_pairs": [
-			{
-				"resnum1": 339,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 322,
-				"chain2": "C",
 				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "T",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 338,
+				"resnum1": 193,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 299,
+				"resnum2": 202,
 				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 194,
+				"chain1": "C",
+				"resnum2": 201,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 195,
+				"chain1": "C",
+				"resnum2": 200,
+				"chain2": "C",
+				"edge1": "W",
 				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
+				"LW_orientation": "T",
+				"orientation": "A"
 			}
 		],
 		"associated_residues": [
-			"Residue_C339",
-			"Residue_C322",
-			"Residue_C338",
-			"Residue_C299"
+			"Residue_C190",
+			"Residue_C206",
+			"Residue_C191",
+			"Residue_C204",
+			"Residue_C192",
+			"Residue_C203",
+			"Residue_C193",
+			"Residue_C202",
+			"Residue_C194",
+			"Residue_C201",
+			"Residue_C195",
+			"Residue_C200"
 		],
 		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C339"
+		"coaxial_stack_tag": "CoaxialStack_C190"
 	},
-	"CoaxialStack_C343": {
+	"CoaxialStack_C219": {
 		"coax_pairs": [
 			{
-				"resnum1": 343,
+				"resnum1": 219,
 				"chain1": "C",
+				"resnum2": 234,
+				"chain2": "C",
 				"edge1": "W",
-				"resnum2": 295,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 342,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 296,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 341,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 297,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 340,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 298,
-				"chain2": "C",
 				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "T"
-			}
-		],
-		"associated_residues": [
-			"Residue_C343",
-			"Residue_C295",
-			"Residue_C342",
-			"Residue_C296",
-			"Residue_C341",
-			"Residue_C297",
-			"Residue_C340",
-			"Residue_C298"
-		],
-		"associated_helices": [
-			"Helix_C295"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C343"
-	},
-	"CoaxialStack_C361": {
-		"coax_pairs": [
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
 			{
-				"resnum1": 361,
+				"resnum1": 220,
 				"chain1": "C",
+				"resnum2": 233,
+				"chain2": "C",
 				"edge1": "S",
-				"resnum2": 279,
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 427,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 221,
 				"chain2": "C",
 				"edge2": "H",
 				"orientation": "A",
 				"LW_orientation": "T"
 			},
 			{
-				"resnum1": 360,
+				"resnum1": 426,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 280,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 359,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 281,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 358,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 282,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 357,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 283,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 356,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 284,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 355,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 285,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 354,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 286,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 353,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 287,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 352,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 288,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 351,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 289,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 350,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 290,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 349,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 291,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 348,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 292,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 347,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 293,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			}
-		],
-		"associated_residues": [
-			"Residue_C361",
-			"Residue_C279",
-			"Residue_C360",
-			"Residue_C280",
-			"Residue_C359",
-			"Residue_C281",
-			"Residue_C358",
-			"Residue_C282",
-			"Residue_C357",
-			"Residue_C283",
-			"Residue_C356",
-			"Residue_C284",
-			"Residue_C355",
-			"Residue_C285",
-			"Residue_C354",
-			"Residue_C286",
-			"Residue_C353",
-			"Residue_C287",
-			"Residue_C352",
-			"Residue_C288",
-			"Residue_C351",
-			"Residue_C289",
-			"Residue_C350",
-			"Residue_C290",
-			"Residue_C349",
-			"Residue_C291",
-			"Residue_C348",
-			"Residue_C292",
-			"Residue_C347",
-			"Residue_C293"
-		],
-		"associated_helices": [
-			"Helix_C281"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C361"
-	},
-	"CoaxialStack_C366": {
-		"coax_pairs": [
-			{
-				"resnum1": 366,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 271,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 365,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 272,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 364,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 273,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 363,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 274,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 362,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 275,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			}
-		],
-		"associated_residues": [
-			"Residue_C366",
-			"Residue_C271",
-			"Residue_C365",
-			"Residue_C272",
-			"Residue_C364",
-			"Residue_C273",
-			"Residue_C363",
-			"Residue_C274",
-			"Residue_C362",
-			"Residue_C275"
-		],
-		"associated_helices": [
-			"Helix_C271"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C366"
-	},
-	"CoaxialStack_C370": {
-		"coax_pairs": [
-			{
-				"resnum1": 370,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 269,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 424,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 268,
+				"resnum2": 266,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
@@ -20452,289 +19735,211 @@
 				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 426,
+				"resnum1": 424,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 266,
+				"resnum2": 268,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
 				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 427,
+				"resnum1": 370,
 				"chain1": "C",
 				"edge1": "W",
-				"resnum2": 221,
+				"resnum2": 269,
 				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 220,
-				"chain1": "C",
-				"resnum2": 233,
-				"chain2": "C",
-				"edge1": "S",
 				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 219,
-				"chain1": "C",
-				"resnum2": 234,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "S",
-				"LW_orientation": "C",
-				"orientation": "A"
+				"orientation": "A",
+				"LW_orientation": "C"
 			}
 		],
 		"associated_residues": [
-			"Residue_C370",
-			"Residue_C269",
-			"Residue_C424",
-			"Residue_C268",
-			"Residue_C425",
-			"Residue_C267",
-			"Residue_C426",
-			"Residue_C266",
-			"Residue_C427",
-			"Residue_C221",
+			"Residue_C219",
+			"Residue_C234",
 			"Residue_C220",
 			"Residue_C233",
-			"Residue_C219",
-			"Residue_C234"
+			"Residue_C427",
+			"Residue_C221",
+			"Residue_C426",
+			"Residue_C266",
+			"Residue_C425",
+			"Residue_C267",
+			"Residue_C424",
+			"Residue_C268",
+			"Residue_C370",
+			"Residue_C269"
 		],
 		"associated_helices": [
 			"Helix_C266"
 		],
-		"coaxial_stack_tag": "CoaxialStack_C370"
+		"coaxial_stack_tag": "CoaxialStack_C219"
 	},
-	"CoaxialStack_C402": {
+	"CoaxialStack_C222": {
 		"coax_pairs": [
 			{
-				"resnum1": 402,
+				"resnum1": 222,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 371,
+				"resnum2": 232,
 				"chain2": "C",
-				"edge2": "H",
-				"orientation": "P",
-				"LW_orientation": "T"
+				"edge1": "H",
+				"edge2": "S",
+				"LW_orientation": "T",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 401,
+				"resnum1": 224,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 373,
+				"resnum2": 231,
 				"chain2": "C",
+				"edge1": "W",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "T"
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 225,
+				"chain1": "C",
+				"resnum2": 230,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 226,
+				"chain1": "C",
+				"resnum2": 229,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
 			}
 		],
 		"associated_residues": [
-			"Residue_C402",
-			"Residue_C371",
-			"Residue_C401",
-			"Residue_C373"
+			"Residue_C222",
+			"Residue_C232",
+			"Residue_C224",
+			"Residue_C231",
+			"Residue_C225",
+			"Residue_C230",
+			"Residue_C226",
+			"Residue_C229"
 		],
-		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C402"
+		"associated_helices": [
+			"Helix_C224"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C222"
 	},
-	"CoaxialStack_C411": {
+	"CoaxialStack_C242": {
 		"coax_pairs": [
 			{
-				"resnum1": 411,
+				"resnum1": 242,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 385,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 391,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 383,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 392,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 382,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 393,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 381,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 394,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 380,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 395,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 379,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 396,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 378,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 397,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 377,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 398,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 376,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 399,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 375,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 400,
-				"chain1": "C",
-				"edge1": "S",
-				"resnum2": 374,
-				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 372,
-				"chain1": "C",
-				"resnum2": 373,
+				"resnum2": 243,
 				"chain2": "C",
 				"edge1": "S",
 				"edge2": "H",
 				"LW_orientation": "C",
 				"orientation": "P"
-			}
-		],
-		"associated_residues": [
-			"Residue_C411",
-			"Residue_C385",
-			"Residue_C391",
-			"Residue_C383",
-			"Residue_C392",
-			"Residue_C382",
-			"Residue_C393",
-			"Residue_C381",
-			"Residue_C394",
-			"Residue_C380",
-			"Residue_C395",
-			"Residue_C379",
-			"Residue_C396",
-			"Residue_C378",
-			"Residue_C397",
-			"Residue_C377",
-			"Residue_C398",
-			"Residue_C376",
-			"Residue_C399",
-			"Residue_C375",
-			"Residue_C400",
-			"Residue_C374",
-			"Residue_C372",
-			"Residue_C373"
-		],
-		"associated_helices": [
-			"Helix_C375"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C411"
-	},
-	"CoaxialStack_C430": {
-		"coax_pairs": [
+			},
 			{
-				"resnum1": 430,
+				"resnum1": 254,
 				"chain1": "C",
 				"edge1": "S",
-				"resnum2": 263,
+				"resnum2": 244,
 				"chain2": "C",
-				"edge2": "S",
+				"edge2": "H",
+				"orientation": "A",
+				"LW_orientation": "T"
+			},
+			{
+				"resnum1": 253,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 245,
+				"chain2": "C",
+				"edge2": "W",
 				"orientation": "A",
 				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 235,
+				"resnum1": 252,
 				"chain1": "C",
-				"resnum2": 262,
+				"edge1": "W",
+				"resnum2": 246,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 251,
+				"chain1": "C",
+				"edge1": "H",
+				"resnum2": 247,
+				"chain2": "C",
+				"edge2": "S",
+				"orientation": "A",
+				"LW_orientation": "T"
+			}
+		],
+		"associated_residues": [
+			"Residue_C242",
+			"Residue_C243",
+			"Residue_C254",
+			"Residue_C244",
+			"Residue_C253",
+			"Residue_C245",
+			"Residue_C252",
+			"Residue_C246",
+			"Residue_C251",
+			"Residue_C247"
+		],
+		"associated_helices": [
+			"Helix_C245"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C242"
+	},
+	"CoaxialStack_C243": {
+		"coax_pairs": [
+			{
+				"resnum1": 243,
+				"chain1": "C",
+				"resnum2": 255,
 				"chain2": "C",
 				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
+				"edge2": "H",
+				"LW_orientation": "T",
 				"orientation": "A"
 			},
 			{
-				"resnum1": 236,
+				"resnum1": 241,
 				"chain1": "C",
-				"resnum2": 261,
+				"resnum2": 256,
 				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
+				"edge1": "H",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "P"
+			},
+			{
+				"resnum1": 240,
+				"chain1": "C",
+				"resnum2": 257,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "H",
+				"LW_orientation": "T",
 				"orientation": "A"
 			},
 			{
-				"resnum1": 237,
+				"resnum1": 239,
 				"chain1": "C",
-				"resnum2": 260,
+				"resnum2": 258,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -20752,9 +19957,9 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 239,
+				"resnum1": 237,
 				"chain1": "C",
-				"resnum2": 258,
+				"resnum2": 260,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -20762,9 +19967,77 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 240,
+				"resnum1": 236,
 				"chain1": "C",
-				"resnum2": 257,
+				"resnum2": 261,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 235,
+				"chain1": "C",
+				"resnum2": 262,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 430,
+				"chain1": "C",
+				"edge1": "S",
+				"resnum2": 263,
+				"chain2": "C",
+				"edge2": "S",
+				"orientation": "A",
+				"LW_orientation": "C"
+			}
+		],
+		"associated_residues": [
+			"Residue_C243",
+			"Residue_C255",
+			"Residue_C241",
+			"Residue_C256",
+			"Residue_C240",
+			"Residue_C257",
+			"Residue_C239",
+			"Residue_C258",
+			"Residue_C238",
+			"Residue_C259",
+			"Residue_C237",
+			"Residue_C260",
+			"Residue_C236",
+			"Residue_C261",
+			"Residue_C235",
+			"Residue_C262",
+			"Residue_C430",
+			"Residue_C263"
+		],
+		"associated_helices": [
+			"Helix_C235"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C243"
+	},
+	"CoaxialStack_C25": {
+		"coax_pairs": [
+			{
+				"resnum1": 25,
+				"chain1": "C",
+				"resnum2": 515,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 26,
+				"chain1": "C",
+				"resnum2": 514,
 				"chain2": "C",
 				"edge1": "S",
 				"edge2": "H",
@@ -20772,9 +20045,641 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 241,
+				"resnum1": 27,
 				"chain1": "C",
-				"resnum2": 256,
+				"resnum2": 513,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 512,
+				"chain1": "C",
+				"edge1": "S",
+				"resnum2": 28,
+				"chain2": "C",
+				"edge2": "H",
+				"orientation": "A",
+				"LW_orientation": "T"
+			},
+			{
+				"resnum1": 511,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 29,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 510,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 30,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 474,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 31,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 473,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 32,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 447,
+				"chain1": "C",
+				"edge1": "H",
+				"resnum2": 33,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "T"
+			}
+		],
+		"associated_residues": [
+			"Residue_C25",
+			"Residue_C515",
+			"Residue_C26",
+			"Residue_C514",
+			"Residue_C27",
+			"Residue_C513",
+			"Residue_C512",
+			"Residue_C28",
+			"Residue_C511",
+			"Residue_C29",
+			"Residue_C510",
+			"Residue_C30",
+			"Residue_C474",
+			"Residue_C31",
+			"Residue_C473",
+			"Residue_C32",
+			"Residue_C447",
+			"Residue_C33"
+		],
+		"associated_helices": [
+			"Helix_C31"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C25"
+	},
+	"CoaxialStack_C271": {
+		"coax_pairs": [
+			{
+				"resnum1": 271,
+				"chain1": "C",
+				"resnum2": 366,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 272,
+				"chain1": "C",
+				"resnum2": 365,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 273,
+				"chain1": "C",
+				"resnum2": 364,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 274,
+				"chain1": "C",
+				"resnum2": 363,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 275,
+				"chain1": "C",
+				"resnum2": 362,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		],
+		"associated_residues": [
+			"Residue_C271",
+			"Residue_C366",
+			"Residue_C272",
+			"Residue_C365",
+			"Residue_C273",
+			"Residue_C364",
+			"Residue_C274",
+			"Residue_C363",
+			"Residue_C275",
+			"Residue_C362"
+		],
+		"associated_helices": [
+			"Helix_C271"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C271"
+	},
+	"CoaxialStack_C279": {
+		"coax_pairs": [
+			{
+				"resnum1": 279,
+				"chain1": "C",
+				"resnum2": 361,
+				"chain2": "C",
+				"edge1": "H",
+				"edge2": "S",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 280,
+				"chain1": "C",
+				"resnum2": 360,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 281,
+				"chain1": "C",
+				"resnum2": 359,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 282,
+				"chain1": "C",
+				"resnum2": 358,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 283,
+				"chain1": "C",
+				"resnum2": 357,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 284,
+				"chain1": "C",
+				"resnum2": 356,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 285,
+				"chain1": "C",
+				"resnum2": 355,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 286,
+				"chain1": "C",
+				"resnum2": 354,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 287,
+				"chain1": "C",
+				"resnum2": 353,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 288,
+				"chain1": "C",
+				"resnum2": 352,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 289,
+				"chain1": "C",
+				"resnum2": 351,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 290,
+				"chain1": "C",
+				"resnum2": 350,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 291,
+				"chain1": "C",
+				"resnum2": 349,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 292,
+				"chain1": "C",
+				"resnum2": 348,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 293,
+				"chain1": "C",
+				"resnum2": 347,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		],
+		"associated_residues": [
+			"Residue_C279",
+			"Residue_C361",
+			"Residue_C280",
+			"Residue_C360",
+			"Residue_C281",
+			"Residue_C359",
+			"Residue_C282",
+			"Residue_C358",
+			"Residue_C283",
+			"Residue_C357",
+			"Residue_C284",
+			"Residue_C356",
+			"Residue_C285",
+			"Residue_C355",
+			"Residue_C286",
+			"Residue_C354",
+			"Residue_C287",
+			"Residue_C353",
+			"Residue_C288",
+			"Residue_C352",
+			"Residue_C289",
+			"Residue_C351",
+			"Residue_C290",
+			"Residue_C350",
+			"Residue_C291",
+			"Residue_C349",
+			"Residue_C292",
+			"Residue_C348",
+			"Residue_C293",
+			"Residue_C347"
+		],
+		"associated_helices": [
+			"Helix_C281"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C279"
+	},
+	"CoaxialStack_C295": {
+		"coax_pairs": [
+			{
+				"resnum1": 295,
+				"chain1": "C",
+				"resnum2": 343,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 296,
+				"chain1": "C",
+				"resnum2": 342,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 297,
+				"chain1": "C",
+				"resnum2": 341,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 298,
+				"chain1": "C",
+				"resnum2": 340,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
+			}
+		],
+		"associated_residues": [
+			"Residue_C295",
+			"Residue_C343",
+			"Residue_C296",
+			"Residue_C342",
+			"Residue_C297",
+			"Residue_C341",
+			"Residue_C298",
+			"Residue_C340"
+		],
+		"associated_helices": [
+			"Helix_C295"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C295"
+	},
+	"CoaxialStack_C299": {
+		"coax_pairs": [
+			{
+				"resnum1": 299,
+				"chain1": "C",
+				"resnum2": 338,
+				"chain2": "C",
+				"edge1": "H",
+				"edge2": "W",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 322,
+				"chain1": "C",
+				"resnum2": 339,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		],
+		"associated_residues": [
+			"Residue_C299",
+			"Residue_C338",
+			"Residue_C322",
+			"Residue_C339"
+		],
+		"associated_helices": [],
+		"coaxial_stack_tag": "CoaxialStack_C299"
+	},
+	"CoaxialStack_C301": {
+		"coax_pairs": [
+			{
+				"resnum1": 301,
+				"chain1": "C",
+				"resnum2": 316,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 302,
+				"chain1": "C",
+				"resnum2": 315,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 303,
+				"chain1": "C",
+				"resnum2": 314,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 304,
+				"chain1": "C",
+				"resnum2": 313,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 305,
+				"chain1": "C",
+				"resnum2": 312,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 306,
+				"chain1": "C",
+				"resnum2": 310,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
+			}
+		],
+		"associated_residues": [
+			"Residue_C301",
+			"Residue_C316",
+			"Residue_C302",
+			"Residue_C315",
+			"Residue_C303",
+			"Residue_C314",
+			"Residue_C304",
+			"Residue_C313",
+			"Residue_C305",
+			"Residue_C312",
+			"Residue_C306",
+			"Residue_C310"
+		],
+		"associated_helices": [
+			"Helix_C301"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C301"
+	},
+	"CoaxialStack_C308": {
+		"coax_pairs": [
+			{
+				"resnum1": 308,
+				"chain1": "C",
+				"resnum2": 329,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "S",
+				"LW_orientation": "T",
+				"orientation": "P"
+			},
+			{
+				"resnum1": 501,
+				"chain1": "C",
+				"edge1": "H",
+				"resnum2": 477,
+				"chain2": "C",
+				"edge2": "H",
+				"orientation": "P",
+				"LW_orientation": "T"
+			}
+		],
+		"associated_residues": [
+			"Residue_C308",
+			"Residue_C329",
+			"Residue_C501",
+			"Residue_C477"
+		],
+		"associated_helices": [],
+		"coaxial_stack_tag": "CoaxialStack_C308"
+	},
+	"CoaxialStack_C324": {
+		"coax_pairs": [
+			{
+				"resnum1": 324,
+				"chain1": "C",
+				"resnum2": 338,
+				"chain2": "C",
+				"edge1": "H",
+				"edge2": "S",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 325,
+				"chain1": "C",
+				"resnum2": 337,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 326,
+				"chain1": "C",
+				"resnum2": 336,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 327,
+				"chain1": "C",
+				"resnum2": 335,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 328,
+				"chain1": "C",
+				"resnum2": 332,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
+			}
+		],
+		"associated_residues": [
+			"Residue_C324",
+			"Residue_C338",
+			"Residue_C325",
+			"Residue_C337",
+			"Residue_C326",
+			"Residue_C336",
+			"Residue_C327",
+			"Residue_C335",
+			"Residue_C328",
+			"Residue_C332"
+		],
+		"associated_helices": [
+			"Helix_C325"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C324"
+	},
+	"CoaxialStack_C371": {
+		"coax_pairs": [
+			{
+				"resnum1": 371,
+				"chain1": "C",
+				"resnum2": 402,
 				"chain2": "C",
 				"edge1": "H",
 				"edge2": "H",
@@ -20782,9 +20687,9 @@
 				"orientation": "P"
 			},
 			{
-				"resnum1": 243,
+				"resnum1": 373,
 				"chain1": "C",
-				"resnum2": 255,
+				"resnum2": 401,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "H",
@@ -20793,164 +20698,174 @@
 			}
 		],
 		"associated_residues": [
-			"Residue_C430",
-			"Residue_C263",
-			"Residue_C235",
-			"Residue_C262",
-			"Residue_C236",
-			"Residue_C261",
-			"Residue_C237",
-			"Residue_C260",
-			"Residue_C238",
-			"Residue_C259",
-			"Residue_C239",
-			"Residue_C258",
-			"Residue_C240",
-			"Residue_C257",
-			"Residue_C241",
-			"Residue_C256",
-			"Residue_C243",
-			"Residue_C255"
+			"Residue_C371",
+			"Residue_C402",
+			"Residue_C373",
+			"Residue_C401"
 		],
-		"associated_helices": [
-			"Helix_C235"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C430"
+		"associated_helices": [],
+		"coaxial_stack_tag": "CoaxialStack_C371"
 	},
-	"CoaxialStack_C434": {
+	"CoaxialStack_C372": {
 		"coax_pairs": [
 			{
-				"resnum1": 434,
+				"resnum1": 372,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 44,
+				"resnum2": 373,
 				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"edge1": "S",
+				"edge2": "H",
+				"LW_orientation": "C",
+				"orientation": "P"
 			},
 			{
-				"resnum1": 433,
+				"resnum1": 400,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 45,
+				"edge1": "S",
+				"resnum2": 374,
 				"chain2": "C",
-				"edge2": "W",
+				"edge2": "H",
 				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 432,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 215,
-				"chain2": "C",
-				"edge2": "S",
-				"orientation": "P",
 				"LW_orientation": "T"
 			},
 			{
-				"resnum1": 216,
+				"resnum1": 399,
 				"chain1": "C",
-				"edge1": "S",
-				"resnum2": 214,
+				"edge1": "W",
+				"resnum2": 375,
 				"chain2": "C",
-				"edge2": "S",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 398,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 376,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 397,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 377,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 396,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 378,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 395,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 379,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 394,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 380,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 393,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 381,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 392,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 382,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 391,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 383,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 411,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 385,
+				"chain2": "C",
+				"edge2": "W",
 				"orientation": "A",
 				"LW_orientation": "C"
 			}
 		],
 		"associated_residues": [
-			"Residue_C434",
-			"Residue_C44",
-			"Residue_C433",
-			"Residue_C45",
-			"Residue_C432",
-			"Residue_C215",
-			"Residue_C216",
-			"Residue_C214"
+			"Residue_C372",
+			"Residue_C373",
+			"Residue_C400",
+			"Residue_C374",
+			"Residue_C399",
+			"Residue_C375",
+			"Residue_C398",
+			"Residue_C376",
+			"Residue_C397",
+			"Residue_C377",
+			"Residue_C396",
+			"Residue_C378",
+			"Residue_C395",
+			"Residue_C379",
+			"Residue_C394",
+			"Residue_C380",
+			"Residue_C393",
+			"Residue_C381",
+			"Residue_C392",
+			"Residue_C382",
+			"Residue_C391",
+			"Residue_C383",
+			"Residue_C411",
+			"Residue_C385"
 		],
 		"associated_helices": [
-			"Helix_C44"
+			"Helix_C375"
 		],
-		"coaxial_stack_tag": "CoaxialStack_C434"
+		"coaxial_stack_tag": "CoaxialStack_C372"
 	},
-	"CoaxialStack_C454": {
+	"CoaxialStack_C43": {
 		"coax_pairs": [
 			{
-				"resnum1": 454,
+				"resnum1": 43,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 446,
-				"chain2": "C",
-				"edge2": "S",
-				"orientation": "P",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 35,
-				"chain1": "C",
-				"resnum2": 445,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 36,
-				"chain1": "C",
-				"resnum2": 444,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 37,
-				"chain1": "C",
-				"resnum2": 442,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 38,
-				"chain1": "C",
-				"resnum2": 441,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 39,
-				"chain1": "C",
-				"resnum2": 440,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 40,
-				"chain1": "C",
-				"resnum2": 439,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 41,
-				"chain1": "C",
-				"resnum2": 438,
+				"resnum2": 436,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -20968,75 +20883,183 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 43,
+				"resnum1": 41,
 				"chain1": "C",
-				"resnum2": 436,
+				"resnum2": 438,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
 				"LW_orientation": "C",
 				"orientation": "A"
+			},
+			{
+				"resnum1": 40,
+				"chain1": "C",
+				"resnum2": 439,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 39,
+				"chain1": "C",
+				"resnum2": 440,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 38,
+				"chain1": "C",
+				"resnum2": 441,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 37,
+				"chain1": "C",
+				"resnum2": 442,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 36,
+				"chain1": "C",
+				"resnum2": 444,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 35,
+				"chain1": "C",
+				"resnum2": 445,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 454,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 446,
+				"chain2": "C",
+				"edge2": "S",
+				"orientation": "P",
+				"LW_orientation": "T"
 			}
 		],
 		"associated_residues": [
-			"Residue_C454",
-			"Residue_C446",
-			"Residue_C35",
-			"Residue_C445",
-			"Residue_C36",
-			"Residue_C444",
-			"Residue_C37",
-			"Residue_C442",
-			"Residue_C38",
-			"Residue_C441",
-			"Residue_C39",
-			"Residue_C440",
-			"Residue_C40",
-			"Residue_C439",
-			"Residue_C41",
-			"Residue_C438",
+			"Residue_C43",
+			"Residue_C436",
 			"Residue_C42",
 			"Residue_C437",
-			"Residue_C43",
-			"Residue_C436"
+			"Residue_C41",
+			"Residue_C438",
+			"Residue_C40",
+			"Residue_C439",
+			"Residue_C39",
+			"Residue_C440",
+			"Residue_C38",
+			"Residue_C441",
+			"Residue_C37",
+			"Residue_C442",
+			"Residue_C36",
+			"Residue_C444",
+			"Residue_C35",
+			"Residue_C445",
+			"Residue_C454",
+			"Residue_C446"
 		],
 		"associated_helices": [
 			"Helix_C35",
 			"Helix_C37"
 		],
-		"coaxial_stack_tag": "CoaxialStack_C454"
+		"coaxial_stack_tag": "CoaxialStack_C43"
 	},
-	"CoaxialStack_C467": {
+	"CoaxialStack_C44": {
 		"coax_pairs": [
 			{
-				"resnum1": 467,
+				"resnum1": 44,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 462,
+				"resnum2": 434,
 				"chain2": "C",
+				"edge1": "W",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 468,
+				"resnum1": 45,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 461,
+				"resnum2": 433,
 				"chain2": "C",
+				"edge1": "W",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 469,
+				"resnum1": 215,
 				"chain1": "C",
+				"resnum2": 432,
+				"chain2": "C",
 				"edge1": "S",
-				"resnum2": 460,
+				"edge2": "W",
+				"LW_orientation": "T",
+				"orientation": "P"
+			},
+			{
+				"resnum1": 214,
+				"chain1": "C",
+				"resnum2": 216,
 				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
+				"edge1": "S",
+				"edge2": "S",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		],
+		"associated_residues": [
+			"Residue_C44",
+			"Residue_C434",
+			"Residue_C45",
+			"Residue_C433",
+			"Residue_C215",
+			"Residue_C432",
+			"Residue_C214",
+			"Residue_C216"
+		],
+		"associated_helices": [
+			"Helix_C44"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C44"
+	},
+	"CoaxialStack_C452": {
+		"coax_pairs": [
+			{
+				"resnum1": 452,
+				"chain1": "C",
+				"resnum2": 457,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "S",
+				"LW_orientation": "T",
+				"orientation": "P"
 			},
 			{
 				"resnum1": 458,
@@ -21049,278 +21072,96 @@
 				"orientation": "P"
 			},
 			{
-				"resnum1": 452,
+				"resnum1": 469,
 				"chain1": "C",
-				"resnum2": 457,
-				"chain2": "C",
 				"edge1": "S",
-				"edge2": "S",
-				"LW_orientation": "T",
-				"orientation": "P"
+				"resnum2": 460,
+				"chain2": "C",
+				"edge2": "H",
+				"orientation": "A",
+				"LW_orientation": "T"
+			},
+			{
+				"resnum1": 468,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 461,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 467,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 462,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
 			}
 		],
 		"associated_residues": [
-			"Residue_C467",
-			"Residue_C462",
-			"Residue_C468",
-			"Residue_C461",
-			"Residue_C469",
-			"Residue_C460",
+			"Residue_C452",
+			"Residue_C457",
 			"Residue_C458",
 			"Residue_C459",
-			"Residue_C452",
-			"Residue_C457"
+			"Residue_C469",
+			"Residue_C460",
+			"Residue_C468",
+			"Residue_C461",
+			"Residue_C467",
+			"Residue_C462"
 		],
 		"associated_helices": [
 			"Helix_C461"
 		],
-		"coaxial_stack_tag": "CoaxialStack_C467"
+		"coaxial_stack_tag": "CoaxialStack_C452"
 	},
-	"CoaxialStack_C471": {
+	"CoaxialStack_C457": {
 		"coax_pairs": [
 			{
-				"resnum1": 471,
+				"resnum1": 457,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 457,
+				"resnum2": 471,
 				"chain2": "C",
+				"edge1": "H",
 				"edge2": "H",
-				"orientation": "P",
-				"LW_orientation": "T"
+				"LW_orientation": "T",
+				"orientation": "P"
 			},
 			{
-				"resnum1": 470,
+				"resnum1": 459,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 459,
+				"resnum2": 470,
 				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "T"
+				"edge1": "W",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
 			}
 		],
 		"associated_residues": [
-			"Residue_C471",
 			"Residue_C457",
-			"Residue_C470",
-			"Residue_C459"
+			"Residue_C471",
+			"Residue_C459",
+			"Residue_C470"
 		],
 		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C471"
+		"coaxial_stack_tag": "CoaxialStack_C457"
 	},
-	"CoaxialStack_C497": {
+	"CoaxialStack_C476": {
 		"coax_pairs": [
 			{
-				"resnum1": 497,
+				"resnum1": 476,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 483,
-				"chain2": "C",
-				"edge2": "H",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 496,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 484,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 495,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 485,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 494,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 486,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 493,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 487,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
-			},
-			{
-				"resnum1": 492,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 488,
-				"chain2": "C",
-				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "T"
-			}
-		],
-		"associated_residues": [
-			"Residue_C497",
-			"Residue_C483",
-			"Residue_C496",
-			"Residue_C484",
-			"Residue_C495",
-			"Residue_C485",
-			"Residue_C494",
-			"Residue_C486",
-			"Residue_C493",
-			"Residue_C487",
-			"Residue_C492",
-			"Residue_C488"
-		],
-		"associated_helices": [
-			"Helix_C484"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C497"
-	},
-	"CoaxialStack_C501": {
-		"coax_pairs": [
-			{
-				"resnum1": 501,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 477,
-				"chain2": "C",
-				"edge2": "H",
-				"orientation": "P",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 308,
-				"chain1": "C",
-				"resnum2": 329,
+				"resnum2": 480,
 				"chain2": "C",
 				"edge1": "S",
-				"edge2": "S",
-				"LW_orientation": "T",
-				"orientation": "P"
-			}
-		],
-		"associated_residues": [
-			"Residue_C501",
-			"Residue_C477",
-			"Residue_C308",
-			"Residue_C329"
-		],
-		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C501"
-	},
-	"CoaxialStack_C506": {
-		"coax_pairs": [
-			{
-				"resnum1": 506,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 498,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 503,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 499,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 505,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 500,
-				"chain2": "C",
-				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "T"
-			}
-		],
-		"associated_residues": [
-			"Residue_C506",
-			"Residue_C498",
-			"Residue_C503",
-			"Residue_C499",
-			"Residue_C505",
-			"Residue_C500"
-		],
-		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C506"
-	},
-	"CoaxialStack_C507": {
-		"coax_pairs": [
-			{
-				"resnum1": 507,
-				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 482,
-				"chain2": "C",
 				"edge2": "H",
-				"orientation": "P",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 481,
-				"chain1": "C",
-				"resnum2": 506,
-				"chain2": "C",
-				"edge1": "S",
-				"edge2": "S",
 				"LW_orientation": "T",
-				"orientation": "P"
-			},
-			{
-				"resnum1": 479,
-				"chain1": "C",
-				"resnum2": 503,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "T",
-				"orientation": "P"
-			}
-		],
-		"associated_residues": [
-			"Residue_C507",
-			"Residue_C482",
-			"Residue_C481",
-			"Residue_C506",
-			"Residue_C479",
-			"Residue_C503"
-		],
-		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C507"
-	},
-	"CoaxialStack_C509": {
-		"coax_pairs": [
-			{
-				"resnum1": 509,
-				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 481,
-				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"orientation": "A"
 			},
 			{
 				"resnum1": 475,
@@ -21333,9 +21174,127 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 476,
+				"resnum1": 509,
 				"chain1": "C",
-				"resnum2": 480,
+				"edge1": "W",
+				"resnum2": 481,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			}
+		],
+		"associated_residues": [
+			"Residue_C476",
+			"Residue_C480",
+			"Residue_C475",
+			"Residue_C479",
+			"Residue_C509",
+			"Residue_C481"
+		],
+		"associated_helices": [],
+		"coaxial_stack_tag": "CoaxialStack_C476"
+	},
+	"CoaxialStack_C479": {
+		"coax_pairs": [
+			{
+				"resnum1": 479,
+				"chain1": "C",
+				"resnum2": 503,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "T",
+				"orientation": "P"
+			},
+			{
+				"resnum1": 481,
+				"chain1": "C",
+				"resnum2": 506,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "S",
+				"LW_orientation": "T",
+				"orientation": "P"
+			},
+			{
+				"resnum1": 507,
+				"chain1": "C",
+				"edge1": "H",
+				"resnum2": 482,
+				"chain2": "C",
+				"edge2": "H",
+				"orientation": "P",
+				"LW_orientation": "T"
+			}
+		],
+		"associated_residues": [
+			"Residue_C479",
+			"Residue_C503",
+			"Residue_C481",
+			"Residue_C506",
+			"Residue_C507",
+			"Residue_C482"
+		],
+		"associated_helices": [],
+		"coaxial_stack_tag": "CoaxialStack_C479"
+	},
+	"CoaxialStack_C483": {
+		"coax_pairs": [
+			{
+				"resnum1": 483,
+				"chain1": "C",
+				"resnum2": 497,
+				"chain2": "C",
+				"edge1": "H",
+				"edge2": "W",
+				"LW_orientation": "T",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 484,
+				"chain1": "C",
+				"resnum2": 496,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 485,
+				"chain1": "C",
+				"resnum2": 495,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 486,
+				"chain1": "C",
+				"resnum2": 494,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 487,
+				"chain1": "C",
+				"resnum2": 493,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 488,
+				"chain1": "C",
+				"resnum2": 492,
 				"chain2": "C",
 				"edge1": "S",
 				"edge2": "H",
@@ -21344,160 +21303,248 @@
 			}
 		],
 		"associated_residues": [
-			"Residue_C509",
-			"Residue_C481",
-			"Residue_C475",
-			"Residue_C479",
-			"Residue_C476",
-			"Residue_C480"
+			"Residue_C483",
+			"Residue_C497",
+			"Residue_C484",
+			"Residue_C496",
+			"Residue_C485",
+			"Residue_C495",
+			"Residue_C486",
+			"Residue_C494",
+			"Residue_C487",
+			"Residue_C493",
+			"Residue_C488",
+			"Residue_C492"
 		],
-		"associated_helices": [],
-		"coaxial_stack_tag": "CoaxialStack_C509"
+		"associated_helices": [
+			"Helix_C484"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C483"
 	},
-	"CoaxialStack_C515": {
+	"CoaxialStack_C49": {
 		"coax_pairs": [
 			{
-				"resnum1": 515,
+				"resnum1": 49,
+				"chain1": "C",
+				"resnum2": 120,
+				"chain2": "C",
+				"edge1": "H",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "P"
+			},
+			{
+				"resnum1": 177,
 				"chain1": "C",
 				"edge1": "H",
-				"resnum2": 25,
+				"resnum2": 149,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "P",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 176,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 150,
 				"chain2": "C",
 				"edge2": "W",
 				"orientation": "A",
-				"LW_orientation": "T"
+				"LW_orientation": "C"
 			},
 			{
-				"resnum1": 514,
+				"resnum1": 175,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 151,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 174,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 152,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 173,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 153,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 172,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 154,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 171,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 155,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 170,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 156,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 169,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 157,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 168,
+				"chain1": "C",
+				"edge1": "W",
+				"resnum2": 158,
+				"chain2": "C",
+				"edge2": "W",
+				"orientation": "A",
+				"LW_orientation": "C"
+			},
+			{
+				"resnum1": 167,
 				"chain1": "C",
 				"edge1": "H",
-				"resnum2": 26,
+				"resnum2": 159,
 				"chain2": "C",
 				"edge2": "S",
 				"orientation": "A",
 				"LW_orientation": "T"
-			},
+			}
+		],
+		"associated_residues": [
+			"Residue_C49",
+			"Residue_C120",
+			"Residue_C177",
+			"Residue_C149",
+			"Residue_C176",
+			"Residue_C150",
+			"Residue_C175",
+			"Residue_C151",
+			"Residue_C174",
+			"Residue_C152",
+			"Residue_C173",
+			"Residue_C153",
+			"Residue_C172",
+			"Residue_C154",
+			"Residue_C171",
+			"Residue_C155",
+			"Residue_C170",
+			"Residue_C156",
+			"Residue_C169",
+			"Residue_C157",
+			"Residue_C168",
+			"Residue_C158",
+			"Residue_C167",
+			"Residue_C159"
+		],
+		"associated_helices": [
+			"Helix_C150"
+		],
+		"coaxial_stack_tag": "CoaxialStack_C49"
+	},
+	"CoaxialStack_C498": {
+		"coax_pairs": [
 			{
-				"resnum1": 513,
+				"resnum1": 498,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 27,
+				"resnum2": 506,
 				"chain2": "C",
-				"edge2": "S",
-				"orientation": "A",
-				"LW_orientation": "T"
-			},
-			{
-				"resnum1": 28,
-				"chain1": "C",
-				"resnum2": 512,
-				"chain2": "C",
-				"edge1": "H",
-				"edge2": "S",
+				"edge1": "W",
+				"edge2": "H",
 				"LW_orientation": "T",
 				"orientation": "A"
 			},
 			{
-				"resnum1": 29,
+				"resnum1": 499,
 				"chain1": "C",
-				"resnum2": 511,
+				"resnum2": 503,
 				"chain2": "C",
 				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
+				"edge2": "H",
+				"LW_orientation": "T",
 				"orientation": "A"
 			},
 			{
-				"resnum1": 30,
+				"resnum1": 500,
 				"chain1": "C",
-				"resnum2": 510,
+				"resnum2": 505,
 				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 31,
-				"chain1": "C",
-				"resnum2": 474,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 32,
-				"chain1": "C",
-				"resnum2": 473,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 33,
-				"chain1": "C",
-				"resnum2": 447,
-				"chain2": "C",
-				"edge1": "W",
+				"edge1": "S",
 				"edge2": "H",
 				"LW_orientation": "T",
 				"orientation": "A"
 			}
 		],
 		"associated_residues": [
-			"Residue_C515",
-			"Residue_C25",
-			"Residue_C514",
-			"Residue_C26",
-			"Residue_C513",
-			"Residue_C27",
-			"Residue_C28",
-			"Residue_C512",
-			"Residue_C29",
-			"Residue_C511",
-			"Residue_C30",
-			"Residue_C510",
-			"Residue_C31",
-			"Residue_C474",
-			"Residue_C32",
-			"Residue_C473",
-			"Residue_C33",
-			"Residue_C447"
+			"Residue_C498",
+			"Residue_C506",
+			"Residue_C499",
+			"Residue_C503",
+			"Residue_C500",
+			"Residue_C505"
 		],
-		"associated_helices": [
-			"Helix_C31"
-		],
-		"coaxial_stack_tag": "CoaxialStack_C515"
+		"associated_helices": [],
+		"coaxial_stack_tag": "CoaxialStack_C498"
 	},
-	"CoaxialStack_C526": {
+	"CoaxialStack_C52": {
 		"coax_pairs": [
 			{
-				"resnum1": 526,
+				"resnum1": 52,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 12,
+				"resnum2": 119,
 				"chain2": "C",
-				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "T"
+				"edge1": "H",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "P"
 			},
 			{
-				"resnum1": 14,
+				"resnum1": 53,
 				"chain1": "C",
-				"edge1": "H",
-				"resnum2": 13,
+				"resnum2": 117,
 				"chain2": "C",
+				"edge1": "H",
 				"edge2": "S",
-				"orientation": "P",
-				"LW_orientation": "C"
+				"LW_orientation": "T",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 15,
+				"resnum1": 54,
 				"chain1": "C",
-				"resnum2": 525,
+				"resnum2": 116,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -21505,9 +21552,9 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 16,
+				"resnum1": 55,
 				"chain1": "C",
-				"resnum2": 524,
+				"resnum2": 115,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -21515,9 +21562,9 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 17,
+				"resnum1": 56,
 				"chain1": "C",
-				"resnum2": 523,
+				"resnum2": 114,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -21525,9 +21572,9 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 18,
+				"resnum1": 57,
 				"chain1": "C",
-				"resnum2": 522,
+				"resnum2": 70,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -21535,9 +21582,9 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 19,
+				"resnum1": 58,
 				"chain1": "C",
-				"resnum2": 521,
+				"resnum2": 69,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -21545,49 +21592,9 @@
 				"orientation": "A"
 			},
 			{
-				"resnum1": 20,
+				"resnum1": 59,
 				"chain1": "C",
-				"resnum2": 520,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 21,
-				"chain1": "C",
-				"resnum2": 519,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 22,
-				"chain1": "C",
-				"resnum2": 518,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 23,
-				"chain1": "C",
-				"resnum2": 517,
-				"chain2": "C",
-				"edge1": "W",
-				"edge2": "W",
-				"LW_orientation": "C",
-				"orientation": "A"
-			},
-			{
-				"resnum1": 24,
-				"chain1": "C",
-				"resnum2": 516,
+				"resnum2": 68,
 				"chain2": "C",
 				"edge1": "W",
 				"edge2": "W",
@@ -21596,93 +21603,86 @@
 			}
 		],
 		"associated_residues": [
-			"Residue_C526",
-			"Residue_C12",
-			"Residue_C14",
-			"Residue_C13",
-			"Residue_C15",
-			"Residue_C525",
-			"Residue_C16",
-			"Residue_C524",
-			"Residue_C17",
-			"Residue_C523",
-			"Residue_C18",
-			"Residue_C522",
-			"Residue_C19",
-			"Residue_C521",
-			"Residue_C20",
-			"Residue_C520",
-			"Residue_C21",
-			"Residue_C519",
-			"Residue_C22",
-			"Residue_C518",
-			"Residue_C23",
-			"Residue_C517",
-			"Residue_C24",
-			"Residue_C516"
+			"Residue_C52",
+			"Residue_C119",
+			"Residue_C53",
+			"Residue_C117",
+			"Residue_C54",
+			"Residue_C116",
+			"Residue_C55",
+			"Residue_C115",
+			"Residue_C56",
+			"Residue_C114",
+			"Residue_C57",
+			"Residue_C70",
+			"Residue_C58",
+			"Residue_C69",
+			"Residue_C59",
+			"Residue_C68"
 		],
 		"associated_helices": [
-			"Helix_C15"
+			"Helix_C54",
+			"Helix_C57"
 		],
-		"coaxial_stack_tag": "CoaxialStack_C526"
+		"coaxial_stack_tag": "CoaxialStack_C52"
 	},
-	"CoaxialStack_C91": {
+	"CoaxialStack_C63": {
 		"coax_pairs": [
 			{
-				"resnum1": 91,
+				"resnum1": 63,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 63,
+				"resnum2": 91,
 				"chain2": "C",
+				"edge1": "W",
 				"edge2": "W",
-				"orientation": "P",
-				"LW_orientation": "T"
+				"LW_orientation": "T",
+				"orientation": "P"
 			},
 			{
-				"resnum1": 90,
+				"resnum1": 64,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 64,
+				"resnum2": 90,
 				"chain2": "C",
+				"edge1": "W",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 89,
+				"resnum1": 65,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 65,
+				"resnum2": 89,
 				"chain2": "C",
+				"edge1": "W",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			},
 			{
-				"resnum1": 88,
+				"resnum1": 66,
 				"chain1": "C",
-				"edge1": "W",
-				"resnum2": 66,
+				"resnum2": 88,
 				"chain2": "C",
+				"edge1": "W",
 				"edge2": "W",
-				"orientation": "A",
-				"LW_orientation": "C"
+				"LW_orientation": "C",
+				"orientation": "A"
 			}
 		],
 		"associated_residues": [
-			"Residue_C91",
 			"Residue_C63",
-			"Residue_C90",
+			"Residue_C91",
 			"Residue_C64",
-			"Residue_C89",
+			"Residue_C90",
 			"Residue_C65",
-			"Residue_C88",
-			"Residue_C66"
+			"Residue_C89",
+			"Residue_C66",
+			"Residue_C88"
 		],
 		"associated_helices": [
 			"Helix_C64"
 		],
-		"coaxial_stack_tag": "CoaxialStack_C91"
+		"coaxial_stack_tag": "CoaxialStack_C63"
 	},
 	"plot_settings": {
 		"fontsize": 10,
@@ -21690,6 +21690,6 @@
 		"bp_spacing": 6,
 		"show_linker_controls": 0
 	},
-	"xlim": [-47.5,185.1514719],
-	"ylim": [0.6802020786,191.1947979]
+	"xlim": [-49.125,187.125],
+	"ylim": [4.244050041,187.63095]
 }

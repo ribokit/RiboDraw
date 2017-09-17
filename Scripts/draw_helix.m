@@ -63,7 +63,7 @@ domains = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
-    if isfield( residue, 'associated_domains' )
+    if isfield( residue, 'associated_domains' ) & length( residue.associated_domains ) > 0
         domains = [ domains, residue.associated_domains ];
     end    
 end

@@ -17,10 +17,10 @@ chain2 = reschain2{2};
 
 if ( chain2 > chain1 ) |  ...
         ( chain2 == chain1 & res2 > res1 )
-    reschain = reschain2;
+    reschain = reschain1;
     idx = 1;
 else
-    reschain = reschain1;
+    reschain = reschain2;
     idx = 2;
 end
     

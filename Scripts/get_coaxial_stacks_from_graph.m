@@ -54,7 +54,7 @@ for i = 1:max( bins )
      % residues (even in a helix stem) from 5' to 3'!
      stacked_pair = ordered_stacked_pair( ...
          base_pairs{coax_pair_idx(edge_idx(1))}, ...
-         base_pairs{coax_pair_idx(edge_idx(2))} );
+         base_pairs{coax_pair_idx(edge_idx(2))} );     
      current_pair = stacked_pair.base_pair1;  % note that this may not be ordered
      current_idx = find_in_doublets( base_pairs, ordered_base_pair( current_pair ) );
      coax_idx   = [current_idx]; % index in base_pairs list

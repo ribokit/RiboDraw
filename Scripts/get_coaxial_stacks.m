@@ -1,10 +1,15 @@
 function coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
-% coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks );
+% coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
+%
+% * define a graph of stacked pairs. Then let's see if we can get connected
+%   components.
+% * consecutive pairs in helix stems are assumed to always qualify as stacked pairs.
+% * if a residue is in a helix stem, other pairs (e.g. triplet
+%    interactions) are excluded from seeding new coaxial stacks. 
 %
 % (C) Rhiju Das, Stanford University, 2017
 
-% define a graph of stacked pairs. Then let's see if we can get connected
-% components?
+base_pairs = filter_out_extra_base_pairs_for_stem_residues( base_pairs, stems );
 base_pairs = fill_base_normal_orientations( base_pairs );
 base_stacks = include_stacks_for_stems( base_stacks, stems );
 
@@ -130,3 +135,38 @@ for j = 1:stem_length-1
         base_stacks = [base_stacks, stack ];
     end
 end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function filtered_base_pairs = filter_out_extra_base_pairs_for_stem_residues( base_pairs, stems );
+stem_res     = {};
+stem_partner = {};
+for i = 1:length( stems )
+    stem = stems{i};
+    L = length( stem.resnum1 );
+    for j = 1:L
+        stem_res    = [stem_res,     sprintf('%s%d',stem.chain1(j),    stem.resnum1(j)) ];
+        stem_partner = [stem_partner, sprintf('%s%d',stem.chain2(L-j+1),stem.resnum2(L-j+1))];
+    end
+end
+
+for i = 1:length( stem_res )
+    stem_res     = [stem_res, stem_partner{i} ];
+    stem_partner = [stem_partner, stem_res{i} ];
+end
+
+% only allow the canonical pairs for stem residues:
+filtered_base_pairs = {};
+for i = 1:length( base_pairs )
+    base_pair = base_pairs{i};
+    reschain1 = sprintf('%s%d',base_pair.chain1,base_pair.resnum1 );
+    reschain2 = sprintf('%s%d',base_pair.chain2,base_pair.resnum2 );
+    if ( any(strcmp( stem_res, reschain1 )) | any(strcmp( stem_res, reschain2 )) )
+        gp = find( strcmp( stem_res, reschain1 ) );
+        if isempty( gp ); continue; end;
+        if ~strcmp( stem_partner(gp), reschain2 ) continue; end;
+        assert( strcmp( stem_partner( strcmp( stem_res, reschain2 ) ), reschain1 ) );
+    end
+    filtered_base_pairs = [filtered_base_pairs, base_pair ];
+end
+

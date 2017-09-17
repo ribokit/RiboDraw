@@ -9,6 +9,7 @@ end
 % check that all stems are connected,
 % and get rid of co-axial stacks that are 'just' stems
 just_a_stem = zeros( 1, max(bins) );
+in_stem = zeros( 1, length(bins) );
 for i = 1 : length( stems)
     stem = stems{i};
     stem_length = length( stem.resnum1 );
@@ -23,6 +24,7 @@ for i = 1 : length( stems)
         base_pair.LW_orientation = 'C';
         base_pair.orientation = 'A';
         idx = find_in_doublets( base_pairs, ordered_base_pair(base_pair) );
+        in_stem( idx ) = i;
         stem_bins = [stem_bins, bins( idx )];
     end
     stem_bin = unique( stem_bins );
@@ -71,6 +73,23 @@ for i = 1:max( bins )
          current_pair = next_pair;
      end
      coaxial_stack.coax_pairs = coax_pairs;
+
+     % save information on associated_residues 
+     associated_residues = {};
+     for j = 1:length( coax_pairs )
+         associated_residues = [ associated_residues, sprintf( 'Residue_%s%d', coax_pairs{j}.chain1, coax_pairs{j}.resnum1 ) ];
+         associated_residues = [ associated_residues, sprintf( 'Residue_%s%d', coax_pairs{j}.chain2, coax_pairs{j}.resnum2 ) ];
+     end
+     coaxial_stack.associated_residues = associated_residues;
+     
+     % save information on associated_helices.
+     stem_idx = sort( unique( setdiff( in_stem( coax_pair_idx ), [0] ) ) );
+     associated_helices = {};
+     for idx = stem_idx
+         associated_helices = [ associated_helices, sprintf( 'Helix_%s%d', stems{idx}.chain1(1), stems{idx}.resnum1(1) ) ];
+     end
+     coaxial_stack.associated_helices = associated_helices;
+
      coaxial_stacks = [ coaxial_stacks, coaxial_stack];
 end
 

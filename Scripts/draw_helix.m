@@ -58,6 +58,37 @@ end
 if ~isfield( helix, 'label_relpos' ) helix.label_relpos = plot_settings.bp_spacing *[0 1]; end;
 helix.l = make_helix_label( helix, plot_settings, R );
 
+% coaxial domains (if they exist)
+domains = {};
+for i = 1:length( helix.associated_residues )
+    res_tag = helix.associated_residues{i};
+    residue = getappdata( gca, res_tag );
+    if isfield( residue, 'associated_domains' )
+        domains = [ domains, residue.associated_domains ];
+    end    
+end
+domains = unique( domains );
+for i = 1:length( domains )
+    domain_tag = domains{i};
+    domain = getappdata( gca, domain_tag );
+    dom_pos = [];
+    for j = 1:length( domain.associated_residues )
+        residue = getappdata( gca, domain.associated_residues{j} );
+        if isfield( residue, 'plot_pos' );
+            dom_pos = [ dom_pos; residue.plot_pos ];
+        end
+    end
+    minpos = min( dom_pos, [], 1 );
+    maxpos = max( dom_pos, [], 1 );   
+    if ~isfield( domain, 'handle' )
+        domain.handle = rectangle( 'Position', [0 0 1 1],'edgecolor',[0.5 0.5 0.5],'clipping','off');
+        setappdata( domain.handle,'domain_tag', domain_tag);
+        setappdata( gca, domain_tag, domain );
+    end
+    set( domain.handle, 'Position',  [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
+        [-0.5 -0.5 1 1]*0.75*spacing );
+end
+
 % handles for helix editing
 % rectangle for dragging.
 minpos = min( [all_pos1; all_pos2 ] );

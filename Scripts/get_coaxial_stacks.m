@@ -96,7 +96,6 @@ end
 fprintf( 'Working out coaxial stacks from graph\n' );
 coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function stacked_pairs = add_stacked_pair( stacked_pairs, base_pair, base_stack, other_base_pair, other_base_stack );
 stacked_pair = ordered_stacked_pair( base_pair, other_base_pair );

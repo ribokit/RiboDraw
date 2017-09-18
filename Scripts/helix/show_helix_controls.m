@@ -23,6 +23,8 @@ for n = 1:length( objnames )
         helix = getappdata( gca, objnames{n} );
         if isfield( helix, 'click_center' )   set( helix.click_center,'visible', visible); end;
         if isfield( helix, 'reflect_line' )   set( helix.reflect_line, 'visible', visible); end;
+        if isfield( helix, 'reflect_line1' )   set( helix.reflect_line1, 'visible', visible); end;
+        if isfield( helix, 'reflect_line2' )   set( helix.reflect_line2, 'visible', visible); end;
         if isfield( helix, 'rectangle' )      set( helix.rectangle, 'visible', visible); end;
     end
 end

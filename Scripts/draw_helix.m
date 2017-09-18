@@ -80,17 +80,19 @@ for i = 1:length( domains )
     end
     minpos = min( dom_pos, [], 1 );
     maxpos = max( dom_pos, [], 1 );   
-    domain = create_default_rectangle( domain, 'domain_tag', domain_tag, @redraw_domain );
-    set( domain.rectangle,'edgecolor',[1 0.7 0.7]);
-    if ~isfield( domain, 'auto_text' )
-        h = text( 0, 0, 'auto', 'fontsize',6,'color',[1 0.7 0.7],'verticalalign','top' );
-        setappdata(h,'domain_tag',domain_tag);
-        set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});
-        domain.auto_text = h;
-        setappdata( gca, domain_tag, domain );
-    end    
-    set_rectangle_coords( domain, minpos, maxpos, spacing );
-    set( domain.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing );
+    if ( plot_settings.show_domain_controls )
+        domain = create_default_rectangle( domain, 'domain_tag', domain_tag, @redraw_domain );
+        set( domain.rectangle,'edgecolor',[1 0.7 0.7]);
+        if ~isfield( domain, 'auto_text' )
+            h = text( 0, 0, 'auto', 'fontsize',6,'color',[1 0.7 0.7],'verticalalign','top' );
+            setappdata(h,'domain_tag',domain_tag);
+            set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});
+            domain.auto_text = h;
+            setappdata( gca, domain_tag, domain );
+        end
+    end
+    if isfield( domain, 'rectangle') set_rectangle_coords( domain, minpos, maxpos, spacing ); end;
+    if isfield( domain, 'auto_text') set( domain.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
 end
 
 % handles for helix editing
@@ -430,7 +432,10 @@ if ~isfield( linker, 'line_handle' )
         if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) return; end;
     end
 end
-
+if strcmp(linker.type,'stack' )
+    if ( isfield( plot_settings, 'show_stacks') & ~plot_settings.show_stacks ); return; end;
+end
+    
 linker = draw_default_linker( linker );
    
 % linker starts at res1 and ends at res2
@@ -611,7 +616,7 @@ else
     assert( h == linker.vtx{end} );
     relpos = get_relpos_based_on_restag( pos, linker.residue2 );
     if ( norm( linker.relpos2(end,:) - relpos ) >= plot_settings.bp_spacing/4 )
-        linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)]
+        linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)];
         linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
     else
         delete( h_new );

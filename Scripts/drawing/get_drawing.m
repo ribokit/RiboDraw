@@ -19,6 +19,7 @@ savedata = save_coaxial_stacks( savedata, coaxial_stack_tags );
 savedata.plot_settings = getappdata( gca, 'plot_settings' );
 savedata.xlim = get(gca, 'xlim' );
 savedata.ylim = get(gca, 'ylim' );
+savedata.window_position = get(gcf, 'Position' );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

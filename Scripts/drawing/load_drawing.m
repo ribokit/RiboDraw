@@ -25,3 +25,4 @@ draw_helices();
 axis off
 axis equal
 set(gcf,'color','white')
+set(gcf,'Position',loaddata.window_position)

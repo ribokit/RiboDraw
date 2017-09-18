@@ -83,7 +83,7 @@ for i = 1:length( domains )
     if ( plot_settings.show_domain_controls )
         domain = create_default_rectangle( domain, 'domain_tag', domain_tag, @redraw_domain );
         set( domain.rectangle,'edgecolor',[1 0.7 0.7]);
-        if ~isfield( domain, 'auto_text' )
+        if strcmp( domain.type, 'coaxial_stack' & ~isfield( domain, 'auto_text' ) )
             h = text( 0, 0, 'auto', 'fontsize',6,'color',[1 0.7 0.7],'verticalalign','top' );
             setappdata(h,'domain_tag',domain_tag);
             set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});

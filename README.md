@@ -14,9 +14,8 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### Critical
-* complete domain I
+* fix helix_names in domain I
 * combine domain I and domain III (incl. bounding boxes)
-* pathfinder routine for arrow linkers & noncanonical pairs
 * Read-in & auto-formatting of motifs
 
 ### Documentation stuff
@@ -29,6 +28,7 @@ _(C) Rhiju Das, Stanford University, 2017_
 ### Future
 * reflection/rotation of domains
 * protein representation
+* pathfinder routine for arrow linkers & noncanonical pairs
 * settings icon for toggles --> menu.
 * Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations
 * Allow DSSR setup of input files from PDB

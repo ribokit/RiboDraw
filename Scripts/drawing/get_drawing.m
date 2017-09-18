@@ -82,6 +82,7 @@ for n = 1:length( objnames )
     coaxial_stack.associated_residues = figure_coaxial_stack.associated_residues;
     coaxial_stack.associated_helices = figure_coaxial_stack.associated_helices;
     coaxial_stack.coaxial_stack_tag = figure_coaxial_stack.coaxial_stack_tag;
+    coaxial_stack.type = figure_coaxial_stack.type;
     
     savedata = setfield( savedata, objnames{n}, coaxial_stack );
 end

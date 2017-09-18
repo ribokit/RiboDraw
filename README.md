@@ -14,11 +14,7 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### Critical
-* hide/show domains.
-* hide/show noncanonical pairs 
-* enable dragging of domains
 * complete domain I
-
 * combine domain I and domain III (incl. bounding boxes)
 * pathfinder routine for arrow linkers & noncanonical pairs
 * Read-in & auto-formatting of motifs
@@ -31,6 +27,7 @@ _(C) Rhiju Das, Stanford University, 2017_
 * check independence from RiboKit
 
 ### Future
+* reflection/rotation of domains
 * protein representation
 * settings icon for toggles --> menu.
 * Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations

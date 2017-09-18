@@ -1,11 +1,16 @@
-function autoformat_coaxial_stack( coaxial_stack )
+function autoformat_coaxial_stack( coaxial_stack, ~, ~ )
 % autoformat_coaxial_stack( coaxial_stack_tag )
 %
 % (C) Rhiju Das, Stanford University, 2017
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% create positions of an ideal stack. This is pretty similar to what's in draw_helix.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+if ischar( coaxial_stack ) % its a tag
+    autoformat_coaxial_stack( getappdata( gca, coaxial_stack ) );
+    return;
+elseif ~isstruct( coaxial_stack ) & isappdata( coaxial_stack, 'domain_tag' )
+    autoformat_coaxial_stack( getappdata( coaxial_stack, 'domain_tag' ) );
+    return;
+end
 
 % starter helix parent.
 if length( coaxial_stack.associated_helices ) > 0;
@@ -28,14 +33,13 @@ plot_settings = getappdata( gca, 'plot_settings' );
 spacing = plot_settings.spacing;
 bp_spacing = plot_settings.bp_spacing;
 residues = {};
+% create positions of an ideal stack. This is pretty similar to what's in draw_helix.
 for k = 1:N
     residue1 = getappdata( gca, sprintf( 'Residue_%s%d', coax_pairs{k}.chain1,coax_pairs{k}.resnum1 ) );
     residue1.plot_pos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
-    residues = [residues, residue1];
 
     residue2 = getappdata( gca, sprintf( 'Residue_%s%d', coax_pairs{k}.chain2,coax_pairs{k}.resnum2 ) );
     residue2.plot_pos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
-    residues = [residues, residue2];
     
     if (  isfield( residue1, 'stem_partner' ) ) 
         assert( isfield( residue2, 'stem_partner' ) );
@@ -46,12 +50,15 @@ for k = 1:N
     
     residue1 = set_parent_helix( residue1, current_helix_tag);
     residue2 = set_parent_helix( residue2, current_helix_tag);
+
+    residues = [residues, residue1];
+    residues = [residues, residue2];
 end
 
 % find the largest helix associated with this domain -- superimpose based
 % on those residues.
 if length( coaxial_stack.associated_helices ) > 0;
-    supermpose_helix = find_largest_helix( associated_helices );
+    superimpose_helix = find_largest_helix( coaxial_stack.associated_helices );
     superimpose_res_idx = find_res_in_helix( residues, superimpose_helix );
 else
     % if the coaxial stack does not have any stems inside it, just
@@ -71,27 +78,37 @@ residues = superimpose_residues( residues, superimpose_res_idx );
 % Note that in some cases the associated helix is not part of coaxial
 % stack (happens with base triples, I think...)
 involved_helices = {};
+res_idx_involved_in_helix = {};
 for i = 1:length( residues )
     residue = residues{i};
     if isfield( residue, 'stem_partner' )
         involved_helices = unique( [involved_helices, residue.helix_tag ] );
         idx = find( strcmp( involved_helices, residue.helix_tag ) );
+        if ( idx > length( res_idx_involved_in_helix ) ) res_idx_involved_in_helix{idx} = []; end;
         res_idx_involved_in_helix{ idx } = [ res_idx_involved_in_helix{ idx }, i ];
     end
 end
+
 for j = 1:length( involved_helices )
     helix = getappdata( gca, involved_helices{j} );
     % brute force rotation search:
-    [helix.theta, helix.parity, helix.center] = rotation_search( residue_relpos, residue_plotpos );
-    setappdata( gca, 'helix' );
+    helix = rotation_search( helix, residues( res_idx_involved_in_helix{j} ) );
+    setappdata( gca, helix.helix_tag, helix );
 end
+
 
 % update relpos for all residues
 helices_to_redraw = {};
 for i = 1:length( residues )
-    helix = getappdata( gca, residue.helix_tag );
-    residue.relpos = get_relpos( residue.plot_pos, helix );
+    helix = getappdata( gca, residues{i}.helix_tag );
+    residues{i}.relpos = get_relpos( residues{i}.plot_pos, helix );
     helices_to_redraw = [helices_to_redraw, helix.helix_tag ];
+end
+
+% ready to install residues into figure workspace (gca)
+for i = 1:length( residues )
+    residue = residues{i};
+    setappdata( gca, residue.res_tag, residue );
 end
 
 % now redraw all helices that this domain involves
@@ -102,23 +119,23 @@ for i = 1:length( helices_to_redraw )
     draw_helix( helix );
 end
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function residue = set_parent_helix( residue, new_helix_tag);
+
 if strcmp( residue.helix_tag,  new_helix_tag ); return; end;
 
+%fprintf( 'For residue %s, changing helix from %s to %s\n', residue.res_tag, residue.helix_tag, new_helix_tag );
 original_helix_tag = residue.helix_tag;
 helix = getappdata( gca, original_helix_tag );
 helix.associated_residues = setdiff( helix.associated_residues, residue.res_tag );
 setappdata( gca, original_helix_tag, helix );
 
 helix = getappdata( gca, new_helix_tag );
-assert( ~any( strcmp( helix.associated_residues, residues.res_tag ) ) );
+assert( ~any( strcmp( helix.associated_residues, residue.res_tag ) ) );
 helix.associated_residues = [ helix.associated_residues, residue.res_tag ];
 setappdata( gca, new_helix_tag, helix );
 
 residue.helix_tag = new_helix_tag;
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,9 +152,70 @@ for i = 1:N
     target_residue = getappdata( gca, residue.res_tag );
     target_pos = [ target_pos; target_residue.plot_pos ];
 end
-plot_ctr = mean( plot_pos, 1 );
+
+[~,~, best_R, plot_ctr, target_ctr ] = brute_force_rotation_search( plot_pos, target_pos ); 
+
+for i = 1:length( residues )
+    residues{i}.plot_pos = target_ctr + (residues{i}.plot_pos - plot_ctr) * best_R;
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function largest_helix = find_largest_helix( helices );
+for i = 1:length( helices )
+    helix = getappdata( gca, helices{i} );
+    L(i) = length( helix.resnum1 );
+end
+[~,idx] = min( L );
+largest_helix = helices{idx};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function res_idx = find_res_in_helix( residues, helix_tag )
+res_idx = [];
+for i = 1:length( residues )
+    if strcmp( residues{i}.helix_tag, helix_tag ) & isfield( residues{i}, 'stem_partner' )
+        res_idx = [res_idx, i]; 
+    end;
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function helix = rotation_search( helix, residues );
+res_tags = {};
+for i = 1:length( helix.resnum1 );
+    res_tags = [res_tags, sprintf( 'Residue_%s%d', helix.chain1(i), helix.resnum1(i) ) ];
+    res_tags = [res_tags, sprintf( 'Residue_%s%d', helix.chain2(i), helix.resnum2(i) ) ];
+end
+start_pos = [];
+target_pos = [];
+for i = 1:length( res_tags )
+    res_tag = res_tags{i};
+    residue = getappdata( gca, res_tag );
+    start_pos = [start_pos; residue.relpos ];
+
+    residue = find_in_residues( residues, res_tag );
+    target_pos = [target_pos; residue.plot_pos ];
+end
+
+[theta, parity, ~, start_ctr, target_ctr ] = brute_force_rotation_search( start_pos, target_pos ); 
+assert( all( start_ctr == 0 ) );
+helix.center   = target_ctr;
+helix.rotation = theta;
+helix.parity   = parity;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function residue =  find_in_residues( residues, res_tag );
+for i = 1:length( residues )
+    residue = residues{ i };
+    if strcmp( residue.res_tag, res_tag ) break; end;
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [best_theta, best_parity, best_R, start_ctr, target_ctr ] = brute_force_rotation_search( start_pos, target_pos ); 
+start_ctr = mean( start_pos, 1 );
 target_ctr = mean( target_pos, 1 );
-plot_ctr_repmat = repmat( plot_ctr, N, 1 );
+N = size( start_pos, 1 );
+start_ctr_repmat = repmat( start_ctr, N, 1 );
 target_ctr_repmat = repmat( target_ctr, N, 1);
 
 % brute force rotational search
@@ -148,24 +226,14 @@ for i = 1:length( thetas )
     parity = paritys(i);
     R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
     R = [1 0; 0 parity] * R;
-    transform_pos = target_ctr_repmat + (plot_pos - plot_ctr_repmat)*R;
+    transform_pos = target_ctr_repmat + (start_pos - start_ctr_repmat)*R;
     rmsds(i) = norm( transform_pos - target_pos );
     all_R{i} = R;
 end
 [rmsd, best_idx] = min( rmsds );
-best_R = all_R{best_idx};
-
-for i = 1:length( residues )
-    residues{i}.plot_pos = target_ctr + (residues{i}.plot_pos - plot_ctr) * best_R;
-end
-
-
-
-
-
-
-
-
+best_theta  = thetas(best_idx);
+best_parity = paritys(best_idx);
+best_R      = all_R{ best_idx };
 
     
 

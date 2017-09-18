@@ -81,9 +81,11 @@ for i = 1:length( domains )
     minpos = min( dom_pos, [], 1 );
     maxpos = max( dom_pos, [], 1 );   
     if ~isfield( domain, 'handle' )
-        domain.handle = rectangle( 'Position', [0 0 1 1],'edgecolor',[0.5 0.5 0.5],'clipping','off');
-        setappdata( domain.handle,'domain_tag', domain_tag);
+        h = rectangle( 'Position', [0 0 1 1],'edgecolor',[0.7 0.7 0.7],'clipping','off','curvature',[0.5 0.5]);
+        domain.handle = h;
+        setappdata( h,'domain_tag', domain_tag);
         setappdata( gca, domain_tag, domain );
+        set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});
     end
     set( domain.handle, 'Position',  [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
         [-0.5 -0.5 1 1]*0.75*spacing );

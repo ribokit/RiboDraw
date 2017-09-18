@@ -16,27 +16,16 @@ switch cols{end}
         return;
 end
 
-set_control_handle_visibility( 'off' );
+plot_settings = getappdata( gca, 'plot_settings' );
+
+hide_helix_controls;
+hide_domain_controls;
+hide_linker_controls;
+
 print( filename, opt );
 fprintf( 'Created: %s\n', filename ); 
-set_control_handle_visibility( 'on' );
 
-
-function set_control_handle_visibility( visible )
-% hide all blue stuff that was used for interactive movement.
-vals = getappdata( gca );
-objnames = fields( vals );
-for n = 1:length( objnames )
-    if ~isempty( strfind( objnames{n}, 'Residue_' ) );
-        residue = getappdata( gca, objnames{n} );
-         if isfield( residue, 'residue_rectangle' ) set( residue.residue_rectangle, 'visible', visible); end;
-    elseif ~isempty( strfind( objnames{n}, 'Helix_' ) );
-        helix = getappdata( gca, objnames{n} );
-        if isfield( helix, 'click_center' )   set( helix.click_center,'visible', visible); end;
-        if isfield( helix, 'reflect_line' )   set( helix.reflect_line, 'visible', visible); end;
-        if isfield( helix, 'helix_rectangle' ) set( helix.helix_rectangle, 'visible', visible); end;
-    end
-end
-plot_settings = getappdata( gca, 'plot_settings' );
-show_linker_controls( strcmp(visible,'on') & plot_settings.show_linker_controls );
+show_helix_controls ( plot_settings.show_helix_controls );
+show_domain_controls( plot_settings.show_domain_controls );
+show_linker_controls( plot_settings.show_linker_controls );
 

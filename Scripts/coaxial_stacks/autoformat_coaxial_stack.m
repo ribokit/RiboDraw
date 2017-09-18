@@ -96,28 +96,7 @@ for j = 1:length( involved_helices )
     setappdata( gca, helix.helix_tag, helix );
 end
 
-
-% update relpos for all residues
-helices_to_redraw = {};
-for i = 1:length( residues )
-    helix = getappdata( gca, residues{i}.helix_tag );
-    residues{i}.relpos = get_relpos( residues{i}.plot_pos, helix );
-    helices_to_redraw = [helices_to_redraw, helix.helix_tag ];
-end
-
-% ready to install residues into figure workspace (gca)
-for i = 1:length( residues )
-    residue = residues{i};
-    setappdata( gca, residue.res_tag, residue );
-end
-
-% now redraw all helices that this domain involves
-helices_to_redraw = unique( helices_to_redraw );
-for i = 1:length( helices_to_redraw )
-    helix = getappdata( gca, helices_to_redraw{i} );
-    undraw_helix( helix );
-    draw_helix( helix );
-end
+redraw_residues( residues );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function residue = set_parent_helix( residue, new_helix_tag);

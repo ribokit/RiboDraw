@@ -2411,7 +2411,7 @@
 		"helix_tag": "Helix_C266",
 		"nucleotide": "A",
 		"rgb_color": [0,1,0.003408003891],
-		"relpos": [-6,-3],
+		"relpos": [-5.25,-7.5],
 		"linkers": [
 			"Linker_C220_C221_arrow",
 			"Linker_C221_C222_arrow",
@@ -14545,14 +14545,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C220_C221_arrow",
 		"relpos1": [-9,3],
-		"relpos2": [-6,-3]
+		"relpos2": [-5.25,-7.5]
 	},
 	"Linker_C221_C222_arrow": {
 		"residue1": "Residue_C221",
 		"residue2": "Residue_C222",
 		"type": "arrow",
 		"linker_tag": "Linker_C221_C222_arrow",
-		"relpos1": [-6,-3],
+		"relpos1": [-5.25,-7.5],
 		"relpos2": [-4.5,-3]
 	},
 	"Linker_C222_C223_arrow": {
@@ -18401,7 +18401,7 @@
 		"residue2": "Residue_C427",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C221_C427_noncanonical_pair",
-		"relpos1": [-6,-3],
+		"relpos1": [-5.25,-7.5],
 		"relpos2": [-6,3],
 		"edge1": "H",
 		"edge2": "W",
@@ -21742,8 +21742,10 @@
 		"fontsize": 10,
 		"spacing": 3,
 		"bp_spacing": 6,
-		"show_linker_controls": 0
+		"show_linker_controls": 0,
+		"show_helix_controls": 1,
+		"show_domain_controls": 0
 	},
-	"xlim": [-75.04513889,160.5451389],
+	"xlim": [-73.73904394,160.3390439],
 	"ylim": [13.125,178.75]
 }

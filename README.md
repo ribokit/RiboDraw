@@ -14,9 +14,14 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### Critical
+* hide/show domains.
+* hide/show noncanonical pairs 
+* enable dragging of domains
+* complete domain I
+
 * combine domain I and domain III (incl. bounding boxes)
-* Read-in & auto-formatting of motifs
 * pathfinder routine for arrow linkers & noncanonical pairs
+* Read-in & auto-formatting of motifs
 
 ### Documentation stuff
 * put in docstrings for all files

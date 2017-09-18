@@ -106,8 +106,8 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function ok = check_in_helix_rectangle( residue, helix )
-if ~isfield( helix, 'helix_rectangle' ) return; end;
-pos = get( helix.helix_rectangle, 'Position' );
+if ~isfield( helix, 'rectangle' ) return; end;
+pos = get( helix.rectangle, 'Position' );
 ok = ( ...
     residue.plot_pos(1) >= pos(1) & ...
     residue.plot_pos(1) <= pos(1)+pos(3) & ...

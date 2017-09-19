@@ -6,7 +6,7 @@ coaxial_stack_tags = {};
 for i = 1:length( coaxial_stacks )
     coaxial_stack = coaxial_stacks{i};
     base_pair = coaxial_stack.coax_pairs{1};
-    coaxial_stack_tag = sprintf( 'CoaxialStack_%s%d', ...
+    coaxial_stack_tag = sprintf( 'Selection_%s%d_coaxial_stack', ...
         base_pair.chain1, base_pair.resnum1 );
     coaxial_stack.type = 'coaxial_stack';
     coaxial_stack.coaxial_stack_tag = coaxial_stack_tag;
@@ -15,20 +15,20 @@ for i = 1:length( coaxial_stacks )
     for j = 1:length( coaxial_stack.associated_helices )
         helix_tag = coaxial_stack.associated_helices{j};
         helix = getappdata( gca, helix_tag );
-        if ~isfield( helix, 'associated_domains' )
-            helix.associated_domains = {};
+        if ~isfield( helix, 'associated_selections' )
+            helix.associated_selections = {};
         end
-        helix.associated_domains = unique( [ helix.associated_domains, coaxial_stack_tag ] );
+        helix.associated_selections = unique( [ helix.associated_selections, coaxial_stack_tag ] );
         setappdata( gca, helix_tag, helix );
     end
     
     for j = 1:length( coaxial_stack.associated_residues )
         residue_tag = coaxial_stack.associated_residues{j};
         residue = getappdata( gca, residue_tag );
-        if ~isfield( residue, 'associated_domains' )
-            residue.associated_domains = {};
+        if ~isfield( residue, 'associated_selections' )
+            residue.associated_selections = {};
         end
-        residue.associated_domains = unique( [ residue.associated_domains, coaxial_stack_tag ] );
+        residue.associated_selections = unique( [ residue.associated_selections, coaxial_stack_tag ] );
         setappdata( gca, residue_tag, residue );
     end
     
@@ -37,7 +37,7 @@ end
 
 
 if delete_other_coaxial_stacks
-    tags = get_tags( 'CoaxialStack_' );
+    tags = get_tags( 'Selection_', 'coaxial_stack' );
     delete_tags = setdiff( tags, coaxial_stack_tags );
     for n = 1:length( delete_tags )
         delete_tag = delete_tags{n};
@@ -46,20 +46,20 @@ if delete_other_coaxial_stacks
         for j = 1:length( coaxial_stack.associated_helices )
             helix_tag = coaxial_stack.associated_helices{j};
             helix = getappdata( gca, helix_tag );
-            if ~isfield( helix, 'associated_domains' )
-                helix.associated_domains = {};
+            if ~isfield( helix, 'associated_selections' )
+                helix.associated_selections = {};
             end
-            helix.associated_domains = setdiff( helix.associated_domains, delete_tag );
+            helix.associated_selections = setdiff( helix.associated_selections, delete_tag );
             setappdata( gca, helix_tag, helix );
         end
         
         for j = 1:length( coaxial_stack.associated_residues )
             residue_tag = coaxial_stack.associated_residues{j};
             residue = getappdata( gca, residue_tag );
-            if ~isfield( residue, 'associated_domains' )
-                residue.associated_domains = {};
+            if ~isfield( residue, 'associated_selections' )
+                residue.associated_selections = {};
             end
-            residue.associated_domains = setdiff( residue.associated_domains, delete_tag );
+            residue.associated_selections = setdiff( residue.associated_selections, delete_tag );
             setappdata( gca, residue_tag, residue );
         end
         

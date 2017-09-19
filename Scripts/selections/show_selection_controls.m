@@ -1,8 +1,8 @@
-function show_domain_controls( setting )
+function show_selection_controls( setting )
 if ~exist( 'setting', 'var' ) setting = 1; end;
 
 plot_settings = getappdata( gca, 'plot_settings' );
-plot_settings.show_domain_controls = setting;
+plot_settings.show_selection_controls = setting;
 setappdata( gca, 'plot_settings', plot_settings );
 
 set_control_handle_visibility( setting );
@@ -13,9 +13,9 @@ if setting; visible = 'on'; else; visible = 'off'; end;
 vals = getappdata( gca );
 objnames = fields( vals );
 for n = 1:length( objnames )
-    if ~isempty( strfind( objnames{n}, 'CoaxialStack_' ) );
-        domain = getappdata( gca, objnames{n} );
-        if isfield( domain, 'rectangle' ); set( domain.rectangle,'visible', visible); end;
-        if isfield( domain, 'auto_text' ); set( domain.auto_text,'visible', visible); end;
+    if ~isempty( strfind( objnames{n}, 'Selection_' ) );
+        selection = getappdata( gca, objnames{n} );
+        if isfield( selection, 'rectangle' ); set( selection.rectangle,'visible', visible); end;
+        if isfield( selection, 'auto_text' ); set( selection.auto_text,'visible', visible); end;
     end
 end

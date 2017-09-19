@@ -8,13 +8,13 @@ savedata.version = '0.5';
 residue_tags = get_residue_tags();
 helix_tags = get_helix_tags();
 linker_tags = get_linker_tags();
-coaxial_stack_tags = get_coaxial_stack_tags();
+selection_tags = get_selection_tags();
 
 % try to save in this order -- will help with rendering elements later.
 savedata = save_residues( savedata, residue_tags );
 savedata = save_helices(  savedata, helix_tags );
 savedata = save_linkers(  savedata, linker_tags );
-savedata = save_coaxial_stacks( savedata, coaxial_stack_tags );
+savedata = save_selections( savedata, selection_tags );
 
 savedata.plot_settings = getappdata( gca, 'plot_settings' );
 savedata.xlim = get(gca, 'xlim' );
@@ -40,7 +40,7 @@ for n = 1:length( objnames )
     if isfield( figure_residue, 'rgb_color' ); residue.rgb_color = figure_residue.rgb_color; end
     residue.relpos = figure_residue.relpos; % needed for drawing, rel. coordinate to helix
     if isfield( figure_residue, 'linkers' ); residue.linkers = figure_residue.linkers; end
-    if isfield( figure_residue, 'associated_domains' ) residue.associated_domains = figure_residue.associated_domains; end;
+    if isfield( figure_residue, 'associated_selections' ) residue.associated_selections = figure_residue.associated_selections; end;
 
     savedata = setfield( savedata, objnames{n}, residue );
 end
@@ -65,26 +65,26 @@ for n = 1:length( objnames )
     
     helix.helix_tag = figure_helix.helix_tag;
     helix.associated_residues = figure_helix.associated_residues; % 'daughters'
-    if isfield( figure_helix, 'associated_domains' ) helix.associated_domains = figure_helix.associated_domains; end;
+    if isfield( figure_helix, 'associated_selections' ) helix.associated_selections = figure_helix.associated_selections; end;
     
     savedata = setfield( savedata, objnames{n}, helix );
 end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function savedata = save_coaxial_stacks( savedata, objnames )
+function savedata = save_selections( savedata, objnames )
 
 for n = 1:length( objnames )
-    assert( ~isempty( strfind( objnames{n}, 'CoaxialStack_' ) ) );
-    figure_coaxial_stack = getappdata( gca, objnames{n} );
-    clear coaxial_stack;
-    coaxial_stack.coax_pairs = figure_coaxial_stack.coax_pairs;
-    coaxial_stack.associated_residues = figure_coaxial_stack.associated_residues;
-    coaxial_stack.associated_helices = figure_coaxial_stack.associated_helices;
-    coaxial_stack.coaxial_stack_tag = figure_coaxial_stack.coaxial_stack_tag;
-    coaxial_stack.type = figure_coaxial_stack.type;
+    assert( ~isempty( strfind( objnames{n}, 'Selection_' ) ) );
+    figure_selection = getappdata( gca, objnames{n} );
+    clear selection;
+    selection.coax_pairs = figure_selection.coax_pairs;
+    selection.associated_residues = figure_selection.associated_residues;
+    selection.associated_helices = figure_selection.associated_helices;
+    selection.selection_tag = figure_selection.selection_tag;
+    selection.type = figure_selection.type;
     
-    savedata = setfield( savedata, objnames{n}, coaxial_stack );
+    savedata = setfield( savedata, objnames{n}, selection );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -123,6 +123,6 @@ noncanonical_tags = get_tags( 'Linker_', 'noncanonical_pair' );
 tags = [stack_tags, arrow_tags, stem_pair_tags, noncanonical_tags ];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function tags = get_coaxial_stack_tags();
-tags = get_tags( 'CoaxialStack_' );
+function tags = get_selection_tags();
+tags = get_tags( 'Selection_' );
 

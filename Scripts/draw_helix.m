@@ -58,41 +58,41 @@ end
 if ~isfield( helix, 'label_relpos' ) helix.label_relpos = plot_settings.bp_spacing *[0 1]; end;
 helix.l = make_helix_label( helix, plot_settings, R );
 
-% coaxial domains (if they exist)
-domains = {};
+% Selections (if they exist)
+selections = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
-    if isfield( residue, 'associated_domains' ) & length( residue.associated_domains ) > 0
-        domains = [ domains, residue.associated_domains ];
+    if isfield( residue, 'associated_selections' ) & length( residue.associated_selections ) > 0
+        selections = [ selections, residue.associated_selections ];
     end    
 end
-domains = unique( domains );
-for i = 1:length( domains )
-    domain_tag = domains{i};
-    domain = getappdata( gca, domain_tag );
+selections = unique( selections );
+for i = 1:length( selections )
+    selection_tag = selections{i};
+    selection = getappdata( gca, selection_tag );
     dom_pos = [];
-    for j = 1:length( domain.associated_residues )
-        residue = getappdata( gca, domain.associated_residues{j} );
+    for j = 1:length( selection.associated_residues )
+        residue = getappdata( gca, selection.associated_residues{j} );
         if isfield( residue, 'plot_pos' );
             dom_pos = [ dom_pos; residue.plot_pos ];
         end
     end
     minpos = min( dom_pos, [], 1 );
     maxpos = max( dom_pos, [], 1 );   
-    if ( plot_settings.show_domain_controls )
-        domain = create_default_rectangle( domain, 'domain_tag', domain_tag, @redraw_domain );
-        set( domain.rectangle,'edgecolor',[1 0.7 0.7]);
-        if strcmp( domain.type, 'coaxial_stack' & ~isfield( domain, 'auto_text' ) )
+    if ( plot_settings.show_selection_controls )
+        selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
+        set( selection.rectangle,'edgecolor',[1 0.7 0.7]);
+        if strcmp( selection.type, 'coaxial_stack') & ~isfield( selection, 'auto_text' ) 
             h = text( 0, 0, 'auto', 'fontsize',6,'color',[1 0.7 0.7],'verticalalign','top' );
-            setappdata(h,'domain_tag',domain_tag);
+            setappdata(h,'selection_tag',selection_tag);
             set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});
-            domain.auto_text = h;
-            setappdata( gca, domain_tag, domain );
+            selection.auto_text = h;
+            setappdata( gca, selection_tag, selection );
         end
     end
-    if isfield( domain, 'rectangle') set_rectangle_coords( domain, minpos, maxpos, spacing ); end;
-    if isfield( domain, 'auto_text') set( domain.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
+    if isfield( selection, 'rectangle') set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
+    if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
 end
 
 % handles for helix editing

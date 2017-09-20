@@ -14,7 +14,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 
 ### Critical
-* fix helix_names in domain I
 * combine domain I and domain III (incl. bounding boxes)
 * Read-in & auto-formatting of motifs
 

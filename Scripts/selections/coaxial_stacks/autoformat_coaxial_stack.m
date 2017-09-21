@@ -7,8 +7,8 @@ function autoformat_coaxial_stack( coaxial_stack, ~, ~ )
 if ischar( coaxial_stack ) % its a tag
     autoformat_coaxial_stack( getappdata( gca, coaxial_stack ) );
     return;
-elseif ~isstruct( coaxial_stack ) & isappdata( coaxial_stack, 'domain_tag' )
-    autoformat_coaxial_stack( getappdata( coaxial_stack, 'domain_tag' ) );
+elseif ~isstruct( coaxial_stack ) & isappdata( coaxial_stack, 'selection_tag' )
+    autoformat_coaxial_stack( getappdata( coaxial_stack, 'selection_tag' ) );
     return;
 end
 

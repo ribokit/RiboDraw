@@ -63,7 +63,8 @@ if delete_other_coaxial_stacks
             setappdata( gca, residue_tag, residue );
         end
         
-        if isfield( coaxial_stack,'handle' ); delete( coaxial_stack.handle ); end;
+        if isfield( coaxial_stack,'rectangle' ); delete( coaxial_stack.rectangle ); end;
+        if isfield( coaxial_stack,'auto_text' ); delete( coaxial_stack.auto_text ); end;
         rmappdata( gca, delete_tag );
     end
 end

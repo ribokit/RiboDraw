@@ -19,13 +19,13 @@ end
 plot_settings = getappdata( gca, 'plot_settings' );
 
 hide_helix_controls;
-hide_domain_controls;
+hide_selection_controls;
 hide_linker_controls;
 
 print( filename, opt );
 fprintf( 'Created: %s\n', filename ); 
 
 show_helix_controls ( plot_settings.show_helix_controls );
-show_domain_controls( plot_settings.show_domain_controls );
+show_selection_controls( plot_settings.show_domain_controls );
 show_linker_controls( plot_settings.show_linker_controls );
 

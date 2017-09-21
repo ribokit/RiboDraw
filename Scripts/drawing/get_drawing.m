@@ -78,11 +78,11 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Selection_' ) ) );
     figure_selection = getappdata( gca, objnames{n} );
     clear selection;
-    selection.coax_pairs = figure_selection.coax_pairs;
     selection.associated_residues = figure_selection.associated_residues;
-    selection.associated_helices = figure_selection.associated_helices;
     selection.selection_tag = figure_selection.selection_tag;
     selection.type = figure_selection.type;
+    if isfield( selection, 'coax_pairs' ) selection.coax_pairs = figure_selection.coax_pairs; end;
+    if isfield( selection, 'name' ) selection.name = figure_selection.name; end;
     
     savedata = setfield( savedata, objnames{n}, selection );
 end

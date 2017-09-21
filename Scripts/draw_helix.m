@@ -82,17 +82,28 @@ for i = 1:length( selections )
     maxpos = max( dom_pos, [], 1 );   
     if ( plot_settings.show_selection_controls )
         selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
-        set( selection.rectangle,'edgecolor',[1 0.7 0.7]);
-        if strcmp( selection.type, 'coaxial_stack') & ~isfield( selection, 'auto_text' ) 
-            h = text( 0, 0, 'auto', 'fontsize',6,'color',[1 0.7 0.7],'verticalalign','top' );
-            setappdata(h,'selection_tag',selection_tag);
-            set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});
-            selection.auto_text = h;
-            setappdata( gca, selection_tag, selection );
+        if strcmp( selection.type, 'coaxial_stack' )
+            set( selection.rectangle,'edgecolor',[1 0.7 0.7]);
+            if  ~isfield( selection, 'auto_text' )
+                h = text( 0, 0, 'auto', 'fontsize',6,'color',[1 0.7 0.7],'verticalalign','top','clipping','off');
+                setappdata(h,'selection_tag',selection_tag);
+                set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});
+                selection.auto_text = h;
+                setappdata( gca, selection_tag, selection );
+            end
+        end
+        if strcmp( selection.type, 'domain' ) 
+            set( selection.rectangle,'edgecolor',[1 0.4 0.4]);
+            if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
+                h = text( 0, 0, selection.name, 'fontsize',14, 'fontweight', 'bold', 'verticalalign','top','clipping','off' );
+                selection.label = h;
+                setappdata( gca, selection_tag, selection );
+            end
         end
     end
     if isfield( selection, 'rectangle') set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
     if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
+    if isfield( selection, 'label') set( selection.label, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
 end
 
 % handles for helix editing

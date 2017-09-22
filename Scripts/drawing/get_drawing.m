@@ -81,8 +81,8 @@ for n = 1:length( objnames )
     selection.associated_residues = figure_selection.associated_residues;
     selection.selection_tag = figure_selection.selection_tag;
     selection.type = figure_selection.type;
-    if isfield( selection, 'coax_pairs' ) selection.coax_pairs = figure_selection.coax_pairs; end;
-    if isfield( selection, 'name' ) selection.name = figure_selection.name; end;
+    if isfield( figure_selection, 'coax_pairs' ) selection.coax_pairs = figure_selection.coax_pairs; end;
+    if isfield( figure_selection, 'name' ) selection.name = figure_selection.name; end;
     
     savedata = setfield( savedata, objnames{n}, selection );
 end

@@ -15,7 +15,8 @@
 			"Linker_C100_C101_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C101": {
@@ -33,7 +34,8 @@
 			"Linker_C100_C101_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C102": {
@@ -49,7 +51,8 @@
 			"Linker_C102_C103_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C103": {
@@ -67,7 +70,8 @@
 			"Linker_C103_C104_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C104": {
@@ -87,7 +91,8 @@
 			"Linker_C104_C105_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C105": {
@@ -107,7 +112,8 @@
 			"Linker_C105_C106_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C106": {
@@ -128,7 +134,8 @@
 			"Linker_C106_C107_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C107": {
@@ -149,7 +156,8 @@
 			"Linker_C107_C108_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C108": {
@@ -169,7 +177,8 @@
 			"Linker_C108_C109_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C109": {
@@ -188,7 +197,8 @@
 			"Linker_C108_C109_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C110": {
@@ -209,7 +219,8 @@
 			"Linker_C110_C111_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C111": {
@@ -228,7 +239,8 @@
 			"Linker_C111_C112_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C112": {
@@ -246,7 +258,8 @@
 			"Linker_C112_C113_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C113": {
@@ -263,7 +276,8 @@
 			"Linker_C112_C113_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C114": {
@@ -284,7 +298,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C115": {
@@ -306,7 +321,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C116": {
@@ -328,7 +344,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C117": {
@@ -348,7 +365,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C118": {
@@ -368,7 +386,8 @@
 			"Linker_C118_C119_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C119": {
@@ -388,7 +407,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C12": {
@@ -426,7 +446,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C121": {
@@ -446,7 +467,8 @@
 			"Linker_C121_C131_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C122": {
@@ -467,7 +489,8 @@
 			"Linker_C122_C130_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C123": {
@@ -488,7 +511,8 @@
 			"Linker_C123_C129_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C124": {
@@ -505,7 +529,8 @@
 			"Linker_C123_C124_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C125": {
@@ -521,7 +546,8 @@
 			"Linker_C125_C126_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C126": {
@@ -538,7 +564,8 @@
 			"Linker_C126_C127_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C127": {
@@ -556,7 +583,8 @@
 			"Linker_C126_C127_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C128": {
@@ -575,7 +603,8 @@
 			"Linker_C128_C129_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C129": {
@@ -596,7 +625,8 @@
 			"Linker_C129_C130_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C13": {
@@ -638,7 +668,8 @@
 			"Linker_C129_C130_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C131": {
@@ -658,7 +689,8 @@
 			"Linker_C131_C132_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C132": {
@@ -678,7 +710,8 @@
 			"Linker_C132_C133_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C133": {
@@ -698,7 +731,8 @@
 			"Linker_C133_C134_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C134": {
@@ -719,7 +753,8 @@
 			"Linker_C134_C146_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C135": {
@@ -739,7 +774,8 @@
 			"Linker_C135_C136_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C136": {
@@ -760,7 +796,8 @@
 			"Linker_C136_C144_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C137": {
@@ -779,7 +816,8 @@
 			"Linker_C136_C137_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C138": {
@@ -795,7 +833,8 @@
 			"Linker_C138_C139_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C139": {
@@ -811,7 +850,8 @@
 			"Linker_C139_C140_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C14": {
@@ -848,7 +888,8 @@
 			"Linker_C140_C141_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C141": {
@@ -864,7 +905,8 @@
 			"Linker_C141_C142_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C142": {
@@ -883,7 +925,8 @@
 			"Linker_C142_C143_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C143": {
@@ -903,7 +946,8 @@
 			"Linker_C143_C144_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C144": {
@@ -924,7 +968,8 @@
 			"Linker_C144_C145_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C145": {
@@ -944,7 +989,8 @@
 			"Linker_C145_C146_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C146": {
@@ -965,7 +1011,8 @@
 			"Linker_C146_C147_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C147": {
@@ -985,7 +1032,8 @@
 			"Linker_C147_C148_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C148": {
@@ -1004,7 +1052,8 @@
 			"Linker_C147_C148_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C149": {
@@ -1024,7 +1073,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C15": {
@@ -1067,7 +1117,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C151": {
@@ -1088,7 +1139,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C152": {
@@ -1110,7 +1162,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C153": {
@@ -1131,7 +1184,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C154": {
@@ -1153,7 +1207,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C155": {
@@ -1175,7 +1230,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C156": {
@@ -1196,7 +1252,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C157": {
@@ -1217,7 +1274,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C158": {
@@ -1238,7 +1296,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C159": {
@@ -1257,7 +1316,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C16": {
@@ -1299,7 +1359,8 @@
 		],
 		"associated_selections": [
 			"Selection_C160_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C161": {
@@ -1319,7 +1380,8 @@
 		],
 		"associated_selections": [
 			"Selection_C160_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C162": {
@@ -1338,7 +1400,8 @@
 		],
 		"associated_selections": [
 			"Selection_C160_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C163": {
@@ -1355,7 +1418,8 @@
 			"Linker_C163_C164_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C164": {
@@ -1375,7 +1439,8 @@
 		],
 		"associated_selections": [
 			"Selection_C160_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C165": {
@@ -1395,7 +1460,8 @@
 		],
 		"associated_selections": [
 			"Selection_C160_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C166": {
@@ -1415,7 +1481,8 @@
 		],
 		"associated_selections": [
 			"Selection_C160_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C167": {
@@ -1436,7 +1503,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C168": {
@@ -1457,7 +1525,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C169": {
@@ -1478,7 +1547,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C17": {
@@ -1522,7 +1592,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C171": {
@@ -1543,7 +1614,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C172": {
@@ -1565,7 +1637,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C173": {
@@ -1587,7 +1660,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C174": {
@@ -1608,7 +1682,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C175": {
@@ -1630,7 +1705,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C176": {
@@ -1651,7 +1727,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C177": {
@@ -1672,7 +1749,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C178": {
@@ -1692,7 +1770,8 @@
 			"Linker_C178_C179_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C179": {
@@ -1712,7 +1791,8 @@
 			"Linker_C179_C180_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C18": {
@@ -1752,7 +1832,8 @@
 			"Linker_C179_C180_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C181": {
@@ -7958,7 +8039,8 @@
 			"Linker_C46_C180_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C460": {
@@ -8178,7 +8260,8 @@
 			"Linker_C47_C48_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C470": {
@@ -8401,7 +8484,8 @@
 			"Linker_C48_C178_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C480": {
@@ -8628,7 +8712,8 @@
 		],
 		"associated_selections": [
 			"Selection_C49_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C490": {
@@ -8848,7 +8933,8 @@
 			"Linker_C50_C51_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C500": {
@@ -9058,7 +9144,8 @@
 			"Linker_C51_C118_noncanonical_pair"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C510": {
@@ -9283,7 +9370,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C520": {
@@ -9452,7 +9540,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C54": {
@@ -9473,7 +9562,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C55": {
@@ -9496,7 +9586,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C56": {
@@ -9518,7 +9609,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C57": {
@@ -9539,7 +9631,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C58": {
@@ -9561,7 +9654,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C59": {
@@ -9581,7 +9675,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C60": {
@@ -9600,7 +9695,8 @@
 			"Linker_C60_C74_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C61": {
@@ -9617,7 +9713,8 @@
 			"Linker_C61_C93_noncanonical_pair"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C62": {
@@ -9635,7 +9732,8 @@
 			"Linker_C60_C62_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C63": {
@@ -9654,7 +9752,8 @@
 		],
 		"associated_selections": [
 			"Selection_C63_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C64": {
@@ -9675,7 +9774,8 @@
 		],
 		"associated_selections": [
 			"Selection_C63_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C65": {
@@ -9697,7 +9797,8 @@
 		],
 		"associated_selections": [
 			"Selection_C63_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C66": {
@@ -9718,7 +9819,8 @@
 		],
 		"associated_selections": [
 			"Selection_C63_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C67": {
@@ -9738,7 +9840,8 @@
 			"Linker_C67_C88_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C68": {
@@ -9760,7 +9863,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C69": {
@@ -9781,7 +9885,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C70": {
@@ -9805,7 +9910,8 @@
 		],
 		"associated_selections": [
 			"Selection_C52_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C71": {
@@ -9823,7 +9929,8 @@
 			"Linker_C71_C73_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C72": {
@@ -9839,7 +9946,8 @@
 			"Linker_C72_C73_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C73": {
@@ -9856,7 +9964,8 @@
 			"Linker_C71_C73_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C74": {
@@ -9875,7 +9984,8 @@
 			"Linker_C68_C74_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C75": {
@@ -9892,7 +10002,8 @@
 			"Linker_C75_C76_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C76": {
@@ -9912,7 +10023,8 @@
 			"Linker_C76_C111_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C77": {
@@ -9932,7 +10044,8 @@
 			"Linker_C77_C110_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C78": {
@@ -9952,7 +10065,8 @@
 			"Linker_C78_C79_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C79": {
@@ -9972,7 +10086,8 @@
 			"Linker_C79_C80_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C80": {
@@ -9995,7 +10110,8 @@
 			"Linker_C80_C107_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C81": {
@@ -10016,7 +10132,8 @@
 			"Linker_C81_C106_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C82": {
@@ -10035,7 +10152,8 @@
 			"Linker_C81_C82_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C83": {
@@ -10053,7 +10171,8 @@
 			"Linker_C83_C101_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C84": {
@@ -10069,7 +10188,8 @@
 			"Linker_C84_C85_arrow"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C85": {
@@ -10089,7 +10209,8 @@
 			"Linker_C85_C98_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C86": {
@@ -10110,7 +10231,8 @@
 			"Linker_C86_C97_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C87": {
@@ -10129,7 +10251,8 @@
 			"Linker_C86_C87_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C88": {
@@ -10150,7 +10273,8 @@
 		],
 		"associated_selections": [
 			"Selection_C63_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C89": {
@@ -10172,7 +10296,8 @@
 		],
 		"associated_selections": [
 			"Selection_C63_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C90": {
@@ -10194,7 +10319,8 @@
 		],
 		"associated_selections": [
 			"Selection_C63_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C91": {
@@ -10213,7 +10339,8 @@
 		],
 		"associated_selections": [
 			"Selection_C63_coaxial_stack",
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C92": {
@@ -10230,7 +10357,8 @@
 			"Linker_C92_C93_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C93": {
@@ -10249,7 +10377,8 @@
 			"Linker_C93_C94_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C94": {
@@ -10267,7 +10396,8 @@
 			"Linker_C94_C95_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C95": {
@@ -10287,7 +10417,8 @@
 			"Linker_C95_C96_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C96": {
@@ -10307,7 +10438,8 @@
 			"Linker_C96_C97_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C97": {
@@ -10328,7 +10460,8 @@
 			"Linker_C97_C98_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C98": {
@@ -10347,7 +10480,8 @@
 			"Linker_C98_C99_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Residue_C99": {
@@ -10364,7 +10498,8 @@
 			"Linker_C98_C99_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_I"
+			"Selection_Domain_I",
+			"Selection_Domain_I_H5_10"
 		]
 	},
 	"Helix_C121": {
@@ -21719,6 +21854,147 @@
 			"Residue_C526"
 		],
 		"selection_tag": "Selection_Domain_I",
+		"type": "domain"
+	},
+	"Selection_Domain_I_H5_10": {
+		"associated_residues": [
+			"Residue_C46",
+			"Residue_C47",
+			"Residue_C48",
+			"Residue_C49",
+			"Residue_C50",
+			"Residue_C51",
+			"Residue_C52",
+			"Residue_C53",
+			"Residue_C54",
+			"Residue_C55",
+			"Residue_C56",
+			"Residue_C57",
+			"Residue_C58",
+			"Residue_C59",
+			"Residue_C60",
+			"Residue_C61",
+			"Residue_C62",
+			"Residue_C63",
+			"Residue_C64",
+			"Residue_C65",
+			"Residue_C66",
+			"Residue_C67",
+			"Residue_C68",
+			"Residue_C69",
+			"Residue_C70",
+			"Residue_C71",
+			"Residue_C72",
+			"Residue_C73",
+			"Residue_C74",
+			"Residue_C75",
+			"Residue_C76",
+			"Residue_C77",
+			"Residue_C78",
+			"Residue_C79",
+			"Residue_C80",
+			"Residue_C81",
+			"Residue_C82",
+			"Residue_C83",
+			"Residue_C84",
+			"Residue_C85",
+			"Residue_C86",
+			"Residue_C87",
+			"Residue_C88",
+			"Residue_C89",
+			"Residue_C90",
+			"Residue_C91",
+			"Residue_C92",
+			"Residue_C93",
+			"Residue_C94",
+			"Residue_C95",
+			"Residue_C96",
+			"Residue_C97",
+			"Residue_C98",
+			"Residue_C99",
+			"Residue_C100",
+			"Residue_C101",
+			"Residue_C102",
+			"Residue_C103",
+			"Residue_C104",
+			"Residue_C105",
+			"Residue_C106",
+			"Residue_C107",
+			"Residue_C108",
+			"Residue_C109",
+			"Residue_C110",
+			"Residue_C111",
+			"Residue_C112",
+			"Residue_C113",
+			"Residue_C114",
+			"Residue_C115",
+			"Residue_C116",
+			"Residue_C117",
+			"Residue_C118",
+			"Residue_C119",
+			"Residue_C120",
+			"Residue_C121",
+			"Residue_C122",
+			"Residue_C123",
+			"Residue_C124",
+			"Residue_C125",
+			"Residue_C126",
+			"Residue_C127",
+			"Residue_C128",
+			"Residue_C129",
+			"Residue_C130",
+			"Residue_C131",
+			"Residue_C132",
+			"Residue_C133",
+			"Residue_C134",
+			"Residue_C135",
+			"Residue_C136",
+			"Residue_C137",
+			"Residue_C138",
+			"Residue_C139",
+			"Residue_C140",
+			"Residue_C141",
+			"Residue_C142",
+			"Residue_C143",
+			"Residue_C144",
+			"Residue_C145",
+			"Residue_C146",
+			"Residue_C147",
+			"Residue_C148",
+			"Residue_C149",
+			"Residue_C150",
+			"Residue_C151",
+			"Residue_C152",
+			"Residue_C153",
+			"Residue_C154",
+			"Residue_C155",
+			"Residue_C156",
+			"Residue_C157",
+			"Residue_C158",
+			"Residue_C159",
+			"Residue_C160",
+			"Residue_C161",
+			"Residue_C162",
+			"Residue_C163",
+			"Residue_C164",
+			"Residue_C165",
+			"Residue_C166",
+			"Residue_C167",
+			"Residue_C168",
+			"Residue_C169",
+			"Residue_C170",
+			"Residue_C171",
+			"Residue_C172",
+			"Residue_C173",
+			"Residue_C174",
+			"Residue_C175",
+			"Residue_C176",
+			"Residue_C177",
+			"Residue_C178",
+			"Residue_C179",
+			"Residue_C180"
+		],
+		"selection_tag": "Selection_Domain_I_H5_10",
 		"type": "domain"
 	},
 	"plot_settings": {

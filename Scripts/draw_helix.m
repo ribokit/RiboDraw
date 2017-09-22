@@ -70,6 +70,7 @@ end
 selections = unique( selections );
 for i = 1:length( selections )
     selection_tag = selections{i};
+    if ~isappdata( gca, selection_tag ); fprintf( 'Problem with %s\n', selection_tag ); continue; end; % some cleanup
     selection = getappdata( gca, selection_tag );
     dom_pos = [];
     for j = 1:length( selection.associated_residues )
@@ -80,7 +81,7 @@ for i = 1:length( selections )
     end
     minpos = min( dom_pos, [], 1 );
     maxpos = max( dom_pos, [], 1 );   
-    if ( plot_settings.show_selection_controls )
+    if ( plot_settings.show_selection_controls | strcmp( selection.type, 'domain' ) )
         selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
         if strcmp( selection.type, 'coaxial_stack' )
             set( selection.rectangle,'edgecolor',[1 0.7 0.7]);
@@ -93,7 +94,9 @@ for i = 1:length( selections )
             end
         end
         if strcmp( selection.type, 'domain' ) 
-            set( selection.rectangle,'edgecolor',[1 0.4 0.4]);
+            set( selection.rectangle,'edgecolor',[1 0.4 0.4]);                   
+            if ( plot_settings.show_selection_controls ) visible = 'on'; else; visible = 'off'; end;
+            set( selection.rectangle, 'visible', visible );
             if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
                 h = text( 0, 0, selection.name, 'fontsize',14, 'fontweight', 'bold', 'verticalalign','top','clipping','off' );
                 selection.label = h;

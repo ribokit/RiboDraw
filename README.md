@@ -12,10 +12,10 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 
 ## TODO
-
-### Critical
-* combine domain I and domain III (incl. bounding boxes)
-* Read-in & auto-formatting of motifs
+### Immediate
+* font size shrink/expand
+* color domains, helices, residues.
+* protein/exit tunnel representation
 
 ### Documentation stuff
 * put in docstrings for all files
@@ -25,8 +25,8 @@ _(C) Rhiju Das, Stanford University, 2017_
 * check independence from RiboKit
 
 ### Future
+* Read-in & auto-formatting of motifs
 * reflection/rotation of domains
-* protein representation
 * pathfinder routine for arrow linkers & noncanonical pairs
 * settings icon for toggles --> menu.
 * Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations

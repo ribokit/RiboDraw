@@ -6,13 +6,19 @@ if isstruct( filename )
     loaddata = filename;
 else
     assert( ischar( filename ) )
+    tic
+    fprintf( 'Reading JSON: %s\n',filename );
     loaddata = loadjson( filename );
+    toc
 end
 if ~keep_previous_drawing; 
     clf ; 
     set(gca,'Position',[0 0 1 1]);
     hold on;
 end
+
+tic
+fprintf( 'Drawing helices...\n' );
 set( gca, 'xlim', loaddata.xlim );
 set( gca, 'ylim', loaddata.ylim );
 % Should install sequence, Residue, Helix objects, etc. into gca ('global
@@ -31,6 +37,9 @@ set(gcf,'color','white')
 if isfield( 'loaddata', 'window_position' )
     set(gcf,'Position',loaddata.window_position)
 end
+
+setup_zoom();
+toc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function helices = get_helices( loaddata )

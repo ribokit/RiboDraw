@@ -13,8 +13,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ## TODO
 ### Immediate
-* font size shrink/expand
-* color domains, helices, residues.
 * protein/exit tunnel representation
 
 ### Documentation stuff

@@ -1,0 +1,8 @@
+# note: creating a branch of Rosetta where I can get not just motifs but also stacked base pairs, which
+#  I'll feed into some MATLAB layout code
+
+rna_motif -mute all -s 4ybb_DI_DIII.pdb 
+
+cat 4ybb_DI_DIII.pdb.base_pairs.txt
+
+ 

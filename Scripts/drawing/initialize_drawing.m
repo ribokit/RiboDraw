@@ -22,3 +22,4 @@ initialize_ticks();
 draw_dummy_ticks();
 
 draw_helices( stems );
+setup_zoom();

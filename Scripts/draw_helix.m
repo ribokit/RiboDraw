@@ -7,7 +7,6 @@ plot_settings = getappdata( gca, 'plot_settings' );
 helix_center = helix.center;
 R = get_helix_rotation_matrix( helix ); 
 N = length( helix.resnum1 );
-setup_zoom();
 spacing = plot_settings.spacing;
 bp_spacing = plot_settings.bp_spacing;
 helix_res_tags = {};
@@ -56,7 +55,7 @@ for i = 1:length( helix.associated_residues )
 end
 
 if ~isfield( helix, 'label_relpos' ) helix.label_relpos = plot_settings.bp_spacing *[0 1]; end;
-helix.l = make_helix_label( helix, plot_settings, R );
+helix = make_helix_label( helix, plot_settings, R );
 
 % Selections (if they exist)
 selections = {};
@@ -80,7 +79,8 @@ for i = 1:length( selections )
         end
     end
     minpos = min( dom_pos, [], 1 );
-    maxpos = max( dom_pos, [], 1 );   
+    maxpos = max( dom_pos, [], 1 );  
+    ctr_pos = (minpos + maxpos )/ 2;
     if ( plot_settings.show_selection_controls | strcmp( selection.type, 'domain' ) )
         selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
         if strcmp( selection.type, 'coaxial_stack' )
@@ -95,20 +95,26 @@ for i = 1:length( selections )
             end
         end
         if strcmp( selection.type, 'domain' ) 
-            set( selection.rectangle,'edgecolor',[1 0.4 0.4]);                   
+            set( selection.rectangle,'edgecolor',[1 0.4 0.4]); 
+            if ~isfield( selection, 'label_relpos' ) selection.label_relpos = minpos - ctr_pos; end;
             if ( plot_settings.show_selection_controls ) visible = 'on'; else; visible = 'off'; end;
             set( selection.rectangle, 'visible', visible );
             if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
                 h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....
-                    'fontweight', 'bold', 'verticalalign','top','clipping','off' );
+                    'fontweight', 'bold', 'verticalalign','middle','horizontalalign','center','clipping','off' );
                 selection.label = h;
+                draggable( h, 'n',[-inf inf -inf inf], @move_selection_label )
+                setappdata( h, 'selection_tag', selection_tag );
                 setappdata( gca, selection_tag, selection );
             end
         end
     end
     if isfield( selection, 'rectangle') set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
     if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
-    if isfield( selection, 'label') set( selection.label, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
+    if isfield( selection, 'label') 
+        set( selection.label, 'Position',  ctr_pos + selection.label_relpos ); 
+        if isfield( selection, 'rgb_color' ) set( selection.label, 'color', selection.rgb_color ); end
+    end
 end
 
 % handles for helix editing
@@ -160,10 +166,6 @@ for i = 1:length( not_helix_res_tags )
     residue = getappdata( gca, res_tag );
     draggable( residue.handle,@move_snapgrid, 'endfcn', @redraw_res_and_helix )
 end
-
-% draggable helix label
-setappdata( helix.l, 'helix_tag', helix.helix_tag );
-draggable( helix.l, 'n',[-inf inf -inf inf], @move_helix_label, 'endfcn', @redraw_helix_label )
 
 % draggable linker vertices
 for i = 1:length( helix.associated_residues )
@@ -318,14 +320,25 @@ setappdata( gca, res_tag, residue);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Helix label
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h = make_helix_label( helix, plot_settings, R )
+function helix = make_helix_label( helix, plot_settings, R )
 % make label
+if ~isfield( helix, 'label' )
+    h = text( 0,0, helix.name,...
+        'fontsize', plot_settings.fontsize*1.5, 'fontname','helvetica','clipping','off');
+    helix.label = h;
+    % draggable helix label
+    setappdata( helix.label, 'helix_tag', helix.helix_tag );
+    draggable( helix.label, 'n',[-inf inf -inf inf], @move_helix_label, 'endfcn', @redraw_helix_label )
+end
+h = helix.label;
 label_pos = helix.center + helix.label_relpos * R;
-h = text( label_pos(1), label_pos(2), helix.name,...
-    'fontsize', plot_settings.fontsize*1.5, 'fontname','helvetica','clipping','off');
+set( h, 'Position', label_pos );
+set( h, 'fontsize', plot_settings.fontsize*1.5 );
+if isfield( helix, 'rgb_color' ) set( h, 'color', helix.rgb_color ); end;
 v = [0,sign(helix.label_relpos(2))]*R;
 set_text_alignment( h, v );
-    
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function move_helix_label(h)
 pos = get(h,'position'); 
@@ -335,6 +348,16 @@ R = get_helix_rotation_matrix( helix );
 relpos = (pos(1:2) - helix.center)*R';
 v = [0,sign(relpos(2))]*R;
 set_text_alignment( h, v );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function move_selection_label(h)
+pos = get(h,'position'); 
+selection_tag = getappdata( h, 'selection_tag' );
+selection = getappdata( gca, selection_tag );
+rectpos = get( selection.rectangle, 'position' );
+rect_ctr = [rectpos(1)+rectpos(3)/2, rectpos(2)+rectpos(4)/2];
+selection.label_relpos = pos(1:2) - rect_ctr;
+setappdata( gca, selection_tag, selection );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function redraw_helix_label(h)
@@ -765,15 +788,3 @@ setappdata( gca, res_tag, residue );
 % shortcut to redraw everything.
 redraw_res_and_helix( residue.handle );
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function setup_zoom()
-h = zoom;
-set(h,'ActionPostCallback',@zoomCallBack);
-set(h,'Enable','on');
-
-% everytime you zoom in, this function is executed
-function zoomCallBack(~, evd)
-% Since i expect to zoom in ax(4)-ax(3) gets smaller, so fontsize
-% gets bigger.
-ax = axis(evd.Axes); % get axis size
-reset_fontsize();

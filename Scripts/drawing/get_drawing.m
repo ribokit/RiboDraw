@@ -23,25 +23,23 @@ savedata.window_position = get(gcf, 'Position' );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function new_obj = copy_fields( obj, tags )
+new_obj = struct();
+for i = 1:length( tags )
+    tag = tags{i};
+    if isfield( obj, tag );
+        new_obj = setfield( new_obj, tag, getfield( obj, tag ) );
+    end
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function savedata = save_residues( savedata, objnames )
 
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Residue_' ) ) );
     figure_residue = getappdata( gca, objnames{n} );
-    clear residue;
-    if ~isfield( figure_residue, 'resnum' ) continue; end; 
-    residue.resnum = figure_residue.resnum;
-    residue.chain = figure_residue.chain;
-    residue.res_tag = figure_residue.res_tag;
-    residue.helix_tag = figure_residue.helix_tag;
-    residue.nucleotide = figure_residue.nucleotide;
-    if isfield( figure_residue, 'stem_partner' ); residue.stem_partner = figure_residue.stem_partner; end;
-    if isfield( figure_residue, 'tickrot' ); residue.tickrot = figure_residue.tickrot; end
-    if isfield( figure_residue, 'rgb_color' ); residue.rgb_color = figure_residue.rgb_color; end
-    residue.relpos = figure_residue.relpos; % needed for drawing, rel. coordinate to helix
-    if isfield( figure_residue, 'linkers' ); residue.linkers = figure_residue.linkers; end
-    if isfield( figure_residue, 'associated_selections' ) residue.associated_selections = figure_residue.associated_selections; end;
-
+    residue = copy_fields( figure_residue, {'resnum','chain','res_tag','helix_tag','nucleotide',...
+        'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections'} );
     savedata = setfield( savedata, objnames{n}, residue );
 end
 
@@ -51,22 +49,8 @@ function savedata = save_helices( savedata, objnames )
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Helix_' ) ) );
     figure_helix = getappdata( gca, objnames{n} );
-    clear helix;
-    helix.resnum1 = figure_helix.resnum1;
-    helix.chain1 = figure_helix.chain1;
-    helix.resnum2 = figure_helix.resnum2;
-    helix.chain2 = figure_helix.chain2;
-    helix.name = figure_helix.name;
-    
-    helix.center = figure_helix.center; % needed for drawing, coordinate in global axes
-    helix.rotation = figure_helix.rotation;
-    helix.parity = figure_helix.parity;
-    helix.label_relpos = figure_helix.label_relpos;
-    
-    helix.helix_tag = figure_helix.helix_tag;
-    helix.associated_residues = figure_helix.associated_residues; % 'daughters'
-    if isfield( figure_helix, 'associated_selections' ) helix.associated_selections = figure_helix.associated_selections; end;
-    
+    helix = copy_fields( figure_helix, {'resnum1','chain1','resnum2','chain2','name',...
+        'center','rotation','parity','label_relpos','helix_tag','associated_residues','rgb_color'} );
     savedata = setfield( savedata, objnames{n}, helix );
 end
 
@@ -77,13 +61,8 @@ function savedata = save_selections( savedata, objnames )
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Selection_' ) ) );
     figure_selection = getappdata( gca, objnames{n} );
-    clear selection;
-    selection.associated_residues = figure_selection.associated_residues;
-    selection.selection_tag = figure_selection.selection_tag;
-    selection.type = figure_selection.type;
-    if isfield( figure_selection, 'coax_pairs' ) selection.coax_pairs = figure_selection.coax_pairs; end;
-    if isfield( figure_selection, 'name' ) selection.name = figure_selection.name; end;
-    
+    selection = copy_fields( figure_selection, {'associated_residues','selection_tag','type','coax_pairs','name',...
+        'label_relpos','rgb_color'} );
     savedata = setfield( savedata, objnames{n}, selection );
 end
 
@@ -93,16 +72,8 @@ function savedata = save_linkers( savedata, objnames )
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Linker_' ) ) );
     figure_linker = getappdata( gca, objnames{n} );
-    clear linker;
-    linker.residue1 = figure_linker.residue1;
-    linker.residue2 = figure_linker.residue2;
-    linker.type = figure_linker.type;
-    linker.linker_tag = figure_linker.linker_tag;
-    if isfield( figure_linker, 'relpos1' ); linker.relpos1 = figure_linker.relpos1;end
-    if isfield( figure_linker, 'relpos2' ); linker.relpos2 = figure_linker.relpos2;end;
-    if isfield( figure_linker, 'edge1' ); linker.edge1 = figure_linker.edge1; end;
-    if isfield( figure_linker, 'edge2' ); linker.edge2 = figure_linker.edge2; end;
-    if isfield( figure_linker, 'LW_orientation' ); linker.LW_orientation = figure_linker.LW_orientation; end;
+    linker = copy_fields( figure_linker, {'residue1','residue2','type','linker_tag','relpos1',...
+        'relpos2','edge1','edge2','LW_orientation'} );
     savedata = setfield( savedata, objnames{n}, linker );
 end
 

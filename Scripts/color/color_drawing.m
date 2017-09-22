@@ -7,7 +7,7 @@ function color_drawing( color, selection )
 %  Still need to update selection.
 %
 % (C) R. Das, Stanford University.
-
+if ~exist( 'selection', 'var' ) selection = 'all'; end;
 [ res_tags, obj_name ] = get_res( selection );
 
 nres = length( res_tags );
@@ -40,11 +40,7 @@ function [ res_tags, obj_name ] = get_res( selection )
 res_tags = {};
 obj_name = '';
 if strcmp( selection, 'all' )
-    for n = 1:length( objnames )
-        if ~isempty( strfind( objnames{n}, 'Residue_' ) );
-            res_tags = objnames{n};
-        end
-    end
+    res_tags = get_tags( 'Residue_' );
 else
     [resnum,chains,ok] = get_resnum_from_tag( selection );
     if ok 

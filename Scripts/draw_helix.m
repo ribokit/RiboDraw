@@ -270,7 +270,16 @@ if strcmp( h.Type, 'line' )
 else
     pos = get(h,'Position');
     if length( pos ) == 4 % rectangle
-        res_center = [pos(1)+pos(3)/2, pos(2)+pos(4)/2];
+        if isappdata( h, 'selection_tag' )
+            % need to do some math -- figure out where some component
+            % residue is going.
+            selection = getappdata( gca, getappdata( h, 'selection_tag' ));
+            residue = getappdata( gca, selection.associated_residues{1} );
+            init_pos = getappdata(h,'initial_position');
+            res_center = pos(1:2) - init_pos(1:2) + residue.plot_pos;
+        else % helix centers live on grid
+            res_center = pos(1:2)+ pos(3:4)/2;
+        end
     else
         res_center = pos(1:2); % text
     end
@@ -322,7 +331,7 @@ setappdata( gca, res_tag, residue);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function helix = make_helix_label( helix, plot_settings, R )
 % make label
-if ~isfield( helix, 'label' )
+if ~isfield( helix, 'label' ) | ~isvalid( helix.label)
     h = text( 0,0, helix.name,...
         'fontsize', plot_settings.fontsize*1.5, 'fontname','helvetica','clipping','off');
     helix.label = h;
@@ -332,7 +341,7 @@ if ~isfield( helix, 'label' )
 end
 h = helix.label;
 label_pos = helix.center + helix.label_relpos * R;
-set( h, 'Position', label_pos );
+set( h, 'position', label_pos );
 set( h, 'fontsize', plot_settings.fontsize*1.5 );
 if isfield( helix, 'rgb_color' ) set( h, 'color', helix.rgb_color ); end;
 v = [0,sign(helix.label_relpos(2))]*R;
@@ -376,7 +385,6 @@ plot_settings = getappdata( gca, 'plot_settings' );
 snap_spacing = plot_settings.bp_spacing/4;
 helix.label_relpos = round( helix.label_relpos / snap_spacing ) * snap_spacing;
 
-delete( h );
 undraw_helix( helix );
 draw_helix( helix );
 

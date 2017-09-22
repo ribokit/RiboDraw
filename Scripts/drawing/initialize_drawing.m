@@ -1,8 +1,9 @@
 function initialize_drawing( tag )
-stems = read_stems( [tag,'.stems.txt'] );
+
 [sequence,resnum,chains,non_standard_residues] = get_sequence( [tag,'.fasta']);
 base_pairs = read_base_pairs( [tag,'.base_pairs.txt'] ); % includes noncanonical pairs.
 base_stacks = read_base_stacks( [tag,'.stacks.txt'] ); % includes noncanonical pairs.
+stems = read_stems( [tag,'.stems.txt'] );
 
 clf; set(gca,'Position',[0 0 1 1]);
 hold on
@@ -17,6 +18,9 @@ setup_stem_partner( stems ); % could happen inside draw_helices? need some kind 
 setup_base_stack_linkers( base_stacks );
 setup_arrow_linkers(resnum,chains);
 setup_base_pair_linkers( base_pairs );
+
+coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
+setup_coaxial_stacks( coaxial_stacks );
 
 initialize_ticks();
 draw_dummy_ticks();

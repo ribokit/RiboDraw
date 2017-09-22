@@ -61,7 +61,7 @@ function savedata = save_selections( savedata, objnames )
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Selection_' ) ) );
     figure_selection = getappdata( gca, objnames{n} );
-    selection = copy_fields( figure_selection, {'associated_residues','selection_tag','type','coax_pairs','name',...
+    selection = copy_fields( figure_selection, {'associated_residues','associated_helices','selection_tag','type','coax_pairs','name',...
         'label_relpos','rgb_color'} );
     savedata = setfield( savedata, objnames{n}, selection );
 end

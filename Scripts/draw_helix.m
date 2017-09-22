@@ -7,7 +7,7 @@ plot_settings = getappdata( gca, 'plot_settings' );
 helix_center = helix.center;
 R = get_helix_rotation_matrix( helix ); 
 N = length( helix.resnum1 );
-
+setup_zoom();
 spacing = plot_settings.spacing;
 bp_spacing = plot_settings.bp_spacing;
 helix_res_tags = {};
@@ -86,7 +86,8 @@ for i = 1:length( selections )
         if strcmp( selection.type, 'coaxial_stack' )
             set( selection.rectangle,'edgecolor',[1 0.7 0.7]);
             if  ~isfield( selection, 'auto_text' )
-                h = text( 0, 0, 'auto', 'fontsize',6,'color',[1 0.7 0.7],'verticalalign','top','clipping','off');
+                h = text( 0, 0, 'auto', 'fontsize',plot_settings.fontsize*6/10,...
+                    'color',[1 0.7 0.7],'verticalalign','top','clipping','off');
                 setappdata(h,'selection_tag',selection_tag);
                 set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});
                 selection.auto_text = h;
@@ -98,7 +99,8 @@ for i = 1:length( selections )
             if ( plot_settings.show_selection_controls ) visible = 'on'; else; visible = 'off'; end;
             set( selection.rectangle, 'visible', visible );
             if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
-                h = text( 0, 0, selection.name, 'fontsize',14, 'fontweight', 'bold', 'verticalalign','top','clipping','off' );
+                h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....
+                    'fontweight', 'bold', 'verticalalign','top','clipping','off' );
                 selection.label = h;
                 setappdata( gca, selection_tag, selection );
             end
@@ -227,7 +229,7 @@ function h = draw_residue( res_tag, helix_center, R, plot_settings );
 residue = getappdata( gca, res_tag );
 if isfield( residue, 'relpos' )
     pos = helix_center +  residue.relpos * R ;
-    if ~isfield( residue, 'handle' )
+    if ~isfield( residue, 'handle' ) 
         residue.handle = text( ...
             0, 0,...
             residue.nucleotide,...
@@ -235,6 +237,7 @@ if isfield( residue, 'relpos' )
             'fontname','helvetica','horizontalalign','center','verticalalign','middle',...
             'clipping','off');
     end
+    if ( plot_settings.fontsize ~= get( residue.handle, 'fontsize' ) ) set( residue.handle, 'fontsize', plot_settings.fontsize ); end;
     h = residue.handle;
     set( h, 'Position', pos );
     if ( length( residue.nucleotide ) > 1 ) set( h, 'fontsize', plot_settings.fontsize*4/5); end;
@@ -706,11 +709,14 @@ if isfield( residue, 'tickrot' )
     v = [cos(theta*pi/180), sin(theta*pi/180)]*R;
     tickpos1 = residue.plot_pos + v*bp_spacing/3; 
     tickpos2 = residue.plot_pos + v*bp_spacing*2/3;
-    %if isfield( residue, 'tick_handle' )
     set( residue.tick_handle, 'xdata', [tickpos1(1) tickpos2(1)] );
     set( residue.tick_handle, 'ydata', [tickpos1(2) tickpos2(2)] );
     labelpos = residue.plot_pos + v*bp_spacing*2/3;
     set( residue.tick_label, 'position', labelpos );
+    plot_settings = getappdata( gca, 'plot_settings' );
+    if ( get(residue.tick_label, 'fontsize') ~= plot_settings.fontsize ) 
+        set( residue.tick_label, 'fontsize', plot_settings.fontsize );  
+    end;
     set_text_alignment( residue.tick_label, v );
 end
 
@@ -759,4 +765,15 @@ setappdata( gca, res_tag, residue );
 % shortcut to redraw everything.
 redraw_res_and_helix( residue.handle );
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function setup_zoom()
+h = zoom;
+set(h,'ActionPostCallback',@zoomCallBack);
+set(h,'Enable','on');
 
+% everytime you zoom in, this function is executed
+function zoomCallBack(~, evd)
+% Since i expect to zoom in ax(4)-ax(3) gets smaller, so fontsize
+% gets bigger.
+ax = axis(evd.Axes); % get axis size
+reset_fontsize();

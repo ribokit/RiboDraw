@@ -9,13 +9,7 @@ hold on
 t = zeros( 1, length(sequence ) );
 axis( [0 200 0 200] );
 
-plot_settings.fontsize   =10;
-plot_settings.spacing    = 3;
-plot_settings.bp_spacing = 6;
-plot_settings.show_helix_controls = 1;
-plot_settings.show_domain_controls = 0;
-plot_settings.show_linker_controls = 0;
-setappdata( gca, 'plot_settings', plot_settings );
+setappdata( gca, 'plot_settings', default_plot_settings );
 
 stems = set_default_stem_positions( stems ); % helix_center setup  could happen *inside* draw_helix or draw_helices
 stems = setup_residues(  stems, sequence, resnum, chains ); %  helix_tag setup could happen inside draw_helices

@@ -6027,7 +6027,7 @@
 		"center": [156,97.5],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [3,-9],
+		"label_relpos": [4.5,-6],
 		"helix_tag": "Helix_C2520",
 		"associated_residues": [
 			"Residue_C2519",
@@ -6049,7 +6049,7 @@
 		"center": [170.25,97.5],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [0,6],
+		"label_relpos": [1.5,-6],
 		"helix_tag": "Helix_C2523",
 		"associated_residues": [
 			"Residue_C2523",
@@ -12272,7 +12272,7 @@
 		"bp_spacing": 6,
 		"show_helix_controls": 1,
 		"show_selection_controls": 0,
-		"show_linker_controls": 1,
+		"show_linker_controls": 0,
 		"show_stacks": 0
 	},
 	"xlim": [0,200],

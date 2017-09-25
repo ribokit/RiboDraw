@@ -480,7 +480,7 @@ switch linker.type
         setappdata( gca, linker.linker_tag, linker );
     case 'arrow'
         linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.0,'clipping','off' ); % dummy for now -- will get redrawn later.
-        linker.arrow = patch( [0,0,0],[0,0,0],'k' );
+        linker.arrow = patch( [0,0,0],[0,0,0],'k','clipping','off' );
         setappdata( gca, linker.linker_tag, linker );
     case 'stack'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.

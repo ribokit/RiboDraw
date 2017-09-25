@@ -67,55 +67,7 @@ for i = 1:length( helix.associated_residues )
     end    
 end
 selections = unique( selections );
-for i = 1:length( selections )
-    selection_tag = selections{i};
-    if ~isappdata( gca, selection_tag ); fprintf( 'Problem with %s\n', selection_tag ); continue; end; % some cleanup
-    selection = getappdata( gca, selection_tag );
-    dom_pos = [];
-    for j = 1:length( selection.associated_residues )
-        residue = getappdata( gca, selection.associated_residues{j} );
-        if isfield( residue, 'plot_pos' );
-            dom_pos = [ dom_pos; residue.plot_pos ];
-        end
-    end
-    minpos = min( dom_pos, [], 1 );
-    maxpos = max( dom_pos, [], 1 );  
-    ctr_pos = (minpos + maxpos )/ 2;
-    if ( plot_settings.show_selection_controls | strcmp( selection.type, 'domain' ) )
-        selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
-        if strcmp( selection.type, 'coaxial_stack' )
-            set( selection.rectangle,'edgecolor',[1 0.7 0.7]);
-            if  ~isfield( selection, 'auto_text' )
-                h = text( 0, 0, 'auto', 'fontsize',plot_settings.fontsize*6/10,...
-                    'color',[1 0.7 0.7],'verticalalign','top','clipping','off');
-                setappdata(h,'selection_tag',selection_tag);
-                set(h,'ButtonDownFcn',{@autoformat_coaxial_stack,h});
-                selection.auto_text = h;
-                setappdata( gca, selection_tag, selection );
-            end
-        end
-        if strcmp( selection.type, 'domain' ) 
-            set( selection.rectangle,'edgecolor',[1 0.4 0.4]); 
-            if ~isfield( selection, 'label_relpos' ) selection.label_relpos = minpos - ctr_pos; end;
-            if ( plot_settings.show_selection_controls ) visible = 'on'; else; visible = 'off'; end;
-            set( selection.rectangle, 'visible', visible );
-            if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
-                h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....
-                    'fontweight', 'bold', 'verticalalign','middle','horizontalalign','center','clipping','off' );
-                selection.label = h;
-                draggable( h, 'n',[-inf inf -inf inf], @move_selection_label )
-                setappdata( h, 'selection_tag', selection_tag );
-                setappdata( gca, selection_tag, selection );
-            end
-        end
-    end
-    if isfield( selection, 'rectangle') set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
-    if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
-    if isfield( selection, 'label') 
-        set( selection.label, 'Position',  ctr_pos + selection.label_relpos ); 
-        if isfield( selection, 'rgb_color' ) set( selection.label, 'color', selection.rgb_color ); end
-    end
-end
+draw_selections( selections );
 
 % handles for helix editing
 % rectangle for dragging.
@@ -208,21 +160,7 @@ setappdata( gca, helix.helix_tag, helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Helix/Domain
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function obj = create_default_rectangle( obj, tag_type, tag, redraw_fcn )
-
-if isfield( obj, 'rectangle' ) return; end;
-
-h = rectangle( 'Position',[0,0,1,1],'edgecolor',[0.5 0.5 1],'clipping','off');
-setappdata(h,tag_type,tag); 
-draggable(h,'n',[-inf inf -inf inf],@move_snapgrid,'endfcn',redraw_fcn );
-obj.rectangle = h;
-setappdata(gca, tag, obj );
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function set_rectangle_coords( obj, minpos, maxpos, spacing )
-set( obj.rectangle, 'Position',...
-    [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+...
-    [-0.5 -0.5 1 1]*0.75*spacing );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Residue 
@@ -257,50 +195,6 @@ if isfield( residue, 'relpos' )
     setappdata( gca, res_tag, residue );
 end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function move_snapgrid(h)
-% snap to grid during movement.
-% show crosshairs too
-
-% works for both text (residue) and rectangle (helix).
-if strcmp( h.Type, 'line' )
-    % line/symbol
-    pos = [ get( h, 'XData' ), get( h, 'YData' ) ];
-    res_center = pos;
-else
-    pos = get(h,'Position');
-    if length( pos ) == 4 % rectangle
-        if isappdata( h, 'selection_tag' )
-            % need to do some math -- figure out where some component
-            % residue is going.
-            selection = getappdata( gca, getappdata( h, 'selection_tag' ));
-            residue = getappdata( gca, selection.associated_residues{1} );
-            init_pos = getappdata(h,'initial_position');
-            res_center = pos(1:2) - init_pos(1:2) + residue.plot_pos;
-        else % helix centers live on grid
-            res_center = pos(1:2)+ pos(3:4)/2;
-        end
-    else
-        res_center = pos(1:2); % text
-    end
-end
-
-% Computing the new position of the rectangle
-plot_settings = getappdata(gca,'plot_settings');
-grid_spacing = plot_settings.spacing/4;
-new_position = round(res_center/grid_spacing)*grid_spacing;
-
-% Updating the rectangle' XData and YData properties
-delta = new_position - res_center;
-pos(1:2) = pos(1:2) + delta;
-
-if strcmp( h.Type, 'line' )
-    set(h,'XData',pos(1),'YData',pos(2) );
-else
-    set(h,'Position',pos );    
-end
-
-make_crosshair( pos );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function relpos = set_default_relpos( residue, helix, plot_settings )
@@ -585,7 +479,7 @@ switch linker.type
         end
         setappdata( gca, linker.linker_tag, linker );
     case 'arrow'
-        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.2,'clipping','off' ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'k','linewidth',1.0,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.arrow = patch( [0,0,0],[0,0,0],'k' );
         setappdata( gca, linker.linker_tag, linker );
     case 'stack'

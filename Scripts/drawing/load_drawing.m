@@ -34,7 +34,7 @@ draw_helices( get_helices( loaddata ) );
 axis off
 axis equal
 set(gcf,'color','white')
-if isfield( 'loaddata', 'window_position' )
+if isfield( loaddata, 'window_position' )
     set(gcf,'Position',loaddata.window_position)
 end
 

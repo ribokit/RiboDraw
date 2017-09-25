@@ -13,7 +13,7 @@ end
 helix_tag = getappdata( h, 'helix_tag' );
 helix = getappdata(gca,helix_tag );
 
-pos = get(h,'Position')
+pos = get(h,'Position');
 helix.center = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
 setappdata( gca, helix_tag, helix );
 

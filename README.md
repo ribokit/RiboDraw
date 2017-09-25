@@ -23,6 +23,7 @@ _(C) Rhiju Das, Stanford University, 2017_
 * check independence from RiboKit
 
 ### Future
+* for paper, layout all RNAs from deep chemical profiling study & compare to literature layouts.
 * Read-in & auto-formatting of motifs
 * reflection/rotation of domains
 * pathfinder routine for arrow linkers & noncanonical pairs

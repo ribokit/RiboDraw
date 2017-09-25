@@ -8,3 +8,4 @@ for n = 1:length( stems )
     helix.name = stem.name;
     setappdata( gca, helix.helix_tag, helix );
 end
+redraw_helices();

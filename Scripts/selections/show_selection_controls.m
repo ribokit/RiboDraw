@@ -5,6 +5,10 @@ plot_settings = getappdata( gca, 'plot_settings' );
 plot_settings.show_selection_controls = setting;
 setappdata( gca, 'plot_settings', plot_settings );
 
+if ( setting == 1 )
+    draw_selections( get_tags( 'Selection_' ) );
+end
+
 set_control_handle_visibility( setting );
 
 function set_control_handle_visibility( setting )

@@ -12,7 +12,13 @@ if ~exist( 'selection', 'var' ) selection = 'all'; end;
 
 nres = length( res_tags );
 if ischar( color ) & strcmp(color,'rainbow')
-    res_colors = pymol_rainbow( nres );
+    for i = 1:length( res_tags ); 
+        residue = getappdata( gca, res_tags{i} );
+        resnum(i) = residue.resnum;
+    end
+    all_resnum = [min(resnum):max(resnum)];
+    all_res_colors = pymol_rainbow( length(all_resnum) );
+    res_colors = all_res_colors( resnum - min(resnum) + 1, :);
     label_color = [0,0,0];
 else
     rgb_color = pymol_RGB( color );

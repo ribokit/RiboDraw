@@ -1,0 +1,4259 @@
+{
+	"version": "0.6",
+	"Residue_C2789": {
+		"resnum": 2789,
+		"chain": "C",
+		"res_tag": "Residue_C2789",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "C",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-15,-9.75],
+		"linkers": [
+			"Linker_C2789_C2893_stack",
+			"Linker_C2789_C2790_arrow",
+			"Linker_C2789_C2894_noncanonical_pair"
+		]
+	},
+	"Residue_C2790": {
+		"resnum": 2790,
+		"chain": "C",
+		"res_tag": "Residue_C2790",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "U",
+		"tickrot": 180,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-13.5,-7.5],
+		"linkers": [
+			"Linker_C2790_C2893_stack",
+			"Linker_C2789_C2790_arrow",
+			"Linker_C2790_C2791_arrow"
+		]
+	},
+	"Residue_C2791": {
+		"resnum": 2791,
+		"chain": "C",
+		"res_tag": "Residue_C2791",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2805",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6,-3],
+		"linkers": [
+			"Linker_C2791_C2792_stack",
+			"Linker_C2791_C2806_stack",
+			"Linker_C2790_C2791_arrow",
+			"Linker_C2791_C2792_arrow",
+			"Linker_C2791_C2805_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2792": {
+		"resnum": 2792,
+		"chain": "C",
+		"res_tag": "Residue_C2792",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "A",
+		"stem_partner": "Residue_C2804",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,-3],
+		"linkers": [
+			"Linker_C2791_C2792_stack",
+			"Linker_C2792_C2793_stack",
+			"Linker_C2791_C2792_arrow",
+			"Linker_C2792_C2793_arrow",
+			"Linker_C2792_C2804_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2793": {
+		"resnum": 2793,
+		"chain": "C",
+		"res_tag": "Residue_C2793",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2803",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,-3],
+		"linkers": [
+			"Linker_C2792_C2793_stack",
+			"Linker_C2793_C2794_stack",
+			"Linker_C2793_C2804_stack",
+			"Linker_C2792_C2793_arrow",
+			"Linker_C2793_C2794_arrow",
+			"Linker_C2793_C2803_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2794": {
+		"resnum": 2794,
+		"chain": "C",
+		"res_tag": "Residue_C2794",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2802",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,-3],
+		"linkers": [
+			"Linker_C2793_C2794_stack",
+			"Linker_C2794_C2795_stack",
+			"Linker_C2793_C2794_arrow",
+			"Linker_C2794_C2795_arrow",
+			"Linker_C2794_C2802_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2795": {
+		"resnum": 2795,
+		"chain": "C",
+		"res_tag": "Residue_C2795",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2801",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [6,-3],
+		"linkers": [
+			"Linker_C2794_C2795_stack",
+			"Linker_C2795_C2796_stack",
+			"Linker_C2794_C2795_arrow",
+			"Linker_C2795_C2796_arrow",
+			"Linker_C2795_C2801_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2796": {
+		"resnum": 2796,
+		"chain": "C",
+		"res_tag": "Residue_C2796",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [9,-3],
+		"linkers": [
+			"Linker_C2795_C2796_stack",
+			"Linker_C2796_C2798_stack",
+			"Linker_C2795_C2796_arrow",
+			"Linker_C2796_C2797_arrow",
+			"Linker_C2796_C2799_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2797": {
+		"resnum": 2797,
+		"chain": "C",
+		"res_tag": "Residue_C2797",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [12.75,-1.5],
+		"linkers": [
+			"Linker_C2796_C2797_arrow",
+			"Linker_C2797_C2798_arrow"
+		]
+	},
+	"Residue_C2798": {
+		"resnum": 2798,
+		"chain": "C",
+		"res_tag": "Residue_C2798",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [12.75,1.5],
+		"linkers": [
+			"Linker_C2796_C2798_stack",
+			"Linker_C2797_C2798_arrow",
+			"Linker_C2798_C2799_arrow"
+		]
+	},
+	"Residue_C2799": {
+		"resnum": 2799,
+		"chain": "C",
+		"res_tag": "Residue_C2799",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [9,3],
+		"linkers": [
+			"Linker_C2799_C2801_stack",
+			"Linker_C2798_C2799_arrow",
+			"Linker_C2799_C2800_arrow",
+			"Linker_C2796_C2799_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2800": {
+		"resnum": 2800,
+		"chain": "C",
+		"res_tag": "Residue_C2800",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "A",
+		"tickrot": 90,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [9,3],
+		"linkers": [
+			"Linker_C2799_C2800_arrow",
+			"Linker_C2800_C2801_arrow"
+		]
+	},
+	"Residue_C2801": {
+		"resnum": 2801,
+		"chain": "C",
+		"res_tag": "Residue_C2801",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2795",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [6,3],
+		"linkers": [
+			"Linker_C2799_C2801_stack",
+			"Linker_C2801_C2802_stack",
+			"Linker_C2800_C2801_arrow",
+			"Linker_C2801_C2802_arrow",
+			"Linker_C2795_C2801_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2802": {
+		"resnum": 2802,
+		"chain": "C",
+		"res_tag": "Residue_C2802",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2794",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,3],
+		"linkers": [
+			"Linker_C2801_C2802_stack",
+			"Linker_C2802_C2803_stack",
+			"Linker_C2801_C2802_arrow",
+			"Linker_C2802_C2803_arrow",
+			"Linker_C2794_C2802_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2803": {
+		"resnum": 2803,
+		"chain": "C",
+		"res_tag": "Residue_C2803",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2793",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,3],
+		"linkers": [
+			"Linker_C2802_C2803_stack",
+			"Linker_C2803_C2804_stack",
+			"Linker_C2802_C2803_arrow",
+			"Linker_C2803_C2804_arrow",
+			"Linker_C2793_C2803_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2804": {
+		"resnum": 2804,
+		"chain": "C",
+		"res_tag": "Residue_C2804",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2792",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,3],
+		"linkers": [
+			"Linker_C2793_C2804_stack",
+			"Linker_C2803_C2804_stack",
+			"Linker_C2804_C2805_stack",
+			"Linker_C2803_C2804_arrow",
+			"Linker_C2804_C2805_arrow",
+			"Linker_C2792_C2804_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2805": {
+		"resnum": 2805,
+		"chain": "C",
+		"res_tag": "Residue_C2805",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2791",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6,3],
+		"linkers": [
+			"Linker_C2804_C2805_stack",
+			"Linker_C2805_C2806_stack",
+			"Linker_C2804_C2805_arrow",
+			"Linker_C2805_C2806_arrow",
+			"Linker_C2791_C2805_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2791_coaxial_stack"
+		]
+	},
+	"Residue_C2806": {
+		"resnum": 2806,
+		"chain": "C",
+		"res_tag": "Residue_C2806",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "C",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-15,3],
+		"linkers": [
+			"Linker_C2791_C2806_stack",
+			"Linker_C2805_C2806_stack",
+			"Linker_C2806_C2807_stack",
+			"Linker_C2805_C2806_arrow",
+			"Linker_C2806_C2807_arrow",
+			"Linker_C2806_C2892_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2806_coaxial_stack"
+		]
+	},
+	"Residue_C2807": {
+		"resnum": 2807,
+		"chain": "C",
+		"res_tag": "Residue_C2807",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-12,3],
+		"linkers": [
+			"Linker_C2806_C2807_stack",
+			"Linker_C2807_C2808_stack",
+			"Linker_C2806_C2807_arrow",
+			"Linker_C2807_C2808_arrow",
+			"Linker_C2807_C2891_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2806_coaxial_stack"
+		]
+	},
+	"Residue_C2808": {
+		"resnum": 2808,
+		"chain": "C",
+		"res_tag": "Residue_C2808",
+		"helix_tag": "Helix_C2791",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-25.5,-9],
+		"linkers": [
+			"Linker_C2807_C2808_stack",
+			"Linker_C2808_C2891_stack",
+			"Linker_C2807_C2808_arrow",
+			"Linker_C2808_C2809_arrow"
+		]
+	},
+	"Residue_C2809": {
+		"resnum": 2809,
+		"chain": "C",
+		"res_tag": "Residue_C2809",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-7.5,-0.75],
+		"linkers": [
+			"Linker_C2809_C2810_stack",
+			"Linker_C2808_C2809_arrow",
+			"Linker_C2809_C2810_arrow"
+		]
+	},
+	"Residue_C2810": {
+		"resnum": 2810,
+		"chain": "C",
+		"res_tag": "Residue_C2810",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "A",
+		"tickrot": 270,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-4.5,-3],
+		"linkers": [
+			"Linker_C2809_C2810_stack",
+			"Linker_C2809_C2810_arrow",
+			"Linker_C2810_C2811_arrow",
+			"Linker_C2810_C2890_noncanonical_pair"
+		]
+	},
+	"Residue_C2811": {
+		"resnum": 2811,
+		"chain": "C",
+		"res_tag": "Residue_C2811",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2889",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-1.5,-3],
+		"linkers": [
+			"Linker_C2811_C2812_stack",
+			"Linker_C2810_C2811_arrow",
+			"Linker_C2811_C2812_arrow",
+			"Linker_C2811_C2889_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2811_coaxial_stack"
+		]
+	},
+	"Residue_C2812": {
+		"resnum": 2812,
+		"chain": "C",
+		"res_tag": "Residue_C2812",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2888",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [1.5,-3],
+		"linkers": [
+			"Linker_C2811_C2812_stack",
+			"Linker_C2812_C2813_stack",
+			"Linker_C2812_C2889_stack",
+			"Linker_C2811_C2812_arrow",
+			"Linker_C2812_C2813_arrow",
+			"Linker_C2812_C2888_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2811_coaxial_stack"
+		]
+	},
+	"Residue_C2813": {
+		"resnum": 2813,
+		"chain": "C",
+		"res_tag": "Residue_C2813",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [4.5,-3],
+		"linkers": [
+			"Linker_C2812_C2813_stack",
+			"Linker_C2813_C2814_stack",
+			"Linker_C2812_C2813_arrow",
+			"Linker_C2813_C2814_arrow",
+			"Linker_C2813_C2887_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2811_coaxial_stack"
+		]
+	},
+	"Residue_C2814": {
+		"resnum": 2814,
+		"chain": "C",
+		"res_tag": "Residue_C2814",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-9.75,-3.75],
+		"linkers": [
+			"Linker_C2813_C2814_stack",
+			"Linker_C2814_C2815_stack",
+			"Linker_C2813_C2814_arrow",
+			"Linker_C2814_C2815_arrow"
+		]
+	},
+	"Residue_C2815": {
+		"resnum": 2815,
+		"chain": "C",
+		"res_tag": "Residue_C2815",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2831",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6,-3],
+		"linkers": [
+			"Linker_C2814_C2815_stack",
+			"Linker_C2815_C2816_stack",
+			"Linker_C2814_C2815_arrow",
+			"Linker_C2815_C2816_arrow",
+			"Linker_C2815_C2831_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2816": {
+		"resnum": 2816,
+		"chain": "C",
+		"res_tag": "Residue_C2816",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2830",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,-3],
+		"linkers": [
+			"Linker_C2815_C2816_stack",
+			"Linker_C2816_C2817_stack",
+			"Linker_C2816_C2831_stack",
+			"Linker_C2815_C2816_arrow",
+			"Linker_C2816_C2817_arrow",
+			"Linker_C2816_C2830_stem_pair",
+			"Linker_C2816_C2883_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2817": {
+		"resnum": 2817,
+		"chain": "C",
+		"res_tag": "Residue_C2817",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2829",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,-3],
+		"linkers": [
+			"Linker_C2816_C2817_stack",
+			"Linker_C2817_C2818_stack",
+			"Linker_C2816_C2817_arrow",
+			"Linker_C2817_C2818_arrow",
+			"Linker_C2817_C2829_stem_pair",
+			"Linker_C2817_C2836_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2818": {
+		"resnum": 2818,
+		"chain": "C",
+		"res_tag": "Residue_C2818",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2828",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,-3],
+		"linkers": [
+			"Linker_C2817_C2818_stack",
+			"Linker_C2817_C2818_arrow",
+			"Linker_C2818_C2819_arrow",
+			"Linker_C2818_C2828_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2819": {
+		"resnum": 2819,
+		"chain": "C",
+		"res_tag": "Residue_C2819",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2827",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [6,-3],
+		"linkers": [
+			"Linker_C2819_C2821_stack",
+			"Linker_C2819_C2828_stack",
+			"Linker_C2818_C2819_arrow",
+			"Linker_C2819_C2820_arrow",
+			"Linker_C2819_C2827_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2820": {
+		"resnum": 2820,
+		"chain": "C",
+		"res_tag": "Residue_C2820",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "A",
+		"tickrot": 270,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [7.5,-6],
+		"linkers": [
+			"Linker_C2819_C2820_arrow",
+			"Linker_C2820_C2821_arrow"
+		]
+	},
+	"Residue_C2821": {
+		"resnum": 2821,
+		"chain": "C",
+		"res_tag": "Residue_C2821",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [9,-3],
+		"linkers": [
+			"Linker_C2819_C2821_stack",
+			"Linker_C2821_C2822_stack",
+			"Linker_C2820_C2821_arrow",
+			"Linker_C2821_C2822_arrow",
+			"Linker_C2821_C2826_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2822": {
+		"resnum": 2822,
+		"chain": "C",
+		"res_tag": "Residue_C2822",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [11.25,-3.75],
+		"linkers": [
+			"Linker_C2821_C2822_stack",
+			"Linker_C2821_C2822_arrow",
+			"Linker_C2822_C2823_arrow"
+		]
+	},
+	"Residue_C2823": {
+		"resnum": 2823,
+		"chain": "C",
+		"res_tag": "Residue_C2823",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [14.25,-1.5],
+		"linkers": [
+			"Linker_C2823_C2824_stack",
+			"Linker_C2822_C2823_arrow",
+			"Linker_C2823_C2824_arrow"
+		]
+	},
+	"Residue_C2824": {
+		"resnum": 2824,
+		"chain": "C",
+		"res_tag": "Residue_C2824",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "C",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [14.25,1.5],
+		"linkers": [
+			"Linker_C2823_C2824_stack",
+			"Linker_C2824_C2825_stack",
+			"Linker_C2823_C2824_arrow",
+			"Linker_C2824_C2825_arrow"
+		]
+	},
+	"Residue_C2825": {
+		"resnum": 2825,
+		"chain": "C",
+		"res_tag": "Residue_C2825",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [11.25,3.75],
+		"linkers": [
+			"Linker_C2824_C2825_stack",
+			"Linker_C2825_C2826_stack",
+			"Linker_C2824_C2825_arrow",
+			"Linker_C2825_C2826_arrow"
+		]
+	},
+	"Residue_C2826": {
+		"resnum": 2826,
+		"chain": "C",
+		"res_tag": "Residue_C2826",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [9,3],
+		"linkers": [
+			"Linker_C2825_C2826_stack",
+			"Linker_C2826_C2827_stack",
+			"Linker_C2825_C2826_arrow",
+			"Linker_C2826_C2827_arrow",
+			"Linker_C2821_C2826_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2827": {
+		"resnum": 2827,
+		"chain": "C",
+		"res_tag": "Residue_C2827",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2819",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [6,3],
+		"linkers": [
+			"Linker_C2826_C2827_stack",
+			"Linker_C2827_C2828_stack",
+			"Linker_C2826_C2827_arrow",
+			"Linker_C2827_C2828_arrow",
+			"Linker_C2819_C2827_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2828": {
+		"resnum": 2828,
+		"chain": "C",
+		"res_tag": "Residue_C2828",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2818",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,3],
+		"linkers": [
+			"Linker_C2819_C2828_stack",
+			"Linker_C2827_C2828_stack",
+			"Linker_C2828_C2829_stack",
+			"Linker_C2827_C2828_arrow",
+			"Linker_C2828_C2829_arrow",
+			"Linker_C2818_C2828_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2829": {
+		"resnum": 2829,
+		"chain": "C",
+		"res_tag": "Residue_C2829",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "A",
+		"stem_partner": "Residue_C2817",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,3],
+		"linkers": [
+			"Linker_C2828_C2829_stack",
+			"Linker_C2829_C2830_stack",
+			"Linker_C2828_C2829_arrow",
+			"Linker_C2829_C2830_arrow",
+			"Linker_C2817_C2829_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2830": {
+		"resnum": 2830,
+		"chain": "C",
+		"res_tag": "Residue_C2830",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2816",
+		"tickrot": 45,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,3],
+		"linkers": [
+			"Linker_C2829_C2830_stack",
+			"Linker_C2830_C2831_stack",
+			"Linker_C2829_C2830_arrow",
+			"Linker_C2830_C2831_arrow",
+			"Linker_C2816_C2830_stem_pair",
+			"Linker_C2830_C2883_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2831": {
+		"resnum": 2831,
+		"chain": "C",
+		"res_tag": "Residue_C2831",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2815",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6,3],
+		"linkers": [
+			"Linker_C2816_C2831_stack",
+			"Linker_C2830_C2831_stack",
+			"Linker_C2830_C2831_arrow",
+			"Linker_C2831_C2832_arrow",
+			"Linker_C2815_C2831_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2815_coaxial_stack"
+		]
+	},
+	"Residue_C2832": {
+		"resnum": 2832,
+		"chain": "C",
+		"res_tag": "Residue_C2832",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-9,3],
+		"linkers": [
+			"Linker_C2832_C2834_stack",
+			"Linker_C2831_C2832_arrow",
+			"Linker_C2832_C2833_arrow"
+		]
+	},
+	"Residue_C2833": {
+		"resnum": 2833,
+		"chain": "C",
+		"res_tag": "Residue_C2833",
+		"helix_tag": "Helix_C2815",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-11.25,5.25],
+		"linkers": [
+			"Linker_C2832_C2833_arrow",
+			"Linker_C2833_C2834_arrow"
+		]
+	},
+	"Residue_C2834": {
+		"resnum": 2834,
+		"chain": "C",
+		"res_tag": "Residue_C2834",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6.75,-6.75],
+		"linkers": [
+			"Linker_C2832_C2834_stack",
+			"Linker_C2834_C2879_stack",
+			"Linker_C2833_C2834_arrow",
+			"Linker_C2834_C2835_arrow",
+			"Linker_C2834_C2883_noncanonical_pair",
+			"Linker_C2834_C2882_noncanonical_pair"
+		]
+	},
+	"Residue_C2835": {
+		"resnum": 2835,
+		"chain": "C",
+		"res_tag": "Residue_C2835",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3.75,-6.75],
+		"linkers": [
+			"Linker_C2835_C2878_stack",
+			"Linker_C2835_C2879_stack",
+			"Linker_C2834_C2835_arrow",
+			"Linker_C2835_C2836_arrow",
+			"Linker_C2835_C2837_noncanonical_pair"
+		]
+	},
+	"Residue_C2836": {
+		"resnum": 2836,
+		"chain": "C",
+		"res_tag": "Residue_C2836",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2882",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,-3],
+		"linkers": [
+			"Linker_C2836_C2837_stack",
+			"Linker_C2836_C2883_stack",
+			"Linker_C2835_C2836_arrow",
+			"Linker_C2836_C2837_arrow",
+			"Linker_C2836_C2882_stem_pair",
+			"Linker_C2836_C2879_noncanonical_pair",
+			"Linker_C2817_C2836_noncanonical_pair"
+		]
+	},
+	"Residue_C2837": {
+		"resnum": 2837,
+		"chain": "C",
+		"res_tag": "Residue_C2837",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "A",
+		"stem_partner": "Residue_C2881",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,-3],
+		"linkers": [
+			"Linker_C2836_C2837_stack",
+			"Linker_C2837_C2838_stack",
+			"Linker_C2837_C2882_stack",
+			"Linker_C2836_C2837_arrow",
+			"Linker_C2837_C2838_arrow",
+			"Linker_C2837_C2881_stem_pair",
+			"Linker_C2835_C2837_noncanonical_pair"
+		]
+	},
+	"Residue_C2838": {
+		"resnum": 2838,
+		"chain": "C",
+		"res_tag": "Residue_C2838",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2880",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,-3],
+		"linkers": [
+			"Linker_C2837_C2838_stack",
+			"Linker_C2838_C2839_stack",
+			"Linker_C2838_C2881_stack",
+			"Linker_C2837_C2838_arrow",
+			"Linker_C2838_C2839_arrow",
+			"Linker_C2838_C2880_stem_pair"
+		]
+	},
+	"Residue_C2839": {
+		"resnum": 2839,
+		"chain": "C",
+		"res_tag": "Residue_C2839",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2878",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6,-3],
+		"linkers": [
+			"Linker_C2838_C2839_stack",
+			"Linker_C2839_C2840_stack",
+			"Linker_C2838_C2839_arrow",
+			"Linker_C2839_C2840_arrow",
+			"Linker_C2839_C2878_stem_pair"
+		]
+	},
+	"Residue_C2840": {
+		"resnum": 2840,
+		"chain": "C",
+		"res_tag": "Residue_C2840",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2877",
+		"tickrot": 270,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,-3],
+		"linkers": [
+			"Linker_C2839_C2840_stack",
+			"Linker_C2840_C2841_stack",
+			"Linker_C2839_C2840_arrow",
+			"Linker_C2840_C2841_arrow",
+			"Linker_C2840_C2877_stem_pair"
+		]
+	},
+	"Residue_C2841": {
+		"resnum": 2841,
+		"chain": "C",
+		"res_tag": "Residue_C2841",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2876",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,-3],
+		"linkers": [
+			"Linker_C2840_C2841_stack",
+			"Linker_C2841_C2842_stack",
+			"Linker_C2841_C2877_stack",
+			"Linker_C2840_C2841_arrow",
+			"Linker_C2841_C2842_arrow",
+			"Linker_C2841_C2876_stem_pair"
+		]
+	},
+	"Residue_C2842": {
+		"resnum": 2842,
+		"chain": "C",
+		"res_tag": "Residue_C2842",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2875",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,-3],
+		"linkers": [
+			"Linker_C2841_C2842_stack",
+			"Linker_C2842_C2843_stack",
+			"Linker_C2842_C2876_stack",
+			"Linker_C2841_C2842_arrow",
+			"Linker_C2842_C2843_arrow",
+			"Linker_C2842_C2875_stem_pair"
+		]
+	},
+	"Residue_C2843": {
+		"resnum": 2843,
+		"chain": "C",
+		"res_tag": "Residue_C2843",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2874",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [6,-3],
+		"linkers": [
+			"Linker_C2842_C2843_stack",
+			"Linker_C2843_C2844_stack",
+			"Linker_C2843_C2875_stack",
+			"Linker_C2842_C2843_arrow",
+			"Linker_C2843_C2844_arrow",
+			"Linker_C2843_C2874_stem_pair"
+		]
+	},
+	"Residue_C2844": {
+		"resnum": 2844,
+		"chain": "C",
+		"res_tag": "Residue_C2844",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [9,-3],
+		"linkers": [
+			"Linker_C2843_C2844_stack",
+			"Linker_C2844_C2845_stack",
+			"Linker_C2843_C2844_arrow",
+			"Linker_C2844_C2845_arrow"
+		]
+	},
+	"Residue_C2845": {
+		"resnum": 2845,
+		"chain": "C",
+		"res_tag": "Residue_C2845",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-4.5,-3],
+		"linkers": [
+			"Linker_C2844_C2845_stack",
+			"Linker_C2845_C2846_stack",
+			"Linker_C2844_C2845_arrow",
+			"Linker_C2845_C2846_arrow",
+			"Linker_C2845_C2871_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2845_coaxial_stack"
+		]
+	},
+	"Residue_C2846": {
+		"resnum": 2846,
+		"chain": "C",
+		"res_tag": "Residue_C2846",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2870",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-1.5,-3],
+		"linkers": [
+			"Linker_C2845_C2846_stack",
+			"Linker_C2846_C2847_stack",
+			"Linker_C2845_C2846_arrow",
+			"Linker_C2846_C2847_arrow",
+			"Linker_C2846_C2870_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2845_coaxial_stack"
+		]
+	},
+	"Residue_C2847": {
+		"resnum": 2847,
+		"chain": "C",
+		"res_tag": "Residue_C2847",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2869",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [1.5,-3],
+		"linkers": [
+			"Linker_C2846_C2847_stack",
+			"Linker_C2847_C2848_stack",
+			"Linker_C2846_C2847_arrow",
+			"Linker_C2847_C2848_arrow",
+			"Linker_C2847_C2869_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2845_coaxial_stack"
+		]
+	},
+	"Residue_C2848": {
+		"resnum": 2848,
+		"chain": "C",
+		"res_tag": "Residue_C2848",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [4.5,-3],
+		"linkers": [
+			"Linker_C2847_C2848_stack",
+			"Linker_C2848_C2867_stack",
+			"Linker_C2847_C2848_arrow",
+			"Linker_C2848_C2849_arrow",
+			"Linker_C2848_C2868_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2845_coaxial_stack"
+		]
+	},
+	"Residue_C2849": {
+		"resnum": 2849,
+		"chain": "C",
+		"res_tag": "Residue_C2849",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-12.75,-0.75],
+		"linkers": [
+			"Linker_C2849_C2867_stack",
+			"Linker_C2848_C2849_arrow",
+			"Linker_C2849_C2850_arrow"
+		]
+	},
+	"Residue_C2850": {
+		"resnum": 2850,
+		"chain": "C",
+		"res_tag": "Residue_C2850",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "A",
+		"tickrot": 270,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-12,-3.75],
+		"linkers": [
+			"Linker_C2850_C2851_stack",
+			"Linker_C2849_C2850_arrow",
+			"Linker_C2850_C2851_arrow"
+		]
+	},
+	"Residue_C2851": {
+		"resnum": 2851,
+		"chain": "C",
+		"res_tag": "Residue_C2851",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-9,-3],
+		"linkers": [
+			"Linker_C2850_C2851_stack",
+			"Linker_C2851_C2852_stack",
+			"Linker_C2850_C2851_arrow",
+			"Linker_C2851_C2852_arrow",
+			"Linker_C2851_C2866_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2852": {
+		"resnum": 2852,
+		"chain": "C",
+		"res_tag": "Residue_C2852",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2865",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6,-3],
+		"linkers": [
+			"Linker_C2851_C2852_stack",
+			"Linker_C2852_C2853_stack",
+			"Linker_C2851_C2852_arrow",
+			"Linker_C2852_C2853_arrow",
+			"Linker_C2852_C2865_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2853": {
+		"resnum": 2853,
+		"chain": "C",
+		"res_tag": "Residue_C2853",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2864",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,-3],
+		"linkers": [
+			"Linker_C2852_C2853_stack",
+			"Linker_C2853_C2854_stack",
+			"Linker_C2852_C2853_arrow",
+			"Linker_C2853_C2854_arrow",
+			"Linker_C2853_C2864_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2854": {
+		"resnum": 2854,
+		"chain": "C",
+		"res_tag": "Residue_C2854",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2863",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,-3],
+		"linkers": [
+			"Linker_C2853_C2854_stack",
+			"Linker_C2854_C2855_stack",
+			"Linker_C2854_C2864_stack",
+			"Linker_C2853_C2854_arrow",
+			"Linker_C2854_C2855_arrow",
+			"Linker_C2854_C2863_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2855": {
+		"resnum": 2855,
+		"chain": "C",
+		"res_tag": "Residue_C2855",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2862",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,-3],
+		"linkers": [
+			"Linker_C2854_C2855_stack",
+			"Linker_C2855_C2856_stack",
+			"Linker_C2854_C2855_arrow",
+			"Linker_C2855_C2856_arrow",
+			"Linker_C2855_C2862_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2856": {
+		"resnum": 2856,
+		"chain": "C",
+		"res_tag": "Residue_C2856",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "A",
+		"stem_partner": "Residue_C2861",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [6,-3],
+		"linkers": [
+			"Linker_C2855_C2856_stack",
+			"Linker_C2856_C2857_stack",
+			"Linker_C2856_C2862_stack",
+			"Linker_C2855_C2856_arrow",
+			"Linker_C2856_C2857_arrow",
+			"Linker_C2856_C2861_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2857": {
+		"resnum": 2857,
+		"chain": "C",
+		"res_tag": "Residue_C2857",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [9,-3],
+		"linkers": [
+			"Linker_C2856_C2857_stack",
+			"Linker_C2856_C2857_arrow",
+			"Linker_C2857_C2858_arrow",
+			"Linker_C2857_C2860_noncanonical_pair"
+		]
+	},
+	"Residue_C2858": {
+		"resnum": 2858,
+		"chain": "C",
+		"res_tag": "Residue_C2858",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "C",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [12,-1.5],
+		"linkers": [
+			"Linker_C2858_C2859_stack",
+			"Linker_C2857_C2858_arrow",
+			"Linker_C2858_C2859_arrow"
+		]
+	},
+	"Residue_C2859": {
+		"resnum": 2859,
+		"chain": "C",
+		"res_tag": "Residue_C2859",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [12,2.25],
+		"linkers": [
+			"Linker_C2858_C2859_stack",
+			"Linker_C2859_C2860_stack",
+			"Linker_C2858_C2859_arrow",
+			"Linker_C2859_C2860_arrow"
+		]
+	},
+	"Residue_C2860": {
+		"resnum": 2860,
+		"chain": "C",
+		"res_tag": "Residue_C2860",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "A",
+		"tickrot": 90,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [9,3],
+		"linkers": [
+			"Linker_C2859_C2860_stack",
+			"Linker_C2859_C2860_arrow",
+			"Linker_C2860_C2861_arrow",
+			"Linker_C2857_C2860_noncanonical_pair"
+		]
+	},
+	"Residue_C2861": {
+		"resnum": 2861,
+		"chain": "C",
+		"res_tag": "Residue_C2861",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2856",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [6,3],
+		"linkers": [
+			"Linker_C2861_C2862_stack",
+			"Linker_C2860_C2861_arrow",
+			"Linker_C2861_C2862_arrow",
+			"Linker_C2856_C2861_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2862": {
+		"resnum": 2862,
+		"chain": "C",
+		"res_tag": "Residue_C2862",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2855",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,3],
+		"linkers": [
+			"Linker_C2856_C2862_stack",
+			"Linker_C2861_C2862_stack",
+			"Linker_C2862_C2863_stack",
+			"Linker_C2861_C2862_arrow",
+			"Linker_C2862_C2863_arrow",
+			"Linker_C2855_C2862_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2863": {
+		"resnum": 2863,
+		"chain": "C",
+		"res_tag": "Residue_C2863",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2854",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,3],
+		"linkers": [
+			"Linker_C2862_C2863_stack",
+			"Linker_C2863_C2864_stack",
+			"Linker_C2862_C2863_arrow",
+			"Linker_C2863_C2864_arrow",
+			"Linker_C2854_C2863_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2864": {
+		"resnum": 2864,
+		"chain": "C",
+		"res_tag": "Residue_C2864",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2853",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,3],
+		"linkers": [
+			"Linker_C2854_C2864_stack",
+			"Linker_C2863_C2864_stack",
+			"Linker_C2864_C2865_stack",
+			"Linker_C2863_C2864_arrow",
+			"Linker_C2864_C2865_arrow",
+			"Linker_C2853_C2864_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2865": {
+		"resnum": 2865,
+		"chain": "C",
+		"res_tag": "Residue_C2865",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2852",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6,3],
+		"linkers": [
+			"Linker_C2864_C2865_stack",
+			"Linker_C2865_C2866_stack",
+			"Linker_C2864_C2865_arrow",
+			"Linker_C2865_C2866_arrow",
+			"Linker_C2852_C2865_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2866": {
+		"resnum": 2866,
+		"chain": "C",
+		"res_tag": "Residue_C2866",
+		"helix_tag": "Helix_C2852",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-9,3],
+		"linkers": [
+			"Linker_C2865_C2866_stack",
+			"Linker_C2865_C2866_arrow",
+			"Linker_C2866_C2867_arrow",
+			"Linker_C2851_C2866_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2851_coaxial_stack"
+		]
+	},
+	"Residue_C2867": {
+		"resnum": 2867,
+		"chain": "C",
+		"res_tag": "Residue_C2867",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [4.5,6],
+		"linkers": [
+			"Linker_C2848_C2867_stack",
+			"Linker_C2849_C2867_stack",
+			"Linker_C2866_C2867_arrow",
+			"Linker_C2867_C2868_arrow"
+		]
+	},
+	"Residue_C2868": {
+		"resnum": 2868,
+		"chain": "C",
+		"res_tag": "Residue_C2868",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [4.5,3],
+		"linkers": [
+			"Linker_C2868_C2869_stack",
+			"Linker_C2867_C2868_arrow",
+			"Linker_C2868_C2869_arrow",
+			"Linker_C2848_C2868_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2845_coaxial_stack"
+		]
+	},
+	"Residue_C2869": {
+		"resnum": 2869,
+		"chain": "C",
+		"res_tag": "Residue_C2869",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2847",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [1.5,3],
+		"linkers": [
+			"Linker_C2868_C2869_stack",
+			"Linker_C2869_C2870_stack",
+			"Linker_C2868_C2869_arrow",
+			"Linker_C2869_C2870_arrow",
+			"Linker_C2847_C2869_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2845_coaxial_stack"
+		]
+	},
+	"Residue_C2870": {
+		"resnum": 2870,
+		"chain": "C",
+		"res_tag": "Residue_C2870",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2846",
+		"tickrot": 90,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-1.5,3],
+		"linkers": [
+			"Linker_C2869_C2870_stack",
+			"Linker_C2870_C2871_stack",
+			"Linker_C2869_C2870_arrow",
+			"Linker_C2870_C2871_arrow",
+			"Linker_C2846_C2870_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2845_coaxial_stack"
+		]
+	},
+	"Residue_C2871": {
+		"resnum": 2871,
+		"chain": "C",
+		"res_tag": "Residue_C2871",
+		"helix_tag": "Helix_C2846",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-4.5,3],
+		"linkers": [
+			"Linker_C2870_C2871_stack",
+			"Linker_C2870_C2871_arrow",
+			"Linker_C2871_C2872_arrow",
+			"Linker_C2845_C2871_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2845_coaxial_stack"
+		]
+	},
+	"Residue_C2872": {
+		"resnum": 2872,
+		"chain": "C",
+		"res_tag": "Residue_C2872",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [11.25,5.25],
+		"linkers": [
+			"Linker_C2871_C2872_arrow",
+			"Linker_C2872_C2873_arrow"
+		]
+	},
+	"Residue_C2873": {
+		"resnum": 2873,
+		"chain": "C",
+		"res_tag": "Residue_C2873",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [7.5,5.25],
+		"linkers": [
+			"Linker_C2872_C2873_arrow",
+			"Linker_C2873_C2874_arrow"
+		]
+	},
+	"Residue_C2874": {
+		"resnum": 2874,
+		"chain": "C",
+		"res_tag": "Residue_C2874",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2843",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [6,3],
+		"linkers": [
+			"Linker_C2874_C2875_stack",
+			"Linker_C2873_C2874_arrow",
+			"Linker_C2874_C2875_arrow",
+			"Linker_C2843_C2874_stem_pair"
+		]
+	},
+	"Residue_C2875": {
+		"resnum": 2875,
+		"chain": "C",
+		"res_tag": "Residue_C2875",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2842",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,3],
+		"linkers": [
+			"Linker_C2843_C2875_stack",
+			"Linker_C2874_C2875_stack",
+			"Linker_C2875_C2876_stack",
+			"Linker_C2874_C2875_arrow",
+			"Linker_C2875_C2876_arrow",
+			"Linker_C2842_C2875_stem_pair"
+		]
+	},
+	"Residue_C2876": {
+		"resnum": 2876,
+		"chain": "C",
+		"res_tag": "Residue_C2876",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2841",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,3],
+		"linkers": [
+			"Linker_C2842_C2876_stack",
+			"Linker_C2875_C2876_stack",
+			"Linker_C2876_C2877_stack",
+			"Linker_C2875_C2876_arrow",
+			"Linker_C2876_C2877_arrow",
+			"Linker_C2841_C2876_stem_pair"
+		]
+	},
+	"Residue_C2877": {
+		"resnum": 2877,
+		"chain": "C",
+		"res_tag": "Residue_C2877",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "G",
+		"stem_partner": "Residue_C2840",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,3],
+		"linkers": [
+			"Linker_C2841_C2877_stack",
+			"Linker_C2876_C2877_stack",
+			"Linker_C2877_C2878_stack",
+			"Linker_C2876_C2877_arrow",
+			"Linker_C2877_C2878_arrow",
+			"Linker_C2840_C2877_stem_pair"
+		]
+	},
+	"Residue_C2878": {
+		"resnum": 2878,
+		"chain": "C",
+		"res_tag": "Residue_C2878",
+		"helix_tag": "Helix_C2839",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2839",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6,3],
+		"linkers": [
+			"Linker_C2835_C2878_stack",
+			"Linker_C2877_C2878_stack",
+			"Linker_C2877_C2878_arrow",
+			"Linker_C2878_C2879_arrow",
+			"Linker_C2839_C2878_stem_pair"
+		]
+	},
+	"Residue_C2879": {
+		"resnum": 2879,
+		"chain": "C",
+		"res_tag": "Residue_C2879",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [4.5,6],
+		"linkers": [
+			"Linker_C2834_C2879_stack",
+			"Linker_C2835_C2879_stack",
+			"Linker_C2878_C2879_arrow",
+			"Linker_C2879_C2880_arrow",
+			"Linker_C2836_C2879_noncanonical_pair"
+		]
+	},
+	"Residue_C2880": {
+		"resnum": 2880,
+		"chain": "C",
+		"res_tag": "Residue_C2880",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2838",
+		"tickrot": 90,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [3,3],
+		"linkers": [
+			"Linker_C2880_C2881_stack",
+			"Linker_C2879_C2880_arrow",
+			"Linker_C2880_C2881_arrow",
+			"Linker_C2838_C2880_stem_pair"
+		]
+	},
+	"Residue_C2881": {
+		"resnum": 2881,
+		"chain": "C",
+		"res_tag": "Residue_C2881",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "U",
+		"stem_partner": "Residue_C2837",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [0,3],
+		"linkers": [
+			"Linker_C2838_C2881_stack",
+			"Linker_C2880_C2881_stack",
+			"Linker_C2881_C2882_stack",
+			"Linker_C2880_C2881_arrow",
+			"Linker_C2881_C2882_arrow",
+			"Linker_C2837_C2881_stem_pair"
+		]
+	},
+	"Residue_C2882": {
+		"resnum": 2882,
+		"chain": "C",
+		"res_tag": "Residue_C2882",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "A",
+		"stem_partner": "Residue_C2836",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-3,3],
+		"linkers": [
+			"Linker_C2837_C2882_stack",
+			"Linker_C2881_C2882_stack",
+			"Linker_C2882_C2883_stack",
+			"Linker_C2881_C2882_arrow",
+			"Linker_C2882_C2883_arrow",
+			"Linker_C2836_C2882_stem_pair",
+			"Linker_C2834_C2882_noncanonical_pair"
+		]
+	},
+	"Residue_C2883": {
+		"resnum": 2883,
+		"chain": "C",
+		"res_tag": "Residue_C2883",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-6.75,3],
+		"linkers": [
+			"Linker_C2836_C2883_stack",
+			"Linker_C2882_C2883_stack",
+			"Linker_C2882_C2883_arrow",
+			"Linker_C2883_C2884_arrow",
+			"Linker_C2834_C2883_noncanonical_pair",
+			"Linker_C2816_C2883_noncanonical_pair",
+			"Linker_C2830_C2883_noncanonical_pair"
+		]
+	},
+	"Residue_C2884": {
+		"resnum": 2884,
+		"chain": "C",
+		"res_tag": "Residue_C2884",
+		"helix_tag": "Helix_C2836",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-10.5,3.75],
+		"linkers": [
+			"Linker_C2883_C2884_arrow",
+			"Linker_C2884_C2885_arrow"
+		]
+	},
+	"Residue_C2885": {
+		"resnum": 2885,
+		"chain": "C",
+		"res_tag": "Residue_C2885",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [10.5,6.75],
+		"linkers": [
+			"Linker_C2884_C2885_arrow",
+			"Linker_C2885_C2886_arrow"
+		]
+	},
+	"Residue_C2886": {
+		"resnum": 2886,
+		"chain": "C",
+		"res_tag": "Residue_C2886",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [7.5,4.5],
+		"linkers": [
+			"Linker_C2886_C2887_stack",
+			"Linker_C2885_C2886_arrow",
+			"Linker_C2886_C2887_arrow"
+		]
+	},
+	"Residue_C2887": {
+		"resnum": 2887,
+		"chain": "C",
+		"res_tag": "Residue_C2887",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [4.5,3],
+		"linkers": [
+			"Linker_C2886_C2887_stack",
+			"Linker_C2887_C2888_stack",
+			"Linker_C2886_C2887_arrow",
+			"Linker_C2887_C2888_arrow",
+			"Linker_C2813_C2887_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2811_coaxial_stack"
+		]
+	},
+	"Residue_C2888": {
+		"resnum": 2888,
+		"chain": "C",
+		"res_tag": "Residue_C2888",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2812",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [1.5,3],
+		"linkers": [
+			"Linker_C2887_C2888_stack",
+			"Linker_C2888_C2889_stack",
+			"Linker_C2887_C2888_arrow",
+			"Linker_C2888_C2889_arrow",
+			"Linker_C2812_C2888_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2811_coaxial_stack"
+		]
+	},
+	"Residue_C2889": {
+		"resnum": 2889,
+		"chain": "C",
+		"res_tag": "Residue_C2889",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "C",
+		"stem_partner": "Residue_C2811",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-1.5,3],
+		"linkers": [
+			"Linker_C2812_C2889_stack",
+			"Linker_C2888_C2889_stack",
+			"Linker_C2889_C2890_stack",
+			"Linker_C2888_C2889_arrow",
+			"Linker_C2889_C2890_arrow",
+			"Linker_C2811_C2889_stem_pair"
+		],
+		"associated_selections": [
+			"Selection_C2811_coaxial_stack"
+		]
+	},
+	"Residue_C2890": {
+		"resnum": 2890,
+		"chain": "C",
+		"res_tag": "Residue_C2890",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "G",
+		"tickrot": 90,
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-4.5,3],
+		"linkers": [
+			"Linker_C2889_C2890_stack",
+			"Linker_C2889_C2890_arrow",
+			"Linker_C2890_C2891_arrow",
+			"Linker_C2810_C2890_noncanonical_pair"
+		]
+	},
+	"Residue_C2891": {
+		"resnum": 2891,
+		"chain": "C",
+		"res_tag": "Residue_C2891",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "U",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-12,-3],
+		"linkers": [
+			"Linker_C2808_C2891_stack",
+			"Linker_C2891_C2892_stack",
+			"Linker_C2890_C2891_arrow",
+			"Linker_C2891_C2892_arrow",
+			"Linker_C2807_C2891_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2806_coaxial_stack"
+		]
+	},
+	"Residue_C2892": {
+		"resnum": 2892,
+		"chain": "C",
+		"res_tag": "Residue_C2892",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-15,-3],
+		"linkers": [
+			"Linker_C2891_C2892_stack",
+			"Linker_C2891_C2892_arrow",
+			"Linker_C2892_C2893_arrow",
+			"Linker_C2806_C2892_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_C2806_coaxial_stack"
+		]
+	},
+	"Residue_C2893": {
+		"resnum": 2893,
+		"chain": "C",
+		"res_tag": "Residue_C2893",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "A",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-18.75,-7.5],
+		"linkers": [
+			"Linker_C2789_C2893_stack",
+			"Linker_C2790_C2893_stack",
+			"Linker_C2892_C2893_arrow",
+			"Linker_C2893_C2894_arrow"
+		]
+	},
+	"Residue_C2894": {
+		"resnum": 2894,
+		"chain": "C",
+		"res_tag": "Residue_C2894",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-18.75,-9.75],
+		"linkers": [
+			"Linker_C2893_C2894_arrow",
+			"Linker_C2894_C2895_arrow",
+			"Linker_C2789_C2894_noncanonical_pair"
+		]
+	},
+	"Residue_C2895": {
+		"resnum": 2895,
+		"chain": "C",
+		"res_tag": "Residue_C2895",
+		"helix_tag": "Helix_C2811",
+		"nucleotide": "G",
+		"rgb_color": [0.5,1,0.5],
+		"relpos": [-20.25,-11.25],
+		"linkers": [
+			"Linker_C2894_C2895_arrow"
+		]
+	},
+	"Helix_C2791": {
+		"resnum1": [2791,2792,2793,2794,2795],
+		"chain1": "CCCCC",
+		"resnum2": [2801,2802,2803,2804,2805],
+		"chain2": "CCCCC",
+		"name": "H98",
+		"center": [64.5,177],
+		"rotation": 270,
+		"parity": -1,
+		"label_relpos": [0,6],
+		"helix_tag": "Helix_C2791",
+		"associated_residues": [
+			"Residue_C2789",
+			"Residue_C2790",
+			"Residue_C2791",
+			"Residue_C2792",
+			"Residue_C2793",
+			"Residue_C2794",
+			"Residue_C2795",
+			"Residue_C2796",
+			"Residue_C2797",
+			"Residue_C2798",
+			"Residue_C2799",
+			"Residue_C2800",
+			"Residue_C2801",
+			"Residue_C2802",
+			"Residue_C2803",
+			"Residue_C2804",
+			"Residue_C2805",
+			"Residue_C2808"
+		]
+	},
+	"Helix_C2811": {
+		"resnum1": [2811,2812],
+		"chain1": "CC",
+		"resnum2": [2888,2889],
+		"chain2": "CC",
+		"name": "H99",
+		"center": [64.5,150.75],
+		"rotation": 90,
+		"parity": 1,
+		"label_relpos": [0,6],
+		"helix_tag": "Helix_C2811",
+		"associated_residues": [
+			"Residue_C2806",
+			"Residue_C2807",
+			"Residue_C2809",
+			"Residue_C2810",
+			"Residue_C2811",
+			"Residue_C2812",
+			"Residue_C2813",
+			"Residue_C2885",
+			"Residue_C2886",
+			"Residue_C2887",
+			"Residue_C2888",
+			"Residue_C2889",
+			"Residue_C2890",
+			"Residue_C2891",
+			"Residue_C2892",
+			"Residue_C2893",
+			"Residue_C2894",
+			"Residue_C2895"
+		]
+	},
+	"Helix_C2815": {
+		"resnum1": [2815,2816,2817,2818,2819],
+		"chain1": "CCCCC",
+		"resnum2": [2827,2828,2829,2830,2831],
+		"chain2": "CCCCC",
+		"name": "H100",
+		"center": [48,142.5],
+		"rotation": 180,
+		"parity": 1,
+		"label_relpos": [3,-6],
+		"helix_tag": "Helix_C2815",
+		"associated_residues": [
+			"Residue_C2814",
+			"Residue_C2815",
+			"Residue_C2816",
+			"Residue_C2817",
+			"Residue_C2818",
+			"Residue_C2819",
+			"Residue_C2820",
+			"Residue_C2821",
+			"Residue_C2822",
+			"Residue_C2823",
+			"Residue_C2824",
+			"Residue_C2825",
+			"Residue_C2826",
+			"Residue_C2827",
+			"Residue_C2828",
+			"Residue_C2829",
+			"Residue_C2830",
+			"Residue_C2831",
+			"Residue_C2832",
+			"Residue_C2833"
+		]
+	},
+	"Helix_C2836": {
+		"resnum1": [2836,2837,2838],
+		"chain1": "CCC",
+		"resnum2": [2880,2881,2882],
+		"chain2": "CCC",
+		"name": "H101a",
+		"center": [68.25,126.75],
+		"rotation": 90,
+		"parity": 1,
+		"label_relpos": [-3,6],
+		"helix_tag": "Helix_C2836",
+		"associated_residues": [
+			"Residue_C2834",
+			"Residue_C2835",
+			"Residue_C2836",
+			"Residue_C2837",
+			"Residue_C2838",
+			"Residue_C2879",
+			"Residue_C2880",
+			"Residue_C2881",
+			"Residue_C2882",
+			"Residue_C2883",
+			"Residue_C2884"
+		]
+	},
+	"Helix_C2839": {
+		"resnum1": [2839,2840,2841,2842,2843],
+		"chain1": "CCCCC",
+		"resnum2": [2874,2875,2876,2877,2878],
+		"chain2": "CCCCC",
+		"name": "H101b",
+		"center": [68.25,114],
+		"rotation": 90,
+		"parity": 1,
+		"label_relpos": [0,6],
+		"helix_tag": "Helix_C2839",
+		"associated_residues": [
+			"Residue_C2839",
+			"Residue_C2840",
+			"Residue_C2841",
+			"Residue_C2842",
+			"Residue_C2843",
+			"Residue_C2844",
+			"Residue_C2872",
+			"Residue_C2873",
+			"Residue_C2874",
+			"Residue_C2875",
+			"Residue_C2876",
+			"Residue_C2877",
+			"Residue_C2878"
+		]
+	},
+	"Helix_C2846": {
+		"resnum1": [2846,2847],
+		"chain1": "CC",
+		"resnum2": [2869,2870],
+		"chain2": "CC",
+		"name": "H101c",
+		"center": [68.25,96.75],
+		"rotation": 90,
+		"parity": 1,
+		"label_relpos": [0,6],
+		"helix_tag": "Helix_C2846",
+		"associated_residues": [
+			"Residue_C2845",
+			"Residue_C2846",
+			"Residue_C2847",
+			"Residue_C2848",
+			"Residue_C2867",
+			"Residue_C2868",
+			"Residue_C2869",
+			"Residue_C2870",
+			"Residue_C2871"
+		]
+	},
+	"Helix_C2852": {
+		"resnum1": [2852,2853,2854,2855,2856],
+		"chain1": "CCCCC",
+		"resnum2": [2861,2862,2863,2864,2865],
+		"chain2": "CCCCC",
+		"name": "H101d",
+		"center": [68.25,76.5],
+		"rotation": 90,
+		"parity": 1,
+		"label_relpos": [0,6],
+		"helix_tag": "Helix_C2852",
+		"associated_residues": [
+			"Residue_C2849",
+			"Residue_C2850",
+			"Residue_C2851",
+			"Residue_C2852",
+			"Residue_C2853",
+			"Residue_C2854",
+			"Residue_C2855",
+			"Residue_C2856",
+			"Residue_C2857",
+			"Residue_C2858",
+			"Residue_C2859",
+			"Residue_C2860",
+			"Residue_C2861",
+			"Residue_C2862",
+			"Residue_C2863",
+			"Residue_C2864",
+			"Residue_C2865",
+			"Residue_C2866"
+		]
+	},
+	"Linker_C2789_C2893_stack": {
+		"residue1": "Residue_C2789",
+		"residue2": "Residue_C2893",
+		"type": "stack",
+		"linker_tag": "Linker_C2789_C2893_stack",
+		"relpos1": [-5.854645231,-1.963465319],
+		"relpos2": [-16.35464523,4.963465319]
+	},
+	"Linker_C2790_C2893_stack": {
+		"residue1": "Residue_C2790",
+		"residue2": "Residue_C2893",
+		"type": "stack",
+		"linker_tag": "Linker_C2790_C2893_stack",
+		"relpos1": [-3.060869554,-2.115415032],
+		"relpos2": [-16.56086955,5.115415032]
+	},
+	"Linker_C2791_C2792_stack": {
+		"residue1": "Residue_C2791",
+		"residue2": "Residue_C2792",
+		"type": "stack",
+		"linker_tag": "Linker_C2791_C2792_stack"
+	},
+	"Linker_C2791_C2806_stack": {
+		"residue1": "Residue_C2791",
+		"residue2": "Residue_C2806",
+		"type": "stack",
+		"linker_tag": "Linker_C2791_C2806_stack",
+		"relpos1": [-6,-3],
+		"relpos2": [-12.40382874,-7.170334647]
+	},
+	"Linker_C2792_C2793_stack": {
+		"residue1": "Residue_C2792",
+		"residue2": "Residue_C2793",
+		"type": "stack",
+		"linker_tag": "Linker_C2792_C2793_stack"
+	},
+	"Linker_C2793_C2794_stack": {
+		"residue1": "Residue_C2793",
+		"residue2": "Residue_C2794",
+		"type": "stack",
+		"linker_tag": "Linker_C2793_C2794_stack"
+	},
+	"Linker_C2793_C2804_stack": {
+		"residue1": "Residue_C2793",
+		"residue2": "Residue_C2804",
+		"type": "stack",
+		"linker_tag": "Linker_C2793_C2804_stack"
+	},
+	"Linker_C2794_C2795_stack": {
+		"residue1": "Residue_C2794",
+		"residue2": "Residue_C2795",
+		"type": "stack",
+		"linker_tag": "Linker_C2794_C2795_stack"
+	},
+	"Linker_C2795_C2796_stack": {
+		"residue1": "Residue_C2795",
+		"residue2": "Residue_C2796",
+		"type": "stack",
+		"linker_tag": "Linker_C2795_C2796_stack"
+	},
+	"Linker_C2796_C2798_stack": {
+		"residue1": "Residue_C2796",
+		"residue2": "Residue_C2798",
+		"type": "stack",
+		"linker_tag": "Linker_C2796_C2798_stack"
+	},
+	"Linker_C2799_C2801_stack": {
+		"residue1": "Residue_C2799",
+		"residue2": "Residue_C2801",
+		"type": "stack",
+		"linker_tag": "Linker_C2799_C2801_stack"
+	},
+	"Linker_C2801_C2802_stack": {
+		"residue1": "Residue_C2801",
+		"residue2": "Residue_C2802",
+		"type": "stack",
+		"linker_tag": "Linker_C2801_C2802_stack"
+	},
+	"Linker_C2802_C2803_stack": {
+		"residue1": "Residue_C2802",
+		"residue2": "Residue_C2803",
+		"type": "stack",
+		"linker_tag": "Linker_C2802_C2803_stack"
+	},
+	"Linker_C2803_C2804_stack": {
+		"residue1": "Residue_C2803",
+		"residue2": "Residue_C2804",
+		"type": "stack",
+		"linker_tag": "Linker_C2803_C2804_stack"
+	},
+	"Linker_C2804_C2805_stack": {
+		"residue1": "Residue_C2804",
+		"residue2": "Residue_C2805",
+		"type": "stack",
+		"linker_tag": "Linker_C2804_C2805_stack"
+	},
+	"Linker_C2805_C2806_stack": {
+		"residue1": "Residue_C2805",
+		"residue2": "Residue_C2806",
+		"type": "stack",
+		"linker_tag": "Linker_C2805_C2806_stack",
+		"relpos1": [-6,3],
+		"relpos2": [-12.44459457,-7.613770911]
+	},
+	"Linker_C2806_C2807_stack": {
+		"residue1": "Residue_C2806",
+		"residue2": "Residue_C2807",
+		"type": "stack",
+		"linker_tag": "Linker_C2806_C2807_stack"
+	},
+	"Linker_C2807_C2808_stack": {
+		"residue1": "Residue_C2807",
+		"residue2": "Residue_C2808",
+		"type": "stack",
+		"linker_tag": "Linker_C2807_C2808_stack"
+	},
+	"Linker_C2808_C2891_stack": {
+		"residue1": "Residue_C2808",
+		"residue2": "Residue_C2891",
+		"type": "stack",
+		"linker_tag": "Linker_C2808_C2891_stack",
+		"relpos1": [-16.19178073,3.140209497],
+		"relpos2": [-6.441780725,-10.3597905]
+	},
+	"Linker_C2809_C2810_stack": {
+		"residue1": "Residue_C2809",
+		"residue2": "Residue_C2810",
+		"type": "stack",
+		"linker_tag": "Linker_C2809_C2810_stack"
+	},
+	"Linker_C2811_C2812_stack": {
+		"residue1": "Residue_C2811",
+		"residue2": "Residue_C2812",
+		"type": "stack",
+		"linker_tag": "Linker_C2811_C2812_stack"
+	},
+	"Linker_C2812_C2813_stack": {
+		"residue1": "Residue_C2812",
+		"residue2": "Residue_C2813",
+		"type": "stack",
+		"linker_tag": "Linker_C2812_C2813_stack"
+	},
+	"Linker_C2812_C2889_stack": {
+		"residue1": "Residue_C2812",
+		"residue2": "Residue_C2889",
+		"type": "stack",
+		"linker_tag": "Linker_C2812_C2889_stack"
+	},
+	"Linker_C2813_C2814_stack": {
+		"residue1": "Residue_C2813",
+		"residue2": "Residue_C2814",
+		"type": "stack",
+		"linker_tag": "Linker_C2813_C2814_stack",
+		"relpos1": [4.5,-3],
+		"relpos2": [-6.439473481,-6.158596464]
+	},
+	"Linker_C2814_C2815_stack": {
+		"residue1": "Residue_C2814",
+		"residue2": "Residue_C2815",
+		"type": "stack",
+		"linker_tag": "Linker_C2814_C2815_stack"
+	},
+	"Linker_C2815_C2816_stack": {
+		"residue1": "Residue_C2815",
+		"residue2": "Residue_C2816",
+		"type": "stack",
+		"linker_tag": "Linker_C2815_C2816_stack"
+	},
+	"Linker_C2816_C2817_stack": {
+		"residue1": "Residue_C2816",
+		"residue2": "Residue_C2817",
+		"type": "stack",
+		"linker_tag": "Linker_C2816_C2817_stack"
+	},
+	"Linker_C2816_C2831_stack": {
+		"residue1": "Residue_C2816",
+		"residue2": "Residue_C2831",
+		"type": "stack",
+		"linker_tag": "Linker_C2816_C2831_stack"
+	},
+	"Linker_C2817_C2818_stack": {
+		"residue1": "Residue_C2817",
+		"residue2": "Residue_C2818",
+		"type": "stack",
+		"linker_tag": "Linker_C2817_C2818_stack"
+	},
+	"Linker_C2819_C2821_stack": {
+		"residue1": "Residue_C2819",
+		"residue2": "Residue_C2821",
+		"type": "stack",
+		"linker_tag": "Linker_C2819_C2821_stack"
+	},
+	"Linker_C2819_C2828_stack": {
+		"residue1": "Residue_C2819",
+		"residue2": "Residue_C2828",
+		"type": "stack",
+		"linker_tag": "Linker_C2819_C2828_stack"
+	},
+	"Linker_C2821_C2822_stack": {
+		"residue1": "Residue_C2821",
+		"residue2": "Residue_C2822",
+		"type": "stack",
+		"linker_tag": "Linker_C2821_C2822_stack"
+	},
+	"Linker_C2823_C2824_stack": {
+		"residue1": "Residue_C2823",
+		"residue2": "Residue_C2824",
+		"type": "stack",
+		"linker_tag": "Linker_C2823_C2824_stack"
+	},
+	"Linker_C2824_C2825_stack": {
+		"residue1": "Residue_C2824",
+		"residue2": "Residue_C2825",
+		"type": "stack",
+		"linker_tag": "Linker_C2824_C2825_stack"
+	},
+	"Linker_C2825_C2826_stack": {
+		"residue1": "Residue_C2825",
+		"residue2": "Residue_C2826",
+		"type": "stack",
+		"linker_tag": "Linker_C2825_C2826_stack"
+	},
+	"Linker_C2826_C2827_stack": {
+		"residue1": "Residue_C2826",
+		"residue2": "Residue_C2827",
+		"type": "stack",
+		"linker_tag": "Linker_C2826_C2827_stack"
+	},
+	"Linker_C2827_C2828_stack": {
+		"residue1": "Residue_C2827",
+		"residue2": "Residue_C2828",
+		"type": "stack",
+		"linker_tag": "Linker_C2827_C2828_stack"
+	},
+	"Linker_C2828_C2829_stack": {
+		"residue1": "Residue_C2828",
+		"residue2": "Residue_C2829",
+		"type": "stack",
+		"linker_tag": "Linker_C2828_C2829_stack"
+	},
+	"Linker_C2829_C2830_stack": {
+		"residue1": "Residue_C2829",
+		"residue2": "Residue_C2830",
+		"type": "stack",
+		"linker_tag": "Linker_C2829_C2830_stack"
+	},
+	"Linker_C2830_C2831_stack": {
+		"residue1": "Residue_C2830",
+		"residue2": "Residue_C2831",
+		"type": "stack",
+		"linker_tag": "Linker_C2830_C2831_stack"
+	},
+	"Linker_C2832_C2834_stack": {
+		"residue1": "Residue_C2832",
+		"residue2": "Residue_C2834",
+		"type": "stack",
+		"linker_tag": "Linker_C2832_C2834_stack",
+		"relpos1": [-9,3],
+		"relpos2": [-9.480982601,-4.099388802]
+	},
+	"Linker_C2834_C2879_stack": {
+		"residue1": "Residue_C2834",
+		"residue2": "Residue_C2879",
+		"type": "stack",
+		"linker_tag": "Linker_C2834_C2879_stack",
+		"relpos1": [-8.001539647,-2.334359765],
+		"relpos2": [4.5,6]
+	},
+	"Linker_C2835_C2878_stack": {
+		"residue1": "Residue_C2835",
+		"residue2": "Residue_C2878",
+		"type": "stack",
+		"linker_tag": "Linker_C2835_C2878_stack",
+		"relpos1": [-4.914217557,-2.489043556],
+		"relpos2": [-6,3]
+	},
+	"Linker_C2835_C2879_stack": {
+		"residue1": "Residue_C2835",
+		"residue2": "Residue_C2879",
+		"type": "stack",
+		"linker_tag": "Linker_C2835_C2879_stack",
+		"relpos1": [-5.088892077,-2.219050352],
+		"relpos2": [4.5,6]
+	},
+	"Linker_C2836_C2837_stack": {
+		"residue1": "Residue_C2836",
+		"residue2": "Residue_C2837",
+		"type": "stack",
+		"linker_tag": "Linker_C2836_C2837_stack"
+	},
+	"Linker_C2836_C2883_stack": {
+		"residue1": "Residue_C2836",
+		"residue2": "Residue_C2883",
+		"type": "stack",
+		"linker_tag": "Linker_C2836_C2883_stack"
+	},
+	"Linker_C2837_C2838_stack": {
+		"residue1": "Residue_C2837",
+		"residue2": "Residue_C2838",
+		"type": "stack",
+		"linker_tag": "Linker_C2837_C2838_stack"
+	},
+	"Linker_C2837_C2882_stack": {
+		"residue1": "Residue_C2837",
+		"residue2": "Residue_C2882",
+		"type": "stack",
+		"linker_tag": "Linker_C2837_C2882_stack"
+	},
+	"Linker_C2838_C2839_stack": {
+		"residue1": "Residue_C2838",
+		"residue2": "Residue_C2839",
+		"type": "stack",
+		"linker_tag": "Linker_C2838_C2839_stack",
+		"relpos1": [3,-3],
+		"relpos2": [-6,-3]
+	},
+	"Linker_C2838_C2881_stack": {
+		"residue1": "Residue_C2838",
+		"residue2": "Residue_C2881",
+		"type": "stack",
+		"linker_tag": "Linker_C2838_C2881_stack"
+	},
+	"Linker_C2839_C2840_stack": {
+		"residue1": "Residue_C2839",
+		"residue2": "Residue_C2840",
+		"type": "stack",
+		"linker_tag": "Linker_C2839_C2840_stack"
+	},
+	"Linker_C2840_C2841_stack": {
+		"residue1": "Residue_C2840",
+		"residue2": "Residue_C2841",
+		"type": "stack",
+		"linker_tag": "Linker_C2840_C2841_stack"
+	},
+	"Linker_C2841_C2842_stack": {
+		"residue1": "Residue_C2841",
+		"residue2": "Residue_C2842",
+		"type": "stack",
+		"linker_tag": "Linker_C2841_C2842_stack"
+	},
+	"Linker_C2841_C2877_stack": {
+		"residue1": "Residue_C2841",
+		"residue2": "Residue_C2877",
+		"type": "stack",
+		"linker_tag": "Linker_C2841_C2877_stack"
+	},
+	"Linker_C2842_C2843_stack": {
+		"residue1": "Residue_C2842",
+		"residue2": "Residue_C2843",
+		"type": "stack",
+		"linker_tag": "Linker_C2842_C2843_stack"
+	},
+	"Linker_C2842_C2876_stack": {
+		"residue1": "Residue_C2842",
+		"residue2": "Residue_C2876",
+		"type": "stack",
+		"linker_tag": "Linker_C2842_C2876_stack"
+	},
+	"Linker_C2843_C2844_stack": {
+		"residue1": "Residue_C2843",
+		"residue2": "Residue_C2844",
+		"type": "stack",
+		"linker_tag": "Linker_C2843_C2844_stack"
+	},
+	"Linker_C2843_C2875_stack": {
+		"residue1": "Residue_C2843",
+		"residue2": "Residue_C2875",
+		"type": "stack",
+		"linker_tag": "Linker_C2843_C2875_stack"
+	},
+	"Linker_C2844_C2845_stack": {
+		"residue1": "Residue_C2844",
+		"residue2": "Residue_C2845",
+		"type": "stack",
+		"linker_tag": "Linker_C2844_C2845_stack",
+		"relpos1": [9,-3],
+		"relpos2": [-4.5,-3]
+	},
+	"Linker_C2845_C2846_stack": {
+		"residue1": "Residue_C2845",
+		"residue2": "Residue_C2846",
+		"type": "stack",
+		"linker_tag": "Linker_C2845_C2846_stack"
+	},
+	"Linker_C2846_C2847_stack": {
+		"residue1": "Residue_C2846",
+		"residue2": "Residue_C2847",
+		"type": "stack",
+		"linker_tag": "Linker_C2846_C2847_stack"
+	},
+	"Linker_C2847_C2848_stack": {
+		"residue1": "Residue_C2847",
+		"residue2": "Residue_C2848",
+		"type": "stack",
+		"linker_tag": "Linker_C2847_C2848_stack"
+	},
+	"Linker_C2848_C2867_stack": {
+		"residue1": "Residue_C2848",
+		"residue2": "Residue_C2867",
+		"type": "stack",
+		"linker_tag": "Linker_C2848_C2867_stack",
+		"relpos1": [4.5,-3],
+		"relpos2": [4.5,6]
+	},
+	"Linker_C2849_C2867_stack": {
+		"residue1": "Residue_C2849",
+		"residue2": "Residue_C2867",
+		"type": "stack",
+		"linker_tag": "Linker_C2849_C2867_stack",
+		"relpos1": [-12.75,-0.75],
+		"relpos2": [4.5,6]
+	},
+	"Linker_C2850_C2851_stack": {
+		"residue1": "Residue_C2850",
+		"residue2": "Residue_C2851",
+		"type": "stack",
+		"linker_tag": "Linker_C2850_C2851_stack"
+	},
+	"Linker_C2851_C2852_stack": {
+		"residue1": "Residue_C2851",
+		"residue2": "Residue_C2852",
+		"type": "stack",
+		"linker_tag": "Linker_C2851_C2852_stack"
+	},
+	"Linker_C2852_C2853_stack": {
+		"residue1": "Residue_C2852",
+		"residue2": "Residue_C2853",
+		"type": "stack",
+		"linker_tag": "Linker_C2852_C2853_stack"
+	},
+	"Linker_C2853_C2854_stack": {
+		"residue1": "Residue_C2853",
+		"residue2": "Residue_C2854",
+		"type": "stack",
+		"linker_tag": "Linker_C2853_C2854_stack"
+	},
+	"Linker_C2854_C2855_stack": {
+		"residue1": "Residue_C2854",
+		"residue2": "Residue_C2855",
+		"type": "stack",
+		"linker_tag": "Linker_C2854_C2855_stack"
+	},
+	"Linker_C2854_C2864_stack": {
+		"residue1": "Residue_C2854",
+		"residue2": "Residue_C2864",
+		"type": "stack",
+		"linker_tag": "Linker_C2854_C2864_stack"
+	},
+	"Linker_C2855_C2856_stack": {
+		"residue1": "Residue_C2855",
+		"residue2": "Residue_C2856",
+		"type": "stack",
+		"linker_tag": "Linker_C2855_C2856_stack"
+	},
+	"Linker_C2856_C2857_stack": {
+		"residue1": "Residue_C2856",
+		"residue2": "Residue_C2857",
+		"type": "stack",
+		"linker_tag": "Linker_C2856_C2857_stack"
+	},
+	"Linker_C2856_C2862_stack": {
+		"residue1": "Residue_C2856",
+		"residue2": "Residue_C2862",
+		"type": "stack",
+		"linker_tag": "Linker_C2856_C2862_stack"
+	},
+	"Linker_C2858_C2859_stack": {
+		"residue1": "Residue_C2858",
+		"residue2": "Residue_C2859",
+		"type": "stack",
+		"linker_tag": "Linker_C2858_C2859_stack"
+	},
+	"Linker_C2859_C2860_stack": {
+		"residue1": "Residue_C2859",
+		"residue2": "Residue_C2860",
+		"type": "stack",
+		"linker_tag": "Linker_C2859_C2860_stack"
+	},
+	"Linker_C2861_C2862_stack": {
+		"residue1": "Residue_C2861",
+		"residue2": "Residue_C2862",
+		"type": "stack",
+		"linker_tag": "Linker_C2861_C2862_stack"
+	},
+	"Linker_C2862_C2863_stack": {
+		"residue1": "Residue_C2862",
+		"residue2": "Residue_C2863",
+		"type": "stack",
+		"linker_tag": "Linker_C2862_C2863_stack"
+	},
+	"Linker_C2863_C2864_stack": {
+		"residue1": "Residue_C2863",
+		"residue2": "Residue_C2864",
+		"type": "stack",
+		"linker_tag": "Linker_C2863_C2864_stack"
+	},
+	"Linker_C2864_C2865_stack": {
+		"residue1": "Residue_C2864",
+		"residue2": "Residue_C2865",
+		"type": "stack",
+		"linker_tag": "Linker_C2864_C2865_stack"
+	},
+	"Linker_C2865_C2866_stack": {
+		"residue1": "Residue_C2865",
+		"residue2": "Residue_C2866",
+		"type": "stack",
+		"linker_tag": "Linker_C2865_C2866_stack"
+	},
+	"Linker_C2868_C2869_stack": {
+		"residue1": "Residue_C2868",
+		"residue2": "Residue_C2869",
+		"type": "stack",
+		"linker_tag": "Linker_C2868_C2869_stack"
+	},
+	"Linker_C2869_C2870_stack": {
+		"residue1": "Residue_C2869",
+		"residue2": "Residue_C2870",
+		"type": "stack",
+		"linker_tag": "Linker_C2869_C2870_stack"
+	},
+	"Linker_C2870_C2871_stack": {
+		"residue1": "Residue_C2870",
+		"residue2": "Residue_C2871",
+		"type": "stack",
+		"linker_tag": "Linker_C2870_C2871_stack"
+	},
+	"Linker_C2874_C2875_stack": {
+		"residue1": "Residue_C2874",
+		"residue2": "Residue_C2875",
+		"type": "stack",
+		"linker_tag": "Linker_C2874_C2875_stack"
+	},
+	"Linker_C2875_C2876_stack": {
+		"residue1": "Residue_C2875",
+		"residue2": "Residue_C2876",
+		"type": "stack",
+		"linker_tag": "Linker_C2875_C2876_stack"
+	},
+	"Linker_C2876_C2877_stack": {
+		"residue1": "Residue_C2876",
+		"residue2": "Residue_C2877",
+		"type": "stack",
+		"linker_tag": "Linker_C2876_C2877_stack"
+	},
+	"Linker_C2877_C2878_stack": {
+		"residue1": "Residue_C2877",
+		"residue2": "Residue_C2878",
+		"type": "stack",
+		"linker_tag": "Linker_C2877_C2878_stack"
+	},
+	"Linker_C2880_C2881_stack": {
+		"residue1": "Residue_C2880",
+		"residue2": "Residue_C2881",
+		"type": "stack",
+		"linker_tag": "Linker_C2880_C2881_stack"
+	},
+	"Linker_C2881_C2882_stack": {
+		"residue1": "Residue_C2881",
+		"residue2": "Residue_C2882",
+		"type": "stack",
+		"linker_tag": "Linker_C2881_C2882_stack"
+	},
+	"Linker_C2882_C2883_stack": {
+		"residue1": "Residue_C2882",
+		"residue2": "Residue_C2883",
+		"type": "stack",
+		"linker_tag": "Linker_C2882_C2883_stack"
+	},
+	"Linker_C2886_C2887_stack": {
+		"residue1": "Residue_C2886",
+		"residue2": "Residue_C2887",
+		"type": "stack",
+		"linker_tag": "Linker_C2886_C2887_stack"
+	},
+	"Linker_C2887_C2888_stack": {
+		"residue1": "Residue_C2887",
+		"residue2": "Residue_C2888",
+		"type": "stack",
+		"linker_tag": "Linker_C2887_C2888_stack"
+	},
+	"Linker_C2888_C2889_stack": {
+		"residue1": "Residue_C2888",
+		"residue2": "Residue_C2889",
+		"type": "stack",
+		"linker_tag": "Linker_C2888_C2889_stack"
+	},
+	"Linker_C2889_C2890_stack": {
+		"residue1": "Residue_C2889",
+		"residue2": "Residue_C2890",
+		"type": "stack",
+		"linker_tag": "Linker_C2889_C2890_stack"
+	},
+	"Linker_C2891_C2892_stack": {
+		"residue1": "Residue_C2891",
+		"residue2": "Residue_C2892",
+		"type": "stack",
+		"linker_tag": "Linker_C2891_C2892_stack"
+	},
+	"Linker_C2789_C2790_arrow": {
+		"residue1": "Residue_C2789",
+		"residue2": "Residue_C2790",
+		"type": "arrow",
+		"linker_tag": "Linker_C2789_C2790_arrow",
+		"relpos1": [-15,-9.75],
+		"relpos2": [-13.5,-7.5]
+	},
+	"Linker_C2790_C2791_arrow": {
+		"residue1": "Residue_C2790",
+		"residue2": "Residue_C2791",
+		"type": "arrow",
+		"linker_tag": "Linker_C2790_C2791_arrow",
+		"relpos1": [-13.5,-7.5],
+		"relpos2": [-6,-3]
+	},
+	"Linker_C2791_C2792_arrow": {
+		"residue1": "Residue_C2791",
+		"residue2": "Residue_C2792",
+		"type": "arrow",
+		"linker_tag": "Linker_C2791_C2792_arrow"
+	},
+	"Linker_C2792_C2793_arrow": {
+		"residue1": "Residue_C2792",
+		"residue2": "Residue_C2793",
+		"type": "arrow",
+		"linker_tag": "Linker_C2792_C2793_arrow"
+	},
+	"Linker_C2793_C2794_arrow": {
+		"residue1": "Residue_C2793",
+		"residue2": "Residue_C2794",
+		"type": "arrow",
+		"linker_tag": "Linker_C2793_C2794_arrow"
+	},
+	"Linker_C2794_C2795_arrow": {
+		"residue1": "Residue_C2794",
+		"residue2": "Residue_C2795",
+		"type": "arrow",
+		"linker_tag": "Linker_C2794_C2795_arrow"
+	},
+	"Linker_C2795_C2796_arrow": {
+		"residue1": "Residue_C2795",
+		"residue2": "Residue_C2796",
+		"type": "arrow",
+		"linker_tag": "Linker_C2795_C2796_arrow"
+	},
+	"Linker_C2796_C2797_arrow": {
+		"residue1": "Residue_C2796",
+		"residue2": "Residue_C2797",
+		"type": "arrow",
+		"linker_tag": "Linker_C2796_C2797_arrow"
+	},
+	"Linker_C2797_C2798_arrow": {
+		"residue1": "Residue_C2797",
+		"residue2": "Residue_C2798",
+		"type": "arrow",
+		"linker_tag": "Linker_C2797_C2798_arrow",
+		"relpos1": [12.75,-1.5],
+		"relpos2": [12.75,1.5]
+	},
+	"Linker_C2798_C2799_arrow": {
+		"residue1": "Residue_C2798",
+		"residue2": "Residue_C2799",
+		"type": "arrow",
+		"linker_tag": "Linker_C2798_C2799_arrow",
+		"relpos1": [12.75,1.5],
+		"relpos2": [9,3]
+	},
+	"Linker_C2799_C2800_arrow": {
+		"residue1": "Residue_C2799",
+		"residue2": "Residue_C2800",
+		"type": "arrow",
+		"linker_tag": "Linker_C2799_C2800_arrow"
+	},
+	"Linker_C2800_C2801_arrow": {
+		"residue1": "Residue_C2800",
+		"residue2": "Residue_C2801",
+		"type": "arrow",
+		"linker_tag": "Linker_C2800_C2801_arrow"
+	},
+	"Linker_C2801_C2802_arrow": {
+		"residue1": "Residue_C2801",
+		"residue2": "Residue_C2802",
+		"type": "arrow",
+		"linker_tag": "Linker_C2801_C2802_arrow"
+	},
+	"Linker_C2802_C2803_arrow": {
+		"residue1": "Residue_C2802",
+		"residue2": "Residue_C2803",
+		"type": "arrow",
+		"linker_tag": "Linker_C2802_C2803_arrow"
+	},
+	"Linker_C2803_C2804_arrow": {
+		"residue1": "Residue_C2803",
+		"residue2": "Residue_C2804",
+		"type": "arrow",
+		"linker_tag": "Linker_C2803_C2804_arrow"
+	},
+	"Linker_C2804_C2805_arrow": {
+		"residue1": "Residue_C2804",
+		"residue2": "Residue_C2805",
+		"type": "arrow",
+		"linker_tag": "Linker_C2804_C2805_arrow"
+	},
+	"Linker_C2805_C2806_arrow": {
+		"residue1": "Residue_C2805",
+		"residue2": "Residue_C2806",
+		"type": "arrow",
+		"linker_tag": "Linker_C2805_C2806_arrow",
+		"relpos1": [-6,3],
+		"relpos2": [-15,3]
+	},
+	"Linker_C2806_C2807_arrow": {
+		"residue1": "Residue_C2806",
+		"residue2": "Residue_C2807",
+		"type": "arrow",
+		"linker_tag": "Linker_C2806_C2807_arrow",
+		"relpos1": [-15,3],
+		"relpos2": [-12,3]
+	},
+	"Linker_C2807_C2808_arrow": {
+		"residue1": "Residue_C2807",
+		"residue2": "Residue_C2808",
+		"type": "arrow",
+		"linker_tag": "Linker_C2807_C2808_arrow",
+		"relpos1": [-12,3],
+		"relpos2": [-25.5,-9]
+	},
+	"Linker_C2808_C2809_arrow": {
+		"residue1": "Residue_C2808",
+		"residue2": "Residue_C2809",
+		"type": "arrow",
+		"linker_tag": "Linker_C2808_C2809_arrow",
+		"relpos1": [-25.5,-9],
+		"relpos2": [-7.5,-0.75]
+	},
+	"Linker_C2809_C2810_arrow": {
+		"residue1": "Residue_C2809",
+		"residue2": "Residue_C2810",
+		"type": "arrow",
+		"linker_tag": "Linker_C2809_C2810_arrow"
+	},
+	"Linker_C2810_C2811_arrow": {
+		"residue1": "Residue_C2810",
+		"residue2": "Residue_C2811",
+		"type": "arrow",
+		"linker_tag": "Linker_C2810_C2811_arrow"
+	},
+	"Linker_C2811_C2812_arrow": {
+		"residue1": "Residue_C2811",
+		"residue2": "Residue_C2812",
+		"type": "arrow",
+		"linker_tag": "Linker_C2811_C2812_arrow"
+	},
+	"Linker_C2812_C2813_arrow": {
+		"residue1": "Residue_C2812",
+		"residue2": "Residue_C2813",
+		"type": "arrow",
+		"linker_tag": "Linker_C2812_C2813_arrow"
+	},
+	"Linker_C2813_C2814_arrow": {
+		"residue1": "Residue_C2813",
+		"residue2": "Residue_C2814",
+		"type": "arrow",
+		"linker_tag": "Linker_C2813_C2814_arrow",
+		"relpos1": [4.5,-3],
+		"relpos2": [-9.75,-3.75]
+	},
+	"Linker_C2814_C2815_arrow": {
+		"residue1": "Residue_C2814",
+		"residue2": "Residue_C2815",
+		"type": "arrow",
+		"linker_tag": "Linker_C2814_C2815_arrow",
+		"relpos1": [-9.75,-3.75],
+		"relpos2": [-6,-3]
+	},
+	"Linker_C2815_C2816_arrow": {
+		"residue1": "Residue_C2815",
+		"residue2": "Residue_C2816",
+		"type": "arrow",
+		"linker_tag": "Linker_C2815_C2816_arrow"
+	},
+	"Linker_C2816_C2817_arrow": {
+		"residue1": "Residue_C2816",
+		"residue2": "Residue_C2817",
+		"type": "arrow",
+		"linker_tag": "Linker_C2816_C2817_arrow"
+	},
+	"Linker_C2817_C2818_arrow": {
+		"residue1": "Residue_C2817",
+		"residue2": "Residue_C2818",
+		"type": "arrow",
+		"linker_tag": "Linker_C2817_C2818_arrow"
+	},
+	"Linker_C2818_C2819_arrow": {
+		"residue1": "Residue_C2818",
+		"residue2": "Residue_C2819",
+		"type": "arrow",
+		"linker_tag": "Linker_C2818_C2819_arrow"
+	},
+	"Linker_C2819_C2820_arrow": {
+		"residue1": "Residue_C2819",
+		"residue2": "Residue_C2820",
+		"type": "arrow",
+		"linker_tag": "Linker_C2819_C2820_arrow",
+		"relpos1": [6,-3],
+		"relpos2": [7.5,-6]
+	},
+	"Linker_C2820_C2821_arrow": {
+		"residue1": "Residue_C2820",
+		"residue2": "Residue_C2821",
+		"type": "arrow",
+		"linker_tag": "Linker_C2820_C2821_arrow",
+		"relpos1": [7.5,-6],
+		"relpos2": [9,-3]
+	},
+	"Linker_C2821_C2822_arrow": {
+		"residue1": "Residue_C2821",
+		"residue2": "Residue_C2822",
+		"type": "arrow",
+		"linker_tag": "Linker_C2821_C2822_arrow",
+		"relpos1": [9,-3],
+		"relpos2": [11.25,-3.75]
+	},
+	"Linker_C2822_C2823_arrow": {
+		"residue1": "Residue_C2822",
+		"residue2": "Residue_C2823",
+		"type": "arrow",
+		"linker_tag": "Linker_C2822_C2823_arrow",
+		"relpos1": [11.25,-3.75],
+		"relpos2": [14.25,-1.5]
+	},
+	"Linker_C2823_C2824_arrow": {
+		"residue1": "Residue_C2823",
+		"residue2": "Residue_C2824",
+		"type": "arrow",
+		"linker_tag": "Linker_C2823_C2824_arrow",
+		"relpos1": [14.25,-1.5],
+		"relpos2": [14.25,1.5]
+	},
+	"Linker_C2824_C2825_arrow": {
+		"residue1": "Residue_C2824",
+		"residue2": "Residue_C2825",
+		"type": "arrow",
+		"linker_tag": "Linker_C2824_C2825_arrow"
+	},
+	"Linker_C2825_C2826_arrow": {
+		"residue1": "Residue_C2825",
+		"residue2": "Residue_C2826",
+		"type": "arrow",
+		"linker_tag": "Linker_C2825_C2826_arrow"
+	},
+	"Linker_C2826_C2827_arrow": {
+		"residue1": "Residue_C2826",
+		"residue2": "Residue_C2827",
+		"type": "arrow",
+		"linker_tag": "Linker_C2826_C2827_arrow"
+	},
+	"Linker_C2827_C2828_arrow": {
+		"residue1": "Residue_C2827",
+		"residue2": "Residue_C2828",
+		"type": "arrow",
+		"linker_tag": "Linker_C2827_C2828_arrow"
+	},
+	"Linker_C2828_C2829_arrow": {
+		"residue1": "Residue_C2828",
+		"residue2": "Residue_C2829",
+		"type": "arrow",
+		"linker_tag": "Linker_C2828_C2829_arrow"
+	},
+	"Linker_C2829_C2830_arrow": {
+		"residue1": "Residue_C2829",
+		"residue2": "Residue_C2830",
+		"type": "arrow",
+		"linker_tag": "Linker_C2829_C2830_arrow"
+	},
+	"Linker_C2830_C2831_arrow": {
+		"residue1": "Residue_C2830",
+		"residue2": "Residue_C2831",
+		"type": "arrow",
+		"linker_tag": "Linker_C2830_C2831_arrow"
+	},
+	"Linker_C2831_C2832_arrow": {
+		"residue1": "Residue_C2831",
+		"residue2": "Residue_C2832",
+		"type": "arrow",
+		"linker_tag": "Linker_C2831_C2832_arrow"
+	},
+	"Linker_C2832_C2833_arrow": {
+		"residue1": "Residue_C2832",
+		"residue2": "Residue_C2833",
+		"type": "arrow",
+		"linker_tag": "Linker_C2832_C2833_arrow"
+	},
+	"Linker_C2833_C2834_arrow": {
+		"residue1": "Residue_C2833",
+		"residue2": "Residue_C2834",
+		"type": "arrow",
+		"linker_tag": "Linker_C2833_C2834_arrow",
+		"relpos1": [-11.25,5.25],
+		"relpos2": [-6.75,-6.75]
+	},
+	"Linker_C2834_C2835_arrow": {
+		"residue1": "Residue_C2834",
+		"residue2": "Residue_C2835",
+		"type": "arrow",
+		"linker_tag": "Linker_C2834_C2835_arrow",
+		"relpos1": [-6.75,-6.75],
+		"relpos2": [-3.75,-6.75]
+	},
+	"Linker_C2835_C2836_arrow": {
+		"residue1": "Residue_C2835",
+		"residue2": "Residue_C2836",
+		"type": "arrow",
+		"linker_tag": "Linker_C2835_C2836_arrow"
+	},
+	"Linker_C2836_C2837_arrow": {
+		"residue1": "Residue_C2836",
+		"residue2": "Residue_C2837",
+		"type": "arrow",
+		"linker_tag": "Linker_C2836_C2837_arrow"
+	},
+	"Linker_C2837_C2838_arrow": {
+		"residue1": "Residue_C2837",
+		"residue2": "Residue_C2838",
+		"type": "arrow",
+		"linker_tag": "Linker_C2837_C2838_arrow"
+	},
+	"Linker_C2838_C2839_arrow": {
+		"residue1": "Residue_C2838",
+		"residue2": "Residue_C2839",
+		"type": "arrow",
+		"linker_tag": "Linker_C2838_C2839_arrow",
+		"relpos1": [3,-3],
+		"relpos2": [-6,-3]
+	},
+	"Linker_C2839_C2840_arrow": {
+		"residue1": "Residue_C2839",
+		"residue2": "Residue_C2840",
+		"type": "arrow",
+		"linker_tag": "Linker_C2839_C2840_arrow"
+	},
+	"Linker_C2840_C2841_arrow": {
+		"residue1": "Residue_C2840",
+		"residue2": "Residue_C2841",
+		"type": "arrow",
+		"linker_tag": "Linker_C2840_C2841_arrow"
+	},
+	"Linker_C2841_C2842_arrow": {
+		"residue1": "Residue_C2841",
+		"residue2": "Residue_C2842",
+		"type": "arrow",
+		"linker_tag": "Linker_C2841_C2842_arrow"
+	},
+	"Linker_C2842_C2843_arrow": {
+		"residue1": "Residue_C2842",
+		"residue2": "Residue_C2843",
+		"type": "arrow",
+		"linker_tag": "Linker_C2842_C2843_arrow"
+	},
+	"Linker_C2843_C2844_arrow": {
+		"residue1": "Residue_C2843",
+		"residue2": "Residue_C2844",
+		"type": "arrow",
+		"linker_tag": "Linker_C2843_C2844_arrow"
+	},
+	"Linker_C2844_C2845_arrow": {
+		"residue1": "Residue_C2844",
+		"residue2": "Residue_C2845",
+		"type": "arrow",
+		"linker_tag": "Linker_C2844_C2845_arrow",
+		"relpos1": [9,-3],
+		"relpos2": [-4.5,-3]
+	},
+	"Linker_C2845_C2846_arrow": {
+		"residue1": "Residue_C2845",
+		"residue2": "Residue_C2846",
+		"type": "arrow",
+		"linker_tag": "Linker_C2845_C2846_arrow"
+	},
+	"Linker_C2846_C2847_arrow": {
+		"residue1": "Residue_C2846",
+		"residue2": "Residue_C2847",
+		"type": "arrow",
+		"linker_tag": "Linker_C2846_C2847_arrow"
+	},
+	"Linker_C2847_C2848_arrow": {
+		"residue1": "Residue_C2847",
+		"residue2": "Residue_C2848",
+		"type": "arrow",
+		"linker_tag": "Linker_C2847_C2848_arrow"
+	},
+	"Linker_C2848_C2849_arrow": {
+		"residue1": "Residue_C2848",
+		"residue2": "Residue_C2849",
+		"type": "arrow",
+		"linker_tag": "Linker_C2848_C2849_arrow",
+		"relpos1": [4.5,-3],
+		"relpos2": [-12.75,-0.75]
+	},
+	"Linker_C2849_C2850_arrow": {
+		"residue1": "Residue_C2849",
+		"residue2": "Residue_C2850",
+		"type": "arrow",
+		"linker_tag": "Linker_C2849_C2850_arrow",
+		"relpos1": [-12.75,-0.75],
+		"relpos2": [-12,-3.75]
+	},
+	"Linker_C2850_C2851_arrow": {
+		"residue1": "Residue_C2850",
+		"residue2": "Residue_C2851",
+		"type": "arrow",
+		"linker_tag": "Linker_C2850_C2851_arrow"
+	},
+	"Linker_C2851_C2852_arrow": {
+		"residue1": "Residue_C2851",
+		"residue2": "Residue_C2852",
+		"type": "arrow",
+		"linker_tag": "Linker_C2851_C2852_arrow"
+	},
+	"Linker_C2852_C2853_arrow": {
+		"residue1": "Residue_C2852",
+		"residue2": "Residue_C2853",
+		"type": "arrow",
+		"linker_tag": "Linker_C2852_C2853_arrow"
+	},
+	"Linker_C2853_C2854_arrow": {
+		"residue1": "Residue_C2853",
+		"residue2": "Residue_C2854",
+		"type": "arrow",
+		"linker_tag": "Linker_C2853_C2854_arrow"
+	},
+	"Linker_C2854_C2855_arrow": {
+		"residue1": "Residue_C2854",
+		"residue2": "Residue_C2855",
+		"type": "arrow",
+		"linker_tag": "Linker_C2854_C2855_arrow"
+	},
+	"Linker_C2855_C2856_arrow": {
+		"residue1": "Residue_C2855",
+		"residue2": "Residue_C2856",
+		"type": "arrow",
+		"linker_tag": "Linker_C2855_C2856_arrow"
+	},
+	"Linker_C2856_C2857_arrow": {
+		"residue1": "Residue_C2856",
+		"residue2": "Residue_C2857",
+		"type": "arrow",
+		"linker_tag": "Linker_C2856_C2857_arrow"
+	},
+	"Linker_C2857_C2858_arrow": {
+		"residue1": "Residue_C2857",
+		"residue2": "Residue_C2858",
+		"type": "arrow",
+		"linker_tag": "Linker_C2857_C2858_arrow"
+	},
+	"Linker_C2858_C2859_arrow": {
+		"residue1": "Residue_C2858",
+		"residue2": "Residue_C2859",
+		"type": "arrow",
+		"linker_tag": "Linker_C2858_C2859_arrow",
+		"relpos1": [12,-1.5],
+		"relpos2": [12,2.25]
+	},
+	"Linker_C2859_C2860_arrow": {
+		"residue1": "Residue_C2859",
+		"residue2": "Residue_C2860",
+		"type": "arrow",
+		"linker_tag": "Linker_C2859_C2860_arrow"
+	},
+	"Linker_C2860_C2861_arrow": {
+		"residue1": "Residue_C2860",
+		"residue2": "Residue_C2861",
+		"type": "arrow",
+		"linker_tag": "Linker_C2860_C2861_arrow"
+	},
+	"Linker_C2861_C2862_arrow": {
+		"residue1": "Residue_C2861",
+		"residue2": "Residue_C2862",
+		"type": "arrow",
+		"linker_tag": "Linker_C2861_C2862_arrow"
+	},
+	"Linker_C2862_C2863_arrow": {
+		"residue1": "Residue_C2862",
+		"residue2": "Residue_C2863",
+		"type": "arrow",
+		"linker_tag": "Linker_C2862_C2863_arrow"
+	},
+	"Linker_C2863_C2864_arrow": {
+		"residue1": "Residue_C2863",
+		"residue2": "Residue_C2864",
+		"type": "arrow",
+		"linker_tag": "Linker_C2863_C2864_arrow"
+	},
+	"Linker_C2864_C2865_arrow": {
+		"residue1": "Residue_C2864",
+		"residue2": "Residue_C2865",
+		"type": "arrow",
+		"linker_tag": "Linker_C2864_C2865_arrow"
+	},
+	"Linker_C2865_C2866_arrow": {
+		"residue1": "Residue_C2865",
+		"residue2": "Residue_C2866",
+		"type": "arrow",
+		"linker_tag": "Linker_C2865_C2866_arrow"
+	},
+	"Linker_C2866_C2867_arrow": {
+		"residue1": "Residue_C2866",
+		"residue2": "Residue_C2867",
+		"type": "arrow",
+		"linker_tag": "Linker_C2866_C2867_arrow",
+		"relpos1": [
+			[-9,3],
+			[-9,6]
+		],
+		"relpos2": [4.5,6]
+	},
+	"Linker_C2867_C2868_arrow": {
+		"residue1": "Residue_C2867",
+		"residue2": "Residue_C2868",
+		"type": "arrow",
+		"linker_tag": "Linker_C2867_C2868_arrow"
+	},
+	"Linker_C2868_C2869_arrow": {
+		"residue1": "Residue_C2868",
+		"residue2": "Residue_C2869",
+		"type": "arrow",
+		"linker_tag": "Linker_C2868_C2869_arrow"
+	},
+	"Linker_C2869_C2870_arrow": {
+		"residue1": "Residue_C2869",
+		"residue2": "Residue_C2870",
+		"type": "arrow",
+		"linker_tag": "Linker_C2869_C2870_arrow"
+	},
+	"Linker_C2870_C2871_arrow": {
+		"residue1": "Residue_C2870",
+		"residue2": "Residue_C2871",
+		"type": "arrow",
+		"linker_tag": "Linker_C2870_C2871_arrow"
+	},
+	"Linker_C2871_C2872_arrow": {
+		"residue1": "Residue_C2871",
+		"residue2": "Residue_C2872",
+		"type": "arrow",
+		"linker_tag": "Linker_C2871_C2872_arrow",
+		"relpos1": [-4.5,3],
+		"relpos2": [11.25,5.25]
+	},
+	"Linker_C2872_C2873_arrow": {
+		"residue1": "Residue_C2872",
+		"residue2": "Residue_C2873",
+		"type": "arrow",
+		"linker_tag": "Linker_C2872_C2873_arrow",
+		"relpos1": [11.25,5.25],
+		"relpos2": [7.5,5.25]
+	},
+	"Linker_C2873_C2874_arrow": {
+		"residue1": "Residue_C2873",
+		"residue2": "Residue_C2874",
+		"type": "arrow",
+		"linker_tag": "Linker_C2873_C2874_arrow"
+	},
+	"Linker_C2874_C2875_arrow": {
+		"residue1": "Residue_C2874",
+		"residue2": "Residue_C2875",
+		"type": "arrow",
+		"linker_tag": "Linker_C2874_C2875_arrow"
+	},
+	"Linker_C2875_C2876_arrow": {
+		"residue1": "Residue_C2875",
+		"residue2": "Residue_C2876",
+		"type": "arrow",
+		"linker_tag": "Linker_C2875_C2876_arrow"
+	},
+	"Linker_C2876_C2877_arrow": {
+		"residue1": "Residue_C2876",
+		"residue2": "Residue_C2877",
+		"type": "arrow",
+		"linker_tag": "Linker_C2876_C2877_arrow"
+	},
+	"Linker_C2877_C2878_arrow": {
+		"residue1": "Residue_C2877",
+		"residue2": "Residue_C2878",
+		"type": "arrow",
+		"linker_tag": "Linker_C2877_C2878_arrow"
+	},
+	"Linker_C2878_C2879_arrow": {
+		"residue1": "Residue_C2878",
+		"residue2": "Residue_C2879",
+		"type": "arrow",
+		"linker_tag": "Linker_C2878_C2879_arrow",
+		"relpos1": [-6,3],
+		"relpos2": [4.5,6]
+	},
+	"Linker_C2879_C2880_arrow": {
+		"residue1": "Residue_C2879",
+		"residue2": "Residue_C2880",
+		"type": "arrow",
+		"linker_tag": "Linker_C2879_C2880_arrow"
+	},
+	"Linker_C2880_C2881_arrow": {
+		"residue1": "Residue_C2880",
+		"residue2": "Residue_C2881",
+		"type": "arrow",
+		"linker_tag": "Linker_C2880_C2881_arrow"
+	},
+	"Linker_C2881_C2882_arrow": {
+		"residue1": "Residue_C2881",
+		"residue2": "Residue_C2882",
+		"type": "arrow",
+		"linker_tag": "Linker_C2881_C2882_arrow"
+	},
+	"Linker_C2882_C2883_arrow": {
+		"residue1": "Residue_C2882",
+		"residue2": "Residue_C2883",
+		"type": "arrow",
+		"linker_tag": "Linker_C2882_C2883_arrow",
+		"relpos1": [-3,3],
+		"relpos2": [-6.75,3]
+	},
+	"Linker_C2883_C2884_arrow": {
+		"residue1": "Residue_C2883",
+		"residue2": "Residue_C2884",
+		"type": "arrow",
+		"linker_tag": "Linker_C2883_C2884_arrow",
+		"relpos1": [-6.75,3],
+		"relpos2": [-10.5,3.75]
+	},
+	"Linker_C2884_C2885_arrow": {
+		"residue1": "Residue_C2884",
+		"residue2": "Residue_C2885",
+		"type": "arrow",
+		"linker_tag": "Linker_C2884_C2885_arrow",
+		"relpos1": [-10.5,3.75],
+		"relpos2": [10.5,6.75]
+	},
+	"Linker_C2885_C2886_arrow": {
+		"residue1": "Residue_C2885",
+		"residue2": "Residue_C2886",
+		"type": "arrow",
+		"linker_tag": "Linker_C2885_C2886_arrow"
+	},
+	"Linker_C2886_C2887_arrow": {
+		"residue1": "Residue_C2886",
+		"residue2": "Residue_C2887",
+		"type": "arrow",
+		"linker_tag": "Linker_C2886_C2887_arrow"
+	},
+	"Linker_C2887_C2888_arrow": {
+		"residue1": "Residue_C2887",
+		"residue2": "Residue_C2888",
+		"type": "arrow",
+		"linker_tag": "Linker_C2887_C2888_arrow"
+	},
+	"Linker_C2888_C2889_arrow": {
+		"residue1": "Residue_C2888",
+		"residue2": "Residue_C2889",
+		"type": "arrow",
+		"linker_tag": "Linker_C2888_C2889_arrow"
+	},
+	"Linker_C2889_C2890_arrow": {
+		"residue1": "Residue_C2889",
+		"residue2": "Residue_C2890",
+		"type": "arrow",
+		"linker_tag": "Linker_C2889_C2890_arrow"
+	},
+	"Linker_C2890_C2891_arrow": {
+		"residue1": "Residue_C2890",
+		"residue2": "Residue_C2891",
+		"type": "arrow",
+		"linker_tag": "Linker_C2890_C2891_arrow",
+		"relpos1": [
+			[-4.5,3],
+			[-4.5,5.25]
+		],
+		"relpos2": [
+			[-9,5.25],
+			[-9,-3],
+			[-12,-3]
+		]
+	},
+	"Linker_C2891_C2892_arrow": {
+		"residue1": "Residue_C2891",
+		"residue2": "Residue_C2892",
+		"type": "arrow",
+		"linker_tag": "Linker_C2891_C2892_arrow",
+		"relpos1": [-12,-3],
+		"relpos2": [-15,-3]
+	},
+	"Linker_C2892_C2893_arrow": {
+		"residue1": "Residue_C2892",
+		"residue2": "Residue_C2893",
+		"type": "arrow",
+		"linker_tag": "Linker_C2892_C2893_arrow",
+		"relpos1": [-15,-3],
+		"relpos2": [-18.75,-7.5]
+	},
+	"Linker_C2893_C2894_arrow": {
+		"residue1": "Residue_C2893",
+		"residue2": "Residue_C2894",
+		"type": "arrow",
+		"linker_tag": "Linker_C2893_C2894_arrow",
+		"relpos1": [-18.75,-7.5],
+		"relpos2": [-18.75,-9.75]
+	},
+	"Linker_C2894_C2895_arrow": {
+		"residue1": "Residue_C2894",
+		"residue2": "Residue_C2895",
+		"type": "arrow",
+		"linker_tag": "Linker_C2894_C2895_arrow",
+		"relpos1": [-18.75,-9.75],
+		"relpos2": [-20.25,-11.25]
+	},
+	"Linker_C2791_C2805_stem_pair": {
+		"residue1": "Residue_C2791",
+		"residue2": "Residue_C2805",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2791_C2805_stem_pair",
+		"relpos1": [-6,-3],
+		"relpos2": [-6,3]
+	},
+	"Linker_C2792_C2804_stem_pair": {
+		"residue1": "Residue_C2792",
+		"residue2": "Residue_C2804",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2792_C2804_stem_pair",
+		"relpos1": [-3,-3],
+		"relpos2": [-3,3]
+	},
+	"Linker_C2793_C2803_stem_pair": {
+		"residue1": "Residue_C2793",
+		"residue2": "Residue_C2803",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2793_C2803_stem_pair",
+		"relpos1": [0,-3],
+		"relpos2": [0,3]
+	},
+	"Linker_C2794_C2802_stem_pair": {
+		"residue1": "Residue_C2794",
+		"residue2": "Residue_C2802",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2794_C2802_stem_pair",
+		"relpos1": [3,-3],
+		"relpos2": [3,3]
+	},
+	"Linker_C2795_C2801_stem_pair": {
+		"residue1": "Residue_C2795",
+		"residue2": "Residue_C2801",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2795_C2801_stem_pair",
+		"relpos1": [6,-3],
+		"relpos2": [6,3]
+	},
+	"Linker_C2811_C2889_stem_pair": {
+		"residue1": "Residue_C2811",
+		"residue2": "Residue_C2889",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2811_C2889_stem_pair",
+		"relpos1": [-1.5,-3],
+		"relpos2": [-1.5,3]
+	},
+	"Linker_C2812_C2888_stem_pair": {
+		"residue1": "Residue_C2812",
+		"residue2": "Residue_C2888",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2812_C2888_stem_pair",
+		"relpos1": [1.5,-3],
+		"relpos2": [1.5,3]
+	},
+	"Linker_C2815_C2831_stem_pair": {
+		"residue1": "Residue_C2815",
+		"residue2": "Residue_C2831",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2815_C2831_stem_pair",
+		"relpos1": [-6,-3],
+		"relpos2": [-6,3]
+	},
+	"Linker_C2816_C2830_stem_pair": {
+		"residue1": "Residue_C2816",
+		"residue2": "Residue_C2830",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2816_C2830_stem_pair",
+		"relpos1": [-3,-3],
+		"relpos2": [-3,3]
+	},
+	"Linker_C2817_C2829_stem_pair": {
+		"residue1": "Residue_C2817",
+		"residue2": "Residue_C2829",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2817_C2829_stem_pair",
+		"relpos1": [0,-3],
+		"relpos2": [0,3]
+	},
+	"Linker_C2818_C2828_stem_pair": {
+		"residue1": "Residue_C2818",
+		"residue2": "Residue_C2828",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2818_C2828_stem_pair",
+		"relpos1": [3,-3],
+		"relpos2": [3,3]
+	},
+	"Linker_C2819_C2827_stem_pair": {
+		"residue1": "Residue_C2819",
+		"residue2": "Residue_C2827",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2819_C2827_stem_pair",
+		"relpos1": [6,-3],
+		"relpos2": [6,3]
+	},
+	"Linker_C2836_C2882_stem_pair": {
+		"residue1": "Residue_C2836",
+		"residue2": "Residue_C2882",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2836_C2882_stem_pair",
+		"relpos1": [-3,-3],
+		"relpos2": [-3,3]
+	},
+	"Linker_C2837_C2881_stem_pair": {
+		"residue1": "Residue_C2837",
+		"residue2": "Residue_C2881",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2837_C2881_stem_pair",
+		"relpos1": [0,-3],
+		"relpos2": [0,3]
+	},
+	"Linker_C2838_C2880_stem_pair": {
+		"residue1": "Residue_C2838",
+		"residue2": "Residue_C2880",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2838_C2880_stem_pair",
+		"relpos1": [3,-3],
+		"relpos2": [3,3]
+	},
+	"Linker_C2839_C2878_stem_pair": {
+		"residue1": "Residue_C2839",
+		"residue2": "Residue_C2878",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2839_C2878_stem_pair",
+		"relpos1": [-6,-3],
+		"relpos2": [-6,3]
+	},
+	"Linker_C2840_C2877_stem_pair": {
+		"residue1": "Residue_C2840",
+		"residue2": "Residue_C2877",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2840_C2877_stem_pair",
+		"relpos1": [-3,-3],
+		"relpos2": [-3,3]
+	},
+	"Linker_C2841_C2876_stem_pair": {
+		"residue1": "Residue_C2841",
+		"residue2": "Residue_C2876",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2841_C2876_stem_pair",
+		"relpos1": [0,-3],
+		"relpos2": [0,3]
+	},
+	"Linker_C2842_C2875_stem_pair": {
+		"residue1": "Residue_C2842",
+		"residue2": "Residue_C2875",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2842_C2875_stem_pair",
+		"relpos1": [3,-3],
+		"relpos2": [3,3]
+	},
+	"Linker_C2843_C2874_stem_pair": {
+		"residue1": "Residue_C2843",
+		"residue2": "Residue_C2874",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2843_C2874_stem_pair",
+		"relpos1": [6,-3],
+		"relpos2": [6,3]
+	},
+	"Linker_C2846_C2870_stem_pair": {
+		"residue1": "Residue_C2846",
+		"residue2": "Residue_C2870",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2846_C2870_stem_pair",
+		"relpos1": [-1.5,-3],
+		"relpos2": [-1.5,3]
+	},
+	"Linker_C2847_C2869_stem_pair": {
+		"residue1": "Residue_C2847",
+		"residue2": "Residue_C2869",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2847_C2869_stem_pair",
+		"relpos1": [1.5,-3],
+		"relpos2": [1.5,3]
+	},
+	"Linker_C2852_C2865_stem_pair": {
+		"residue1": "Residue_C2852",
+		"residue2": "Residue_C2865",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2852_C2865_stem_pair",
+		"relpos1": [-6,-3],
+		"relpos2": [-6,3]
+	},
+	"Linker_C2853_C2864_stem_pair": {
+		"residue1": "Residue_C2853",
+		"residue2": "Residue_C2864",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2853_C2864_stem_pair",
+		"relpos1": [-3,-3],
+		"relpos2": [-3,3]
+	},
+	"Linker_C2854_C2863_stem_pair": {
+		"residue1": "Residue_C2854",
+		"residue2": "Residue_C2863",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2854_C2863_stem_pair",
+		"relpos1": [0,-3],
+		"relpos2": [0,3]
+	},
+	"Linker_C2855_C2862_stem_pair": {
+		"residue1": "Residue_C2855",
+		"residue2": "Residue_C2862",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2855_C2862_stem_pair",
+		"relpos1": [3,-3],
+		"relpos2": [3,3]
+	},
+	"Linker_C2856_C2861_stem_pair": {
+		"residue1": "Residue_C2856",
+		"residue2": "Residue_C2861",
+		"type": "stem_pair",
+		"linker_tag": "Linker_C2856_C2861_stem_pair",
+		"relpos1": [6,-3],
+		"relpos2": [6,3]
+	},
+	"Linker_C2789_C2894_noncanonical_pair": {
+		"residue1": "Residue_C2789",
+		"residue2": "Residue_C2894",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2789_C2894_noncanonical_pair",
+		"relpos1": [-15,-9.75],
+		"relpos2": [-18.75,-9.75],
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
+	},
+	"Linker_C2796_C2799_noncanonical_pair": {
+		"residue1": "Residue_C2796",
+		"residue2": "Residue_C2799",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2796_C2799_noncanonical_pair",
+		"relpos1": [9,-3],
+		"relpos2": [9,3],
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
+	},
+	"Linker_C2806_C2892_noncanonical_pair": {
+		"residue1": "Residue_C2806",
+		"residue2": "Residue_C2892",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2806_C2892_noncanonical_pair",
+		"relpos1": [-15,3],
+		"relpos2": [-15,-3],
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
+	},
+	"Linker_C2807_C2891_noncanonical_pair": {
+		"residue1": "Residue_C2807",
+		"residue2": "Residue_C2891",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2807_C2891_noncanonical_pair",
+		"relpos1": [-12,3],
+		"relpos2": [-12,-3],
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
+	},
+	"Linker_C2810_C2890_noncanonical_pair": {
+		"residue1": "Residue_C2810",
+		"residue2": "Residue_C2890",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2810_C2890_noncanonical_pair",
+		"relpos1": [-4.5,-3],
+		"relpos2": [-4.5,3],
+		"edge1": "H",
+		"edge2": "S",
+		"LW_orientation": "T"
+	},
+	"Linker_C2813_C2887_noncanonical_pair": {
+		"residue1": "Residue_C2813",
+		"residue2": "Residue_C2887",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2813_C2887_noncanonical_pair",
+		"relpos1": [4.5,-3],
+		"relpos2": [4.5,3],
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
+	},
+	"Linker_C2816_C2883_noncanonical_pair": {
+		"residue1": "Residue_C2816",
+		"residue2": "Residue_C2883",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2816_C2883_noncanonical_pair",
+		"relpos1": [
+			[-3,-3],
+			[-4.5,-3],
+			[-4.5,4.5]
+		],
+		"relpos2": [
+			[-11.25,5.25],
+			[-6.75,5.25],
+			[-6.75,3]
+		],
+		"edge1": "S",
+		"edge2": "S",
+		"LW_orientation": "C"
+	},
+	"Linker_C2817_C2836_noncanonical_pair": {
+		"residue1": "Residue_C2817",
+		"residue2": "Residue_C2836",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2817_C2836_noncanonical_pair",
+		"relpos1": [
+			[0,-3],
+			[-1.5,-3]
+		],
+		"relpos2": [
+			[-3,-18.75],
+			[-3,-3]
+		],
+		"edge1": "S",
+		"edge2": "S",
+		"LW_orientation": "T"
+	},
+	"Linker_C2821_C2826_noncanonical_pair": {
+		"residue1": "Residue_C2821",
+		"residue2": "Residue_C2826",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2821_C2826_noncanonical_pair",
+		"relpos1": [9,-3],
+		"relpos2": [9,3],
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "C"
+	},
+	"Linker_C2830_C2883_noncanonical_pair": {
+		"residue1": "Residue_C2830",
+		"residue2": "Residue_C2883",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2830_C2883_noncanonical_pair",
+		"relpos1": [
+			[-3,3],
+			[-3,6]
+		],
+		"relpos2": [
+			[-9.75,3],
+			[-6.75,3]
+		],
+		"edge1": "S",
+		"edge2": "W",
+		"LW_orientation": "T"
+	},
+	"Linker_C2834_C2882_noncanonical_pair": {
+		"residue1": "Residue_C2834",
+		"residue2": "Residue_C2882",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2834_C2882_noncanonical_pair",
+		"relpos1": [
+			[-6.75,-6.75],
+			[-5.25,-6.75]
+		],
+		"relpos2": [
+			[-5.25,3],
+			[-3,3]
+		],
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "T"
+	},
+	"Linker_C2834_C2883_noncanonical_pair": {
+		"residue1": "Residue_C2834",
+		"residue2": "Residue_C2883",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2834_C2883_noncanonical_pair",
+		"relpos1": [-6.75,-6.75],
+		"relpos2": [-6.75,3],
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
+	},
+	"Linker_C2835_C2837_noncanonical_pair": {
+		"residue1": "Residue_C2835",
+		"residue2": "Residue_C2837",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2835_C2837_noncanonical_pair",
+		"relpos1": [-3.75,-6.75],
+		"relpos2": [
+			[-4.133182947e-16,-6.75],
+			[0,-3]
+		],
+		"edge1": "W",
+		"edge2": "H",
+		"LW_orientation": "C"
+	},
+	"Linker_C2836_C2879_noncanonical_pair": {
+		"residue1": "Residue_C2836",
+		"residue2": "Residue_C2879",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2836_C2879_noncanonical_pair",
+		"relpos1": [
+			[-3,-3],
+			[-0.75,-3]
+		],
+		"relpos2": [
+			[-0.75,6],
+			[4.5,6]
+		],
+		"edge1": "H",
+		"edge2": "H",
+		"LW_orientation": "T"
+	},
+	"Linker_C2845_C2871_noncanonical_pair": {
+		"residue1": "Residue_C2845",
+		"residue2": "Residue_C2871",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2845_C2871_noncanonical_pair",
+		"relpos1": [-4.5,-3],
+		"relpos2": [-4.5,3],
+		"edge1": "W",
+		"edge2": "W",
+		"LW_orientation": "C"
+	},
+	"Linker_C2848_C2868_noncanonical_pair": {
+		"residue1": "Residue_C2848",
+		"residue2": "Residue_C2868",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2848_C2868_noncanonical_pair",
+		"relpos1": [4.5,-3],
+		"relpos2": [4.5,3],
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
+	},
+	"Linker_C2851_C2866_noncanonical_pair": {
+		"residue1": "Residue_C2851",
+		"residue2": "Residue_C2866",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2851_C2866_noncanonical_pair",
+		"relpos1": [-9,-3],
+		"relpos2": [-9,3],
+		"edge1": "H",
+		"edge2": "H",
+		"LW_orientation": "T"
+	},
+	"Linker_C2857_C2860_noncanonical_pair": {
+		"residue1": "Residue_C2857",
+		"residue2": "Residue_C2860",
+		"type": "noncanonical_pair",
+		"linker_tag": "Linker_C2857_C2860_noncanonical_pair",
+		"relpos1": [9,-3],
+		"relpos2": [9,3],
+		"edge1": "S",
+		"edge2": "H",
+		"LW_orientation": "T"
+	},
+	"Selection_C2791_coaxial_stack": {
+		"associated_residues": [
+			"Residue_C2791",
+			"Residue_C2805",
+			"Residue_C2792",
+			"Residue_C2804",
+			"Residue_C2793",
+			"Residue_C2803",
+			"Residue_C2794",
+			"Residue_C2802",
+			"Residue_C2795",
+			"Residue_C2801",
+			"Residue_C2796",
+			"Residue_C2799"
+		],
+		"associated_helices": [
+			"Helix_C2791"
+		],
+		"type": "coaxial_stack",
+		"coax_pairs": [
+			{
+				"resnum1": 2791,
+				"chain1": "C",
+				"resnum2": 2805,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2792,
+				"chain1": "C",
+				"resnum2": 2804,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2793,
+				"chain1": "C",
+				"resnum2": 2803,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2794,
+				"chain1": "C",
+				"resnum2": 2802,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2795,
+				"chain1": "C",
+				"resnum2": 2801,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2796,
+				"chain1": "C",
+				"resnum2": 2799,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		]
+	},
+	"Selection_C2806_coaxial_stack": {
+		"associated_residues": [
+			"Residue_C2806",
+			"Residue_C2892",
+			"Residue_C2807",
+			"Residue_C2891"
+		],
+		"associated_helices": [],
+		"type": "coaxial_stack",
+		"coax_pairs": [
+			{
+				"resnum1": 2806,
+				"chain1": "C",
+				"resnum2": 2892,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2807,
+				"chain1": "C",
+				"resnum2": 2891,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		]
+	},
+	"Selection_C2811_coaxial_stack": {
+		"associated_residues": [
+			"Residue_C2811",
+			"Residue_C2889",
+			"Residue_C2812",
+			"Residue_C2888",
+			"Residue_C2813",
+			"Residue_C2887"
+		],
+		"associated_helices": [
+			"Helix_C2811"
+		],
+		"type": "coaxial_stack",
+		"coax_pairs": [
+			{
+				"resnum1": 2811,
+				"chain1": "C",
+				"resnum2": 2889,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2812,
+				"chain1": "C",
+				"resnum2": 2888,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2813,
+				"chain1": "C",
+				"resnum2": 2887,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		]
+	},
+	"Selection_C2815_coaxial_stack": {
+		"associated_residues": [
+			"Residue_C2815",
+			"Residue_C2831",
+			"Residue_C2816",
+			"Residue_C2830",
+			"Residue_C2817",
+			"Residue_C2829",
+			"Residue_C2818",
+			"Residue_C2828",
+			"Residue_C2819",
+			"Residue_C2827",
+			"Residue_C2821",
+			"Residue_C2826"
+		],
+		"associated_helices": [
+			"Helix_C2815"
+		],
+		"type": "coaxial_stack",
+		"coax_pairs": [
+			{
+				"resnum1": 2815,
+				"chain1": "C",
+				"resnum2": 2831,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2816,
+				"chain1": "C",
+				"resnum2": 2830,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2817,
+				"chain1": "C",
+				"resnum2": 2829,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2818,
+				"chain1": "C",
+				"resnum2": 2828,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2819,
+				"chain1": "C",
+				"resnum2": 2827,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2821,
+				"chain1": "C",
+				"resnum2": 2826,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		]
+	},
+	"Selection_C2845_coaxial_stack": {
+		"associated_residues": [
+			"Residue_C2845",
+			"Residue_C2871",
+			"Residue_C2846",
+			"Residue_C2870",
+			"Residue_C2847",
+			"Residue_C2869",
+			"Residue_C2848",
+			"Residue_C2868"
+		],
+		"associated_helices": [
+			"Helix_C2846"
+		],
+		"type": "coaxial_stack",
+		"coax_pairs": [
+			{
+				"resnum1": 2845,
+				"chain1": "C",
+				"resnum2": 2871,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2846,
+				"chain1": "C",
+				"resnum2": 2870,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2847,
+				"chain1": "C",
+				"resnum2": 2869,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2848,
+				"chain1": "C",
+				"resnum2": 2868,
+				"chain2": "C",
+				"edge1": "S",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "A"
+			}
+		]
+	},
+	"Selection_C2851_coaxial_stack": {
+		"associated_residues": [
+			"Residue_C2851",
+			"Residue_C2866",
+			"Residue_C2852",
+			"Residue_C2865",
+			"Residue_C2853",
+			"Residue_C2864",
+			"Residue_C2854",
+			"Residue_C2863",
+			"Residue_C2855",
+			"Residue_C2862",
+			"Residue_C2856",
+			"Residue_C2861"
+		],
+		"associated_helices": [
+			"Helix_C2852"
+		],
+		"type": "coaxial_stack",
+		"coax_pairs": [
+			{
+				"resnum1": 2851,
+				"chain1": "C",
+				"resnum2": 2866,
+				"chain2": "C",
+				"edge1": "H",
+				"edge2": "H",
+				"LW_orientation": "T",
+				"orientation": "P"
+			},
+			{
+				"resnum1": 2852,
+				"chain1": "C",
+				"resnum2": 2865,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2853,
+				"chain1": "C",
+				"resnum2": 2864,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2854,
+				"chain1": "C",
+				"resnum2": 2863,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2855,
+				"chain1": "C",
+				"resnum2": 2862,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			},
+			{
+				"resnum1": 2856,
+				"chain1": "C",
+				"resnum2": 2861,
+				"chain2": "C",
+				"edge1": "W",
+				"edge2": "W",
+				"LW_orientation": "C",
+				"orientation": "A"
+			}
+		]
+	},
+	"plot_settings": {
+		"fontsize": 10,
+		"spacing": 3,
+		"bp_spacing": 6,
+		"show_helix_controls": 1,
+		"show_selection_controls": 0,
+		"show_linker_controls": 1,
+		"show_stacks": 0
+	},
+	"xlim": [0,100],
+	"ylim": [0,200],
+	"window_position": [1,47,1114,908]
+}

@@ -13,7 +13,16 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ## TODO
 ### Immediate
+* Domain II 5prime extension
+* Domain II core                C:811-1196
+* Domain II 3prime extension    C:1197-1254
+* Domain IV core                C:1764-1989
+* Domain VI core                C:2626-2788
+* Domain V L1 extension         C:2092-2227
+* Domain V central protuberance C:2259-2425
+* 5S rRNA                       B:1-119
 * protein/exit tunnel representation
+* Read-in & auto-formatting of motifs
 
 ### Documentation stuff
 * put in docstrings for all files
@@ -24,7 +33,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ### Future
 * for paper, layout all RNAs from deep chemical profiling study & compare to literature layouts.
-* Read-in & auto-formatting of motifs
 * reflection/rotation of domains
 * pathfinder routine for arrow linkers & noncanonical pairs
 * settings icon for toggles --> menu.

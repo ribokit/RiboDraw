@@ -1,3 +1,0 @@
-Domain I                     C:12-526
-Domain III                   C:1271-1647
-Peptidyl transferase center  C:2043-2091 C:2228-2258 C:2426-2625

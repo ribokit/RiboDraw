@@ -5,7 +5,6 @@ Domain III                    C:1271-1647
 Domain IV 3prime extension    C:1680-1763
 Domain V core PTC             C:2043-2091 C:2228-2258 C:2426-2625
 Domain VI 3prime extension    C:2789-2895
-
 Domain II core                C:811-1196
 Domain II 3prime extension    C:1197-1254
 Domain IV core                C:1764-1989

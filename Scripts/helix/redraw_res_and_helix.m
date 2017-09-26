@@ -43,11 +43,11 @@ draw_helix( helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function blink_helix_rectangle( helix );
 % provide some visual feedback to user.
-if isfield(helix,'helix_rectangle')
-    color = get( helix.helix_rectangle, 'edgecolor' );
-    set( helix.helix_rectangle,'edgecolor','k' );
+if isfield(helix,'rectangle')
+    color = get( helix.rectangle, 'edgecolor' );
+    set( helix.rectangle,'edgecolor','k' );
     pause(0.2)
-    set( helix.helix_rectangle,'edgecolor',color );
+    set( helix.rectangle,'edgecolor',color );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -3,4 +3,3 @@ idx = 0;
 for i = 1:length( base_pairs )
     if isequal( base_pairs{i}, base_pair ) idx = i; return; end;
 end
-base_pair

@@ -27,5 +27,5 @@ for n = 1:length( helices )
 end
 
 axis off
-axis equal
+%axis equal
 set(gcf,'color','white')

@@ -206,10 +206,14 @@ if ( residue.chain ~= helix.chain2(1) ) dist2 = Inf * dist2; end;
 [~,strand] = min( [min( dist1 ), min( dist2 )] );
 N = length( helix.resnum1 );
 if ( strand == 1 )   
-    relpos = [ plot_settings.spacing*(+(residue.resnum-helix.resnum1(1))-(N-1)/2), -plot_settings.bp_spacing/2];
+    d = residue.resnum-helix.resnum1(1);
+    if abs(d) > 10; d = sign(d) * 10 * ( log( abs(d)/ 10) + 1 );  end;
+    relpos = [ plot_settings.spacing*(d-(N-1)/2), -plot_settings.bp_spacing/2];
 else
     assert( strand == 2 );    
-    relpos = [ plot_settings.spacing*(-(residue.resnum-helix.resnum2(1))+(N-1)/2), +plot_settings.bp_spacing/2];  
+    d = residue.resnum-helix.resnum2(1);
+    if abs(d) > 10; d = sign(d) * 10 * ( log( abs(d)/ 10) + 1 );  end;
+    relpos = [ plot_settings.spacing*(-d+(N-1)/2), +plot_settings.bp_spacing/2];  
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

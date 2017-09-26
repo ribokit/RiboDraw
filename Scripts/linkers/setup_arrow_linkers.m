@@ -6,6 +6,7 @@ for i = 1:length(resnum)
     j = i + 1;
     if ( j > length( resnum ) ) continue; end;
     if ( chains(j) ~= chains(i) ) continue; end;    
+    if ( resnum(j) ~= resnum(i)+1 ) continue; end;    
     res_tag_i = sprintf('Residue_%s%d',chains(i),resnum(i));
     res_tag_j = sprintf('Residue_%s%d',chains(j),resnum(j));
     linker.residue1 = res_tag_i;

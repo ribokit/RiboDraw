@@ -13,11 +13,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ## TODO
 ### Immediate
-
-* Domain V L1 extension         C:2092-2227
-* Domain V central protuberance C:2259-2425
-* 5S rRNA                       B:1-119
-* Domain II core                C:811-1196
 * protein/exit tunnel representation
 * Read-in & auto-formatting of motifs
 

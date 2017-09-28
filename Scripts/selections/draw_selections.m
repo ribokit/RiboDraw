@@ -4,7 +4,7 @@ plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( plot_settings, 'show_coax_controls' ) & isfield( plot_settings, 'show_selection_controls' )
     plot_settings.show_coax_controls   = plot_settings.show_selection_controls;
     plot_settings.show_domain_controls = plot_settings.show_selection_controls;
-    rmfield( plot_settings, 'show_selection_controls' );
+    plot_settings = rmfield( plot_settings, 'show_selection_controls' );
     setappdata( gca, 'plot_settings', plot_settings );
 end
 
@@ -13,15 +13,7 @@ for i = 1:length( selections )
     selection_tag = selections{i};
     if ~isappdata( gca, selection_tag ); fprintf( 'Problem with %s\n', selection_tag ); continue; end; % some cleanup
     selection = getappdata( gca, selection_tag );
-    dom_pos = [];
-    for j = 1:length( selection.associated_residues )
-        residue = getappdata( gca, selection.associated_residues{j} );
-        if isfield( residue, 'plot_pos' );
-            dom_pos = [ dom_pos; residue.plot_pos ];
-        end
-    end
-    minpos = min( dom_pos, [], 1 );
-    maxpos = max( dom_pos, [], 1 );  
+    [minpos,maxpos] = get_minpos_maxpos( selection );  
     ctr_pos = (minpos + maxpos )/ 2;
     if ( plot_settings.show_coax_controls )
         selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
@@ -44,7 +36,7 @@ for i = 1:length( selections )
             if isfield( selection, 'rgb_color' ) domain_color = selection.rgb_color; end;
             set( selection.rectangle,'edgecolor',domain_color); 
             if ~isfield( selection, 'label_relpos' ) selection.label_relpos = minpos - ctr_pos; end;
-            if ( plot_settings.show_selection_controls ) visible = 'on'; else; visible = 'off'; end;
+            if ( plot_settings.show_domain_controls ) visible = 'on'; else; visible = 'off'; end;
             set( selection.rectangle, 'visible', visible );
             if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
                 h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....
@@ -53,34 +45,14 @@ for i = 1:length( selections )
                 draggable( h, 'n',[-inf inf -inf inf], @move_selection_label )
                 setappdata( h, 'selection_tag', selection_tag );
                 setappdata( gca, selection_tag, selection );
-            end            
-            if ~isfield( selection,'reflect_line_horizontal1' )
-                % for domain: clickable lines of reflection
-                line1 =  [minpos(1) ctr_pos(2)] + [0,-spacing/2];
-                line1x = [minpos(1) ctr_pos(2)] + [0,+spacing/2];
-                h = plot( [0 0], [1 1], 'color',[1 0.5 0.5],'clipping','off' );
-                setappdata( h, 'selection_tag', selection_tag);
-                setappdata( h, 'reflect_axis', 'horizontal');
-                set(h,'ButtonDownFcn',{@reflect_selection,h});
-                selection.reflect_line_horizontal1 = h;
-            end
-            if ~isfield( selection,'reflect_line_horizontal2' )
-                % for domain: clickable lines of reflection
-                line2 =  [maxpos(1) ctr_pos(2)] + [0,-spacing/2];
-                line2x = [maxpos(1) ctr_pos(2)] + [0,+spacing/2];
-                h = plot( [0 0], [1 1], 'color',[1 0.5 0.5],'clipping','off' );
-                setappdata( h, 'selection_tag', selection_tag);
-                setappdata( h, 'reflect_axis', 'horizontal');
-                set(h,'ButtonDownFcn',{@reflect_selection,h});
-                selection.reflect_line_horizontal2 = h;
             end
             
-%             line2 = helix_center + spacing*[ (N+0.25)/2, 0]*R;
-%             line2x = helix_center + spacing*[ (N-0.75)/2, 0]*R;
-%             h = plot( [line2(1),line2x(1)], [line2x(2), line2(2)], 'color',[0.5 0.5 1],'clipping','off' );
-%             setappdata( h, 'helix_tag', helix.helix_tag);
-%             set(h,'ButtonDownFcn',{@reflect_helix,h});
-%             selection.reflect_line_horizontal_2 = h;
+            % for domain: clickable lines of reflection
+            selection = create_clickable_reflection_line( 'reflect_line_horizontal1', selection );
+            selection = create_clickable_reflection_line( 'reflect_line_horizontal2', selection  );
+            selection = create_clickable_reflection_line( 'reflect_line_vertical1', selection  );
+            selection = create_clickable_reflection_line( 'reflect_line_vertical2', selection  );
+            
              
 %             % for helix: clickable center of rotation
 %             h = rectangle( 'Position',...
@@ -102,6 +74,82 @@ for i = 1:length( selections )
         if isfield( selection, 'rgb_color' ) set( selection.label, 'color', selection.rgb_color ); end
     end
     if isfield( selection, 'reflect_line_horizontal1' );
-        % pos
+        set( selection.reflect_line_horizontal1, 'Xdata', minpos(1) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
+        if isfield( selection, 'rgb_color' ) set( selection.reflect_line_horizontal1, 'color', selection.rgb_color ); end
+    end
+    if isfield( selection, 'reflect_line_horizontal2' );
+        set( selection.reflect_line_horizontal2, 'Xdata', maxpos(1) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
+        if isfield( selection, 'rgb_color' ) set( selection.reflect_line_horizontal2, 'color', selection.rgb_color ); end
+    end
+    if isfield( selection, 'reflect_line_vertical1' );
+        set( selection.reflect_line_vertical1, 'Ydata', minpos(2) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
+        if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical1, 'color', selection.rgb_color ); end
+    end
+    if isfield( selection, 'reflect_line_vertical2' );
+        set( selection.reflect_line_vertical2, 'Ydata', maxpos(2) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
+        if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical2, 'color', selection.rgb_color ); end
     end
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function selection = create_clickable_reflection_line( tag, selection );
+
+if isfield( selection, tag ); return; end;
+
+h = plot( [0 0], [1 1], 'color',[1 0.5 0.5],'clipping','off' );
+setappdata( h, 'selection_tag', selection.selection_tag);
+
+flip = 'vertical';
+% if lines are horizontal, reflection looks like up/down flip.
+if ~isempty( strfind( tag, 'vertical' ) ) flip = 'horizontal';end;
+
+setappdata( h, 'flip', flip);
+set(h,'ButtonDownFcn',{@reflect_selection,h});
+selection = setfield( selection, tag, h );
+setappdata( gca, selection.selection_tag, selection );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [minpos,maxpos] = get_minpos_maxpos( selection );  
+dom_pos = [];
+for j = 1:length( selection.associated_residues )
+    residue = getappdata( gca, selection.associated_residues{j} );
+    if isfield( residue, 'plot_pos' );
+        dom_pos = [ dom_pos; residue.plot_pos ];
+    end
+end
+minpos = min( dom_pos, [], 1 );
+maxpos = max( dom_pos, [], 1 );
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function reflect_selection( h, ~, ~ )
+selection_tag = getappdata( h, 'selection_tag' );
+flip = getappdata( h, 'flip' );
+selection = getappdata(gca,selection_tag );
+[residues, associated_helices] = get_res_helix_for_selection( selection );
+
+[minpos,maxpos] = get_minpos_maxpos( selection );  
+for i = 1:length( associated_helices )
+    helix = getappdata( gca, associated_helices{i} );
+
+    theta = helix.rotation;
+    R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
+    R = [1 0; 0 helix.parity] * R;
+    if strcmp( flip, 'horizontal' )
+        helix.center(1) = (maxpos(1) - helix.center(1)) + minpos(1);
+        R = R * [-1 0; 0 1];
+    else
+        assert( strcmp( flip, 'vertical' ) );
+        helix.center(2) = (maxpos(2) - helix.center(2)) + minpos(2);
+        R = R * [1 0; 0 -1];
+    end
+    
+    helix.parity = helix.parity * -1; % there will definitely be a flip.
+    R = [1 0; 0 helix.parity] * R; % what flip looks like in 'lab frame' not helix frame
+    helix.rotation = round( atan2( R(2,1), R(1,1) ) * 180/pi );
+
+    setappdata( gca, associated_helices{i}, helix );
+    undraw_helix( helix );
+    draw_helix( helix );
+end
+
+

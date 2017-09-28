@@ -7,14 +7,12 @@ selection = getappdata(gca,selection_tag );
 
 translation = pos - init_pos;
 
-residues = {};
-associated_helices = {};
-for i = 1:length( selection.associated_residues )
-    residue = getappdata( gca, selection.associated_residues{i} );
-    residue.plot_pos = residue.plot_pos + translation(1:2);
-    residues{i} = residue;
-    associated_helices = unique([associated_helices, residue.helix_tag ]);
+[residues, associated_helices] = get_res_helix_for_selection( selection );
+
+for i = 1:length( residues )
+    residues{i}.plot_pos = residues{i}.plot_pos + translation(1:2);
 end
+
 for i = 1:length( associated_helices )
     helix = getappdata( gca, associated_helices{i} );
     helix.center = helix.center + translation(1:2);

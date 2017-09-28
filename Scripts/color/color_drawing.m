@@ -59,7 +59,7 @@ else
     else
         vals = getappdata( gca );
         objnames = fields( vals );
-        if strcmp( objnames, selection )
+        if any( strcmp( objnames, selection ) )
             obj = getappdata( gca, selection );
             res_tags = obj.associated_residues;
             obj_name = selection;

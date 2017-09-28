@@ -13,8 +13,16 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ## TODO
 ### Immediate
+* reflection/rotation of domains [domain II 3prime ext]
+* draw ticks inside draw_helix
+* have reset fontsize go through text instead of redraw_helices()
+* reset domain labels based on reset fontsize too.
+* reset arrow linker line size based on zoom out [0.7 to 1.2]
+* make sure import_domain overwrites prior residues
+* Fix chains for 5S RNA
+* Refine 820-821 (domain II core -- move back to H39)
+
 * protein/exit tunnel representation
-* Read-in & auto-formatting of motifs
 
 ### Documentation stuff
 * put in docstrings for all files
@@ -24,8 +32,8 @@ _(C) Rhiju Das, Stanford University, 2017_
 * check independence from RiboKit
 
 ### Future
+* Read-in & auto-formatting of motifs
 * for paper, layout all RNAs from deep chemical profiling study & compare to literature layouts.
-* reflection/rotation of domains
 * pathfinder routine for arrow linkers & noncanonical pairs
 * settings icon for toggles --> menu.
 * Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations
@@ -56,4 +64,12 @@ We define file format.
 * From hand-drawn to initial ribodraw to complete refinement.  [show as flow chart]
 * compare 4-6 ribodraw figures to literature examples (glycine riboswitch, tRNA, group I intron, adenosylcobalamin riboswitch puzzle, ZMP puzzle, Zika puzzle -- whatever will go into DCP paper)
 * E. coli 23S and 16S rRNA figures
+
+### Info to remember
+* Talk about human choices in 'flattening structure': 
+ - Example in long L11 stack (domain II) 
+ - Example of difficulty of representing complete coaxial stacks in multiway junction (perhaps domain II again, or domain I central 'struct')
+ - Example of T-loop intercalation
+
+
 

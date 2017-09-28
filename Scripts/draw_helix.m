@@ -622,6 +622,22 @@ end
 % Ticks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function residue = draw_tick( residue, bp_spacing, R )
+
+if ( mod(residue.resnum,10) ~= 0 ); return; end;
+
+if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set later based on how helix is rotated.
+
+if ~isfield( residue, 'tick_handle' );
+    residue.tick_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.
+    setappdata( gca, objnames{n}, residue );
+end
+
+if ~isfield( residue, 'tick_label' )
+    residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', plot_settings.fontsize,...
+        'horizontalalign','center','verticalalign','middle','clipping','off' );
+    setappdata( gca, objnames{n}, residue );
+end
+
 if isfield( residue, 'tickrot' )
     if  isnan(residue.tickrot) residue = set_default_tickrot( residue ); end;
     theta = residue.tickrot;

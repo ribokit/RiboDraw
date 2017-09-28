@@ -1,4 +1,4 @@
-Domain 0                      C:1-24 C:518-584 C:1256-1270 C:1648-1670 C:1990-2042 C:2626-2629 C:2895-2904    [overlaps with Domains I, II, etc.]
+Domain 0                      C:1-24 C:518-584 C:1256-1270 C:1648-1670 C:1990-2042 C:2626-2629 C:2895-2904 [overlaps with Domains I, II, etc.]
 Domain I                      C:12-526
 Domain II 5prime extension    C:583-810                    
 Domain III                    C:1271-1647

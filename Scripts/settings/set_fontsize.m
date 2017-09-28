@@ -1,6 +1,35 @@
 function set_fontsize( fontsize )
+% set_fontsize( fontsize )
+
 plot_settings = getappdata( gca, 'plot_settings' );
 plot_settings.fontsize = fontsize;
 setappdata( gca, 'plot_settings', plot_settings );
-
         
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Actually go and fix up labels
+residue_tags = get_tags( 'Residue_');
+for i = 1:length( residue_tags );
+    residue = getappdata( gca, residue_tags{i} );
+    if isfield( residue, 'handle' )
+        set( residue.handle, 'fontsize', plot_settings.fontsize );
+    end
+    if isfield( residue, 'tick_label' )
+        set( residue.tick_label, 'fontsize', plot_settings.fontsize );
+    end
+end
+helix_tags = get_tags( 'Helix_');
+for i = 1:length( helix_tags );
+    helix = getappdata( gca, helix_tags{i} );
+    if isfield( helix, 'label' )
+        set( helix.label, 'fontsize', plot_settings.fontsize*1.5 );
+    end
+end
+domain_tags = get_tags( 'Selection_');
+for i = 1:length( domain_tags );
+    domain = getappdata( gca, domain_tags{i} );
+    if isfield( domain, 'label' )
+        set( domain.label, 'fontsize', plot_settings.fontsize*14/10 );
+    end
+end
+
+

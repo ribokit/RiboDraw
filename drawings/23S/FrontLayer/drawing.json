@@ -12274,7 +12274,7 @@
 		"helix_tag": "Helix_C2127",
 		"nucleotide": "C",
 		"rgb_color": [1,0.6,0.6],
-		"relpos": [-14.25,9],
+		"relpos": [-14.25,6],
 		"linkers": [
 			"Linker_C2163_C2164_arrow",
 			"Linker_C2164_C2165_arrow"
@@ -30843,7 +30843,7 @@
 		"resnum2": [2186,2187,2188,2189,2190,2191,2192,2193,2194,2195,2196],
 		"chain2": "CCCCCCCCCCC",
 		"name": "H76a",
-		"center": [-9.75,126.75],
+		"center": [-9,126.75],
 		"rotation": 270,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -30882,7 +30882,7 @@
 		"resnum2": [2181,2182,2183,2184],
 		"chain2": "CCCC",
 		"name": "H76b",
-		"center": [-9.75,152.25],
+		"center": [-9,152.25],
 		"rotation": 270,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -30912,7 +30912,7 @@
 		"resnum2": [2174,2175,2176,2177,2178],
 		"chain2": "CCCCC",
 		"name": "H77a",
-		"center": [-9.75,172.5],
+		"center": [-9,172.5],
 		"rotation": 270,
 		"parity": 1,
 		"label_relpos": [-1.5,4.5],
@@ -30942,7 +30942,7 @@
 		"resnum2": [2159,2160,2161],
 		"chain2": "CCC",
 		"name": "H77b",
-		"center": [-25.5,184.5],
+		"center": [-24.75,184.5],
 		"rotation": 180,
 		"parity": -1,
 		"label_relpos": [-1.5,-6],
@@ -30978,7 +30978,7 @@
 		"resnum2": [2148,2149,2150,2151,2152,2153,2154,2155],
 		"chain2": "CCCCCCCC",
 		"name": "H78",
-		"center": [-36.75,164.25],
+		"center": [-36,164.25],
 		"rotation": 0,
 		"parity": -1,
 		"label_relpos": [-6,-9],
@@ -31018,7 +31018,7 @@
 		"resnum2": [2221,2222,2223],
 		"chain2": "CCC",
 		"name": "H79a",
-		"center": [-9.75,99],
+		"center": [-9,99],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -31046,7 +31046,7 @@
 		"resnum2": [2215,2216,2217,2218,2219,2220],
 		"chain2": "CCCCCC",
 		"name": "H79b",
-		"center": [-9.75,84.75],
+		"center": [-9,84.75],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -44993,14 +44993,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C2163_C2164_arrow",
 		"relpos1": [-10.5,3.75],
-		"relpos2": [-14.25,9]
+		"relpos2": [-14.25,6]
 	},
 	"Linker_C2164_C2165_arrow": {
 		"residue1": "Residue_C2164",
 		"residue2": "Residue_C2165",
 		"type": "arrow",
 		"linker_tag": "Linker_C2164_C2165_arrow",
-		"relpos1": [-14.25,9],
+		"relpos1": [-14.25,6],
 		"relpos2": [-18,6]
 	},
 	"Linker_C2165_C2166_arrow": {
@@ -66310,7 +66310,7 @@
 		"rgb_color": [1,0,0]
 	},
 	"plot_settings": {
-		"fontsize": 6,
+		"fontsize": 4.892966361,
 		"spacing": 3,
 		"bp_spacing": 6,
 		"show_helix_controls": 1,
@@ -66318,7 +66318,7 @@
 		"show_linker_controls": 0,
 		"show_stacks": 0
 	},
-	"xlim": [-100,350],
-	"ylim": [-100,350],
-	"window_position": [82,235,1015,720]
+	"xlim": [-115.125,293.625],
+	"ylim": [-116.4255504,335.4255504],
+	"window_position": [107,234,1015,720]
 }

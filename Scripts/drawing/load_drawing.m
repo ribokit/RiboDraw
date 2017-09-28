@@ -28,7 +28,6 @@ for i = 1:length( datafields )
     datafield = datafields{i};
     setappdata( gca, datafield, getfield( loaddata, datafield ) );
 end
-draw_dummy_ticks();
 draw_helices( get_helices( loaddata ) );
 
 axis off

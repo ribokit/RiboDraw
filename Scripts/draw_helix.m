@@ -184,7 +184,7 @@ if isfield( residue, 'relpos' )
     setappdata( residue.handle, 'res_tag', res_tag );
     residue.res_tag = res_tag;
     residue.plot_pos = pos;
-    residue = draw_tick( residue, plot_settings.bp_spacing, R );
+    residue = draw_tick( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
     % quick linker cleanup
     if isfield( residue, 'linkers' );
@@ -621,7 +621,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ticks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function residue = draw_tick( residue, bp_spacing, R )
+function residue = draw_tick( residue, bp_spacing, fontsize, R )
 
 if ( mod(residue.resnum,10) ~= 0 ); return; end;
 
@@ -629,13 +629,13 @@ if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set la
 
 if ~isfield( residue, 'tick_handle' );
     residue.tick_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.
-    setappdata( gca, objnames{n}, residue );
+    setappdata( gca, residue.res_tag, residue );
 end
 
 if ~isfield( residue, 'tick_label' )
-    residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', plot_settings.fontsize,...
+    residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', fontsize,...
         'horizontalalign','center','verticalalign','middle','clipping','off' );
-    setappdata( gca, objnames{n}, residue );
+    setappdata( gca, residue.res_tag, residue );
 end
 
 if isfield( residue, 'tickrot' )

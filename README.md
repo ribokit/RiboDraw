@@ -14,9 +14,6 @@ _(C) Rhiju Das, Stanford University, 2017_
 ## TODO
 ### Immediate
 * reflection/rotation of domains [domain II 3prime ext]
-* draw ticks inside draw_helix
-* have reset fontsize go through text instead of redraw_helices()
-* reset domain labels based on reset fontsize too.
 * reset arrow linker line size based on zoom out [0.7 to 1.2]
 * make sure import_domain overwrites prior residues
 * Fix chains for 5S RNA

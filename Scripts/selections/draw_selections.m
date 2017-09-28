@@ -52,19 +52,15 @@ for i = 1:length( selections )
             selection = create_clickable_reflection_line( 'reflect_line_horizontal2', selection  );
             selection = create_clickable_reflection_line( 'reflect_line_vertical1', selection  );
             selection = create_clickable_reflection_line( 'reflect_line_vertical2', selection  );
-            
-             
-%             % for helix: clickable center of rotation
-%             h = rectangle( 'Position',...
-%                 [0 0,...
-%                 0.3*spacing 0.3*spacing], ...
-%                 'curvature',[0.5 0.5],...
-%                 'edgecolor',[0.5 0.5 1],...
-%                 'facecolor',[0.5 0.5 1],'linewidth',1.5,'clipping','off' );
-%             setappdata( h,'helix_tag', helix.helix_tag);
-%             set(h,'ButtonDownFcn',{@rotate_helix,h});
-%             helix.click_center = h;
-
+            % for domain: clickable center of rotation
+            if ~isfield( selection, 'click_center' );
+                h = rectangle( 'Position',...
+                    [0 0,0,0],'curvature',[0.5 0.5],'edgecolor',[0.5 0.5 1],'facecolor',[0.5 0.5 1],'linewidth',1.5,'clipping','off' );
+                setappdata( h,'selection_tag', selection_tag);
+                set(h,'ButtonDownFcn',{@rotate_selection,h});
+                selection.click_center = h;
+                setappdata( gca, selection_tag, selection );
+            end             
         end
     end
     if isfield( selection, 'rectangle') set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
@@ -88,6 +84,11 @@ for i = 1:length( selections )
     if isfield( selection, 'reflect_line_vertical2' );
         set( selection.reflect_line_vertical2, 'Ydata', maxpos(2) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
         if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical2, 'color', selection.rgb_color ); end
+    end
+    if isfield( selection, 'click_center' );
+        set( selection.click_center, 'Position', [ctr_pos(1)-0.15*spacing ctr_pos(2)-0.15*spacing,...
+            0.3*spacing 0.3*spacing] );
+        if isfield( selection, 'rgb_color' ) set( selection.click_center, 'edgecolor', selection.rgb_color ); end
     end
 end
 
@@ -148,7 +149,25 @@ for i = 1:length( associated_helices )
     helix.rotation = round( atan2( R(2,1), R(1,1) ) * 180/pi );
 
     setappdata( gca, associated_helices{i}, helix );
-    undraw_helix( helix );
+    draw_helix( helix );
+end
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function rotate_selection( h, ~, ~ )
+selection_tag = getappdata( h, 'selection_tag' );
+selection = getappdata(gca,selection_tag );
+[residues, associated_helices] = get_res_helix_for_selection( selection );
+
+[minpos,maxpos] = get_minpos_maxpos( selection );  
+ctr_pos = ( minpos + maxpos ) / 2;
+for i = 1:length( associated_helices )
+    helix = getappdata( gca, associated_helices{i} );
+    helix.center = ( helix.center - ctr_pos ) * [0 -1; 1 0] + ctr_pos;
+    helix.rotation = mod( helix.rotation + 90, 360 );
+    setappdata( gca, associated_helices{i}, helix );
     draw_helix( helix );
 end
 

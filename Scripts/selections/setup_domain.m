@@ -45,7 +45,6 @@ setappdata( gca, domain_tag, domain );
 associated_helices =  unique( associated_helices );
 for i = 1:length( associated_helices );
     helix = getappdata( gca, associated_helices{i} );
-    undraw_helix( helix );
     draw_helix( helix );
 end
 

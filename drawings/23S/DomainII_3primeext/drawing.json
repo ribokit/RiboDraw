@@ -68,7 +68,7 @@
 		"helix_tag": "Helix_C1198",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1245",
-		"tickrot": 270,
+		"tickrot": 315,
 		"rgb_color": [0,0.5,0.5],
 		"relpos": [0,-3],
 		"linkers": [
@@ -464,7 +464,7 @@
 		"helix_tag": "Helix_C1215",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1229",
-		"tickrot": 270,
+		"tickrot": 315,
 		"rgb_color": [0,0.5,0.5],
 		"relpos": [4.5,-3],
 		"linkers": [
@@ -1152,8 +1152,8 @@
 		"resnum2": [1243,1244,1245,1246,1247],
 		"chain2": "CCCCC",
 		"name": "H46a",
-		"center": [60.75,83.25],
-		"rotation": 90,
+		"center": [65.625,97.125],
+		"rotation": 180,
 		"parity": 1,
 		"label_relpos": [-4.5,-6],
 		"helix_tag": "Helix_C1198",
@@ -1188,8 +1188,8 @@
 		"resnum2": [1238,1239,1240],
 		"chain2": "CCC",
 		"name": "H46b",
-		"center": [70.5,68.25],
-		"rotation": 0,
+		"center": [50.625,87.375],
+		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [-0,-6],
 		"helix_tag": "Helix_C1206",
@@ -1212,10 +1212,10 @@
 		"resnum2": [1227,1228,1229,1230,1231,1232,1233,1234],
 		"chain2": "CCCCCCCC",
 		"name": "H46c",
-		"center": [79.5,92.25],
-		"rotation": 270,
+		"center": [74.625,78.375],
+		"rotation": 0,
 		"parity": 1,
-		"label_relpos": [-0,-6],
+		"label_relpos": [-3,-6],
 		"helix_tag": "Helix_C1215",
 		"associated_residues": [
 			"Residue_C1212",
@@ -1835,7 +1835,9 @@
 		"residue1": "Residue_C1240",
 		"residue2": "Residue_C1241",
 		"type": "arrow",
-		"linker_tag": "Linker_C1240_C1241_arrow"
+		"linker_tag": "Linker_C1240_C1241_arrow",
+		"relpos1": [-3,3],
+		"relpos2": [12,3]
 	},
 	"Linker_C1241_C1242_arrow": {
 		"residue1": "Residue_C1241",
@@ -2454,11 +2456,12 @@
 		"spacing": 3,
 		"bp_spacing": 6,
 		"show_helix_controls": 1,
-		"show_selection_controls": 0,
 		"show_linker_controls": 1,
-		"show_stacks": 0
+		"show_stacks": 0,
+		"show_coax_controls": 0,
+		"show_domain_controls": 1
 	},
 	"xlim": [0,200],
-	"ylim": [0,200],
+	"ylim": [-22.79461182,198.2946118],
 	"window_position": [51,1,863,954]
 }

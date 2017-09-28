@@ -21,12 +21,30 @@ tic
 fprintf( 'Drawing helices...\n' );
 set( gca, 'xlim', loaddata.xlim );
 set( gca, 'ylim', loaddata.ylim );
+
 % Should install sequence, Residue, Helix objects, etc. into gca ('global
 % data' for these axes);
 datafields = fields( loaddata );
 for i = 1:length( datafields )
     datafield = datafields{i};
-    setappdata( gca, datafield, getfield( loaddata, datafield ) );
+    datum = getfield( loaddata, datafield );
+
+    if isappdata( gca, datafield )
+        % copy over old handles to graphical objects like text, lines,
+        % ticks, etc.
+        olddatum = getappdata( gca, datafield );
+        if isstruct( olddatum )
+            oldfields = fields( olddatum );
+            for i = 1:length( oldfields )
+                field = oldfields{i};
+                if ~isfield( datum, field )
+                    datum = setfield( datum, field, getfield(olddatum,field) );
+                end
+            end
+        end
+        loaddata = setfield( loaddata, datafield, datum );
+    end
+    setappdata( gca, datafield, datum );    
 end
 draw_helices( get_helices( loaddata ) );
 

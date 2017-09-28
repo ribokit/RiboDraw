@@ -77,30 +77,39 @@ helix = create_default_rectangle( helix, 'helix_tag', helix.helix_tag, @redraw_h
 set_rectangle_coords( helix, minpos, maxpos, spacing );
 
 % for helix: clickable line of reflection
+if ~isfield( helix, 'reflect_line1' )
+    h = plot( [0 0], [0 0], 'color',[0.5 0.5 1],'clipping','off' );
+    setappdata( h, 'helix_tag', helix.helix_tag);
+    set(h,'ButtonDownFcn',{@reflect_helix,h});
+    helix.reflect_line1 = h;
+end
 line1 = helix_center + spacing*[-(N+0.25)/2, 0]*R;
 line1x = helix_center + spacing*[-(N-0.75)/2, 0]*R;
-h = plot( [line1(1),line1x(1)], [line1(2), line1x(2)], 'color',[0.5 0.5 1],'clipping','off' );
-setappdata( h, 'helix_tag', helix.helix_tag);
-set(h,'ButtonDownFcn',{@reflect_helix,h});
-helix.reflect_line1 = h;
+set( helix.reflect_line1, 'Xdata', [line1(1) line1x(1)], 'Ydata', [line1(2) line1x(2)]);
 
+if ~isfield( helix, 'reflect_line2' )
+    h = plot( [0 0], [0 0], 'color',[0.5 0.5 1],'clipping','off' );
+    setappdata( h, 'helix_tag', helix.helix_tag);
+    set(h,'ButtonDownFcn',{@reflect_helix,h});
+    helix.reflect_line2 = h;
+end
 line2 = helix_center + spacing*[ (N+0.25)/2, 0]*R;
 line2x = helix_center + spacing*[ (N-0.75)/2, 0]*R;
-h = plot( [line2(1),line2x(1)], [line2x(2), line2(2)], 'color',[0.5 0.5 1],'clipping','off' );
-setappdata( h, 'helix_tag', helix.helix_tag);
-set(h,'ButtonDownFcn',{@reflect_helix,h});
-helix.reflect_line2 = h;
+set( helix.reflect_line2, 'Xdata', [line2(1) line2x(1)], 'Ydata', [line2(2) line2x(2)]);
 
 % for helix: clickable center of rotation
-h = rectangle( 'Position',...
-    [helix_center(1)-0.15*spacing helix_center(2)-0.15*spacing,...
-    0.3*spacing 0.3*spacing], ...
-    'curvature',[0.5 0.5],...
-    'edgecolor',[0.5 0.5 1],...
-    'facecolor',[0.5 0.5 1],'linewidth',1.5,'clipping','off' );
-setappdata( h,'helix_tag', helix.helix_tag);
-set(h,'ButtonDownFcn',{@rotate_helix,h});
-helix.click_center = h;
+if ~isfield( helix, 'click_center' )
+    h = rectangle( 'Position',...
+        [ 0 0 0 0 ], ...
+        'curvature',[0.5 0.5],...
+        'edgecolor',[0.5 0.5 1],...
+        'facecolor',[0.5 0.5 1],'linewidth',1.5,'clipping','off' );
+    setappdata( h,'helix_tag', helix.helix_tag);
+    set(h,'ButtonDownFcn',{@rotate_helix,h});
+    helix.click_center = h;
+end
+set( helix.click_center, 'Position', [helix_center(1)-0.15*spacing helix_center(2)-0.15*spacing,...
+    0.3*spacing 0.3*spacing]);
 
 % make ticklabels draggable
 for i = 1:length( helix.associated_residues )
@@ -273,7 +282,6 @@ plot_settings = getappdata( gca, 'plot_settings' );
 snap_spacing = plot_settings.bp_spacing/4;
 helix.label_relpos = round( helix.label_relpos / snap_spacing ) * snap_spacing;
 
-undraw_helix( helix );
 draw_helix( helix );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

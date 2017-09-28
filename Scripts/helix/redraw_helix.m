@@ -17,7 +17,6 @@ pos = get(h,'Position');
 helix.center = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
 setappdata( gca, helix_tag, helix );
 
-undraw_helix( helix );
 draw_helix( helix );
 
 

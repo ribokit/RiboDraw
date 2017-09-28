@@ -18,6 +18,5 @@ end
 helices_to_redraw = unique( helices_to_redraw );
 for i = 1:length( helices_to_redraw )
     helix = getappdata( gca, helices_to_redraw{i} );
-    undraw_helix( helix );
     draw_helix( helix );
 end

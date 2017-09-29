@@ -40,6 +40,10 @@ for i = 1:length( datafields )
                 if ~isfield( datum, field )
                     datum = setfield( datum, field, getfield(olddatum,field) );
                 end
+                if strcmp( field, 'linkers' ) & isfield( datum, field )
+                    % special case. 
+                    datum.linkers = unique( [olddatum.linkers, datum.linkers ] ); 
+                end
             end
         end
         loaddata = setfield( loaddata, datafield, datum );

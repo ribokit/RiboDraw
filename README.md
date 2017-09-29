@@ -13,10 +13,8 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ## TODO
 ### Immediate
-* reflection/rotation of domains [domain II 3prime ext]
-* make sure import_domain overwrites prior residues
 * Fix chains for 5S RNA
-* Refine 820-821 (domain II core -- move back to H39)
+
 
 * protein/exit tunnel representation
 

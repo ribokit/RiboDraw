@@ -3,7 +3,7 @@ function redraw_res_and_helix( h )
 % Call this after dragging.
 % (C) R. Das, Stanford University, 2017
 delete_crosshair();
-pos = get(h,'position'); 
+pos = get(h,'position');
 res_tag = getappdata( h, 'res_tag' );
 residue = getappdata(gca,res_tag );
 original_plot_pos = residue.plot_pos;

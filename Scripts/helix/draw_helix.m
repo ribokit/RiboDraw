@@ -115,7 +115,7 @@ set( helix.click_center, 'Position', [helix_center(1)-0.15*spacing helix_center(
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
-    if isfield( residue, 'tick_label' )
+    if isfield( residue, 'tick_label' ) & isvalid( residue.tick_label )
         setappdata( residue.tick_label, 'res_tag', res_tag );
         draggable( residue.tick_label, @move_tick, 'endfcn', @redraw_tick_res_and_helix );
     end
@@ -138,7 +138,7 @@ for i = 1:length( helix.associated_residues )
         if ~isfield( linker, 'line_handle' ) continue; end;
         if strcmp(linker.type,'stem_pair'); continue; end;
         if ~strcmp(get(linker.line_handle,'visible'),'on'); continue; end;
-        if ~isfield( linker, 'vtx' ) 
+        if ~isfield( linker, 'vtx' ) | size(linker.plot_pos,1) ~= length( linker.vtx )
             linker.vtx = {}; 
             nvtx = size(linker.plot_pos,1);
             linker.vtx{1}  = create_endpoint_linker_vertex(linker.plot_pos(1,:), linker.linker_tag ); 
@@ -176,9 +176,9 @@ setappdata( gca, helix.helix_tag, helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = draw_residue( res_tag, helix_center, R, plot_settings );
 residue = getappdata( gca, res_tag );
-if isfield( residue, 'relpos' )
+if isfield( residue, 'relpos' ) 
     pos = helix_center +  residue.relpos * R ;
-    if ~isfield( residue, 'handle' ) 
+    if ~isfield( residue, 'handle' ) | ~isvalid( residue.handle )
         residue.handle = text( ...
             0, 0,...
             residue.nucleotide,...
@@ -193,8 +193,8 @@ if isfield( residue, 'relpos' )
     setappdata( residue.handle, 'res_tag', res_tag );
     residue.res_tag = res_tag;
     residue.plot_pos = pos;
-    residue = draw_tick( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
+    residue = draw_tick( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
     % quick linker cleanup
     if isfield( residue, 'linkers' );
         linker_tags = residue.linkers;
@@ -248,6 +248,7 @@ if ~isfield( helix, 'label' ) | ~isvalid( helix.label)
 end
 h = helix.label;
 label_pos = helix.center + helix.label_relpos * R;
+set( h, 'String', helix.name );
 set( h, 'position', label_pos );
 set( h, 'fontsize', plot_settings.fontsize*1.5 );
 if isfield( helix, 'rgb_color' ) set( h, 'color', helix.rgb_color ); end;
@@ -454,7 +455,7 @@ setappdata( gca, linker.linker_tag, linker );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_default_linker( linker );
 % already drawn?
-if isfield( linker, 'line_handle' ); return; end;
+if isfield( linker, 'line_handle' ) & isvalid( linker.line_handle ); return; end;
 switch linker.type
     case 'stem_pair'
         residue1 = getappdata( gca, linker.residue1 );
@@ -635,18 +636,18 @@ if ( mod(residue.resnum,10) ~= 0 ); return; end;
 
 if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set later based on how helix is rotated.
 
-if ~isfield( residue, 'tick_handle' );
+if ~isfield( residue, 'tick_handle' ) | ~isvalid( residue.tick_handle )
     residue.tick_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.
     setappdata( gca, residue.res_tag, residue );
 end
 
-if ~isfield( residue, 'tick_label' )
+if ~isfield( residue, 'tick_label' ) | ~isvalid( residue.tick_label )
     residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', fontsize,...
         'horizontalalign','center','verticalalign','middle','clipping','off' );
     setappdata( gca, residue.res_tag, residue );
 end
 
-if isfield( residue, 'tickrot' )
+if isfield( residue, 'tickrot' ) 
     if  isnan(residue.tickrot) residue = set_default_tickrot( residue ); end;
     theta = residue.tickrot;
     v = [cos(theta*pi/180), sin(theta*pi/180)]*R;

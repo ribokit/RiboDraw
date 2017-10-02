@@ -13,23 +13,21 @@ _(C) Rhiju Das, Stanford University, 2017_
 
 ## TODO
 ### Immediate
+* middle layer
 * Fix chains for 5S RNA
-
-
 * protein/exit tunnel representation
+* Read-in & auto-formatting of motifs
+* settings icon for toggles --> menu.
 
 ### Documentation stuff
 * put in docstrings for all files
+* document JSON file format.
 * explain difference: stems vs. helices
-* document JSON file format
-* document MATLAB functions in .md --> move to RiboKit
 * check independence from RiboKit
+* document MATLAB functions in .md, or use Sphinx --> move to RiboKit
 
 ### Future
-* Read-in & auto-formatting of motifs
-* for paper, layout all RNAs from deep chemical profiling study & compare to literature layouts.
 * pathfinder routine for arrow linkers & noncanonical pairs
-* settings icon for toggles --> menu.
 * Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations
 * Allow DSSR setup of input files from PDB
 * Initialization from secstruct alone (no PDB)
@@ -53,6 +51,8 @@ Oversights (cross-compare motifs from ribodraw and riboswitch representations).
 'ribosome scale' -- more coming out.
 
 We define file format.
+
+for paper, layout all RNAs from deep chemical profiling study & compare to literature layouts.
 
 ### Figures
 * From hand-drawn to initial ribodraw to complete refinement.  [show as flow chart]

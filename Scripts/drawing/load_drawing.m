@@ -50,6 +50,7 @@ for i = 1:length( datafields )
     end
     setappdata( gca, datafield, datum );    
 end
+cleanup_associated_residues();
 draw_helices( get_helices( loaddata ) );
 
 axis off

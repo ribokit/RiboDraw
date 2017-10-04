@@ -2,13 +2,7 @@ function setup_domain( name );
 % setup_domain( residue_string, name );
 % (C) Rhiju Das, Stanford University, 2017
 
-delete_tag = sprintf('Selection_%s', strrep(name, ' ', '_' ) );
-if ~isappdata( gca, delete_tag );
-    delete_tag = name;
-    if ~isappdata( gca, delete_tag ) 
-        fprintf( 'Could not find domain with name: %s\n', name );
-    end
-end
+delete_tag = get_domain_tag( name );
 
 if isappdata( gca, delete_tag )
     domain = getappdata( gca, delete_tag );

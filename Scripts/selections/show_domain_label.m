@@ -1,13 +1,7 @@
 function show_domain_label( name, setting )
 if ~exist( 'setting', 'var' ) setting = 1; end;
 
-tag = sprintf('Selection_%s', strrep(name, ' ', '_' ) );
-if ~isappdata( gca, tag );
-    tag = name;
-    if ~isappdata( gca, tag ) 
-        fprintf( 'Could not find domain with name: %s\n', name );
-    end
-end
+tag = get_domain_tag( name );
 
 if setting; visible = 'on'; else; visible = 'off'; end;
 

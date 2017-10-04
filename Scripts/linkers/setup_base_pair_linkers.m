@@ -2,7 +2,6 @@ function setup_base_pair_linkers( base_pairs )
 % draw_dummy_base_pairs( base_pairs )
 %
 %
-
 plot_settings = getappdata(gca,'plot_settings');
 for i = 1:length( base_pairs )
     base_pair = base_pairs{i};

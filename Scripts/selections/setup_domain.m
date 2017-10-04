@@ -7,23 +7,21 @@ domain.name = name;
 domain_tag = sprintf('Selection_%s', strrep( strrep(name, ' ', '_' ), '-', '_' ) );
 domain.selection_tag = domain_tag;
 
-residue_tags = strsplit( residue_string );
-resnum = []; 
-chains = '';
-for i = 1:length( residue_tags )
-    [tag_resnum,tag_chains,ok] = get_resnum_from_tag( residue_tags{i} );
-    if ok
-        resnum = [ resnum, tag_resnum ];
-        chains = [ chains, tag_chains ];
-    else
-        fprintf( 'unrecognized tag: %s. Should be of form C:50-67\n', residues_tags{i} );
+res_tags = {};
+if ischar( residue_string )
+    [resnum, chains, ok ] = get_resnum_from_tag( residue_string );
+    if ~ok;  fprintf( 'unrecognized tag: %s. Should be of form A:1-4 C:50-67\n', residue_string ); end
+    for i = 1:length( resnum )
+        res_tags = [res_tags, sprintf( 'Residue_%s%d', chains(i),resnum(i) ) ];
     end
+elseif iscell( residue_string )
+    res_tags = residue_string;
 end
 
 domain.associated_residues = {};
 associated_helices = {};
-for i = 1:length( resnum )
-    res_tag = sprintf( 'Residue_%s%d', chains(i),resnum(i) );
+for i = 1:length( res_tags )
+    res_tag = res_tags{i};
     if isappdata( gca, res_tag )
         domain.associated_residues = [domain.associated_residues, res_tag ];
         residue = getappdata( gca, res_tag );

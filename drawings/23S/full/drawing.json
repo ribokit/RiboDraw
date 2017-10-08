@@ -56192,7 +56192,7 @@
 		"helix_tag": "Helix_C689",
 		"nucleotide": "A",
 		"rgb_color": [0,0.5,0.5],
-		"relpos": [13.5,5.25],
+		"relpos": [12.75,6.75],
 		"linkers": [
 			"Linker_C763_C764_arrow",
 			"Linker_C764_C1775_noncanonical_pair",
@@ -115008,8 +115008,15 @@
 		"residue2": "Residue_C2702",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1462_C2702_noncanonical_pair",
-		"relpos1": [4.5,3],
-		"relpos2": [10.5,-3],
+		"relpos1": [
+			[4.5,3],
+			[5.1206657,28.0686546],
+			[326.1206657,29.5686546]
+		],
+		"relpos2": [
+			[10.5,-6.75],
+			[10.5,-3]
+		],
 		"edge1": "S",
 		"edge2": "S",
 		"LW_orientation": "T"
@@ -115150,8 +115157,14 @@
 		"residue2": "Residue_C1732",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1516_C1732_noncanonical_pair",
-		"relpos1": [7.5,3],
-		"relpos2": [6.75,6],
+		"relpos1": [
+			[7.5,3],
+			[7.6293343,10.8186546]
+		],
+		"relpos2": [
+			[91.5,6],
+			[6.75,6]
+		],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -116356,8 +116369,14 @@
 		"residue2": "Residue_C679",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C190_C679_noncanonical_pair",
-		"relpos1": [12,-3],
-		"relpos2": [-4.5,-3],
+		"relpos1": [
+			[12,-3],
+			[12,-144]
+		],
+		"relpos2": [
+			[-5.25,-18],
+			[-4.5,-3]
+		],
 		"edge1": "W",
 		"edge2": "S",
 		"LW_orientation": "C"
@@ -116400,8 +116419,14 @@
 		"residue2": "Residue_C799",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C191_C799_noncanonical_pair",
-		"relpos1": [15,-3],
-		"relpos2": [-7.5,3],
+		"relpos1": [
+			[15,-3],
+			[15,-142.5]
+		],
+		"relpos2": [
+			[-7.5,-20.25],
+			[-7.5,3]
+		],
 		"edge1": "S",
 		"edge2": "S",
 		"LW_orientation": "T"
@@ -116444,8 +116469,14 @@
 		"residue2": "Residue_C800",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C192_C800_noncanonical_pair",
-		"relpos1": [18,-3],
-		"relpos2": [-10.5,3],
+		"relpos1": [
+			[18,-3],
+			[17.25,-140.25]
+		],
+		"relpos2": [
+			[-8.25,-21.75],
+			[-10.5,3]
+		],
 		"edge1": "S",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -119686,7 +119717,11 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C466_C683_noncanonical_pair",
 		"relpos1": [4.5,3],
-		"relpos2": [7.5,-3],
+		"relpos2": [
+			[18,-13.5],
+			[7.5,-13.5],
+			[7.5,-3]
+		],
 		"edge1": "S",
 		"edge2": "S",
 		"LW_orientation": "C"
@@ -119696,8 +119731,15 @@
 		"residue2": "Residue_C795",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C466_C795_noncanonical_pair",
-		"relpos1": [4.5,3],
-		"relpos2": [4.5,3],
+		"relpos1": [
+			[4.5,3],
+			[3.75,51.75]
+		],
+		"relpos2": [
+			[6,-70.5],
+			[6,3],
+			[4.5,3]
+		],
 		"edge1": "W",
 		"edge2": "S",
 		"LW_orientation": "T"
@@ -120601,8 +120643,14 @@
 		"residue2": "Residue_C1632",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C700_C1632_noncanonical_pair",
-		"relpos1": [-3,-3],
-		"relpos2": [11.25,-1.5],
+		"relpos1": [
+			[-3,-3],
+			[-3,-9]
+		],
+		"relpos2": [
+			[11.5686546,117.6206657],
+			[11.25,-1.5]
+		],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -120772,8 +120820,14 @@
 		"residue2": "Residue_C1981",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C758_C1981_noncanonical_pair",
-		"relpos1": [3,3],
-		"relpos2": [11.25,6.75],
+		"relpos1": [
+			[3,3],
+			[3,13.5]
+		],
+		"relpos2": [
+			[-41.25,6],
+			[11.25,6.75]
+		],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "C"
@@ -120783,7 +120837,10 @@
 		"residue2": "Residue_C1775",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C764_C1775_noncanonical_pair",
-		"relpos1": [13.5,5.25],
+		"relpos1": [
+			[12.75,6.75],
+			[12.75,-55.5]
+		],
 		"relpos2": [-4.5,-3],
 		"edge1": "H",
 		"edge2": "W",
@@ -120794,8 +120851,14 @@
 		"residue2": "Residue_C1789",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C764_C1789_noncanonical_pair",
-		"relpos1": [13.5,5.25],
-		"relpos2": [-4.5,3],
+		"relpos1": [
+			[12.75,6.75],
+			[12.75,-56.25]
+		],
+		"relpos2": [
+			[-4.5,6],
+			[-4.5,3]
+		],
 		"edge1": "W",
 		"edge2": "S",
 		"LW_orientation": "C"
@@ -120805,8 +120868,14 @@
 		"residue2": "Residue_C1354",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C770_C1354_noncanonical_pair",
-		"relpos1": [-3,3],
-		"relpos2": [-6,-3],
+		"relpos1": [
+			[-3,3],
+			[-3,5.25]
+		],
+		"relpos2": [
+			[-6.3186546,-197.8706657],
+			[-6,-3]
+		],
 		"edge1": "S",
 		"edge2": "W",
 		"LW_orientation": "T"
@@ -141732,5 +141801,5 @@
 	},
 	"xlim": [-200,500],
 	"ylim": [-400,400],
-	"window_position": [83,27,892,928]
+	"window_position": [158,27,892,928]
 }

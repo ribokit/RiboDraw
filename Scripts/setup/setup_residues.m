@@ -1,10 +1,19 @@
 function stems = setup_residues( stems, sequence, resnum, chains );
-% also creates residues in appdata for gca
+% setup_residues( stems, sequence, resnum, chains );
+%
+% Creates initial residue objects in appdata for gca
+% Also assigns each residue to be associated to a helix, based
+%  on sequence distance. Important for initial setup of a drawing.
+%
+% Inputs
+%
+%  stems = cell of helix objects with resnum1, chain1, resnum2, chain2
+%  sequence = sequence as string 
+%  resnum   = residue numbers that go with each position in the sequence
+%  chains   = string: chain characters that go with each position in the sequence
 %
 % (C) R. Das, Stanford University, 2017
 
-% following could probably be replaced with logic in
-% reassign_parent_helix()
 for n = 1:length( stems )
     stem_start1(n) = stems{n}.resnum1(1);
     stem_stop1 (n) = stems{n}.resnum1(end);

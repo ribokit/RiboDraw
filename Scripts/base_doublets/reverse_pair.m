@@ -1,4 +1,14 @@
 function new_pair = reverse_pair( base_pair );
+%  base_pair = reverse_pair( base_pair );
+%
+%  Input:
+%   base_pair = struct with resnum1, chain1, resnum2, chain2
+%
+%  Output:
+%   new_pair = same as input, but switching residues 1 and 2.
+%
+% (C) R. Das, Stanford University, 2017
+%
 new_pair.resnum1 = base_pair.resnum2;
 new_pair.chain1 = base_pair.chain2;
 new_pair.edge1 = base_pair.edge2;

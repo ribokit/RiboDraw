@@ -1,3 +1,5 @@
+% silly script used during development to cleanup objects (e.g., associated_domains --> associated_selections)
+
 vals = getappdata( gca );
 objnames = fields( vals );
 for n = 1:length( objnames )

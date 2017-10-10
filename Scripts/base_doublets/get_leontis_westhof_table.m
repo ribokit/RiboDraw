@@ -3,6 +3,8 @@ function [keys,orientation] = get_leontis_westhof_table();
 %
 %  Usage:  orientation{ find(strcmp( keys, key )) }
 %
+% Called by fill_base_normal_orientations();
+%
 % keys         = {'WWC','WWT', ...}  (edge1,edge2,LW_orientation)
 % orientation  = {  'A',  'P', ...}  corresponding base normal orientation
 %

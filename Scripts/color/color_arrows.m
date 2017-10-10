@@ -1,5 +1,16 @@
 function color_arrows( setting );
 % color_arrows( setting );
+%
+%  Linkers between consecutive residues with arrows are 
+%   by default colored black. This function tests a setting
+%   where they are colored based on the display color of the 
+%   first residue.
+%
+% Input:
+% setting = 0 or 1. (for black or colored)
+%                            
+% (C) R. Das, Stanford University, 2017
+
 if ~exist( 'setting', 'var' ) setting = 1; end;
 plot_settings = getappdata( gca, 'plot_settings' );
 plot_settings.color_arrows = setting;

@@ -1,4 +1,5 @@
 function fix_domain_names()
+% used during development but probably could be removed from the repo.
 tags = get_tags( 'Selection_Domain' )
 for i = 1:length( tags )
     domain = getappdata(gca, tags{i} )

@@ -1,8 +1,17 @@
 function setup_stem_partner( stems );
+% setup_stem_partner( stems );
+%
+% set up stem partner map to help define 'canonical' pairs.
 % puts stem_partner information in Residue objects in appdata.
+%
+% Input
+%  stems = cell of stem objects which contain chain1, resnum1, chain2, resnum2 fields.
+%
+% Output
+%  (none, but updates Residue objects stored as 'appdata' in gca)
+%
 % (C) R. Das, Stanford University, 2017
 
-% set up stem partner map to help define 'canonical' pairs.
 for n = 1:length( stems )
     stem = stems{n};
     N = length( stem.resnum1 );

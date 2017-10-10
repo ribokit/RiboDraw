@@ -1,5 +1,10 @@
 function colors = pymol_rainbow( ncolors )
 % colors = pymol_rainbow( ncolors )
+% 
+% Outputs array N x 3 array of RGB colors chosen to
+%   exactly match what Pymol gives for  cmd.spectrum()
+%   coloring on the 23S rRNA.
+%
 % (C) R. Das, Stanford University, 2017
 
 % pymol_rainbow.txt is a bunch of RGB colors from applying the

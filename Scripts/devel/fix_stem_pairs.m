@@ -1,4 +1,5 @@
 function fix_stem_pairs()
+% used during development but probably could be removed from the repo.
 tags = get_tags( 'Linker_','stem_pair');
 for i = 1: length( tags )
     tag = tags{i};

@@ -1,12 +1,19 @@
 function color_drawing( color, selection )
 % color_drawing( color, selection )
 %
-% color = 'rainbow' (to match Pymol), 'black', 'k', 'teal',...
-% selection = 'C:1-125', 'H54b', etc.
+% Color a domain, helix, or arbitrary set of residues a particular color, or
+%   in rainbow. 
+% 
+% color = RGB color in a variety of possible formats:
+%         'rainbow' (matches Pymol spectrum, red to blue by residue number)
+%         'black', 'k', ... (MATLAB color string) 
+%         'teal','marine', ... (Pymol color string)
+%         [0,0,1] for RGB color setting (triplet of numbers between 0 to 1)
 %
-%  Still need to update selection.
+% selection = 'C:1-125', 'H54b', etc.  [default: 'all']
 %
 % (C) R. Das, Stanford University.
+
 if ~exist( 'selection', 'var' ) selection = 'all'; end;
 [ res_tags, obj_name ] = get_res( selection );
 

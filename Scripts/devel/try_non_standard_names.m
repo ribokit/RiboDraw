@@ -1,4 +1,16 @@
 function try_non_standard_names( sequence, resnum, chains, non_standard_residues);
+% try_non_standard_names( sequence, resnum, chains, non_standard_residues);
+%
+% Inputs
+%  sequence = sequence string 
+%  resnum   = residue number (int) associated with each sequence position
+%  chains   = chain (char) associated with each sequence position
+%  non_standard_residues
+%           = structure of index & name, which hold positions in sequence with
+%               non-standard residues and their associated names.
+%
+% (C) R. Das, Stanford University
+
 for i = 1:length(sequence)
     % find which helix is closest to the residue.
     chain = chains(i);

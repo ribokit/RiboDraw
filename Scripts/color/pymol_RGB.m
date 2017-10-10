@@ -1,8 +1,11 @@
 function rgb_color = pymol_RGB( colorname )
 % rgb_color = pymol_RGB( colorname )
-% grabbed from somewhere online.
-%  if not a pymol color, use rgb() package.
+%
+% grabbed from https://pymolwiki.org/index.php/Color_Values
+%
+% if not a pymol color, use rgb() package.
 % 
+% (C) R. Das, Stanford University
 
 rgb_color = -1;
 if ~ischar( colorname )

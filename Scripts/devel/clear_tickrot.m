@@ -1,3 +1,4 @@
+% used in development, but probably could be removed from the repo.
 vals = getappdata( gca );
 objnames = fields( vals );
 for n = 1:length( objnames )

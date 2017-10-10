@@ -1,5 +1,11 @@
 function cleanup_arrow_linkers(resnum,chains)
+% cleanup_arrow_linkers( resnum, chains )
+%
 % get rid of linkers that jump residue numbers
+% used during development, but probably could be removed from the repo.
+%
+% (C) R. Das, Stanford University.
+
 for i = 1:length(resnum)
     j = i + 1;
     if ( j > length( resnum ) ) continue; end;

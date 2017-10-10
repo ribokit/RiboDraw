@@ -1,4 +1,11 @@
 function export_drawing( filename )
+% export_drawing( filename )
+%
+% Inputs:
+%  filename = name of output image (should end in .esp)
+\
+%
+% (C) R. Das, Stanford University
 
 cols = strsplit( filename, '.' );
 switch cols{end}

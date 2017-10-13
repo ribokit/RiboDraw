@@ -2,8 +2,7 @@ function export_drawing( filename )
 % export_drawing( filename )
 %
 % Inputs:
-%  filename = name of output image (should end in .esp)
-\
+%  filename = name of output image (should end in .eps, .jpg, .pdf, or .png)
 %
 % (C) R. Das, Stanford University
 

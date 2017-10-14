@@ -21817,7 +21817,7 @@
 		"chain": "C",
 		"res_tag": "Residue_C1915",
 		"helix_tag": "Helix_C1906",
-		"nucleotide": "3TD",
+		"nucleotide": "m^3\\psi",
 		"rgb_color": [1,0.5,0],
 		"relpos": [18,1.5],
 		"linkers": [
@@ -34543,7 +34543,7 @@
 		"helix_tag": "Helix_C2461",
 		"nucleotide": "G",
 		"rgb_color": [1,0,0],
-		"relpos": [-16.5,-7.5],
+		"relpos": [-16.5,-9.75],
 		"linkers": [
 			"Linker_C2457_C2458_arrow",
 			"Linker_C2457_C2458_stack",
@@ -34611,7 +34611,7 @@
 		"res_tag": "Residue_C2460",
 		"helix_tag": "Helix_C2461",
 		"nucleotide": "U",
-		"tickrot": 270,
+		"tickrot": 315,
 		"rgb_color": [1,0,0],
 		"relpos": [-13.5,-3],
 		"linkers": [
@@ -65088,7 +65088,7 @@
 		"center": [168,126],
 		"rotation": 180,
 		"parity": 1,
-		"label_relpos": [19.5,0],
+		"label_relpos": [21,1.5],
 		"helix_tag": "Helix_C2547",
 		"associated_residues": [
 			"Residue_C2547",
@@ -97397,14 +97397,14 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C2457_C2458_arrow",
 		"relpos1": [3,-3],
-		"relpos2": [-16.5,-7.5]
+		"relpos2": [-16.5,-9.75]
 	},
 	"Linker_C2458_C2459_arrow": {
 		"residue1": "Residue_C2458",
 		"residue2": "Residue_C2459",
 		"type": "arrow",
 		"linker_tag": "Linker_C2458_C2459_arrow",
-		"relpos1": [-16.5,-7.5],
+		"relpos1": [-16.5,-9.75],
 		"relpos2": [-16.5,-3]
 	},
 	"Linker_C2459_C2460_arrow": {
@@ -118172,7 +118172,7 @@
 		"residue2": "Residue_C2459",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C2458_C2459_noncanonical_pair",
-		"relpos1": [-16.5,-7.5],
+		"relpos1": [-16.5,-9.75],
 		"relpos2": [-16.5,-3],
 		"edge1": "S",
 		"edge2": "H",
@@ -118184,8 +118184,8 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C2458_C2492_noncanonical_pair",
 		"relpos1": [
-			[-16.5,-7.5],
-			[-15,-7.5]
+			[-16.5,-9.75],
+			[-15,-9.75]
 		],
 		"relpos2": [
 			[-15,3],
@@ -142179,14 +142179,16 @@
 		"fontsize": 4.5,
 		"spacing": 3,
 		"bp_spacing": 6,
-		"show_linker_controls": 1,
-		"show_helix_controls": 1,
+		"show_linker_controls": 0,
+		"show_helix_controls": 0,
 		"show_domain_controls": 0,
 		"show_stacks": 0,
 		"show_coax_controls": 0,
-		"show_selection_controls": 0
+		"show_selection_controls": 0,
+		"show_interdomain_noncanonical_pairs": 0,
+		"boldface": 1
 	},
-	"xlim": [-217.3125,416.625],
-	"ylim": [-385.275,351.3],
-	"window_position": [29,27,1250,928]
+	"xlim": [-180.164199,413.0870666],
+	"ylim": [-378.9404127,340.0181345],
+	"window_position": [44,1,844,954]
 }

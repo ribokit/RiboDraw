@@ -1,7 +1,6 @@
 function set_linker_width( fontsize )
 % set_linker_width( fontsize )
-
-arrow_linewidth = max( 0.6, fontsize*1.5/10 );
+arrow_linewidth = get_arrow_linewidth( fontsize );
         
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Actually go and fix up lines

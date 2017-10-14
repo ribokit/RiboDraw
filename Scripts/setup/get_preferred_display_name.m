@@ -29,5 +29,7 @@ switch name
         output_name = 'm^2G';
     case 'UR3'
         output_name = 'm^3U';
+    case '3TD'
+        output_name = 'm^3\psi';
 end
 

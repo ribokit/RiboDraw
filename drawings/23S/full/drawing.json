@@ -64284,7 +64284,7 @@
 		"center": [-8.25,189.75],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [-4.5,6],
 		"helix_tag": "Helix_C2093",
 		"associated_residues": [
 			"Residue_C2092",
@@ -64323,7 +64323,7 @@
 		"center": [-8.25,215.25],
 		"rotation": 270,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [-3,6],
 		"helix_tag": "Helix_C2105",
 		"associated_residues": [
 			"Residue_C2105",
@@ -64419,7 +64419,7 @@
 		"center": [-35.25,227.25],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [-6,-9],
+		"label_relpos": [-9,-6],
 		"helix_tag": "Helix_C2136",
 		"associated_residues": [
 			"Residue_C2133",
@@ -64543,7 +64543,7 @@
 		"center": [88.5,180.75],
 		"rotation": 0,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [3,6],
 		"helix_tag": "Helix_C2246",
 		"associated_residues": [
 			"Residue_C2246",
@@ -64629,7 +64629,7 @@
 		"center": [64.5,252.75],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [1.5,-6],
+		"label_relpos": [3,-6],
 		"helix_tag": "Helix_C2289",
 		"associated_residues": [
 			"Residue_C2287",
@@ -64666,7 +64666,7 @@
 		"center": [107.25,255.75],
 		"rotation": 0,
 		"parity": -1,
-		"label_relpos": [3,-6],
+		"label_relpos": [6,-7.5],
 		"helix_tag": "Helix_C2299",
 		"associated_residues": [
 			"Residue_C2297",
@@ -64860,7 +64860,7 @@
 		"center": [57,210],
 		"rotation": 180,
 		"parity": 1,
-		"label_relpos": [1.5,6],
+		"label_relpos": [-3,10.5],
 		"helix_tag": "Helix_C2395",
 		"associated_residues": [
 			"Residue_C2391",
@@ -64897,7 +64897,7 @@
 		"center": [42.75,210],
 		"rotation": 180,
 		"parity": 1,
-		"label_relpos": [-7.5,6],
+		"label_relpos": [-1.5,10.5],
 		"helix_tag": "Helix_C2403",
 		"associated_residues": [
 			"Residue_C2403",
@@ -67138,7 +67138,7 @@
 		"center": [265.5,271.5],
 		"rotation": 0,
 		"parity": 1,
-		"label_relpos": [0,6],
+		"label_relpos": [3,6],
 		"helix_tag": "Helix_C881",
 		"associated_residues": [
 			"Residue_C881",
@@ -92143,7 +92143,7 @@
 		"linker_tag": "Linker_C1763_C1764_arrow",
 		"relpos1": [
 			[-18,-9.75],
-			[-18,-137.25]
+			[-18.75,-144]
 		],
 		"relpos2": [
 			[29.25,-36],
@@ -93858,7 +93858,7 @@
 			[27,-38.25]
 		],
 		"relpos2": [
-			[30,-109.5],
+			[30,-110.25],
 			[30,3],
 			[10.5,3]
 		]
@@ -123627,7 +123627,8 @@
 		"selection_tag": "Selection_Back_Layer",
 		"type": "domain",
 		"name": "Back Layer",
-		"label_relpos": [-100.211419,-156.6341764]
+		"label_relpos": [-16.55900944,168.9319581],
+		"label_visible": 1
 	},
 	"Selection_C1001_coaxial_stack": {
 		"associated_residues": [
@@ -136828,7 +136829,8 @@
 		"selection_tag": "Selection_Domain_H88b_H22",
 		"type": "domain",
 		"name": "Domain_H88b_H22",
-		"label_relpos": [-76.125,-165]
+		"label_relpos": [-72.35687344,-79.08671448],
+		"label_visible": 0
 	},
 	"Selection_Domain_I": {
 		"associated_residues": [
@@ -137351,7 +137353,7 @@
 		"selection_tag": "Selection_Domain_I",
 		"type": "domain",
 		"name": "Domain I",
-		"label_relpos": [-23.36089904,96.20689655],
+		"label_relpos": [32.40737401,-1.76439395],
 		"rgb_color": [0.75,0,0.75]
 	},
 	"Selection_Domain_III": {
@@ -137804,7 +137806,7 @@
 		"selection_tag": "Selection_Domain_II_3prime_extension",
 		"type": "domain",
 		"name": "Domain II 3prime extension",
-		"label_relpos": [-12.76519138,-19.56202985],
+		"label_relpos": [-12.76519138,-21.06928047],
 		"rgb_color": [0.75,0.75,1]
 	},
 	"Selection_Domain_II_5prime_extension": {
@@ -138039,7 +138041,7 @@
 		"selection_tag": "Selection_Domain_II_5prime_extension",
 		"type": "domain",
 		"name": "Domain II 5prime extension",
-		"label_relpos": [-13.34639966,-55.23251434],
+		"label_relpos": [-7.317397171,-67.29051933],
 		"rgb_color": [0,0.5,0.5]
 	},
 	"Selection_Domain_II_core": {
@@ -138519,7 +138521,7 @@
 		"selection_tag": "Selection_Domain_IV_3prime_extension",
 		"type": "domain",
 		"name": "Domain IV 3prime extension",
-		"label_relpos": [48.78714881,-16.39803742],
+		"label_relpos": [22.41026291,-50.31117643],
 		"rgb_color": [1,0.819607843,0.137254902]
 	},
 	"Selection_Domain_IV_core": {
@@ -139013,7 +139015,7 @@
 		"selection_tag": "Selection_Domain_VI_3prime_extension",
 		"type": "domain",
 		"name": "Domain VI 3prime extension",
-		"label_relpos": [-17.17698598,-5.575831397],
+		"label_relpos": [-22.45236316,-5.575831397],
 		"rgb_color": [0,1,0]
 	},
 	"Selection_Domain_VI_core": {
@@ -142134,7 +142136,7 @@
 		"selection_tag": "Selection_Peptidyl_Transferase_Center",
 		"type": "domain",
 		"name": "Peptidyl Transferase Center",
-		"label_relpos": [10.78244656,37.29114361],
+		"label_relpos": [16.05782374,41.05927017],
 		"rgb_color": [1,0,0]
 	},
 	"Selection_VeryBackLayer": {
@@ -142278,10 +142280,11 @@
 		"selection_tag": "Selection_VeryBackLayer",
 		"type": "domain",
 		"name": "VeryBackLayer",
-		"label_relpos": [-43.83149626,-0.5832356691]
+		"label_relpos": [-43.83149626,-0.5832356691],
+		"label_visible": 0
 	},
 	"plot_settings": {
-		"fontsize": 3.371252817,
+		"fontsize": 4.5,
 		"spacing": 3,
 		"bp_spacing": 6,
 		"show_linker_controls": 1,
@@ -142295,5 +142298,5 @@
 	},
 	"xlim": [-180.164199,413.0870666],
 	"ylim": [-378.9404127,340.0181345],
-	"window_position": [72,1,844,954]
+	"window_position": [104,1,844,954]
 }

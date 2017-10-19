@@ -61,6 +61,7 @@ if isfield( loaddata, 'window_position' )
     set(gcf,'Position',loaddata.window_position)
 end
 
+set_fontsize( loaddata.plot_settings.fontsize );
 setup_zoom();
 toc
 

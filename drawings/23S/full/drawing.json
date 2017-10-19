@@ -6269,10 +6269,14 @@
 		"res_tag": "Residue_C1255",
 		"helix_tag": "Helix_C579",
 		"nucleotide": "U",
+		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [10.5,3],
 		"linkers": [
 			"Linker_C1254_C1255_arrow",
 			"Linker_C1255_C1256_arrow"
+		],
+		"associated_selections": [
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1256": {
@@ -6623,7 +6627,7 @@
 		"helix_tag": "Helix_C1269",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C2010",
-		"tickrot": 270,
+		"tickrot": 225,
 		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [1.5,-3],
 		"linkers": [
@@ -16061,12 +16065,16 @@
 		"res_tag": "Residue_C1671",
 		"helix_tag": "Helix_C1665",
 		"nucleotide": "U",
+		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [9.75,-10.5],
 		"linkers": [
 			"Linker_C1670_C1671_stack",
 			"Linker_C1670_C1671_arrow",
 			"Linker_C1671_C1672_arrow",
 			"Linker_C1671_C1673_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1672": {
@@ -16075,11 +16083,15 @@
 		"res_tag": "Residue_C1672",
 		"helix_tag": "Helix_C1665",
 		"nucleotide": "A",
+		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [12,-8.25],
 		"linkers": [
 			"Linker_C1672_C1673_stack",
 			"Linker_C1671_C1672_arrow",
 			"Linker_C1672_C1673_arrow"
+		],
+		"associated_selections": [
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1673": {
@@ -16088,12 +16100,16 @@
 		"res_tag": "Residue_C1673",
 		"helix_tag": "Helix_C1665",
 		"nucleotide": "G",
-		"relpos": [11.25,-5.25],
+		"rgb_color": [0.65,0.32,0.17],
+		"relpos": [11.25,-6],
 		"linkers": [
 			"Linker_C1672_C1673_stack",
 			"Linker_C1672_C1673_arrow",
 			"Linker_C1673_C1674_arrow",
 			"Linker_C1671_C1673_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1674": {
@@ -16102,6 +16118,7 @@
 		"res_tag": "Residue_C1674",
 		"helix_tag": "Helix_C1665",
 		"nucleotide": "G",
+		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [10.5,-3],
 		"linkers": [
 			"Linker_C1668_C1674_stack",
@@ -16110,44 +16127,54 @@
 			"Linker_C1674_C1990_noncanonical_pair"
 		],
 		"associated_selections": [
-			"Selection_C1664_coaxial_stack"
+			"Selection_C1664_coaxial_stack",
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1675": {
 		"resnum": 1675,
 		"chain": "C",
 		"res_tag": "Residue_C1675",
-		"helix_tag": "Helix_C1682",
+		"helix_tag": "Helix_C1665",
 		"nucleotide": "C",
-		"relpos": [10.5,-26.25],
+		"rgb_color": [0.65,0.32,0.17],
+		"relpos": [13.5,-3],
 		"linkers": [
 			"Linker_C1675_C1676_stack",
 			"Linker_C1674_C1675_arrow",
 			"Linker_C1675_C1676_arrow"
+		],
+		"associated_selections": [
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1676": {
 		"resnum": 1676,
 		"chain": "C",
 		"res_tag": "Residue_C1676",
-		"helix_tag": "Helix_C1682",
+		"helix_tag": "Helix_C1665",
 		"nucleotide": "A",
-		"relpos": [10.5,-23.25],
+		"rgb_color": [0.65,0.32,0.17],
+		"relpos": [16.5,-3],
 		"linkers": [
 			"Linker_C1675_C1676_stack",
 			"Linker_C1676_C1677_stack",
 			"Linker_C1675_C1676_arrow",
 			"Linker_C1676_C1677_arrow",
 			"Linker_C1668_C1676_noncanonical_pair"
+		],
+		"associated_selections": [
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1677": {
 		"resnum": 1677,
 		"chain": "C",
 		"res_tag": "Residue_C1677",
-		"helix_tag": "Helix_C1682",
+		"helix_tag": "Helix_C1665",
 		"nucleotide": "A",
-		"relpos": [10.5,-20.25],
+		"rgb_color": [0.65,0.32,0.17],
+		"relpos": [20.25,-3],
 		"linkers": [
 			"Linker_C1676_C1677_stack",
 			"Linker_C1677_C1678_stack",
@@ -16156,16 +16183,18 @@
 			"Linker_C1677_C1991_noncanonical_pair"
 		],
 		"associated_selections": [
-			"Selection_C1677_coaxial_stack"
+			"Selection_C1677_coaxial_stack",
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1678": {
 		"resnum": 1678,
 		"chain": "C",
 		"res_tag": "Residue_C1678",
-		"helix_tag": "Helix_C1682",
+		"helix_tag": "Helix_C1665",
 		"nucleotide": "A",
-		"relpos": [10.5,-17.25],
+		"rgb_color": [0.65,0.32,0.17],
+		"relpos": [23.25,-3],
 		"linkers": [
 			"Linker_C1677_C1678_stack",
 			"Linker_C1678_C1679_stack",
@@ -16174,21 +16203,26 @@
 			"Linker_C1678_C1990_noncanonical_pair"
 		],
 		"associated_selections": [
-			"Selection_C1677_coaxial_stack"
+			"Selection_C1677_coaxial_stack",
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C1679": {
 		"resnum": 1679,
 		"chain": "C",
 		"res_tag": "Residue_C1679",
-		"helix_tag": "Helix_C1682",
+		"helix_tag": "Helix_C1665",
 		"nucleotide": "A",
-		"relpos": [10.5,-14.25],
+		"rgb_color": [0.65,0.32,0.17],
+		"relpos": [26.25,-3],
 		"linkers": [
 			"Linker_C1678_C1679_stack",
 			"Linker_C1679_C1680_stack",
 			"Linker_C1678_C1679_arrow",
 			"Linker_C1679_C1680_arrow"
+		],
+		"associated_selections": [
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C168": {
@@ -16219,11 +16253,11 @@
 		"resnum": 1680,
 		"chain": "C",
 		"res_tag": "Residue_C1680",
-		"helix_tag": "Helix_C1682",
+		"helix_tag": "Helix_C1665",
 		"nucleotide": "U",
-		"tickrot": -0,
-		"rgb_color": [1,0.819607843,0.137254902],
-		"relpos": [8.25,-14.25],
+		"tickrot": 135,
+		"rgb_color": [0.65,0.32,0.17],
+		"relpos": [26.25,-0.75],
 		"linkers": [
 			"Linker_C1679_C1680_arrow",
 			"Linker_C1679_C1680_stack",
@@ -16232,7 +16266,7 @@
 			"Linker_C1680_C1763_noncanonical_pair"
 		],
 		"associated_selections": [
-			"Selection_Domain_IV_3prime_extension",
+			"Selection_Domain_0",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -16240,10 +16274,10 @@
 		"resnum": 1681,
 		"chain": "C",
 		"res_tag": "Residue_C1681",
-		"helix_tag": "Helix_C1682",
+		"helix_tag": "Helix_C1665",
 		"nucleotide": "G",
-		"rgb_color": [1,0.819607843,0.137254902],
-		"relpos": [6,-14.25],
+		"rgb_color": [0.65,0.32,0.17],
+		"relpos": [26.25,1.5],
 		"linkers": [
 			"Linker_C1680_C1681_arrow",
 			"Linker_C1680_C1681_stack",
@@ -16251,7 +16285,7 @@
 			"Linker_C1681_C1762_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_IV_3prime_extension",
+			"Selection_Domain_0",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -18200,7 +18234,7 @@
 		"helix_tag": "Helix_C1707",
 		"nucleotide": "G",
 		"rgb_color": [1,0.819607843,0.137254902],
-		"relpos": [-18,-10.5],
+		"relpos": [-18,-9.75],
 		"linkers": [
 			"Linker_C1680_C1763_noncanonical_pair",
 			"Linker_C1699_C1763_stack",
@@ -24504,7 +24538,7 @@
 		"helix_tag": "Helix_C2023",
 		"nucleotide": "G",
 		"rgb_color": [0.65,0.32,0.17],
-		"relpos": [11.25,-3.75],
+		"relpos": [12,-3.75],
 		"linkers": [
 			"Linker_C2028_C2029_arrow",
 			"Linker_C2028_C2029_stack",
@@ -24546,7 +24580,7 @@
 		"nucleotide": "m^6A",
 		"tickrot": 270,
 		"rgb_color": [0.65,0.32,0.17],
-		"relpos": [16.5,-2.25],
+		"relpos": [15.75,-2.25],
 		"linkers": [
 			"Linker_C2029_C2030_arrow",
 			"Linker_C2030_C2031_arrow",
@@ -24778,7 +24812,7 @@
 		"helix_tag": "Helix_C2023",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C2023",
-		"tickrot": 135,
+		"tickrot": 90,
 		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [-6,3],
 		"linkers": [
@@ -42421,6 +42455,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42442,6 +42477,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42464,6 +42500,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42485,6 +42522,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42506,6 +42544,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42526,6 +42565,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42580,6 +42620,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42665,6 +42706,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42686,6 +42728,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42707,6 +42750,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42729,6 +42773,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42750,6 +42795,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2791_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42771,6 +42817,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2806_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42791,6 +42838,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2806_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42893,6 +42941,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2811_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42915,6 +42964,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2811_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42935,6 +42985,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2811_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42975,6 +43026,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -42998,6 +43050,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43020,6 +43073,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43040,6 +43094,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43061,6 +43116,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43122,6 +43178,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43217,6 +43274,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43238,6 +43296,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43260,6 +43319,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43281,6 +43341,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43326,6 +43387,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43347,6 +43409,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2815_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43660,6 +43723,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2845_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43681,6 +43745,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2845_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43702,6 +43767,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2845_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43722,6 +43788,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2845_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43801,6 +43868,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43822,6 +43890,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43843,6 +43912,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43865,6 +43935,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43886,6 +43957,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -43908,6 +43980,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44028,6 +44101,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44050,6 +44124,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44071,6 +44146,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44093,6 +44169,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44114,6 +44191,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44133,6 +44211,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2851_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44171,6 +44250,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2845_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44192,6 +44272,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2845_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44237,6 +44318,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2845_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44256,6 +44338,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2845_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44602,6 +44685,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2811_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44623,6 +44707,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2811_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44645,6 +44730,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2811_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44707,6 +44793,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2806_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44726,6 +44813,7 @@
 		],
 		"associated_selections": [
 			"Selection_C2806_coaxial_stack",
+			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -44774,7 +44862,7 @@
 		"helix_tag": "Helix_C1",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C8",
-		"rgb_color": [0,1,0],
+		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [10.5,3],
 		"linkers": [
 			"Linker_C2894_C2895_arrow",
@@ -44785,7 +44873,6 @@
 		],
 		"associated_selections": [
 			"Selection_Domain_0",
-			"Selection_Domain_VI_3prime_extension",
 			"Selection_Middle_Layer"
 		]
 	},
@@ -50718,7 +50805,7 @@
 		"helix_tag": "Helix_C533",
 		"nucleotide": "A",
 		"rgb_color": [0.65,0.32,0.17],
-		"relpos": [-5.25,-6.75],
+		"relpos": [-5.25,-6],
 		"linkers": [
 			"Linker_C531_C532_arrow",
 			"Linker_C532_C2020_noncanonical_pair",
@@ -51400,7 +51487,7 @@
 		"helix_tag": "Helix_C533",
 		"nucleotide": "G",
 		"rgb_color": [0.65,0.32,0.17],
-		"relpos": [-7.5,3.75],
+		"relpos": [-7.5,4.5],
 		"linkers": [
 			"Linker_C533_C561_stack",
 			"Linker_C560_C561_arrow",
@@ -51899,7 +51986,7 @@
 		"helix_tag": "Helix_C579",
 		"nucleotide": "G",
 		"stem_partner": "Residue_C1257",
-		"rgb_color": [0,0.5,0.5],
+		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [4.5,-3],
 		"linkers": [
 			"Linker_C582_C583_arrow",
@@ -51909,7 +51996,7 @@
 			"Linker_C583_C584_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_II_5prime_extension"
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C584": {
@@ -51919,7 +52006,7 @@
 		"helix_tag": "Helix_C579",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C1256",
-		"rgb_color": [0,0.5,0.5],
+		"rgb_color": [0.65,0.32,0.17],
 		"relpos": [7.5,-3],
 		"linkers": [
 			"Linker_C583_C584_arrow",
@@ -51929,7 +52016,7 @@
 			"Linker_C584_C585_stack"
 		],
 		"associated_selections": [
-			"Selection_Domain_II_5prime_extension"
+			"Selection_Domain_0"
 		]
 	},
 	"Residue_C585": {
@@ -55173,7 +55260,7 @@
 		"helix_tag": "Helix_C707",
 		"nucleotide": "U",
 		"stem_partner": "Residue_C711",
-		"tickrot": 90,
+		"tickrot": 135,
 		"rgb_color": [0,0.5,0.5],
 		"relpos": [4.5,3],
 		"linkers": [
@@ -55410,7 +55497,7 @@
 		"helix_tag": "Helix_C700",
 		"nucleotide": "A",
 		"stem_partner": "Residue_C702",
-		"tickrot": 90,
+		"tickrot": 135,
 		"rgb_color": [0,0.5,0.5],
 		"relpos": [3,3],
 		"linkers": [
@@ -55651,7 +55738,7 @@
 		"helix_tag": "Helix_C740",
 		"nucleotide": "C",
 		"stem_partner": "Residue_C757",
-		"tickrot": 270,
+		"tickrot": 315,
 		"rgb_color": [0,0.5,0.5],
 		"relpos": [-6,-3],
 		"linkers": [
@@ -62283,7 +62370,7 @@
 		"center": [151.5,-119.25],
 		"rotation": 90,
 		"parity": 1,
-		"label_relpos": [-3,-7.5],
+		"label_relpos": [-3,6],
 		"helix_tag": "Helix_C1269",
 		"associated_residues": [
 			"Residue_C1262",
@@ -63266,6 +63353,13 @@
 			"Residue_C1672",
 			"Residue_C1673",
 			"Residue_C1674",
+			"Residue_C1675",
+			"Residue_C1676",
+			"Residue_C1677",
+			"Residue_C1678",
+			"Residue_C1679",
+			"Residue_C1680",
+			"Residue_C1681",
 			"Residue_C1990",
 			"Residue_C1991",
 			"Residue_C1992",
@@ -63281,19 +63375,12 @@
 		"resnum2": [1702,1703,1704,1705,1706],
 		"chain2": "CCCCC",
 		"name": "H62",
-		"center": [159,-209.25],
+		"center": [165,-209.25],
 		"rotation": 180,
 		"parity": 1,
 		"label_relpos": [1.5,4.5],
 		"helix_tag": "Helix_C1682",
 		"associated_residues": [
-			"Residue_C1675",
-			"Residue_C1676",
-			"Residue_C1677",
-			"Residue_C1678",
-			"Residue_C1679",
-			"Residue_C1680",
-			"Residue_C1681",
 			"Residue_C1682",
 			"Residue_C1683",
 			"Residue_C1684",
@@ -63327,7 +63414,7 @@
 		"resnum2": [1746,1747,1748,1749,1750,1751],
 		"chain2": "CCCCCC",
 		"name": "H63a",
-		"center": [177,-219.75],
+		"center": [183,-219.75],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [4.5,6],
@@ -63368,7 +63455,7 @@
 		"resnum2": [1740,1741,1742],
 		"chain2": "CCC",
 		"name": "H63b",
-		"center": [177,-242.25],
+		"center": [183,-242.25],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [-1.5,6],
@@ -63397,7 +63484,7 @@
 		"resnum2": [1733,1734,1735,1736],
 		"chain2": "CCCC",
 		"name": "H63c",
-		"center": [177,-261.75],
+		"center": [183,-261.75],
 		"rotation": 90,
 		"parity": 1,
 		"label_relpos": [0,6],
@@ -87790,10 +87877,10 @@
 		"linker_tag": "Linker_C1270_C1271_arrow",
 		"relpos1": [
 			[1.5,-3],
-			[1.5,-19.5]
+			[1.5,-18]
 		],
 		"relpos2": [
-			[2.6813454,-135.6206657],
+			[2.6813454,-137.1206657],
 			[2.6813454,-9.6206657],
 			[0.431345354,-9.62066574]
 		]
@@ -91168,10 +91255,10 @@
 		"linker_tag": "Linker_C1647_C1648_arrow",
 		"relpos1": [
 			[-18.75,15],
-			[-18.4313454,137.8706657]
+			[-18.4313454,139.3706657]
 		],
 		"relpos2": [
-			[-4.5,-17.25],
+			[-4.5,-15.75],
 			[-4.5,-3]
 		]
 	},
@@ -91381,39 +91468,39 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1674_C1675_arrow",
 		"relpos1": [10.5,-3],
-		"relpos2": [10.5,-26.25]
+		"relpos2": [13.5,-3]
 	},
 	"Linker_C1675_C1676_arrow": {
 		"residue1": "Residue_C1675",
 		"residue2": "Residue_C1676",
 		"type": "arrow",
 		"linker_tag": "Linker_C1675_C1676_arrow",
-		"relpos1": [10.5,-26.25],
-		"relpos2": [10.5,-23.25]
+		"relpos1": [13.5,-3],
+		"relpos2": [16.5,-3]
 	},
 	"Linker_C1676_C1677_arrow": {
 		"residue1": "Residue_C1676",
 		"residue2": "Residue_C1677",
 		"type": "arrow",
 		"linker_tag": "Linker_C1676_C1677_arrow",
-		"relpos1": [10.5,-23.25],
-		"relpos2": [10.5,-20.25]
+		"relpos1": [16.5,-3],
+		"relpos2": [20.25,-3]
 	},
 	"Linker_C1677_C1678_arrow": {
 		"residue1": "Residue_C1677",
 		"residue2": "Residue_C1678",
 		"type": "arrow",
 		"linker_tag": "Linker_C1677_C1678_arrow",
-		"relpos1": [10.5,-20.25],
-		"relpos2": [10.5,-17.25]
+		"relpos1": [20.25,-3],
+		"relpos2": [23.25,-3]
 	},
 	"Linker_C1678_C1679_arrow": {
 		"residue1": "Residue_C1678",
 		"residue2": "Residue_C1679",
 		"type": "arrow",
 		"linker_tag": "Linker_C1678_C1679_arrow",
-		"relpos1": [10.5,-17.25],
-		"relpos2": [10.5,-14.25]
+		"relpos1": [23.25,-3],
+		"relpos2": [26.25,-3]
 	},
 	"Linker_C1679_C1680_arrow": {
 		"residue1": "Residue_C1679",
@@ -91445,8 +91532,8 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1681_C1682_arrow",
 		"relpos1": [
-			[6,-14.25],
-			[-6,-14.25]
+			[26.25,1.5],
+			[26.25,19.5]
 		],
 		"relpos2": [-6,-3]
 	},
@@ -92055,7 +92142,7 @@
 		"type": "arrow",
 		"linker_tag": "Linker_C1763_C1764_arrow",
 		"relpos1": [
-			[-18,-10.5],
+			[-18,-9.75],
 			[-18,-137.25]
 		],
 		"relpos2": [
@@ -94110,8 +94197,8 @@
 		"residue2": "Residue_C2030",
 		"type": "arrow",
 		"linker_tag": "Linker_C2029_C2030_arrow",
-		"relpos1": [11.25,-3.75],
-		"relpos2": [16.5,-2.25]
+		"relpos1": [12,-3.75],
+		"relpos2": [15.75,-2.25]
 	},
 	"Linker_C202_C203_arrow": {
 		"residue1": "Residue_C202",
@@ -102901,7 +102988,7 @@
 		"residue2": "Residue_C562",
 		"type": "arrow",
 		"linker_tag": "Linker_C561_C562_arrow",
-		"relpos1": [-7.5,3.75],
+		"relpos1": [-7.5,4.5],
 		"relpos2": [16.5,23.25]
 	},
 	"Linker_C562_C563_arrow": {
@@ -115518,8 +115605,14 @@
 		"residue2": "Residue_C1676",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1668_C1676_noncanonical_pair",
-		"relpos1": [7.5,-3],
-		"relpos2": [10.5,-23.25],
+		"relpos1": [
+			[7.5,-3],
+			[7.5,-4.5]
+		],
+		"relpos2": [
+			[16.5,-4.5],
+			[16.5,-3]
+		],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "T"
@@ -115559,8 +115652,8 @@
 		"linker_tag": "Linker_C1671_C1673_noncanonical_pair",
 		"relpos1": [9.75,-10.5],
 		"relpos2": [
-			[9.75,-5.25],
-			[11.25,-5.25]
+			[9.75,-6],
+			[11.25,-6]
 		],
 		"edge1": "S",
 		"edge2": "H",
@@ -115583,8 +115676,8 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1677_C1991_noncanonical_pair",
 		"relpos1": [
-			[10.5,-20.25],
-			[8.25,-20.25]
+			[20.25,-3],
+			[20.25,-0.75]
 		],
 		"relpos2": [
 			[9,-0.75],
@@ -115601,8 +115694,8 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1678_C1990_noncanonical_pair",
 		"relpos1": [
-			[10.5,-17.25],
-			[6.75,-17.25]
+			[23.25,-3],
+			[23.25,0.75]
 		],
 		"relpos2": [
 			[10.5,0.75],
@@ -115618,12 +115711,12 @@
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C1680_C1763_noncanonical_pair",
 		"relpos1": [
-			[8.25,-14.25],
-			[8.25,-16.5]
+			[26.25,-0.75],
+			[24,-0.75]
 		],
 		"relpos2": [
 			[-27,-10.5],
-			[-18,-10.5]
+			[-18,-9.75]
 		],
 		"edge1": "S",
 		"edge2": "H",
@@ -120297,7 +120390,7 @@
 		"residue2": "Residue_C2020",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_C532_C2020_noncanonical_pair",
-		"relpos1": [-5.25,-6.75],
+		"relpos1": [-5.25,-6],
 		"relpos2": [6,20.25],
 		"edge1": "W",
 		"edge2": "S",
@@ -120431,7 +120524,7 @@
 		"relpos1": [30.75,20.25],
 		"relpos2": [
 			[30.75,-2.25],
-			[16.5,-2.25]
+			[15.75,-2.25]
 		],
 		"edge1": "S",
 		"edge2": "H",
@@ -120445,7 +120538,7 @@
 		"relpos1": [29.25,11.25],
 		"relpos2": [
 			[29.25,-3.75],
-			[11.25,-3.75]
+			[12,-3.75]
 		],
 		"edge1": "W",
 		"edge2": "S",
@@ -123534,7 +123627,7 @@
 		"selection_tag": "Selection_Back_Layer",
 		"type": "domain",
 		"name": "Back Layer",
-		"label_relpos": [-95.68966715,-147.5906727]
+		"label_relpos": [-100.211419,-156.6341764]
 	},
 	"Selection_C1001_coaxial_stack": {
 		"associated_residues": [
@@ -136519,113 +136612,16 @@
 	"Selection_Domain_0": {
 		"associated_residues": [
 			"Residue_C1",
-			"Residue_C10",
-			"Residue_C11",
-			"Residue_C1256",
-			"Residue_C1257",
-			"Residue_C1258",
-			"Residue_C1259",
-			"Residue_C1260",
-			"Residue_C1261",
-			"Residue_C1262",
-			"Residue_C1263",
-			"Residue_C1264",
-			"Residue_C1265",
-			"Residue_C1266",
-			"Residue_C1267",
-			"Residue_C1268",
-			"Residue_C1269",
-			"Residue_C1270",
-			"Residue_C1648",
-			"Residue_C1649",
-			"Residue_C1650",
-			"Residue_C1651",
-			"Residue_C1652",
-			"Residue_C1653",
-			"Residue_C1654",
-			"Residue_C1655",
-			"Residue_C1656",
-			"Residue_C1657",
-			"Residue_C1658",
-			"Residue_C1659",
-			"Residue_C1660",
-			"Residue_C1661",
-			"Residue_C1662",
-			"Residue_C1663",
-			"Residue_C1664",
-			"Residue_C1665",
-			"Residue_C1666",
-			"Residue_C1667",
-			"Residue_C1668",
-			"Residue_C1669",
-			"Residue_C1670",
-			"Residue_C1990",
-			"Residue_C1991",
-			"Residue_C1992",
-			"Residue_C1993",
-			"Residue_C1994",
-			"Residue_C1995",
-			"Residue_C1996",
-			"Residue_C1997",
-			"Residue_C1998",
-			"Residue_C1999",
 			"Residue_C2",
-			"Residue_C2000",
-			"Residue_C2001",
-			"Residue_C2002",
-			"Residue_C2003",
-			"Residue_C2004",
-			"Residue_C2005",
-			"Residue_C2006",
-			"Residue_C2007",
-			"Residue_C2008",
-			"Residue_C2009",
-			"Residue_C2010",
-			"Residue_C2011",
-			"Residue_C2012",
-			"Residue_C2013",
-			"Residue_C2014",
-			"Residue_C2015",
-			"Residue_C2016",
-			"Residue_C2017",
-			"Residue_C2018",
-			"Residue_C2019",
-			"Residue_C2020",
-			"Residue_C2021",
-			"Residue_C2022",
-			"Residue_C2023",
-			"Residue_C2024",
-			"Residue_C2025",
-			"Residue_C2026",
-			"Residue_C2027",
-			"Residue_C2028",
-			"Residue_C2029",
-			"Residue_C2030",
-			"Residue_C2031",
-			"Residue_C2032",
-			"Residue_C2033",
-			"Residue_C2034",
-			"Residue_C2035",
-			"Residue_C2036",
-			"Residue_C2037",
-			"Residue_C2038",
-			"Residue_C2039",
-			"Residue_C2040",
-			"Residue_C2041",
-			"Residue_C2042",
-			"Residue_C2895",
-			"Residue_C2896",
-			"Residue_C2897",
-			"Residue_C2898",
-			"Residue_C2899",
-			"Residue_C2900",
-			"Residue_C2901",
-			"Residue_C2902",
-			"Residue_C2903",
-			"Residue_C2904",
 			"Residue_C3",
 			"Residue_C4",
 			"Residue_C5",
+			"Residue_C6",
+			"Residue_C7",
+			"Residue_C8",
+			"Residue_C9",
+			"Residue_C10",
+			"Residue_C11",
 			"Residue_C527",
 			"Residue_C528",
 			"Residue_C529",
@@ -136682,15 +136678,127 @@
 			"Residue_C580",
 			"Residue_C581",
 			"Residue_C582",
-			"Residue_C6",
-			"Residue_C7",
-			"Residue_C8",
-			"Residue_C9"
+			"Residue_C583",
+			"Residue_C584",
+			"Residue_C1255",
+			"Residue_C1256",
+			"Residue_C1257",
+			"Residue_C1258",
+			"Residue_C1259",
+			"Residue_C1260",
+			"Residue_C1261",
+			"Residue_C1262",
+			"Residue_C1263",
+			"Residue_C1264",
+			"Residue_C1265",
+			"Residue_C1266",
+			"Residue_C1267",
+			"Residue_C1268",
+			"Residue_C1269",
+			"Residue_C1270",
+			"Residue_C1648",
+			"Residue_C1649",
+			"Residue_C1650",
+			"Residue_C1651",
+			"Residue_C1652",
+			"Residue_C1653",
+			"Residue_C1654",
+			"Residue_C1655",
+			"Residue_C1656",
+			"Residue_C1657",
+			"Residue_C1658",
+			"Residue_C1659",
+			"Residue_C1660",
+			"Residue_C1661",
+			"Residue_C1662",
+			"Residue_C1663",
+			"Residue_C1664",
+			"Residue_C1665",
+			"Residue_C1666",
+			"Residue_C1667",
+			"Residue_C1668",
+			"Residue_C1669",
+			"Residue_C1670",
+			"Residue_C1671",
+			"Residue_C1672",
+			"Residue_C1673",
+			"Residue_C1674",
+			"Residue_C1675",
+			"Residue_C1676",
+			"Residue_C1677",
+			"Residue_C1678",
+			"Residue_C1679",
+			"Residue_C1680",
+			"Residue_C1681",
+			"Residue_C1990",
+			"Residue_C1991",
+			"Residue_C1992",
+			"Residue_C1993",
+			"Residue_C1994",
+			"Residue_C1995",
+			"Residue_C1996",
+			"Residue_C1997",
+			"Residue_C1998",
+			"Residue_C1999",
+			"Residue_C2000",
+			"Residue_C2001",
+			"Residue_C2002",
+			"Residue_C2003",
+			"Residue_C2004",
+			"Residue_C2005",
+			"Residue_C2006",
+			"Residue_C2007",
+			"Residue_C2008",
+			"Residue_C2009",
+			"Residue_C2010",
+			"Residue_C2011",
+			"Residue_C2012",
+			"Residue_C2013",
+			"Residue_C2014",
+			"Residue_C2015",
+			"Residue_C2016",
+			"Residue_C2017",
+			"Residue_C2018",
+			"Residue_C2019",
+			"Residue_C2020",
+			"Residue_C2021",
+			"Residue_C2022",
+			"Residue_C2023",
+			"Residue_C2024",
+			"Residue_C2025",
+			"Residue_C2026",
+			"Residue_C2027",
+			"Residue_C2028",
+			"Residue_C2029",
+			"Residue_C2030",
+			"Residue_C2031",
+			"Residue_C2032",
+			"Residue_C2033",
+			"Residue_C2034",
+			"Residue_C2035",
+			"Residue_C2036",
+			"Residue_C2037",
+			"Residue_C2038",
+			"Residue_C2039",
+			"Residue_C2040",
+			"Residue_C2041",
+			"Residue_C2042",
+			"Residue_C2895",
+			"Residue_C2896",
+			"Residue_C2897",
+			"Residue_C2898",
+			"Residue_C2899",
+			"Residue_C2900",
+			"Residue_C2901",
+			"Residue_C2902",
+			"Residue_C2903",
+			"Residue_C2904"
 		],
 		"selection_tag": "Selection_Domain_0",
 		"type": "domain",
 		"name": "Domain 0",
-		"label_relpos": [35.58465264,54.06464614]
+		"label_relpos": [35.58465264,54.06464614],
+		"rgb_color": [0.65,0.32,0.17]
 	},
 	"Selection_Domain_H57_H96d": {
 		"associated_residues": [
@@ -136703,7 +136811,8 @@
 		],
 		"selection_tag": "Selection_Domain_H57_H96d",
 		"type": "domain",
-		"name": "Domain_H57_H96d"
+		"name": "Domain_H57_H96d",
+		"label_relpos": [-153.75,-162]
 	},
 	"Selection_Domain_H88b_H22": {
 		"associated_residues": [
@@ -136718,7 +136827,8 @@
 		],
 		"selection_tag": "Selection_Domain_H88b_H22",
 		"type": "domain",
-		"name": "Domain_H88b_H22"
+		"name": "Domain_H88b_H22",
+		"label_relpos": [-76.125,-165]
 	},
 	"Selection_Domain_I": {
 		"associated_residues": [
@@ -137241,7 +137351,7 @@
 		"selection_tag": "Selection_Domain_I",
 		"type": "domain",
 		"name": "Domain I",
-		"label_relpos": [-17.33189655,96.20689655],
+		"label_relpos": [-23.36089904,96.20689655],
 		"rgb_color": [0.75,0,0.75]
 	},
 	"Selection_Domain_III": {
@@ -137627,7 +137737,7 @@
 		"selection_tag": "Selection_Domain_III",
 		"type": "domain",
 		"name": "Domain III",
-		"label_relpos": [3.818965517,40.42887931],
+		"label_relpos": [3.818965517,41.18250462],
 		"rgb_color": [1,0.5,1]
 	},
 	"Selection_Domain_II_3prime_extension": {
@@ -137694,13 +137804,11 @@
 		"selection_tag": "Selection_Domain_II_3prime_extension",
 		"type": "domain",
 		"name": "Domain II 3prime extension",
-		"label_relpos": [-47.43195571,-5.243148928],
+		"label_relpos": [-12.76519138,-19.56202985],
 		"rgb_color": [0.75,0.75,1]
 	},
 	"Selection_Domain_II_5prime_extension": {
 		"associated_residues": [
-			"Residue_C583",
-			"Residue_C584",
 			"Residue_C585",
 			"Residue_C586",
 			"Residue_C587",
@@ -137931,7 +138039,7 @@
 		"selection_tag": "Selection_Domain_II_5prime_extension",
 		"type": "domain",
 		"name": "Domain II 5prime extension",
-		"label_relpos": [-26.15802996,-54.47888903],
+		"label_relpos": [-13.34639966,-55.23251434],
 		"rgb_color": [0,0.5,0.5]
 	},
 	"Selection_Domain_II_core": {
@@ -138320,13 +138428,11 @@
 		"selection_tag": "Selection_Domain_II_core",
 		"type": "domain",
 		"name": "Domain II core",
-		"label_relpos": [39.75,46.125],
+		"label_relpos": [36.73549875,37.08149626],
 		"rgb_color": [0,0.5,1]
 	},
 	"Selection_Domain_IV_3prime_extension": {
 		"associated_residues": [
-			"Residue_C1680",
-			"Residue_C1681",
 			"Residue_C1682",
 			"Residue_C1683",
 			"Residue_C1684",
@@ -138413,7 +138519,7 @@
 		"selection_tag": "Selection_Domain_IV_3prime_extension",
 		"type": "domain",
 		"name": "Domain IV 3prime extension",
-		"label_relpos": [-11.55870021,-18.85429769],
+		"label_relpos": [48.78714881,-16.39803742],
 		"rgb_color": [1,0.819607843,0.137254902]
 	},
 	"Selection_Domain_IV_core": {
@@ -138648,7 +138754,7 @@
 		"selection_tag": "Selection_Domain_IV_core",
 		"type": "domain",
 		"name": "Domain IV core",
-		"label_relpos": [-28.56344148,-36.88557358],
+		"label_relpos": [-16.5054365,-27.08844453],
 		"rgb_color": [1,0.5,0]
 	},
 	"Selection_Domain_I_H5_H10": {
@@ -138902,13 +139008,12 @@
 			"Residue_C2891",
 			"Residue_C2892",
 			"Residue_C2893",
-			"Residue_C2894",
-			"Residue_C2895"
+			"Residue_C2894"
 		],
 		"selection_tag": "Selection_Domain_VI_3prime_extension",
 		"type": "domain",
 		"name": "Domain VI 3prime extension",
-		"label_relpos": [-19.43786191,-16.88021107],
+		"label_relpos": [-17.17698598,-5.575831397],
 		"rgb_color": [0,1,0]
 	},
 	"Selection_Domain_VI_core": {
@@ -139256,7 +139361,7 @@
 		"selection_tag": "Selection_Domain_V_Central_Protuberance",
 		"type": "domain",
 		"name": "Domain V Central Protuberance",
-		"label_relpos": [-6.954808806,45.90880503],
+		"label_relpos": [-0.9258063137,36.11167598],
 		"rgb_color": [1,0.6,0.6]
 	},
 	"Selection_Domain_V_L1_stalk": {
@@ -139401,7 +139506,7 @@
 		"selection_tag": "Selection_Domain_V_L1_stalk",
 		"type": "domain",
 		"name": "Domain V L1 stalk",
-		"label_relpos": [-23.96407362,75.54056734],
+		"label_relpos": [-10.39881801,70.26519016],
 		"rgb_color": [1,0.6,0.6]
 	},
 	"Selection_Front_Layer": {
@@ -142173,13 +142278,13 @@
 		"selection_tag": "Selection_VeryBackLayer",
 		"type": "domain",
 		"name": "VeryBackLayer",
-		"label_relpos": [-52.875,-35.25]
+		"label_relpos": [-43.83149626,-0.5832356691]
 	},
 	"plot_settings": {
-		"fontsize": 4.5,
+		"fontsize": 3.371252817,
 		"spacing": 3,
 		"bp_spacing": 6,
-		"show_linker_controls": 0,
+		"show_linker_controls": 1,
 		"show_helix_controls": 0,
 		"show_domain_controls": 0,
 		"show_stacks": 0,
@@ -142190,5 +142295,5 @@
 	},
 	"xlim": [-180.164199,413.0870666],
 	"ylim": [-378.9404127,340.0181345],
-	"window_position": [44,1,844,954]
+	"window_position": [72,1,844,954]
 }

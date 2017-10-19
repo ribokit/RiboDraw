@@ -1,15 +1,14 @@
-#Domain 0                      C:1-24 C:518-584 C:1256-1270 C:1648-1670 C:1990-2042 C:2626-2629 C:2895-2904 [overlaps with Domains I, II, etc.]
-Domain 0                      C:1-11 C:527-584 C:1256-1270 C:1648-1670 C:1990-2042 C:2626-2629 C:2895-2904 [overlaps with Domains I, II, etc.]
+Domain 0                      C:1-11 C:527-584 C:1255-1270 C:1648-1681 C:1990-2042 C:2895-2904 
 Domain I                      C:12-526
-Domain II 5prime extension    C:583-810                    
-Domain III                    C:1271-1647
-Domain IV 3prime extension    C:1680-1763
-Domain V core PTC             C:2043-2091 C:2228-2258 C:2426-2625
-Domain VI 3prime extension    C:2789-2895
+Domain II 5prime extension    C:585-810                    
 Domain II core                C:811-1196
 Domain II 3prime extension    C:1197-1254
+Domain III                    C:1271-1647
+Domain IV 3prime extension    C:1682-1763
 Domain IV core                C:1764-1989
-Domain VI core                C:2626-2788
+Domain V core PTC             C:2043-2091 C:2228-2258 C:2426-2625
 Domain V L1 extension         C:2092-2227
 Domain V central protuberance C:2259-2425
+Domain VI core                C:2626-2788
+Domain VI 3prime extension    C:2789-2894
 5S rRNA                       B:1-119

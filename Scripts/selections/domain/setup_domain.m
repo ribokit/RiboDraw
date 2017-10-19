@@ -38,7 +38,31 @@ for i = 1:length( res_tags )
     end
 end
 
-setappdata( gca, domain_tag, domain );
+% check residues outside domain -- make sure they don't have this domain.
+tags = get_tags( 'Residue' );
+for i = 1:length( tags )
+    tag = tags{i};
+    if any( strcmp( res_tags, tag ) ); continue; end;
+    residue = getappdata( gca, tag );    
+    if isfield( residue, 'associated_selections' )
+        if any( strcmp( residue.associated_selections, domain_tag ) )
+            fprintf( 'Updating residue %s which is no longer in domain %s.\n', tag, domain_tag );
+            residue.associated_selections = setdiff( residue.associated_selections, domain_tag );
+            setappdata( gca, tag, residue );
+        end
+    end
+    
+end
+
+if isappdata( gca, domain_tag )
+    fprintf( 'Updating: %s\n', domain_tag );
+    domain_new = domain;
+    domain = getappdata( gca, domain_tag );
+    domain.associated_residues = domain_new.associated_residues;
+    setappdata( gca, domain_tag, domain );
+else
+    setappdata( gca, domain_tag, domain );
+end
 
 associated_helices =  unique( associated_helices );
 for i = 1:length( associated_helices );

@@ -5,5 +5,8 @@ if isfield( linker,'symbol' ) set( linker.symbol, 'visible', visible ); end;
 if isfield( linker,'symbol1' ) set( linker.symbol1, 'visible', visible ); end;
 if isfield( linker,'symbol2' ) set( linker.symbol2, 'visible', visible ); end;
 if isfield( linker, 'vtx' )
-    for i = 1:length( linker.vtx ) set( linker.vtx{i},'visible', visible);  end;
+    vtx_visible = visible;
+    plot_settings = getappdata( gca, 'plot_settings' );
+    if ( isfield( plot_settings, 'show_linker_controls' ) & ~plot_settings.show_linker_controls ) vtx_visible = 'off'; end;
+    for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', vtx_visible ); end;
 end;

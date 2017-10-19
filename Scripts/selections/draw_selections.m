@@ -15,9 +15,9 @@ for i = 1:length( selections )
     selection = getappdata( gca, selection_tag );
     [minpos,maxpos] = get_minpos_maxpos( selection );  
     ctr_pos = (minpos + maxpos )/ 2;
-    if ( plot_settings.show_coax_controls )
-        selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
-        if strcmp( selection.type, 'coaxial_stack' )
+    if strcmp( selection.type, 'coaxial_stack' )
+        if ( plot_settings.show_coax_controls )
+            selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
             set( selection.rectangle,'edgecolor',[1 0.7 0.7]);
             if  ~isfield( selection, 'auto_text' )
                 h = text( 0, 0, 'auto', 'fontsize',plot_settings.fontsize*6/10,...
@@ -29,23 +29,24 @@ for i = 1:length( selections )
             end
         end
     end
-    if ( plot_settings.show_domain_controls )
-        selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
-        if strcmp( selection.type, 'domain' ) 
+    if strcmp( selection.type, 'domain' )
+        % perhaps should create a plot_settings.show_domain_labels
+        if ~isfield( selection, 'label_relpos' ) selection.label_relpos = minpos - ctr_pos; end;
+        if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
+            h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....
+                'fontweight', 'bold', 'verticalalign','middle','horizontalalign','center','clipping','off' );
+            selection.label = h;
+            draggable( h, 'n',[-inf inf -inf inf], @move_selection_label )
+            setappdata( h, 'selection_tag', selection_tag );
+            setappdata( gca, selection_tag, selection );
+        end
+        if ( plot_settings.show_domain_controls )
+            selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
             domain_color = [1 0.4 0.4];
             if isfield( selection, 'rgb_color' ) domain_color = selection.rgb_color; end;
             set( selection.rectangle,'edgecolor',domain_color); 
-            if ~isfield( selection, 'label_relpos' ) selection.label_relpos = minpos - ctr_pos; end;
             if ( plot_settings.show_domain_controls ) visible = 'on'; else; visible = 'off'; end;
             set( selection.rectangle, 'visible', visible );
-            if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
-                h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....
-                    'fontweight', 'bold', 'verticalalign','middle','horizontalalign','center','clipping','off' );
-                selection.label = h;
-                draggable( h, 'n',[-inf inf -inf inf], @move_selection_label )
-                setappdata( h, 'selection_tag', selection_tag );
-                setappdata( gca, selection_tag, selection );
-            end
             
             % for domain: clickable lines of reflection
             selection = create_clickable_reflection_line( 'reflect_line_horizontal1', selection );

@@ -1,12 +1,14 @@
 ## TODO
+* 'merged' interdomain tertiary contacts
+* cleanup names of domains to _domain.
 * more arrowheads on long linkers [extra_arrows1, extra_arrows2]
 * nicer arrowheads
 * allow rename of helices as 'display_label' [cleanup layout of 23S]
 * try coloring long-range canonical pairs
 * Fix chains for 5S RNA
-* 'merged' interdomain tertiary contacts
-* auto-rectify linkers
 * protein/exit tunnel representation
+
+* auto-rectify linkers
 * Read-in & auto-formatting of motifs
 
 ### Documentation stuff

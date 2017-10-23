@@ -4,7 +4,7 @@ function setup_domain( residue_string, name );
 
 domain.type = 'domain'; 
 domain.name = name;
-domain_tag = sprintf('Selection_%s', strrep( strrep(name, ' ', '_' ), '-', '_' ) );
+domain_tag = sprintf('Selection_%s_domain', strrep( strrep(name, ' ', '_' ), '-', '_' ) );
 domain.selection_tag = domain_tag;
 
 res_tags = {};

@@ -51,6 +51,7 @@ for i = 1:length( datafields )
     setappdata( gca, datafield, datum );    
 end
 cleanup_associated_residues();
+cleanup_domains();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.
 draw_helices( get_helices( loaddata ) );
 

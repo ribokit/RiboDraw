@@ -35,6 +35,7 @@ for i = 1:length( selections )
         if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
             h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....
                 'fontweight', 'bold', 'verticalalign','middle','horizontalalign','center','clipping','off' );
+            if isfield( selection, 'label_visible' ) & ~selection.label_visible; set( h, 'visible', 'off' ); end;
             selection.label = h;
             draggable( h, 'n',[-inf inf -inf inf], @move_selection_label )
             setappdata( h, 'selection_tag', selection_tag );

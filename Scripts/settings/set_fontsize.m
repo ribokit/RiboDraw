@@ -12,6 +12,7 @@ for i = 1:length( residue_tags );
     residue = getappdata( gca, residue_tags{i} );
     if isfield( residue, 'handle' )
         set( residue.handle, 'fontsize', plot_settings.fontsize );
+        if ( length( residue.nucleotide ) > 1 ) set( residue.handle, 'fontsize', plot_settings.fontsize*4/5); end;
     end
     if isfield( residue, 'tick_label' )
         set( residue.tick_label, 'fontsize', plot_settings.fontsize );

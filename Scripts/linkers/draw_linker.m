@@ -161,17 +161,23 @@ setappdata( gca, linker.linker_tag, linker );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_arrow( h, ctr, v, visible, spacing );
-x = v * [0 1; -1 0]; % cross direction
+x = v * 1.5 * [0 1; -1 0]; % cross direction
 set( h, 'visible', visible);
-a1 = ctr - spacing/3*v-spacing/5*x;
-a2 = ctr - spacing/3*v+spacing/5*x;
-a3 = ctr - spacing/6*v+spacing/10*x;
-a4 = ctr + spacing/2*v;
-a5 = ctr - spacing/6*v-spacing/10*x;
+a  = [ ...
+    ctr - spacing/3*v+spacing/5*x;
+    ctr - spacing/6*v+spacing/10*x;
+    ctr + spacing*0*v+spacing/15*x;
+    ctr + spacing/6*v+spacing/20*x;
+    ctr + spacing/2*v;
+    ctr + spacing/6*v-spacing/20*x;
+    ctr - spacing*0*v-spacing/15*x;
+    ctr - spacing/6*v-spacing/10*x;
+    ctr - spacing/3*v-spacing/5*x ...
+    ];
 set( h, 'xdata', ...
-    [a1(1) a2(1) a3(1) a4(1) a5(1)] );
+    a(:,1) );
 set( h, 'ydata', ...
-    [a1(2) a2(2) a3(2) a4(2) a5(2)] );
+    a(:,2) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function pos1 = nudge_pos( pos1, pos2, bp_spacing );

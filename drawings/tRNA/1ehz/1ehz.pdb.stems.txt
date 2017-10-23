@@ -1,0 +1,5 @@
+A:1-7 A:66-72     Acceptor
+A:10-13 A:22-25   DHU
+A:27-31 A:39-43   Anticodon
+A:49-53 A:61-65   T\psiC
+

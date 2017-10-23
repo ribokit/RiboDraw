@@ -17,16 +17,24 @@ switch name
         output_name = 'm^5C';
     case 'A2M'
         output_name = 'Am';
+    case 'YYG'
+        output_name = 'yW';
     case 'OMC'
         output_name = 'Cm';
     case 'OMG'
         output_name = 'Gm';
     case 'G7M'
         output_name = 'm^7G';
+    case '7MG'
+        output_name = 'm^7G';
     case 'OMU'
         output_name = 'Um';
     case '2MG'
         output_name = 'm^2G';
+    case 'M2G'
+        output_name = 'm^2_2G';
+    case 'm^{2,2}G'
+        output_name = 'm^2_2G';
     case 'UR3'
         output_name = 'm^3U';
     case '3TD'

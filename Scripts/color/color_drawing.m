@@ -58,7 +58,7 @@ else
     [resnum,chains,ok] = get_resnum_from_tag( selection );
     if ok 
         for i = 1:length( resnum )
-            res_tag = sprintf( 'Residue_%s%d', resnum(i), chains(i) );
+            res_tag = sprintf( 'Residue_%s%d', chains(i), resnum(i) );
             if isappdata( gca, res_tag )
                 res_tags = [res_tags, res_tag ];
             end
@@ -68,7 +68,11 @@ else
         objnames = fields( vals );
         if any( strcmp( objnames, selection ) )
             obj = getappdata( gca, selection );
-            res_tags = obj.associated_residues;
+            if isfield( obj, 'associated_residues' )
+                res_tags = obj.associated_residues;
+            else
+                res_tags = { selection };
+            end
             obj_name = selection;
         else
             for n = 1:length( objnames )

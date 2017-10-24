@@ -18,7 +18,8 @@ tags = {};
 for n = 1:length( objnames )
     if isempty( strfind( objnames{n}, headstring ) ); continue; end;
     if exist( 'tailstring', 'var' ) 
-        if ~strcmp( objnames{n}(end-length(tailstring)+1 : end), tailstring ); continue; end;
+        if length( objnames{n} ) < length(tailstring ) | ...
+                ~strcmp( objnames{n}(end-length(tailstring)+1 : end), tailstring ); continue; end;
     end
     tags = [ tags, objnames{n}];
 end

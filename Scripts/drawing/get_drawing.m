@@ -9,12 +9,14 @@ residue_tags = get_residue_tags();
 helix_tags = get_helix_tags();
 linker_tags = get_linker_tags();
 selection_tags = get_selection_tags();
+tertiary_contact_tags = get_tertiary_contact_tags();
 
 % try to save in this order -- will help with rendering elements later.
 savedata = save_residues( savedata, residue_tags );
 savedata = save_helices(  savedata, helix_tags );
 savedata = save_linkers(  savedata, linker_tags );
 savedata = save_selections( savedata, selection_tags );
+savedata = save_tertiary_contacts( savedata, tertiary_contact_tags );
 
 savedata.plot_settings = getappdata( gca, 'plot_settings' );
 savedata.xlim = get(gca, 'xlim' );
@@ -66,6 +68,17 @@ for n = 1:length( objnames )
     savedata = setfield( savedata, objnames{n}, selection );
 end
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function savedata = save_tertiary_contacts( savedata, objnames )
+
+for n = 1:length( objnames )
+    assert( ~isempty( strfind( objnames{n}, 'TertiaryContact_' ) ) );
+    figure_selection = getappdata( gca, objnames{n} );
+    selection = copy_fields( figure_selection, {'res1','res2','name','tertiary_contact_tag'} );
+    savedata = setfield( savedata, objnames{n}, selection );
+end
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function savedata = save_linkers( savedata, objnames )
     
@@ -91,9 +104,16 @@ stack_tags = get_tags( 'Linker_', 'stack' );
 arrow_tags = get_tags( 'Linker_', 'arrow' );
 stem_pair_tags = get_tags( 'Linker_', 'stem_pair' );
 noncanonical_tags = get_tags( 'Linker_', 'noncanonical_pair' );
-tags = [stack_tags, arrow_tags, stem_pair_tags, noncanonical_tags ];
+tertiary_contact_interdomain_tags = get_tags( 'Linker_', 'tertiary_contact_interdomain' );
+tertiary_contact_intradomain_tags = get_tags( 'Linker_', 'tertiary_contact_intradomain' );
+tags = [stack_tags, arrow_tags, stem_pair_tags, noncanonical_tags, tertiary_contact_interdomain_tags, tertiary_contact_intradomain_tags ];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_selection_tags();
 tags = get_tags( 'Selection_' );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function tags = get_tertiary_contact_tags();
+tags = get_tags( 'TertiaryContact_' );
+
 

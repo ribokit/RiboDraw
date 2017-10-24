@@ -7,16 +7,7 @@ domain.name = name;
 domain_tag = sprintf('Selection_%s_domain', strrep( strrep(name, ' ', '_' ), '-', '_' ) );
 domain.selection_tag = domain_tag;
 
-res_tags = {};
-if ischar( residue_string )
-    [resnum, chains, ok ] = get_resnum_from_tag( residue_string );
-    if ~ok;  fprintf( 'unrecognized tag: %s. Should be of form A:1-4 C:50-67\n', residue_string ); end
-    for i = 1:length( resnum )
-        res_tags = [res_tags, sprintf( 'Residue_%s%d', chains(i),resnum(i) ) ];
-    end
-elseif iscell( residue_string )
-    res_tags = residue_string;
-end
+res_tags = get_res_tags( residue_string );
 
 domain.associated_residues = {};
 associated_helices = {};

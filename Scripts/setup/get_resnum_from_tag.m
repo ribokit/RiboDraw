@@ -31,6 +31,7 @@ chain = elems{1}; chains = chain;
 dashes = strfind( elems{2}, '-' );
 if length( dashes ) == 0 | dashes(1) == 1;
     resnum = str2num( elems{2} );
+    ok = true;
     return;
 end
 dash = dashes(1);

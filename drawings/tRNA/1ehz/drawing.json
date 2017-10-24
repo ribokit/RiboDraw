@@ -3020,7 +3020,8 @@
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_A18_A55_T_D_tertiary_contact_interdomain",
 		"relpos1": [14.25,-2.617682533e-15],
-		"relpos2": [13.5,-3]
+		"relpos2": [13.5,-3],
+		"tertiary_contact": "TertiaryContact_T_D"
 	},
 	"Linker_A18_A16_T_D_tertiary_contact_intradomain": {
 		"residue1": "Residue_A18",
@@ -3028,7 +3029,8 @@
 		"type": "tertiary_contact_intradomain",
 		"linker_tag": "Linker_A18_A16_T_D_tertiary_contact_intradomain",
 		"relpos1": [14.25,-2.617682533e-15],
-		"relpos2": [12,-4.5]
+		"relpos2": [12,-4.5],
+		"tertiary_contact": "TertiaryContact_T_D"
 	},
 	"Linker_A18_A19_T_D_tertiary_contact_intradomain": {
 		"residue1": "Residue_A18",
@@ -3036,7 +3038,8 @@
 		"type": "tertiary_contact_intradomain",
 		"linker_tag": "Linker_A18_A19_T_D_tertiary_contact_intradomain",
 		"relpos1": [14.25,-2.617682533e-15],
-		"relpos2": [13.5,2.25]
+		"relpos2": [13.5,2.25],
+		"tertiary_contact": "TertiaryContact_T_D"
 	},
 	"Linker_A55_A56_T_D_tertiary_contact_intradomain": {
 		"residue1": "Residue_A55",
@@ -3044,7 +3047,8 @@
 		"type": "tertiary_contact_intradomain",
 		"linker_tag": "Linker_A55_A56_T_D_tertiary_contact_intradomain",
 		"relpos1": [13.5,-3],
-		"relpos2": [15.75,1.928818709e-15]
+		"relpos2": [15.75,1.928818709e-15],
+		"tertiary_contact": "TertiaryContact_T_D"
 	},
 	"Linker_A55_A59_T_D_tertiary_contact_intradomain": {
 		"residue1": "Residue_A55",
@@ -3052,7 +3056,8 @@
 		"type": "tertiary_contact_intradomain",
 		"linker_tag": "Linker_A55_A59_T_D_tertiary_contact_intradomain",
 		"relpos1": [13.5,-3],
-		"relpos2": [9,5.25]
+		"relpos2": [9,5.25],
+		"tertiary_contact": "TertiaryContact_T_D"
 	},
 	"Selection_A1_coaxial_stack": {
 		"associated_residues": [
@@ -3530,7 +3535,7 @@
 		"boldface": 1,
 		"show_interdomain_noncanonical_pairs": 0
 	},
-	"xlim": [43.29168394,150.3333161],
-	"ylim": [32.73638181,145.3386182],
+	"xlim": [43.29168392,150.3333161],
+	"ylim": [28.54122211,149.5337779],
 	"window_position": [1,1,844,954]
 }

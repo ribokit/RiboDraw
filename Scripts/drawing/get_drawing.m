@@ -86,7 +86,7 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Linker_' ) ) );
     figure_linker = getappdata( gca, objnames{n} );
     linker = copy_fields( figure_linker, {'residue1','residue2','type','linker_tag','relpos1',...
-        'relpos2','edge1','edge2','LW_orientation'} );
+        'relpos2','edge1','edge2','LW_orientation','tertiary_contact'} );
     savedata = setfield( savedata, objnames{n}, linker );
 end
 

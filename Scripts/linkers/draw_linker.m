@@ -82,65 +82,8 @@ if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_set
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
 if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*2 ); end; 
 if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*2 ); end; 
-if isfield( linker, 'tertiary_contact' ); 
-    tertiary_contact = getappdata( gca, linker.tertiary_contact );
-    
-    if strcmp( linker.type, 'tertiary_contact_interdomain' )
-        % double color lines for interdomain;
-        side_line1_pos = []; side_line2_pos = [];
-        for i = 1:length( plot_pos ) - 1
-            segv = plot_pos(i+1,:) - plot_pos(i,:);
-            segv = segv/norm(segv);
-            segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/25; % rotate
-            side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
-            side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
-        end
-        set( linker.side_line1, 'xdata', side_line1_pos(:,1), 'ydata', side_line1_pos(:,2) );
-        set( linker.side_line2, 'xdata', side_line2_pos(:,1), 'ydata', side_line2_pos(:,2) );
-    end
-    
-    % colors
-    residue1 = getappdata( gca, tertiary_contact.res1{1} );
-    residue2 = getappdata( gca, tertiary_contact.res2{1} );
-    
-    set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
-    % make color informative about *other* domain
-    color1 = fade_color( residue2.rgb_color );
-    color2 = fade_color( residue1.rgb_color );
-    if strcmp( linker.type, 'tertiary_contact_interdomain' )
-        set( linker.node1, 'edgecolor',color1);
-        set( linker.node2, 'edgecolor',color2);
-        set( linker.side_line1, 'color', color1 );
-        set( linker.side_line2, 'color', color2 );
-        % also update pos
-    else
-        assert( strcmp( linker.type, 'tertiary_contact_intradomain' ) );
-        if any( strcmp( tertiary_contact.res1, linker.residue1 ) ) % in domain 1
-            set( linker.node2, 'edgecolor',color1);
-            set( linker.line_handle, 'color',color1);
-        else % in domain 2
-            assert( any( strcmp( tertiary_contact.res2, linker.residue1 ) ) );
-            set( linker.node2, 'edgecolor',color2);
-            set( linker.line_handle, 'color',color2);
-        end
-    end
-end
-
-if isfield( plot_settings, 'show_interdomain_noncanonical_pairs' ) & strcmp( linker.type, 'noncanonical_pair' )
-    setting = 1;
-    if ~plot_settings.show_interdomain_noncanonical_pairs
-        residue1 = getappdata( gca, linker.residue1 );
-        residue2 = getappdata( gca, linker.residue2 );
-        % check that there are two different (non-gray) colors
-        if isfield( residue1, 'rgb_color' ) & isfield( residue2, 'rgb_color' ) & ...
-            length(unique( residue1.rgb_color)) > 1 & ...
-            length(unique( residue2.rgb_color)) > 1  ...
-        setting = ( norm( residue1.rgb_color - residue2.rgb_color ) < 0.1 );
-        end
-    end
-    if setting; visible = 'on'; else; visible = 'off'; end;
-    linker = set_linker_visibility( linker, visible );
-end
+if isfield( linker, 'tertiary_contact' ); update_tertiary_contact( linker, plot_pos, plot_settings ); end;
+if strcmp( linker.type, 'noncanonical_pair' ) check_interdomain( linker, plot_settings ); end;
 
 % if there are vertex symbols at end points, re-draw them.
 if isfield( linker, 'vtx' )
@@ -192,8 +135,10 @@ switch linker.type
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.node1 = create_undercircle( plot_settings.bp_spacing );
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
-        linker.side_line1 = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
-        linker.side_line2 = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
+        %linker.side_line1 = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
+        %linker.side_line2 = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
+        linker.side_line1 = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
+        linker.side_line2 = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
         uistack( linker.side_line1, 'bottom' );
         uistack( linker.side_line2, 'bottom' );
         uistack( linker.line_handle, 'bottom' );
@@ -303,8 +248,72 @@ for i = 1:length( residue1.linkers )
     end
 end
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function update_tertiary_contact( linker, plot_pos, plot_settings );
+tertiary_contact = getappdata( gca, linker.tertiary_contact );
+    
+if strcmp( linker.type, 'tertiary_contact_interdomain' )
+    % double color lines for interdomain;
+    side_line1_pos = []; side_line2_pos = [];
+    for i = 1:length( plot_pos ) - 1
+        segv = plot_pos(i+1,:) - plot_pos(i,:);
+        segv = segv/norm(segv);
+        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/15; % rotate
+        side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
+        side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
+    end
+    set( linker.side_line1, 'xdata', [side_line1_pos(:,1); plot_pos(end:-1:1,1)], 'ydata', [side_line1_pos(:,2); plot_pos(end:-1:1,2)] );
+    set( linker.side_line2, 'xdata', [side_line2_pos(:,1); plot_pos(end:-1:1,1)], 'ydata', [side_line2_pos(:,2); plot_pos(end:-1:1,2)] );
+end
+
+% colors
+residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
+residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
+
+set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
+% make color informative about *other* domain
+color1 = fade_color( residue2.rgb_color );
+color2 = fade_color( residue1.rgb_color );
+if strcmp( linker.type, 'tertiary_contact_interdomain' )
+    set( linker.node1, 'edgecolor',color1);
+    set( linker.node2, 'edgecolor',color2);
+    set( linker.side_line1, 'facecolor', color1 );
+    set( linker.side_line2, 'facecolor', color2 );
+    % also update pos
+else
+    assert( strcmp( linker.type, 'tertiary_contact_intradomain' ) );
+    if any( strcmp( tertiary_contact.associated_residues1, linker.residue1 ) ) % in domain 1
+        set( linker.node2, 'edgecolor',color1);
+        set( linker.line_handle, 'color',color1);
+    else % in domain 2
+        assert( any( strcmp( tertiary_contact.associated_residues2, linker.residue1 ) ) );
+        set( linker.node2, 'edgecolor',color2);
+        set( linker.line_handle, 'color',color2);
+    end
+end
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function color = fade_color( color );
 color = [1.0,1.0,1.0] - 0.5 * ( [1.0,1.0,1.0] - color );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function check_interdomain( linker, plot_settings )
+% for show/hide interdomain_noncanonical_pairs
+if ~isfield( plot_settings, 'show_interdomain_noncanonical_pairs' ) return; end;
+setting = 1;
+if ~plot_settings.show_interdomain_noncanonical_pairs
+    residue1 = getappdata( gca, linker.residue1 );
+    residue2 = getappdata( gca, linker.residue2 );
+    % check that there are two different (non-gray) colors
+    if isfield( residue1, 'rgb_color' ) & isfield( residue2, 'rgb_color' ) & ...
+            length(unique( residue1.rgb_color)) > 1 & ...
+            length(unique( residue2.rgb_color)) > 1  ...
+            setting = ( norm( residue1.rgb_color - residue2.rgb_color ) < 0.1 );
+    end
+end
+if setting; visible = 'on'; else; visible = 'off'; end;
+linker = set_linker_visibility( linker, visible );
+
 
 

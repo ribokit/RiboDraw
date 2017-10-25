@@ -112,7 +112,7 @@
 		"helix_tag": "Helix_A10",
 		"nucleotide": "A",
 		"rgb_color": [0,0.5,1],
-		"relpos": [7.5,-6],
+		"relpos": [6.75,-6],
 		"linkers": [
 			"Linker_A14_A15_stack",
 			"Linker_A14_A22_stack",
@@ -139,7 +139,8 @@
 			"Linker_A15_A59_stack",
 			"Linker_A14_A15_arrow",
 			"Linker_A15_A16_arrow",
-			"Linker_A15_A48_noncanonical_pair"
+			"Linker_A15_A48_noncanonical_pair",
+			"Linker_A18_A15_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_DHU_domain"
@@ -157,7 +158,7 @@
 			"Linker_A15_A16_arrow",
 			"Linker_A16_A17_arrow",
 			"Linker_A16_A59_noncanonical_pair",
-			"Linker_A18_A16_T_D_tertiary_contact_intradomain"
+			"Linker_A18_A16_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_DHU_domain"
@@ -193,9 +194,10 @@
 			"Linker_A17_A18_arrow",
 			"Linker_A18_A19_arrow",
 			"Linker_A18_A55_noncanonical_pair",
-			"Linker_A18_A55_T_D_tertiary_contact_interdomain",
-			"Linker_A18_A19_T_D_tertiary_contact_intradomain",
-			"Linker_A18_A16_T_D_tertiary_contact_intradomain"
+			"Linker_A18_A55_A18_A55_tertiary_contact_interdomain",
+			"Linker_A18_A15_A18_A55_tertiary_contact_intradomain",
+			"Linker_A18_A16_A18_A55_tertiary_contact_intradomain",
+			"Linker_A18_A19_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_A1_coaxial_stack",
@@ -215,7 +217,7 @@
 			"Linker_A18_A19_arrow",
 			"Linker_A19_A20_arrow",
 			"Linker_A19_A56_noncanonical_pair",
-			"Linker_A18_A19_T_D_tertiary_contact_intradomain"
+			"Linker_A18_A19_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_DHU_domain"
@@ -1023,9 +1025,11 @@
 			"Linker_A54_A55_arrow",
 			"Linker_A55_A56_arrow",
 			"Linker_A18_A55_noncanonical_pair",
-			"Linker_A18_A55_T_D_tertiary_contact_interdomain",
-			"Linker_A55_A56_T_D_tertiary_contact_intradomain",
-			"Linker_A55_A59_T_D_tertiary_contact_intradomain"
+			"Linker_A18_A55_A18_A55_tertiary_contact_interdomain",
+			"Linker_A55_A56_A18_A55_tertiary_contact_intradomain",
+			"Linker_A55_A57_A18_A55_tertiary_contact_intradomain",
+			"Linker_A55_A58_A18_A55_tertiary_contact_intradomain",
+			"Linker_A55_A59_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_A1_coaxial_stack",
@@ -1045,7 +1049,7 @@
 			"Linker_A55_A56_arrow",
 			"Linker_A56_A57_arrow",
 			"Linker_A19_A56_noncanonical_pair",
-			"Linker_A55_A56_T_D_tertiary_contact_intradomain"
+			"Linker_A55_A56_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_TpsiC_domain"
@@ -1064,7 +1068,8 @@
 			"Linker_A19_A57_stack",
 			"Linker_A56_A57_stack",
 			"Linker_A56_A57_arrow",
-			"Linker_A57_A58_arrow"
+			"Linker_A57_A58_arrow",
+			"Linker_A55_A57_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_TpsiC_domain"
@@ -1083,7 +1088,8 @@
 			"Linker_A58_A61_stack",
 			"Linker_A57_A58_arrow",
 			"Linker_A58_A59_arrow",
-			"Linker_A54_A58_noncanonical_pair"
+			"Linker_A54_A58_noncanonical_pair",
+			"Linker_A55_A58_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_A1_coaxial_stack",
@@ -1105,7 +1111,7 @@
 			"Linker_A58_A59_arrow",
 			"Linker_A59_A60_arrow",
 			"Linker_A16_A59_noncanonical_pair",
-			"Linker_A55_A59_T_D_tertiary_contact_intradomain"
+			"Linker_A55_A59_A18_A55_tertiary_contact_intradomain"
 		],
 		"associated_selections": [
 			"Selection_TpsiC_domain"
@@ -1506,7 +1512,7 @@
 		"helix_tag": "Helix_A10",
 		"nucleotide": "U",
 		"rgb_color": [0.5,0.5,0.5],
-		"relpos": [7.5,-23.25],
+		"relpos": [6.75,-23.25],
 		"linkers": [
 			"Linker_A8_A13_stack",
 			"Linker_A8_A15_stack",
@@ -1526,7 +1532,7 @@
 		"helix_tag": "Helix_A10",
 		"nucleotide": "A",
 		"rgb_color": [0.5,0.5,0.5],
-		"relpos": [-4.270955712e-15,-23.25],
+		"relpos": [0.75,-23.25],
 		"linkers": [
 			"Linker_A9_A22_stack",
 			"Linker_A9_A45_stack",
@@ -2431,7 +2437,10 @@
 			[-5.25,-9],
 			[-5.25,-19.5]
 		],
-		"relpos2": [3,-19.5]
+		"relpos2": [
+			[1.5,-19.5],
+			[3,-19.5]
+		]
 	},
 	"Linker_A46_A47_arrow": {
 		"residue1": "Residue_A46",
@@ -2659,22 +2668,22 @@
 		"type": "arrow",
 		"linker_tag": "Linker_A7_A8_arrow",
 		"relpos1": [9,-3],
-		"relpos2": [7.5,-23.25]
+		"relpos2": [6.75,-23.25]
 	},
 	"Linker_A8_A9_arrow": {
 		"residue1": "Residue_A8",
 		"residue2": "Residue_A9",
 		"type": "arrow",
 		"linker_tag": "Linker_A8_A9_arrow",
-		"relpos1": [7.5,-23.25],
-		"relpos2": [-4.270955712e-15,-23.25]
+		"relpos1": [6.75,-23.25],
+		"relpos2": [0.75,-23.25]
 	},
 	"Linker_A9_A10_arrow": {
 		"residue1": "Residue_A9",
 		"residue2": "Residue_A10",
 		"type": "arrow",
 		"linker_tag": "Linker_A9_A10_arrow",
-		"relpos1": [-4.270955712e-15,-23.25],
+		"relpos1": [0.75,-23.25],
 		"relpos2": [
 			[-3,-23.25],
 			[-3,-4.5],
@@ -2907,7 +2916,7 @@
 		"linker_tag": "Linker_A22_A46_noncanonical_pair",
 		"relpos1": [
 			[4.5,3],
-			[3,0.75]
+			[3,2.25]
 		],
 		"relpos2": [3,-19.5],
 		"edge1": "H",
@@ -2983,8 +2992,8 @@
 		"residue2": "Residue_A14",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_A8_A14_noncanonical_pair",
-		"relpos1": [7.5,-23.25],
-		"relpos2": [7.5,-6],
+		"relpos1": [6.75,-23.25],
+		"relpos2": [6.75,-6],
 		"edge1": "W",
 		"edge2": "H",
 		"LW_orientation": "T"
@@ -2994,7 +3003,7 @@
 		"residue2": "Residue_A48",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_A8_A48_noncanonical_pair",
-		"relpos1": [7.5,-23.25],
+		"relpos1": [6.75,-23.25],
 		"relpos2": [-6,-13.5],
 		"edge1": "S",
 		"edge2": "S",
@@ -3005,59 +3014,86 @@
 		"residue2": "Residue_A23",
 		"type": "noncanonical_pair",
 		"linker_tag": "Linker_A9_A23_noncanonical_pair",
-		"relpos1": [-4.270955712e-15,-23.25],
+		"relpos1": [0.75,-23.25],
 		"relpos2": [
-			[0,0],
+			[0.75,1.5],
 			[1.5,3]
 		],
 		"edge1": "H",
 		"edge2": "H",
 		"LW_orientation": "T"
 	},
-	"Linker_A18_A55_T_D_tertiary_contact_interdomain": {
+	"Linker_A18_A55_A18_A55_tertiary_contact_interdomain": {
 		"residue1": "Residue_A18",
 		"residue2": "Residue_A55",
 		"type": "tertiary_contact_interdomain",
-		"linker_tag": "Linker_A18_A55_T_D_tertiary_contact_interdomain",
+		"linker_tag": "Linker_A18_A55_A18_A55_tertiary_contact_interdomain",
 		"relpos1": [14.25,-2.617682533e-15],
 		"relpos2": [13.5,-3],
-		"tertiary_contact": "TertiaryContact_T_D"
+		"tertiary_contact": "TertiaryContact_A18_A55"
 	},
-	"Linker_A18_A16_T_D_tertiary_contact_intradomain": {
+	"Linker_A18_A15_A18_A55_tertiary_contact_intradomain": {
+		"residue1": "Residue_A18",
+		"residue2": "Residue_A15",
+		"type": "tertiary_contact_intradomain",
+		"linker_tag": "Linker_A18_A15_A18_A55_tertiary_contact_intradomain",
+		"relpos1": [14.25,-2.617682533e-15],
+		"relpos2": [9.75,-5.25],
+		"tertiary_contact": "TertiaryContact_A18_A55"
+	},
+	"Linker_A18_A16_A18_A55_tertiary_contact_intradomain": {
 		"residue1": "Residue_A18",
 		"residue2": "Residue_A16",
 		"type": "tertiary_contact_intradomain",
-		"linker_tag": "Linker_A18_A16_T_D_tertiary_contact_intradomain",
+		"linker_tag": "Linker_A18_A16_A18_A55_tertiary_contact_intradomain",
 		"relpos1": [14.25,-2.617682533e-15],
 		"relpos2": [12,-4.5],
-		"tertiary_contact": "TertiaryContact_T_D"
+		"tertiary_contact": "TertiaryContact_A18_A55"
 	},
-	"Linker_A18_A19_T_D_tertiary_contact_intradomain": {
+	"Linker_A18_A19_A18_A55_tertiary_contact_intradomain": {
 		"residue1": "Residue_A18",
 		"residue2": "Residue_A19",
 		"type": "tertiary_contact_intradomain",
-		"linker_tag": "Linker_A18_A19_T_D_tertiary_contact_intradomain",
+		"linker_tag": "Linker_A18_A19_A18_A55_tertiary_contact_intradomain",
 		"relpos1": [14.25,-2.617682533e-15],
 		"relpos2": [13.5,2.25],
-		"tertiary_contact": "TertiaryContact_T_D"
+		"tertiary_contact": "TertiaryContact_A18_A55"
 	},
-	"Linker_A55_A56_T_D_tertiary_contact_intradomain": {
+	"Linker_A55_A56_A18_A55_tertiary_contact_intradomain": {
 		"residue1": "Residue_A55",
 		"residue2": "Residue_A56",
 		"type": "tertiary_contact_intradomain",
-		"linker_tag": "Linker_A55_A56_T_D_tertiary_contact_intradomain",
+		"linker_tag": "Linker_A55_A56_A18_A55_tertiary_contact_intradomain",
 		"relpos1": [13.5,-3],
 		"relpos2": [15.75,1.928818709e-15],
-		"tertiary_contact": "TertiaryContact_T_D"
+		"tertiary_contact": "TertiaryContact_A18_A55"
 	},
-	"Linker_A55_A59_T_D_tertiary_contact_intradomain": {
+	"Linker_A55_A57_A18_A55_tertiary_contact_intradomain": {
+		"residue1": "Residue_A55",
+		"residue2": "Residue_A57",
+		"type": "tertiary_contact_intradomain",
+		"linker_tag": "Linker_A55_A57_A18_A55_tertiary_contact_intradomain",
+		"relpos1": [13.5,-3],
+		"relpos2": [13.5,3],
+		"tertiary_contact": "TertiaryContact_A18_A55"
+	},
+	"Linker_A55_A58_A18_A55_tertiary_contact_intradomain": {
+		"residue1": "Residue_A55",
+		"residue2": "Residue_A58",
+		"type": "tertiary_contact_intradomain",
+		"linker_tag": "Linker_A55_A58_A18_A55_tertiary_contact_intradomain",
+		"relpos1": [13.5,-3],
+		"relpos2": [9.75,3],
+		"tertiary_contact": "TertiaryContact_A18_A55"
+	},
+	"Linker_A55_A59_A18_A55_tertiary_contact_intradomain": {
 		"residue1": "Residue_A55",
 		"residue2": "Residue_A59",
 		"type": "tertiary_contact_intradomain",
-		"linker_tag": "Linker_A55_A59_T_D_tertiary_contact_intradomain",
+		"linker_tag": "Linker_A55_A59_A18_A55_tertiary_contact_intradomain",
 		"relpos1": [13.5,-3],
 		"relpos2": [9,5.25],
-		"tertiary_contact": "TertiaryContact_T_D"
+		"tertiary_contact": "TertiaryContact_A18_A55"
 	},
 	"Selection_A1_coaxial_stack": {
 		"associated_residues": [
@@ -3509,25 +3545,40 @@
 		"rgb_color": [1,0.6,0.6],
 		"label_visible": 0
 	},
-	"TertiaryContact_T_D": {
-		"res1": [
+	"TertiaryContact_A18_A55": {
+		"associated_residues1": [
 			"Residue_A18",
-			"Residue_A19",
-			"Residue_A16"
+			"Residue_A15",
+			"Residue_A16",
+			"Residue_A19"
 		],
-		"res2": [
+		"associated_residues2": [
 			"Residue_A55",
 			"Residue_A56",
+			"Residue_A57",
+			"Residue_A58",
 			"Residue_A59"
 		],
-		"name": "T-D",
-		"tertiary_contact_tag": "TertiaryContact_T_D"
+		"name": "A18_A55",
+		"tertiary_contact_tag": "TertiaryContact_A18_A55",
+		"interdomain_linker": "Linker_A18_A55_A18_A55_tertiary_contact_interdomain",
+		"intradomain_linkers1": [
+			"Linker_A18_A15_A18_A55_tertiary_contact_intradomain",
+			"Linker_A18_A16_A18_A55_tertiary_contact_intradomain",
+			"Linker_A18_A19_A18_A55_tertiary_contact_intradomain"
+		],
+		"intradomain_linkers2": [
+			"Linker_A55_A56_A18_A55_tertiary_contact_intradomain",
+			"Linker_A55_A57_A18_A55_tertiary_contact_intradomain",
+			"Linker_A55_A58_A18_A55_tertiary_contact_intradomain",
+			"Linker_A55_A59_A18_A55_tertiary_contact_intradomain"
+		]
 	},
 	"plot_settings": {
 		"fontsize": 18.68431899,
 		"spacing": 3,
 		"bp_spacing": 6,
-		"show_helix_controls": 1,
+		"show_helix_controls": 0,
 		"show_linker_controls": 1,
 		"show_coax_controls": 0,
 		"show_domain_controls": 0,
@@ -3536,6 +3587,6 @@
 		"show_interdomain_noncanonical_pairs": 0
 	},
 	"xlim": [43.29168392,150.3333161],
-	"ylim": [28.54122211,149.5337779],
-	"window_position": [1,1,844,954]
+	"ylim": [28.5412221,149.5337779],
+	"window_position": [13,1,844,954]
 }

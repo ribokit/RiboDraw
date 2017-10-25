@@ -17,8 +17,8 @@ end
 
 contact_name_cleaned = strrep( strrep(contact_name, ' ', '_' ), '-', '_' ) ;
 tag = sprintf('TertiaryContact_%s', contact_name_cleaned );
-tertiary_contact.res1 = res_tags1;
-tertiary_contact.res2 = res_tags2;
+tertiary_contact.associated_residues1 = res_tags1;
+tertiary_contact.associated_residues2 = res_tags2;
 tertiary_contact.name = contact_name;
 tertiary_contact.tertiary_contact_tag = tag;
 
@@ -32,8 +32,8 @@ linker.tertiary_contact = tag;
 add_linker( linker );
 tertiary_contact.interdomain_linker = linker.linker_tag;
 
-tertiary_contact.linkers1 = setup_intradomain_linkers( res_tags1, contact_name_cleaned, tag );
-tertiary_contact.linkers2 = setup_intradomain_linkers( res_tags2, contact_name_cleaned, tag );
+tertiary_contact.intradomain_linkers1 = setup_intradomain_linkers( res_tags1, contact_name_cleaned, tag );
+tertiary_contact.intradomain_linkers2 = setup_intradomain_linkers( res_tags2, contact_name_cleaned, tag );
 setappdata( gca, tag, tertiary_contact );
 
 % draw these linkers

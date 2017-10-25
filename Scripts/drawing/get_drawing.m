@@ -75,7 +75,8 @@ function savedata = save_tertiary_contacts( savedata, objnames )
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'TertiaryContact_' ) ) );
     figure_selection = getappdata( gca, objnames{n} );
-    selection = copy_fields( figure_selection, {'res1','res2','name','tertiary_contact_tag'} );
+    selection = copy_fields( figure_selection, {'associated_residues1','associated_residues2','name','tertiary_contact_tag',...
+        'interdomain_linker','intradomain_linkers1','intradomain_linkers2'} );
     savedata = setfield( savedata, objnames{n}, selection );
 end
 

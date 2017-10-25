@@ -1,14 +1,11 @@
 ## TODO
-* patches for interdomain dual color linkers
 * auto-group interdomain linkers
 * more arrowheads on long linkers [extra_arrows1, extra_arrows2]
 * allow rename of helices as 'display_label' [cleanup layout of 23S]
-* try coloring long-range canonical pairs
-* Fix chains for 5S RNA
 * protein/exit tunnel representation
+* Read-in & auto-color motifs [SRL, etc.]
 
-* auto-rectify linkers
-* Read-in & auto-formatting of motifs
+* Fix chains for 5S RNA
 
 ### Documentation stuff
 * put in docstrings for all files
@@ -18,6 +15,7 @@
 
 ### Future
 * settings icon for toggles --> menu.
+* auto-rectify linkers
 * pathfinder routine for arrow linkers & noncanonical pairs
 * convert to javascript
 * Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations

@@ -1,15 +1,16 @@
 function show_stacks( setting )
+if ~exist( 'setting', 'var' ) setting = 1; end;
 
 plot_settings = getappdata( gca, 'plot_settings' );
 plot_settings.show_stacks = setting;
 setappdata( gca, 'plot_settings', plot_settings );
 
-if ~exist( 'setting', 'var' ) setting = 1; end;
 if setting; visible = 'on'; else; visible = 'off'; end;
 noncanonical_tags = get_tags( 'Linker_', 'stack' );
 for i = 1:length( noncanonical_tags )
     tag = noncanonical_tags{i};
     linker = getappdata( gca, tag );
+    draw_linker( linker );
     if isfield( linker,'line_handle' ) set( linker.line_handle, 'visible', visible ); end;
     if isfield( linker,'symbol' ) set( linker.symbol, 'visible', visible ); end;
     if isfield( linker,'symbol1' ) set( linker.symbol1, 'visible', visible ); end;

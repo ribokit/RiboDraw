@@ -1,4 +1,4 @@
-function setup_tertiary_contact( contact_name, res1_string, res2_string )
+function setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker )
 % setup_tertiary_contact( contact_name, res_tags1, res_tags2)
 % setup_tertiary_contact( contact_name, res1_string, res2_string )
 % (C) R. Das, Stanford University, 2017
@@ -29,6 +29,12 @@ linker.type = 'tertiary_contact_interdomain';
 linker.linker_tag = sprintf('Linker_%s_%s_%s_%s',linker.residue1(9:end),linker.residue2(9:end),  ...
     contact_name_cleaned,linker.type);
 linker.tertiary_contact = tag;
+if exist( 'template_linker', 'var' )
+    if isfield( template_linker, 'relpos1' ) linker.relpos1 = template_linker.relpos1; end;
+    if isfield( template_linker, 'relpos2' ) linker.relpos2 = template_linker.relpos2; end;
+    if isfield( template_linker, 'plot_pos' ) linker.plot_pos = template_linker.plot_pos; end;
+    create_linker_with_draggable_vtx( linker )
+end
 add_linker( linker );
 tertiary_contact.interdomain_linker = linker.linker_tag;
 

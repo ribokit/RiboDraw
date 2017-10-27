@@ -133,20 +133,20 @@ switch linker.type
          setappdata( gca, linker.linker_tag, linker );
     case 'tertiary_contact_interdomain'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
+        send_to_back( linker.line_handle );
         linker.node1 = create_undercircle( plot_settings.bp_spacing );
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
         %linker.side_line1 = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         %linker.side_line2 = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.side_line1 = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
+        send_to_back( linker.side_line1 );
         linker.side_line2 = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
-        uistack( linker.side_line1, 'bottom' );
-        uistack( linker.side_line2, 'bottom' );
-        uistack( linker.line_handle, 'bottom' );
+        send_to_back( linker.side_line2 );
         setappdata( gca, linker.linker_tag, linker );
     case 'tertiary_contact_intradomain'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
+        send_to_back( linker.line_handle );
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
-        uistack( linker.line_handle, 'bottom' );
         setappdata( gca, linker.linker_tag, linker );
 end
 
@@ -157,7 +157,7 @@ r = bp_spacing/3;
 x = r*cos(t);
 y = r*sin(t);
 h = patch( x,y,'w','edgecolor',[0.8,0.8,0.8],'facecolor','w','linewidth',2);
-uistack( h, 'bottom' );
+send_to_back( h );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Linkers (base pairs & arrow connectors)
@@ -314,6 +314,5 @@ if ~plot_settings.show_interdomain_noncanonical_pairs
 end
 if setting; visible = 'on'; else; visible = 'off'; end;
 linker = set_linker_visibility( linker, visible );
-
 
 

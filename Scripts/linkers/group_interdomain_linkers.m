@@ -2,7 +2,7 @@ function linker_groups = group_interdomain_linkers()
 
 % get interdomain_linkers
 linkers = get_tags( 'Linker', 'noncanonical_pair' );
-linkers = [ linkers, get_tags( 'Linker', 'stack' ) ];
+%linkers = [ linkers, get_tags( 'Linker', 'stack' ) ];
 
 interdomain_linkers = {};
 for i = 1:length( linkers )
@@ -93,6 +93,7 @@ for i = 1:length( linker_groups )
     % need to assign a pair of interdomain connection residues.
     res_tags1 = {};
     res_tags2 = {};
+    linker_lengths = [];
     for j = 1:length( linker_group )
         linker = linker_group{j};
         res_tags1 = [res_tags1, linker.residue1 ];
@@ -119,7 +120,7 @@ for i = 1:length( linker_groups )
     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
 
-    setup_tertiary_contact( name, res_tags1, res_tags2 );
+    setup_tertiary_contact( name, res_tags1, res_tags2, main_linker );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

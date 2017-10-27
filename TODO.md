@@ -1,5 +1,6 @@
 ## TODO
-* auto-group interdomain linkers
+* write a hacky send_to_back() function to replace uistack.
+* allow setup_tertiary_contact to accept 'master linker' to inherit rel_pos, etc.
 * more arrowheads on long linkers [extra_arrows1, extra_arrows2]
 * allow rename of helices as 'display_label' [cleanup layout of 23S]
 * protein/exit tunnel representation

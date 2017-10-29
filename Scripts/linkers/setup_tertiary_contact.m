@@ -52,6 +52,8 @@ end
 helix_tags = unique( helix_tags );
 for i = 1:length( helix_tags ); draw_helix( getappdata( gca, helix_tags{i} ) ); end
 
+move_stuff_to_back(); % should be faster to move all tertiary contact linkers to 'back' all at once
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );
 linkers = {};

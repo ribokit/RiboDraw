@@ -1,5 +1,7 @@
 function draw_selections( selections );
-
+if ~isfield( 'selections', 'var' )
+    selections = get_tags( 'Selection' );
+end
 plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( plot_settings, 'show_coax_controls' ) & isfield( plot_settings, 'show_selection_controls' )
     plot_settings.show_coax_controls   = plot_settings.show_selection_controls;
@@ -41,14 +43,14 @@ for i = 1:length( selections )
             setappdata( h, 'selection_tag', selection_tag );
             setappdata( gca, selection_tag, selection );
         end
+        selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
+        domain_color = [1 0.4 0.4];
+        if isfield( selection, 'rgb_color' ) domain_color = selection.rgb_color; end;
+        set( selection.rectangle,'edgecolor',domain_color);
+        if ( plot_settings.show_domain_controls ) visible = 'on'; else; visible = 'off'; end;
+        set( selection.rectangle, 'visible', visible );
+        
         if ( plot_settings.show_domain_controls )
-            selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
-            domain_color = [1 0.4 0.4];
-            if isfield( selection, 'rgb_color' ) domain_color = selection.rgb_color; end;
-            set( selection.rectangle,'edgecolor',domain_color); 
-            if ( plot_settings.show_domain_controls ) visible = 'on'; else; visible = 'off'; end;
-            set( selection.rectangle, 'visible', visible );
-            
             % for domain: clickable lines of reflection
             selection = create_clickable_reflection_line( 'reflect_line_horizontal1', selection );
             selection = create_clickable_reflection_line( 'reflect_line_horizontal2', selection  );
@@ -62,35 +64,37 @@ for i = 1:length( selections )
                 set(h,'ButtonDownFcn',{@rotate_selection,h});
                 selection.click_center = h;
                 setappdata( gca, selection_tag, selection );
-            end             
+            end
         end
     end
-    if isfield( selection, 'rectangle') set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
-    if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
-    if isfield( selection, 'label') 
-        set( selection.label, 'Position',  ctr_pos + selection.label_relpos ); 
-        if isfield( selection, 'rgb_color' ) set( selection.label, 'color', selection.rgb_color ); end
-    end
-    if isfield( selection, 'reflect_line_horizontal1' );
-        set( selection.reflect_line_horizontal1, 'Xdata', minpos(1) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
-        if isfield( selection, 'rgb_color' ) set( selection.reflect_line_horizontal1, 'color', selection.rgb_color ); end
-    end
-    if isfield( selection, 'reflect_line_horizontal2' );
-        set( selection.reflect_line_horizontal2, 'Xdata', maxpos(1) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
-        if isfield( selection, 'rgb_color' ) set( selection.reflect_line_horizontal2, 'color', selection.rgb_color ); end
-    end
-    if isfield( selection, 'reflect_line_vertical1' );
-        set( selection.reflect_line_vertical1, 'Ydata', minpos(2) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
-        if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical1, 'color', selection.rgb_color ); end
-    end
-    if isfield( selection, 'reflect_line_vertical2' );
-        set( selection.reflect_line_vertical2, 'Ydata', maxpos(2) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
-        if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical2, 'color', selection.rgb_color ); end
-    end
-    if isfield( selection, 'click_center' );
-        set( selection.click_center, 'Position', [ctr_pos(1)-0.15*spacing ctr_pos(2)-0.15*spacing,...
-            0.3*spacing 0.3*spacing] );
-        if isfield( selection, 'rgb_color' ) set( selection.click_center, 'edgecolor', selection.rgb_color ); end
+    if ~isempty( minpos ) & ~isempty( maxpos )
+        if isfield( selection, 'rectangle')  set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
+        if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
+        if isfield( selection, 'label') & ~isempty( ctr_pos )
+            set( selection.label, 'Position',  ctr_pos + selection.label_relpos );
+            if isfield( selection, 'rgb_color' ) set( selection.label, 'color', selection.rgb_color ); end
+        end
+        if isfield( selection, 'reflect_line_horizontal1' );
+            set( selection.reflect_line_horizontal1, 'Xdata', minpos(1) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
+            if isfield( selection, 'rgb_color' ) set( selection.reflect_line_horizontal1, 'color', selection.rgb_color ); end
+        end
+        if isfield( selection, 'reflect_line_horizontal2' );
+            set( selection.reflect_line_horizontal2, 'Xdata', maxpos(1) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
+            if isfield( selection, 'rgb_color' ) set( selection.reflect_line_horizontal2, 'color', selection.rgb_color ); end
+        end
+        if isfield( selection, 'reflect_line_vertical1' );
+            set( selection.reflect_line_vertical1, 'Ydata', minpos(2) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
+            if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical1, 'color', selection.rgb_color ); end
+        end
+        if isfield( selection, 'reflect_line_vertical2' );
+            set( selection.reflect_line_vertical2, 'Ydata', maxpos(2) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
+            if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical2, 'color', selection.rgb_color ); end
+        end
+        if isfield( selection, 'click_center' );
+            set( selection.click_center, 'Position', [ctr_pos(1)-0.15*spacing ctr_pos(2)-0.15*spacing,...
+                0.3*spacing 0.3*spacing] );
+            if isfield( selection, 'rgb_color' ) set( selection.click_center, 'edgecolor', selection.rgb_color ); end
+        end
     end
 end
 

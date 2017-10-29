@@ -71,6 +71,14 @@ linker.plot_pos = plot_pos;
 % replot the line
 set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 
+% draw (draggable) vertices if they don't exist yet.
+if isfield( linker, 'plot_pos' ) & ( ~isfield( linker, 'vtx' ) | size(linker.plot_pos,1) ~= length( linker.vtx ) )
+    linker = create_linker_with_draggable_vtx( linker );
+    for i = 1:size( linker.plot_pos, 1 )
+        set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
+    end
+end
+
 % place symbols on central segment
 pos1 = plot_pos1( end, : );
 pos2 = plot_pos2(   1, : );
@@ -92,7 +100,6 @@ if isfield( linker, 'vtx' )
 end
 
 setappdata( gca, linker.linker_tag, linker );
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = draw_default_linker( linker );
@@ -133,22 +140,21 @@ switch linker.type
          setappdata( gca, linker.linker_tag, linker );
     case 'tertiary_contact_interdomain'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
-        send_to_back( linker.line_handle );
         linker.node1 = create_undercircle( plot_settings.bp_spacing );
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
-        %linker.side_line1 = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
-        %linker.side_line2 = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.side_line1 = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
-        send_to_back( linker.side_line1 );
         linker.side_line2 = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
-        send_to_back( linker.side_line2 );
         setappdata( gca, linker.linker_tag, linker );
+        send_to_back( linker.line_handle );
+        send_to_back( linker.side_line1 );
+        send_to_back( linker.side_line2 );
     case 'tertiary_contact_intradomain'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
-        send_to_back( linker.line_handle );
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
         setappdata( gca, linker.linker_tag, linker );
+        send_to_back( linker.line_handle );
 end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = create_undercircle( bp_spacing );
@@ -259,7 +265,7 @@ if strcmp( linker.type, 'tertiary_contact_interdomain' )
     for i = 1:length( plot_pos ) - 1
         segv = plot_pos(i+1,:) - plot_pos(i,:);
         segv = segv/norm(segv);
-        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/15; % rotate
+        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/8; % rotate
         side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
         side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
     end
@@ -295,7 +301,8 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function color = fade_color( color );
-color = [1.0,1.0,1.0] - 0.5 * ( [1.0,1.0,1.0] - color );
+fade_extent = 0.3;
+color = [1.0,1.0,1.0] - fade_extent * ( [1.0,1.0,1.0] - color );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function check_interdomain( linker, plot_settings )

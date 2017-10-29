@@ -129,24 +129,24 @@ for i = 1:length( not_helix_res_tags )
 end
 
 % draggable linker vertices
-for i = 1:length( helix.associated_residues )
-    res_tag = helix.associated_residues{i};
-    residue = getappdata( gca, res_tag );
-    linker_tags = residue.linkers;
-    for k = 1 : length( linker_tags )
-        linker = getappdata( gca, linker_tags{k} );
-        if ~isfield( linker, 'line_handle' ) continue; end;
-        if strcmp(linker.type,'stem_pair'); continue; end;
-        if ~strcmp(get(linker.line_handle,'visible'),'on'); continue; end;
-        if ~isfield( linker, 'vtx' ) | size(linker.plot_pos,1) ~= length( linker.vtx )
-            linker = create_linker_with_draggable_vtx( linker );
-        end;
-        for i = 1:size( linker.plot_pos, 1 )
-            set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
-        end
-        setappdata(gca, linker.linker_tag, linker ); 
-    end
-end
+% for i = 1:length( helix.associated_residues )
+%     res_tag = helix.associated_residues{i};
+%     residue = getappdata( gca, res_tag );
+%     linker_tags = residue.linkers;
+%     for k = 1 : length( linker_tags )
+%         linker = getappdata( gca, linker_tags{k} );
+%         if ~isfield( linker, 'line_handle' ) continue; end;
+%         if strcmp(linker.type,'stem_pair'); continue; end;
+%         if ~strcmp(get(linker.line_handle,'visible'),'on'); continue; end;
+%         if ~isfield( linker, 'vtx' ) | size(linker.plot_pos,1) ~= length( linker.vtx )
+%             linker = create_linker_with_draggable_vtx( linker );
+%         end;
+%         for i = 1:size( linker.plot_pos, 1 )
+%             set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
+%         end
+%         setappdata(gca, linker.linker_tag, linker ); 
+%     end
+% end
 
 %%%%%%%%%%%%%%%%%%%%%
 % DO THIS AT THE END
@@ -157,11 +157,6 @@ setappdata( gca, helix.helix_tag, helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Helper functions
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Helix/Domain
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

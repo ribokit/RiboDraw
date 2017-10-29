@@ -10,15 +10,12 @@ set_control_handle_visibility( setting );
 function set_control_handle_visibility( setting )
 if setting; visible = 'on'; else; visible = 'off'; end;
 % hide all blue stuff that was used for interactive movement.
-vals = getappdata( gca );
-objnames = fields( vals );
+objnames = get_tags( 'Linker' );
 for n = 1:length( objnames )
-    if ~isempty( strfind( objnames{n}, 'Linker_' ) );
-        linker = getappdata( gca, objnames{n} );
-        if isfield( linker, 'vtx' ) & isfield( linker, 'line_handle' ) 
-            vtx_visible = visible;
-            if strcmp( get( linker.line_handle, 'visible' ), 'off' ) vtx_visible = 'off'; end;
-            for i = 1:length( linker.vtx ) set( linker.vtx{i},'visible', vtx_visible);  end;
-        end;
-    end
+    linker = getappdata( gca, objnames{n} );
+    if isfield( linker, 'vtx' ) & isfield( linker, 'line_handle' )
+        vtx_visible = visible;
+        if strcmp( get( linker.line_handle, 'visible' ), 'off' ) vtx_visible = 'off'; end;
+        for i = 1:length( linker.vtx ) set( linker.vtx{i},'visible', vtx_visible);  end;
+    end;
 end

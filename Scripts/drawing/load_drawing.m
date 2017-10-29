@@ -54,9 +54,10 @@ cleanup_associated_residues();
 cleanup_domains();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.
 draw_helices( get_helices( loaddata ) );
+move_stuff_to_back();
 
 axis off
-axis equal
+%axis equal
 set(gcf,'color','white')
 if isfield( loaddata, 'window_position' )
     set(gcf,'Position',loaddata.window_position)

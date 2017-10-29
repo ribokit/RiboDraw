@@ -11,8 +11,6 @@ for i = 1:size( linker.plot_pos, 1 )
     set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
 end
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h_new = create_linker_vertex( pos, linker_tag );
 plot_settings = getappdata( gca, 'plot_settings' );

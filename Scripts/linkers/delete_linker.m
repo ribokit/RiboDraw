@@ -1,4 +1,5 @@
-function delete_linker( linker );
+function linker = delete_linker( linker, remove_linker );
+if ~exist( 'remove_linker', 'var' ) remove_linker = 1; end;
 
 if isfield( linker,'line_handle' ) delete( linker.line_handle ); end;
 if isfield( linker,'symbol' ) delete( linker.symbol ); end;
@@ -10,5 +11,9 @@ if isfield( linker,'node1' ) delete( linker.node1 ); end;
 if isfield( linker,'node2' ) delete( linker.node2 ); end;
 if isfield( linker, 'vtx' )
     for i = 1:length( linker.vtx ), delete( linker.vtx{i} ); end;
+    linker = rmfield( linker, 'vtx' );
 end;
-rmappdata( gca, linker.linker_tag )
+
+if remove_linker
+    rmappdata( gca, linker.linker_tag )
+end

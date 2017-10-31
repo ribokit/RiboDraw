@@ -1,17 +1,18 @@
 ## TODO
-* write a hacky send_to_back() function to replace uistack.
-* allow setup_tertiary_contact to accept 'master linker' to inherit rel_pos, etc.
 * more arrowheads on long linkers [extra_arrows1, extra_arrows2]
-* allow rename of helices as 'display_label' [cleanup layout of 23S]
-* protein/exit tunnel representation
+* allow rename of helices and hide helices as 'display_label' [cleanup layout of 23S]
+* protein representation
+* Fix chains for 5S rRNA
+* complete 16S rRNA
+* lay out other states.
+
 * Read-in & auto-color motifs [SRL, etc.]
 
-* Fix chains for 5S RNA
 
 ### Documentation stuff
-* put in docstrings for all files
 * document JSON file format.
-* explain difference: stems vs. helices
+* put in docstrings for all files
+* explain 'helix' object
 * check independence from RiboKit
 
 ### Future

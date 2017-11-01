@@ -10997,7 +10997,7 @@
 			"Linker_C1454_C1455_noncanonical_pair",
 			"Linker_C1455_C1456_arrow",
 			"Linker_C1455_C1456_stack",
-			"Linker_C1455_C2704_stem_pair"
+			"Linker_C1455_C2704_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -11019,8 +11019,8 @@
 			"Linker_C1455_C1456_stack",
 			"Linker_C1456_C1457_arrow",
 			"Linker_C1456_C1457_stack",
-			"Linker_C1456_C2703_stem_pair",
-			"Linker_C1456_C2704_stack"
+			"Linker_C1456_C2704_stack",
+			"Linker_C1456_C2703_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -11041,7 +11041,7 @@
 			"Linker_C1456_C1457_arrow",
 			"Linker_C1456_C1457_stack",
 			"Linker_C1457_C1458_arrow",
-			"Linker_C1457_C2702_stem_pair"
+			"Linker_C1457_C2702_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -33511,13 +33511,13 @@
 		"rgb_color": [1,0.6,0.6],
 		"relpos": [12,-3.75],
 		"linkers": [
+			"Linker_C228_C2407_C228_C2407_tertiary_contact_interdomain",
 			"Linker_C228_C2407_noncanonical_pair",
 			"Linker_C2406_C2407_arrow",
 			"Linker_C2407_C2408_arrow",
 			"Linker_C2407_C2408_stack",
 			"Linker_C410_C2407_stack",
-			"Linker_C416_C2407_stem_pair",
-			"Linker_C228_C2407_C228_C2407_tertiary_contact_interdomain"
+			"Linker_C416_C2407_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_H88b_H22_domain",
@@ -33539,7 +33539,7 @@
 			"Linker_C2407_C2408_stack",
 			"Linker_C2408_C2409_arrow",
 			"Linker_C2408_C2409_stack",
-			"Linker_C415_C2408_stem_pair"
+			"Linker_C415_C2408_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_H88b_H22_domain",
@@ -33561,8 +33561,8 @@
 			"Linker_C2408_C2409_stack",
 			"Linker_C2409_C2410_arrow",
 			"Linker_C2409_C2410_stack",
-			"Linker_C414_C2409_stem_pair",
-			"Linker_C415_C2409_stack"
+			"Linker_C415_C2409_stack",
+			"Linker_C414_C2409_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_H88b_H22_domain",
@@ -33606,7 +33606,7 @@
 			"Linker_C2409_C2410_stack",
 			"Linker_C2410_C2411_arrow",
 			"Linker_C2410_C2411_stack",
-			"Linker_C413_C2410_stem_pair"
+			"Linker_C413_C2410_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_H88b_H22_domain",
@@ -40374,8 +40374,8 @@
 			"Linker_C2695_C2696_arrow",
 			"Linker_C2696_C2697_arrow",
 			"Linker_C2696_C2697_stack",
-			"Linker_C2696_C2711_stem_pair",
-			"Linker_C2696_C2714_stack"
+			"Linker_C2696_C2714_stack",
+			"Linker_C2696_C2711_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40396,8 +40396,8 @@
 			"Linker_C2696_C2697_stack",
 			"Linker_C2697_C2698_arrow",
 			"Linker_C2697_C2698_stack",
-			"Linker_C2697_C2710_stem_pair",
-			"Linker_C2697_C2711_stack"
+			"Linker_C2697_C2711_stack",
+			"Linker_C2697_C2710_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40418,7 +40418,7 @@
 			"Linker_C2697_C2698_stack",
 			"Linker_C2698_C2699_arrow",
 			"Linker_C2698_C2699_stack",
-			"Linker_C2698_C2709_stem_pair"
+			"Linker_C2698_C2709_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40439,8 +40439,8 @@
 			"Linker_C2698_C2699_stack",
 			"Linker_C2699_C2700_arrow",
 			"Linker_C2699_C2700_stack",
-			"Linker_C2699_C2708_stem_pair",
-			"Linker_C2699_C2709_stack"
+			"Linker_C2699_C2709_stack",
+			"Linker_C2699_C2708_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40503,8 +40503,8 @@
 			"Linker_C2699_C2700_stack",
 			"Linker_C2700_C2701_arrow",
 			"Linker_C2700_C2701_stack",
-			"Linker_C2700_C2707_stem_pair",
-			"Linker_C2700_C2708_stack"
+			"Linker_C2700_C2708_stack",
+			"Linker_C2700_C2707_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40524,7 +40524,7 @@
 			"Linker_C2700_C2701_arrow",
 			"Linker_C2700_C2701_stack",
 			"Linker_C2701_C2702_arrow",
-			"Linker_C2701_C2706_stem_pair"
+			"Linker_C2701_C2706_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40542,12 +40542,12 @@
 		"relpos": [10.5,-3],
 		"linkers": [
 			"Linker_C1452_C2702_stack",
-			"Linker_C1457_C2702_stem_pair",
+			"Linker_C1462_C2702_C1462_C2702_tertiary_contact_interdomain",
 			"Linker_C1462_C2702_noncanonical_pair",
 			"Linker_C2701_C2702_arrow",
 			"Linker_C2702_C2703_arrow",
 			"Linker_C2702_C2703_stack",
-			"Linker_C1462_C2702_C1462_C2702_tertiary_contact_interdomain"
+			"Linker_C1457_C2702_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_H57_H96d_domain",
@@ -40565,11 +40565,11 @@
 		"rgb_color": [0.2,0.6,0.2],
 		"relpos": [12.75,-0.75],
 		"linkers": [
-			"Linker_C1456_C2703_stem_pair",
 			"Linker_C2702_C2703_arrow",
 			"Linker_C2702_C2703_stack",
 			"Linker_C2703_C2704_arrow",
-			"Linker_C2703_C2704_stack"
+			"Linker_C2703_C2704_stack",
+			"Linker_C1456_C2703_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_H57_H96d_domain",
@@ -40587,12 +40587,12 @@
 		"rgb_color": [0.2,0.6,0.2],
 		"relpos": [12.75,2.25],
 		"linkers": [
-			"Linker_C1455_C2704_stem_pair",
 			"Linker_C1456_C2704_stack",
 			"Linker_C2703_C2704_arrow",
 			"Linker_C2703_C2704_stack",
 			"Linker_C2704_C2705_arrow",
-			"Linker_C2704_C2705_stack"
+			"Linker_C2704_C2705_stack",
+			"Linker_C1455_C2704_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_H57_H96d_domain",
@@ -40629,11 +40629,11 @@
 		"rgb_color": [0.2,0.6,0.2],
 		"relpos": [7.5,3],
 		"linkers": [
-			"Linker_C2701_C2706_stem_pair",
 			"Linker_C2705_C2706_arrow",
 			"Linker_C2705_C2706_stack",
 			"Linker_C2706_C2707_arrow",
-			"Linker_C2706_C2707_stack"
+			"Linker_C2706_C2707_stack",
+			"Linker_C2701_C2706_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40650,11 +40650,11 @@
 		"rgb_color": [0.2,0.6,0.2],
 		"relpos": [4.5,3],
 		"linkers": [
-			"Linker_C2700_C2707_stem_pair",
 			"Linker_C2706_C2707_arrow",
 			"Linker_C2706_C2707_stack",
 			"Linker_C2707_C2708_arrow",
-			"Linker_C2707_C2708_stack"
+			"Linker_C2707_C2708_stack",
+			"Linker_C2700_C2707_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40671,12 +40671,12 @@
 		"rgb_color": [0.2,0.6,0.2],
 		"relpos": [1.5,3],
 		"linkers": [
-			"Linker_C2699_C2708_stem_pair",
 			"Linker_C2700_C2708_stack",
 			"Linker_C2707_C2708_arrow",
 			"Linker_C2707_C2708_stack",
 			"Linker_C2708_C2709_arrow",
-			"Linker_C2708_C2709_stack"
+			"Linker_C2708_C2709_stack",
+			"Linker_C2699_C2708_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40693,12 +40693,12 @@
 		"rgb_color": [0.2,0.6,0.2],
 		"relpos": [-1.5,3],
 		"linkers": [
-			"Linker_C2698_C2709_stem_pair",
 			"Linker_C2699_C2709_stack",
 			"Linker_C2708_C2709_arrow",
 			"Linker_C2708_C2709_stack",
 			"Linker_C2709_C2710_arrow",
-			"Linker_C2709_C2710_stack"
+			"Linker_C2709_C2710_stack",
+			"Linker_C2698_C2709_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40738,11 +40738,11 @@
 		"rgb_color": [0.2,0.6,0.2],
 		"relpos": [-4.5,3],
 		"linkers": [
-			"Linker_C2697_C2710_stem_pair",
 			"Linker_C2709_C2710_arrow",
 			"Linker_C2709_C2710_stack",
 			"Linker_C2710_C2711_arrow",
-			"Linker_C2710_C2711_stack"
+			"Linker_C2710_C2711_stack",
+			"Linker_C2697_C2710_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -40759,12 +40759,12 @@
 		"rgb_color": [0.2,0.6,0.2],
 		"relpos": [-7.5,3],
 		"linkers": [
-			"Linker_C2696_C2711_stem_pair",
 			"Linker_C2697_C2711_stack",
 			"Linker_C2710_C2711_arrow",
 			"Linker_C2710_C2711_stack",
 			"Linker_C2711_C2712_arrow",
-			"Linker_C2711_C2714_stack"
+			"Linker_C2711_C2714_stack",
+			"Linker_C2696_C2711_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Domain_VI_core_domain",
@@ -48057,8 +48057,8 @@
 			"Linker_C406_C407_stack",
 			"Linker_C407_C408_arrow",
 			"Linker_C407_C408_stack",
-			"Linker_C407_C420_stem_pair",
-			"Linker_C407_C421_stack"
+			"Linker_C407_C421_stack",
+			"Linker_C407_C420_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48203,9 +48203,9 @@
 		"linkers": [
 			"Linker_C412_C413_arrow",
 			"Linker_C412_C413_stack",
-			"Linker_C413_C2410_stem_pair",
 			"Linker_C413_C414_arrow",
-			"Linker_C413_C414_stack"
+			"Linker_C413_C414_stack",
+			"Linker_C413_C2410_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48225,9 +48225,9 @@
 		"linkers": [
 			"Linker_C413_C414_arrow",
 			"Linker_C413_C414_stack",
-			"Linker_C414_C2409_stem_pair",
 			"Linker_C414_C415_arrow",
-			"Linker_C414_C415_stack"
+			"Linker_C414_C415_stack",
+			"Linker_C414_C2409_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48247,10 +48247,10 @@
 		"linkers": [
 			"Linker_C414_C415_arrow",
 			"Linker_C414_C415_stack",
-			"Linker_C415_C2408_stem_pair",
 			"Linker_C415_C2409_stack",
 			"Linker_C415_C416_arrow",
-			"Linker_C415_C416_stack"
+			"Linker_C415_C416_stack",
+			"Linker_C415_C2408_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48270,9 +48270,9 @@
 		"linkers": [
 			"Linker_C415_C416_arrow",
 			"Linker_C415_C416_stack",
-			"Linker_C416_C2407_stem_pair",
 			"Linker_C416_C417_arrow",
-			"Linker_C416_C417_stack"
+			"Linker_C416_C417_stack",
+			"Linker_C416_C2407_long_range_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48291,11 +48291,11 @@
 		"relpos": [6,3],
 		"linkers": [
 			"Linker_C228_C417_noncanonical_pair",
-			"Linker_C410_C417_stem_pair",
 			"Linker_C416_C417_arrow",
 			"Linker_C416_C417_stack",
 			"Linker_C417_C418_arrow",
-			"Linker_C417_C418_stack"
+			"Linker_C417_C418_stack",
+			"Linker_C410_C417_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48313,11 +48313,11 @@
 		"relpos": [3,3],
 		"linkers": [
 			"Linker_C227_C418_noncanonical_pair",
-			"Linker_C409_C418_stem_pair",
 			"Linker_C417_C418_arrow",
 			"Linker_C417_C418_stack",
 			"Linker_C418_C419_arrow",
-			"Linker_C418_C419_stack"
+			"Linker_C418_C419_stack",
+			"Linker_C409_C418_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48334,11 +48334,11 @@
 		"rgb_color": [0.75,0,0.75],
 		"relpos": [0,3],
 		"linkers": [
-			"Linker_C408_C419_stem_pair",
 			"Linker_C418_C419_arrow",
 			"Linker_C418_C419_stack",
 			"Linker_C419_C420_arrow",
-			"Linker_C419_C420_stack"
+			"Linker_C419_C420_stack",
+			"Linker_C408_C419_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48378,11 +48378,11 @@
 		"rgb_color": [0.75,0,0.75],
 		"relpos": [-3,3],
 		"linkers": [
-			"Linker_C407_C420_stem_pair",
 			"Linker_C419_C420_arrow",
 			"Linker_C419_C420_stack",
 			"Linker_C420_C421_arrow",
-			"Linker_C420_C421_stack"
+			"Linker_C420_C421_stack",
+			"Linker_C407_C420_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -48399,11 +48399,11 @@
 		"rgb_color": [0.75,0,0.75],
 		"relpos": [-6,3],
 		"linkers": [
-			"Linker_C406_C421_stem_pair",
 			"Linker_C407_C421_stack",
 			"Linker_C420_C421_arrow",
 			"Linker_C420_C421_stack",
-			"Linker_C421_C422_arrow"
+			"Linker_C421_C422_arrow",
+			"Linker_C406_C421_stem_pair"
 		],
 		"associated_selections": [
 			"Selection_Back_Layer_domain",
@@ -108721,11 +108721,11 @@
 		"relpos1": [7.5,-3],
 		"relpos2": [7.5,3]
 	},
-	"Linker_C1455_C2704_stem_pair": {
+	"Linker_C1455_C2704_long_range_stem_pair": {
 		"residue1": "Residue_C1455",
 		"residue2": "Residue_C2704",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1455_C2704_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C1455_C2704_long_range_stem_pair",
 		"relpos1": [
 			[19.3706657,-1.1813454],
 			[22.3706657,-1.1813454],
@@ -108737,11 +108737,11 @@
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C1456_C2703_stem_pair": {
+	"Linker_C1456_C2703_long_range_stem_pair": {
 		"residue1": "Residue_C1456",
 		"residue2": "Residue_C2703",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1456_C2703_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C1456_C2703_long_range_stem_pair",
 		"relpos1": [
 			[18.6206657,2.5686546],
 			[18.6206657,22.0686546],
@@ -108752,11 +108752,11 @@
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C1457_C2702_stem_pair": {
+	"Linker_C1457_C2702_long_range_stem_pair": {
 		"residue1": "Residue_C1457",
 		"residue2": "Residue_C2702",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C1457_C2702_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C1457_C2702_long_range_stem_pair",
 		"relpos1": [
 			[15.6206657,4.8186546],
 			[15.6206657,25.0686546],
@@ -111647,66 +111647,66 @@
 		"relpos1": [6,-3],
 		"relpos2": [6,3]
 	},
-	"Linker_C2696_C2711_stem_pair": {
+	"Linker_C2696_C2711_long_range_stem_pair": {
 		"residue1": "Residue_C2696",
 		"residue2": "Residue_C2711",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C2696_C2711_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C2696_C2711_long_range_stem_pair",
 		"relpos1": [-7.5,-3],
 		"relpos2": [-7.5,3],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C2697_C2710_stem_pair": {
+	"Linker_C2697_C2710_long_range_stem_pair": {
 		"residue1": "Residue_C2697",
 		"residue2": "Residue_C2710",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C2697_C2710_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C2697_C2710_long_range_stem_pair",
 		"relpos1": [-4.5,-3],
 		"relpos2": [-4.5,3],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C2698_C2709_stem_pair": {
+	"Linker_C2698_C2709_long_range_stem_pair": {
 		"residue1": "Residue_C2698",
 		"residue2": "Residue_C2709",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C2698_C2709_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C2698_C2709_long_range_stem_pair",
 		"relpos1": [-1.5,-3],
 		"relpos2": [-1.5,3],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C2699_C2708_stem_pair": {
+	"Linker_C2699_C2708_long_range_stem_pair": {
 		"residue1": "Residue_C2699",
 		"residue2": "Residue_C2708",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C2699_C2708_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C2699_C2708_long_range_stem_pair",
 		"relpos1": [1.5,-3],
 		"relpos2": [1.5,3],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C2700_C2707_stem_pair": {
+	"Linker_C2700_C2707_long_range_stem_pair": {
 		"residue1": "Residue_C2700",
 		"residue2": "Residue_C2707",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C2700_C2707_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C2700_C2707_long_range_stem_pair",
 		"relpos1": [4.5,-3],
 		"relpos2": [4.5,3],
 		"edge1": "W",
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C2701_C2706_stem_pair": {
+	"Linker_C2701_C2706_long_range_stem_pair": {
 		"residue1": "Residue_C2701",
 		"residue2": "Residue_C2706",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C2701_C2706_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C2701_C2706_long_range_stem_pair",
 		"relpos1": [7.5,-3],
 		"relpos2": [7.5,3],
 		"edge1": "W",
@@ -112364,7 +112364,7 @@
 	"Linker_C406_C421_stem_pair": {
 		"residue1": "Residue_C406",
 		"residue2": "Residue_C421",
-		"type": "noncanonical_pair",
+		"type": "stem_pair",
 		"linker_tag": "Linker_C406_C421_stem_pair",
 		"relpos1": [-6,-3],
 		"relpos2": [-6,3],
@@ -112375,7 +112375,7 @@
 	"Linker_C407_C420_stem_pair": {
 		"residue1": "Residue_C407",
 		"residue2": "Residue_C420",
-		"type": "noncanonical_pair",
+		"type": "stem_pair",
 		"linker_tag": "Linker_C407_C420_stem_pair",
 		"relpos1": [-3,-3],
 		"relpos2": [-3,3],
@@ -112386,7 +112386,7 @@
 	"Linker_C408_C419_stem_pair": {
 		"residue1": "Residue_C408",
 		"residue2": "Residue_C419",
-		"type": "noncanonical_pair",
+		"type": "stem_pair",
 		"linker_tag": "Linker_C408_C419_stem_pair",
 		"relpos1": [0,-3],
 		"relpos2": [0,3],
@@ -112397,7 +112397,7 @@
 	"Linker_C409_C418_stem_pair": {
 		"residue1": "Residue_C409",
 		"residue2": "Residue_C418",
-		"type": "noncanonical_pair",
+		"type": "stem_pair",
 		"linker_tag": "Linker_C409_C418_stem_pair",
 		"relpos1": [3,-3],
 		"relpos2": [3,3],
@@ -112416,7 +112416,7 @@
 	"Linker_C410_C417_stem_pair": {
 		"residue1": "Residue_C410",
 		"residue2": "Residue_C417",
-		"type": "noncanonical_pair",
+		"type": "stem_pair",
 		"linker_tag": "Linker_C410_C417_stem_pair",
 		"relpos1": [6,-3],
 		"relpos2": [6,3],
@@ -112424,11 +112424,11 @@
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C413_C2410_stem_pair": {
+	"Linker_C413_C2410_long_range_stem_pair": {
 		"residue1": "Residue_C413",
 		"residue2": "Residue_C2410",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C413_C2410_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C413_C2410_long_range_stem_pair",
 		"relpos1": [
 			[14.25,-1.5],
 			[39,-1.5],
@@ -112443,11 +112443,11 @@
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C414_C2409_stem_pair": {
+	"Linker_C414_C2409_long_range_stem_pair": {
 		"residue1": "Residue_C414",
 		"residue2": "Residue_C2409",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C414_C2409_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C414_C2409_long_range_stem_pair",
 		"relpos1": [
 			[14.25,1.5],
 			[40.5,1.5],
@@ -112462,11 +112462,11 @@
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C415_C2408_stem_pair": {
+	"Linker_C415_C2408_long_range_stem_pair": {
 		"residue1": "Residue_C415",
 		"residue2": "Residue_C2408",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C415_C2408_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C415_C2408_long_range_stem_pair",
 		"relpos1": [
 			[12,4.5],
 			[42.75,4.5],
@@ -112482,11 +112482,11 @@
 		"edge2": "W",
 		"LW_orientation": "C"
 	},
-	"Linker_C416_C2407_stem_pair": {
+	"Linker_C416_C2407_long_range_stem_pair": {
 		"residue1": "Residue_C416",
 		"residue2": "Residue_C2407",
-		"type": "noncanonical_pair",
-		"linker_tag": "Linker_C416_C2407_stem_pair",
+		"type": "long_range_stem_pair",
+		"linker_tag": "Linker_C416_C2407_long_range_stem_pair",
 		"relpos1": [
 			[9,4.5],
 			[9,6.75],

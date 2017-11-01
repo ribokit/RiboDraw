@@ -1,7 +1,9 @@
 function linker = draw_linker( linker )
+if ischar( linker ) & isappdata( gca, linker ) linker = getappdata( gca, linker ); end;
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return if we don't have to make anything
+
 plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( linker, 'line_handle' )     
     residue1 = getappdata( gca, linker.residue1 );
@@ -121,7 +123,7 @@ switch linker.type
                 set( linker.line_handle, 'visible', 'off' ); % convention for G*U in stems is to not show line.
         end
         setappdata( gca, linker.linker_tag, linker );
-    case 'noncanonical_pair'
+    case { 'noncanonical_pair', 'long_range_stem_pair' }
         linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.
         if ( linker.edge1 == linker.edge2 )
             linker.symbol = create_LW_symbol( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
@@ -265,7 +267,7 @@ if strcmp( linker.type, 'tertiary_contact_interdomain' )
     for i = 1:length( plot_pos ) - 1
         segv = plot_pos(i+1,:) - plot_pos(i,:);
         segv = segv/norm(segv);
-        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/8; % rotate
+        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/6; % rotate
         side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
         side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
     end
@@ -281,6 +283,10 @@ set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 % make color informative about *other* domain
 color1 = fade_color( residue2.rgb_color );
 color2 = fade_color( residue1.rgb_color );
+if isfield(plot_settings,'tertiary_contact_domain_coloring' ) & ~plot_settings.tertiary_contact_domain_coloring
+    color1 = [0.9 0.9 0.9];
+    color2 = [0.9 0.9 0.9];
+end
 if strcmp( linker.type, 'tertiary_contact_interdomain' )
     set( linker.node1, 'edgecolor',color1);
     set( linker.node2, 'edgecolor',color2);

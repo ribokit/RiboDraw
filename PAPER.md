@@ -30,3 +30,12 @@ for paper, layout all RNAs from deep chemical profiling study & compare to liter
 
 
 
+### Linker types
+(Show in figure.)
+
+ - stem_pair
+ - noncanonical_pair
+ - tertiary_contact_interdomain
+ - tertiary_contact_intradomain
+ - long_range_stem_pair
+ - ligand

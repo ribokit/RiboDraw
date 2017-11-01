@@ -50,7 +50,7 @@ for i = 1:length( helix_tags )
                     helix.chain2(N-j+1), helix.resnum2(N-j+1) );
                 if isappdata( gca, linker_tag )
                     linker = getappdata( gca, linker_tag );
-                    linker.type = 'noncanonical_pair';
+                    linker.type = 'long_range_stem_pair';
                     linker.edge1 = 'W';
                     linker.edge2 = 'W';
                     linker.LW_orientation = 'C';

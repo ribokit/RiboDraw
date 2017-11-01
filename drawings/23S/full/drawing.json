@@ -123002,14 +123002,8 @@
 		"residue2": "Residue_C2751",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1049_C2751_C1049_C2751_tertiary_contact_interdomain",
-		"relpos1": [
-			[-12,-3],
-			[-12,-4.5]
-		],
-		"relpos2": [
-			[21.75,-100.5],
-			[21.75,-3.995410182e-15]
-		],
+		"relpos1": [-12,-3],
+		"relpos2": [21.75,-3.995410182e-15],
 		"tertiary_contact": "TertiaryContact_C1049_C2751"
 	},
 	"Linker_C10_C2629_C10_C2629_tertiary_contact_interdomain": {
@@ -123017,10 +123011,7 @@
 		"residue2": "Residue_C2629",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C10_C2629_C10_C2629_tertiary_contact_interdomain",
-		"relpos1": [
-			[15,-3],
-			[15,-116.25]
-		],
+		"relpos1": [15,-3],
 		"relpos2": [-12,6],
 		"tertiary_contact": "TertiaryContact_C10_C2629"
 	},
@@ -123029,15 +123020,8 @@
 		"residue2": "Residue_C2463",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1127_C2463_C1127_C2463_tertiary_contact_interdomain",
-		"relpos1": [
-			[-14.25,-6],
-			[-14.25,-7.5],
-			[-45,-7.5]
-		],
-		"relpos2": [
-			[-1.5,-18.75],
-			[-1.5,-3]
-		],
+		"relpos1": [-14.25,-6],
+		"relpos2": [-1.5,-3],
 		"tertiary_contact": "TertiaryContact_C1127_C2463"
 	},
 	"Linker_C1196_C1250_C1196_C1250_tertiary_contact_interdomain": {
@@ -123054,15 +123038,8 @@
 		"residue2": "Residue_C2214",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1360_C2214_C1360_C2214_tertiary_contact_interdomain",
-		"relpos1": [
-			[-6,-3],
-			[-7.8186546,-2.8706657],
-			[-7.8186546,62.3793343]
-		],
-		"relpos2": [
-			[9.75,-157.5],
-			[10.5,3]
-		],
+		"relpos1": [-6,-3],
+		"relpos2": [10.5,3],
 		"tertiary_contact": "TertiaryContact_C1360_C2214"
 	},
 	"Linker_C1363_C1809_C1363_C1809_tertiary_contact_interdomain": {
@@ -123070,16 +123047,8 @@
 		"residue2": "Residue_C1809",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1363_C1809_C1363_C1809_tertiary_contact_interdomain",
-		"relpos1": [
-			[3,-3],
-			[2.6813454,-130.3706657]
-		],
-		"relpos2": [
-			[-54.75,-27],
-			[-54.75,15.75],
-			[9,16.5],
-			[9,1.5]
-		],
+		"relpos1": [3,-3],
+		"relpos2": [9,1.5],
 		"tertiary_contact": "TertiaryContact_C1363_C1809"
 	},
 	"Linker_C1462_C2702_C1462_C2702_tertiary_contact_interdomain": {
@@ -123087,15 +123056,8 @@
 		"residue2": "Residue_C2702",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1462_C2702_C1462_C2702_tertiary_contact_interdomain",
-		"relpos1": [
-			[4.5,3],
-			[5.1206657,28.0686546],
-			[326.1206657,29.5686546]
-		],
-		"relpos2": [
-			[10.5,-6.75],
-			[10.5,-3]
-		],
+		"relpos1": [4.5,3],
+		"relpos2": [10.5,-3],
 		"tertiary_contact": "TertiaryContact_C1462_C2702"
 	},
 	"Linker_C1516_C1732_C1516_C1732_tertiary_contact_interdomain": {
@@ -123103,14 +123065,8 @@
 		"residue2": "Residue_C1732",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1516_C1732_C1516_C1732_tertiary_contact_interdomain",
-		"relpos1": [
-			[7.5,3],
-			[7.6293343,10.8186546]
-		],
-		"relpos2": [
-			[91.5,6],
-			[6.75,6]
-		],
+		"relpos1": [7.5,3],
+		"relpos2": [6.75,6],
 		"tertiary_contact": "TertiaryContact_C1516_C1732"
 	},
 	"Linker_C160_C2208_C160_C2208_tertiary_contact_interdomain": {
@@ -123118,15 +123074,8 @@
 		"residue2": "Residue_C2208",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C160_C2208_C160_C2208_tertiary_contact_interdomain",
-		"relpos1": [
-			[18,-3],
-			[18,-6.75],
-			[39.75,-6.75]
-		],
-		"relpos2": [
-			[5.25,-149.25],
-			[4.5,-3]
-		],
+		"relpos1": [18,-3],
+		"relpos2": [4.5,-3],
 		"tertiary_contact": "TertiaryContact_C160_C2208"
 	},
 	"Linker_C1636_C1760_C1636_C1760_tertiary_contact_interdomain": {
@@ -123134,15 +123083,8 @@
 		"residue2": "Residue_C1760",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1636_C1760_C1636_C1760_tertiary_contact_interdomain",
-		"relpos1": [
-			[4.5,3],
-			[4.8186546,176.1206657]
-		],
-		"relpos2": [
-			[-26.25,-9],
-			[-26.25,-4.5],
-			[-24,-4.5]
-		],
+		"relpos1": [4.5,3],
+		"relpos2": [-24,-4.5],
 		"tertiary_contact": "TertiaryContact_C1636_C1760"
 	},
 	"Linker_C1660_C2689_C1660_C2689_tertiary_contact_interdomain": {
@@ -123150,17 +123092,8 @@
 		"residue2": "Residue_C2689",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1660_C2689_C1660_C2689_tertiary_contact_interdomain",
-		"relpos1": [
-			[1.5,-3],
-			[-0.75,-3],
-			[-0.75,63]
-		],
-		"relpos2": [
-			[150,42.75],
-			[150,-11.25],
-			[10.5,-10.5],
-			[10.5,-4.5]
-		],
+		"relpos1": [1.5,-3],
+		"relpos2": [10.5,-4.5],
 		"tertiary_contact": "TertiaryContact_C1660_C2689"
 	},
 	"Linker_C1680_C1763_C1680_C1763_tertiary_contact_interdomain": {
@@ -123168,14 +123101,8 @@
 		"residue2": "Residue_C1763",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1680_C1763_C1680_C1763_tertiary_contact_interdomain",
-		"relpos1": [
-			[26.25,-0.75],
-			[24,-0.75]
-		],
-		"relpos2": [
-			[-27,-10.5],
-			[-18,-9.75]
-		],
+		"relpos1": [26.25,-0.75],
+		"relpos2": [-18,-9.75],
 		"tertiary_contact": "TertiaryContact_C1680_C1763"
 	},
 	"Linker_C1693_C1829_C1693_C1829_tertiary_contact_interdomain": {
@@ -123183,14 +123110,8 @@
 		"residue2": "Residue_C1829",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1693_C1829_C1693_C1829_tertiary_contact_interdomain",
-		"relpos1": [
-			[27,-2.25],
-			[136.5,-1.5]
-		],
-		"relpos2": [
-			[-7.5,-12],
-			[-7.5,-3]
-		],
+		"relpos1": [27,-2.25],
+		"relpos2": [-7.5,-3],
 		"tertiary_contact": "TertiaryContact_C1693_C1829"
 	},
 	"Linker_C1750_C2860_C1750_C2860_tertiary_contact_interdomain": {
@@ -123198,15 +123119,8 @@
 		"residue2": "Residue_C2860",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1750_C2860_C1750_C2860_tertiary_contact_interdomain",
-		"relpos1": [
-			[-4.5,3],
-			[-4.5,36.75]
-		],
-		"relpos2": [
-			[7.5,-16.5],
-			[7.5,3],
-			[9,3]
-		],
+		"relpos1": [-4.5,3],
+		"relpos2": [9,3],
 		"tertiary_contact": "TertiaryContact_C1750_C2860"
 	},
 	"Linker_C1755_C2694_C1755_C2694_tertiary_contact_interdomain": {
@@ -123214,15 +123128,8 @@
 		"residue2": "Residue_C2694",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1755_C2694_C1755_C2694_tertiary_contact_interdomain",
-		"relpos1": [
-			[-13.5,-2.25],
-			[-19.5,-2.25],
-			[-20.25,85.5]
-		],
-		"relpos2": [
-			[3,-8.25],
-			[3,-3]
-		],
+		"relpos1": [-13.5,-2.25],
+		"relpos2": [3,-3],
 		"tertiary_contact": "TertiaryContact_C1755_C2694"
 	},
 	"Linker_C1779_C2588_C1779_C2588_tertiary_contact_interdomain": {
@@ -123230,10 +123137,7 @@
 		"residue2": "Residue_C2588",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1779_C2588_C1779_C2588_tertiary_contact_interdomain",
-		"relpos1": [
-			[7.5,-3],
-			[7.5,-72.75]
-		],
+		"relpos1": [7.5,-3],
 		"relpos2": [-4.5,-3],
 		"tertiary_contact": "TertiaryContact_C1779_C2588"
 	},
@@ -123242,16 +123146,8 @@
 		"residue2": "Residue_C1365",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C187_C1365_C187_C1365_tertiary_contact_interdomain",
-		"relpos1": [
-			[3,-3],
-			[3.1875,-12.1875],
-			[6.1875,-12.1875],
-			[6.1875,-46.6875]
-		],
-		"relpos2": [
-			[8.6813454,-76.3706657],
-			[9,-1.5]
-		],
+		"relpos1": [3,-3],
+		"relpos2": [9,-1.5],
 		"tertiary_contact": "TertiaryContact_C187_C1365"
 	},
 	"Linker_C1889_C2086_C1889_C2086_tertiary_contact_interdomain": {
@@ -123259,11 +123155,7 @@
 		"residue2": "Residue_C2086",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1889_C2086_C1889_C2086_tertiary_contact_interdomain",
-		"relpos1": [
-			[9,3],
-			[9,33],
-			[-54.75,33]
-		],
+		"relpos1": [9,3],
 		"relpos2": [-9,-3],
 		"tertiary_contact": "TertiaryContact_C1889_C2086"
 	},
@@ -123272,14 +123164,8 @@
 		"residue2": "Residue_C679",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C190_C679_C190_C679_tertiary_contact_interdomain",
-		"relpos1": [
-			[12,-3],
-			[12,-144]
-		],
-		"relpos2": [
-			[-4.5,-18],
-			[-4.5,-3]
-		],
+		"relpos1": [12,-3],
+		"relpos2": [-4.5,-3],
 		"tertiary_contact": "TertiaryContact_C190_C679"
 	},
 	"Linker_C1938_C2605_C1938_C2605_tertiary_contact_interdomain": {
@@ -123287,14 +123173,8 @@
 		"residue2": "Residue_C2605",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1938_C2605_C1938_C2605_tertiary_contact_interdomain",
-		"relpos1": [
-			[-21.75,12],
-			[-70.5,12]
-		],
-		"relpos2": [
-			[0.75,3],
-			[-1.5,3]
-		],
+		"relpos1": [-21.75,12],
+		"relpos2": [-1.5,3],
 		"tertiary_contact": "TertiaryContact_C1938_C2605"
 	},
 	"Linker_C1955_C2556_C1955_C2556_tertiary_contact_interdomain": {
@@ -123302,15 +123182,8 @@
 		"residue2": "Residue_C2556",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C1955_C2556_C1955_C2556_tertiary_contact_interdomain",
-		"relpos1": [
-			[10.5,3],
-			[12,3],
-			[12,-28.5]
-		],
-		"relpos2": [
-			[9,5.25],
-			[9,3]
-		],
+		"relpos1": [10.5,3],
+		"relpos2": [9,3],
 		"tertiary_contact": "TertiaryContact_C1955_C2556"
 	},
 	"Linker_C196_C831_C196_C831_tertiary_contact_interdomain": {
@@ -123318,16 +123191,8 @@
 		"residue2": "Residue_C831",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C196_C831_C196_C831_tertiary_contact_interdomain",
-		"relpos1": [
-			[29.25,-3.75],
-			[37.5,-3.75],
-			[37.5,98.25]
-		],
-		"relpos2": [
-			[-343.5,50.25],
-			[6,48],
-			[6,3]
-		],
+		"relpos1": [29.25,-3.75],
+		"relpos2": [6,3],
 		"tertiary_contact": "TertiaryContact_C196_C831"
 	},
 	"Linker_C199_C2078_C199_C2078_tertiary_contact_interdomain": {
@@ -123335,15 +123200,8 @@
 		"residue2": "Residue_C2078",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C199_C2078_C199_C2078_tertiary_contact_interdomain",
-		"relpos1": [
-			[29.25,5.25],
-			[29.25,33.75]
-		],
-		"relpos2": [
-			[176.25,-50.25],
-			[-3,-49.5],
-			[-3,-3]
-		],
+		"relpos1": [29.25,5.25],
+		"relpos2": [-3,-3],
 		"tertiary_contact": "TertiaryContact_C199_C2078"
 	},
 	"Linker_C2013_C2613_C2013_C2613_tertiary_contact_interdomain": {
@@ -123351,15 +123209,8 @@
 		"residue2": "Residue_C2613",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2013_C2613_C2013_C2613_tertiary_contact_interdomain",
-		"relpos1": [
-			[-7.5,3],
-			[-6,3],
-			[-6,-9.75]
-		],
-		"relpos2": [
-			[-7.347880795e-16,6],
-			[-2.25,6]
-		],
+		"relpos1": [-7.5,3],
+		"relpos2": [-2.25,6],
 		"tertiary_contact": "TertiaryContact_C2013_C2613"
 	},
 	"Linker_C2031_C2455_C2031_C2455_tertiary_contact_interdomain": {
@@ -123367,14 +123218,8 @@
 		"residue2": "Residue_C2455",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2031_C2455_C2031_C2455_tertiary_contact_interdomain",
-		"relpos1": [
-			[15,1.5],
-			[57.75,1.5]
-		],
-		"relpos2": [
-			[-1.5,-3],
-			[-3,-3]
-		],
+		"relpos1": [15,1.5],
+		"relpos2": [-3,-3],
 		"tertiary_contact": "TertiaryContact_C2031_C2455"
 	},
 	"Linker_C2047_C2823_C2047_C2823_tertiary_contact_interdomain": {
@@ -123382,15 +123227,8 @@
 		"residue2": "Residue_C2823",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2047_C2823_C2047_C2823_tertiary_contact_interdomain",
-		"relpos1": [
-			[1.5,-3],
-			[1.5,-13.5],
-			[6,-13.5]
-		],
-		"relpos2": [
-			[51.75,-1.5],
-			[14.25,-1.5]
-		],
+		"relpos1": [1.5,-3],
+		"relpos2": [14.25,-1.5],
 		"tertiary_contact": "TertiaryContact_C2047_C2823"
 	},
 	"Linker_C2255_C2275_C2255_C2275_tertiary_contact_interdomain": {
@@ -123398,15 +123236,8 @@
 		"residue2": "Residue_C2275",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2255_C2275_C2255_C2275_tertiary_contact_interdomain",
-		"relpos1": [
-			[6,3],
-			[7.5,3]
-		],
-		"relpos2": [
-			[7.5,11.25],
-			[7.5,6],
-			[9,6]
-		],
+		"relpos1": [6,3],
+		"relpos2": [9,6],
 		"tertiary_contact": "TertiaryContact_C2255_C2275"
 	},
 	"Linker_C2282_C2427_C2282_C2427_tertiary_contact_interdomain": {
@@ -123415,10 +123246,7 @@
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2282_C2427_C2282_C2427_tertiary_contact_interdomain",
 		"relpos1": [-7.5,6.75],
-		"relpos2": [
-			[-15.75,19.5],
-			[5.25,19.5]
-		],
+		"relpos2": [5.25,19.5],
 		"tertiary_contact": "TertiaryContact_C2282_C2427"
 	},
 	"Linker_C228_C2407_C228_C2407_tertiary_contact_interdomain": {
@@ -123426,19 +123254,8 @@
 		"residue2": "Residue_C2407",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C228_C2407_C228_C2407_tertiary_contact_interdomain",
-		"relpos1": [
-			[7.5,1.5],
-			[15,1.5],
-			[15,-8.25],
-			[49.5,-8.25],
-			[49.5,-55.5]
-		],
-		"relpos2": [
-			[198.75,79.5],
-			[24,78],
-			[23.25,-3.75],
-			[12,-3.75]
-		],
+		"relpos1": [7.5,1.5],
+		"relpos2": [12,-3.75],
 		"tertiary_contact": "TertiaryContact_C228_C2407"
 	},
 	"Linker_C2359_C2428_C2359_C2428_tertiary_contact_interdomain": {
@@ -123446,15 +123263,8 @@
 		"residue2": "Residue_C2428",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2359_C2428_C2359_C2428_tertiary_contact_interdomain",
-		"relpos1": [
-			[10.5,2.25],
-			[10.5,6.429395696e-16],
-			[39,2.388061258e-15]
-		],
-		"relpos2": [
-			[8.25,23.25],
-			[8.25,20.25]
-		],
+		"relpos1": [10.5,2.25],
+		"relpos2": [8.25,20.25],
 		"tertiary_contact": "TertiaryContact_C2359_C2428"
 	},
 	"Linker_C238_C608_C238_C608_tertiary_contact_interdomain": {
@@ -123462,15 +123272,8 @@
 		"residue2": "Residue_C608",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C238_C608_C238_C608_tertiary_contact_interdomain",
-		"relpos1": [
-			[3,-3],
-			[3,-5.25],
-			[-30.75,-4.5]
-		],
-		"relpos2": [
-			[9,-61.5],
-			[9,-3]
-		],
+		"relpos1": [3,-3],
+		"relpos2": [9,-3],
 		"tertiary_contact": "TertiaryContact_C238_C608"
 	},
 	"Linker_C2391_C2429_C2391_C2429_tertiary_contact_interdomain": {
@@ -123478,14 +123281,8 @@
 		"residue2": "Residue_C2429",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2391_C2429_C2391_C2429_tertiary_contact_interdomain",
-		"relpos1": [
-			[-21,-3],
-			[-18,-3]
-		],
-		"relpos2": [
-			[9.75,20.25],
-			[12,20.25]
-		],
+		"relpos1": [-21,-3],
+		"relpos2": [12,20.25],
 		"tertiary_contact": "TertiaryContact_C2391_C2429"
 	},
 	"Linker_C2531_C2662_C2531_C2662_tertiary_contact_interdomain": {
@@ -123494,10 +123291,7 @@
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2531_C2662_C2531_C2662_tertiary_contact_interdomain",
 		"relpos1": [16.5,-2.25],
-		"relpos2": [
-			[48.75,3],
-			[27,3]
-		],
+		"relpos2": [27,3],
 		"tertiary_contact": "TertiaryContact_C2531_C2662"
 	},
 	"Linker_C2541_C2765_C2541_C2765_tertiary_contact_interdomain": {
@@ -123506,10 +123300,7 @@
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2541_C2765_C2541_C2765_tertiary_contact_interdomain",
 		"relpos1": [-8.25,6],
-		"relpos2": [
-			[9,49.5],
-			[9,3]
-		],
+		"relpos2": [9,3],
 		"tertiary_contact": "TertiaryContact_C2541_C2765"
 	},
 	"Linker_C2720_C2873_C2720_C2873_tertiary_contact_interdomain": {
@@ -123517,15 +123308,8 @@
 		"residue2": "Residue_C2873",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2720_C2873_C2720_C2873_tertiary_contact_interdomain",
-		"relpos1": [
-			[10.5,3],
-			[9,3],
-			[9,-14.25]
-		],
-		"relpos2": [
-			[7.5,35.25],
-			[7.5,5.25]
-		],
+		"relpos1": [10.5,3],
+		"relpos2": [7.5,5.25],
 		"tertiary_contact": "TertiaryContact_C2720_C2873"
 	},
 	"Linker_C2788_C2809_C2788_C2809_tertiary_contact_interdomain": {
@@ -123533,16 +123317,8 @@
 		"residue2": "Residue_C2809",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C2788_C2809_C2788_C2809_tertiary_contact_interdomain",
-		"relpos1": [
-			[-9,3],
-			[-17.25,3],
-			[-17.25,-6]
-		],
-		"relpos2": [
-			[-9,12.75],
-			[-9,5.510910596e-16],
-			[-7.5,4.592425497e-16]
-		],
+		"relpos1": [-9,3],
+		"relpos2": [-7.5,4.592425497e-16],
 		"tertiary_contact": "TertiaryContact_C2788_C2809"
 	},
 	"Linker_C30_C1214_C30_C1214_tertiary_contact_interdomain": {
@@ -123550,18 +123326,8 @@
 		"residue2": "Residue_C1214",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C30_C1214_C30_C1214_tertiary_contact_interdomain",
-		"relpos1": [
-			[-4.5,-3],
-			[-4.5,-6],
-			[-15,-6],
-			[-15.75,-86.25],
-			[-248.25,-85.5]
-		],
-		"relpos2": [
-			[16.5,-4.5],
-			[-13.5,-4.5],
-			[-13.5,-3]
-		],
+		"relpos1": [-4.5,-3],
+		"relpos2": [-13.5,-3],
 		"tertiary_contact": "TertiaryContact_C30_C1214"
 	},
 	"Linker_C412_C2411_C412_C2411_tertiary_contact_interdomain": {
@@ -123569,16 +123335,8 @@
 		"residue2": "Residue_C2411",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C412_C2411_C412_C2411_tertiary_contact_interdomain",
-		"relpos1": [
-			[12,-3.75],
-			[37.5,-3.75],
-			[37.5,-29.25],
-			[-224.25,-30]
-		],
-		"relpos2": [
-			[8.25,86.25],
-			[8.25,3]
-		],
+		"relpos1": [12,-3.75],
+		"relpos2": [8.25,3],
 		"tertiary_contact": "TertiaryContact_C412_C2411"
 	},
 	"Linker_C448_C1258_C448_C1258_tertiary_contact_interdomain": {
@@ -123586,10 +123344,7 @@
 		"residue2": "Residue_C1258",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C448_C1258_C448_C1258_tertiary_contact_interdomain",
-		"relpos1": [
-			[-9,-0.75],
-			[-9,-8.25]
-		],
+		"relpos1": [-9,-0.75],
 		"relpos2": [1.5,3],
 		"tertiary_contact": "TertiaryContact_C448_C1258"
 	},
@@ -123599,11 +123354,7 @@
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C466_C683_C466_C683_tertiary_contact_interdomain",
 		"relpos1": [4.5,3],
-		"relpos2": [
-			[19.5,-13.5],
-			[7.5,-13.5],
-			[7.5,-3]
-		],
+		"relpos2": [7.5,-3],
 		"tertiary_contact": "TertiaryContact_C466_C683"
 	},
 	"Linker_C515_C1260_C515_C1260_tertiary_contact_interdomain": {
@@ -123611,15 +123362,8 @@
 		"residue2": "Residue_C1260",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C515_C1260_C515_C1260_tertiary_contact_interdomain",
-		"relpos1": [
-			[16.5,3],
-			[16.5,9.75]
-		],
-		"relpos2": [
-			[1.377727649e-15,7.5],
-			[-4.5,7.5],
-			[-4.5,3]
-		],
+		"relpos1": [16.5,3],
+		"relpos2": [-4.5,3],
 		"tertiary_contact": "TertiaryContact_C515_C1260"
 	},
 	"Linker_C586_C1251_C586_C1251_tertiary_contact_interdomain": {
@@ -123627,16 +123371,8 @@
 		"residue2": "Residue_C1251",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C586_C1251_C586_C1251_tertiary_contact_interdomain",
-		"relpos1": [
-			[-25.5,-14.25],
-			[-25.5,-75.75],
-			[24,-75.75],
-			[24,-138.75]
-		],
-		"relpos2": [
-			[-24,70.5],
-			[-24,12]
-		],
+		"relpos1": [-25.5,-14.25],
+		"relpos2": [-24,12],
 		"tertiary_contact": "TertiaryContact_C586_C1251"
 	},
 	"Linker_C646_C2367_C646_C2367_tertiary_contact_interdomain": {
@@ -123644,16 +123380,8 @@
 		"residue2": "Residue_C2367",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C646_C2367_C646_C2367_tertiary_contact_interdomain",
-		"relpos1": [
-			[7.5,8.25],
-			[134.25,7.5]
-		],
-		"relpos2": [
-			[-9.75,115.5],
-			[-9,22.5],
-			[4.5,22.5],
-			[4.5,3]
-		],
+		"relpos1": [7.5,8.25],
+		"relpos2": [4.5,3],
 		"tertiary_contact": "TertiaryContact_C646_C2367"
 	},
 	"Linker_C687_C1780_C687_C1780_tertiary_contact_interdomain": {
@@ -123661,14 +123389,8 @@
 		"residue2": "Residue_C1780",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C687_C1780_C687_C1780_tertiary_contact_interdomain",
-		"relpos1": [
-			[-18,-2.25],
-			[-18,-57.75]
-		],
-		"relpos2": [
-			[9.75,5.25],
-			[9.75,-4.5]
-		],
+		"relpos1": [-18,-2.25],
+		"relpos2": [9.75,-4.5],
 		"tertiary_contact": "TertiaryContact_C687_C1780"
 	},
 	"Linker_C700_C1632_C700_C1632_tertiary_contact_interdomain": {
@@ -123676,14 +123398,8 @@
 		"residue2": "Residue_C1632",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C700_C1632_C700_C1632_tertiary_contact_interdomain",
-		"relpos1": [
-			[-3,-3],
-			[-3,-9]
-		],
-		"relpos2": [
-			[11.5686546,117.6206657],
-			[11.25,-1.5]
-		],
+		"relpos1": [-3,-3],
+		"relpos2": [11.25,-1.5],
 		"tertiary_contact": "TertiaryContact_C700_C1632"
 	},
 	"Linker_C729_C1774_C729_C1774_tertiary_contact_interdomain": {
@@ -123691,15 +123407,8 @@
 		"residue2": "Residue_C1774",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C729_C1774_C729_C1774_tertiary_contact_interdomain",
-		"relpos1": [
-			[4.5,6],
-			[4.5,-91.5]
-		],
-		"relpos2": [
-			[-6,8.25],
-			[-6,-3],
-			[-7.5,-3]
-		],
+		"relpos1": [4.5,6],
+		"relpos2": [-7.5,-3],
 		"tertiary_contact": "TertiaryContact_C729_C1774"
 	},
 	"Linker_C747_C2014_C747_C2014_tertiary_contact_interdomain": {
@@ -123707,14 +123416,8 @@
 		"residue2": "Residue_C2014",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C747_C2014_C747_C2014_tertiary_contact_interdomain",
-		"relpos1": [
-			[15,-3],
-			[18,-3]
-		],
-		"relpos2": [
-			[-12,3],
-			[-10.5,3]
-		],
+		"relpos1": [15,-3],
+		"relpos2": [-10.5,3],
 		"tertiary_contact": "TertiaryContact_C747_C2014"
 	},
 	"Linker_C752_C2609_C752_C2609_tertiary_contact_interdomain": {
@@ -123722,16 +123425,8 @@
 		"residue2": "Residue_C2609",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C752_C2609_C752_C2609_tertiary_contact_interdomain",
-		"relpos1": [
-			[6.75,6.75],
-			[6,10.5],
-			[24.75,10.5],
-			[24.75,-9.75]
-		],
-		"relpos2": [
-			[9.75,3],
-			[7.5,3]
-		],
+		"relpos1": [6.75,6.75],
+		"relpos2": [7.5,3],
 		"tertiary_contact": "TertiaryContact_C752_C2609"
 	},
 	"Linker_C758_C1981_C758_C1981_tertiary_contact_interdomain": {
@@ -123739,14 +123434,8 @@
 		"residue2": "Residue_C1981",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C758_C1981_C758_C1981_tertiary_contact_interdomain",
-		"relpos1": [
-			[3,3],
-			[3,13.5]
-		],
-		"relpos2": [
-			[-41.25,6],
-			[11.25,6.75]
-		],
+		"relpos1": [3,3],
+		"relpos2": [11.25,6.75],
 		"tertiary_contact": "TertiaryContact_C758_C1981"
 	},
 	"Linker_C770_C1354_C770_C1354_tertiary_contact_interdomain": {
@@ -123754,14 +123443,8 @@
 		"residue2": "Residue_C1354",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C770_C1354_C770_C1354_tertiary_contact_interdomain",
-		"relpos1": [
-			[-3,3],
-			[-3,7.5]
-		],
-		"relpos2": [
-			[-6.3186546,-198.6206657],
-			[-6,-3]
-		],
+		"relpos1": [-3,3],
+		"relpos2": [-6,-3],
 		"tertiary_contact": "TertiaryContact_C770_C1354"
 	},
 	"Linker_C781_C1776_C781_C1776_tertiary_contact_interdomain": {
@@ -123769,16 +123452,8 @@
 		"residue2": "Residue_C1776",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C781_C1776_C781_C1776_tertiary_contact_interdomain",
-		"relpos1": [
-			[9,-2.25],
-			[10.5,-2.25],
-			[11.25,-69.75]
-		],
-		"relpos2": [
-			[-3.673940397e-16,6],
-			[1.836970199e-16,-3],
-			[-1.5,-3]
-		],
+		"relpos1": [9,-2.25],
+		"relpos2": [-1.5,-3],
 		"tertiary_contact": "TertiaryContact_C781_C1776"
 	},
 	"Linker_C807_C2060_C807_C2060_tertiary_contact_interdomain": {
@@ -123786,10 +123461,7 @@
 		"residue2": "Residue_C2060",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C807_C2060_C807_C2060_tertiary_contact_interdomain",
-		"relpos1": [
-			[4.5,3],
-			[4.5,43.5]
-		],
+		"relpos1": [4.5,3],
 		"relpos2": [10.5,-3],
 		"tertiary_contact": "TertiaryContact_C807_C2060"
 	},
@@ -123798,16 +123470,8 @@
 		"residue2": "Residue_C1254",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C808_C1254_C808_C1254_tertiary_contact_interdomain",
-		"relpos1": [
-			[1.5,3],
-			[1.5,72],
-			[-48.75,72],
-			[-48.75,135]
-		],
-		"relpos2": [
-			[-29.25,12],
-			[-31.5,12]
-		],
+		"relpos1": [1.5,3],
+		"relpos2": [-31.5,12],
 		"tertiary_contact": "TertiaryContact_C808_C1254"
 	},
 	"Linker_C813_C1225_C813_C1225_tertiary_contact_interdomain": {
@@ -123816,11 +123480,7 @@
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C813_C1225_C813_C1225_tertiary_contact_interdomain",
 		"relpos1": [-4.5,-3],
-		"relpos2": [
-			[9.75,12],
-			[16.5,12],
-			[16.5,1.5]
-		],
+		"relpos2": [16.5,1.5],
 		"tertiary_contact": "TertiaryContact_C813_C1225"
 	},
 	"Linker_C830_C2449_C830_C2449_tertiary_contact_interdomain": {
@@ -123828,15 +123488,8 @@
 		"residue2": "Residue_C2449",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C830_C2449_C830_C2449_tertiary_contact_interdomain",
-		"relpos1": [
-			[9,3],
-			[7.5,3],
-			[7.5,-13.5]
-		],
-		"relpos2": [
-			[-8.25,58.5],
-			[-8.25,3]
-		],
+		"relpos1": [9,3],
+		"relpos2": [-8.25,3],
 		"tertiary_contact": "TertiaryContact_C830_C2449"
 	},
 	"Linker_C918_C2268_C918_C2268_tertiary_contact_interdomain": {
@@ -123844,15 +123497,8 @@
 		"residue2": "Residue_C2268",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C918_C2268_C918_C2268_tertiary_contact_interdomain",
-		"relpos1": [
-			[-13.5,3],
-			[-13.5,12]
-		],
-		"relpos2": [
-			[58.5,-21],
-			[19.5,-21],
-			[19.5,-3]
-		],
+		"relpos1": [-13.5,3],
+		"relpos2": [19.5,-3],
 		"tertiary_contact": "TertiaryContact_C918_C2268"
 	},
 	"Linker_C952_C2267_C952_C2267_tertiary_contact_interdomain": {
@@ -123860,15 +123506,8 @@
 		"residue2": "Residue_C2267",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C952_C2267_C952_C2267_tertiary_contact_interdomain",
-		"relpos1": [
-			[4.5,-3],
-			[4.5,-12],
-			[-108.75,-12]
-		],
-		"relpos2": [
-			[16.5,-36.75],
-			[16.5,-3]
-		],
+		"relpos1": [4.5,-3],
+		"relpos2": [16.5,-3],
 		"tertiary_contact": "TertiaryContact_C952_C2267"
 	},
 	"Linker_C957_C2459_C957_C2459_tertiary_contact_interdomain": {
@@ -123876,15 +123515,8 @@
 		"residue2": "Residue_C2459",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C957_C2459_C957_C2459_tertiary_contact_interdomain",
-		"relpos1": [
-			[19.35930539,-3],
-			[19.5,-21.75]
-		],
-		"relpos2": [
-			[-18,-24],
-			[-18,-3],
-			[-16.5,-3]
-		],
+		"relpos1": [19.35930539,-3],
+		"relpos2": [-16.5,-3],
 		"tertiary_contact": "TertiaryContact_C957_C2459"
 	},
 	"Linker_C962_C2250_C962_C2250_tertiary_contact_interdomain": {
@@ -123892,15 +123524,8 @@
 		"residue2": "Residue_C2250",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C962_C2250_C962_C2250_tertiary_contact_interdomain",
-		"relpos1": [
-			[13.5,3],
-			[12,3],
-			[12,-15]
-		],
-		"relpos2": [
-			[9,15],
-			[9,-3]
-		],
+		"relpos1": [13.5,3],
+		"relpos2": [9,-3],
 		"tertiary_contact": "TertiaryContact_C962_C2250"
 	},
 	"Linker_C981_C2027_C981_C2027_tertiary_contact_interdomain": {
@@ -123908,18 +123533,8 @@
 		"residue2": "Residue_C2027",
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C981_C2027_C981_C2027_tertiary_contact_interdomain",
-		"relpos1": [
-			[12,-0.75],
-			[12,-65.25],
-			[60,-65.25],
-			[59.25,-258.75]
-		],
-		"relpos2": [
-			[2.25,84.75],
-			[2.25,-5.25],
-			[6,-5.25],
-			[6,-3]
-		],
+		"relpos1": [12,-0.75],
+		"relpos2": [6,-3],
 		"tertiary_contact": "TertiaryContact_C981_C2027"
 	},
 	"Linker_C9_C2800_C9_C2800_tertiary_contact_interdomain": {
@@ -123928,11 +123543,7 @@
 		"type": "tertiary_contact_interdomain",
 		"linker_tag": "Linker_C9_C2800_C9_C2800_tertiary_contact_interdomain",
 		"relpos1": [12.75,-6.75],
-		"relpos2": [
-			[32.25,-14.25],
-			[32.25,6],
-			[7.5,6]
-		],
+		"relpos2": [7.5,6],
 		"tertiary_contact": "TertiaryContact_C9_C2800"
 	},
 	"Linker_C1127_C1028_C1127_C2463_tertiary_contact_intradomain": {
@@ -142953,7 +142564,8 @@
 		"type": "domain",
 		"name": "H37-38",
 		"label_relpos": [-69,-19.875],
-		"rgb_color": [1,1,1]
+		"rgb_color": [1,1,1],
+		"label_visible": 0
 	},
 	"Selection_H41_H45_domain": {
 		"associated_residues": [
@@ -143160,7 +142772,8 @@
 		"type": "domain",
 		"name": "H41-H45",
 		"label_relpos": [-86.125,-45.375],
-		"rgb_color": [1,1,1]
+		"rgb_color": [1,1,1],
+		"label_visible": 0
 	},
 	"Selection_Middle_Layer_domain": {
 		"associated_residues": [
@@ -145175,9 +144788,10 @@
 		"show_coax_controls": 0,
 		"show_selection_controls": 0,
 		"show_interdomain_noncanonical_pairs": 0,
-		"boldface": 1
+		"boldface": 1,
+		"tertiary_contact_domain_coloring": 1
 	},
 	"xlim": [-213.375,416.25],
 	"ylim": [-385.275,351.3],
-	"window_position": [289,-389,1295,1344]
+	"window_position": [322,1,1295,1344]
 }

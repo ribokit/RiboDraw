@@ -8,12 +8,12 @@ for i = 1:length( coaxial_stacks )
     for j = 1:length( coax_pairs )
         coax_pair = coax_pairs{j};
         
-        res_tag = sprintf( 'Residue_%s%d', coax_pair.chain1, coax_pair.resnum1 );
+        res_tag = sprintf( 'Residue_%s%s%d', coax_pair.chain1, coax_pair.segid1, coax_pair.resnum1 );
         residue = getappdata( gca, res_tag );
         set( residue.handle, 'color', coax_color );
         all_pos1(j,:) = residue.plot_pos;
 
-        res_tag = sprintf( 'Residue_%s%d', coax_pair.chain2, coax_pair.resnum2 );
+        res_tag = sprintf( 'Residue_%s%s%d', coax_pair.chain2, coax_pair.segid2, coax_pair.resnum2 );
         residue = getappdata( gca, res_tag );
         set( residue.handle, 'color', coax_color );
         all_pos2(j,:) = residue.plot_pos;

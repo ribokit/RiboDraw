@@ -55,10 +55,10 @@ obj_name = '';
 if strcmp( selection, 'all' )
     res_tags = get_tags( 'Residue_' );
 else
-    [resnum,chains,ok] = get_resnum_from_tag( selection );
+    [resnum,chains,segid,ok] = get_resnum_from_tag( selection );
     if ok 
         for i = 1:length( resnum )
-            res_tag = sprintf( 'Residue_%s%d', chains(i), resnum(i) );
+            res_tag = sprintf( 'Residue_%s%s%d', chains(i), segid{i}, resnum(i) );
             if isappdata( gca, res_tag )
                 res_tags = [res_tags, res_tag ];
             end

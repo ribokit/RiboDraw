@@ -6,8 +6,8 @@ coaxial_stack_tags = {};
 for i = 1:length( coaxial_stacks )
     coaxial_stack = coaxial_stacks{i};
     base_pair = coaxial_stack.coax_pairs{1};
-    coaxial_stack_tag = sprintf( 'Selection_%s%d_coaxial_stack', ...
-        base_pair.chain1, base_pair.resnum1 );
+    coaxial_stack_tag = sprintf( 'Selection_%s%s%d_coaxial_stack', ...
+        base_pair.chain1, base_pair.segid1, base_pair.resnum1 );
     coaxial_stack.type = 'coaxial_stack';
     coaxial_stack.coaxial_stack_tag = coaxial_stack_tag;
     setappdata( gca, coaxial_stack_tag, coaxial_stack );

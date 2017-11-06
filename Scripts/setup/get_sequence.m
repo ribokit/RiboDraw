@@ -1,4 +1,4 @@
-function [sequence,resnum,chains,non_standard_residues] = get_sequence( fasta_file )
+function [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( fasta_file )
 % [sequence,resnum,chains,non_standard_residues] = get_sequence( fasta_file )
 % read sequence from FASTA file ? and figure out chain/numbering from tags
 % like "A:4-89" in header. Allow sequence to include "Z[1MA]" to define 
@@ -13,6 +13,7 @@ raw_sequence = fasta.Sequence;
 
 resnum = [];
 chains = '';
+segid  = {};
 sequence = '';
 non_standard_residues.index = [];
 non_standard_residues.name  = {};
@@ -34,10 +35,11 @@ end
 
 cols = strsplit( fasta.Header );
 for i = 1:length( cols )
-    [tag_resnum, tag_chains, ok ] = get_resnum_from_tag( cols{i} );
+    [tag_resnum, tag_chains, tag_segids, ok ] = get_resnum_from_tag( cols{i} );
     if ( ok ) 
         resnum = [resnum, tag_resnum ];
         chains = [chains, tag_chains ];
+        segid  = [segid, tag_segids ];
     end
 end
 
@@ -48,4 +50,5 @@ end
 
 assert( length( chains ) == length( resnum ) );
 assert( length( chains ) == length( sequence ) );
+assert( length( chains ) == length( segid ) );
 

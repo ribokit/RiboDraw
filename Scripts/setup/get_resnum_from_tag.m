@@ -1,4 +1,4 @@
-function [resnum,chains,ok] = get_resnum_from_tag( tag )
+function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )
 % Convert "A:1-4" to 'AAAA' and [1,2,3,4]
 
 % there might be multiple tags like "A:1-4 B:1-4"
@@ -6,12 +6,14 @@ residue_tags = strsplit( tag );
 if length( residue_tags ) > 1
     resnum = [];
     chains = '';
+    segid  = {};
     ok = true;
     for i = 1:length( residue_tags )
-        [tag_resnum,tag_chains,ok] = get_resnum_from_tag( residue_tags{i} );
+        [tag_resnum,tag_chains,tag_segid,ok] = get_resnum_from_tag( residue_tags{i} );
         if ok
             resnum = [ resnum, tag_resnum ];
             chains = [ chains, tag_chains ];
+            segid  = [segid, segids ];
         else
             ok = false;
             return
@@ -21,13 +23,17 @@ if length( residue_tags ) > 1
 end
 
 % following is for single tag like "A:1-4"
-
 resnum = [];
 chains = '';
+segid  = '';
 ok = false;
 if isempty( strfind( tag , ':' ) ) return; end;
 elems = strsplit( tag, ':' );
 chain = elems{1}; chains = chain;
+if length( elems ) == 3
+    segid = elems{2};
+    elems = elems([1,3]);
+end
 dashes = strfind( elems{2}, '-' );
 if length( dashes ) == 0 | dashes(1) == 1;
     resnum = str2num( elems{2} );
@@ -43,4 +49,5 @@ if isempty ( stop_res ); return; end;
 if( stop_res <= start_res ); return; end;
 resnum = start_res:stop_res;
 chains = repmat( chain, [1 length(resnum)] );
+segid  = repmat( {segid}, [1 length(resnum)] );
 ok = true;

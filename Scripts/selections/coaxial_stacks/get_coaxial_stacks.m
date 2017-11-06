@@ -60,20 +60,24 @@ for h = 1:length( all_base_pairs )
     for i = 1:length( all_base_stacks )
         base_stack = all_base_stacks{i};
         if ( base_stack.resnum1 == base_pair.resnum1 & ...
-             base_stack.chain1  == base_pair.chain1 )
+             base_stack.chain1  == base_pair.chain1 & ...
+             base_stack.segid1  == base_pair.segid1 )
              
              for j = 1:length( all_base_pairs )
                  other_base_pair = all_base_pairs{j};
                  if ( other_base_pair.resnum1 == base_stack.resnum2 & ...
-                      other_base_pair.chain1 == base_stack.chain2 )
+                      other_base_pair.chain1 == base_stack.chain2 & ...
+                      other_base_pair.segid1 == base_stack.segid2)
                       
                       for k = 1:length( all_base_stacks )
                           other_base_stack = all_base_stacks{k};
                           if ( other_base_stack.resnum2 == other_base_pair.resnum2 & ...
-                               other_base_stack.chain2 == other_base_pair.chain2 )
+                               other_base_stack.chain2 == other_base_pair.chain2 & ...
+                               other_base_stack.segid2 == other_base_pair.segid2 )
                                
                                if ( other_base_stack.resnum1 == base_pair.resnum2 & ...
-                                    other_base_stack.chain1  == base_pair.chain2 )
+                                    other_base_stack.chain1  == base_pair.chain2 & ...
+                                    other_base_stack.segid1  == base_pair.segid2 )
                                    % add_stacked_pair() will create unique
                                    % entry, and track how many times its
                                    % found, which better be 2x2 = 4 times
@@ -115,18 +119,20 @@ stacked_pairs = [stacked_pairs, stacked_pair];
 function base_stacks = include_stacks_for_stems( base_stacks, stems );
 for i = 1 : length( stems)
     stem = stems{i};
-    base_stacks = add_stacks( base_stacks, stem.resnum1, stem.chain1 );
-    base_stacks = add_stacks( base_stacks, stem.resnum2, stem.chain2 );
+    base_stacks = add_stacks( base_stacks, stem.resnum1, stem.chain1, stem.segid1 );
+    base_stacks = add_stacks( base_stacks, stem.resnum2, stem.chain2, stem.segid2 );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function base_stacks = add_stacks( base_stacks, stem_resnum, stem_chain );
+function base_stacks = add_stacks( base_stacks, stem_resnum, stem_chain, stem_segid );
 stem_length = length( stem_resnum );
 for j = 1:stem_length-1
     stack.resnum1= stem_resnum(j);
     stack.chain1 = stem_chain(j);
+    stack.segid1 = stem_segid{j};
     stack.resnum2= stem_resnum(j+1);
     stack.chain2 = stem_chain(j+1);
+    stack.segid2 = stem_segid{j+1};
     stack.side = 'A';
     stack.orientation = 'P';
     idx = find_in_doublets( base_stacks, stack );
@@ -145,8 +151,8 @@ for i = 1:length( stems )
     stem = stems{i};
     L = length( stem.resnum1 );
     for j = 1:L
-        stem_res    = [stem_res,     sprintf('%s%d',stem.chain1(j),    stem.resnum1(j)) ];
-        stem_partner = [stem_partner, sprintf('%s%d',stem.chain2(L-j+1),stem.resnum2(L-j+1))];
+        stem_res    = [stem_res,     sprintf('%s%s%d',stem.chain1(j),stem.segid1{j},stem.resnum1(j)) ];
+        stem_partner = [stem_partner, sprintf('%s%s%d',stem.chain2(L-j+1),stem.segid2{L-j+1},stem.resnum2(L-j+1))];
     end
 end
 
@@ -159,8 +165,8 @@ end
 filtered_base_pairs = {};
 for i = 1:length( base_pairs )
     base_pair = base_pairs{i};
-    reschain1 = sprintf('%s%d',base_pair.chain1,base_pair.resnum1 );
-    reschain2 = sprintf('%s%d',base_pair.chain2,base_pair.resnum2 );
+    reschain1 = sprintf('%s%s%d',base_pair.chain1,base_pair.segid1,base_pair.resnum1 );
+    reschain2 = sprintf('%s%s%d',base_pair.chain2,base_pair.segid2,base_pair.resnum2 );
     if ( any(strcmp( stem_res, reschain1 )) | any(strcmp( stem_res, reschain2 )) )
         gp = find( strcmp( stem_res, reschain1 ) );
         if isempty( gp ); continue; end;

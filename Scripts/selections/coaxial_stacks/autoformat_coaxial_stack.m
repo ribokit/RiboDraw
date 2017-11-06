@@ -35,10 +35,10 @@ bp_spacing = plot_settings.bp_spacing;
 residues = {};
 % create positions of an ideal stack. This is pretty similar to what's in draw_helix.
 for k = 1:N
-    residue1 = getappdata( gca, sprintf( 'Residue_%s%d', coax_pairs{k}.chain1,coax_pairs{k}.resnum1 ) );
+    residue1 = getappdata( gca, sprintf( 'Residue_%s%s%d', coax_pairs{k}.chain1, coax_pairs{k}.segid1, coax_pairs{k}.resnum1 ) );
     residue1.plot_pos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
 
-    residue2 = getappdata( gca, sprintf( 'Residue_%s%d', coax_pairs{k}.chain2,coax_pairs{k}.resnum2 ) );
+    residue2 = getappdata( gca, sprintf( 'Residue_%s%s%d', coax_pairs{k}.chain2, coax_pairs{k}.segid2, coax_pairs{k}.resnum2 ) );
     residue2.plot_pos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
     
     if (  isfield( residue1, 'stem_partner' ) ) 

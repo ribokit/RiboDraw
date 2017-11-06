@@ -17,8 +17,10 @@ for i = 1 : length( stems)
     for j = 1:stem_length
         base_pair.resnum1 = stem.resnum1(j); 
         base_pair.chain1  = stem.chain1(j);
+        base_pair.segid1  = stem.segid1{j};
         base_pair.resnum2 = stem.resnum2(stem_length-j+1); 
         base_pair.chain2  = stem.chain2(stem_length-j+1);
+        base_pair.segid2  = stem.segid2{stem_length-j+1};
         base_pair.edge1 = 'W';
         base_pair.edge2 = 'W';
         base_pair.LW_orientation = 'C';
@@ -77,8 +79,8 @@ for i = 1:max( bins )
      % save information on associated_residues 
      associated_residues = {};
      for j = 1:length( coax_pairs )
-         associated_residues = [ associated_residues, sprintf( 'Residue_%s%d', coax_pairs{j}.chain1, coax_pairs{j}.resnum1 ) ];
-         associated_residues = [ associated_residues, sprintf( 'Residue_%s%d', coax_pairs{j}.chain2, coax_pairs{j}.resnum2 ) ];
+         associated_residues = [ associated_residues, sprintf( 'Residue_%s%s%d', coax_pairs{j}.chain1,coax_pairs{j}.segid1,coax_pairs{j}.resnum1 ) ];
+         associated_residues = [ associated_residues, sprintf( 'Residue_%s%s%d', coax_pairs{j}.chain2,coax_pairs{j}.segid2,coax_pairs{j}.resnum2 ) ];
      end
      coaxial_stack.associated_residues = associated_residues;
      
@@ -86,7 +88,7 @@ for i = 1:max( bins )
      stem_idx = sort( unique( setdiff( in_stem( coax_pair_idx ), [0] ) ) );
      associated_helices = {};
      for idx = stem_idx
-         associated_helices = [ associated_helices, sprintf( 'Helix_%s%d', stems{idx}.chain1(1), stems{idx}.resnum1(1) ) ];
+         associated_helices = [ associated_helices, sprintf( 'Helix_%s%s%d', stems{idx}.chain1(1), stems{idx}.segid1{1}, stems{idx}.resnum1(1) ) ];
      end
      coaxial_stack.associated_helices = associated_helices;
 
@@ -114,9 +116,11 @@ ok2 = 0;
 for i = 1:length( all_base_stacks )
     base_stack = all_base_stacks{i};
     if ( current_pair.resnum1 == base_stack.resnum1 & ...
-            strcmp(current_pair.chain1,base_stack.chain1) )
+            strcmp(current_pair.chain1,base_stack.chain1) & ...
+            strcmp(current_pair.segid1,base_stack.segid1))
         if (next_pair.resnum1 == base_stack.resnum2 & ...
-            strcmp(next_pair.chain1,base_stack.chain2) )        
+            strcmp(next_pair.chain1,base_stack.chain2) & ...
+            strcmp(next_pair.segid1,base_stack.segid2))        
             ok1 = 1; break;
         end
     end
@@ -125,9 +129,11 @@ end
 for i = 1:length( all_base_stacks )
     base_stack = all_base_stacks{i};
     if ( current_pair.resnum2 == base_stack.resnum1 & ...
-            strcmp(current_pair.chain2,base_stack.chain1) )
+            strcmp(current_pair.chain2,base_stack.chain1) & ...
+            strcmp(current_pair.segid2,base_stack.segid1))
         if (next_pair.resnum2 == base_stack.resnum2 & ...
-            strcmp(next_pair.chain2,base_stack.chain2) )
+            strcmp(next_pair.chain2,base_stack.chain2) & ...
+            strcmp(next_pair.segid2,base_stack.segid2))
             ok2 = 1; break;
         end
     end

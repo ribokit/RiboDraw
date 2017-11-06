@@ -22,6 +22,7 @@ fprintf( 'Drawing helices...\n' );
 set( gca, 'xlim', loaddata.xlim );
 set( gca, 'ylim', loaddata.ylim );
 
+
 % Should install sequence, Residue, Helix objects, etc. into gca ('global
 % data' for these axes);
 datafields = fields( loaddata );
@@ -52,8 +53,9 @@ for i = 1:length( datafields )
 end
 cleanup_associated_residues();
 cleanup_domains();
+cleanup_segids();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.
-draw_helices( get_helices( loaddata ) );
+draw_helices(); % get_helices( loaddata ) );
 move_stuff_to_back();
 
 axis off

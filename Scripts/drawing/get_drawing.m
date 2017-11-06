@@ -4,7 +4,7 @@ function savedata = get_drawing();
 % (C) R. Das, Stanford University, 2017
 
 savedata = struct();
-savedata.version = '0.6';
+savedata.version = '0.65';
 residue_tags = get_residue_tags();
 helix_tags = get_helix_tags();
 linker_tags = get_linker_tags();
@@ -40,7 +40,7 @@ function savedata = save_residues( savedata, objnames )
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Residue_' ) ) );
     figure_residue = getappdata( gca, objnames{n} );
-    residue = copy_fields( figure_residue, {'resnum','chain','res_tag','helix_tag','nucleotide',...
+    residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','nucleotide',...
         'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections'} );
     savedata = setfield( savedata, objnames{n}, residue );
 end
@@ -51,7 +51,7 @@ function savedata = save_helices( savedata, objnames )
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Helix_' ) ) );
     figure_helix = getappdata( gca, objnames{n} );
-    helix = copy_fields( figure_helix, {'resnum1','chain1','resnum2','chain2','name',...
+    helix = copy_fields( figure_helix, {'resnum1','chain1','segid1','resnum2','chain2','segid2','name',...
         'center','rotation','parity','label_relpos','helix_tag','associated_residues','rgb_color'} );
     savedata = setfield( savedata, objnames{n}, helix );
 end

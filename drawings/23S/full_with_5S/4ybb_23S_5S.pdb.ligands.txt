@@ -1,4 +1,3 @@
-C:QA         RNA     C:RA:78-81 C:RA:89 C:RA:97-101
 C:RN          MG     C:RA:22-23 C:RA:56-60
 C:SN          MG     C:RA:80 C:RA:94-96
 C:TN          MG     C:RA:73 C:RA:100-102

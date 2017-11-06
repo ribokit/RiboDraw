@@ -34,7 +34,7 @@ linkers = {};
 for k = 2:length( res_tags );
     linker.residue1 = res_tags{1};
     linker.residue2 = res_tags{k};
-    linker.type = 'tertiary_contact_intradomain';
+    linker.type = 'tertcontact_intradomain';
     linker.linker_tag = sprintf('Linker_%s_%s_%s_%s',linker.residue1(9:end),linker.residue2(9:end),  ...
         contact_name,linker.type);
     linker.tertiary_contact = tag;

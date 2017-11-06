@@ -5,9 +5,7 @@ for i = 1:length( helix_tags )
     helix = getappdata( gca, helix_tag );
     % get res_tags that are *inside* helix (and not loop residues nearby)
     res_tags = {};
-    if ~isfield( helix, 'segid1' );  helix.segid1 = repmat( {''}, [1 length(helix.resnum1)] ); end;
-    if ~isfield( helix, 'segid2' );  helix.segid2 = repmat( {''}, [1 length(helix.resnum1)] ); end;
-    for j = 1:length( helix.resnum1 )
+     for j = 1:length( helix.resnum1 )
         res_tags = [res_tags, sprintf( 'Residue_%s%s%d', helix.chain1(j), helix.segid1{j}, helix.resnum1(j) ) ];
     end
     for j = 1:length( helix.resnum2 )

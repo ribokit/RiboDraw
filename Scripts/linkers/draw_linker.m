@@ -140,7 +140,7 @@ switch linker.type
     case 'stack'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
          setappdata( gca, linker.linker_tag, linker );
-    case 'tertiary_contact_interdomain'
+    case 'tertcontact_interdomain'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.node1 = create_undercircle( plot_settings.bp_spacing );
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
@@ -150,7 +150,7 @@ switch linker.type
         send_to_back( linker.line_handle );
         send_to_back( linker.side_line1 );
         send_to_back( linker.side_line2 );
-    case 'tertiary_contact_intradomain'
+    case 'tertcontact_intradomain'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
         setappdata( gca, linker.linker_tag, linker );
@@ -261,7 +261,7 @@ end
 function update_tertiary_contact( linker, plot_pos, plot_settings );
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
     
-if strcmp( linker.type, 'tertiary_contact_interdomain' )
+if strcmp( linker.type, 'tertcontact_interdomain' )
     % double color lines for interdomain;
     side_line1_pos = []; side_line2_pos = [];
     for i = 1:length( plot_pos ) - 1
@@ -287,14 +287,14 @@ if isfield(plot_settings,'tertiary_contact_domain_coloring' ) & ~plot_settings.t
     color1 = [0.9 0.9 0.9];
     color2 = [0.9 0.9 0.9];
 end
-if strcmp( linker.type, 'tertiary_contact_interdomain' )
+if strcmp( linker.type, 'tertcontact_interdomain' )
     set( linker.node1, 'edgecolor',color1);
     set( linker.node2, 'edgecolor',color2);
     set( linker.side_line1, 'facecolor', color1 );
     set( linker.side_line2, 'facecolor', color2 );
     % also update pos
 else
-    assert( strcmp( linker.type, 'tertiary_contact_intradomain' ) );
+    assert( strcmp( linker.type, 'tertcontact_intradomain' ) );
     if any( strcmp( tertiary_contact.associated_residues1, linker.residue1 ) ) % in domain 1
         set( linker.node2, 'edgecolor',color1);
         set( linker.line_handle, 'color',color1);

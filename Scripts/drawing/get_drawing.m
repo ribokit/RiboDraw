@@ -105,9 +105,9 @@ stack_tags = get_tags( 'Linker_', 'stack' );
 arrow_tags = get_tags( 'Linker_', 'arrow' );
 stem_pair_tags = get_tags( 'Linker_', 'stem_pair' );
 noncanonical_tags = get_tags( 'Linker_', 'noncanonical_pair' );
-tertiary_contact_interdomain_tags = get_tags( 'Linker_', 'tertiary_contact_interdomain' );
-tertiary_contact_intradomain_tags = get_tags( 'Linker_', 'tertiary_contact_intradomain' );
-tags = [stack_tags, arrow_tags, stem_pair_tags, noncanonical_tags, tertiary_contact_interdomain_tags, tertiary_contact_intradomain_tags ];
+tertcontact_interdomain_tags = get_tags( 'Linker_', 'tertcontact_interdomain' );
+tertcontact_intradomain_tags = get_tags( 'Linker_', 'tertcontact_intradomain' );
+tags = [stack_tags, arrow_tags, stem_pair_tags, noncanonical_tags, tertcontact_interdomain_tags, tertcontact_intradomain_tags ];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_selection_tags();

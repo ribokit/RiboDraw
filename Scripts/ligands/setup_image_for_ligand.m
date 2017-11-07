@@ -1,8 +1,8 @@
-function setup_image_for_ligand( ligand, image_file );
+function setup_image_for_ligand( ligand, image_file, new_name, skip_move_stuff_to_back );
 % setup_image_for_ligand( ligand, image_file );
 %
 % INPUTS
-%  ligand     = (string) name of residue/ligand
+%  ligand     = (string) name of ligand/ligand
 %  image_file = (image_file) picture of protein. will grab silhouette.
 %
 % (C) R. Das, Stanford University
@@ -13,8 +13,14 @@ ligand = getappdata( gca, obj_name );
 boundary = boundary/30;
 
 if isfield( ligand, 'image_handle' ) delete( ligand.image_handle ); end;
+if exist( 'new_name', 'var' )
+    ligand.nucleotide = new_name;
+    if isfield( ligand, 'handle' )  set( ligand.handle, 'String', ligand.nucleotide ); end;
+end
 ligand.image_boundary = boundary;
 ligand = draw_image_boundary( ligand );
 setappdata( gca, ligand.res_tag, ligand );
-
-move_stuff_to_back();
+fprintf( 'Setup image %s for %s.\n', image_file, ligand.res_tag );
+if ~exist( 'skip_move_stuff_to_back', 'var' )
+    move_stuff_to_back();
+end

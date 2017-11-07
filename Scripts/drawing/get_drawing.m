@@ -4,7 +4,7 @@ function savedata = get_drawing();
 % (C) R. Das, Stanford University, 2017
 
 savedata = struct();
-savedata.version = '0.65';
+savedata.version = '0.67';
 residue_tags = get_residue_tags();
 helix_tags = get_helix_tags();
 linker_tags = get_linker_tags();

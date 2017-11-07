@@ -13,6 +13,7 @@ for i = 1:length( residue_tags );
     if isfield( residue, 'handle' )
         set( residue.handle, 'fontsize', plot_settings.fontsize );
         if ( length( residue.nucleotide ) > 1 ) set( residue.handle, 'fontsize', plot_settings.fontsize*4/5); end;
+        if isfield( residue, 'image_boundary' ) set( residue.handle, 'fontsize',  plot_settings.fontsize*1.5  ); end;
     end
     if isfield( residue, 'tick_label' )
         set( residue.tick_label, 'fontsize', plot_settings.fontsize );

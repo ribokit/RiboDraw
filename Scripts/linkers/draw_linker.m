@@ -101,7 +101,7 @@ ctr = (pos1+pos2)/2; % center of connecting line
 v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
 num_pos1 = size(plot_pos1,1);
 if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, plot_settings.spacing ); end;
-if isfield(plot_settings,'show_extra_arrows'); linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings ); end;
+if isfield(linker,'arrow') & isfield(plot_settings,'show_extra_arrows'); linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings ); end;
 if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  end
 if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  end;
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
@@ -312,6 +312,11 @@ end
 function update_tertiary_contact( linker, plot_pos, plot_settings );
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
     
+if isfield( plot_settings, 'show_tertiary_contacts' )
+    if plot_settings.show_tertiary_contacts; visible = 'on'; else; visible = 'off'; end;
+    linker = set_linker_visibility( linker, visible );
+end
+
 if strcmp( linker.type, 'tertcontact_interdomain' )
     % double color lines for interdomain;
     side_line1_pos = []; side_line2_pos = [];
@@ -375,6 +380,7 @@ end
 if setting; visible = 'on'; else; visible = 'off'; end;
 linker = set_linker_visibility( linker, visible );
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_ligand_linker_visibility( linker, plot_settings );
 if ~isfield( plot_settings, 'show_ligand_linkers' ); return; end;
 if ( plot_settings.show_ligand_linkers ) visible = 'on'; else; visible = 'off'; end;

@@ -18,6 +18,7 @@ for i = 1:length( linkers )
     end
 end
 
+
 % now group by domain.
 linker_groups = {};
 for i = 1:length( interdomain_linkers )
@@ -118,11 +119,12 @@ for i = 1:length( linker_groups )
     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
 
-    setup_tertiary_contact( name, res_tags1, res_tags2, main_linker );
+    setup_tertiary_contact( name, res_tags1, res_tags2, main_linker, 1 );
 end
 
 hide_interdomain_noncanonical_pairs;
 hide_ligand_linkers;
+move_stuff_to_back;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function match = check_sequence_close( residue, other_res_tag ) 

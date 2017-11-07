@@ -1,4 +1,4 @@
-function setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker )
+function setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back )
 % setup_tertiary_contact( contact_name, res_tags1, res_tags2)
 % setup_tertiary_contact( contact_name, res1_string, res2_string )
 % (C) R. Das, Stanford University, 2017
@@ -40,7 +40,7 @@ if exist( 'template_linker', 'var' )
     if isfield( template_linker, 'relpos1' ) linker.relpos1 = template_linker.relpos1; end;
     if isfield( template_linker, 'relpos2' ) linker.relpos2 = template_linker.relpos2; end;
     if isfield( template_linker, 'plot_pos' ) linker.plot_pos = template_linker.plot_pos; end;
-    create_linker_with_draggable_vtx( linker )
+    create_linker_with_draggable_vtx( linker );
 end
 add_linker( linker );
 tertiary_contact.interdomain_linker = linker.linker_tag;
@@ -59,7 +59,9 @@ end
 helix_tags = unique( helix_tags );
 for i = 1:length( helix_tags ); draw_helix( getappdata( gca, helix_tags{i} ) ); end
 
-move_stuff_to_back(); % should be faster to move all tertiary contact linkers to 'back' all at once
+if ~exist( 'skip_move_stuff_to_back','var') 
+    move_stuff_to_back(); % should be faster to move all tertiary contact linkers to 'back' all at once
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );

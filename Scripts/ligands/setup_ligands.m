@@ -1,7 +1,7 @@
 function setup_ligands( ligands )
 % setup_ligands( ligands )
 % draw ligands as 'residues'.
-
+if ischar( ligands ) ligands = read_ligands( ligands ); end;
 for i = 1:length(ligands)
     ligand = ligands{i};
     ligand.resnum = 0; % fitting ligand into 'residue' framework.

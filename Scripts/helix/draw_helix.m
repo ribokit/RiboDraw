@@ -162,8 +162,6 @@ if isfield( residue, 'relpos' )
             set( residue.handle, 'fontweight',fontweight );
         end
     end
-    if isfield( residue, 'image_boundary' )
-    end
     if ( plot_settings.fontsize ~= get( residue.handle, 'fontsize' ) ) set( residue.handle, 'fontsize', plot_settings.fontsize ); end;
     h = residue.handle;
     set( h, 'Position', pos );

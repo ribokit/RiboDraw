@@ -1,0 +1,16 @@
+color gray50, 1zdh_ABR and chain R and resi 15
+color gray50, 1zdh_ABR and chain R and resi 16
+color gray50, 1zdh_ABR and chain R and resi 4
+color gray50, 1zdh_ABR and chain R and resi 5
+color gray50, 1zdh_ABR and chain R and resi 4
+color gray50, 1zdh_ABR and chain R and resi 5
+color gray50, 1zdh_ABR and chain R and resi 15
+color gray50, 1zdh_ABR and chain R and resi 16
+color gray50, 1zdh_ABR and chain R and resi 13
+color gray50, 1zdh_ABR and chain R and resi 14
+color gray50, 1zdh_ABR and chain R and resi 7
+color gray50, 1zdh_ABR and chain R and resi 8
+color gray50, 1zdh_ABR and chain R and resi 7
+color gray50, 1zdh_ABR and chain R and resi 8
+color gray50, 1zdh_ABR and chain R and resi 13
+color gray50, 1zdh_ABR and chain R and resi 14

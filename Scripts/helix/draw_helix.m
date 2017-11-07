@@ -2,6 +2,8 @@ function helix = draw_helix( helix )
 % helix = draw_helix( helix )
 % (C) R. Das, Stanford University, 2017
 
+if ischar( helix ); helix = getappdata(gca,helix); end;
+    
 plot_settings = getappdata( gca, 'plot_settings' );
 
 helix_center = helix.center;
@@ -309,8 +311,9 @@ end
 function residue = draw_tick( residue, bp_spacing, fontsize, R )
 
 if ( mod(residue.resnum,10) ~= 0 ); return; end;
+if isfield(residue,'ligand_partners'); return; end;
 
-if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set later based on how helix is rotated.
+    if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set later based on how helix is rotated.
 
 if ~isfield( residue, 'tick_handle' ) | ~isvalid( residue.tick_handle )
     residue.tick_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.

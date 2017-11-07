@@ -1,0 +1,5 @@
+R:5 R:15 W W C 
+R:4 R:16 W W C 
+R:8 R:13 W W C 
+R:7 R:14 W W C 
+

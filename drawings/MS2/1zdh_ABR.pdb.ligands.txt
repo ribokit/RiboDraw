@@ -1,0 +1,2 @@
+A     protein     R:11-12
+B     protein     R:6 R:8-9 R:11

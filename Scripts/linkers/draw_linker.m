@@ -109,6 +109,7 @@ if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_se
 if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*2 ); end; 
 if isfield( linker, 'tertiary_contact' ); update_tertiary_contact( linker, plot_pos, plot_settings ); end;
 if strcmp( linker.type, 'noncanonical_pair' ) check_interdomain( linker, plot_settings ); end;
+if strcmp( linker.type, 'ligand' ) update_ligand_linker_visibility( linker, plot_settings ); end;
 
 % if there are vertex symbols at end points, re-draw them.
 if isfield( linker, 'vtx' )
@@ -155,6 +156,10 @@ switch linker.type
     case 'stack'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
          setappdata( gca, linker.linker_tag, linker );
+    case 'ligand'
+        linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
+        setappdata( gca, linker.linker_tag, linker );
+        send_to_back( linker.line_handle );
     case {'tertcontact_interdomain','tertiary_contact_interdomain'}
         linker.type = 'tertcontact_interdomain';
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
@@ -326,9 +331,12 @@ residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
 residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
 
 set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
+
+if isfield( residue1, 'rgb_color' ) rescolor1 = residue1.rgb_color; else; rescolor1 = [0,0,0]; end;
+if isfield( residue2, 'rgb_color' ) rescolor2 = residue2.rgb_color; else; rescolor2 = [0,0,0]; end;
 % make color informative about *other* domain
-color1 = fade_color( residue2.rgb_color );
-color2 = fade_color( residue1.rgb_color );
+color1 = fade_color( rescolor2 );
+color2 = fade_color( rescolor1 );
 if isfield(plot_settings,'tertiary_contact_domain_coloring' ) & ~plot_settings.tertiary_contact_domain_coloring
     color1 = [0.9 0.9 0.9];
     color2 = [0.9 0.9 0.9];
@@ -371,3 +379,11 @@ if ~plot_settings.show_interdomain_noncanonical_pairs
 end
 if setting; visible = 'on'; else; visible = 'off'; end;
 linker = set_linker_visibility( linker, visible );
+
+function update_ligand_linker_visibility( linker, plot_settings );
+if ~isfield( plot_settings, 'show_ligand_linkers' ); return; end;
+if ( plot_settings.show_ligand_linkers ) visible = 'on'; else; visible = 'off'; end;
+set( linker.line_handle, 'visible', visible );
+
+    
+

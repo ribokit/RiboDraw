@@ -2,6 +2,7 @@ function linker_groups = group_interdomain_linkers()
 
 % get interdomain_linkers
 linkers = get_tags( 'Linker', 'noncanonical_pair' );
+linkers = [ linkers, get_tags( 'Linker', 'ligand' ) ];
 %linkers = [ linkers, get_tags( 'Linker', 'stack' ) ];
 
 interdomain_linkers = {};
@@ -11,8 +12,8 @@ for i = 1:length( linkers )
     residue2 = getappdata( gca, linker.residue2 );
     % check that there are two different (non-gray) colors
     if linker_connects_different_domains( residue1, residue2 )
-        linker.color1 = residue1.rgb_color;
-        linker.color2 = residue2.rgb_color;
+        if isfield( residue1, 'rgb_color') linker.color1 = residue1.rgb_color; else; linker.color1 = [0,0,0];end;
+        if isfield( residue2, 'rgb_color') linker.color2 = residue2.rgb_color; else; linker.color2 = [0,0,0];end;
         interdomain_linkers = [ interdomain_linkers, linker ];
     end
 end
@@ -119,6 +120,9 @@ for i = 1:length( linker_groups )
 
     setup_tertiary_contact( name, res_tags1, res_tags2, main_linker );
 end
+
+hide_interdomain_noncanonical_pairs;
+hide_ligand_linkers;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function match = check_sequence_close( residue, other_res_tag ) 

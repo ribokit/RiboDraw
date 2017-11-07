@@ -13,7 +13,7 @@ if length( residue_tags ) > 1
         if ok
             resnum = [ resnum, tag_resnum ];
             chains = [ chains, tag_chains ];
-            segid  = [segid, segids ];
+            segid  = [segid, tag_segid ];
         else
             ok = false;
             return
@@ -25,13 +25,13 @@ end
 % following is for single tag like "A:1-4"
 resnum = [];
 chains = '';
-segid  = '';
+segid  = {''};
 ok = false;
 if isempty( strfind( tag , ':' ) ) return; end;
 elems = strsplit( tag, ':' );
 chain = elems{1}; chains = chain;
 if length( elems ) == 3
-    segid = elems{2};
+    segid = {elems{2}};
     elems = elems([1,3]);
 end
 dashes = strfind( elems{2}, '-' );
@@ -49,5 +49,5 @@ if isempty ( stop_res ); return; end;
 if( stop_res <= start_res ); return; end;
 resnum = start_res:stop_res;
 chains = repmat( chain, [1 length(resnum)] );
-segid  = repmat( {segid}, [1 length(resnum)] );
+segid  = repmat( segid, [1 length(resnum)] );
 ok = true;

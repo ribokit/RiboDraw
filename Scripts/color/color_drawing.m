@@ -39,6 +39,7 @@ for n = 1:length( res_tags )
     residue.rgb_color = res_colors(n,:);
     if isfield( residue, 'handle' ) set( residue.handle, 'color', residue.rgb_color ); end;
     setappdata( gca, res_tag, residue);
+    draw_helix( residue.helix_tag );
 end
 
 if length( obj_name ) > 0
@@ -81,6 +82,12 @@ else
                     isfield( obj, 'name' ) & ...
                     strcmp( obj.name, selection )
                     res_tags = obj.associated_residues;
+                    obj_name = objnames{n};
+                    break;
+                end
+                if isfield( obj, 'nucleotide' ) & ...
+                       strcmp( obj.nucleotide, selection )
+                    res_tags = { objnames{n} };
                     obj_name = objnames{n};
                     break;
                 end

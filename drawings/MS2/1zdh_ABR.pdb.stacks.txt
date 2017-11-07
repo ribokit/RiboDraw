@@ -1,0 +1,13 @@
+R:4 R:5 A P 
+R:5 R:7 A P 
+R:5 R:16 B A 
+R:7 R:8 A P 
+R:7 R:15 B A 
+R:8 R:9 A P 
+R:8 R:14 B A 
+R:9 R:11 A P 
+R:9 R:13 B A 
+R:13 R:14 A P 
+R:14 R:15 A P 
+R:15 R:16 A P 
+

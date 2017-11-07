@@ -61,23 +61,23 @@ for h = 1:length( all_base_pairs )
         base_stack = all_base_stacks{i};
         if ( base_stack.resnum1 == base_pair.resnum1 & ...
              base_stack.chain1  == base_pair.chain1 & ...
-             base_stack.segid1  == base_pair.segid1 )
+             strcmp(base_stack.segid1, base_pair.segid1) )
              
              for j = 1:length( all_base_pairs )
                  other_base_pair = all_base_pairs{j};
                  if ( other_base_pair.resnum1 == base_stack.resnum2 & ...
                       other_base_pair.chain1 == base_stack.chain2 & ...
-                      other_base_pair.segid1 == base_stack.segid2)
+                      strcmp(other_base_pair.segid1, base_stack.segid2) )
                       
                       for k = 1:length( all_base_stacks )
                           other_base_stack = all_base_stacks{k};
                           if ( other_base_stack.resnum2 == other_base_pair.resnum2 & ...
                                other_base_stack.chain2 == other_base_pair.chain2 & ...
-                               other_base_stack.segid2 == other_base_pair.segid2 )
+                               strcmp( other_base_stack.segid2, other_base_pair.segid2) )
                                
                                if ( other_base_stack.resnum1 == base_pair.resnum2 & ...
                                     other_base_stack.chain1  == base_pair.chain2 & ...
-                                    other_base_stack.segid1  == base_pair.segid2 )
+                                    strcmp(other_base_stack.segid1, base_pair.segid2) )
                                    % add_stacked_pair() will create unique
                                    % entry, and track how many times its
                                    % found, which better be 2x2 = 4 times

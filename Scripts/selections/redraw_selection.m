@@ -17,6 +17,9 @@ for i = 1:length( associated_helices )
     helix = getappdata( gca, associated_helices{i} );
     helix.center = helix.center + translation(1:2);
     setappdata( gca, helix.helix_tag, helix );
+    draw_helix( helix );
 end
 
-redraw_residues( residues );
+%for i = 1:length( associated_helices )
+%    helix = getappdata( gca, associated_helices{i} );
+%end

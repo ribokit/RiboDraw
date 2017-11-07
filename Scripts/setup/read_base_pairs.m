@@ -11,7 +11,7 @@ while ~feof( fid )
         base_pair.edge1 = cols{3};
         base_pair.edge2 = cols{4};
         base_pair.LW_orientation = cols{5};
-        base_pairs = [base_pairs,base_pair];
+        base_pairs = [base_pairs,ordered_base_pair(base_pair)];
     end;
 end
 

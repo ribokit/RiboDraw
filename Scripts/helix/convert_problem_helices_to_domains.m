@@ -24,7 +24,7 @@ for i = 1:length( helix_tags )
             % which these residues can be reassigned. (happened in C1196 in my
             % ribosome layout)
             old_helix_tag = helix_tags_for_helix_res{1};
-            fprintf( 'Helix_tag mismatch for %s -- som residues are misassigned to %s and will be fixed\n', helix_tag, old_helix_tag  );
+            fprintf( 'Helix_tag mismatch for %s -- some residues are misassigned to %s and will be fixed\n', helix_tag, old_helix_tag  );
             for j = 1:length( res_tags )
                 residue = getappdata( gca, res_tags{j} );
                 residue.helix_tag = helix_tag;
@@ -46,8 +46,8 @@ for i = 1:length( helix_tags )
             % noncanonical -- that will allow user remodeling.
             N = length( helix.resnum1 );
             for j = 1:N
-                linker_tag = sprintf('Linker_%s%d_%s%d_stem_pair', helix.chain1(j), helix.resnum1(j),...
-                    helix.chain2(N-j+1), helix.resnum2(N-j+1) );
+                linker_tag = sprintf('Linker_%s%s%d_%s%s%d_stem_pair', helix.chain1(j), helix.segid1{j}, helix.resnum1(j),...
+                    helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1) );
                 if isappdata( gca, linker_tag )
                     linker = getappdata( gca, linker_tag );
                     linker.type = 'long_range_stem_pair';
@@ -56,7 +56,10 @@ for i = 1:length( helix_tags )
                     linker.LW_orientation = 'C';
                     if isfield( linker, 'line_handle' ) delete( linker.line_handle ); rmfield( linker, 'line_handle' ); end;
                     if isfield( linker, 'symbol' ) delete( linker.symbol ); rmfield( linker, 'symbol' ); end;
-                    setappdata( gca, linker_tag, linker );
+                    linker_tag = strrep( linker_tag, 'stem_pair','long_range_stem_pair' );
+                    if ~isappdata( gca, linker_tag )
+                        setappdata( gca, linker_tag, linker );
+                    end
                 end
             end
             setup_domain( res_tags, new_name );

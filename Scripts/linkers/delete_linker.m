@@ -12,8 +12,6 @@ if remove_linker
     rmappdata( gca, linker.linker_tag )
 end
 
-
-
 function linker = rmgraphics( linker, tags )
 for i = 1:length( tags )
    tag = tags{i};

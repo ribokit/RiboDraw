@@ -1,8 +1,7 @@
 ## TODO
-* Fix chains for 5S rRNA
 * protein/ligand representation
-* Read-in & auto-color motifs [SRL, etc.]
 * more arrowheads on long linkers [extra_arrows1, extra_arrows2]
+* Read-in & auto-color motifs [SRL, etc.]
 * allow rename of helices and hide helices as 'display_label' [cleanup layout of 23S]
 
 * complete 16S rRNA

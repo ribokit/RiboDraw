@@ -29,6 +29,13 @@ linker.type = 'tertcontact_interdomain';
 linker.linker_tag = sprintf('Linker_%s_%s_%s_%s',linker.residue1(9:end),linker.residue2(9:end),  ...
     contact_name_cleaned,linker.type);
 linker.tertiary_contact = tag;
+if isappdata( gca, linker.linker_tag )
+    fprintf( 'Already set up %s so not creating again.\n', linker.linker_tag );
+    return;
+else
+    fprintf( 'Setting up %s.\n', linker.linker_tag );
+end
+
 if exist( 'template_linker', 'var' )
     if isfield( template_linker, 'relpos1' ) linker.relpos1 = template_linker.relpos1; end;
     if isfield( template_linker, 'relpos2' ) linker.relpos2 = template_linker.relpos2; end;

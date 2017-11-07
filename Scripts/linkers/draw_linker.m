@@ -1,11 +1,15 @@
 function linker = draw_linker( linker )
+if iscell( linker )
+    for i = 1:length( linker ); draw_linker( linker{i} ); end;
+    return;
+end
 if ischar( linker ) & isappdata( gca, linker ) linker = getappdata( gca, linker ); end;
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return if we don't have to make anything
 
 plot_settings = getappdata( gca, 'plot_settings' );
-if ~isfield( linker, 'line_handle' )     
+if ~isfield( linker, 'line_handle' )   
     residue1 = getappdata( gca, linker.residue1 );
     residue2 = getappdata( gca, linker.residue2 );
     if ~isfield( residue1, 'plot_pos' ) return; end;
@@ -74,8 +78,10 @@ linker.plot_pos = plot_pos;
 set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 
 % draw (draggable) vertices if they don't exist yet.
-if isfield( linker, 'plot_pos' ) & ( ~isfield( linker, 'vtx' ) | size(linker.plot_pos,1) ~= length( linker.vtx ) )
-    linker = create_linker_with_draggable_vtx( linker );
+if isfield( linker, 'plot_pos' ) 
+    if ( ~isfield( linker, 'vtx' ) | size(linker.plot_pos,1) ~= length( linker.vtx ) )
+        linker = create_linker_with_draggable_vtx( linker );
+    end
     for i = 1:size( linker.plot_pos, 1 )
         set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
     end
@@ -267,7 +273,7 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     for i = 1:length( plot_pos ) - 1
         segv = plot_pos(i+1,:) - plot_pos(i,:);
         segv = segv/norm(segv);
-        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/6; % rotate
+        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/8; % rotate
         side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
         side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
     end
@@ -319,13 +325,9 @@ if ~plot_settings.show_interdomain_noncanonical_pairs
     residue1 = getappdata( gca, linker.residue1 );
     residue2 = getappdata( gca, linker.residue2 );
     % check that there are two different (non-gray) colors
-    if isfield( residue1, 'rgb_color' ) & isfield( residue2, 'rgb_color' ) & ...
-            length(unique( residue1.rgb_color)) > 1 & ...
-            length(unique( residue2.rgb_color)) > 1  ...
-            setting = ( norm( residue1.rgb_color - residue2.rgb_color ) < 0.1 );
+    if linker_connects_different_domains( residue1, residue2 )
+        setting = 0;
     end
 end
 if setting; visible = 'on'; else; visible = 'off'; end;
 linker = set_linker_visibility( linker, visible );
-
-

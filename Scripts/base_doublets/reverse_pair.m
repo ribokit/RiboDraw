@@ -19,6 +19,6 @@ new_pair.chain2 = base_pair.chain1;
 new_pair.segid2 = base_pair.segid1;
 new_pair.edge2 = base_pair.edge1;
 
-new_pair.orientation = base_pair.orientation;
+if isfield( base_pair, 'orientation' ) new_pair.orientation = base_pair.orientation; end;
 new_pair.LW_orientation = base_pair.LW_orientation;
 

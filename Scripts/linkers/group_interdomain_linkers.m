@@ -10,10 +10,7 @@ for i = 1:length( linkers )
     residue1 = getappdata( gca, linker.residue1 );
     residue2 = getappdata( gca, linker.residue2 );
     % check that there are two different (non-gray) colors
-    if isfield( residue1, 'rgb_color' ) & isfield( residue2, 'rgb_color' ) & ...
-            length(unique( residue1.rgb_color)) > 1 & ...
-            length(unique( residue2.rgb_color)) > 1 &  ...
-            norm( residue1.rgb_color - residue2.rgb_color ) >= 0.1
+    if linker_connects_different_domains( residue1, residue2 )
         linker.color1 = residue1.rgb_color;
         linker.color2 = residue2.rgb_color;
         interdomain_linkers = [ interdomain_linkers, linker ];
@@ -116,7 +113,7 @@ for i = 1:length( linker_groups )
     % get all residues involved in tertiary contact.
     residue1 = getappdata( gca, main_linker.residue1 );
     residue2 = getappdata( gca, main_linker.residue2 );
-    name = sprintf( '%s%d_%s%d',  residue1.chain,residue1.resnum, residue2.chain, residue2.resnum  );
+    name = sprintf( '%s%s%d_%s%s%d',  residue1.chain,residue1.segid,residue1.resnum, residue2.chain,residue2.segid,residue2.resnum  );
     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
 

@@ -1,5 +1,6 @@
 ## TODO
 * protein/ligand representation
+
 * allow rename of helices and hide helices as 'display_label' [cleanup layout of 23S]
 * Read-in & auto-color motifs [SRL, etc.]
 

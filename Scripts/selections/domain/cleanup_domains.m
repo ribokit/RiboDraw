@@ -29,6 +29,7 @@ for i = 1:length( tags )
         if ( length( tag ) < 7 | ~strcmp( tag(end-6:end), '_domain' ) )
             new_tag = [ tag,'_domain' ];
             fprintf( 'Changing name of %s to %s\n', tag, new_tag );
+            selection.selection_tag = new_tag;
             setappdata( gca, new_tag, selection );
             rmappdata( gca, tag );
 

@@ -162448,10 +162448,10 @@
 		"intradomain_linkers2": []
 	},
 	"plot_settings": {
-		"fontsize": 4.557817698,
+		"fontsize": 6,
 		"spacing": 3,
 		"bp_spacing": 6,
-		"show_linker_controls": 1,
+		"show_linker_controls": 0,
 		"show_helix_controls": 0,
 		"show_domain_controls": 0,
 		"show_stacks": 0,

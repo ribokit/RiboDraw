@@ -1,4 +1,12 @@
 function linker = draw_linker( linker )
+% linker = draw_linker( linker )
+% linker = draw_linker( linkers )
+%
+% Draw the linker (arrow, stem_pair, noncanonical_pair, tertiary contact)
+%  including symbols.
+%
+% (C) R. Das, Stanford University, 2017
+
 if iscell( linker )
     for i = 1:length( linker ); draw_linker( linker{i} ); end;
     return;
@@ -7,7 +15,6 @@ if ischar( linker ) & isappdata( gca, linker ) linker = getappdata( gca, linker 
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return if we don't have to make anything
-
 plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( linker, 'line_handle' )   
     residue1 = getappdata( gca, linker.residue1 );
@@ -92,7 +99,9 @@ pos1 = plot_pos1( end, : );
 pos2 = plot_pos2(   1, : );
 ctr = (pos1+pos2)/2; % center of connecting line
 v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
+num_pos1 = size(plot_pos1,1);
 if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, plot_settings.spacing ); end;
+if isfield(plot_settings,'show_extra_arrows'); linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings ); end;
 if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  end
 if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  end;
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
@@ -146,7 +155,8 @@ switch linker.type
     case 'stack'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
          setappdata( gca, linker.linker_tag, linker );
-    case 'tertcontact_interdomain'
+    case {'tertcontact_interdomain','tertiary_contact_interdomain'}
+        linker.type = 'tertcontact_interdomain';
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.node1 = create_undercircle( plot_settings.bp_spacing );
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
@@ -156,7 +166,8 @@ switch linker.type
         send_to_back( linker.line_handle );
         send_to_back( linker.side_line1 );
         send_to_back( linker.side_line2 );
-    case 'tertcontact_intradomain'
+    case {'tertcontact_intradomain','tertiary_contact_intradomain'}
+        linker.type = 'tertcontact_intradomain';
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
         setappdata( gca, linker.linker_tag, linker );
@@ -209,6 +220,35 @@ set( h, 'xdata', ...
     a(:,1) );
 set( h, 'ydata', ...
     a(:,2) );
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings );
+num_extra_arrows = size(plot_pos,1)-2;
+if ~isfield( linker, 'extra_arrows' )
+    linker.extra_arrows = {};
+    for i = 1:num_extra_arrows
+        linker.extra_arrows{i} = patch( [0,0,0],[0,0,0],'k','clipping','off' );;
+    end
+end
+
+% make the right number of extra arrows
+for i = num_extra_arrows+1: length( linker.extra_arrows ); delete( linker.extra_arrows{i} ); end
+for i = length( linker.extra_arrows )+1 : num_extra_arrows;  linker.extra_arrows{i} = patch( [0,0,0],[0,0,0],'k','clipping','off' ); end;
+linker.extra_arrows = linker.extra_arrows(1:num_extra_arrows);
+
+% These are extra_arrows. Skip the 'usual' arrow that connects plot_pos1 and plot_pos2. 
+which_segment = [1:(num_pos1-1), (num_pos1+1):size(plot_pos,1)-1];
+assert( num_extra_arrows == length( which_segment) );
+for i = 1:num_extra_arrows;
+    pos1 = plot_pos( which_segment(i), : );
+    pos2 = plot_pos( which_segment(i)+1, : );
+    ctr = (pos1+pos2)/2; % center of connecting line
+    v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
+    show_arrow = plot_settings.show_extra_arrows & norm( pos2 - pos1 ) >= 5 * plot_settings.bp_spacing;
+    if ( show_arrow ) visible = 'on'; else; visible = 'off'; end;
+    update_arrow( linker.extra_arrows{ i }, ctr, v, visible, plot_settings.spacing );
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function pos1 = nudge_pos( pos1, pos2, bp_spacing );

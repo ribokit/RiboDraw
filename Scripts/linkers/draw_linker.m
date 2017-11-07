@@ -360,11 +360,6 @@ else
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function color = fade_color( color );
-fade_extent = 0.3;
-color = [1.0,1.0,1.0] - fade_extent * ( [1.0,1.0,1.0] - color );
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function check_interdomain( linker, plot_settings )
 % for show/hide interdomain_noncanonical_pairs
 if ~isfield( plot_settings, 'show_interdomain_noncanonical_pairs' ) return; end;

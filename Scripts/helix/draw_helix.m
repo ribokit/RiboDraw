@@ -130,25 +130,6 @@ for i = 1:length( not_helix_res_tags )
     draggable( residue.handle,@move_snapgrid, 'endfcn', @redraw_res_and_helix )
 end
 
-% draggable linker vertices
-% for i = 1:length( helix.associated_residues )
-%     res_tag = helix.associated_residues{i};
-%     residue = getappdata( gca, res_tag );
-%     linker_tags = residue.linkers;
-%     for k = 1 : length( linker_tags )
-%         linker = getappdata( gca, linker_tags{k} );
-%         if ~isfield( linker, 'line_handle' ) continue; end;
-%         if strcmp(linker.type,'stem_pair'); continue; end;
-%         if ~strcmp(get(linker.line_handle,'visible'),'on'); continue; end;
-%         if ~isfield( linker, 'vtx' ) | size(linker.plot_pos,1) ~= length( linker.vtx )
-%             linker = create_linker_with_draggable_vtx( linker );
-%         end;
-%         for i = 1:size( linker.plot_pos, 1 )
-%             set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
-%         end
-%         setappdata(gca, linker.linker_tag, linker ); 
-%     end
-% end
 
 %%%%%%%%%%%%%%%%%%%%%
 % DO THIS AT THE END
@@ -181,6 +162,8 @@ if isfield( residue, 'relpos' )
             set( residue.handle, 'fontweight',fontweight );
         end
     end
+    if isfield( residue, 'image_boundary' )
+    end
     if ( plot_settings.fontsize ~= get( residue.handle, 'fontsize' ) ) set( residue.handle, 'fontsize', plot_settings.fontsize ); end;
     h = residue.handle;
     set( h, 'Position', pos );
@@ -195,6 +178,9 @@ if isfield( residue, 'relpos' )
         linker_tags = residue.linkers;
         for k = 1 : length( linker_tags );  ok_linker(k) = isappdata( gca, linker_tags{k} );     end
         residue.linkers = linker_tags( ok_linker );
+    end
+    if isfield( residue, 'image_boundary' );
+        residue = draw_image_boundary( residue );
     end
     setappdata( gca, res_tag, residue );
 end
@@ -313,7 +299,7 @@ function residue = draw_tick( residue, bp_spacing, fontsize, R )
 if ( mod(residue.resnum,10) ~= 0 ); return; end;
 if isfield(residue,'ligand_partners'); return; end;
 
-    if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set later based on how helix is rotated.
+if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set later based on how helix is rotated.
 
 if ~isfield( residue, 'tick_handle' ) | ~isvalid( residue.tick_handle )
     residue.tick_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.

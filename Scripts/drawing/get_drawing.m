@@ -41,7 +41,7 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Residue_' ) ) );
     figure_residue = getappdata( gca, objnames{n} );
     residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','nucleotide',...
-        'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections'} );
+        'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary'} );
     savedata = setfield( savedata, objnames{n}, residue );
 end
 

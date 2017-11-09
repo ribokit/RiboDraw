@@ -167,10 +167,14 @@ switch linker.type
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
         linker.side_line1 = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
         linker.side_line2 = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
+        linker.outarrow1  = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
+        linker.outarrow2  = patch( [0,0],[0,0],[0.8 0.8 0.8],'edgecolor','none','clipping','off' ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
         send_to_back( linker.line_handle );
         send_to_back( linker.side_line1 );
         send_to_back( linker.side_line2 );
+        send_to_back( linker.outarrow1 );
+        send_to_back( linker.outarrow2 );
     case {'tertcontact_intradomain','tertiary_contact_intradomain'}
         linker.type = 'tertcontact_intradomain';
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
@@ -207,7 +211,7 @@ linker = setfield( linker, relpos_field, relpos);
 setappdata( gca, linker.linker_tag, linker );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function update_arrow( h, ctr, v, visible, spacing );
+function update_arrow( h, ctr, v, visible, spacing, add_stem );
 x = v * 1.5 * [0 1; -1 0]; % cross direction
 set( h, 'visible', visible);
 a  = [ ...
@@ -221,6 +225,15 @@ a  = [ ...
     ctr - spacing/6*v-spacing/10*x;
     ctr - spacing/3*v-spacing/5*x ...
     ];
+if exist( 'add_stem', 'var' ) & add_stem
+    a = [ a; ...
+        ctr - spacing/3*v-spacing*0.075*x; 
+        ctr - spacing/2*v-spacing*0.075*x; 
+        ctr - spacing/2*v+spacing*0.075*x; 
+        ctr - spacing/3*v+spacing*0.075*x ...
+        ];
+end
+    
 set( h, 'xdata', ...
     a(:,1) );
 set( h, 'ydata', ...
@@ -296,6 +309,7 @@ residue1 = getappdata( gca, res_tag1 );
 base_paired = false;
 for i = 1:length( residue1.linkers )
     linker_tag = residue1.linkers{i};
+    if ~isappdata( gca, linker_tag ) fprintf( 'Could not find linker %s\n', linker_tag ); continue; end;
     linker = getappdata( gca, linker_tag );
     if strcmp( linker.type,'noncanonical_pair' ) | strcmp( linker.type,'stem_pair' )
         if ( strcmp( linker.residue1 , res_tag1 ) && strcmp( linker.residue2, res_tag2 ) ) 
@@ -329,6 +343,19 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     end
     set( linker.side_line1, 'xdata', [side_line1_pos(:,1); plot_pos(end:-1:1,1)], 'ydata', [side_line1_pos(:,2); plot_pos(end:-1:1,2)] );
     set( linker.side_line2, 'xdata', [side_line2_pos(:,1); plot_pos(end:-1:1,1)], 'ydata', [side_line2_pos(:,2); plot_pos(end:-1:1,2)] );
+
+    if ( isfield( linker, 'show_split_arrows' )  & linker.show_split_arrows ) arrow_visible = 'on'; else; arrow_visible = 'off'; end;
+    outarrow_size = plot_settings.fontsize;
+    if isfield( linker, 'outarrow1' )  
+        v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
+        ctr = plot_pos(1,:);
+        update_arrow( linker.outarrow1, ctr+v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );  
+    end;
+    if isfield( linker, 'outarrow2' )  
+        v = plot_pos(end-1,:) - plot_pos(end,:);  v = v /norm(v);
+        ctr = plot_pos(end,:);
+        update_arrow( linker.outarrow2, ctr+v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );  
+    end;
 end
 
 % colors
@@ -351,9 +378,23 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     set( linker.node2, 'edgecolor',color2);
     set( linker.side_line1, 'facecolor', color1 );
     set( linker.side_line2, 'facecolor', color2 );
-    % also update pos
+    if isfield( linker, 'outarrow1' ); set( linker.outarrow1, 'facecolor',rescolor2 ); end;  
+    if isfield( linker, 'outarrow2' ); set( linker.outarrow2, 'facecolor',rescolor1 ); end;
+    linker_visible = get(linker.node1,'visible');
+    if isfield( linker, 'show_split_arrows' ) & linker.show_split_arrows
+        set( linker.outarrow1, 'visible', linker_visible );
+        set( linker.outarrow2, 'visible', linker_visible );
+        set( linker.side_line1, 'visible','off');
+        set( linker.side_line2, 'visible','off');
+    else
+        set( linker.outarrow1, 'visible', 'off' );
+        set( linker.outarrow2, 'visible', 'off' );
+        set( linker.side_line1, 'visible',linker_visible );
+        set( linker.side_line2, 'visible',linker_visible );
+    end
 else
     assert( strcmp( linker.type, 'tertcontact_intradomain' ) );
+    set( linker.line_handle, 'linewidth', 2*get_arrow_linewidth( plot_settings.fontsize ) );
     if any( strcmp( tertiary_contact.associated_residues1, linker.residue1 ) ) % in domain 1
         set( linker.node2, 'edgecolor',color1);
         set( linker.line_handle, 'color',color1);
@@ -370,10 +411,7 @@ function check_interdomain( linker, plot_settings )
 if ~isfield( plot_settings, 'show_interdomain_noncanonical_pairs' ) return; end;
 setting = 1;
 if ~plot_settings.show_interdomain_noncanonical_pairs
-    residue1 = getappdata( gca, linker.residue1 );
-    residue2 = getappdata( gca, linker.residue2 );
-    % check that there are two different (non-gray) colors
-    if linker_connects_different_domains( residue1, residue2 )
+    if isfield( linker, 'interdomain' ) & linker.interdomain
         setting = 0;
     end
 end

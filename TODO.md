@@ -1,7 +1,13 @@
 ## TODO
-* protein/ligand representation
-
-* allow rename of helices and hide helices as 'display_label' [cleanup layout of 23S]
+* create helix_group object to hold helices (cleanup 23S layout)
+* tertiary contacts should have names (H96-H52)
+* label outarrows with tertiary contact names
+* allow intradomain linkers to switch partners
+* allow interdomain linkers to switch partners
+* * assign ligand to label
+* draggable patches for ligands [use circle as default patch]
+* clone_ligand()
+* merge ligand()
 * Read-in & auto-color motifs [SRL, etc.]
 
 * complete 16S rRNA

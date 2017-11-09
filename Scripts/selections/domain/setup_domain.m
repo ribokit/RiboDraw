@@ -7,7 +7,12 @@ domain.name = name;
 domain_tag = sprintf('Selection_%s_domain', strrep( strrep(name, ' ', '_' ), '-', '_' ) );
 domain.selection_tag = domain_tag;
 
-res_tags = get_res_tags( residue_string );
+if iscell( residue_string ) 
+    res_tags = residue_string;
+else
+    assert( ischar( residue_string ) );
+    res_tags = get_res_tags( residue_string );
+end
 
 domain.associated_residues = {};
 associated_helices = {};
@@ -23,7 +28,9 @@ for i = 1:length( res_tags )
         residue.associated_selections = unique( [ residue.associated_selections, domain_tag ] );
         setappdata( gca, res_tag, residue );
         
-        associated_helices = [associated_helices, residue.helix_tag ];
+        if isfield( residue, 'helix_tag' ) 
+            associated_helices = [associated_helices, residue.helix_tag ];
+        end
     else
         fprintf( 'Warning: could not find %s.\n', res_tag );
     end

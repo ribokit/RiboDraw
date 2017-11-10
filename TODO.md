@@ -1,14 +1,11 @@
 ## TODO
-* switch to MATLAB workspace save format.
-* allow intradomain linkers to switch partners
-* allow interdomain linkers to switch partners
+* use minspantree to get internodes
+* other_connections
 * what is helix QA? should have another helix name.
 * add_to_domain() and add RPL's to separate domains.
-* try ligand set up + domain assignment.
 
-
+* protein set up + domain assignment.
 * draggable patches for ligands [use circle as default patch]
-
 * Read-in & auto-color motifs [SRL, etc.]
 
 * complete 16S rRNA

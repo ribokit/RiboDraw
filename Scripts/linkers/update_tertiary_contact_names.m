@@ -1,6 +1,9 @@
-function update_tertiary_contact_names()
+function update_tertiary_contact_names( tags )
 
-tags = get_tags( 'Tertiary' );
+if ~exist( 'tags','var' )
+    tags = get_tags( 'Tertiary' );
+end
+
 for i = 1:length( tags )
     tertiary_contact = getappdata( gca, tags{i} );
     residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );

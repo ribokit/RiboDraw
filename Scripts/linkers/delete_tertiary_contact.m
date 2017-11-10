@@ -2,7 +2,12 @@ function delete_tertiary_contact( contact_name )
 % delete_tertiary_contact( contact_name )
 % (C) R. Das, Stanford University, 2017
 
-if isappdata( gca, contact_name )
+if iscell( contact_name )
+    for i = 1:length( contact_name )
+        delete_tertiary_contact( contact_name{i} );
+    end
+    return;
+elseif isappdata( gca, contact_name )
     tag = contact_name;
 else
     contact_name_cleaned = strrep( strrep(contact_name, ' ', '_' ), '-', '_' ) ;

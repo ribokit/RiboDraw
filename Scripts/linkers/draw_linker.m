@@ -391,6 +391,8 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     set( linker.side_line2, 'facecolor', color2 );
     if isfield( linker, 'outarrow1' ); set( linker.outarrow1, 'facecolor',rescolor2 ); end;  
     if isfield( linker, 'outarrow2' ); set( linker.outarrow2, 'facecolor',rescolor1 ); end;
+    if isfield( linker, 'outarrow_label1' ); set( linker.outarrow_label1, 'color',rescolor2 ); end;  
+    if isfield( linker, 'outarrow_label2' ); set( linker.outarrow_label2, 'color',rescolor1 ); end;
     linker_visible = get(linker.node1,'visible');
     if isfield( linker, 'show_split_arrows' ) & linker.show_split_arrows
         set( linker.outarrow1, 'visible', linker_visible );

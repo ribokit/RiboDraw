@@ -1,4 +1,4 @@
-function setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back )
+function tag = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back )
 % setup_tertiary_contact( contact_name, res_tags1, res_tags2)
 % setup_tertiary_contact( contact_name, res1_string, res2_string )
 % (C) R. Das, Stanford University, 2017
@@ -10,6 +10,7 @@ if length( res_tags1 ) == 0; return; end;
 if length( res_tags2 ) == 0; return; end;
 
 if ~isempty( intersect( res_tags1, res_tags2 ) )
+    tag = '';
     fprintf( 'res_tags1 and res_tags2 have common residues... not creating tertiary contact %s\n', contact_name );
     intersect( res_tags1, res_tags2 );
     return 
@@ -66,9 +67,30 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );
 linkers = {};
-for k = 2:length( res_tags );
-    linker.residue1 = res_tags{1};
-    linker.residue2 = res_tags{k};
+
+% setup network of intradomain linkers based on minimum spanning tree --
+% will be easier on the eyes than web to a random point.
+for i = 1:length( res_tags );
+    residues{i} = getappdata( gca, res_tags{i} );
+end
+s = [];
+t = [];
+weights = [];
+for i = 1:length( res_tags );
+    for j = i+1:length( res_tags );
+        s = [s,i];
+        t = [t,j];
+        weights = [ weights, norm( residues{i}.plot_pos - residues{j}.plot_pos ) ];
+    end
+end
+G = graph( s, t, weights );
+[T,~] = minspantree( G );
+assert( numedges(T) == length(res_tags) - 1);
+
+for k = 1:numedges(T);
+    [i,j] = findedge(T,k);
+    linker.residue1 = res_tags{i};
+    linker.residue2 = res_tags{j};
     linker.type = 'tertcontact_intradomain';
     linker.linker_tag = sprintf('Linker_%s_%s_%s_%s',linker.residue1(9:end),linker.residue2(9:end),  ...
         contact_name,linker.type);

@@ -9,10 +9,12 @@ end
 if ~ok; return; end;
 
 % get interdomain_linkers
-linkers = get_tags( 'Linker', 'noncanonical_pair' );
-linkers = [ linkers, get_tags( 'Linker', 'ligand' ) ];
-linkers = [ linkers, get_tags( 'Linker', 'long_range_stem_pair' ) ];
-%linkers = [ linkers, get_tags( 'Linker', 'stack' ) ];
+linkers = {};
+% order of preference
+linker_types = {'noncanonical_pair','ligand','long_range_stem_pair','stack'};
+for i = 1:length( linker_types )
+    linkers = [ linkers, get_tags( 'Linker', linker_types{i} ) ];
+end
 
 interdomain_linkers = {};
 for i = 1:length( linkers )
@@ -123,9 +125,9 @@ for i = 1:length( linker_groups )
             res2 = getappdata( gca, linker.residue2 );
             linker_length = norm( res1.plot_pos - res2.plot_pos );
         end
-        linker_lengths(j) = linker_length;
+        linker_lengths(j,:) = [find(strcmp(linker.type, linker_types)), linker_length];
     end
-    [~, idx ] = min( linker_lengths );
+    [~, idx ] = sortrows( linker_lengths );
     main_linker = linker_group{idx};
     
     % get all residues involved in tertiary contact.
@@ -135,7 +137,8 @@ for i = 1:length( linker_groups )
     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
 
-    setup_tertiary_contact( name, res_tags1, res_tags2, main_linker, 1 );
+    tertiary_contact_tag = setup_tertiary_contact( name, res_tags1, res_tags2, main_linker, 1 );
+    update_tertiary_contact_names( {tertiary_contact_tag} );
 end
 
 hide_interdomain_noncanonical_pairs;

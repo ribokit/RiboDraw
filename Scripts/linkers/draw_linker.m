@@ -11,7 +11,14 @@ if iscell( linker )
     for i = 1:length( linker ); draw_linker( linker{i} ); end;
     return;
 end
-if ischar( linker ) & isappdata( gca, linker ) linker = getappdata( gca, linker ); end;
+if ischar( linker ) 
+    if isappdata( gca, linker ) 
+        linker = getappdata( gca, linker );
+    else
+        fprintf( 'Could not find %s\n', linker );
+        return;
+    end
+end;
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return if we don't have to make anything
@@ -107,8 +114,8 @@ if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_set
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
 if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*2 ); end; 
 if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*2 ); end; 
-if isfield( linker, 'tertiary_contact' ); update_tertiary_contact( linker, plot_pos, plot_settings ); end;
-if strcmp( linker.type, 'noncanonical_pair' ) check_interdomain( linker, plot_settings ); end;
+if isfield( linker, 'tertiary_contact' ); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
+if any(strcmp(linker.type, {'noncanonical_pair','long_range_stem_pair'} )) check_interdomain( linker, plot_settings ); end;
 if strcmp( linker.type, 'ligand' ) update_ligand_linker_visibility( linker, plot_settings ); end;
 
 % if there are vertex symbols at end points, re-draw them.
@@ -323,7 +330,7 @@ end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function update_tertiary_contact( linker, plot_pos, plot_settings );
+function linker = update_tertiary_contact( linker, plot_pos, plot_settings );
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
     
 if isfield( plot_settings, 'show_tertiary_contacts' )
@@ -350,11 +357,15 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
         v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
         ctr = plot_pos(1,:);
         update_arrow( linker.outarrow1, ctr+v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );  
+        linker = update_tertiary_arrow_label( linker, 'outarrow_label1', ctr + v*outarrow_size, arrow_visible, plot_settings );
+        set_text_alignment( linker.outarrow_label1, v );
     end;
     if isfield( linker, 'outarrow2' )  
         v = plot_pos(end-1,:) - plot_pos(end,:);  v = v /norm(v);
         ctr = plot_pos(end,:);
         update_arrow( linker.outarrow2, ctr+v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );  
+        linker = update_tertiary_arrow_label( linker, 'outarrow_label2', ctr + v*outarrow_size, arrow_visible, plot_settings );
+        set_text_alignment( linker.outarrow_label2, v );
     end;
 end
 
@@ -404,6 +415,17 @@ else
         set( linker.line_handle, 'color',color2);
     end
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linker = update_tertiary_arrow_label( linker, arrow_label, default_plot_pos, arrow_visible, plot_settings );
+if ~isfield( linker, arrow_label )
+    h = text( 0, 0, '.' );
+    linker = setfield( linker, arrow_label, h );
+    setappdata( gca, linker.linker_tag, linker );
+end
+tertiary_contact = getappdata( gca, linker.tertiary_contact );
+h = getfield(linker, arrow_label);
+set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function check_interdomain( linker, plot_settings )

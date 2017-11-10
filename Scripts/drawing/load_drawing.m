@@ -7,8 +7,14 @@ if isstruct( filename )
 else
     assert( ischar( filename ) )
     tic
-    fprintf( 'Reading JSON: %s\n',filename );
-    loaddata = loadjson( filename );
+    if length(filename) > 4 & strcmp( filename( end-3:end ), '.mat' )
+        fprintf( 'Reading MATLAB workspace  %s\n', filename );
+        drawing = load( filename, 'drawing' );
+        loaddata = drawing.drawing;
+    else
+        fprintf( 'Reading JSON: %s\n',filename );
+        loaddata = loadjson( filename );
+    end
     toc
 end
 if ~keep_previous_drawing; 
@@ -59,7 +65,7 @@ draw_helices(); % get_helices( loaddata ) );
 move_stuff_to_back();
 
 axis off
-%axis equal
+axis image
 set(gcf,'color','white')
 if isfield( loaddata, 'window_position' )
     set(gcf,'Position',loaddata.window_position)

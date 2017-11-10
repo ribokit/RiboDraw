@@ -1,4 +1,4 @@
-function setup_domain( residue_string, name );
+function domain = setup_domain( residue_string, name );
 % setup_domain( residue_string, name );
 % (C) Rhiju Das, Stanford University, 2017
 
@@ -11,7 +11,7 @@ if iscell( residue_string )
     res_tags = residue_string;
 else
     assert( ischar( residue_string ) );
-    res_tags = get_res_tags( residue_string );
+    res_tags = get_res_tags( residue_string, 1 );
 end
 
 domain.associated_residues = {};
@@ -62,9 +62,12 @@ else
     setappdata( gca, domain_tag, domain );
 end
 
-associated_helices =  unique( associated_helices );
-for i = 1:length( associated_helices );
-    helix = getappdata( gca, associated_helices{i} );
-    draw_helix( helix );
-end
+% associated_helices =  unique( associated_helices );
+% for i = 1:length( associated_helices );
+%     helix = getappdata( gca, associated_helices{i} );
+%     draw_helix( helix );
+% end
+draw_selections( {domain_tag} );
+domain = getappdata( gca, domain_tag );
+
 

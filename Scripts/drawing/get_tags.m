@@ -1,4 +1,4 @@
-function tags = get_tags( headstring, tailstring )
+function tags = get_tags( headstring, tailstring, objnames )
 %  tags = get_tags( headstring )
 %  tags = get_tags( headstring, tailstring )
 %
@@ -12,8 +12,10 @@ function tags = get_tags( headstring, tailstring )
 %
 % (C) R. Das, Stanford University, 2017
 
-vals = getappdata( gca );
-objnames = fields( vals );
+if ~exist( 'objnames','var' )
+    vals = getappdata( gca );
+    objnames = fields( vals );
+end
 tags = {};
 for n = 1:length( objnames )
     if isempty( strfind( objnames{n}, headstring ) ); continue; end;

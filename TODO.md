@@ -1,13 +1,14 @@
 ## TODO
-* create helix_group object to hold helices (cleanup 23S layout)
-* tertiary contacts should have names (H96-H52)
-* label outarrows with tertiary contact names
+* switch to MATLAB workspace save format.
 * allow intradomain linkers to switch partners
 * allow interdomain linkers to switch partners
-* * assign ligand to label
+* what is helix QA? should have another helix name.
+* add_to_domain() and add RPL's to separate domains.
+* try ligand set up + domain assignment.
+
+
 * draggable patches for ligands [use circle as default patch]
-* clone_ligand()
-* merge ligand()
+
 * Read-in & auto-color motifs [SRL, etc.]
 
 * complete 16S rRNA
@@ -22,6 +23,7 @@
 
 ### Future
 * settings icon for toggles --> menu.
+* rename_tertiary_contact (for group II intron?)
 * auto-rectify linkers
 * pathfinder routine for arrow linkers & noncanonical pairs
 * convert to javascript

@@ -1,4 +1,4 @@
-function setup_domain( name );
+function delete_domain( name );
 % setup_domain( residue_string, name );
 % (C) Rhiju Das, Stanford University, 2017
 

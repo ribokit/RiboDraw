@@ -233,6 +233,10 @@ set( h, 'fontsize', plot_settings.fontsize*1.5 );
 if isfield( helix, 'rgb_color' ) set( h, 'color', helix.rgb_color ); end;
 v = [0,sign(helix.label_relpos(2))]*R;
 set_text_alignment( h, v );
+if isfield( helix, 'label_visible' )
+    if helix.label_visible; visible = 'on'; else; visible = 'off'; end;
+    set( helix.label, 'visible', visible );
+end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,31 +267,6 @@ snap_spacing = plot_settings.bp_spacing/4;
 helix.label_relpos = round( helix.label_relpos / snap_spacing ) * snap_spacing;
 
 draw_helix( helix );
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function set_text_alignment( h, v )
-
-theta = atan2( v(2), v(1) );
-theta =  45 * round( (theta * 180/pi)/45 );
-theta = mod( theta, 360 );
-switch theta
-    case 0
-        set( h,'horizontalalign','left','verticalalign','middle');
-    case 45
-        set( h,'horizontalalign','left','verticalalign','bottom');
-    case 90
-        set( h,'horizontalalign','center','verticalalign','bottom');
-    case 135
-        set( h,'horizontalalign','right','verticalalign','bottom');
-    case 180
-        set( h,'horizontalalign','right','verticalalign','middle'); 
-    case 225
-        set( h,'horizontalalign','right','verticalalign','top'); 
-    case 270
-        set( h,'horizontalalign','center','verticalalign','top');
-    case 315
-        set( h,'horizontalalign','left','verticalalign','top'); 
-end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ticks

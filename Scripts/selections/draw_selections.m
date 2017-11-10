@@ -1,5 +1,5 @@
 function draw_selections( selections );
-if ~isfield( 'selections', 'var' )
+if ~exist( 'selections', 'var' )
     selections = get_tags( 'Selection' );
 end
 plot_settings = getappdata( gca, 'plot_settings' );
@@ -70,9 +70,11 @@ for i = 1:length( selections )
     if ~isempty( minpos ) & ~isempty( maxpos )
         if isfield( selection, 'rectangle')  set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
         if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
-        if isfield( selection, 'label') & ~isempty( ctr_pos )
+        if isfield( selection, 'label') & ~isempty( ctr_pos ) & ~isempty( selection.label_relpos )
             set( selection.label, 'Position',  ctr_pos + selection.label_relpos );
+            set( selection.label, 'String', strrep(selection.name,'prime','^{\prime}') );
             if isfield( selection, 'rgb_color' ) set( selection.label, 'color', selection.rgb_color ); end
+            if isfield( selection, 'helix_group' ) set( selection.label, 'fontsize', plot_settings.fontsize*1.5,'fontweight','normal'); end;
         end
         if isfield( selection, 'reflect_line_horizontal1' );
             set( selection.reflect_line_horizontal1, 'Xdata', minpos(1) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
@@ -114,18 +116,6 @@ setappdata( h, 'flip', flip);
 set(h,'ButtonDownFcn',{@reflect_selection,h});
 selection = setfield( selection, tag, h );
 setappdata( gca, selection.selection_tag, selection );
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [minpos,maxpos] = get_minpos_maxpos( selection );  
-dom_pos = [];
-for j = 1:length( selection.associated_residues )
-    residue = getappdata( gca, selection.associated_residues{j} );
-    if isfield( residue, 'plot_pos' );
-        dom_pos = [ dom_pos; residue.plot_pos ];
-    end
-end
-minpos = min( dom_pos, [], 1 );
-maxpos = max( dom_pos, [], 1 );
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function reflect_selection( h, ~, ~ )

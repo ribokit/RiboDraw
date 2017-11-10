@@ -11,6 +11,7 @@ if ~ok; return; end;
 % get interdomain_linkers
 linkers = get_tags( 'Linker', 'noncanonical_pair' );
 linkers = [ linkers, get_tags( 'Linker', 'ligand' ) ];
+linkers = [ linkers, get_tags( 'Linker', 'long_range_stem_pair' ) ];
 %linkers = [ linkers, get_tags( 'Linker', 'stack' ) ];
 
 interdomain_linkers = {};

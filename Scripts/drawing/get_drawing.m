@@ -52,7 +52,7 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Helix_' ) ) );
     figure_helix = getappdata( gca, objnames{n} );
     helix = copy_fields( figure_helix, {'resnum1','chain1','segid1','resnum2','chain2','segid2','name',...
-        'center','rotation','parity','label_relpos','helix_tag','associated_residues','rgb_color'} );
+        'center','rotation','parity','label_relpos','helix_tag','associated_residues','rgb_color','label_visible'} );
     savedata = setfield( savedata, objnames{n}, helix );
 end
 
@@ -64,7 +64,7 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Selection_' ) ) );
     figure_selection = getappdata( gca, objnames{n} );
     selection = copy_fields( figure_selection, {'associated_residues','associated_helices','selection_tag','type','coax_pairs','name',...
-        'label_relpos','rgb_color','label_visible'} );
+        'label_relpos','rgb_color','label_visible','helix_group'} );
     savedata = setfield( savedata, objnames{n}, selection );
 end
 
@@ -87,7 +87,7 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Linker_' ) ) );
     figure_linker = getappdata( gca, objnames{n} );
     linker = copy_fields( figure_linker, {'residue1','residue2','type','linker_tag','relpos1',...
-        'relpos2','edge1','edge2','LW_orientation','tertiary_contact'} );
+        'relpos2','edge1','edge2','LW_orientation','tertiary_contact','interdomain','show_split_arrows','outarrow_label_relpos1','outarrow_label_relpos2'} );
     savedata = setfield( savedata, objnames{n}, linker );
 end
 

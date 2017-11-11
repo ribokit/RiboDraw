@@ -1,5 +1,4 @@
 function linker = create_linker_with_draggable_vtx( linker )
-
 linker.vtx = {};
 nvtx = size(linker.plot_pos,1);
 linker.vtx{1}  = create_endpoint_linker_vertex(linker.plot_pos(1,:), linker.linker_tag );
@@ -40,11 +39,12 @@ function new_linker_vtx( h )
 delete_crosshair();
 pos = [get(h,'XData' ), get(h,'YData' )];
 linker_tag = getappdata( h, 'linker_tag' );
-linker = getappdata( gca, linker_tag );
+linker     = getappdata( gca, linker_tag );
+if isempty( linker ) return; end;
 plot_settings = getappdata( gca, 'plot_settings' );
 
 % special 'rearrangement' for tertcontact_interdomain.
-if  isfield( linker, 'type' ) & strcmp( linker.type, 'tertcontact_interdomain' )
+if  strcmp( linker.type, 'tertcontact_interdomain' )
     tertiary_contact = getappdata( gca, linker.tertiary_contact );
     if ( h == linker.vtx{1} )
         res_tags = tertiary_contact.associated_residues1 ;
@@ -54,9 +54,9 @@ if  isfield( linker, 'type' ) & strcmp( linker.type, 'tertcontact_interdomain' )
                 res_tags1 = res_tags( [i, 1:i-1, i+1:end] );
                 res_tags2 = tertiary_contact.associated_residues2;
                 split_arrows = isfield( linker, 'show_split_arrows') && linker.show_split_arrows;
-                delete_tertiary_contact( linker.tertiary_contact, 0 );
                 tertiary_contact = setup_tertiary_contact( '', res_tags1, res_tags2, linker, 0, 0 );
                 show_split_arrows( tertiary_contact.interdomain_linker, split_arrows );
+                delete_tertiary_contact( linker.tertiary_contact, 0 );
                 return;
             end
         end
@@ -69,9 +69,9 @@ if  isfield( linker, 'type' ) & strcmp( linker.type, 'tertcontact_interdomain' )
                 res_tags1 = tertiary_contact.associated_residues1;
                 res_tags2 = res_tags( [i, 1:i-1, i+1:end] );
                 split_arrows = isfield( linker, 'show_split_arrows') && linker.show_split_arrows;
-                delete_tertiary_contact( linker.tertiary_contact, 0 );
                 tertiary_contact = setup_tertiary_contact( '', res_tags1, res_tags2, linker, 0, 0 );
                 show_split_arrows( tertiary_contact.interdomain_linker, split_arrows );
+                delete_tertiary_contact( linker.tertiary_contact, 0 );
                 return;
             end
         end

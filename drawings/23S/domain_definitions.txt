@@ -1,14 +1,14 @@
-Domain 0                      C:1-11 C:527-584 C:1255-1270 C:1648-1681 C:1990-2042 C:2895-2904 
-Domain I                      C:12-526
-Domain II 5prime extension    C:585-810                    
-Domain II core                C:811-1196
-Domain II 3prime extension    C:1197-1254
-Domain III                    C:1271-1647
-Domain IV 3prime extension    C:1682-1763
-Domain IV core                C:1764-1989
-Domain V core PTC             C:2043-2091 C:2228-2258 C:2426-2625
-Domain V L1 extension         C:2092-2227
-Domain V central protuberance C:2259-2425
-Domain VI core                C:2626-2788
-Domain VI 3prime extension    C:2789-2894
-5S rRNA                       B:1-119
+Domain 0                      C:QA:1-11 C:QA:527-584 C:QA:1255-1270 C:QA:1648-1681 C:QA:1990-2042 C:QA:2895-2904 
+Domain I                      C:QA:12-526
+Domain II 5prime extension    C:QA:585-810                    
+Domain II core                C:QA:811-1195
+Domain II 3prime extension    C:QA:1196-1254
+Domain III                    C:QA:1271-1647
+Domain IV 3prime extension    C:QA:1682-1763
+Domain IV core                C:QA:1764-1989
+Domain V core PTC             C:QA:2043-2091 C:QA:2228-2258 C:QA:2426-2625
+Domain V L1 extension         C:QA:2092-2227
+Domain V central protuberance C:QA:2259-2425
+Domain VI core                C:QA:2626-2788
+Domain VI 3prime extension    C:QA:2789-2894
+5S rRNA                       C:RA:1-119

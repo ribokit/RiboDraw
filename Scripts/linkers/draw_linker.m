@@ -93,7 +93,10 @@ set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 
 % draw (draggable) vertices if they don't exist yet.
 if isfield( linker, 'plot_pos' ) 
-    if ( ~isfield( linker, 'vtx' ) | size(linker.plot_pos,1) ~= length( linker.vtx ) )
+    if isfield( linker, 'vtx' ) & size(linker.plot_pos,1) ~= length( linker.vtx )
+        for i = 1:length( linker.vtx ); delete( linker.vtx{i} );  end;
+    end
+    if ( ~isfield( linker, 'vtx' ) )        
         linker = create_linker_with_draggable_vtx( linker );
     end
     for i = 1:size( linker.plot_pos, 1 )

@@ -1,13 +1,12 @@
 ## TODO
-* use minspantree to get internodes
-* other_connections
 * what is helix QA? should have another helix name.
+* other_connections [rna_motif]
 * add_to_domain() and add RPL's to separate domains.
 
-* protein set up + domain assignment.
-* draggable patches for ligands [use circle as default patch]
-* Read-in & auto-color motifs [SRL, etc.]
+* draggable patches for ligands 
 
+* K-turn assignment in rna_motif
+* Read-in & auto-color motifs [SRL, etc.]
 * complete 16S rRNA
 * lay out other ribosome states.
 

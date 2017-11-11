@@ -1,4 +1,5 @@
-function define_helix_groups();
+function define_helix_groups( prefix );
+% define_helix_groups();
 
 tags = get_tags( 'Helix' );
 for i = 1:length( tags )
@@ -10,7 +11,12 @@ for i = 1:length( tags )
     end
 end
 
-unique_prefixes = unique( setdiff(prefixes,'') );
+if ~exist( 'prefix', 'var' )
+    unique_prefixes = unique( setdiff(prefixes,'') );
+else
+    unique_prefixes = {prefix};
+end
+
 for j = 1:length( unique_prefixes )
     prefix = unique_prefixes{j};
     idx = find(strcmp( prefixes, prefix ));

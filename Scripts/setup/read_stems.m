@@ -1,4 +1,5 @@
-function helices = read_helices( helix_file )
+function helices = read_stems( helix_file )
+% helices = read_stems( helix_file )
 
 fid = fopen( helix_file );
 helices = {};

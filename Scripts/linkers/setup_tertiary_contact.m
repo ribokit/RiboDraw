@@ -52,10 +52,10 @@ else
 end
 
 if exist( 'template_linker', 'var' )
-    if isfield( template_linker, 'relpos1' ) linker.relpos1 = template_linker.relpos1; end;
-    if isfield( template_linker, 'relpos2' ) linker.relpos2 = template_linker.relpos2; end;
+    if isfield( template_linker, 'relpos1' )  linker.relpos1 = template_linker.relpos1; end;
+    if isfield( template_linker, 'relpos2' )  linker.relpos2 = template_linker.relpos2; end;
     if isfield( template_linker, 'plot_pos' ) linker.plot_pos = template_linker.plot_pos; end;
-    create_linker_with_draggable_vtx( linker );
+    linker = create_linker_with_draggable_vtx( linker );
 end
 add_linker( linker );
 tertiary_contact.interdomain_linker = linker.linker_tag;
@@ -78,7 +78,9 @@ draw_linker( [{tertiary_contact.interdomain_linker},tertiary_contact.intradomain
 
 if ~exist( 'skip_move_stuff_to_back','var') skip_move_stuff_to_back = 0; end;
 if ~skip_move_stuff_to_back 
+    tic
     move_stuff_to_back(); % should be faster to move all tertiary contact linkers to 'back' all at once
+    toc
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

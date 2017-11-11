@@ -1,5 +1,7 @@
-function update_tertiary_contact_names( tags )
+function update_tertiary_contact_names( tags, print_stuff )
+% update_tertiary_contact_names( tags, print_stuff )
 
+if ~exist( 'print_stuff' ) print_stuff = 1; end;
 if ~exist( 'tags','var' )
     tags = get_tags( 'Tertiary' );
 end
@@ -14,7 +16,7 @@ for i = 1:length( tags )
         name1 = get_helix_name( helix1, residue1 );
         name2 = get_helix_name( helix2, residue2 );
         tertiary_contact.name = [ name1, '-', name2 ];
-        fprintf( 'Setting tertiary contact name %s for contact %s\n', tertiary_contact.name,tags{i} );
+        if print_stuff; fprintf( 'Setting tertiary contact name %s for contact %s\n', tertiary_contact.name,tags{i} ); end;
         setappdata( gca, tags{i}, tertiary_contact );
         if isfield( tertiary_contact, 'interdomain_linker' ); draw_linker( tertiary_contact.interdomain_linker ); end;
     end   

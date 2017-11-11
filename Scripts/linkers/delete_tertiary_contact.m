@@ -1,10 +1,10 @@
-function delete_tertiary_contact( contact_name )
+function delete_tertiary_contact( contact_name, print_stuff )
 % delete_tertiary_contact( contact_name )
 % (C) R. Das, Stanford University, 2017
-
+if ~exist( 'print_stuff', 'var' ) print_stuff = 1; end;
 if iscell( contact_name )
     for i = 1:length( contact_name )
-        delete_tertiary_contact( contact_name{i} );
+        delete_tertiary_contact( contact_name{i}, print_stuff );
     end
     return;
 elseif isappdata( gca, contact_name )
@@ -25,12 +25,12 @@ for i = 1:length( linker_tags )
     linker_tag = linker_tags{i};
     linker = getappdata( gca, linker_tag );
     if strcmp( linker.tertiary_contact, tertiary_contact.tertiary_contact_tag )
-        fprintf( 'Deleting %s\n', linker_tag );
+        if print_stuff; fprintf( 'Deleting %s\n', linker_tag ); end;
         delete_linker( linker );
     end
 end
 
-fprintf( 'Deleting %s\n', tag );
+if print_stuff; fprintf( 'Deleting %s\n', tag ); end;
 rmappdata( gca, tag )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

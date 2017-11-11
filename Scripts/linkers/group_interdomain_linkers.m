@@ -133,12 +133,10 @@ for i = 1:length( linker_groups )
     % get all residues involved in tertiary contact.
     residue1 = getappdata( gca, main_linker.residue1 );
     residue2 = getappdata( gca, main_linker.residue2 );
-    name = sprintf( '%s%s%d_%s%s%d',  residue1.chain,residue1.segid,residue1.resnum, residue2.chain,residue2.segid,residue2.resnum  );
     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
 
-    tertiary_contact_tag = setup_tertiary_contact( name, res_tags1, res_tags2, main_linker, 1 );
-    update_tertiary_contact_names( {tertiary_contact_tag} );
+    tertiary_contact_tag = setup_tertiary_contact( '', res_tags1, res_tags2, main_linker, 1 );
 end
 
 hide_interdomain_noncanonical_pairs;

@@ -185,6 +185,7 @@ switch linker.type
     case {'tertcontact_intradomain','tertiary_contact_intradomain'}
         linker.type = 'tertcontact_intradomain';
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',2.5,'clipping','off' ); % dummy for now -- will get redrawn later.
+        % don't need to make node1 -- should be covered by interdomain.
         linker.node2 = create_undercircle( plot_settings.bp_spacing );
         setappdata( gca, linker.linker_tag, linker );
         send_to_back( linker.line_handle );
@@ -352,7 +353,7 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     set( linker.side_line2, 'xdata', [side_line2_pos(:,1); plot_pos(end:-1:1,1)], 'ydata', [side_line2_pos(:,2); plot_pos(end:-1:1,2)] );
 
     if ( isfield( linker, 'show_split_arrows' )  & linker.show_split_arrows ) arrow_visible = 'on'; else; arrow_visible = 'off'; end;
-    outarrow_size = plot_settings.fontsize;
+    outarrow_size = 1.5*plot_settings.spacing;
     if isfield( linker, 'outarrow1' )  
         v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
         ctr = plot_pos(1,:);

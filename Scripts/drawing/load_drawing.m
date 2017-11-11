@@ -66,6 +66,10 @@ move_stuff_to_back();
 
 axis off
 axis image
+axlim = axis();
+axis normal
+axis( axlim );
+
 set(gcf,'color','white')
 if isfield( loaddata, 'window_position' )
     set(gcf,'Position',loaddata.window_position)

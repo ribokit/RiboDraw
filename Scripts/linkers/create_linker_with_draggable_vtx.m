@@ -41,12 +41,47 @@ delete_crosshair();
 pos = [get(h,'XData' ), get(h,'YData' )];
 linker_tag = getappdata( h, 'linker_tag' );
 linker = getappdata( gca, linker_tag );
+plot_settings = getappdata( gca, 'plot_settings' );
+
+% special 'rearrangement' for tertcontact_interdomain.
+if  isfield( linker, 'type' ) & strcmp( linker.type, 'tertcontact_interdomain' )
+    tertiary_contact = getappdata( gca, linker.tertiary_contact );
+    if ( h == linker.vtx{1} )
+        res_tags = tertiary_contact.associated_residues1 ;
+        for i = 2:length( res_tags )
+            residue = getappdata( gca, res_tags{i} );
+            if norm( residue.plot_pos - pos ) < plot_settings.bp_spacing/4
+                res_tags1 = res_tags( [i, 1:i-1, i+1:end] );
+                res_tags2 = tertiary_contact.associated_residues2;
+                split_arrows = isfield( linker, 'show_split_arrows') && linker.show_split_arrows;
+                delete_tertiary_contact( linker.tertiary_contact, 0 );
+                tertiary_contact = setup_tertiary_contact( '', res_tags1, res_tags2, linker, 0, 0 );
+                show_split_arrows( tertiary_contact.interdomain_linker, split_arrows );
+                return;
+            end
+        end
+    else
+        assert( h == linker.vtx{end} );
+        res_tags = tertiary_contact.associated_residues2;
+        for i = 2:length( res_tags )
+            residue = getappdata( gca, res_tags{i} );
+            if norm( residue.plot_pos - pos ) < plot_settings.bp_spacing/4
+                res_tags1 = tertiary_contact.associated_residues1;
+                res_tags2 = res_tags( [i, 1:i-1, i+1:end] );
+                split_arrows = isfield( linker, 'show_split_arrows') && linker.show_split_arrows;
+                delete_tertiary_contact( linker.tertiary_contact, 0 );
+                tertiary_contact = setup_tertiary_contact( '', res_tags1, res_tags2, linker, 0, 0 );
+                show_split_arrows( tertiary_contact.interdomain_linker, split_arrows );
+                return;
+            end
+        end
+    end
+end
 
 % create new draggable symbol
 h_new = create_draggable_linker_vertex( pos, linker_tag );
 
 % install this new vertex in linker vertices.
-plot_settings = getappdata( gca, 'plot_settings' );
 if ( h == linker.vtx{1} )
     relpos = get_relpos_based_on_restag( pos, linker.residue1 );
     if ( norm( linker.relpos1(1,:) - relpos ) >= plot_settings.bp_spacing/4 )

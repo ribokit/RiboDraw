@@ -105,10 +105,11 @@ arrow_tags = get_tags( 'Linker_', 'arrow' );
 stem_pair_tags = get_tags( 'Linker_', 'stem_pair' );
 noncanonical_tags = get_tags( 'Linker_', 'noncanonical_pair' );
 stack_tags = get_tags( 'Linker_', 'stack' );
-noncanonical_tags = get_tags( 'Linker_', 'other_contact' );
+other_contact_tags = get_tags( 'Linker_', 'other_contact' );
 tertcontact_interdomain_tags = get_tags( 'Linker_', 'tertcontact_interdomain' );
 tertcontact_intradomain_tags = get_tags( 'Linker_', 'tertcontact_intradomain' );
-tags = [stack_tags, arrow_tags, stem_pair_tags, noncanonical_tags, tertcontact_interdomain_tags, tertcontact_intradomain_tags ];
+tags = [arrow_tags, stem_pair_tags, noncanonical_tags, stack_tags, other_contact_tags, ...
+    tertcontact_interdomain_tags, tertcontact_intradomain_tags ];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_selection_tags();

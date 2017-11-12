@@ -1,12 +1,11 @@
 ## TODO
-* other_contacts -- READIN.
 * when grouping tertiary contacts, look for previous contact (to define possible linker template)
+* setup 23S other_contacts.
 
 * add_to_domain() and add RPL's to separate domains.
 * color different parts of tertiary contact ligand label '\color[rgb]{0.5,0.5,1}blah'
 * draggable image patches for ligands 
 * fix helix label dragging.
-
 
 * complete 16S rRNA
 * lay out other ribosome states.

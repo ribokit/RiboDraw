@@ -11,7 +11,7 @@ if ~ok; return; end;
 % get interdomain_linkers
 linkers = {};
 % order of preference
-linker_types = {'noncanonical_pair','ligand','long_range_stem_pair','stack'};
+linker_types = {'noncanonical_pair','ligand','long_range_stem_pair','stack','other_contact'};
 for i = 1:length( linker_types )
     linkers = [ linkers, get_tags( 'Linker', linker_types{i} ) ];
 end
@@ -77,22 +77,7 @@ for i = 1:length( interdomain_linkers )
 end
 
 % get rid of any linker groups that are all stacks...
-linker_groups_filter = {};
-for i = 1:length( linker_groups )
-    linker_group = linker_groups{i};
-    ok = 0;
-    for j = 1:length( linker_group )
-        linker = linker_group{j};
-        if ~strcmp( linker.type, 'stack' )
-            ok = 1;
-            break;
-        end
-    end
-    if ok
-        linker_groups_filter = [ linker_groups_filter, {linker_group} ];
-    end
-end
-linker_groups = linker_groups_filter;
+linker_groups = filter_all_stack_groups( linker_groups );
 
 % allows quick check by eye...
 for i = 1:length( linker_groups )
@@ -194,6 +179,24 @@ for i = 1:length( domain_names )
 end
 ok = 1;
 
+
+
+function linker_groups_filter = filter_all_stack_groups( linker_groups );
+linker_groups_filter = {};
+for i = 1:length( linker_groups )
+    linker_group = linker_groups{i};
+    ok = 0;
+    for j = 1:length( linker_group )
+        linker = linker_group{j};
+        if ~strcmp( linker.type, 'stack' )
+            ok = 1;
+            break;
+        end
+    end
+    if ok
+        linker_groups_filter = [ linker_groups_filter, {linker_group} ];
+    end
+end
 
 
 

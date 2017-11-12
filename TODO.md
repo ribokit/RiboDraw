@@ -1,12 +1,13 @@
 ## TODO
-* what is helix QA? should have another helix name.
-* other_connections [rna_motif]
+* other_contacts -- READIN.
+* when grouping tertiary contacts, look for previous contact (to define possible linker template)
+
 * add_to_domain() and add RPL's to separate domains.
+* color different parts of tertiary contact ligand label '\color[rgb]{0.5,0.5,1}blah'
+* draggable image patches for ligands 
+* fix helix label dragging.
 
-* draggable patches for ligands 
 
-* K-turn assignment in rna_motif
-* Read-in & auto-color motifs [SRL, etc.]
 * complete 16S rRNA
 * lay out other ribosome states.
 
@@ -22,6 +23,8 @@
 * rename_tertiary_contact (for group II intron?)
 * auto-rectify linkers
 * pathfinder routine for arrow linkers & noncanonical pairs
+* K-turn assignment in rna_motif
+* Read-in & auto-color motifs [SRL, etc.]
 * convert to javascript
 * Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations
 * Allow DSSR setup of input files from PDB (skipping Rosetta)

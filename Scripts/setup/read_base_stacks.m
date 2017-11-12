@@ -6,8 +6,8 @@ while ~feof( fid )
     % C:1347 C:1599 W W C 
     cols = strsplit( line, ' ' );
     if length( cols ) >= 4       
-        [base_stack.resnum1,base_stack.chain1,base_stack.segid1] = get_resnum_from_tag( cols{1} );
-        [base_stack.resnum2,base_stack.chain2,base_stack.segid2] = get_resnum_from_tag( cols{2} );
+        [base_stack.resnum1,base_stack.chain1,base_stack.segid1] = get_one_resnum_from_tag( cols{1} );
+        [base_stack.resnum2,base_stack.chain2,base_stack.segid2] = get_one_resnum_from_tag( cols{2} );
         base_stack.side = cols{3};
         base_stack.orientation = cols{4};
         base_stacks = [base_stacks, base_stack];

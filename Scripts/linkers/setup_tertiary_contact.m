@@ -44,9 +44,16 @@ linker.type = 'tertcontact_interdomain';
 linker.linker_tag = sprintf('Linker_%s_%s_%s_%s',linker.residue1(9:end),linker.residue2(9:end),  ...
     contact_name_cleaned,linker.type);
 linker.tertiary_contact = tag;
-if isappdata( gca, linker.linker_tag )
-    fprintf( 'Already set up %s so not creating again.\n', linker.linker_tag );
-    return;
+if isappdata( gca, linker.linker_tag ) & isappdata( gca, tag )
+    prev_tertiary_contact = getappdata( gca, tag );
+    if isequal( prev_tertiary_contact.associated_residues1, tertiary_contact.associated_residues1 ) & ...
+            isequal( prev_tertiary_contact.associated_residues2, tertiary_contact.associated_residues2 )
+        fprintf( 'Already set up %s so not creating again.\n', linker.linker_tag );
+        return;
+    else
+        template_linker = getappdata( gca, prev_tertiary_contact.interdomain_linker );
+        delete_tertiary_contact( tag );
+    end
 else
     if print_stuff; fprintf( 'Setting up %s.\n', linker.linker_tag ); end;
 end

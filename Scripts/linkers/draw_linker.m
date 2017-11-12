@@ -167,7 +167,7 @@ switch linker.type
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
     case 'other_contact'
-        linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 1],'linestyle',':','linewidth',1,'clipping','off' ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'color',[0.5 0.5 1],'linestyle',':','linewidth',1,'clipping','off' ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
     case 'ligand'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.

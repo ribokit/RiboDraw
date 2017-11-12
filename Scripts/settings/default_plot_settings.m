@@ -9,5 +9,6 @@ plot_settings.show_coax_controls   = 0;
 plot_settings.show_domain_controls = 1;
 plot_settings.show_linker_controls = 0;
 plot_settings.show_stacks          = 1;
+plot_settings.show_other_contacts  = 0;
 plot_settings.show_interdomain_noncanonical_pairs = 1;
 plot_settings.show_extra_arrows    = 1;

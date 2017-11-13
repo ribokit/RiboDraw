@@ -1,7 +1,6 @@
 ## TODO
-* when grouping tertiary contacts, look for previous contact (to define possible linker template)
-* setup 23S other_contacts.
-
+* auto-rectify linkers
+* sliceout
 * add_to_domain() and add RPL's to separate domains.
 * color different parts of tertiary contact ligand label '\color[rgb]{0.5,0.5,1}blah'
 * draggable image patches for ligands 
@@ -20,7 +19,7 @@
 ### Future
 * settings icon for toggles --> menu.
 * rename_tertiary_contact (for group II intron?)
-* auto-rectify linkers
+
 * pathfinder routine for arrow linkers & noncanonical pairs
 * K-turn assignment in rna_motif
 * Read-in & auto-color motifs [SRL, etc.]

@@ -1,5 +1,11 @@
-function savedata = get_drawing();
+function savedata = get_drawing( slice_res );
+%  savedata = get_drawing( slice_res );
+%
 % pull information needed to render drawing from current figure ('gca')
+%
+% INPUTS:
+%    slice_res = subset of residues to 'slice out' of drawing. Can be
+%                string like "C:QA:12-13" or name of domains or helices.
 %
 % (C) R. Das, Stanford University, 2017
 
@@ -11,16 +17,22 @@ linker_tags = get_linker_tags();
 selection_tags = get_selection_tags();
 tertiary_contact_tags = get_tertiary_contact_tags();
 
+if exist( 'slice_res', 'var' )
+    slice_res_tags = get_res( slice_res );
+    [residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
+    if ~ok; return; end;
+end;
+
 % try to save in this order -- will help with rendering elements later.
-savedata = save_residues( savedata, residue_tags );
-savedata = save_helices(  savedata, helix_tags );
-savedata = save_linkers(  savedata, linker_tags );
-savedata = save_selections( savedata, selection_tags );
+savedata = save_residues(          savedata, residue_tags, linker_tags, selection_tags );
+savedata = save_helices(           savedata, helix_tags );
+savedata = save_linkers(           savedata, linker_tags );
+savedata = save_selections(        savedata, selection_tags );
 savedata = save_tertiary_contacts( savedata, tertiary_contact_tags );
 
-savedata.plot_settings = getappdata( gca, 'plot_settings' );
-savedata.xlim = get(gca, 'xlim' );
-savedata.ylim = get(gca, 'ylim' );
+savedata.plot_settings   = getappdata( gca, 'plot_settings' );
+savedata.xlim            = get(gca, 'xlim' );
+savedata.ylim            = get(gca, 'ylim' );
 savedata.window_position = get(gcf, 'Position' );
 
 
@@ -35,13 +47,15 @@ for i = 1:length( tags )
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function savedata = save_residues( savedata, objnames )
+function savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags )
 
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Residue_' ) ) );
     figure_residue = getappdata( gca, objnames{n} );
     residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','nucleotide',...
         'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary'} );
+    residue.linkers = intersect( residue.linkers, filter_linker_tags);
+    residue.associated_selections = intersect( residue.associated_selections, filter_selection_tags);
     savedata = setfield( savedata, objnames{n}, residue );
 end
 
@@ -118,5 +132,81 @@ tags = get_tags( 'Selection_' );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_tertiary_contact_tags();
 tags = get_tags( 'TertiaryContact_' );
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
+
+ok = 1;
+
+new_residue_tags = {};
+new_helix_tags   = {};
+new_linker_tags  = {}; 
+new_selection_tags = {};
+new_tertiary_contact_tags = {};
+
+
+% residues
+new_residue_tags = intersect( slice_res_tags, residue_tags );
+if isempty( new_residue_tags ) 
+    fprintf( 'Could not find desired res_tags\n' );
+    ok = 0; return;
+end
+
+% helices
+for i = 1:length( helix_tags )
+    tag = helix_tags{i};
+    helix = getappdata( gca, tag );
+    intersect_tags = intersect( helix.associated_residues, slice_res_tags );
+    if length( intersect_tags ) == 0; 
+        % helix could be cleanly outside target res
+        continue
+    else
+%         if length( intersect_tags ) < length(helix.associated_residues)
+%             fprintf( 'Helix %s is split... Problem helix residues not in slice_res: \n', tag );
+%             setdiff( helix.associated_residues, slice_res_tags )
+%             ok = 0; return;
+%         end
+        new_helix_tags = [new_helix_tags, tag ];
+    end
+end
+
+% linkers
+for i = 1:length( linker_tags )
+    tag = linker_tags{i};
+    linker = getappdata( gca, tag );
+    if ~any(strcmp(linker.residue1, slice_res_tags ) ) continue; end;
+    if ~any(strcmp(linker.residue2, slice_res_tags ) ) continue; end;
+    new_linker_tags = [new_linker_tags, tag ];
+end
+
+% selections
+for i = 1:length( selection_tags )
+    tag = selection_tags{i};
+    selection = getappdata( gca, tag );
+    selection_res_tags = unique(selection.associated_residues);
+    if length(intersect( selection_res_tags, slice_res_tags )) < length( selection_res_tags ) continue; end;
+    new_selection_tags = [new_selection_tags, tag ];
+end
+
+% tertiary_contact_residues
+for i = 1:length( tertiary_contact_tags )
+    tag = tertiary_contact_tags{i};
+    tertiary_contact = getappdata( gca, tag );
+
+    contact_ok = 1;
+    tertiary_contact_res_tags = unique(tertiary_contact.associated_residues1);
+    if length(intersect( tertiary_contact_res_tags, slice_res_tags )) < length( tertiary_contact_res_tags ); contact_ok = 0; end;
+    tertiary_contact_res_tags = unique(tertiary_contact.associated_residues2);
+    if length(intersect( tertiary_contact_res_tags, slice_res_tags )) < length( tertiary_contact_res_tags ); contact_ok = 0; end;
+
+    if ( ~contact_ok )
+        new_linker_tags = setdiff( new_linker_tags, [{tertiary_contact.interdomain_linker}, tertiary_contact.intradomain_linkers1, tertiary_contact.intradomain_linkers2 ] );
+    else
+        new_tertiary_contact_tags = [new_tertiary_contact_tags, tag ];
+    end
+end
+
+
 
 

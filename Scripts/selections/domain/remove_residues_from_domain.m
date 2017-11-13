@@ -4,7 +4,7 @@ function remove_residues_from_domain( residue_string, name );
 
 tag = get_domain_tag( name );
 
-[resnum, chains, ok ] = get_resnum_from_tag( residue_string );
+[resnum, chains, segids, ok ] = get_resnum_from_tag( residue_string );
 if ~ok;  fprintf( 'unrecognized tag: %s. Should be of form A:1-4 C:50-67\n', residue_string ); end
 
 if isappdata( gca, tag )
@@ -13,7 +13,9 @@ if isappdata( gca, tag )
     associated_helices  = {};
     for i = 1:length( associated_residues );
         residue = getappdata( gca, associated_residues{i} );
-        if ~isempty( intersect( find( resnum == residue.resnum ), strfind( chains, residue.chain ) ) )  
+        if ~isempty(find( resnum == residue.resnum & ...
+                          chains == residue.chain & ...
+                          strcmp( residue.segid, segids ) ) )
             fprintf( 'Removing %s from %s\n', residue.res_tag, tag );
             residue.associated_selections = setdiff( residue.associated_selections, tag );
             associated_helices = [ associated_helices, residue.helix_tag ];

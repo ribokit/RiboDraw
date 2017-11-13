@@ -6,11 +6,20 @@ function [ res_tags, obj_name ] = get_res( selection )
 % selection = string with name of selection (domain,residue,whatever)
 %
 % OUTPUTS
-% res_tags  = all residues associateed with selection
+% res_tags  = all residues associated with selection
 % obj_name  = object name with that selection 
 %
+
 res_tags = {};
 obj_name = '';
+
+if iscell( selection )
+    for i = 1:length( selection )
+        [ res_tags_i, obj_name ] = get_res( selection{i} );
+        res_tags = [res_tags, res_tags_i ]; 
+    end
+end
+
 if strcmp( selection, 'all' )
     res_tags = get_tags( 'Residue_' );
 else

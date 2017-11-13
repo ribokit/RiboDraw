@@ -96,7 +96,7 @@ if isfield( linker, 'plot_pos' )
     if isfield( linker, 'vtx' ) & size(linker.plot_pos,1) ~= length( linker.vtx )
         for i = 1:length( linker.vtx ); delete( linker.vtx{i} );  end;
     end
-    if ( ~isfield( linker, 'vtx' ) )        
+    if ( ~isfield( linker, 'vtx' ) )                
         linker = create_linker_with_draggable_vtx( linker );
     end
     for i = 1:size( linker.plot_pos, 1 )
@@ -167,7 +167,7 @@ switch linker.type
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
     case 'other_contact'
-        linker.line_handle = plot( [0,0],[0,0],'color',[0.5 0.5 1],'linestyle',':','linewidth',1,'clipping','off' ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'color',[0.5 0.5 1],'linestyle',':','linewidth',5,'clipping','off' ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
     case 'ligand'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.

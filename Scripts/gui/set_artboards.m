@@ -24,7 +24,7 @@ end
 min_pos = min( all_pos );
 max_pos = max( all_pos );
 dims = (max_pos - min_pos);
-axes =  [min_pos - dims*0.05; min_pos + dims*1.1 ];
+axes =  [min_pos - dims*0.025; min_pos + dims*1.025 ];
  
 axis( reshape( axes, [1 4] ) );
 reset_fontsize

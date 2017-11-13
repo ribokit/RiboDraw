@@ -93,6 +93,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );
 linkers = {};
+if length( res_tags ) == 1; return; end;
 
 % setup network of intradomain linkers based on minimum spanning tree --
 % will be easier on the eyes than web to a random point.

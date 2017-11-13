@@ -77,7 +77,7 @@ for i = 1:length( interdomain_linkers )
 end
 
 % get rid of any linker groups that are all stacks...
-linker_groups = filter_all_stack_groups( linker_groups );
+linker_groups = filter_groups_without_pairs( linker_groups );
 
 % allows quick check by eye...
 for i = 1:length( linker_groups )
@@ -163,14 +163,14 @@ ok = 1;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function linker_groups_filter = filter_all_stack_groups( linker_groups );
+function linker_groups_filter = filter_groups_without_pairs( linker_groups );
 linker_groups_filter = {};
 for i = 1:length( linker_groups )
     linker_group = linker_groups{i};
     ok = 0;
     for j = 1:length( linker_group )
         linker = linker_group{j};
-        if ~strcmp( linker.type, 'stack' )
+        if any(strcmp( linker.type, {'noncanonical_pair','ligand','long_range_stem_pair'} ) )
             ok = 1;
             break;
         end

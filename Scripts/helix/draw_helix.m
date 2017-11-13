@@ -32,6 +32,7 @@ not_helix_res_tags = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
+    if ~isfield( residue, 'nucleotide' ) continue; end;
     if ~isfield( residue, 'relpos' ) 
         residue.relpos = set_default_relpos( residue, helix, plot_settings ); 
         setappdata( gca, res_tag, residue );
@@ -46,6 +47,7 @@ redrawn_linkers = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
+    if ~isfield( residue, 'linkers' ) continue; end;
     linker_tags = residue.linkers;
     % silly cleanup
     for k = 1 : length( linker_tags )

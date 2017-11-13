@@ -14,6 +14,7 @@ for i = 1:length( helix_tags )
     res_in_helix = 1;
     helix_tags_for_helix_res = {};
     for j = 1:length( res_tags )
+        if ~isappdata( gca, res_tags{j} ) continue; end;
         residue = getappdata( gca, res_tags{j} );
         helix_tags_for_helix_res = [helix_tags_for_helix_res, residue.helix_tag ];
     end

@@ -1,6 +1,5 @@
 ## TODO
 * auto-rectify linkers
-* sliceout
 * add_to_domain() and add RPL's to separate domains.
 * color different parts of tertiary contact ligand label '\color[rgb]{0.5,0.5,1}blah'
 * draggable image patches for ligands 

@@ -35,9 +35,8 @@ if ~isfield( linker, 'line_handle' )
         if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) return; end;
     end
 end
-if strcmp(linker.type,'stack' )
-    if ( isfield( plot_settings, 'show_stacks') & ~plot_settings.show_stacks ); return; end;
-end
+if strcmp(linker.type,'stack' ) && isfield( plot_settings, 'show_stacks') && ~plot_settings.show_stacks; return; end;
+if strcmp(linker.type,'other_contact' )&& isfield( plot_settings, 'show_other_contacts') && ~plot_settings.show_other_contacts; return; end;
     
 linker = draw_default_linker( linker );
    
@@ -67,7 +66,7 @@ if isfield( linker, 'arrow' )
     if isfield( linker, 'vtx' ); 
         vtx_visible = visible;
         if ( isfield( plot_settings, 'show_linker_controls' ) & ~plot_settings.show_linker_controls ) vtx_visible = 'off'; end;
-        for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', vtx_visible ); end;
+        for i = 1:length( linker.vtx ), if isvalid( linker.vtx{i} ); set( linker.vtx{i}, 'visible', vtx_visible ); end; end;
     end;
     residue1 = getappdata( gca, linker.residue1 );
     % color setting
@@ -93,8 +92,14 @@ set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 
 % draw (draggable) vertices if they don't exist yet.
 if isfield( linker, 'plot_pos' ) 
-    if isfield( linker, 'vtx' ) & size(linker.plot_pos,1) ~= length( linker.vtx )
-        for i = 1:length( linker.vtx ); delete( linker.vtx{i} );  end;
+    if isfield( linker, 'vtx' ) 
+        linker_vtx_ok = 1;
+        for i = 1:length( linker.vtx ); if ~isvalid( linker.vtx{i} ); linker_vtx_ok = 0; break; end; end;
+        if size(linker.plot_pos,1) ~= length( linker.vtx ) linker_vtx_ok = 0; end;
+        if ~linker_vtx_ok
+            for i = 1:length( linker.vtx ); delete( linker.vtx{i} );  end;
+            linker = rmfield( linker, 'vtx' );
+        end
     end
     if ( ~isfield( linker, 'vtx' ) )                
         linker = create_linker_with_draggable_vtx( linker );

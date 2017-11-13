@@ -29,11 +29,11 @@ if keep_previous_drawing;
 else
     clf; 
     set(gca,'Position',[0 0 1 1]);
-    set( gca, 'xlim', loaddata.xlim );
-    set( gca, 'ylim', loaddata.ylim );
+    set(gca, 'xlim', loaddata.xlim );
+    set(gca, 'ylim', loaddata.ylim );
     set(gcf,'Position',loaddata.window_position)
-    hold on;
 end
+hold on;
 
 % Should install sequence, Residue, Helix objects, etc. into gca ('global
 % data' for these axes);
@@ -68,7 +68,7 @@ cleanup_stray_linkers();
 cleanup_domains();
 cleanup_segids();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.
-draw_helices(); % get_helices( loaddata ) );
+draw_helices( get_helices( loaddata ) );
 move_stuff_to_back();
 
 axis off

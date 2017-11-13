@@ -50,7 +50,7 @@ if  strcmp( linker.type, 'tertcontact_interdomain' )
         res_tags = tertiary_contact.associated_residues1 ;
         for i = 2:length( res_tags )
             residue = getappdata( gca, res_tags{i} );
-            if norm( residue.plot_pos - pos ) < plot_settings.bp_spacing/4
+            if norm( residue.plot_pos - pos ) < plot_settings.bp_spacing/6
                 res_tags1 = res_tags( [i, 1:i-1, i+1:end] );
                 res_tags2 = tertiary_contact.associated_residues2;
                 split_arrows = isfield( linker, 'show_split_arrows') && linker.show_split_arrows;
@@ -65,7 +65,7 @@ if  strcmp( linker.type, 'tertcontact_interdomain' )
         res_tags = tertiary_contact.associated_residues2;
         for i = 2:length( res_tags )
             residue = getappdata( gca, res_tags{i} );
-            if norm( residue.plot_pos - pos ) < plot_settings.bp_spacing/4
+            if norm( residue.plot_pos - pos ) < plot_settings.bp_spacing/6
                 res_tags1 = tertiary_contact.associated_residues1;
                 res_tags2 = res_tags( [i, 1:i-1, i+1:end] );
                 split_arrows = isfield( linker, 'show_split_arrows') && linker.show_split_arrows;
@@ -84,7 +84,7 @@ h_new = create_draggable_linker_vertex( pos, linker_tag );
 % install this new vertex in linker vertices.
 if ( h == linker.vtx{1} )
     relpos = get_relpos_based_on_restag( pos, linker.residue1 );
-    if ( norm( linker.relpos1(1,:) - relpos ) >= plot_settings.bp_spacing/4 )
+    if ( norm( linker.relpos1(1,:) - relpos ) >= plot_settings.bp_spacing/6 )
         linker.relpos1 = [ linker.relpos1(1,:); relpos; linker.relpos1(2:end,:)];
         linker.vtx = [linker.vtx(1), {h_new}, linker.vtx(2:end)];
     else
@@ -93,7 +93,7 @@ if ( h == linker.vtx{1} )
 else
     assert( h == linker.vtx{end} );
     relpos = get_relpos_based_on_restag( pos, linker.residue2 );
-    if ( norm( linker.relpos2(end,:) - relpos ) >= plot_settings.bp_spacing/4 )
+    if ( norm( linker.relpos2(end,:) - relpos ) >= plot_settings.bp_spacing/6 )
         linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(end,:)];
         linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
     else
@@ -123,7 +123,7 @@ for n = 1:length( linker.vtx )
     if ( linker.vtx{n} == h )
         if n <= n1
             linker.relpos1( n, : ) = get_relpos_based_on_restag( pos, linker.residue1 );
-            if ( norm( linker.relpos1(n,:) - linker.relpos1(1,:) ) < plot_settings.bp_spacing/4 ) 
+            if ( norm( linker.relpos1(n,:) - linker.relpos1(1,:) ) < plot_settings.bp_spacing/6 ) 
                 delete( h );
                 linker.relpos1 = linker.relpos1( [1:n-1, n+1:end], : );
                 linker.vtx = linker.vtx( [1:n-1, n+1:end] );
@@ -132,7 +132,7 @@ for n = 1:length( linker.vtx )
         else
             n_off = n - n1;
             linker.relpos2( n_off, : ) = get_relpos_based_on_restag( pos, linker.residue2 );
-            if ( norm( linker.relpos2( n_off, :) - linker.relpos2(end,:) ) < plot_settings.bp_spacing/4 )
+            if ( norm( linker.relpos2( n_off, :) - linker.relpos2(end,:) ) < plot_settings.bp_spacing/6 )
                 delete( h );
                 linker.relpos2 = linker.relpos2( [1:n_off-1, n_off+1:end], : );
                 linker.vtx = linker.vtx( [1:n-1, n+1:end] );

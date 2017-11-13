@@ -18,6 +18,7 @@ if iscell( selection )
         [ res_tags_i, obj_name ] = get_res( selection{i} );
         res_tags = [res_tags, res_tags_i ]; 
     end
+    return;
 end
 
 if strcmp( selection, 'all' )

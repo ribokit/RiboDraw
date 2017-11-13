@@ -52,9 +52,10 @@ function savedata = save_residues( savedata, objnames, filter_linker_tags, filte
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Residue_' ) ) );
     figure_residue = getappdata( gca, objnames{n} );
+    if ~isfield( figure_residue, 'nucleotide' ) continue; end;
     residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','nucleotide',...
         'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary'} );
-    residue.linkers = intersect( residue.linkers, filter_linker_tags);
+    if isfield( residue,'linkers' ) residue.linkers = intersect( residue.linkers, filter_linker_tags); end;
     residue.associated_selections = intersect( residue.associated_selections, filter_selection_tags);
     savedata = setfield( savedata, objnames{n}, residue );
 end
@@ -136,7 +137,8 @@ tags = get_tags( 'TertiaryContact_' );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
-
+fprintf( 'Filtering by slice_res\n' );
+tic
 ok = 1;
 
 new_residue_tags = {};
@@ -206,7 +208,7 @@ for i = 1:length( tertiary_contact_tags )
         new_tertiary_contact_tags = [new_tertiary_contact_tags, tag ];
     end
 end
-
+toc
 
 
 

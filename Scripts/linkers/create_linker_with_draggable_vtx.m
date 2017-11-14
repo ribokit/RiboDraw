@@ -102,6 +102,7 @@ else
 end
 
 linker = draw_linker( linker );
+rectify_linker( linker ); % auto-rectify!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function relpos = get_relpos_based_on_restag( plot_pos, res_tag );
@@ -147,3 +148,5 @@ assert( n <= length( linker.vtx ) );
 assert( size( [linker.relpos1;linker.relpos2], 1 ) == length(linker.vtx) );
 
 draw_linker( linker );
+rectify_linker( linker ); % auto-rectify!
+

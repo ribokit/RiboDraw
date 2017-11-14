@@ -147,6 +147,6 @@ end
 assert( n <= length( linker.vtx ) );
 assert( size( [linker.relpos1;linker.relpos2], 1 ) == length(linker.vtx) );
 
-draw_linker( linker );
+linker = draw_linker( linker );
 rectify_linker( linker ); % auto-rectify!
 

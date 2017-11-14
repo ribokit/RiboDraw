@@ -25,6 +25,8 @@ SLOPE_CUTOFF = tan( ANGLE_CUTOFF * (pi/180) );
 
 % forward pass 
 for i = 1:size( linker.relpos1, 1 )
+    % don't try to rectify endpoint
+    if ( i + 1 == size( linker.plot_pos, 1 ) ) continue; end; 
     v = linker.plot_pos( i+1,: ) - linker.plot_pos(i,: );
     angle = atan2( v(2), v(1) ) * 180/pi;
     if ( abs(v(2)/v(1)) < SLOPE_CUTOFF && abs(v(2)/v(1)) > 1e-5)
@@ -40,6 +42,8 @@ end
 % backward pass 
 n1 = size( linker.relpos1, 1 );
 for i = 1:size( linker.relpos2, 1 )
+    % don't try to rectify endpoint
+    if ( n1+i-1 == 1 ) continue; end; 
     v = linker.plot_pos( n1+i-1,: ) - linker.plot_pos( n1+i,: );
     angle = atan2( v(2), v(1) ) * 180/pi;
     if ( abs(v(2)/v(1)) < SLOPE_CUTOFF && abs(v(2)/v(1)) > 1e-5)
@@ -65,8 +69,9 @@ if updated
     for i = 1:size( linker.relpos2, 1 )
         linker.relpos2(i,:) = get_relpos( linker.plot_pos(i+n1,:), helix2 );
     end
-
+    
     linker = draw_linker( linker ); 
+
     if ~overwrite 
         pause; linker = draw_linker( linker_save );
     end

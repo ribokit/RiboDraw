@@ -1,8 +1,8 @@
 function tag = get_domain_tag( name );
 
-tag = sprintf('Selection_%s_domain', strrep(name, ' ', '_' ) );
+tag = sprintf('Selection_%s_domain', strrep(strrep(name, ' ', '_' ),'-','_') );
 if ~isappdata( gca, tag );
-    tag = sprintf('Selection_%s', strrep(name, ' ', '_' ) );
+    tag = sprintf('Selection_%s',strrep(strrep(name, ' ', '_' ),'-','_') );
 end
 
 if ~isappdata( gca, tag );

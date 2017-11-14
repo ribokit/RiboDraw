@@ -17,12 +17,13 @@ if ~exist( 'objnames','var' )
     objnames = fields( vals );
 end
 tags = {};
+tag_ok = zeros(length(objnames),1);
 for n = 1:length( objnames )
     if isempty( strfind( objnames{n}, headstring ) ); continue; end;
-    if exist( 'tailstring', 'var' ) 
+    if exist( 'tailstring', 'var' ) && ~isempty( tailstring )
         if length( objnames{n} ) < length(tailstring ) | ...
                 ~strcmp( objnames{n}(end-length(tailstring)+1 : end), tailstring ); continue; end;
     end
-    tags = [ tags, objnames{n}];
+    tag_ok(n) = 1;
 end
-tags = sort( tags );
+tags = objnames( find( tag_ok ) );

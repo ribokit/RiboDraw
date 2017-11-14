@@ -35,6 +35,9 @@ else
 end
 hold on;
 
+% cleanup of old data that might have been deleted in new drawing.
+if keep_previous_drawing; remove_old_linkers_and_tertiary_contacts_handled_by_loaddata( loaddata ); end;
+
 % Should install sequence, Residue, Helix objects, etc. into gca ('global
 % data' for these axes);
 datafields = fields( loaddata );
@@ -42,9 +45,9 @@ for i = 1:length( datafields )
     datafield = datafields{i};
     datum = getfield( loaddata, datafield );
 
+    % copy over old handles to graphical objects like text, lines,
+    % ticks, etc. -- redrawing them would take a long time!
     if isappdata( gca, datafield )
-        % copy over old handles to graphical objects like text, lines,
-        % ticks, etc.
         olddatum = getappdata( gca, datafield );
         if isstruct( olddatum )
             oldfields = fields( olddatum );
@@ -93,3 +96,58 @@ for n = 1:length( objnames )
         helices = [helices,getfield(loaddata,objnames{n})];
     end
 end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function remove_old_linkers_and_tertiary_contacts_handled_by_loaddata( loaddata )
+% copies code from get_drawing.
+
+% which residues are being handled by imported drawing (loaddata)?
+slice_res_tags = get_tags( 'Residue_','',fields(loaddata) );
+
+% are any elements of old drawing handled by imported drawing  but are now
+% gone from imported drawing?
+% linkers
+linker_tags = get_tags( 'Linker' );
+for i = 1:length( linker_tags )
+    tag = linker_tags{i};
+    linker = getappdata( gca, tag );
+    if ~any(strcmp(linker.residue1, slice_res_tags ) ) continue; end;
+    if ~any(strcmp(linker.residue2, slice_res_tags ) ) continue; end;
+    if ~isfield( loaddata, tag ); 
+        fprintf( 'Removing %s from old drawing as it is handled by imported drawing\n', tag );
+        delete_linker( linker );
+    end;
+end
+
+% selections
+selection_tags = get_tags( 'Selection', 'domain' );
+for i = 1:length( selection_tags )
+    tag = selection_tags{i};
+    selection = getappdata( gca, tag );
+    selection_res_tags = unique(selection.associated_residues);
+    if length(intersect( selection_res_tags, slice_res_tags )) < length( selection_res_tags ) continue; end;
+    if ~isfield( loaddata, tag ); 
+        fprintf( 'Removing %s from old drawing as it is handled by imported drawing\n', tag );
+        delete_domain( tag );
+    end;
+end
+
+% tertiary_contact_residues
+tertiary_contact_tags = get_tags( 'TertiaryContact' );
+for i = 1:length( tertiary_contact_tags )
+    tag = tertiary_contact_tags{i};
+    tertiary_contact = getappdata( gca, tag );
+
+    contact_ok = 1;
+    tertiary_contact_res_tags = unique(tertiary_contact.associated_residues1);
+    if length(intersect( tertiary_contact_res_tags, slice_res_tags )) < length( tertiary_contact_res_tags ); contact_ok = 0; end;
+    tertiary_contact_res_tags = unique(tertiary_contact.associated_residues2);
+    if length(intersect( tertiary_contact_res_tags, slice_res_tags )) < length( tertiary_contact_res_tags ); contact_ok = 0; end;
+    if ( ~contact_ok ) continue; end;
+    if ~isfield( loaddata, tag );
+        fprintf( 'Removing %s from old drawing as it is handled by imported drawing\n', tag );
+        delete_tertiary_contact( tag );
+    end;
+end
+

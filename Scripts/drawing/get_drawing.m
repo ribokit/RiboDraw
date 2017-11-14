@@ -21,10 +21,12 @@ if exist( 'slice_res', 'var' )
     slice_res_tags = get_res( slice_res );
     [residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
     if ~ok; return; end;
-end;
+else
+    slice_res_tags = {};
+end
 
 % try to save in this order -- will help with rendering elements later.
-savedata = save_residues(          savedata, residue_tags, linker_tags, selection_tags );
+savedata = save_residues(          savedata, residue_tags, linker_tags, selection_tags, slice_res_tags );
 savedata = save_helices(           savedata, helix_tags );
 savedata = save_linkers(           savedata, linker_tags );
 savedata = save_selections(        savedata, selection_tags );
@@ -47,7 +49,7 @@ for i = 1:length( tags )
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags )
+function savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags, slice_res_tags )
 
 for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Residue_' ) ) );
@@ -55,8 +57,13 @@ for n = 1:length( objnames )
     if ~isfield( figure_residue, 'nucleotide' ) continue; end;
     residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','nucleotide',...
         'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary'} );
-    if isfield( residue,'linkers' ) residue.linkers = intersect( residue.linkers, filter_linker_tags); end;
-    residue.associated_selections = intersect( residue.associated_selections, filter_selection_tags);
+
+    % filter if we sliced residues. could just always do this, but
+    % let's save time.
+    if ~isempty( slice_res_tags )
+        residue.linkers = intersect( residue.linkers, filter_linker_tags);
+        residue.associated_selections = intersect( residue.associated_selections, filter_selection_tags);
+    end
     savedata = setfield( savedata, objnames{n}, residue );
 end
 
@@ -108,31 +115,31 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_residue_tags();
-tags = get_tags( 'Residue_' );
+tags = sort( get_tags( 'Residue_' ) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_helix_tags();
-tags = get_tags( 'Helix_' );
+tags = sort( get_tags( 'Helix_' ) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_linker_tags();
-arrow_tags = get_tags( 'Linker_', 'arrow' );
-stem_pair_tags = get_tags( 'Linker_', 'stem_pair' );
-noncanonical_tags = get_tags( 'Linker_', 'noncanonical_pair' );
-stack_tags = get_tags( 'Linker_', 'stack' );
-other_contact_tags = get_tags( 'Linker_', 'other_contact' );
-tertcontact_interdomain_tags = get_tags( 'Linker_', 'tertcontact_interdomain' );
-tertcontact_intradomain_tags = get_tags( 'Linker_', 'tertcontact_intradomain' );
-tags = [arrow_tags, stem_pair_tags, noncanonical_tags, stack_tags, other_contact_tags, ...
-    tertcontact_interdomain_tags, tertcontact_intradomain_tags ];
+arrow_tags               = sort( get_tags( 'Linker_', 'arrow' ) );
+stem_pair_tags           = sort( get_tags( 'Linker_', 'stem_pair' ) );
+noncanonical_tags        = sort( get_tags( 'Linker_', 'noncanonical_pair' ) );
+stack_tags               = sort( get_tags( 'Linker_', 'stack' ) );
+other_contact_tags       = sort( get_tags( 'Linker_', 'other_contact' )  );
+tertcontact_interdomain_tags = sort( get_tags( 'Linker_', 'tertcontact_interdomain' ) );
+tertcontact_intradomain_tags = sort( get_tags( 'Linker_', 'tertcontact_intradomain' ) );
+tags = [arrow_tags; stem_pair_tags; noncanonical_tags; stack_tags; other_contact_tags; ...
+    tertcontact_interdomain_tags; tertcontact_intradomain_tags ];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_selection_tags();
-tags = get_tags( 'Selection_' );
+tags = sort( get_tags( 'Selection_' ) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_tertiary_contact_tags();
-tags = get_tags( 'TertiaryContact_' );
+tags = sort( get_tags( 'TertiaryContact_' ) );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,7 +153,6 @@ new_helix_tags   = {};
 new_linker_tags  = {}; 
 new_selection_tags = {};
 new_tertiary_contact_tags = {};
-
 
 % residues
 new_residue_tags = intersect( slice_res_tags, residue_tags );

@@ -35,5 +35,5 @@ for i = 1:length( domain_tags );
 end
 
 
-linker_tags = [get_tags( 'Linker','interdomain'),get_tags( 'Linker','intradomain')];
+linker_tags = [get_tags( 'Linker','interdomain'); get_tags( 'Linker','intradomain')];
 draw_linker( linker_tags );

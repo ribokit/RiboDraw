@@ -7,12 +7,7 @@ domain.name = name;
 domain_tag = sprintf('Selection_%s_domain', strrep( strrep(name, ' ', '_' ), '-', '_' ) );
 domain.selection_tag = domain_tag;
 
-if iscell( residue_string ) 
-    res_tags = residue_string;
-else
-    assert( ischar( residue_string ) );
-    res_tags = get_res_tags( residue_string, 1 );
-end
+res_tags = get_res( residue_string );
 
 domain.associated_residues = {};
 associated_helices = {};

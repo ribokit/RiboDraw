@@ -59,9 +59,10 @@ else
 end
 
 if exist( 'template_linker', 'var' )
-    if isfield( template_linker, 'relpos1' )  linker.relpos1 = template_linker.relpos1; end;
-    if isfield( template_linker, 'relpos2' )  linker.relpos2 = template_linker.relpos2; end;
-    if isfield( template_linker, 'plot_pos' ) linker.plot_pos = template_linker.plot_pos; end;
+    if ~isfield( template_linker, 'plot_pos' ) draw_linker( template_linker ); end;
+    linker.plot_pos = template_linker.plot_pos;
+    linker.relpos1  = template_linker.relpos1;
+    linker.relpos2  = template_linker.relpos2;
     linker = create_linker_with_draggable_vtx( linker );
 end
 add_linker( linker );

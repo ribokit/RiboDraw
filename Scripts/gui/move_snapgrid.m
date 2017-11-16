@@ -7,9 +7,19 @@ if strcmp( h.Type, 'line' )
     % line/symbol
     pos = [ get( h, 'XData' ), get( h, 'YData' ) ];
     res_center = pos;
+elseif strcmp( h.Type, 'patch' )
+    % patch
+    residue = getappdata( gca, getappdata( h,'res_tag' ) );
+    image_boundary = residue.image_boundary;
+    current_image_boundary = [ get( h, 'xdata' ), get( h, 'ydata' )];
+    plot_settings = getappdata( gca, 'plot_settings' );
+    if isfield( plot_settings, 'ligand_image_scaling' ) image_boundary = image_boundary * plot_settings.ligand_image_scaling; end;
+    pos = mean( current_image_boundary ) - mean( image_boundary );
+    res_center = pos;
 else
     pos = get(h,'Position');
-    if length( pos ) == 4 % rectangle
+    if length( pos ) == 4 
+        % rectangle
         if isappdata( h, 'selection_tag' )
             % need to do some math -- figure out where some component
             % residue is going.
@@ -21,7 +31,8 @@ else
             res_center = pos(1:2)+ pos(3:4)/2;
         end
     else
-        res_center = pos(1:2); % text
+        % text
+        res_center = pos(1:2); 
     end
 end
 
@@ -36,6 +47,9 @@ pos(1:2) = pos(1:2) + delta;
 
 if strcmp( h.Type, 'line' )
     set(h,'XData',pos(1),'YData',pos(2) );
+elseif strcmp( h.Type, 'patch' )
+    set(h,'XData',image_boundary(:,1) +pos(1),'YData',image_boundary(:,2) +pos(2));
+    set(residue.image_handle2,'XData',image_boundary(:,1) +pos(1),'YData',image_boundary(:,2) +pos(2));
 else
     set(h,'Position',pos );    
 end

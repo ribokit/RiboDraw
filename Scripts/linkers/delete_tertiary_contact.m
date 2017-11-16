@@ -20,7 +20,7 @@ end
 
 tertiary_contact = getappdata( gca, tag );
 
-linker_tags = [ get_tags( 'Linker','interdomain' ), get_tags( 'Linker','intradomain' )];
+linker_tags = [ get_tags( 'Linker','interdomain' ); get_tags( 'Linker','intradomain' )];
 for i = 1:length( linker_tags )
     linker_tag = linker_tags{i};
     linker = getappdata( gca, linker_tag );

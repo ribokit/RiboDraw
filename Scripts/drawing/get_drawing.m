@@ -128,9 +128,10 @@ stem_pair_tags           = sort( get_tags( 'Linker_', 'stem_pair' ) );
 noncanonical_tags        = sort( get_tags( 'Linker_', 'noncanonical_pair' ) );
 stack_tags               = sort( get_tags( 'Linker_', 'stack' ) );
 other_contact_tags       = sort( get_tags( 'Linker_', 'other_contact' )  );
+ligand_tags              = sort( get_tags( 'Linker_', 'ligand' ) );
 tertcontact_interdomain_tags = sort( get_tags( 'Linker_', 'tertcontact_interdomain' ) );
 tertcontact_intradomain_tags = sort( get_tags( 'Linker_', 'tertcontact_intradomain' ) );
-tags = [arrow_tags; stem_pair_tags; noncanonical_tags; stack_tags; other_contact_tags; ...
+tags = [arrow_tags; stem_pair_tags; noncanonical_tags; stack_tags; other_contact_tags; ligand_tags; ...
     tertcontact_interdomain_tags; tertcontact_intradomain_tags ];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -170,11 +171,6 @@ for i = 1:length( helix_tags )
         % helix could be cleanly outside target res
         continue
     else
-%         if length( intersect_tags ) < length(helix.associated_residues)
-%             fprintf( 'Helix %s is split... Problem helix residues not in slice_res: \n', tag );
-%             setdiff( helix.associated_residues, slice_res_tags )
-%             ok = 0; return;
-%         end
         new_helix_tags = [new_helix_tags, tag ];
     end
 end

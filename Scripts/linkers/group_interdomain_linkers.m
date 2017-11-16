@@ -5,37 +5,15 @@ if ~exist( 'domain_names', 'var' ) | ~iscell( domain_names ) | length( domain_na
     fprintf( 'Provide at least two domain names' ); return;
 end
 
-[domain_tags,ok] = get_gca_domain_tags( domain_names );
-if ~ok; return; end;
-
 % get interdomain_linkers
 linkers = {};
 % order of preference
-linker_types = {'noncanonical_pair','ligand','long_range_stem_pair','stack','other_contact'};
+linker_types = {'ligand','noncanonical_pair','long_range_stem_pair','stack','other_contact'};
 for i = 1:length( linker_types )
-    linkers = [ linkers, get_tags( 'Linker', linker_types{i} ) ];
+    linkers = [ linkers; get_tags( 'Linker', linker_types{i} ) ];
 end
 
-interdomain_linkers = {};
-for i = 1:length( linkers )
-    linker = getappdata( gca, linkers{i} );
-    domain_member1 = get_domain_membership( linker.residue1, domain_tags );
-    domain_member2 = get_domain_membership( linker.residue2, domain_tags );
-
-    if ~any( domain_member1 ) continue; end;
-    if ~any( domain_member2 ) continue; end;
-    % the two residues should not be part of the same domain.
-    if any( domain_member1 .* domain_member2 ) continue; end;
-    %if linker_connects_different_domains( residue1, residue2 )
-    domains1 = domain_tags(find(domain_member1));
-    linker.domain1 = domains1{1}; % first one.
-    domains2 = domain_tags(find(domain_member2));
-    linker.domain2 = domains2{1}; % first one.
-    linker.interdomain = 1;
-    setappdata( gca, linker.linker_tag, linker );
-    interdomain_linkers = [ interdomain_linkers, linker ];
-end
-
+interdomain_linkers = get_interdomain_linkers( linkers, domain_names );
 
 % now group by domain.
 linker_groups = {};
@@ -74,6 +52,11 @@ for i = 1:length( interdomain_linkers )
     else
         linker_groups = [ linker_groups, {{linker}} ];
     end
+%     if ~isfield( linker, 'plot_pos' )
+%         fprintf( 'Need to figure out where linker is... drawing it temporarily\n' );
+%         show_interdomain_noncanonical_pairs;
+%         show_ligand_linkers;
+%     end
 end
 
 % get rid of any linker groups that are all stacks...
@@ -120,46 +103,11 @@ match = 0;
 for k = 1:length( helix.associated_residues )
     other_helix_res = getappdata( gca, helix.associated_residues{k} );
     if strcmp( other_helix_res.chain, residue.chain ) & ...
+            strcmp( other_helix_res.segid, residue.segid ) & ...
             abs( other_helix_res.resnum - residue.resnum ) <= 5
         match = 1; return;
     end
 end
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function domain_member = get_domain_membership( res_tag, domain_tags );
-domain_member = zeros( 1, length( domain_tags ) );
-residue = getappdata( gca, res_tag );
-if ~isfield( residue, 'associated_selections' ); return; end;
-
-for i = 1:length( domain_tags )
-    domain_member(i) = any( strcmp( residue.associated_selections, domain_tags{i} ) );
-end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [domain_tags,ok] = get_gca_domain_tags( domain_names );
-all_domain_tags = get_tags( 'Selection','domain' );
-ok = 0;
-domain_tags = {};
-for i = 1:length( domain_names )
-    found_it = 0;
-    for j = 1:length( all_domain_tags )
-        if strcmp( all_domain_tags{j}, domain_names{i} );
-            found_it = 1; doman_tags{i} = all_domain_tags{j}; break;            
-        else
-            domain = getappdata( gca, all_domain_tags{j} );
-            if strcmp( domain.name, domain_names{i} )
-                domain_tags{i} = all_domain_tags{j};
-                found_it = 1; doman_tags{i} = all_domain_tags{j}; break;
-            end
-        end
-    end
-    if ~found_it
-        fprintf( 'Could not figure out domain for %s\n', domain_names{i} );
-        return;
-    end
-end
-ok = 1;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

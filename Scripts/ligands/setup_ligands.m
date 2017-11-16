@@ -12,6 +12,8 @@ for i = 1:length(ligands)
     if ~isappdata( gca, ligand.res_tag ) setappdata( gca, ligand.res_tag, ligand ); end
 
     % add linkers
+    possible_helix_tags = {};
+    ligand.linkers = {};
     for j = 1:length( ligand.ligand_partners )
         linker = struct();
         linker.residue1 = ligand.res_tag;
@@ -26,16 +28,25 @@ for i = 1:length(ligands)
         linker.linker_tag = linker_tag;
         
         % stick this linker information in the connected residues.
-        add_linker_to_residue( linker.residue1, linker_tag );
+
+        ligand.linkers = [ ligand.linkers, linker_tag ];
         add_linker_to_residue( linker.residue2, linker_tag );
         if ~isappdata( gca, linker_tag ) setappdata( gca, linker_tag, linker ); end;
         
-        if ~isfield(ligand,'helix_tag') 
-            ligand.helix_tag = partner.helix_tag;
-            ligand.relpos    = [10,0]; % I dunno.
-            setappdata( gca, ligand.res_tag, ligand ); 
-        end;
+        possible_helix_tags = [ possible_helix_tags, partner.helix_tag ];
     end
+ 
+    unique_helix_tags = unique( possible_helix_tags );
+    helix_tag_count = zeros( 1, length( unique_helix_tags ) );
+    for n = 1:length( unique_helix_tags )
+        helix_tag_count( n ) = length( find( strcmp( unique_helix_tags{n}, possible_helix_tags ) ) );
+    end
+    [~,idx] = max( helix_tag_count );
+    
+    ligand.helix_tag = unique_helix_tags{ idx };
+    ligand.relpos    = [10,0]; % wild guess
+    setappdata( gca, ligand.res_tag, ligand );
+    
     ligands{i} = ligand;
 end
 

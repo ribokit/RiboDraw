@@ -114,6 +114,7 @@ for i = 1:length( linker_tags )
     linker = getappdata( gca, tag );
     if ~any(strcmp(linker.residue1, slice_res_tags ) ) continue; end;
     if ~any(strcmp(linker.residue2, slice_res_tags ) ) continue; end;
+    if isfield( linker, 'tertiary_contact' ) continue; end; % handle this case below.
     if ~isfield( loaddata, tag ); 
         fprintf( 'Removing %s from old drawing as it is handled by imported drawing\n', tag );
         delete_linker( linker );

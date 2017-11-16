@@ -3,14 +3,25 @@ function redraw_res_and_helix( h )
 % Call this after dragging.
 % (C) R. Das, Stanford University, 2017
 delete_crosshair();
-pos = get(h,'position');
 res_tag = getappdata( h, 'res_tag' );
 residue = getappdata(gca,res_tag );
 original_plot_pos = residue.plot_pos;
-if length( pos ) == 4 % rectangle
-    residue.plot_pos = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
+if isfield( h, 'position' ) ||  strcmp( h.Type, 'text' )
+    pos = get(h,'position');
+    if length( pos ) == 4 % rectangle
+        residue.plot_pos = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
+    else
+        pos = get(h,'position');
+        residue.plot_pos = pos(1:2);
+    end
 else
-    residue.plot_pos = pos(1:2);
+    strcmp( h.Type, 'patch' );
+    image_boundary = residue.image_boundary;
+    current_image_boundary = [ get( h, 'xdata' ), get( h, 'ydata' )];
+    plot_settings = getappdata( gca, 'plot_settings' );
+    if isfield( plot_settings, 'ligand_image_scaling' ) image_boundary = image_boundary * plot_settings.ligand_image_scaling; end;
+    pos = mean( current_image_boundary ) - mean( image_boundary );
+    residue.plot_pos = pos;
 end
 [residue,switched_helix] = reassign_parent_helix( residue );
 if (switched_helix) residue.plot_pos = original_plot_pos; end;
@@ -58,9 +69,11 @@ function [residue,switched_helix] = reassign_parent_helix( residue )
 % Does *not* handle relpos
 %
 % possible helix parents -- judge based on sequence.
+%
+% Don't do this for ligands
 
 switched_helix = 0;
-
+if isfield( residue, 'ligand_partners' ) return; end;
 % if the residue was moved into its current helix, don't do anything...
 current_helix = getappdata( gca, residue.helix_tag );
 if ( check_in_helix_rectangle( residue, current_helix ) )

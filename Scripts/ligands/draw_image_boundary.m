@@ -8,6 +8,8 @@ end
 if( ~isfield( ligand, 'image_handle' ) | ~isvalid( ligand.image_handle ) )
     ligand.image_handle = patch(0,0,[0,0,0],'edgecolor','none');
     send_to_top_of_back( ligand.image_handle );
+    setappdata( ligand.image_handle, 'res_tag', ligand.res_tag );
+    draggable( ligand.image_handle,'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @redraw_res_and_helix );
 end
 
 image_boundary = ligand.image_boundary;

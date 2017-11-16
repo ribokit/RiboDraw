@@ -1,7 +1,10 @@
 function draw_selections( selections );
-if ~exist( 'selections', 'var' )
-    selections = get_tags( 'Selection' );
-end
+% draw_selections( selections );
+% draw_selections( selection );
+
+if ~exist( 'selections', 'var' ); selections = get_tags( 'Selection' ); end
+if ~iscell( selections ) & ischar( selections ); selections = { selections }; end
+
 plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( plot_settings, 'show_coax_controls' ) & isfield( plot_settings, 'show_selection_controls' )
     plot_settings.show_coax_controls   = plot_settings.show_selection_controls;

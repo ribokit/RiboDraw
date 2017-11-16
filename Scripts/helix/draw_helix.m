@@ -129,7 +129,7 @@ end
 for i = 1:length( not_helix_res_tags )
     res_tag = not_helix_res_tags{i};
     residue = getappdata( gca, res_tag );
-    draggable( residue.handle,@move_snapgrid, 'endfcn', @redraw_res_and_helix )
+    draggable( residue.handle,'n',[-inf inf -inf inf],@move_snapgrid, 'endfcn', @redraw_res_and_helix )
 end
 
 
@@ -176,8 +176,9 @@ if isfield( residue, 'relpos' )
     % quick linker cleanup
     if isfield( residue, 'linkers' );
         linker_tags = residue.linkers;
+        ok_linker = zeros(1,length(linker_tags));
         for k = 1 : length( linker_tags );  ok_linker(k) = isappdata( gca, linker_tags{k} );     end
-        residue.linkers = linker_tags( ok_linker );
+        residue.linkers = linker_tags( find(ok_linker) );
     end
     if isfield( residue, 'image_boundary' );
         residue = draw_image_boundary( residue );

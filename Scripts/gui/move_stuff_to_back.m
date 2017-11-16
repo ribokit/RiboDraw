@@ -4,7 +4,8 @@ function move_stuff_to_back()
 %  all the relevant graphics handles need to have field 'send_to_back'
 %  defined in appdata -- created in draw_linker() calles to send_to_back().
 x = get( gca, 'Children' );
-
+tic
+fprintf( 'Moving graphic elements to back... could take a while.\n' );
 send_to_back        = zeros( 1, length(x) );
 send_to_top_of_back = zeros( 1, length(x) );
 send_to_front       = zeros( 1, length(x) );
@@ -18,4 +19,4 @@ for i = 1:length(x)
    end
 end
 set( gca, 'Children', x( [find(send_to_front),find(send_to_top_of_back),find(send_to_back)] ) );
-
+toc

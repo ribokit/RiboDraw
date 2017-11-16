@@ -340,7 +340,6 @@ for i = 1:length( residue1.linkers )
     end
 end
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_tertiary_contact( linker, plot_pos, plot_settings );
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
@@ -349,6 +348,9 @@ if isfield( plot_settings, 'show_tertiary_contacts' )
     if plot_settings.show_tertiary_contacts; visible = 'on'; else; visible = 'off'; end;
     linker = set_linker_visibility( linker, visible );
 end
+
+residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
+residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
 
 if strcmp( linker.type, 'tertcontact_interdomain' )
     % double color lines for interdomain;
@@ -365,26 +367,11 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
 
     if ( isfield( linker, 'show_split_arrows' )  & linker.show_split_arrows ) arrow_visible = 'on'; else; arrow_visible = 'off'; end;
     outarrow_size = 1.5*plot_settings.spacing;
-    if isfield( linker, 'outarrow1' )  
-        v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
-        ctr = plot_pos(1,:);
-        update_arrow( linker.outarrow1, ctr+v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );  
-        linker = update_tertiary_arrow_label( linker, 'outarrow_label1', ctr + v*outarrow_size, arrow_visible, plot_settings );
-        set_text_alignment( linker.outarrow_label1, v );
-    end;
-    if isfield( linker, 'outarrow2' )  
-        v = plot_pos(end-1,:) - plot_pos(end,:);  v = v /norm(v);
-        ctr = plot_pos(end,:);
-        update_arrow( linker.outarrow2, ctr+v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );  
-        linker = update_tertiary_arrow_label( linker, 'outarrow_label2', ctr + v*outarrow_size, arrow_visible, plot_settings );
-        set_text_alignment( linker.outarrow_label2, v );
-    end;
+    linker = update_outarrow( linker, plot_pos, residue1, outarrow_size,  'outarrow1','outarrow_label1', arrow_visible, plot_settings, 1 );
+    linker = update_outarrow( linker, plot_pos, residue2, outarrow_size,  'outarrow2','outarrow_label2', arrow_visible, plot_settings, 2 );
 end
 
 % colors
-residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
-residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
-
 set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 
 if isfield( residue1, 'rgb_color' ) rescolor1 = residue1.rgb_color; else; rescolor1 = [0,0,0]; end;
@@ -440,6 +427,24 @@ end
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
 h = getfield(linker, arrow_label);
 set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )
+
+if ~isfield( linker, outarrow_fieldname ) return; end;
+
+if ( which_res == 2 ) plot_pos = plot_pos(end:-1:1,:); end;
+if isfield( residue, 'image_handle' )
+    [v,start_pos,pointing_out_of_polygon] = first_crossing( [get(residue.image_handle,'XData'),get(residue.image_handle,'YData')], plot_pos );
+    if ( ~pointing_out_of_polygon ) arrow_visible = 'off'; end;
+else
+    v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
+    start_pos = plot_pos(1,:);
+end
+update_arrow( getfield(linker,outarrow_fieldname), start_pos + v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );
+linker = update_tertiary_arrow_label( linker, outarrow_label_fieldname, start_pos + v*outarrow_size, arrow_visible, plot_settings );
+set_text_alignment( getfield( linker, outarrow_label_fieldname ), v );
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function check_interdomain( linker, plot_settings )

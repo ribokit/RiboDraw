@@ -8,20 +8,25 @@ residue = getappdata(gca,res_tag );
 original_plot_pos = residue.plot_pos;
 if isfield( h, 'position' ) ||  strcmp( h.Type, 'text' )
     pos = get(h,'position');
+    original_residue_plot_pos = residue.plot_pos;
     if length( pos ) == 4 % rectangle
         residue.plot_pos = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
     else
         pos = get(h,'position');
         residue.plot_pos = pos(1:2);
     end
+    if strcmp( h.Type, 'text' ) & isfield( residue, 'image_boundary' ) & isfield( residue, 'image_offset' );
+        residue.image_offset = residue.image_offset + original_residue_plot_pos - residue.plot_pos;
+    end
 else
+    % ligand/protein image_boundary is a special case.
     strcmp( h.Type, 'patch' );
     image_boundary = residue.image_boundary;
     current_image_boundary = [ get( h, 'xdata' ), get( h, 'ydata' )];
     plot_settings = getappdata( gca, 'plot_settings' );
     if isfield( plot_settings, 'ligand_image_scaling' ) image_boundary = image_boundary * plot_settings.ligand_image_scaling; end;
     pos = mean( current_image_boundary ) - mean( image_boundary );
-    residue.plot_pos = pos;
+    residue.plot_pos = pos - residue.image_offset;
 end
 [residue,switched_helix] = reassign_parent_helix( residue );
 if (switched_helix) residue.plot_pos = original_plot_pos; end;

@@ -1,26 +1,40 @@
 function update_tertiary_contact_names( tags, print_stuff )
 % update_tertiary_contact_names( tags, print_stuff )
+% update_tertiary_contact_names( tag, print_stuff )
+%
 
 if ~exist( 'print_stuff' ) print_stuff = 1; end;
 if ~exist( 'tags','var' )
     tags = get_tags( 'Tertiary' );
 end
+if ischar( tags ); tags = {tags}; end;
 
 for i = 1:length( tags )
     tertiary_contact = getappdata( gca, tags{i} );
-    residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
-    residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
-    if isfield( residue1, 'helix_tag' ) & isfield( residue2, 'helix_tag' )
-        helix1 = getappdata( gca, residue1.helix_tag );
-        helix2 = getappdata( gca, residue2.helix_tag );
-        name1 = get_helix_name( helix1, residue1 );
-        name2 = get_helix_name( helix2, residue2 );
-        tertiary_contact.name = [ name1, '-', name2 ];
-        if print_stuff; fprintf( 'Setting tertiary contact name %s for contact %s\n', tertiary_contact.name,tags{i} ); end;
-        setappdata( gca, tags{i}, tertiary_contact );
-        if isfield( tertiary_contact, 'interdomain_linker' ); draw_linker( tertiary_contact.interdomain_linker ); end;
-    end   
+    name1 = get_partner_name( tertiary_contact.associated_residues1{1}  );
+    name2 = get_partner_name( tertiary_contact.associated_residues2{1}  );
+    if length( name1 ) == 0; continue; end;
+    if length( name2 ) == 0; continue; end;
+    tertiary_contact.name = [ name1, '-', name2 ];
+    if print_stuff; fprintf( 'Setting tertiary contact name %s for contact %s\n', tertiary_contact.name,tags{i} ); end;
+    setappdata( gca, tags{i}, tertiary_contact );
+    if isfield( tertiary_contact, 'interdomain_linker' ); draw_linker( tertiary_contact.interdomain_linker ); end;
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function name = get_partner_name( res_tag )
+residue = getappdata( gca, res_tag);
+name = '';
+if isfield( residue, 'ligand_partners' );
+    name = residue.nucleotide;
+    return;
+elseif isfield( residue, 'helix_tag' )
+    helix = getappdata( gca, residue.helix_tag );
+    name = get_helix_name( helix, residue );
+    return;
+end
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function name = get_helix_name( helix, residue )

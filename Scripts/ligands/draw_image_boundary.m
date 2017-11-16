@@ -11,6 +11,9 @@ if( ~isfield( ligand, 'image_handle' ) | ~isvalid( ligand.image_handle ) )
     setappdata( ligand.image_handle, 'res_tag', ligand.res_tag );
     draggable( ligand.image_handle,'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @redraw_res_and_helix );
 end
+if( ~isfield( ligand, 'image_offset' ) )
+    ligand.image_offset = [0,0];
+end
 
 image_boundary = ligand.image_boundary;
 
@@ -18,11 +21,11 @@ plot_settings = getappdata( gca, 'plot_settings' );
 if isfield( plot_settings, 'ligand_image_scaling' ) image_boundary = image_boundary * plot_settings.ligand_image_scaling; end;
 
 set( ligand.image_handle, ...
-    'XData', image_boundary(:,1) + ligand.plot_pos(:,1), ...
-    'YData', image_boundary(:,2) + ligand.plot_pos(:,2) );
+    'XData', image_boundary(:,1) + ligand.plot_pos(:,1) + ligand.image_offset(1), ...
+    'YData', image_boundary(:,2) + ligand.plot_pos(:,2) + ligand.image_offset(2) );
 set( ligand.image_handle2, ...
-    'XData', image_boundary(:,1) + ligand.plot_pos(:,1) + 0.25, ...
-    'YData', image_boundary(:,2) + ligand.plot_pos(:,2) - 0.25);
+    'XData', image_boundary(:,1) + ligand.plot_pos(:,1) + ligand.image_offset(1) + 0.25, ...
+    'YData', image_boundary(:,2) + ligand.plot_pos(:,2) + ligand.image_offset(2) - 0.25);
 
 set_ligand_image_color( ligand );
    

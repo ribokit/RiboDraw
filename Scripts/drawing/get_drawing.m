@@ -169,7 +169,7 @@ for i = 1:length( helix_tags )
     intersect_tags = intersect( helix.associated_residues, slice_res_tags );
     if length( intersect_tags ) == 0; 
         % helix could be cleanly outside target res
-        continue
+        continue;
     else
         new_helix_tags = [new_helix_tags, tag ];
     end
@@ -197,10 +197,11 @@ end
 for i = 1:length( tertiary_contact_tags )
     tag = tertiary_contact_tags{i};
     tertiary_contact = getappdata( gca, tag );
-
+    
     contact_ok = 1;
     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues1);
     if length(intersect( tertiary_contact_res_tags, slice_res_tags )) < length( tertiary_contact_res_tags ); contact_ok = 0; end;
+    
     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues2);
     if length(intersect( tertiary_contact_res_tags, slice_res_tags )) < length( tertiary_contact_res_tags ); contact_ok = 0; end;
 

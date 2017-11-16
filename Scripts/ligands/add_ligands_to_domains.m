@@ -18,9 +18,10 @@ for i = 1:length( tags )
         if strcmp( residue.helix_tag, helix_tag ) 
             associated_domains = get_tags( 'Selection','domain', residue.associated_selections );
             for k = 1:length( associated_domains )
-                if ( ~strfind( associated_domains{k}, 'helixgroup' ) )
-                    domains = [ domains, associated_domains(k) ];
-                end
+                % hacky hack.
+                if ( strfind( associated_domains{k}, 'helixgroup' ) ) continue; end;
+                if ( strfind( associated_domains{k}, 'RNA' ) ) continue; end;
+                domains = [ domains, associated_domains(k) ];
             end
         end
     end

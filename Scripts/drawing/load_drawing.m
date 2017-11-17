@@ -56,9 +56,12 @@ for i = 1:length( datafields )
                 if ~isfield( datum, field )
                     datum = setfield( datum, field, getfield(olddatum,field) );
                 end
+                % special case cleanup
                 if strcmp( field, 'linkers' ) & isfield( datum, field )
-                    % special case. 
                     datum.linkers = unique( [olddatum.linkers, datum.linkers ] ); 
+                end
+                if strcmp( field, 'associated_selections' ) & isfield( datum, field )
+                    datum.associated_selections = unique( [olddatum.associated_selections, datum.associated_selections ] ); 
                 end
             end
         end

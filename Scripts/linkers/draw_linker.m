@@ -101,11 +101,11 @@ if isfield( linker, 'plot_pos' )
             linker = rmfield( linker, 'vtx' );
         end
     end
-    if ( ~isfield( linker, 'vtx' ) )                
+    if ( ~isfield( linker, 'vtx' ) & ~strcmp( linker.type, 'stem_pair' ) )                
         linker = create_linker_with_draggable_vtx( linker );
-    end
-    for i = 1:size( linker.plot_pos, 1 )
-        set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
+        for i = 1:size( linker.plot_pos, 1 )
+            set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
+        end
     end
 end
 
@@ -365,10 +365,19 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     set( linker.side_line1, 'xdata', [side_line1_pos(:,1); plot_pos(end:-1:1,1)], 'ydata', [side_line1_pos(:,2); plot_pos(end:-1:1,2)] );
     set( linker.side_line2, 'xdata', [side_line2_pos(:,1); plot_pos(end:-1:1,1)], 'ydata', [side_line2_pos(:,2); plot_pos(end:-1:1,2)] );
 
-    if ( isfield( linker, 'show_split_arrows' )  & linker.show_split_arrows ) arrow_visible = 'on'; else; arrow_visible = 'off'; end;
+    if ( isfield( linker, 'show_split_arrows' )  && linker.show_split_arrows ) arrow_visible = 'on'; else; arrow_visible = 'off'; end;
     outarrow_size = 1.5*plot_settings.spacing;
     linker = update_outarrow( linker, plot_pos, residue1, outarrow_size,  'outarrow1','outarrow_label1', arrow_visible, plot_settings, 1 );
     linker = update_outarrow( linker, plot_pos, residue2, outarrow_size,  'outarrow2','outarrow_label2', arrow_visible, plot_settings, 2 );
+    if ( isfield( linker, 'show_split_arrows' )  && linker.show_split_arrows && isfield( plot_settings,'show_split_arrow_lines') )
+        if ( plot_settings.show_split_arrow_lines ) line_visible = 'on'; else; line_visible = 'off'; end;
+        set( linker.line_handle, 'visible',line_visible );
+        if isfield( linker, 'vtx' )
+            vtx_visible = line_visible;
+            if isfield( plot_settings, 'show_linker_controls') & ~plot_settings.show_linker_controls;  vtx_visible = 'off'; end;
+            for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', vtx_visible ); end;
+        end;
+    end
 end
 
 % colors

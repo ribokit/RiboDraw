@@ -4,7 +4,7 @@ function bounds = get_patch_from_image( image_file, show_drawing );
 % (C) R. Das, Stanford University
 
 if ~exist( 'show_drawing', 'var' ) show_drawing = 1; end;
-THRESHOLD = 100;
+THRESHOLD = 5;
 
 image_x = imread( image_file ); 
 

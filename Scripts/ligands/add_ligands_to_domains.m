@@ -1,7 +1,8 @@
-function add_ligands_to_domains()
+function add_ligands_to_domains( tags )
 % add_ligands_to_domains()
 
-tags = get_tags( 'Residue_' );
+if ~exist( 'tags', 'var' ) tags = get_tags( 'Residue_' ); end;
+
 for i = 1:length( tags )
     ligand_tag = tags{i};
     ligand = getappdata( gca, ligand_tag );
@@ -20,7 +21,7 @@ for i = 1:length( tags )
             for k = 1:length( associated_domains )
                 % hacky hack.
                 if ( strfind( associated_domains{k}, 'helixgroup' ) ) continue; end;
-                if ( strfind( associated_domains{k}, 'RNA' ) ) continue; end;
+                if ( strfind( associated_domains{k}, '_RNA_' ) ) continue; end;
                 domains = [ domains, associated_domains(k) ];
             end
         end

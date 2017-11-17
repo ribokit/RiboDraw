@@ -120,8 +120,8 @@ if isfield(linker,'arrow') & isfield(plot_settings,'show_extra_arrows'); linker 
 if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  end
 if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  end;
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
-if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*2 ); end; 
-if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*2 ); end; 
+if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*2.5 ); end; 
+if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*2.5 ); end; 
 if isfield( linker, 'tertiary_contact' ); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
 if any(strcmp(linker.type, {'noncanonical_pair','long_range_stem_pair'} )) check_interdomain( linker, plot_settings ); end;
 if strcmp( linker.type, 'ligand' ) update_ligand_linker_visibility( linker, plot_settings ); end;
@@ -435,12 +435,16 @@ if ~isfield( linker, arrow_label )
 end
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
 h = getfield(linker, arrow_label);
-set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize );
+set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize/2 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )
 
 if ~isfield( linker, outarrow_fieldname ) return; end;
+
+% if this is the ligand side of an interdomain outarrow, 
+% only show arrow if its the first split one.
+if which_res == 1 && isfield( residue, 'ligand_partners' ) arrow_visible = check_first_linker_outarrow( linker, residue, arrow_visible ); end;
 
 if ( which_res == 2 ) plot_pos = plot_pos(end:-1:1,:); end;
 if isfield( residue, 'image_handle' )
@@ -454,6 +458,18 @@ update_arrow( getfield(linker,outarrow_fieldname), start_pos + v*outarrow_size*0
 linker = update_tertiary_arrow_label( linker, outarrow_label_fieldname, start_pos + v*outarrow_size, arrow_visible, plot_settings );
 set_text_alignment( getfield( linker, outarrow_label_fieldname ), v );
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function  arrow_visible = check_first_linker_outarrow( linker, residue, arrow_visible );
+sister_linker_tags = get_tags( 'Linker','interdomain',residue.linkers );
+for i = 1:length( sister_linker_tags )
+    sister_linker = getappdata( gca, sister_linker_tags{i} );
+    if ~isfield( sister_linker, 'show_split_arrows' ) || ~sister_linker.show_split_arrows; continue; end
+    if ~strcmp(sister_linker.linker_tag,linker.linker_tag);
+        arrow_visible = 'off';
+    end
+    return;
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function check_interdomain( linker, plot_settings )

@@ -1,6 +1,5 @@
 ## TODO
 * color different parts of tertiary contact ligand label '\color[rgb]{0.5,0.5,1}blah'. 
-* show_split_arrow_lines
 * Also: strrep _ to \_
 
 * complete 16S rRNA

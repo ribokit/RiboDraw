@@ -29,7 +29,7 @@ for i = 1:length( tags )
                 [name2,rgb2] = get_partner_name( linker.residue2 );
                 if any( strcmp( all_name, name2 ) ) continue; end; % don't repeat
                 all_name = [all_name, name2];
-                if mod(length(all_name),3) == 0; name = [name,'\newline']; end;
+                if mod(length(all_name),3) == 1; name = [name,'\newline']; end;
                 name = sprintf('%s-\\color[rgb]{%4.2f,%4.2f,%4.2f}%s',name,rgb2(1),rgb2(2),rgb2(3),name2);
             end
             tertiary_contact.name = name;

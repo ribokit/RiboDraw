@@ -81,8 +81,10 @@ elseif strcmp( linker.type, 'stack' )  % to guide the eye.
 end
     
 % nudge beginning and end of linker away from residue.
-plot_pos1(1,:)   = nudge_pos( plot_pos(1,:),   plot_pos(2,:),     plot_settings.bp_spacing );
-plot_pos2(end,:) = nudge_pos( plot_pos(end,:), plot_pos(end-1,:), plot_settings.bp_spacing );
+nudge_spacing = plot_settings.bp_spacing;
+if isfield( getappdata( gca, linker.residue1 ), 'ligand_partners' ); nudge_spacing = nudge_spacing * 2; end;
+plot_pos1(1,:)   = nudge_pos( plot_pos(1,:),   plot_pos(2,:),     nudge_spacing );
+plot_pos2(end,:) = nudge_pos( plot_pos(end,:), plot_pos(end-1,:), nudge_spacing );
 plot_pos(1,:)   = plot_pos1(1,:);
 plot_pos(end,:) = plot_pos2(end,:);
 linker.plot_pos = plot_pos;
@@ -435,7 +437,7 @@ if ~isfield( linker, arrow_label )
 end
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
 h = getfield(linker, arrow_label);
-set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize/2 );
+set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize*0.75 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )

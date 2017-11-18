@@ -1,20 +1,16 @@
 ## TODO
-* color different parts of tertiary contact ligand label '\color[rgb]{0.5,0.5,1}blah'. 
-* Also: strrep _ to \_
-
+* explain 'Helix' object
+* document JSON file format.
+* put in docstrings for all files
+* show long-range stem pairs on 23S
+* push middle layer to right
 * complete 16S rRNA
 * lay out other ribosome states.
 
-### Documentation stuff
-* explain 'Helix' object
-* check independence from RiboKit
-* document JSON file format.
-* put in docstrings for all files
-
 ### Future
 * settings icon for toggles --> menu.
+* automatic legend creation
 * rename_tertiary_contact (for group II intron?)
-
 * pathfinder routine for arrow linkers & noncanonical pairs
 * K-turn assignment in rna_motif
 * Read-in & auto-color motifs [SRL, etc.]

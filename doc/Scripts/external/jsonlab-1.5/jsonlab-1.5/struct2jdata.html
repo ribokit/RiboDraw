@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of struct2jdata</title>
+  <meta name="keywords" content="struct2jdata">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="#">external</a> &gt; <a href="#">jsonlab-1.5</a> &gt; <a href="index.html">jsonlab-1.5</a> &gt; struct2jdata.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/external/jsonlab-1.5/jsonlab-1.5&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>struct2jdata
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function newdata=struct2jdata(data,varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">
+ newdata=struct2jdata(data,opt,...)
+
+ convert a JData object (in the form of a struct array) into an array
+
+ authors:Qianqian Fang (q.fang &lt;at&gt; neu.edu)
+
+ input:
+      data: a struct array. If data contains JData keywords in the first
+            level children, these fields are parsed and regrouped into a
+            data object (arrays, trees, graphs etc) based on JData 
+            specification. The JData keywords are
+               &quot;_ArrayType_&quot;, &quot;_ArraySize_&quot;, &quot;_ArrayData_&quot;
+               &quot;_ArrayIsSparse_&quot;, &quot;_ArrayIsComplex_&quot;
+      opt: (optional) a list of 'Param',value pairs for additional options 
+           The supported options include
+               'Recursive', if set to 1, will apply the conversion to 
+                            every child; 0 to disable
+
+ output:
+      newdata: the covnerted data if the input data does contain a JData 
+               structure; otherwise, the same as the input.
+
+ examples:
+      obj=struct('_ArrayType_','double','_ArraySize_',[2 3],
+                 '_ArrayIsSparse_',1 ,'_ArrayData_',null);
+      ubjdata=struct2jdata(obj);
+
+ license:
+     BSD License, see LICENSE_BSD.txt files for details 
+
+ -- this function is part of JSONLab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="loadjson.html" class="code" title="function data = loadjson(fname,varargin)">loadjson</a>	</li><li><a href="loadubjson.html" class="code" title="function data = loadubjson(fname,varargin)">loadubjson</a>	</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function newdata=struct2jdata(data,varargin)</a>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% newdata=struct2jdata(data,opt,...)</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% convert a JData object (in the form of a struct array) into an array</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% authors:Qianqian Fang (q.fang &lt;at&gt; neu.edu)</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% input:</span>
+0010 <span class="comment">%      data: a struct array. If data contains JData keywords in the first</span>
+0011 <span class="comment">%            level children, these fields are parsed and regrouped into a</span>
+0012 <span class="comment">%            data object (arrays, trees, graphs etc) based on JData</span>
+0013 <span class="comment">%            specification. The JData keywords are</span>
+0014 <span class="comment">%               &quot;_ArrayType_&quot;, &quot;_ArraySize_&quot;, &quot;_ArrayData_&quot;</span>
+0015 <span class="comment">%               &quot;_ArrayIsSparse_&quot;, &quot;_ArrayIsComplex_&quot;</span>
+0016 <span class="comment">%      opt: (optional) a list of 'Param',value pairs for additional options</span>
+0017 <span class="comment">%           The supported options include</span>
+0018 <span class="comment">%               'Recursive', if set to 1, will apply the conversion to</span>
+0019 <span class="comment">%                            every child; 0 to disable</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">% output:</span>
+0022 <span class="comment">%      newdata: the covnerted data if the input data does contain a JData</span>
+0023 <span class="comment">%               structure; otherwise, the same as the input.</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">% examples:</span>
+0026 <span class="comment">%      obj=struct('_ArrayType_','double','_ArraySize_',[2 3],</span>
+0027 <span class="comment">%                 '_ArrayIsSparse_',1 ,'_ArrayData_',null);</span>
+0028 <span class="comment">%      ubjdata=struct2jdata(obj);</span>
+0029 <span class="comment">%</span>
+0030 <span class="comment">% license:</span>
+0031 <span class="comment">%     BSD License, see LICENSE_BSD.txt files for details</span>
+0032 <span class="comment">%</span>
+0033 <span class="comment">% -- this function is part of JSONLab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)</span>
+0034 <span class="comment">%</span>
+0035 
+0036 fn=fieldnames(data);
+0037 newdata=data;
+0038 len=length(data);
+0039 <span class="keyword">if</span>(<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'Recursive'</span>,0,varargin{:})==1)
+0040   <span class="keyword">for</span> i=1:length(fn) <span class="comment">% depth-first</span>
+0041     <span class="keyword">for</span> j=1:len
+0042         <span class="keyword">if</span>(isstruct(getfield(data(j),fn{i})))
+0043             newdata(j)=setfield(newdata(j),fn{i},jstruct2array(getfield(data(j),fn{i})));
+0044         <span class="keyword">end</span>
+0045     <span class="keyword">end</span>
+0046   <span class="keyword">end</span>
+0047 <span class="keyword">end</span>
+0048 <span class="keyword">if</span>(~isempty(strmatch(<span class="string">'x0x5F_ArrayType_'</span>,fn)) &amp;&amp; ~isempty(strmatch(<span class="string">'x0x5F_ArrayData_'</span>,fn)))
+0049   newdata=cell(len,1);
+0050   <span class="keyword">for</span> j=1:len
+0051     ndata=cast(data(j).x0x5F_ArrayData_,data(j).x0x5F_ArrayType_);
+0052     iscpx=0;
+0053     <span class="keyword">if</span>(~isempty(strmatch(<span class="string">'x0x5F_ArrayIsComplex_'</span>,fn)))
+0054         <span class="keyword">if</span>(data(j).x0x5F_ArrayIsComplex_)
+0055            iscpx=1;
+0056         <span class="keyword">end</span>
+0057     <span class="keyword">end</span>
+0058     <span class="keyword">if</span>(~isempty(strmatch(<span class="string">'x0x5F_ArrayIsSparse_'</span>,fn)))
+0059         <span class="keyword">if</span>(data(j).x0x5F_ArrayIsSparse_)
+0060             <span class="keyword">if</span>(~isempty(strmatch(<span class="string">'x0x5F_ArraySize_'</span>,fn)))
+0061                 dim=double(data(j).x0x5F_ArraySize_);
+0062                 <span class="keyword">if</span>(iscpx &amp;&amp; size(ndata,2)==4-any(dim==1))
+0063                     ndata(:,end-1)=complex(ndata(:,end-1),ndata(:,end));
+0064                 <span class="keyword">end</span>
+0065                 <span class="keyword">if</span> isempty(ndata)
+0066                     <span class="comment">% All-zeros sparse</span>
+0067                     ndata=sparse(dim(1),prod(dim(2:end)));
+0068                 <span class="keyword">elseif</span> dim(1)==1
+0069                     <span class="comment">% Sparse row vector</span>
+0070                     ndata=sparse(1,ndata(:,1),ndata(:,2),dim(1),prod(dim(2:end)));
+0071                 <span class="keyword">elseif</span> dim(2)==1
+0072                     <span class="comment">% Sparse column vector</span>
+0073                     ndata=sparse(ndata(:,1),1,ndata(:,2),dim(1),prod(dim(2:end)));
+0074                 <span class="keyword">else</span>
+0075                     <span class="comment">% Generic sparse array.</span>
+0076                     ndata=sparse(ndata(:,1),ndata(:,2),ndata(:,3),dim(1),prod(dim(2:end)));
+0077                 <span class="keyword">end</span>
+0078             <span class="keyword">else</span>
+0079                 <span class="keyword">if</span>(iscpx &amp;&amp; size(ndata,2)==4)
+0080                     ndata(:,3)=complex(ndata(:,3),ndata(:,4));
+0081                 <span class="keyword">end</span>
+0082                 ndata=sparse(ndata(:,1),ndata(:,2),ndata(:,3));
+0083             <span class="keyword">end</span>
+0084         <span class="keyword">end</span>
+0085     <span class="keyword">elseif</span>(~isempty(strmatch(<span class="string">'x0x5F_ArraySize_'</span>,fn)))
+0086         <span class="keyword">if</span>(iscpx &amp;&amp; size(ndata,2)==2)
+0087              ndata=complex(ndata(:,1),ndata(:,2));
+0088         <span class="keyword">end</span>
+0089         ndata=reshape(ndata(:),data(j).x0x5F_ArraySize_);
+0090     <span class="keyword">end</span>
+0091     newdata{j}=ndata;
+0092   <span class="keyword">end</span>
+0093   <span class="keyword">if</span>(len==1)
+0094       newdata=newdata{1};
+0095   <span class="keyword">end</span>
+0096 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

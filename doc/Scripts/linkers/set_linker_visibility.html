@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set_linker_visibility</title>
+  <meta name="keywords" content="set_linker_visibility">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="index.html">linkers</a> &gt; set_linker_visibility.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/linkers&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>set_linker_visibility
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function linker = set_linker_visibility( linker, visible ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>	linker = draw_linker( linker )</li><li><a href="show_noncanonical_pairs.html" class="code" title="function show_noncanonical_pairs( setting )">show_noncanonical_pairs</a>	</li><li><a href="show_other_contacts.html" class="code" title="function show_other_contacts( setting )">show_other_contacts</a>	</li><li><a href="show_stacks.html" class="code" title="function show_stacks( setting )">show_stacks</a>	</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker = set_linker_visibility( linker, visible );</a>
+0002 
+0003 <span class="keyword">if</span> isfield( linker,<span class="string">'line_handle'</span> ) set( linker.line_handle, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0004 <span class="keyword">if</span> isfield( linker,<span class="string">'symbol'</span> ) set( linker.symbol, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0005 <span class="keyword">if</span> isfield( linker,<span class="string">'symbol1'</span> ) set( linker.symbol1, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0006 <span class="keyword">if</span> isfield( linker,<span class="string">'symbol2'</span> ) set( linker.symbol2, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0007 <span class="keyword">if</span> isfield( linker,<span class="string">'side_line1'</span> ) set( linker.side_line1, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0008 <span class="keyword">if</span> isfield( linker,<span class="string">'side_line2'</span> ) set( linker.side_line2, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0009 <span class="keyword">if</span> isfield( linker,<span class="string">'node1'</span> ) set( linker.node1, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0010 <span class="keyword">if</span> isfield( linker,<span class="string">'node2'</span> ) set( linker.node2, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0011 <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
+0012     vtx_visible = visible;
+0013     plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0014     <span class="keyword">if</span> ( isfield( plot_settings, <span class="string">'show_linker_controls'</span> ) &amp; ~plot_settings.show_linker_controls ) vtx_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0015     <span class="keyword">for</span> i = 1:length( linker.vtx ), set( linker.vtx{i}, <span class="string">'visible'</span>, vtx_visible ); <span class="keyword">end</span>;
+0016 <span class="keyword">end</span>;</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

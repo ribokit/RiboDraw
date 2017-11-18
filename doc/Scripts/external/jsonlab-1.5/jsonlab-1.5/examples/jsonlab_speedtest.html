@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of jsonlab_speedtest</title>
+  <meta name="keywords" content="jsonlab_speedtest">
+  <meta name="description" content="%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="#">external</a> &gt; <a href="#">jsonlab-1.5</a> &gt; <a href="../index.html">jsonlab-1.5</a> &gt; <a href="index.html">examples</a> &gt; jsonlab_speedtest.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../../index.html"><img alt="<" border="0" src="../../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/external/jsonlab-1.5/jsonlab-1.5/examples&nbsp;<img alt=">" border="0" src="../../../../../right.png"></a></td></tr></table>-->
+
+<h1>jsonlab_speedtest
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../../up.png"></a></h2>
+<div class="box"><strong>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+         Benchmarking processing speed of savejson and loadjson
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0002 <span class="comment">%         Benchmarking processing speed of savejson and loadjson</span>
+0003 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0004 
+0005 datalen=[1e3 1e4 1e5 1e6];
+0006 len=length(datalen);
+0007 tsave=zeros(len,1);
+0008 tload=zeros(len,1);
+0009 <span class="keyword">for</span> i=1:len
+0010     tic;
+0011     json=savejson(<span class="string">'data'</span>,struct(<span class="string">'d1'</span>,rand(datalen(i),3),<span class="string">'d2'</span>,rand(datalen(i),3)&gt;0.5));
+0012     tsave(i)=toc;
+0013     data=loadjson(json);
+0014     tload(i)=toc-tsave(i);
+0015     fprintf(1,<span class="string">'matrix size: %d\n'</span>,datalen(i));
+0016 <span class="keyword">end</span>
+0017 
+0018 loglog(datalen,tsave,<span class="string">'o-'</span>,datalen,tload,<span class="string">'r*-'</span>);
+0019 legend(<span class="string">'savejson runtime (s)'</span>,<span class="string">'loadjson runtime (s)'</span>);
+0020 xlabel(<span class="string">'array size'</span>);
+0021 ylabel(<span class="string">'running time (s)'</span>);</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

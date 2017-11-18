@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of cleanup_long_range_stem_pairs</title>
+  <meta name="keywords" content="cleanup_long_range_stem_pairs">
+  <meta name="description" content="cleanup_long_range_stem_pairs()">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="index.html">devel</a> &gt; cleanup_long_range_stem_pairs.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/devel&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>cleanup_long_range_stem_pairs
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>cleanup_long_range_stem_pairs()</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function cleanup_long_range_stem_pairs() </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> cleanup_long_range_stem_pairs()
+  used to have stem_pairs with noncanonical_pair type 
+  and that was confusing. better to call them something else entirely.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function cleanup_long_range_stem_pairs()</a>
+0002 <span class="comment">% cleanup_long_range_stem_pairs()</span>
+0003 <span class="comment">%  used to have stem_pairs with noncanonical_pair type</span>
+0004 <span class="comment">%  and that was confusing. better to call them something else entirely.</span>
+0005 
+0006 tags = get_tags( <span class="string">'Linker'</span>,<span class="string">'stem_pair'</span> );
+0007 update_tags = {};
+0008 <span class="keyword">for</span> i = 1:length(tags)
+0009     linker = getappdata( gca, tags{i} );
+0010     <span class="keyword">if</span> strcmp( linker.type, <span class="string">'noncanonical_pair'</span> ) |  strcmp( linker.type, <span class="string">'long_range_stem_pair'</span> )
+0011         update_tags = [ update_tags, tags{i}];
+0012     <span class="keyword">end</span>
+0013 <span class="keyword">end</span>
+0014 
+0015 <span class="keyword">for</span> i = 1:length( update_tags )
+0016     tag = update_tags{i};
+0017     linker = getappdata( gca, tag );
+0018     <span class="keyword">if</span> isempty(strfind(tag, <span class="string">'long_range_stem_pair'</span> )) new_tag = strrep( tag, <span class="string">'_stem_pair'</span>, <span class="string">'_long_range_stem_pair'</span> ); <span class="keyword">end</span>;
+0019     linker.linker_tag = new_tag;
+0020     linker.type = <span class="string">'long_range_stem_pair'</span>;
+0021     set_linker_visibility( linker, <span class="string">'on'</span> );
+0022     replace_linker( tag, new_tag, linker );
+0023 <span class="keyword">end</span>
+0024 
+0025 tags = get_tags( <span class="string">'Linker'</span>,<span class="string">'long_range_stem_pair'</span> )
+0026 <span class="keyword">for</span> i = 1:length( tags )
+0027     draw_linker( getappdata( gca, tags{i} ) );
+0028 <span class="keyword">end</span>
+0029</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

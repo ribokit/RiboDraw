@@ -1,0 +1,452 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of dragdemo</title>
+  <meta name="keywords" content="dragdemo">
+  <meta name="description" content="DRAGDEMO">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="#">external</a> &gt; <a href="index.html">draggable</a> &gt; dragdemo.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/external/draggable&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>dragdemo
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>DRAGDEMO</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function dragdemo(demotitle) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> DRAGDEMO
+   This function is a demo for the draggable.m function and should be
+   distributed along with it. It basically presents some of draggable.m's
+   features: users of draggable.m are invited to read dragdemo's source.
+
+   &gt;&gt; dragdemo(demotitle);
+
+   runs the demo which title is contained in the string demotitle.
+   Available demos are:
+
+   'crosshair'     A draggable crosshair is drawn; its movements are
+                   limited so that its center never leaves the axes. This
+                   is the default demo.
+
+   'dragtest'      Some graphical objects (such as rectangles, lines,
+                   patches and plots) are drawn, following various
+                   constraints. For more details, please read the comments
+                   in the source code.
+
+   'snapgrid'      An example on how to use draggable's &quot;motionfcn&quot;
+                   argument so that a draggable object snaps to a grid.
+
+   'polymove'      A polygon with draggable vertices is drawn;
+                   draggable's &quot;motionfcn&quot; argument is used to redraw the
+                   polygon each time a vertex is moved.
+
+   'sliders'       A set of vertical sliders are created; a single call
+                   to draggable is used for all sliders since they share
+                   the same parameters. A &quot;motionfcn&quot; argument is used to
+                   update the displayed slider values.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>	DRAGGABLE - Make it so that a graphics object can be dragged in a figure.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function move_cross(h)</a></li><li><a href="#_sub2" class="code">function redraw_poly(h)</a></li><li><a href="#_sub3" class="code">function update_value(slider)</a></li><li><a href="#_sub4" class="code">function blink_value(slider)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function dragdemo(demotitle)</a>
+0002 
+0003 <span class="comment">% DRAGDEMO</span>
+0004 <span class="comment">%   This function is a demo for the draggable.m function and should be</span>
+0005 <span class="comment">%   distributed along with it. It basically presents some of draggable.m's</span>
+0006 <span class="comment">%   features: users of draggable.m are invited to read dragdemo's source.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%   &gt;&gt; dragdemo(demotitle);</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%   runs the demo which title is contained in the string demotitle.</span>
+0011 <span class="comment">%   Available demos are:</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%   'crosshair'     A draggable crosshair is drawn; its movements are</span>
+0014 <span class="comment">%                   limited so that its center never leaves the axes. This</span>
+0015 <span class="comment">%                   is the default demo.</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">%   'dragtest'      Some graphical objects (such as rectangles, lines,</span>
+0018 <span class="comment">%                   patches and plots) are drawn, following various</span>
+0019 <span class="comment">%                   constraints. For more details, please read the comments</span>
+0020 <span class="comment">%                   in the source code.</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">%   'snapgrid'      An example on how to use draggable's &quot;motionfcn&quot;</span>
+0023 <span class="comment">%                   argument so that a draggable object snaps to a grid.</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">%   'polymove'      A polygon with draggable vertices is drawn;</span>
+0026 <span class="comment">%                   draggable's &quot;motionfcn&quot; argument is used to redraw the</span>
+0027 <span class="comment">%                   polygon each time a vertex is moved.</span>
+0028 <span class="comment">%</span>
+0029 <span class="comment">%   'sliders'       A set of vertical sliders are created; a single call</span>
+0030 <span class="comment">%                   to draggable is used for all sliders since they share</span>
+0031 <span class="comment">%                   the same parameters. A &quot;motionfcn&quot; argument is used to</span>
+0032 <span class="comment">%                   update the displayed slider values.</span>
+0033 
+0034 <span class="comment">% (C) Copyright 2004-2012</span>
+0035 <span class="comment">% François Bouffard</span>
+0036 <span class="comment">% fbouffard@gmail.com</span>
+0037 
+0038 <span class="keyword">if</span> nargin == 0
+0039     demotitle = <span class="string">'crosshair'</span>;
+0040 <span class="keyword">end</span>
+0041 
+0042 <span class="keyword">switch</span> lower(demotitle)
+0043     
+0044     <span class="keyword">case</span> <span class="string">'crosshair'</span>
+0045         
+0046         <span class="comment">% CROSSHAIR demo</span>
+0047         <span class="comment">%   We first build the cross, using plot() with a NaN y-element so</span>
+0048         <span class="comment">%   that it is non-continuous. The cross spans 0.2 units:</span>
+0049         
+0050         figure;
+0051         p = plot([0.5 0.5 0.4 0.4 0.6],[0.4 0.6 NaN 0.5 0.5]);
+0052         
+0053         <span class="comment">%   Some cosmetic adjustments, and adjusting the axes limits:</span>
+0054         
+0055         set(p,<span class="string">'Color'</span>,<span class="string">'k'</span>,<span class="string">'LineWidth'</span>,2);
+0056         axis equal;
+0057         set(gca,<span class="string">'DataAspectRatio'</span>,[1 1 1],<span class="string">'Xlim'</span>,[0 1],<span class="string">'YLim'</span>,[0 1]);
+0058         title(<span class="string">'CROSSHAIR demo for draggable.m'</span>);
+0059         
+0060         <span class="comment">%   Call to draggable(), using no movement constraint and limits</span>
+0061         <span class="comment">%   corresponding to the axes limits, plus half the size of the</span>
+0062         <span class="comment">%   cross, so that its center always stays in the axes:</span>
+0063         
+0064         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(p,<span class="string">'n'</span>,[-0.1 1.1 -0.1 1.1]); 
+0065         
+0066     <span class="keyword">case</span> <span class="string">'dragtest'</span>
+0067         
+0068         <span class="comment">% DRAGTEST demo</span>
+0069         <span class="comment">%   This demo is used in draggable's development to test some of</span>
+0070         <span class="comment">%   its features. Users interested in modifying draggable.m should</span>
+0071         <span class="comment">%   ensure that it works with this demo in order to verify backward</span>
+0072         <span class="comment">%   compatibility.</span>
+0073           
+0074         <span class="comment">%   Figure creation; we set up an initial WindowButtonDownFcn in</span>
+0075         <span class="comment">%   order to test proper figure properties recovery after the</span>
+0076         <span class="comment">%   object is dragged:</span>
+0077         
+0078         f = figure;
+0079         set(f,<span class="string">'WindowButtonDownFcn'</span>,<span class="string">'disp(''Window Click!'')'</span>);
+0080         axis equal; box on;
+0081         set(gca,<span class="string">'DataAspectRatio'</span>,[1 1 1],<span class="string">'XLim'</span>,[0.3 1],<span class="string">'YLim'</span>,[0 1]);
+0082         title(<span class="string">'DRAGTEST demo for draggable.m'</span>);
+0083         
+0084         <span class="comment">%   Drawing various test case objects...</span>
+0085         
+0086         hold on;
+0087         
+0088         <span class="comment">%   The Green Rectangle tests default behavior:</span>
+0089         
+0090         greenrect = rectangle(<span class="string">'Position'</span>,[0.7 0.1 0.1 0.2]);
+0091         set(greenrect,<span class="string">'FaceColor'</span>,<span class="string">'g'</span>);
+0092         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(greenrect);
+0093         
+0094         <span class="comment">%   The Red Square will demonstrates 'off' mode and object</span>
+0095         <span class="comment">%   properties recovery afterwards, so that the 'beep' function is</span>
+0096         <span class="comment">%   assigned as its ButtonDownFcn.</span>
+0097         
+0098         redsquare = rectangle(<span class="string">'Position'</span>,[0.5 0.6 0.1 0.1]);
+0099         set(redsquare,<span class="string">'FaceColor'</span>,<span class="string">'r'</span>,<span class="string">'ButtonDownFcn'</span>,<span class="string">'beep'</span>);
+0100         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(redsquare);
+0101         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(redsquare,<span class="string">'off'</span>);
+0102         
+0103         <span class="comment">%   The Blue Rectangle will demonstrate a case in which the</span>
+0104         <span class="comment">%   'painters' renderer is used, and in which the object cannot be</span>
+0105         <span class="comment">%   dragged past the axis limits on the right, left and bottom.</span>
+0106         <span class="comment">%   However, the object can be dragged past the axis limit on top;</span>
+0107         <span class="comment">%   furthermore, the object starts off-limits to the left, so that</span>
+0108         <span class="comment">%   it can be dragged inside the limits, but cannot be dragged back</span>
+0109         <span class="comment">%   off-limits afterwards.</span>
+0110         
+0111         bluerect = rectangle(<span class="string">'Position'</span>,[0.2 0.4 0.2 0.2]); 
+0112         set(bluerect,<span class="string">'FaceColor'</span>,<span class="string">'b'</span>);
+0113         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(bluerect,<span class="string">'none'</span>,[0.3 1 0 inf]);
+0114         
+0115         <span class="comment">%   The Magenta Line will demonstrates a line object being dragged</span>
+0116         <span class="comment">%   with horizontal movement constraint with default parameters.</span>
+0117         
+0118         magline = line([0.7 0.9],[0.7 0.9]);
+0119         set(magline,<span class="string">'Color'</span>,<span class="string">'m'</span>,<span class="string">'LineWidth'</span>,2);
+0120         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(magline,<span class="string">'h'</span>);
+0121         
+0122         <span class="comment">%   The Cyan Cross will demonstrates a plot object being dragged,</span>
+0123         <span class="comment">%   its center always forced to be in the axes (as in the</span>
+0124         <span class="comment">%   'crosshair' demo).</span>
+0125         
+0126         cyancross = plot([0.7 0.7 0.6 0.6 0.8],[0.4 0.6 NaN 0.5 0.5]); 
+0127         set(cyancross,<span class="string">'Color'</span>,<span class="string">'c'</span>,<span class="string">'LineWidth'</span>,2);
+0128         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(cyancross,<span class="string">'n'</span>,[0.2 1.1 -0.1 1.1]); 
+0129         
+0130         <span class="comment">%   The Yellow Triangle demonstrates a patch object being dragged</span>
+0131         <span class="comment">%   with vertical movement constraint and the opengl renderer.</span>
+0132         
+0133         yellowtri = patch([0.4 0.6 0.6],[0.1 0.1 0.2],<span class="string">'y'</span>);
+0134         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(yellowtri,<span class="string">'v'</span>,[0.1 0.7]);
+0135         
+0136         <span class="comment">%   The Gray Text demonstrate diagonal constraint operating on</span>
+0137         <span class="comment">%   text objects. We test a negative, gentle slope crossing the</span>
+0138         <span class="comment">%   horizontal range limits and a positive, large slope crossing</span>
+0139         <span class="comment">%   the vertical range limits but in which the object will be</span>
+0140         <span class="comment">%   nonetheless stopped by the leftmost limit.</span>
+0141         
+0142         gray = [0.5 0.5 0.5];
+0143         
+0144         <span class="comment">% first text position parameters</span>
+0145         x1 = 0.4; y1 = 0.9; m1 = -1/3;
+0146         b1 = y1 - m1*x1;
+0147        
+0148         <span class="comment">% second text position parameters</span>
+0149         x2 = 0.7; y2 = 0.35; m2 = 3;
+0150         b2 = y2 - m2*x2;
+0151         
+0152         <span class="comment">% guide lines</span>
+0153         plot(xlim,m1*xlim+b1,<span class="string">'LineStyle'</span>,<span class="string">'--'</span>,<span class="string">'Color'</span>,gray);
+0154         plot(xlim,m2*xlim+b2,<span class="string">'LineStyle'</span>,<span class="string">'--'</span>,<span class="string">'Color'</span>,gray);
+0155         
+0156         <span class="comment">% text objects</span>
+0157         graytext1 = text(x1,y1,<span class="string">'This is a test'</span>);
+0158         graytext2 = text(x2,y2,<span class="string">'Another test'</span>);
+0159         set([graytext1 graytext2],<span class="string">'Color'</span>,gray,<span class="string">'EdgeColor'</span>,gray, <span class="keyword">...</span>
+0160                                   <span class="string">'BackgroundColor'</span>,<span class="string">'w'</span>,<span class="string">'LineStyle'</span>,<span class="string">':'</span>)
+0161         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(graytext1,<span class="string">'d'</span>,m1);
+0162         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(graytext2,<span class="string">'d'</span>,m2);
+0163                
+0164     <span class="keyword">case</span> <span class="string">'snapgrid'</span>
+0165         
+0166         <span class="comment">% SNAPGRID demo</span>
+0167         <span class="comment">%   The 'motionfcn' argument of draggable.m is used here to set up</span>
+0168         <span class="comment">%   a grid on which the object movement is constrained.</span>
+0169         <span class="comment">%</span>
+0170         <span class="comment">%   Furthermore, we use 'motionfcn' to display a &quot;fleur&quot; figure</span>
+0171         <span class="comment">%   pointer while the object moves, and the figure's</span>
+0172         <span class="comment">%   WindowButtonMotionFcn to display a standard &quot;arrow&quot; figure</span>
+0173         <span class="comment">%   pointer while the mouse moves but the object is not dragged.</span>
+0174         
+0175         <span class="comment">%   First we set up the figure and axes.</span>
+0176         
+0177         f = figure;
+0178         set(f,<span class="string">'WindowButtonMotionFcn'</span>,<span class="string">'set(gcf,''Pointer'',''arrow'')'</span>);
+0179         axis equal; box on;
+0180         set(gca,<span class="string">'DataAspectRatio'</span>,[1 1 1],<span class="string">'XLim'</span>,[0 10],<span class="string">'YLim'</span>,[0 10],<span class="keyword">...</span>
+0181             <span class="string">'XTick'</span>,0:10,<span class="string">'YTick'</span>,0:10);
+0182         grid on;
+0183         title(<span class="string">'SNAPGRID demo for draggable.m'</span>);
+0184         
+0185         <span class="comment">%   Now we create a cross which will snap on a grid with 1-unit</span>
+0186         <span class="comment">%   spacing. This is done by giving the handle to the move_cross</span>
+0187         <span class="comment">%   function (see below) as the 'movefcn' argument of draggable.m.</span>
+0188         
+0189         hold on;
+0190         cross = plot([5 5 4.5 4.5 5.5],[4.5 5.5 NaN 5 5]); 
+0191         set(cross,<span class="string">'Color'</span>,<span class="string">'r'</span>,<span class="string">'LineWidth'</span>,3);
+0192         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(cross,<span class="string">'n'</span>,[-0.5 10.5 -0.5 10.5],@<a href="#_sub1" class="code" title="subfunction move_cross(h)">move_cross</a>);
+0193 
+0194     <span class="keyword">case</span> <span class="string">'polymove'</span>
+0195 
+0196         <span class="comment">% POLYMOVE demo</span>
+0197         <span class="comment">%   The 'motionfcn' argument of draggable.m is used here to</span>
+0198         <span class="comment">%   redraw the polygon each time one of its vertex is moved.</span>
+0199 
+0200         <span class="comment">%   Setting up the figure and axes.</span>
+0201 
+0202         figure;
+0203         axis equal; box on;
+0204         set(gca,<span class="string">'DataAspectRatio'</span>,[1 1 1],<span class="string">'Xlim'</span>,[-2 2],<span class="string">'YLim'</span>,[-2 2]);
+0205         title(<span class="string">'POLYMOVE demo for draggable.m'</span>)
+0206 
+0207         <span class="comment">% Creating the polygon vertices</span>
+0208 
+0209         hold on;
+0210         v1 = plot(-1,0);
+0211         v2 = plot(0,-1);
+0212         v3 = plot(1,0);
+0213         v4 = plot(0,1);
+0214         vv = [v1 v2 v3 v4];
+0215         <span class="comment">% For visible vertices:</span>
+0216         set(vv,<span class="string">'Marker'</span>,<span class="string">'o'</span>,<span class="string">'MarkerSize'</span>,10,<span class="string">'MarkerFaceColor'</span>,<span class="string">'b'</span>);
+0217         <span class="comment">% For invisible vertices:</span>
+0218         <span class="comment">%set(vv,'Marker','o','MarkerSize',10,'MarkerFaceColor','none', ...</span>
+0219         <span class="comment">%       'MarkerEdgeColor','none');</span>
+0220 
+0221         <span class="comment">% Saving the vertex vector as application data</span>
+0222         <span class="comment">% in the current axes (along with empty element p which will</span>
+0223         <span class="comment">% later hold the handle to the polygon itself)</span>
+0224 
+0225         setappdata(gca,<span class="string">'vv'</span>,vv);
+0226         setappdata(gca,<span class="string">'p'</span>,[]);
+0227 
+0228         <span class="comment">% Calling draggable on each of the vertices, passing as an</span>
+0229         <span class="comment">% argument the handle to the redraw_poly fucntion (see below)</span>
+0230 
+0231         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(v1,@<a href="#_sub2" class="code" title="subfunction redraw_poly(h)">redraw_poly</a>);
+0232         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(v2,@<a href="#_sub2" class="code" title="subfunction redraw_poly(h)">redraw_poly</a>);
+0233         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(v3,@<a href="#_sub2" class="code" title="subfunction redraw_poly(h)">redraw_poly</a>);
+0234         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(v4,@<a href="#_sub2" class="code" title="subfunction redraw_poly(h)">redraw_poly</a>);
+0235 
+0236         <span class="comment">% Finally we draw the polygon itself using the redraw_poly</span>
+0237         <span class="comment">% function, which can be found below</span>
+0238 
+0239         <a href="#_sub2" class="code" title="subfunction redraw_poly(h)">redraw_poly</a>;
+0240         
+0241     <span class="keyword">case</span> <span class="string">'sliders'</span>
+0242         
+0243         <span class="comment">% SLIDERS demo</span>
+0244         <span class="comment">%   Creates five sliders that share the same draggable parameters,</span>
+0245         <span class="comment">%   and which are enable using only one draggable call. Slider</span>
+0246         <span class="comment">%   values are displayed and updated in real time.</span>
+0247         
+0248         <span class="comment">% Figure layout</span>
+0249         figure;
+0250         axis equal; box on;
+0251         set(gca,<span class="string">'DataAspectRatio'</span>,[1 1 1], <span class="keyword">...</span>
+0252                 <span class="string">'Xlim'</span>,[0 6],<span class="string">'Ylim'</span>,[-0.25 1.5], <span class="keyword">...</span>
+0253                 <span class="string">'XTick'</span>,1:5,<span class="string">'YTick'</span>,[]);
+0254         title(<span class="string">'SLIDERS demo for draggable.m'</span>)
+0255         hold on;
+0256         
+0257         <span class="comment">% Creating the objects</span>
+0258         w = 0.6; h = 0.1;
+0259         sliders = zeros(5);
+0260         values = zeros(5);
+0261         <span class="keyword">for</span> x = 1:5
+0262             plot([x x],[0 1],<span class="string">':k'</span>);
+0263             values(x) = text(x,1.2,<span class="string">''</span>,<span class="string">'HorizontalAlignment'</span>,<span class="string">'center'</span>);
+0264             sliders(x) = rectangle(<span class="string">'Position'</span>,[x-w/2,0.5-h/2,w,h], <span class="keyword">...</span>
+0265                                    <span class="string">'Curvature'</span>,[0.05 0.05], <span class="keyword">...</span>
+0266                                    <span class="string">'EdgeColor'</span>,[0 0 0.7], <span class="keyword">...</span>
+0267                                    <span class="string">'FaceColor'</span>,[0 0 0.9]);
+0268             <span class="comment">% Storing the handle to the value text object for each slider</span>
+0269             setappdata(sliders(x),<span class="string">'value_handle'</span>,values(x));
+0270             <span class="comment">% This will be also used as the motionfcn argument. See</span>
+0271             <span class="comment">% the function definition later in the file.</span>
+0272             <a href="#_sub3" class="code" title="subfunction update_value(slider)">update_value</a>(sliders(x));
+0273         <span class="keyword">end</span>
+0274 
+0275         <span class="comment">% Calling draggable on handle vector sliders with a vertical</span>
+0276         <span class="comment">% constraint. We must take into account the height of the sliders</span>
+0277         <span class="comment">% when setting range limits. We use update_value as the 'motionfcn'</span>
+0278         <span class="comment">% argument, and add an 'endfcn' argument which makes the slider</span>
+0279         <span class="comment">% and slider value blink when the user stops dragging.</span>
+0280         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(sliders,<span class="string">'v'</span>,[0-h/2 1+h/2],  <span class="keyword">...</span>
+0281                   @<a href="#_sub3" class="code" title="subfunction update_value(slider)">update_value</a>,<span class="string">'endfcn'</span>,@<a href="#_sub4" class="code" title="subfunction blink_value(slider)">blink_value</a>);
+0282 
+0283     <span class="keyword">otherwise</span>
+0284         
+0285         disp([<span class="string">'Demo '''</span> demotitle <span class="string">''' is not available.'</span>]);
+0286         
+0287 <span class="keyword">end</span>
+0288 
+0289 <span class="comment">% -----------------------------------------------------------------------</span>
+0290 <span class="comment">% Function MOVE_CROSS</span>
+0291 <span class="comment">%   This function is passed as the 'motionfcn' argument to draggable.m in</span>
+0292 <span class="comment">%   the SNAPGRID demo. It recieves the handle to the object being dragged</span>
+0293 <span class="comment">%   as its only argument.</span>
+0294 
+0295 <a name="_sub1" href="#_subfunctions" class="code">function move_cross(h)</a>
+0296 
+0297 <span class="comment">% We first set up the figure pointer to &quot;fleur&quot;</span>
+0298 
+0299 set(gcf,<span class="string">'Pointer'</span>,<span class="string">'fleur'</span>);
+0300 
+0301 <span class="comment">% Then we retrieve the current cross position</span>
+0302 
+0303 cross_xdata = get(h,<span class="string">'XData'</span>);
+0304 cross_ydata = get(h,<span class="string">'YData'</span>);
+0305 cross_center = [cross_xdata(1) cross_ydata(5)];
+0306 
+0307 <span class="comment">% Computing the new position of the cross</span>
+0308 
+0309 new_position = round(cross_center);
+0310 
+0311 <span class="comment">% Updating the cross' XData and YData properties</span>
+0312 
+0313 delta = new_position - cross_center;
+0314 set(h,<span class="string">'XData'</span>,cross_xdata+delta(1),<span class="string">'YData'</span>,cross_ydata+delta(2));
+0315 
+0316 <span class="comment">% -----------------------------------------------------------------------</span>
+0317 <span class="comment">% Function REDRAW_POLY</span>
+0318 <span class="comment">%   This function is passed as the 'motionfcn' argument to draggable.m in</span>
+0319 <span class="comment">%   the POLYMOVE demo. It recieves the handle to the object being dragged</span>
+0320 <span class="comment">%   as its only argument, but it is not actually used in this function.</span>
+0321 
+0322 <a name="_sub2" href="#_subfunctions" class="code">function redraw_poly(h)</a>
+0323 
+0324 <span class="comment">% Deleting the previous polygon</span>
+0325 
+0326 delete(getappdata(gca,<span class="string">'p'</span>));
+0327 
+0328 <span class="comment">% Retrieving the vertex vector and corresponding xdata and ydata</span>
+0329 
+0330 vv = getappdata(gca,<span class="string">'vv'</span>);
+0331 xdata = cell2mat(get(vv,<span class="string">'xdata'</span>));
+0332 ydata = cell2mat(get(vv,<span class="string">'ydata'</span>));
+0333 
+0334 <span class="comment">% Plotting the new polygon and saving its handle as application data</span>
+0335 
+0336 p = plot([xdata' xdata(1)],[ydata' ydata(1)]);
+0337 setappdata(gca,<span class="string">'p'</span>,p);
+0338 
+0339 <span class="comment">% Putting the vertices on top of the polygon so that they are easier</span>
+0340 <span class="comment">% to drag (or else, the polygone line get in the way)</span>
+0341 
+0342 set(gca,<span class="string">'Children'</span>,[vv p]);
+0343 
+0344 <span class="comment">% -----------------------------------------------------------------------</span>
+0345 <span class="comment">% Function UPDATE_VALUE</span>
+0346 <span class="comment">%   This function is passed as the 'motionfcn' argument to draggable.m in</span>
+0347 <span class="comment">%   the SLIDERS demo. It recieves the handle to the slider being dragged</span>
+0348 <span class="comment">%   as its only argument and uses that to retrieve the handle to a text</span>
+0349 <span class="comment">%   object which was stored with the slider object.</span>
+0350 
+0351 <a name="_sub3" href="#_subfunctions" class="code">function update_value(slider)</a>
+0352 
+0353 value_handle = getappdata(slider,<span class="string">'value_handle'</span>);
+0354 slider_position = get(slider,<span class="string">'Position'</span>);
+0355 value = slider_position(2) + slider_position(4)/2;
+0356 set(value_handle,<span class="string">'String'</span>,sprintf(<span class="string">'%0.2f'</span>,value));
+0357 
+0358 <span class="comment">% -----------------------------------------------------------------------</span>
+0359 <span class="comment">% Function BLINK_VALUE</span>
+0360 <span class="comment">%   This makes the displayed value blink; just to show usage of the</span>
+0361 <span class="comment">%   'endfcn' argument.</span>
+0362 
+0363 <a name="_sub4" href="#_subfunctions" class="code">function blink_value(slider)</a>
+0364 
+0365 value_handle = getappdata(slider,<span class="string">'value_handle'</span>);
+0366 initedgecolor = get(slider,<span class="string">'EdgeColor'</span>);
+0367 initfacecolor = get(slider,<span class="string">'FaceColor'</span>);
+0368 set(value_handle,<span class="string">'FontWeight'</span>,<span class="string">'bold'</span>);
+0369 set(slider,<span class="string">'EdgeColor'</span>,[0 0 0.8],<span class="string">'FaceColor'</span>,[0 0 0.5]);
+0370 pause(0.2)
+0371 set(value_handle,<span class="string">'FontWeight'</span>,<span class="string">'normal'</span>);
+0372 set(slider,<span class="string">'EdgeColor'</span>,initedgecolor,<span class="string">'FaceColor'</span>,initfacecolor);
+0373 
+0374</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

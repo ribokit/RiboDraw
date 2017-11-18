@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of color_arrows</title>
+  <meta name="keywords" content="color_arrows">
+  <meta name="description" content="color_arrows( setting );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="index.html">color</a> &gt; color_arrows.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/color&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>color_arrows
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>color_arrows( setting );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function color_arrows( setting ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> color_arrows( setting );
+
+  Linkers between consecutive residues with arrows are 
+   by default colored black. This function tests a setting
+   where they are colored based on the display color of the 
+   first residue.
+
+ Input:
+ setting = 0 or 1. (for black or colored)
+                            
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function color_arrows( setting );</a>
+0002 <span class="comment">% color_arrows( setting );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Linkers between consecutive residues with arrows are</span>
+0005 <span class="comment">%   by default colored black. This function tests a setting</span>
+0006 <span class="comment">%   where they are colored based on the display color of the</span>
+0007 <span class="comment">%   first residue.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% Input:</span>
+0010 <span class="comment">% setting = 0 or 1. (for black or colored)</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0013 
+0014 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>, <span class="string">'var'</span> ) setting = 1; <span class="keyword">end</span>;
+0015 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0016 plot_settings.color_arrows = setting;
+0017 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0018 
+0019 arrow_tags = get_tags( <span class="string">'Linker_'</span>, <span class="string">'arrow'</span> );
+0020 color = <span class="string">'k'</span>;
+0021 <span class="keyword">for</span> i = 1:length( arrow_tags )
+0022     linker = getappdata( gca, arrow_tags{i} );
+0023     <span class="keyword">if</span> isfield( linker, <span class="string">'line_handle'</span> )
+0024         residue1 = getappdata( gca, linker.residue1 );
+0025         <span class="keyword">if</span> ( setting &amp; isfield( residue1, <span class="string">'rgb_color'</span> ) ); color = residue1.rgb_color; <span class="keyword">end</span>
+0026         set( linker.line_handle, <span class="string">'color'</span>,color);
+0027         set( linker.arrow, <span class="string">'edgecolor'</span>,color );
+0028         set( linker.arrow, <span class="string">'facecolor'</span>,color );
+0029     <span class="keyword">end</span>
+0030 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

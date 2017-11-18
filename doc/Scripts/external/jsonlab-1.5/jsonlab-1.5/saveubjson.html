@@ -1,0 +1,686 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of saveubjson</title>
+  <meta name="keywords" content="saveubjson">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="#">external</a> &gt; <a href="#">jsonlab-1.5</a> &gt; <a href="index.html">jsonlab-1.5</a> &gt; saveubjson.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/external/jsonlab-1.5/jsonlab-1.5&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>saveubjson
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function json=saveubjson(rootname,obj,varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">
+ json=saveubjson(rootname,obj,filename)
+    or
+ json=saveubjson(rootname,obj,opt)
+ json=saveubjson(rootname,obj,'param1',value1,'param2',value2,...)
+
+ convert a MATLAB object (cell, struct or array) into a Universal 
+ Binary JSON (UBJSON) binary string
+
+ author: Qianqian Fang (q.fang &lt;at&gt; neu.edu)
+ created on 2013/08/17
+
+ $Id$
+
+ input:
+      rootname: the name of the root-object, when set to '', the root name
+        is ignored, however, when opt.ForceRootName is set to 1 (see below),
+        the MATLAB variable name will be used as the root name.
+      obj: a MATLAB object (array, cell, cell array, struct, struct array,
+      class instance)
+      filename: a string for the file name to save the output UBJSON data
+      opt: a struct for additional options, ignore to use default values.
+        opt can have the following fields (first in [.|.] is the default)
+
+        opt.FileName [''|string]: a file name to save the output JSON data
+        opt.ArrayToStruct[0|1]: when set to 0, saveubjson outputs 1D/2D
+                         array in JSON array format; if sets to 1, an
+                         array will be shown as a struct with fields
+                         &quot;_ArrayType_&quot;, &quot;_ArraySize_&quot; and &quot;_ArrayData_&quot;; for
+                         sparse arrays, the non-zero elements will be
+                         saved to _ArrayData_ field in triplet-format i.e.
+                         (ix,iy,val) and &quot;_ArrayIsSparse_&quot; will be added
+                         with a value of 1; for a complex array, the 
+                         _ArrayData_ array will include two columns 
+                         (4 for sparse) to record the real and imaginary 
+                         parts, and also &quot;_ArrayIsComplex_&quot;:1 is added. 
+        opt.ParseLogical [1|0]: if this is set to 1, logical array elem
+                         will use true/false rather than 1/0.
+        opt.SingletArray [0|1]: if this is set to 1, arrays with a single
+                         numerical element will be shown without a square
+                         bracket, unless it is the root object; if 0, square
+                         brackets are forced for any numerical arrays.
+        opt.SingletCell  [1|0]: if 1, always enclose a cell with &quot;[]&quot; 
+                         even it has only one element; if 0, brackets
+                         are ignored when a cell has only 1 element.
+        opt.ForceRootName [0|1]: when set to 1 and rootname is empty, saveubjson
+                         will use the name of the passed obj variable as the 
+                         root object name; if obj is an expression and 
+                         does not have a name, 'root' will be used; if this 
+                         is set to 0 and rootname is empty, the root level 
+                         will be merged down to the lower level.
+        opt.JSONP [''|string]: to generate a JSONP output (JSON with padding),
+                         for example, if opt.JSON='foo', the JSON data is
+                         wrapped inside a function call as 'foo(...);'
+        opt.UnpackHex [1|0]: conver the 0x[hex code] output by loadjson 
+                         back to the string form
+
+        opt can be replaced by a list of ('param',value) pairs. The param 
+        string is equivallent to a field in opt and is case sensitive.
+ output:
+      json: a binary string in the UBJSON format (see http://ubjson.org)
+
+ examples:
+      jsonmesh=struct('MeshNode',[0 0 0;1 0 0;0 1 0;1 1 0;0 0 1;1 0 1;0 1 1;1 1 1],... 
+               'MeshTetra',[1 2 4 8;1 3 4 8;1 2 6 8;1 5 6 8;1 5 7 8;1 3 7 8],...
+               'MeshTri',[1 2 4;1 2 6;1 3 4;1 3 7;1 5 6;1 5 7;...
+                          2 8 4;2 8 6;3 8 4;3 8 7;5 8 6;5 8 7],...
+               'MeshCreator','FangQ','MeshTitle','T6 Cube',...
+               'SpecialData',[nan, inf, -inf]);
+      saveubjson('jsonmesh',jsonmesh)
+      saveubjson('jsonmesh',jsonmesh,'meshdata.ubj')
+
+ license:
+     BSD License, see LICENSE_BSD.txt files for details
+
+ -- this function is part of JSONLab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>	</li><li><a href="varargin2struct.html" class="code" title="function opt=varargin2struct(varargin)">varargin2struct</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function txt=obj2ubjson(name,item,level,varargin)</a></li><li><a href="#_sub2" class="code">function txt=cell2ubjson(name,item,level,varargin)</a></li><li><a href="#_sub3" class="code">function txt=struct2ubjson(name,item,level,varargin)</a></li><li><a href="#_sub4" class="code">function txt=str2ubjson(name,item,level,varargin)</a></li><li><a href="#_sub5" class="code">function txt=mat2ubjson(name,item,level,varargin)</a></li><li><a href="#_sub6" class="code">function txt=matlabobject2ubjson(name,item,level,varargin)</a></li><li><a href="#_sub7" class="code">function txt=matdata2ubjson(mat,level,varargin)</a></li><li><a href="#_sub8" class="code">function newname=checkname(name,varargin)</a></li><li><a href="#_sub9" class="code">function val=N_(str)</a></li><li><a href="#_sub10" class="code">function val=S_(str)</a></li><li><a href="#_sub11" class="code">function val=I_(num)</a></li><li><a href="#_sub12" class="code">function val=D_(num)</a></li><li><a href="#_sub13" class="code">function data=I_a(num,type,dim,format)</a></li><li><a href="#_sub14" class="code">function data=D_a(num,type,dim,format)</a></li><li><a href="#_sub15" class="code">function bytes=data2byte(varargin)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function json=saveubjson(rootname,obj,varargin)</a>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% json=saveubjson(rootname,obj,filename)</span>
+0004 <span class="comment">%    or</span>
+0005 <span class="comment">% json=saveubjson(rootname,obj,opt)</span>
+0006 <span class="comment">% json=saveubjson(rootname,obj,'param1',value1,'param2',value2,...)</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% convert a MATLAB object (cell, struct or array) into a Universal</span>
+0009 <span class="comment">% Binary JSON (UBJSON) binary string</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% author: Qianqian Fang (q.fang &lt;at&gt; neu.edu)</span>
+0012 <span class="comment">% created on 2013/08/17</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% $Id$</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% input:</span>
+0017 <span class="comment">%      rootname: the name of the root-object, when set to '', the root name</span>
+0018 <span class="comment">%        is ignored, however, when opt.ForceRootName is set to 1 (see below),</span>
+0019 <span class="comment">%        the MATLAB variable name will be used as the root name.</span>
+0020 <span class="comment">%      obj: a MATLAB object (array, cell, cell array, struct, struct array,</span>
+0021 <span class="comment">%      class instance)</span>
+0022 <span class="comment">%      filename: a string for the file name to save the output UBJSON data</span>
+0023 <span class="comment">%      opt: a struct for additional options, ignore to use default values.</span>
+0024 <span class="comment">%        opt can have the following fields (first in [.|.] is the default)</span>
+0025 <span class="comment">%</span>
+0026 <span class="comment">%        opt.FileName [''|string]: a file name to save the output JSON data</span>
+0027 <span class="comment">%        opt.ArrayToStruct[0|1]: when set to 0, saveubjson outputs 1D/2D</span>
+0028 <span class="comment">%                         array in JSON array format; if sets to 1, an</span>
+0029 <span class="comment">%                         array will be shown as a struct with fields</span>
+0030 <span class="comment">%                         &quot;_ArrayType_&quot;, &quot;_ArraySize_&quot; and &quot;_ArrayData_&quot;; for</span>
+0031 <span class="comment">%                         sparse arrays, the non-zero elements will be</span>
+0032 <span class="comment">%                         saved to _ArrayData_ field in triplet-format i.e.</span>
+0033 <span class="comment">%                         (ix,iy,val) and &quot;_ArrayIsSparse_&quot; will be added</span>
+0034 <span class="comment">%                         with a value of 1; for a complex array, the</span>
+0035 <span class="comment">%                         _ArrayData_ array will include two columns</span>
+0036 <span class="comment">%                         (4 for sparse) to record the real and imaginary</span>
+0037 <span class="comment">%                         parts, and also &quot;_ArrayIsComplex_&quot;:1 is added.</span>
+0038 <span class="comment">%        opt.ParseLogical [1|0]: if this is set to 1, logical array elem</span>
+0039 <span class="comment">%                         will use true/false rather than 1/0.</span>
+0040 <span class="comment">%        opt.SingletArray [0|1]: if this is set to 1, arrays with a single</span>
+0041 <span class="comment">%                         numerical element will be shown without a square</span>
+0042 <span class="comment">%                         bracket, unless it is the root object; if 0, square</span>
+0043 <span class="comment">%                         brackets are forced for any numerical arrays.</span>
+0044 <span class="comment">%        opt.SingletCell  [1|0]: if 1, always enclose a cell with &quot;[]&quot;</span>
+0045 <span class="comment">%                         even it has only one element; if 0, brackets</span>
+0046 <span class="comment">%                         are ignored when a cell has only 1 element.</span>
+0047 <span class="comment">%        opt.ForceRootName [0|1]: when set to 1 and rootname is empty, saveubjson</span>
+0048 <span class="comment">%                         will use the name of the passed obj variable as the</span>
+0049 <span class="comment">%                         root object name; if obj is an expression and</span>
+0050 <span class="comment">%                         does not have a name, 'root' will be used; if this</span>
+0051 <span class="comment">%                         is set to 0 and rootname is empty, the root level</span>
+0052 <span class="comment">%                         will be merged down to the lower level.</span>
+0053 <span class="comment">%        opt.JSONP [''|string]: to generate a JSONP output (JSON with padding),</span>
+0054 <span class="comment">%                         for example, if opt.JSON='foo', the JSON data is</span>
+0055 <span class="comment">%                         wrapped inside a function call as 'foo(...);'</span>
+0056 <span class="comment">%        opt.UnpackHex [1|0]: conver the 0x[hex code] output by loadjson</span>
+0057 <span class="comment">%                         back to the string form</span>
+0058 <span class="comment">%</span>
+0059 <span class="comment">%        opt can be replaced by a list of ('param',value) pairs. The param</span>
+0060 <span class="comment">%        string is equivallent to a field in opt and is case sensitive.</span>
+0061 <span class="comment">% output:</span>
+0062 <span class="comment">%      json: a binary string in the UBJSON format (see http://ubjson.org)</span>
+0063 <span class="comment">%</span>
+0064 <span class="comment">% examples:</span>
+0065 <span class="comment">%      jsonmesh=struct('MeshNode',[0 0 0;1 0 0;0 1 0;1 1 0;0 0 1;1 0 1;0 1 1;1 1 1],...</span>
+0066 <span class="comment">%               'MeshTetra',[1 2 4 8;1 3 4 8;1 2 6 8;1 5 6 8;1 5 7 8;1 3 7 8],...</span>
+0067 <span class="comment">%               'MeshTri',[1 2 4;1 2 6;1 3 4;1 3 7;1 5 6;1 5 7;...</span>
+0068 <span class="comment">%                          2 8 4;2 8 6;3 8 4;3 8 7;5 8 6;5 8 7],...</span>
+0069 <span class="comment">%               'MeshCreator','FangQ','MeshTitle','T6 Cube',...</span>
+0070 <span class="comment">%               'SpecialData',[nan, inf, -inf]);</span>
+0071 <span class="comment">%      saveubjson('jsonmesh',jsonmesh)</span>
+0072 <span class="comment">%      saveubjson('jsonmesh',jsonmesh,'meshdata.ubj')</span>
+0073 <span class="comment">%</span>
+0074 <span class="comment">% license:</span>
+0075 <span class="comment">%     BSD License, see LICENSE_BSD.txt files for details</span>
+0076 <span class="comment">%</span>
+0077 <span class="comment">% -- this function is part of JSONLab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)</span>
+0078 <span class="comment">%</span>
+0079 
+0080 <span class="keyword">if</span>(nargin==1)
+0081    varname=inputname(1);
+0082    obj=rootname;
+0083    <span class="keyword">if</span>(isempty(varname)) 
+0084       varname=<span class="string">'root'</span>;
+0085    <span class="keyword">end</span>
+0086    rootname=varname;
+0087 <span class="keyword">else</span>
+0088    varname=inputname(2);
+0089 <span class="keyword">end</span>
+0090 <span class="keyword">if</span>(length(varargin)==1 &amp;&amp; ischar(varargin{1}))
+0091    opt=struct(<span class="string">'filename'</span>,varargin{1});
+0092 <span class="keyword">else</span>
+0093    opt=<a href="varargin2struct.html" class="code" title="function opt=varargin2struct(varargin)">varargin2struct</a>(varargin{:});
+0094 <span class="keyword">end</span>
+0095 opt.IsOctave=exist(<span class="string">'OCTAVE_VERSION'</span>,<span class="string">'builtin'</span>);
+0096 <span class="keyword">if</span>(isfield(opt,<span class="string">'norowbracket'</span>))
+0097     warning(<span class="string">'Option ''NoRowBracket'' is depreciated, please use ''SingletArray'' and set its value to not(NoRowBracket)'</span>);
+0098     <span class="keyword">if</span>(~isfield(opt,<span class="string">'singletarray'</span>))
+0099         opt.singletarray=not(opt.norowbracket);
+0100     <span class="keyword">end</span>
+0101 <span class="keyword">end</span>
+0102 rootisarray=0;
+0103 rootlevel=1;
+0104 forceroot=<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'ForceRootName'</span>,0,opt);
+0105 <span class="keyword">if</span>((isnumeric(obj) || islogical(obj) || ischar(obj) || isstruct(obj) || <span class="keyword">...</span>
+0106         iscell(obj) || isobject(obj)) &amp;&amp; isempty(rootname) &amp;&amp; forceroot==0)
+0107     rootisarray=1;
+0108     rootlevel=0;
+0109 <span class="keyword">else</span>
+0110     <span class="keyword">if</span>(isempty(rootname))
+0111         rootname=varname;
+0112     <span class="keyword">end</span>
+0113 <span class="keyword">end</span>
+0114 <span class="keyword">if</span>((isstruct(obj) || iscell(obj))&amp;&amp; isempty(rootname) &amp;&amp; forceroot)
+0115     rootname=<span class="string">'root'</span>;
+0116 <span class="keyword">end</span>
+0117 json=<a href="#_sub1" class="code" title="subfunction txt=obj2ubjson(name,item,level,varargin)">obj2ubjson</a>(rootname,obj,rootlevel,opt);
+0118 <span class="keyword">if</span>(~rootisarray)
+0119     json=[<span class="string">'{'</span> json <span class="string">'}'</span>];
+0120 <span class="keyword">end</span>
+0121 
+0122 jsonp=<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'JSONP'</span>,<span class="string">''</span>,opt);
+0123 <span class="keyword">if</span>(~isempty(jsonp))
+0124     json=[jsonp <span class="string">'('</span> json <span class="string">')'</span>];
+0125 <span class="keyword">end</span>
+0126 
+0127 <span class="comment">% save to a file if FileName is set, suggested by Patrick Rapin</span>
+0128 filename=<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'FileName'</span>,<span class="string">''</span>,opt);
+0129 <span class="keyword">if</span>(~isempty(filename))
+0130     fid = fopen(filename, <span class="string">'wb'</span>);
+0131     fwrite(fid,json);
+0132     fclose(fid);
+0133 <span class="keyword">end</span>
+0134 
+0135 <span class="comment">%%-------------------------------------------------------------------------</span>
+0136 <a name="_sub1" href="#_subfunctions" class="code">function txt=obj2ubjson(name,item,level,varargin)</a>
+0137 
+0138 <span class="keyword">if</span>(iscell(item))
+0139     txt=<a href="#_sub2" class="code" title="subfunction txt=cell2ubjson(name,item,level,varargin)">cell2ubjson</a>(name,item,level,varargin{:});
+0140 <span class="keyword">elseif</span>(isstruct(item))
+0141     txt=<a href="#_sub3" class="code" title="subfunction txt=struct2ubjson(name,item,level,varargin)">struct2ubjson</a>(name,item,level,varargin{:});
+0142 <span class="keyword">elseif</span>(ischar(item))
+0143     txt=<a href="#_sub4" class="code" title="subfunction txt=str2ubjson(name,item,level,varargin)">str2ubjson</a>(name,item,level,varargin{:});
+0144 <span class="keyword">elseif</span>(isobject(item)) 
+0145     txt=<a href="#_sub6" class="code" title="subfunction txt=matlabobject2ubjson(name,item,level,varargin)">matlabobject2ubjson</a>(name,item,level,varargin{:});
+0146 <span class="keyword">else</span>
+0147     txt=<a href="#_sub5" class="code" title="subfunction txt=mat2ubjson(name,item,level,varargin)">mat2ubjson</a>(name,item,level,varargin{:});
+0148 <span class="keyword">end</span>
+0149 
+0150 <span class="comment">%%-------------------------------------------------------------------------</span>
+0151 <a name="_sub2" href="#_subfunctions" class="code">function txt=cell2ubjson(name,item,level,varargin)</a>
+0152 txt=<span class="string">''</span>;
+0153 <span class="keyword">if</span>(~iscell(item))
+0154         error(<span class="string">'input is not a cell'</span>);
+0155 <span class="keyword">end</span>
+0156 
+0157 dim=size(item);
+0158 <span class="keyword">if</span>(ndims(squeeze(item))&gt;2) <span class="comment">% for 3D or higher dimensions, flatten to 2D for now</span>
+0159     item=reshape(item,dim(1),numel(item)/dim(1));
+0160     dim=size(item);
+0161 <span class="keyword">end</span>
+0162 bracketlevel=~<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'singletcell'</span>,1,varargin{:});
+0163 len=numel(item); <span class="comment">% let's handle 1D cell first</span>
+0164 <span class="keyword">if</span>(len&gt;bracketlevel) 
+0165     <span class="keyword">if</span>(~isempty(name))
+0166         txt=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})) <span class="string">'['</span>]; name=<span class="string">''</span>; 
+0167     <span class="keyword">else</span>
+0168         txt=<span class="string">'['</span>; 
+0169     <span class="keyword">end</span>
+0170 <span class="keyword">elseif</span>(len==0)
+0171     <span class="keyword">if</span>(~isempty(name))
+0172         txt=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})) <span class="string">'Z'</span>]; name=<span class="string">''</span>; 
+0173     <span class="keyword">else</span>
+0174         txt=<span class="string">'Z'</span>; 
+0175     <span class="keyword">end</span>
+0176 <span class="keyword">end</span>
+0177 <span class="keyword">for</span> j=1:dim(2)
+0178     <span class="keyword">if</span>(dim(1)&gt;1)
+0179         txt=[txt <span class="string">'['</span>];
+0180     <span class="keyword">end</span>
+0181     <span class="keyword">for</span> i=1:dim(1)
+0182        txt=[txt <a href="#_sub1" class="code" title="subfunction txt=obj2ubjson(name,item,level,varargin)">obj2ubjson</a>(name,item{i,j},level+(len&gt;bracketlevel),varargin{:})];
+0183     <span class="keyword">end</span>
+0184     <span class="keyword">if</span>(dim(1)&gt;1)
+0185         txt=[txt <span class="string">']'</span>];
+0186     <span class="keyword">end</span>
+0187 <span class="keyword">end</span>
+0188 <span class="keyword">if</span>(len&gt;bracketlevel)
+0189     txt=[txt <span class="string">']'</span>];
+0190 <span class="keyword">end</span>
+0191 
+0192 <span class="comment">%%-------------------------------------------------------------------------</span>
+0193 <a name="_sub3" href="#_subfunctions" class="code">function txt=struct2ubjson(name,item,level,varargin)</a>
+0194 txt=<span class="string">''</span>;
+0195 <span class="keyword">if</span>(~isstruct(item))
+0196     error(<span class="string">'input is not a struct'</span>);
+0197 <span class="keyword">end</span>
+0198 dim=size(item);
+0199 <span class="keyword">if</span>(ndims(squeeze(item))&gt;2) <span class="comment">% for 3D or higher dimensions, flatten to 2D for now</span>
+0200     item=reshape(item,dim(1),numel(item)/dim(1));
+0201     dim=size(item);
+0202 <span class="keyword">end</span>
+0203 len=numel(item);
+0204 forcearray= (len&gt;1 || (<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'SingletArray'</span>,0,varargin{:})==1 &amp;&amp; level&gt;0));
+0205 
+0206 <span class="keyword">if</span>(~isempty(name)) 
+0207     <span class="keyword">if</span>(forcearray)
+0208         txt=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})) <span class="string">'['</span>];
+0209     <span class="keyword">end</span>
+0210 <span class="keyword">else</span>
+0211     <span class="keyword">if</span>(forcearray)
+0212         txt=<span class="string">'['</span>;
+0213     <span class="keyword">end</span>
+0214 <span class="keyword">end</span>
+0215 <span class="keyword">for</span> j=1:dim(2)
+0216   <span class="keyword">if</span>(dim(1)&gt;1)
+0217       txt=[txt <span class="string">'['</span>];
+0218   <span class="keyword">end</span>
+0219   <span class="keyword">for</span> i=1:dim(1)
+0220      names = fieldnames(item(i,j));
+0221      <span class="keyword">if</span>(~isempty(name) &amp;&amp; len==1 &amp;&amp; ~forcearray)
+0222         txt=[txt <a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})) <span class="string">'{'</span>]; 
+0223      <span class="keyword">else</span>
+0224         txt=[txt <span class="string">'{'</span>]; 
+0225      <span class="keyword">end</span>
+0226      <span class="keyword">if</span>(~isempty(names))
+0227        <span class="keyword">for</span> e=1:length(names)
+0228          txt=[txt <a href="#_sub1" class="code" title="subfunction txt=obj2ubjson(name,item,level,varargin)">obj2ubjson</a>(names{e},item(i,j).(names{e}),<span class="keyword">...</span>
+0229              level+(dim(1)&gt;1)+1+forcearray,varargin{:})];
+0230        <span class="keyword">end</span>
+0231      <span class="keyword">end</span>
+0232      txt=[txt <span class="string">'}'</span>];
+0233   <span class="keyword">end</span>
+0234   <span class="keyword">if</span>(dim(1)&gt;1)
+0235       txt=[txt <span class="string">']'</span>];
+0236   <span class="keyword">end</span>
+0237 <span class="keyword">end</span>
+0238 <span class="keyword">if</span>(forcearray)
+0239     txt=[txt <span class="string">']'</span>];
+0240 <span class="keyword">end</span>
+0241 
+0242 <span class="comment">%%-------------------------------------------------------------------------</span>
+0243 <a name="_sub4" href="#_subfunctions" class="code">function txt=str2ubjson(name,item,level,varargin)</a>
+0244 txt=<span class="string">''</span>;
+0245 <span class="keyword">if</span>(~ischar(item))
+0246         error(<span class="string">'input is not a string'</span>);
+0247 <span class="keyword">end</span>
+0248 item=reshape(item, max(size(item),[1 0]));
+0249 len=size(item,1);
+0250 
+0251 <span class="keyword">if</span>(~isempty(name)) 
+0252     <span class="keyword">if</span>(len&gt;1)
+0253         txt=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})) <span class="string">'['</span>];
+0254     <span class="keyword">end</span>
+0255 <span class="keyword">else</span>
+0256     <span class="keyword">if</span>(len&gt;1)
+0257         txt=<span class="string">'['</span>;
+0258     <span class="keyword">end</span>
+0259 <span class="keyword">end</span>
+0260 <span class="keyword">for</span> e=1:len
+0261     val=item(e,:);
+0262     <span class="keyword">if</span>(len==1)
+0263         obj=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})) <span class="string">''</span> <span class="string">''</span>,<a href="#_sub10" class="code" title="subfunction val=S_(str)">S_</a>(val),<span class="string">''</span>];
+0264         <span class="keyword">if</span>(isempty(name))
+0265             obj=[<span class="string">''</span>,<a href="#_sub10" class="code" title="subfunction val=S_(str)">S_</a>(val),<span class="string">''</span>];
+0266         <span class="keyword">end</span>
+0267         txt=[txt,<span class="string">''</span>,obj];
+0268     <span class="keyword">else</span>
+0269         txt=[txt,<span class="string">''</span>,[<span class="string">''</span>,<a href="#_sub10" class="code" title="subfunction val=S_(str)">S_</a>(val),<span class="string">''</span>]];
+0270     <span class="keyword">end</span>
+0271 <span class="keyword">end</span>
+0272 <span class="keyword">if</span>(len&gt;1)
+0273     txt=[txt <span class="string">']'</span>];
+0274 <span class="keyword">end</span>
+0275 
+0276 <span class="comment">%%-------------------------------------------------------------------------</span>
+0277 <a name="_sub5" href="#_subfunctions" class="code">function txt=mat2ubjson(name,item,level,varargin)</a>
+0278 <span class="keyword">if</span>(~isnumeric(item) &amp;&amp; ~islogical(item))
+0279         error(<span class="string">'input is not an array'</span>);
+0280 <span class="keyword">end</span>
+0281 
+0282 <span class="keyword">if</span>(length(size(item))&gt;2 || issparse(item) || ~isreal(item) || <span class="keyword">...</span>
+0283    (isempty(item) &amp;&amp; any(size(item))) ||<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'ArrayToStruct'</span>,0,varargin{:}))
+0284       cid=<a href="#_sub11" class="code" title="subfunction val=I_(num)">I_</a>(uint32(max(size(item))));
+0285       <span class="keyword">if</span>(isempty(name))
+0286         txt=[<span class="string">'{'</span> <a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayType_'</span>),<a href="#_sub10" class="code" title="subfunction val=S_(str)">S_</a>(class(item)),<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArraySize_'</span>),<a href="#_sub13" class="code" title="subfunction data=I_a(num,type,dim,format)">I_a</a>(size(item),cid(1)) ];
+0287       <span class="keyword">else</span>
+0288           <span class="keyword">if</span>(isempty(item))
+0289               txt=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})),<span class="string">'Z'</span>];
+0290               <span class="keyword">return</span>;
+0291           <span class="keyword">else</span>
+0292               txt=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})),<span class="string">'{'</span>,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayType_'</span>),<a href="#_sub10" class="code" title="subfunction val=S_(str)">S_</a>(class(item)),<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArraySize_'</span>),<a href="#_sub13" class="code" title="subfunction data=I_a(num,type,dim,format)">I_a</a>(size(item),cid(1))];
+0293           <span class="keyword">end</span>
+0294       <span class="keyword">end</span>
+0295 <span class="keyword">else</span>
+0296     <span class="keyword">if</span>(isempty(name))
+0297         txt=<a href="#_sub7" class="code" title="subfunction txt=matdata2ubjson(mat,level,varargin)">matdata2ubjson</a>(item,level+1,varargin{:});
+0298     <span class="keyword">else</span>
+0299         <span class="keyword">if</span>(numel(item)==1 &amp;&amp; <a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'SingletArray'</span>,0,varargin{:})==0)
+0300             numtxt=regexprep(regexprep(<a href="#_sub7" class="code" title="subfunction txt=matdata2ubjson(mat,level,varargin)">matdata2ubjson</a>(item,level+1,varargin{:}),<span class="string">'^\['</span>,<span class="string">''</span>),<span class="string">']'</span>,<span class="string">''</span>);
+0301                txt=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})) numtxt];
+0302         <span class="keyword">else</span>
+0303             txt=[<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<a href="#_sub8" class="code" title="subfunction newname=checkname(name,varargin)">checkname</a>(name,varargin{:})),<a href="#_sub7" class="code" title="subfunction txt=matdata2ubjson(mat,level,varargin)">matdata2ubjson</a>(item,level+1,varargin{:})];
+0304         <span class="keyword">end</span>
+0305     <span class="keyword">end</span>
+0306     <span class="keyword">return</span>;
+0307 <span class="keyword">end</span>
+0308 <span class="keyword">if</span>(issparse(item))
+0309     [ix,iy]=find(item);
+0310     data=full(item(find(item)));
+0311     <span class="keyword">if</span>(~isreal(item))
+0312        data=[real(data(:)),imag(data(:))];
+0313        <span class="keyword">if</span>(size(item,1)==1)
+0314            <span class="comment">% Kludge to have data's 'transposedness' match item's.</span>
+0315            <span class="comment">% (Necessary for complex row vector handling below.)</span>
+0316            data=data';
+0317        <span class="keyword">end</span>
+0318        txt=[txt,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayIsComplex_'</span>),<span class="string">'T'</span>];
+0319     <span class="keyword">end</span>
+0320     txt=[txt,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayIsSparse_'</span>),<span class="string">'T'</span>];
+0321     <span class="keyword">if</span>(size(item,1)==1)
+0322         <span class="comment">% Row vector, store only column indices.</span>
+0323         txt=[txt,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayData_'</span>),<span class="keyword">...</span>
+0324            <a href="#_sub7" class="code" title="subfunction txt=matdata2ubjson(mat,level,varargin)">matdata2ubjson</a>([iy(:),data'],level+2,varargin{:})];
+0325     <span class="keyword">elseif</span>(size(item,2)==1)
+0326         <span class="comment">% Column vector, store only row indices.</span>
+0327         txt=[txt,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayData_'</span>),<span class="keyword">...</span>
+0328            <a href="#_sub7" class="code" title="subfunction txt=matdata2ubjson(mat,level,varargin)">matdata2ubjson</a>([ix,data],level+2,varargin{:})];
+0329     <span class="keyword">else</span>
+0330         <span class="comment">% General case, store row and column indices.</span>
+0331         txt=[txt,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayData_'</span>),<span class="keyword">...</span>
+0332            <a href="#_sub7" class="code" title="subfunction txt=matdata2ubjson(mat,level,varargin)">matdata2ubjson</a>([ix,iy,data],level+2,varargin{:})];
+0333     <span class="keyword">end</span>
+0334 <span class="keyword">else</span>
+0335     <span class="keyword">if</span>(isreal(item))
+0336         txt=[txt,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayData_'</span>),<span class="keyword">...</span>
+0337             <a href="#_sub7" class="code" title="subfunction txt=matdata2ubjson(mat,level,varargin)">matdata2ubjson</a>(item(:)',level+2,varargin{:})];
+0338     <span class="keyword">else</span>
+0339         txt=[txt,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayIsComplex_'</span>),<span class="string">'T'</span>];
+0340         txt=[txt,<a href="#_sub9" class="code" title="subfunction val=N_(str)">N_</a>(<span class="string">'_ArrayData_'</span>),<span class="keyword">...</span>
+0341             <a href="#_sub7" class="code" title="subfunction txt=matdata2ubjson(mat,level,varargin)">matdata2ubjson</a>([real(item(:)) imag(item(:))],level+2,varargin{:})];
+0342     <span class="keyword">end</span>
+0343 <span class="keyword">end</span>
+0344 txt=[txt,<span class="string">'}'</span>];
+0345 
+0346 <span class="comment">%%-------------------------------------------------------------------------</span>
+0347 <a name="_sub6" href="#_subfunctions" class="code">function txt=matlabobject2ubjson(name,item,level,varargin)</a>
+0348 <span class="keyword">if</span> numel(item) == 0 <span class="comment">%empty object</span>
+0349     st = struct();
+0350 <span class="keyword">else</span>
+0351     <span class="comment">% &quot;st = struct(item);&quot; would produce an inmutable warning, because it</span>
+0352     <span class="comment">% make the protected and private properties visible. Instead we get the</span>
+0353     <span class="comment">% visible properties</span>
+0354     propertynames = properties(item);
+0355     <span class="keyword">for</span> p = 1:numel(propertynames)
+0356         <span class="keyword">for</span> o = numel(item):-1:1 <span class="comment">% aray of objects</span>
+0357             st(o).(propertynames{p}) = item(o).(propertynames{p});
+0358         <span class="keyword">end</span>
+0359     <span class="keyword">end</span>
+0360 <span class="keyword">end</span>
+0361 txt=<a href="#_sub3" class="code" title="subfunction txt=struct2ubjson(name,item,level,varargin)">struct2ubjson</a>(name,st,level,varargin{:});
+0362 
+0363 <span class="comment">%%-------------------------------------------------------------------------</span>
+0364 <a name="_sub7" href="#_subfunctions" class="code">function txt=matdata2ubjson(mat,level,varargin)</a>
+0365 <span class="keyword">if</span>(isempty(mat))
+0366     txt=<span class="string">'Z'</span>;
+0367     <span class="keyword">return</span>;
+0368 <span class="keyword">end</span>
+0369 type=<span class="string">''</span>;
+0370 hasnegtive=(mat&lt;0);
+0371 <span class="keyword">if</span>(isa(mat,<span class="string">'integer'</span>) || isinteger(mat) || (isfloat(mat) &amp;&amp; all(mod(mat(:),1) == 0)))
+0372     <span class="keyword">if</span>(isempty(hasnegtive))
+0373        <span class="keyword">if</span>(max(mat(:))&lt;=2^8)
+0374            type=<span class="string">'U'</span>;
+0375        <span class="keyword">end</span>
+0376     <span class="keyword">end</span>
+0377     <span class="keyword">if</span>(isempty(type))
+0378         <span class="comment">% todo - need to consider negative ones separately</span>
+0379         id= histc(abs(max(mat(:))),[0 2^7 2^15 2^31 2^63]);
+0380         <span class="keyword">if</span>(isempty(id~=0))
+0381             error(<span class="string">'high-precision data is not yet supported'</span>);
+0382         <span class="keyword">end</span>
+0383         key=<span class="string">'iIlL'</span>;
+0384     type=key(id~=0);
+0385     <span class="keyword">end</span>
+0386     txt=[<a href="#_sub13" class="code" title="subfunction data=I_a(num,type,dim,format)">I_a</a>(mat(:),type,size(mat))];
+0387 <span class="keyword">elseif</span>(islogical(mat))
+0388     logicalval=<span class="string">'FT'</span>;
+0389     <span class="keyword">if</span>(numel(mat)==1)
+0390         txt=logicalval(mat+1);
+0391     <span class="keyword">else</span>
+0392         txt=[<span class="string">'[$U#'</span> <a href="#_sub13" class="code" title="subfunction data=I_a(num,type,dim,format)">I_a</a>(size(mat),<span class="string">'l'</span>) typecast(swapbytes(uint8(mat(:)')),<span class="string">'uint8'</span>)];
+0393     <span class="keyword">end</span>
+0394 <span class="keyword">else</span>
+0395     <span class="keyword">if</span>(numel(mat)==1)
+0396         txt=[<span class="string">'['</span> <a href="#_sub12" class="code" title="subfunction val=D_(num)">D_</a>(mat) <span class="string">']'</span>];
+0397     <span class="keyword">else</span>
+0398         txt=<a href="#_sub14" class="code" title="subfunction data=D_a(num,type,dim,format)">D_a</a>(mat(:),<span class="string">'D'</span>,size(mat));
+0399     <span class="keyword">end</span>
+0400 <span class="keyword">end</span>
+0401 
+0402 <span class="comment">%txt=regexprep(mat2str(mat),'\s+',',');</span>
+0403 <span class="comment">%txt=regexprep(txt,';',sprintf('],['));</span>
+0404 <span class="comment">% if(nargin&gt;=2 &amp;&amp; size(mat,1)&gt;1)</span>
+0405 <span class="comment">%     txt=regexprep(txt,'\[',[repmat(sprintf('\t'),1,level) '[']);</span>
+0406 <span class="comment">% end</span>
+0407 <span class="keyword">if</span>(any(isinf(mat(:))))
+0408     txt=regexprep(txt,<span class="string">'([-+]*)Inf'</span>,<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'Inf'</span>,<span class="string">'&quot;$1_Inf_&quot;'</span>,varargin{:}));
+0409 <span class="keyword">end</span>
+0410 <span class="keyword">if</span>(any(isnan(mat(:))))
+0411     txt=regexprep(txt,<span class="string">'NaN'</span>,<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'NaN'</span>,<span class="string">'&quot;_NaN_&quot;'</span>,varargin{:}));
+0412 <span class="keyword">end</span>
+0413 
+0414 <span class="comment">%%-------------------------------------------------------------------------</span>
+0415 <a name="_sub8" href="#_subfunctions" class="code">function newname=checkname(name,varargin)</a>
+0416 isunpack=<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'UnpackHex'</span>,1,varargin{:});
+0417 newname=name;
+0418 <span class="keyword">if</span>(isempty(regexp(name,<span class="string">'0x([0-9a-fA-F]+)_'</span>,<span class="string">'once'</span>)))
+0419     <span class="keyword">return</span>
+0420 <span class="keyword">end</span>
+0421 <span class="keyword">if</span>(isunpack)
+0422     isoct=<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'IsOctave'</span>,0,varargin{:});
+0423     <span class="keyword">if</span>(~isoct)
+0424         newname=regexprep(name,<span class="string">'(^x|_){1}0x([0-9a-fA-F]+)_'</span>,<span class="string">'${native2unicode(hex2dec($2))}'</span>);
+0425     <span class="keyword">else</span>
+0426         pos=regexp(name,<span class="string">'(^x|_){1}0x([0-9a-fA-F]+)_'</span>,<span class="string">'start'</span>);
+0427         pend=regexp(name,<span class="string">'(^x|_){1}0x([0-9a-fA-F]+)_'</span>,<span class="string">'end'</span>);
+0428         <span class="keyword">if</span>(isempty(pos))
+0429             <span class="keyword">return</span>;
+0430         <span class="keyword">end</span>
+0431         str0=name;
+0432         pos0=[0 pend(:)' length(name)];
+0433         newname=<span class="string">''</span>;
+0434         <span class="keyword">for</span> i=1:length(pos)
+0435             newname=[newname str0(pos0(i)+1:pos(i)-1) char(hex2dec(str0(pos(i)+3:pend(i)-1)))];
+0436         <span class="keyword">end</span>
+0437         <span class="keyword">if</span>(pos(end)~=length(name))
+0438             newname=[newname str0(pos0(end-1)+1:pos0(end))];
+0439         <span class="keyword">end</span>
+0440     <span class="keyword">end</span>
+0441 <span class="keyword">end</span>
+0442 <span class="comment">%%-------------------------------------------------------------------------</span>
+0443 <a name="_sub9" href="#_subfunctions" class="code">function val=N_(str)</a>
+0444 val=[<a href="#_sub11" class="code" title="subfunction val=I_(num)">I_</a>(int32(length(str))) str];
+0445 <span class="comment">%%-------------------------------------------------------------------------</span>
+0446 <a name="_sub10" href="#_subfunctions" class="code">function val=S_(str)</a>
+0447 <span class="keyword">if</span>(length(str)==1)
+0448   val=[<span class="string">'C'</span> str];
+0449 <span class="keyword">else</span>
+0450   val=[<span class="string">'S'</span> <a href="#_sub11" class="code" title="subfunction val=I_(num)">I_</a>(int32(length(str))) str];
+0451 <span class="keyword">end</span>
+0452 <span class="comment">%%-------------------------------------------------------------------------</span>
+0453 <a name="_sub11" href="#_subfunctions" class="code">function val=I_(num)</a>
+0454 <span class="keyword">if</span>(~isinteger(num))
+0455     error(<span class="string">'input is not an integer'</span>);
+0456 <span class="keyword">end</span>
+0457 <span class="keyword">if</span>(num&gt;=0 &amp;&amp; num&lt;255)
+0458    val=[<span class="string">'U'</span> <a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(cast(num,<span class="string">'uint8'</span>)),<span class="string">'uint8'</span>)];
+0459    <span class="keyword">return</span>;
+0460 <span class="keyword">end</span>
+0461 key=<span class="string">'iIlL'</span>;
+0462 cid={<span class="string">'int8'</span>,<span class="string">'int16'</span>,<span class="string">'int32'</span>,<span class="string">'int64'</span>};
+0463 <span class="keyword">for</span> i=1:4
+0464   <span class="keyword">if</span>((num&gt;0 &amp;&amp; num&lt;2^(i*8-1)) || (num&lt;0 &amp;&amp; num&gt;=-2^(i*8-1)))
+0465     val=[key(i) <a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(cast(num,cid{i})),<span class="string">'uint8'</span>)];
+0466     <span class="keyword">return</span>;
+0467   <span class="keyword">end</span>
+0468 <span class="keyword">end</span>
+0469 error(<span class="string">'unsupported integer'</span>);
+0470 
+0471 <span class="comment">%%-------------------------------------------------------------------------</span>
+0472 <a name="_sub12" href="#_subfunctions" class="code">function val=D_(num)</a>
+0473 <span class="keyword">if</span>(~isfloat(num))
+0474     error(<span class="string">'input is not a float'</span>);
+0475 <span class="keyword">end</span>
+0476 
+0477 <span class="keyword">if</span>(isa(num,<span class="string">'single'</span>))
+0478   val=[<span class="string">'d'</span> <a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(num),<span class="string">'uint8'</span>)];
+0479 <span class="keyword">else</span>
+0480   val=[<span class="string">'D'</span> <a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(num),<span class="string">'uint8'</span>)];
+0481 <span class="keyword">end</span>
+0482 <span class="comment">%%-------------------------------------------------------------------------</span>
+0483 <a name="_sub13" href="#_subfunctions" class="code">function data=I_a(num,type,dim,format)</a>
+0484 id=find(ismember(<span class="string">'iUIlL'</span>,type));
+0485 
+0486 <span class="keyword">if</span>(id==0)
+0487   error(<span class="string">'unsupported integer array'</span>);
+0488 <span class="keyword">end</span>
+0489 
+0490 <span class="comment">% based on UBJSON specs, all integer types are stored in big endian format</span>
+0491 
+0492 <span class="keyword">if</span>(id==1)
+0493   data=<a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(int8(num)),<span class="string">'uint8'</span>);
+0494   blen=1;
+0495 <span class="keyword">elseif</span>(id==2)
+0496   data=<a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(uint8(num)),<span class="string">'uint8'</span>);
+0497   blen=1;
+0498 <span class="keyword">elseif</span>(id==3)
+0499   data=<a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(int16(num)),<span class="string">'uint8'</span>);
+0500   blen=2;
+0501 <span class="keyword">elseif</span>(id==4)
+0502   data=<a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(int32(num)),<span class="string">'uint8'</span>);
+0503   blen=4;
+0504 <span class="keyword">elseif</span>(id==5)
+0505   data=<a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(int64(num)),<span class="string">'uint8'</span>);
+0506   blen=8;
+0507 <span class="keyword">end</span>
+0508 
+0509 <span class="keyword">if</span>(nargin&gt;=3 &amp;&amp; length(dim)&gt;=2 &amp;&amp; prod(dim)~=dim(2))
+0510   format=<span class="string">'opt'</span>;
+0511 <span class="keyword">end</span>
+0512 <span class="keyword">if</span>((nargin&lt;4 || strcmp(format,<span class="string">'opt'</span>)) &amp;&amp; numel(num)&gt;1)
+0513   <span class="keyword">if</span>(nargin&gt;=3 &amp;&amp; (length(dim)==1 || (length(dim)&gt;=2 &amp;&amp; prod(dim)~=dim(2))))
+0514       cid=<a href="#_sub11" class="code" title="subfunction val=I_(num)">I_</a>(uint32(max(dim)));
+0515       data=[<span class="string">'$'</span> type <span class="string">'#'</span> <a href="#_sub13" class="code" title="subfunction data=I_a(num,type,dim,format)">I_a</a>(dim,cid(1)) data(:)'];
+0516   <span class="keyword">else</span>
+0517       data=[<span class="string">'$'</span> type <span class="string">'#'</span> <a href="#_sub11" class="code" title="subfunction val=I_(num)">I_</a>(int32(numel(data)/blen)) data(:)'];
+0518   <span class="keyword">end</span>
+0519   data=[<span class="string">'['</span> data(:)'];
+0520 <span class="keyword">else</span>
+0521   data=reshape(data,blen,numel(data)/blen);
+0522   data(2:blen+1,:)=data;
+0523   data(1,:)=type;
+0524   data=data(:)';
+0525   data=[<span class="string">'['</span> data(:)' <span class="string">']'</span>];
+0526 <span class="keyword">end</span>
+0527 <span class="comment">%%-------------------------------------------------------------------------</span>
+0528 <a name="_sub14" href="#_subfunctions" class="code">function data=D_a(num,type,dim,format)</a>
+0529 id=find(ismember(<span class="string">'dD'</span>,type));
+0530 
+0531 <span class="keyword">if</span>(id==0)
+0532   error(<span class="string">'unsupported float array'</span>);
+0533 <span class="keyword">end</span>
+0534 
+0535 <span class="keyword">if</span>(id==1)
+0536   data=<a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(single(num)),<span class="string">'uint8'</span>);
+0537 <span class="keyword">elseif</span>(id==2)
+0538   data=<a href="#_sub15" class="code" title="subfunction bytes=data2byte(varargin)">data2byte</a>(swapbytes(double(num)),<span class="string">'uint8'</span>);
+0539 <span class="keyword">end</span>
+0540 
+0541 <span class="keyword">if</span>(nargin&gt;=3 &amp;&amp; length(dim)&gt;=2 &amp;&amp; prod(dim)~=dim(2))
+0542   format=<span class="string">'opt'</span>;
+0543 <span class="keyword">end</span>
+0544 <span class="keyword">if</span>((nargin&lt;4 || strcmp(format,<span class="string">'opt'</span>)) &amp;&amp; numel(num)&gt;1)
+0545   <span class="keyword">if</span>(nargin&gt;=3 &amp;&amp; (length(dim)==1 || (length(dim)&gt;=2 &amp;&amp; prod(dim)~=dim(2))))
+0546       cid=<a href="#_sub11" class="code" title="subfunction val=I_(num)">I_</a>(uint32(max(dim)));
+0547       data=[<span class="string">'$'</span> type <span class="string">'#'</span> <a href="#_sub13" class="code" title="subfunction data=I_a(num,type,dim,format)">I_a</a>(dim,cid(1)) data(:)'];
+0548   <span class="keyword">else</span>
+0549       data=[<span class="string">'$'</span> type <span class="string">'#'</span> <a href="#_sub11" class="code" title="subfunction val=I_(num)">I_</a>(int32(numel(data)/(id*4))) data(:)'];
+0550   <span class="keyword">end</span>
+0551   data=[<span class="string">'['</span> data];
+0552 <span class="keyword">else</span>
+0553   data=reshape(data,(id*4),length(data)/(id*4));
+0554   data(2:(id*4+1),:)=data;
+0555   data(1,:)=type;
+0556   data=data(:)';
+0557   data=[<span class="string">'['</span> data(:)' <span class="string">']'</span>];
+0558 <span class="keyword">end</span>
+0559 <span class="comment">%%-------------------------------------------------------------------------</span>
+0560 <a name="_sub15" href="#_subfunctions" class="code">function bytes=data2byte(varargin)</a>
+0561 bytes=typecast(varargin{:});
+0562 bytes=bytes(:)';</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

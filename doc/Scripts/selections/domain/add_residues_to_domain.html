@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of add_residues_to_domain</title>
+  <meta name="keywords" content="add_residues_to_domain">
+  <meta name="description" content="add_residues_from_domain( residue_string, domainn_name );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="../index.html">selections</a> &gt; <a href="index.html">domain</a> &gt; add_residues_to_domain.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/selections/domain&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>add_residues_to_domain
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>add_residues_from_domain( residue_string, domainn_name );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function add_residues_to_domain( residue_string, name ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> add_residues_from_domain( residue_string, domainn_name );
+ (C) Rhiju Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function add_residues_to_domain( residue_string, name );</a>
+0002 <span class="comment">% add_residues_from_domain( residue_string, domainn_name );</span>
+0003 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
+0004 
+0005 domain_tag = <a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>( name );
+0006 add_res_tags = get_res( residue_string );
+0007 
+0008 <span class="keyword">if</span> ~isappdata( gca, domain_tag ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0009 <span class="keyword">if</span> isempty( add_res_tags) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0010 
+0011 domain = getappdata(gca , domain_tag);
+0012 domain.associated_residues = unique( [domain.associated_residues, add_res_tags] );
+0013 setappdata( gca, domain_tag, domain );
+0014 
+0015 <span class="keyword">for</span> i = 1:length( add_res_tags );
+0016     res_tag = add_res_tags{i};
+0017     residue = getappdata( gca, res_tag );
+0018     fprintf( <span class="string">'Add %s to %s\n'</span>, residue.res_tag, domain_tag );
+0019     <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> ) residue.associated_selections = {}; <span class="keyword">end</span>;
+0020     residue.associated_selections = unique( [residue.associated_selections, domain_tag] );
+0021     setappdata( gca, res_tag, residue );
+0022 <span class="keyword">end</span>
+0023 
+0024 draw_selections( domain_tag );
+0025 
+0026 
+0027</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

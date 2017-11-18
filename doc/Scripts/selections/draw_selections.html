@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draw_selections</title>
+  <meta name="keywords" content="draw_selections">
+  <meta name="description" content="draw_selections( selections );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="index.html">selections</a> &gt; draw_selections.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/selections&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>draw_selections
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>draw_selections( selections );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function draw_selections( selections ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> draw_selections( selections );
+ draw_selections( selection );</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="get_res_helix_for_selection.html" class="code" title="function [residues, associated_helices] = get_res_helix_for_selection( selection );">get_res_helix_for_selection</a>	</li><li><a href="move_selection_label.html" class="code" title="function move_selection_label(h)">move_selection_label</a>	</li><li><a href="redraw_selection.html" class="code" title="function redraw_selection( h );">redraw_selection</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="show_selection_controls.html" class="code" title="function show_selection_controls( setting, selection_tag )">show_selection_controls</a>	</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function selection = create_clickable_reflection_line( tag, selection );</a></li><li><a href="#_sub2" class="code">function reflect_selection( h, ~, ~ )</a></li><li><a href="#_sub3" class="code">function rotate_selection( h, ~, ~ )</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function draw_selections( selections );</a>
+0002 <span class="comment">% draw_selections( selections );</span>
+0003 <span class="comment">% draw_selections( selection );</span>
+0004 
+0005 <span class="keyword">if</span> ~exist( <span class="string">'selections'</span>, <span class="string">'var'</span> ); selections = get_tags( <span class="string">'Selection'</span> ); <span class="keyword">end</span>
+0006 <span class="keyword">if</span> ~iscell( selections ) &amp; ischar( selections ); selections = { selections }; <span class="keyword">end</span>
+0007 
+0008 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0009 <span class="keyword">if</span> ~isfield( plot_settings, <span class="string">'show_coax_controls'</span> ) &amp; isfield( plot_settings, <span class="string">'show_selection_controls'</span> )
+0010     plot_settings.show_coax_controls   = plot_settings.show_selection_controls;
+0011     plot_settings.show_domain_controls = plot_settings.show_selection_controls;
+0012     plot_settings = rmfield( plot_settings, <span class="string">'show_selection_controls'</span> );
+0013     setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0014 <span class="keyword">end</span>
+0015 
+0016 spacing = plot_settings.spacing;
+0017 <span class="keyword">for</span> i = 1:length( selections )
+0018     selection_tag = selections{i};
+0019     <span class="keyword">if</span> ~isappdata( gca, selection_tag ); fprintf( <span class="string">'Problem with %s\n'</span>, selection_tag ); <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% some cleanup</span>
+0020     selection = getappdata( gca, selection_tag );
+0021     [minpos,maxpos] = get_minpos_maxpos( selection );  
+0022     ctr_pos = (minpos + maxpos )/ 2;
+0023     <span class="keyword">if</span> strcmp( selection.type, <span class="string">'coaxial_stack'</span> )
+0024         <span class="keyword">if</span> ( plot_settings.show_coax_controls )
+0025             selection = create_default_rectangle( selection, <span class="string">'selection_tag'</span>, selection_tag, @<a href="redraw_selection.html" class="code" title="function redraw_selection( h );">redraw_selection</a> );
+0026             set( selection.rectangle,<span class="string">'edgecolor'</span>,[1 0.7 0.7]);
+0027             <span class="keyword">if</span>  ~isfield( selection, <span class="string">'auto_text'</span> )
+0028                 h = text( 0, 0, <span class="string">'auto'</span>, <span class="string">'fontsize'</span>,plot_settings.fontsize*6/10,<span class="keyword">...</span>
+0029                     <span class="string">'color'</span>,[1 0.7 0.7],<span class="string">'verticalalign'</span>,<span class="string">'top'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span>);
+0030                 setappdata(h,<span class="string">'selection_tag'</span>,selection_tag);
+0031                 set(h,<span class="string">'ButtonDownFcn'</span>,{@autoformat_coaxial_stack,h});
+0032                 selection.auto_text = h;
+0033                 setappdata( gca, selection_tag, selection );
+0034             <span class="keyword">end</span>
+0035         <span class="keyword">end</span>
+0036     <span class="keyword">end</span>
+0037     <span class="keyword">if</span> strcmp( selection.type, <span class="string">'domain'</span> )
+0038         <span class="comment">% perhaps should create a plot_settings.show_domain_labels</span>
+0039         <span class="keyword">if</span> ~isfield( selection, <span class="string">'label_relpos'</span> ) selection.label_relpos = minpos - ctr_pos; <span class="keyword">end</span>;
+0040         <span class="keyword">if</span> ~isfield( selection, <span class="string">'label'</span> ) &amp; isfield( selection, <span class="string">'name'</span> )
+0041             h = text( 0, 0, selection.name, <span class="string">'fontsize'</span>,plot_settings.fontsize*14/10, <span class="keyword">...</span><span class="comment">.</span>
+0042                 <span class="string">'fontweight'</span>, <span class="string">'bold'</span>, <span class="string">'verticalalign'</span>,<span class="string">'middle'</span>,<span class="string">'horizontalalign'</span>,<span class="string">'center'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0043             <span class="keyword">if</span> isfield( selection, <span class="string">'label_visible'</span> ) &amp; ~selection.label_visible; set( h, <span class="string">'visible'</span>, <span class="string">'off'</span> ); <span class="keyword">end</span>;
+0044             selection.label = h;
+0045             draggable( h, <span class="string">'n'</span>,[-inf inf -inf inf], @<a href="move_selection_label.html" class="code" title="function move_selection_label(h)">move_selection_label</a> )
+0046             setappdata( h, <span class="string">'selection_tag'</span>, selection_tag );
+0047             setappdata( gca, selection_tag, selection );
+0048         <span class="keyword">end</span>
+0049         selection = create_default_rectangle( selection, <span class="string">'selection_tag'</span>, selection_tag, @<a href="redraw_selection.html" class="code" title="function redraw_selection( h );">redraw_selection</a> );
+0050         domain_color = [1 0.4 0.4];
+0051         <span class="keyword">if</span> isfield( selection, <span class="string">'rgb_color'</span> ) domain_color = selection.rgb_color; <span class="keyword">end</span>;
+0052         set( selection.rectangle,<span class="string">'edgecolor'</span>,domain_color);
+0053         <span class="keyword">if</span> ( plot_settings.show_domain_controls ) visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0054         set( selection.rectangle, <span class="string">'visible'</span>, visible );
+0055         
+0056         <span class="keyword">if</span> ( plot_settings.show_domain_controls )
+0057             <span class="comment">% for domain: clickable lines of reflection</span>
+0058             selection = <a href="#_sub1" class="code" title="subfunction selection = create_clickable_reflection_line( tag, selection );">create_clickable_reflection_line</a>( <span class="string">'reflect_line_horizontal1'</span>, selection );
+0059             selection = <a href="#_sub1" class="code" title="subfunction selection = create_clickable_reflection_line( tag, selection );">create_clickable_reflection_line</a>( <span class="string">'reflect_line_horizontal2'</span>, selection  );
+0060             selection = <a href="#_sub1" class="code" title="subfunction selection = create_clickable_reflection_line( tag, selection );">create_clickable_reflection_line</a>( <span class="string">'reflect_line_vertical1'</span>, selection  );
+0061             selection = <a href="#_sub1" class="code" title="subfunction selection = create_clickable_reflection_line( tag, selection );">create_clickable_reflection_line</a>( <span class="string">'reflect_line_vertical2'</span>, selection  );
+0062             <span class="comment">% for domain: clickable center of rotation</span>
+0063             <span class="keyword">if</span> ~isfield( selection, <span class="string">'click_center'</span> );
+0064                 h = rectangle( <span class="string">'Position'</span>,<span class="keyword">...</span>
+0065                     [0 0,0,0],<span class="string">'curvature'</span>,[0.5 0.5],<span class="string">'edgecolor'</span>,[0.5 0.5 1],<span class="string">'facecolor'</span>,[0.5 0.5 1],<span class="string">'linewidth'</span>,1.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0066                 setappdata( h,<span class="string">'selection_tag'</span>, selection_tag);
+0067                 set(h,<span class="string">'ButtonDownFcn'</span>,{@<a href="#_sub3" class="code" title="subfunction rotate_selection( h, ~, ~ )">rotate_selection</a>,h});
+0068                 selection.click_center = h;
+0069                 setappdata( gca, selection_tag, selection );
+0070             <span class="keyword">end</span>
+0071         <span class="keyword">end</span>
+0072     <span class="keyword">end</span>
+0073     <span class="keyword">if</span> ~isempty( minpos ) &amp; ~isempty( maxpos )
+0074         <span class="keyword">if</span> isfield( selection, <span class="string">'rectangle'</span>)  set_rectangle_coords( selection, minpos, maxpos, spacing ); <span class="keyword">end</span>;
+0075         <span class="keyword">if</span> isfield( selection, <span class="string">'auto_text'</span>) set( selection.auto_text, <span class="string">'Position'</span>,  minpos + [-0.5 -0.5]*0.75*spacing ); <span class="keyword">end</span>
+0076         <span class="keyword">if</span> isfield( selection, <span class="string">'label'</span>) &amp; ~isempty( ctr_pos ) &amp; ~isempty( selection.label_relpos )
+0077             set( selection.label, <span class="string">'Position'</span>,  ctr_pos + selection.label_relpos );
+0078             set( selection.label, <span class="string">'String'</span>, strrep(strrep(selection.name,<span class="string">'prime'</span>,<span class="string">'^{\prime}'</span>),<span class="string">'_'</span>,<span class="string">'\_'</span>) );
+0079             <span class="keyword">if</span> isfield( selection, <span class="string">'rgb_color'</span> ) &amp; isempty(strfind(selection.name,<span class="string">'\color'</span>)); set( selection.label, <span class="string">'color'</span>, selection.rgb_color ); <span class="keyword">end</span>
+0080             <span class="keyword">if</span> isfield( selection, <span class="string">'helix_group'</span> ) set( selection.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5,<span class="string">'fontweight'</span>,<span class="string">'normal'</span>); <span class="keyword">end</span>;
+0081         <span class="keyword">end</span>
+0082         <span class="keyword">if</span> isfield( selection, <span class="string">'reflect_line_horizontal1'</span> );
+0083             set( selection.reflect_line_horizontal1, <span class="string">'Xdata'</span>, minpos(1) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), <span class="string">'Ydata'</span>, ctr_pos(2) * [1 1] );
+0084             <span class="keyword">if</span> isfield( selection, <span class="string">'rgb_color'</span> ) set( selection.reflect_line_horizontal1, <span class="string">'color'</span>, selection.rgb_color ); <span class="keyword">end</span>
+0085         <span class="keyword">end</span>
+0086         <span class="keyword">if</span> isfield( selection, <span class="string">'reflect_line_horizontal2'</span> );
+0087             set( selection.reflect_line_horizontal2, <span class="string">'Xdata'</span>, maxpos(1) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), <span class="string">'Ydata'</span>, ctr_pos(2) * [1 1] );
+0088             <span class="keyword">if</span> isfield( selection, <span class="string">'rgb_color'</span> ) set( selection.reflect_line_horizontal2, <span class="string">'color'</span>, selection.rgb_color ); <span class="keyword">end</span>
+0089         <span class="keyword">end</span>
+0090         <span class="keyword">if</span> isfield( selection, <span class="string">'reflect_line_vertical1'</span> );
+0091             set( selection.reflect_line_vertical1, <span class="string">'Ydata'</span>, minpos(2) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), <span class="string">'Xdata'</span>, ctr_pos(1) * [1 1] );
+0092             <span class="keyword">if</span> isfield( selection, <span class="string">'rgb_color'</span> ) set( selection.reflect_line_vertical1, <span class="string">'color'</span>, selection.rgb_color ); <span class="keyword">end</span>
+0093         <span class="keyword">end</span>
+0094         <span class="keyword">if</span> isfield( selection, <span class="string">'reflect_line_vertical2'</span> );
+0095             set( selection.reflect_line_vertical2, <span class="string">'Ydata'</span>, maxpos(2) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), <span class="string">'Xdata'</span>, ctr_pos(1) * [1 1] );
+0096             <span class="keyword">if</span> isfield( selection, <span class="string">'rgb_color'</span> ) set( selection.reflect_line_vertical2, <span class="string">'color'</span>, selection.rgb_color ); <span class="keyword">end</span>
+0097         <span class="keyword">end</span>
+0098         <span class="keyword">if</span> isfield( selection, <span class="string">'click_center'</span> );
+0099             set( selection.click_center, <span class="string">'Position'</span>, [ctr_pos(1)-0.15*spacing ctr_pos(2)-0.15*spacing,<span class="keyword">...</span>
+0100                 0.3*spacing 0.3*spacing] );
+0101             <span class="keyword">if</span> isfield( selection, <span class="string">'rgb_color'</span> ) set( selection.click_center, <span class="string">'edgecolor'</span>, selection.rgb_color ); <span class="keyword">end</span>
+0102         <span class="keyword">end</span>
+0103     <span class="keyword">end</span>
+0104 <span class="keyword">end</span>
+0105 
+0106 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0107 <a name="_sub1" href="#_subfunctions" class="code">function selection = create_clickable_reflection_line( tag, selection );</a>
+0108 
+0109 <span class="keyword">if</span> isfield( selection, tag ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0110 
+0111 h = plot( [0 0], [1 1], <span class="string">'color'</span>,[1 0.5 0.5],<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0112 setappdata( h, <span class="string">'selection_tag'</span>, selection.selection_tag);
+0113 
+0114 flip = <span class="string">'vertical'</span>;
+0115 <span class="comment">% if lines are horizontal, reflection looks like up/down flip.</span>
+0116 <span class="keyword">if</span> ~isempty( strfind( tag, <span class="string">'vertical'</span> ) ) flip = <span class="string">'horizontal'</span>;<span class="keyword">end</span>;
+0117 
+0118 setappdata( h, <span class="string">'flip'</span>, flip);
+0119 set(h,<span class="string">'ButtonDownFcn'</span>,{@<a href="#_sub2" class="code" title="subfunction reflect_selection( h, ~, ~ )">reflect_selection</a>,h});
+0120 selection = setfield( selection, tag, h );
+0121 setappdata( gca, selection.selection_tag, selection );
+0122     
+0123 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0124 <a name="_sub2" href="#_subfunctions" class="code">function reflect_selection( h, ~, ~ )</a>
+0125 selection_tag = getappdata( h, <span class="string">'selection_tag'</span> );
+0126 flip = getappdata( h, <span class="string">'flip'</span> );
+0127 selection = getappdata(gca,selection_tag );
+0128 [residues, associated_helices] = <a href="get_res_helix_for_selection.html" class="code" title="function [residues, associated_helices] = get_res_helix_for_selection( selection );">get_res_helix_for_selection</a>( selection );
+0129 
+0130 [minpos,maxpos] = get_minpos_maxpos( selection );  
+0131 <span class="keyword">for</span> i = 1:length( associated_helices )
+0132     helix = getappdata( gca, associated_helices{i} );
+0133 
+0134     theta = helix.rotation;
+0135     R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
+0136     R = [1 0; 0 helix.parity] * R;
+0137     <span class="keyword">if</span> strcmp( flip, <span class="string">'horizontal'</span> )
+0138         helix.center(1) = (maxpos(1) - helix.center(1)) + minpos(1);
+0139         R = R * [-1 0; 0 1];
+0140     <span class="keyword">else</span>
+0141         assert( strcmp( flip, <span class="string">'vertical'</span> ) );
+0142         helix.center(2) = (maxpos(2) - helix.center(2)) + minpos(2);
+0143         R = R * [1 0; 0 -1];
+0144     <span class="keyword">end</span>
+0145     
+0146     helix.parity = helix.parity * -1; <span class="comment">% there will definitely be a flip.</span>
+0147     R = [1 0; 0 helix.parity] * R; <span class="comment">% what flip looks like in 'lab frame' not helix frame</span>
+0148     helix.rotation = round( atan2( R(2,1), R(1,1) ) * 180/pi );
+0149 
+0150     setappdata( gca, associated_helices{i}, helix );
+0151     draw_helix( helix );
+0152 <span class="keyword">end</span>
+0153 
+0154 
+0155 
+0156 
+0157 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0158 <a name="_sub3" href="#_subfunctions" class="code">function rotate_selection( h, ~, ~ )</a>
+0159 selection_tag = getappdata( h, <span class="string">'selection_tag'</span> );
+0160 selection = getappdata(gca,selection_tag );
+0161 [residues, associated_helices] = <a href="get_res_helix_for_selection.html" class="code" title="function [residues, associated_helices] = get_res_helix_for_selection( selection );">get_res_helix_for_selection</a>( selection );
+0162 
+0163 [minpos,maxpos] = get_minpos_maxpos( selection );  
+0164 ctr_pos = ( minpos + maxpos ) / 2;
+0165 <span class="keyword">for</span> i = 1:length( associated_helices )
+0166     helix = getappdata( gca, associated_helices{i} );
+0167     helix.center = ( helix.center - ctr_pos ) * [0 -1; 1 0] + ctr_pos;
+0168     helix.rotation = mod( helix.rotation + 90, 360 );
+0169     setappdata( gca, associated_helices{i}, helix );
+0170     draw_helix( helix );
+0171 <span class="keyword">end</span>
+0172 
+0173</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

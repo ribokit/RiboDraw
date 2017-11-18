@@ -1,0 +1,702 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draggable</title>
+  <meta name="keywords" content="draggable">
+  <meta name="description" content="DRAGGABLE - Make it so that a graphics object can be dragged in a figure.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="#">external</a> &gt; <a href="index.html">draggable</a> &gt; draggable.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/external/draggable&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>draggable
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>DRAGGABLE - Make it so that a graphics object can be dragged in a figure.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function draggable(h,varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> DRAGGABLE - Make it so that a graphics object can be dragged in a figure.
+   This function makes an object interactive by allowing it to be dragged
+   accross a set of axes, following or not certain constraints. This
+   allows for intuitive control elements which are not buttons or other
+   standard GUI objects, and which reside inside an axis. Typical use
+   involve markers on an axis, whose position alters the output of a
+   computation or display
+ 
+   &gt;&gt; draggable(h);
+   
+   makes the object with handle &quot;h&quot; draggable. Use the &quot;Position&quot; property
+   of the object to retrieve its position, by issuing a get(h,'Position')
+   command.
+ 
+   If h is a vector of handles, then draggable is called on each handle
+   using the same following arguments, if any.
+
+   &gt;&gt; draggable(h,...,motionfcn)
+
+   where &quot;motionfcn&quot; is a function handle, executes the given function
+   while the object is dragged. Handle h is passed to motionfcn as an
+   argument. Argument &quot;motionfcn&quot; can be put anywhere after handle &quot;h&quot;.
+
+   &gt;&gt; draggable(h,...,constraint,p);
+
+   enables the object with handle &quot;h&quot; to be dragged, with a constraint.
+   Arguments &quot;constraint&quot; (a string) and &quot;p&quot; (a vector) can be put
+   anywhere after handle &quot;h&quot;.
+
+   &gt;&gt; draggable(h,...,'endfcn',endfcn);
+
+   where &quot;endfcn&quot; is a function handle, executes the given function AFTER
+   the object is dragged (more specifically, on the next WindowButtonUp 
+   event). The function handle must come after the string 'endfcn', to 
+   avoid ambiguity with the &quot;motionfcn&quot; argument (above). Handle h is 
+   passed to endfcn as an argument.
+
+   &gt;&gt; draggable(h,'off')
+
+   returns object h to its original, non-draggable state.
+
+   CONSTRAINTS
+
+   The argument &quot;constraint&quot; may be one of the following strings:
+
+       'n' or 'none':          The object is unconstrained (default).
+       'h' or 'horizontal':    The object can only be moved horizontally.
+       'v' or 'vertical':      The object can only be moved vertically.
+       'd' or 'diagonal':      The object can only be moved along an
+                               arbitrary line of a given slope.
+
+   The argument &quot;p&quot; is an optional parameter which depends upon the
+   constraint type:
+
+   Constraint      p                   Description
+   -----------------------------------------------------------------------
+
+   'none'          [x1 x2 y1 y2]       Drag range (for the object's outer
+                                       limits, from x1 to x2 on the x-axis
+                                       and from y1 to y2 on the y-axis).
+                                       Default is the current axes range.
+                                       Use &quot;inf&quot; if no limit is desired.
+
+   'horizontal'    [xmin xmax]         Drag range (for the object's outer
+                                       limits). Default is the x-axis
+                                       range. Use &quot;inf&quot; if no limit is
+                                       desired. Note that full limits of
+                                       the form [x1 x2 y1 y2] can also be
+                                       used.
+
+   'vertical'      [ymin ymax]         Drag range (for the object's outer
+                                       limits). Default is the y-axis
+                                       range. Use &quot;inf&quot; if no limit is
+                                       desired. Note that full limits of
+                                       the form [x1 x2 y1 y2] can also be
+                                       used.
+
+   'diagonal'      [m x1 x2 y1 y2]     Slope m of the line along which the
+                                       movement is constrained (default is
+                                       1); x1 x2 y1 y2 as in 'none'.
+
+   -----------------------------------------------------------------------</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>	DRAGGABLE - Make it so that a graphics object can be dragged in a figure.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="dragdemo.html" class="code" title="function dragdemo(demotitle)">dragdemo</a>	DRAGDEMO</li><li><a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>	DRAGGABLE - Make it so that a graphics object can be dragged in a figure.</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function click_object(obj,eventdata)</a></li><li><a href="#_sub2" class="code">function activate_movefcn(obj,eventdata,h)</a></li><li><a href="#_sub3" class="code">function deactivate_movefcn(obj,eventdata,h)</a></li><li><a href="#_sub4" class="code">function set_initial_state(h)</a></li><li><a href="#_sub5" class="code">function movefcn(obj,eventdata,h)</a></li><li><a href="#_sub6" class="code">function pos = get_position(obj)</a></li><li><a href="#_sub7" class="code">function newpos = update_position(pos,dpt)</a></li><li><a href="#_sub8" class="code">function set_position(obj,pos)</a></li><li><a href="#_sub9" class="code">function extent = compute_extent(obj)</a></li><li><a href="#_sub10" class="code">function inrange = is_inside_range(extent,range)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function draggable(h,varargin)</a>
+0002 <span class="comment">% DRAGGABLE - Make it so that a graphics object can be dragged in a figure.</span>
+0003 <span class="comment">%   This function makes an object interactive by allowing it to be dragged</span>
+0004 <span class="comment">%   accross a set of axes, following or not certain constraints. This</span>
+0005 <span class="comment">%   allows for intuitive control elements which are not buttons or other</span>
+0006 <span class="comment">%   standard GUI objects, and which reside inside an axis. Typical use</span>
+0007 <span class="comment">%   involve markers on an axis, whose position alters the output of a</span>
+0008 <span class="comment">%   computation or display</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%   &gt;&gt; draggable(h);</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%   makes the object with handle &quot;h&quot; draggable. Use the &quot;Position&quot; property</span>
+0013 <span class="comment">%   of the object to retrieve its position, by issuing a get(h,'Position')</span>
+0014 <span class="comment">%   command.</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">%   If h is a vector of handles, then draggable is called on each handle</span>
+0017 <span class="comment">%   using the same following arguments, if any.</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">%   &gt;&gt; draggable(h,...,motionfcn)</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">%   where &quot;motionfcn&quot; is a function handle, executes the given function</span>
+0022 <span class="comment">%   while the object is dragged. Handle h is passed to motionfcn as an</span>
+0023 <span class="comment">%   argument. Argument &quot;motionfcn&quot; can be put anywhere after handle &quot;h&quot;.</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">%   &gt;&gt; draggable(h,...,constraint,p);</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">%   enables the object with handle &quot;h&quot; to be dragged, with a constraint.</span>
+0028 <span class="comment">%   Arguments &quot;constraint&quot; (a string) and &quot;p&quot; (a vector) can be put</span>
+0029 <span class="comment">%   anywhere after handle &quot;h&quot;.</span>
+0030 <span class="comment">%</span>
+0031 <span class="comment">%   &gt;&gt; draggable(h,...,'endfcn',endfcn);</span>
+0032 <span class="comment">%</span>
+0033 <span class="comment">%   where &quot;endfcn&quot; is a function handle, executes the given function AFTER</span>
+0034 <span class="comment">%   the object is dragged (more specifically, on the next WindowButtonUp</span>
+0035 <span class="comment">%   event). The function handle must come after the string 'endfcn', to</span>
+0036 <span class="comment">%   avoid ambiguity with the &quot;motionfcn&quot; argument (above). Handle h is</span>
+0037 <span class="comment">%   passed to endfcn as an argument.</span>
+0038 <span class="comment">%</span>
+0039 <span class="comment">%   &gt;&gt; draggable(h,'off')</span>
+0040 <span class="comment">%</span>
+0041 <span class="comment">%   returns object h to its original, non-draggable state.</span>
+0042 <span class="comment">%</span>
+0043 <span class="comment">%   CONSTRAINTS</span>
+0044 <span class="comment">%</span>
+0045 <span class="comment">%   The argument &quot;constraint&quot; may be one of the following strings:</span>
+0046 <span class="comment">%</span>
+0047 <span class="comment">%       'n' or 'none':          The object is unconstrained (default).</span>
+0048 <span class="comment">%       'h' or 'horizontal':    The object can only be moved horizontally.</span>
+0049 <span class="comment">%       'v' or 'vertical':      The object can only be moved vertically.</span>
+0050 <span class="comment">%       'd' or 'diagonal':      The object can only be moved along an</span>
+0051 <span class="comment">%                               arbitrary line of a given slope.</span>
+0052 <span class="comment">%</span>
+0053 <span class="comment">%   The argument &quot;p&quot; is an optional parameter which depends upon the</span>
+0054 <span class="comment">%   constraint type:</span>
+0055 <span class="comment">%</span>
+0056 <span class="comment">%   Constraint      p                   Description</span>
+0057 <span class="comment">%   -----------------------------------------------------------------------</span>
+0058 <span class="comment">%</span>
+0059 <span class="comment">%   'none'          [x1 x2 y1 y2]       Drag range (for the object's outer</span>
+0060 <span class="comment">%                                       limits, from x1 to x2 on the x-axis</span>
+0061 <span class="comment">%                                       and from y1 to y2 on the y-axis).</span>
+0062 <span class="comment">%                                       Default is the current axes range.</span>
+0063 <span class="comment">%                                       Use &quot;inf&quot; if no limit is desired.</span>
+0064 <span class="comment">%</span>
+0065 <span class="comment">%   'horizontal'    [xmin xmax]         Drag range (for the object's outer</span>
+0066 <span class="comment">%                                       limits). Default is the x-axis</span>
+0067 <span class="comment">%                                       range. Use &quot;inf&quot; if no limit is</span>
+0068 <span class="comment">%                                       desired. Note that full limits of</span>
+0069 <span class="comment">%                                       the form [x1 x2 y1 y2] can also be</span>
+0070 <span class="comment">%                                       used.</span>
+0071 <span class="comment">%</span>
+0072 <span class="comment">%   'vertical'      [ymin ymax]         Drag range (for the object's outer</span>
+0073 <span class="comment">%                                       limits). Default is the y-axis</span>
+0074 <span class="comment">%                                       range. Use &quot;inf&quot; if no limit is</span>
+0075 <span class="comment">%                                       desired. Note that full limits of</span>
+0076 <span class="comment">%                                       the form [x1 x2 y1 y2] can also be</span>
+0077 <span class="comment">%                                       used.</span>
+0078 <span class="comment">%</span>
+0079 <span class="comment">%   'diagonal'      [m x1 x2 y1 y2]     Slope m of the line along which the</span>
+0080 <span class="comment">%                                       movement is constrained (default is</span>
+0081 <span class="comment">%                                       1); x1 x2 y1 y2 as in 'none'.</span>
+0082 <span class="comment">%</span>
+0083 <span class="comment">%   -----------------------------------------------------------------------</span>
+0084 <span class="comment">%</span>
+0085 
+0086 
+0087 
+0088 <span class="comment">% VERSION INFORMATION:</span>
+0089 <span class="comment">% 2003-11-20:   Initially submitted to MatlabCentral.Com</span>
+0090 <span class="comment">% 2004-01-06:   Addition of the renderer option, as proposed by Ohad Gal</span>
+0091 <span class="comment">%               as a feedback on MatlabCentral.Com.</span>
+0092 <span class="comment">% 2004-02-18:   Bugfix: now works with 1-element plots and line objects</span>
+0093 <span class="comment">% 2004-03-04:   Bugfix: sanitized the way the object's new position is</span>
+0094 <span class="comment">%               computed; it now always follow the mouse even after the</span>
+0095 <span class="comment">%               mouse pointer was out of the axes.</span>
+0096 <span class="comment">% 2004-03-05:   Bugfix: movement when mouse is out of the axes is now</span>
+0097 <span class="comment">%               definitely correct ;)</span>
+0098 <span class="comment">% 2006-05-23:   Bugfix: fix a rendering issue using Matlab 7 &amp; +</span>
+0099 <span class="comment">%               Deprecated the rendering options: rendering seems ok with</span>
+0100 <span class="comment">%               every renderer.</span>
+0101 <span class="comment">% 2010-01-11:   Bugfix by Gilles Fortin (odd jumping on limits caused by</span>
+0102 <span class="comment">%               round-off error due to successive addition then subtraction</span>
+0103 <span class="comment">%               of the same value)</span>
+0104 <span class="comment">% 2010-02-26:   endfcn code by Steven Bierer included.</span>
+0105 <span class="comment">%               Some suggested M-Lint fixes performed.</span>
+0106 <span class="comment">% 2012-01-18:   - Refactoring</span>
+0107 <span class="comment">%               - Limits of the form [x1 x2 y1 y2] can be used for 'h' and</span>
+0108 <span class="comment">%                 'v' constraint types;</span>
+0109 <span class="comment">%               - Support for text objects;</span>
+0110 <span class="comment">%               - Added diagonal constraint type</span>
+0111 <span class="comment">% 2012-01-20:   - Tested</span>
+0112 <span class="comment">%               - Added support for h as a vector of handles</span>
+0113 <span class="comment">%               - 'sliders' demo added in dragdemo</span>
+0114 <span class="comment">% 2013-01-10:   Bugfix: finding the figure's handle through gcbf in order</span>
+0115 <span class="comment">%               to fix a bug when axes are embedded into a Panel.</span>
+0116 <span class="comment">%               (Bug found by Esmerald Aliai)</span>
+0117 
+0118 
+0119 <span class="comment">% IMPLEMENTATION NOTES:</span>
+0120 <span class="comment">%</span>
+0121 <span class="comment">% This function uses the dragged object's &quot;ButtonDownFcn&quot; function and set</span>
+0122 <span class="comment">% it so that the objec becomes draggable. Any previous &quot;ButtonDownFcn&quot; is</span>
+0123 <span class="comment">% thus lost during operation, but is retrieved after issuing the</span>
+0124 <span class="comment">% draggable(h,'off') command.</span>
+0125 <span class="comment">%</span>
+0126 <span class="comment">% Information about the object's behavior is also stored in the object's</span>
+0127 <span class="comment">% 'UserData' property, using setappdata() and getappdata(). The original</span>
+0128 <span class="comment">% 'UserData' property is restored after issuing the draggable(h,'off')</span>
+0129 <span class="comment">% command.</span>
+0130 <span class="comment">%</span>
+0131 <span class="comment">% The corresponding figure's &quot;WindowButtonDownFcn&quot;, &quot;WindowButtonUpFcn&quot; and</span>
+0132 <span class="comment">% &quot;WindowButtonMotionFcn&quot; functions.  During operation, those functions are</span>
+0133 <span class="comment">% set by DRAGGABLE; however, the original ones are restored after the user</span>
+0134 <span class="comment">% stops dragging the object.</span>
+0135 <span class="comment">%</span>
+0136 <span class="comment">% By default, DRAGGABLE also switches the figure's renderer to 'zbuffer'</span>
+0137 <span class="comment">% during operation: 'painters' is not fast enough and 'opengl' sometimes</span>
+0138 <span class="comment">% produce curious results. However there may be a need to switch to another</span>
+0139 <span class="comment">% renderer, so the user can now specify a specific figure renderer during</span>
+0140 <span class="comment">% object drag (thanks to Ohad Gal for the suggestion).</span>
+0141 <span class="comment">%</span>
+0142 <span class="comment">% The &quot;motionfcn&quot; function handle is called at each displacement, after the</span>
+0143 <span class="comment">% object's position is updated, using &quot;feval(motionfcn,h)&quot;, where h is the</span>
+0144 <span class="comment">% object's handle.</span>
+0145 
+0146 <span class="comment">% =========================================================================</span>
+0147 <span class="comment">% Copyright (C) 2003-2012</span>
+0148 <span class="comment">% Francois Bouffard</span>
+0149 <span class="comment">% fbouffard@gmail.com</span>
+0150 <span class="comment">% =========================================================================</span>
+0151 
+0152 <span class="comment">% =========================================================================</span>
+0153 <span class="comment">% Input arguments management</span>
+0154 <span class="comment">% =========================================================================</span>
+0155 
+0156 <span class="comment">% If h is a vector of handle, applying draggable on each object and</span>
+0157 <span class="comment">% returning.</span>
+0158 <span class="keyword">if</span> length(h) &gt; 1
+0159     <span class="keyword">for</span> k = 1:length(h)
+0160         <a href="draggable.html" class="code" title="function draggable(h,varargin)">draggable</a>(h(k),varargin{:});
+0161     <span class="keyword">end</span>
+0162     <span class="keyword">return</span>
+0163 <span class="keyword">end</span>
+0164 
+0165 <span class="comment">% Initialization of some default arguments</span>
+0166 user_renderer = <span class="string">'zbuffer'</span>;
+0167 user_movefcn = [];
+0168 constraint = <span class="string">'none'</span>;
+0169 p = [];
+0170 user_endfcn = [];       <span class="comment">% added by SMB (see 'for k' loop below)</span>
+0171 endinput = 0;
+0172 
+0173 <span class="comment">% At least the handle to the object must be given</span>
+0174 Narg = nargin;
+0175 <span class="keyword">if</span> Narg == 0
+0176     error(<span class="string">'Not engough input arguments'</span>);
+0177 <span class="keyword">elseif</span> numel(h)&gt;1
+0178     error(<span class="string">'Only one object at a time can be made draggable'</span>);
+0179 <span class="keyword">end</span>;
+0180 
+0181 <span class="comment">% Fetching informations about the parent axes</span>
+0182 axh = get(h,<span class="string">'Parent'</span>);
+0183 <span class="keyword">if</span> iscell(axh)
+0184     axh = axh{1};
+0185 <span class="keyword">end</span>;
+0186 <span class="comment">%fgh = get(axh,'Parent'); % This fails if the axes are embedded in a Panel</span>
+0187 fgh = gcbf; <span class="comment">% This should always work</span>
+0188 ax_xlim = get(axh,<span class="string">'XLim'</span>);
+0189 ax_ylim = get(axh,<span class="string">'YLim'</span>);
+0190 
+0191 <span class="comment">% Assigning optional arguments</span>
+0192 Noptarg = Narg - 1;
+0193 <span class="keyword">for</span> k = 1:Noptarg
+0194    current_arg = varargin{k};
+0195    <span class="keyword">if</span> isa(current_arg,<span class="string">'function_handle'</span>) &amp;&amp; endinput
+0196        user_endfcn = current_arg; <span class="comment">% added by SMB</span>
+0197        endinput = 0;              <span class="comment">% 'movefcn' can still be a later argument</span>
+0198    <span class="keyword">elseif</span> isa(current_arg,<span class="string">'function_handle'</span>)
+0199        user_movefcn = current_arg;
+0200    <span class="keyword">end</span>;
+0201    <span class="keyword">if</span> ischar(current_arg);
+0202        <span class="keyword">switch</span> lower(current_arg)
+0203            <span class="keyword">case</span> {<span class="string">'off'</span>}
+0204                <a href="#_sub4" class="code" title="subfunction set_initial_state(h)">set_initial_state</a>(h);
+0205                <span class="keyword">return</span>;
+0206            <span class="keyword">case</span> {<span class="string">'painters'</span>,<span class="string">'zbuffer'</span>,<span class="string">'opengl'</span>}
+0207                warning(<span class="string">'DRAGGABLE:DEPRECATED_OPTION'</span>, <span class="keyword">...</span>
+0208                        <span class="string">'The renderer option is deprecated and will not be taken into account'</span>);
+0209                user_renderer = current_arg;
+0210            <span class="keyword">case</span> {<span class="string">'endfcn'</span>} <span class="comment">% added by SMB</span>
+0211                endinput = 1;
+0212            <span class="keyword">otherwise</span>
+0213                constraint = current_arg;
+0214        <span class="keyword">end</span>;
+0215    <span class="keyword">end</span>;
+0216    <span class="keyword">if</span> isnumeric(current_arg);
+0217        p = current_arg;
+0218    <span class="keyword">end</span>;
+0219 <span class="keyword">end</span>;
+0220 
+0221 <span class="comment">% Assigning defaults for constraint parameter</span>
+0222 <span class="keyword">switch</span> lower(constraint)
+0223     <span class="keyword">case</span> {<span class="string">'n'</span>,<span class="string">'none'</span>}
+0224         constraint = <span class="string">'n'</span>;
+0225         <span class="keyword">if</span> isempty(p); p = [ax_xlim ax_ylim]; <span class="keyword">end</span>;
+0226     <span class="keyword">case</span> {<span class="string">'h'</span>,<span class="string">'horizontal'</span>}
+0227         constraint = <span class="string">'h'</span>;
+0228         <span class="keyword">if</span> isempty(p) 
+0229             p = ax_xlim;
+0230         <span class="keyword">elseif</span> length(p) == 4
+0231             p = p(1:2);
+0232         <span class="keyword">end</span>
+0233     <span class="keyword">case</span> {<span class="string">'v'</span>,<span class="string">'vertical'</span>}
+0234         constraint = <span class="string">'v'</span>;
+0235         <span class="keyword">if</span> isempty(p)
+0236             p = ax_ylim; 
+0237         <span class="keyword">elseif</span> length(p) == 4
+0238             p = p(3:4);
+0239         <span class="keyword">end</span>
+0240     <span class="keyword">case</span> {<span class="string">'d'</span>,<span class="string">'diagonal'</span>,<span class="string">'l'</span>,<span class="string">'locked'</span>}
+0241         constraint = <span class="string">'d'</span>;
+0242         <span class="keyword">if</span> isempty(p)
+0243             p = [1 ax_xlim ax_ylim]; 
+0244         <span class="keyword">elseif</span> length(p) == 1
+0245             p = [p ax_xlim ax_ylim];
+0246         <span class="keyword">end</span>;
+0247     <span class="keyword">otherwise</span>
+0248         error(<span class="string">'Unknown constraint type'</span>);
+0249 <span class="keyword">end</span>;
+0250 
+0251 <span class="comment">% =========================================================================</span>
+0252 <span class="comment">% Saving initial state and parameters, setting up the object callback</span>
+0253 <span class="comment">% =========================================================================</span>
+0254 
+0255 <span class="comment">% Saving object's and parent figure's initial state</span>
+0256 setappdata(h,<span class="string">'initial_userdata'</span>,get(h,<span class="string">'UserData'</span>));
+0257 setappdata(h,<span class="string">'initial_objbdfcn'</span>,get(h,<span class="string">'ButtonDownFcn'</span>));
+0258 setappdata(h,<span class="string">'initial_renderer'</span>,get(fgh,<span class="string">'Renderer'</span>));
+0259 setappdata(h,<span class="string">'initial_wbdfcn'</span>,get(fgh,<span class="string">'WindowButtonDownFcn'</span>));
+0260 setappdata(h,<span class="string">'initial_wbufcn'</span>,get(fgh,<span class="string">'WindowButtonUpFcn'</span>));
+0261 setappdata(h,<span class="string">'initial_wbmfcn'</span>,get(fgh,<span class="string">'WindowButtonMotionFcn'</span>));
+0262 
+0263 <span class="comment">% Saving parameters</span>
+0264 setappdata(h,<span class="string">'constraint_type'</span>,constraint);
+0265 setappdata(h,<span class="string">'constraint_parameters'</span>,p);
+0266 setappdata(h,<span class="string">'user_movefcn'</span>,user_movefcn);
+0267 setappdata(h,<span class="string">'user_endfcn'</span>,user_endfcn);        <span class="comment">% added by SMB</span>
+0268 setappdata(h,<span class="string">'user_renderer'</span>,user_renderer);
+0269 
+0270 <span class="comment">% Setting the object's ButtonDownFcn</span>
+0271 set(h,<span class="string">'ButtonDownFcn'</span>,@<a href="#_sub1" class="code" title="subfunction click_object(obj,eventdata)">click_object</a>);
+0272 
+0273 <span class="comment">% =========================================================================</span>
+0274 <span class="comment">% FUNCTION click_object</span>
+0275 <span class="comment">%   Executed when the object is clicked</span>
+0276 <span class="comment">% =========================================================================</span>
+0277 
+0278 <a name="_sub1" href="#_subfunctions" class="code">function click_object(obj,eventdata)</a>
+0279 <span class="comment">% obj here is the object to be dragged and gcf is the object's parent</span>
+0280 <span class="comment">% figure since the user clicked on the object</span>
+0281 setappdata(obj,<span class="string">'initial_position'</span>,<a href="#_sub6" class="code" title="subfunction pos = get_position(obj)">get_position</a>(obj));
+0282 setappdata(obj,<span class="string">'initial_extent'</span>,<a href="#_sub9" class="code" title="subfunction extent = compute_extent(obj)">compute_extent</a>(obj));
+0283 setappdata(obj,<span class="string">'initial_point'</span>,get(gca,<span class="string">'CurrentPoint'</span>));
+0284 set(gcf,<span class="string">'WindowButtonDownFcn'</span>,{@<a href="#_sub2" class="code" title="subfunction activate_movefcn(obj,eventdata,h)">activate_movefcn</a>,obj});
+0285 set(gcf,<span class="string">'WindowButtonUpFcn'</span>,{@<a href="#_sub3" class="code" title="subfunction deactivate_movefcn(obj,eventdata,h)">deactivate_movefcn</a>,obj});
+0286 <a href="#_sub2" class="code" title="subfunction activate_movefcn(obj,eventdata,h)">activate_movefcn</a>(gcf,eventdata,obj);
+0287 
+0288 <span class="comment">% =========================================================================</span>
+0289 <span class="comment">% FUNCTION activate_movefcn</span>
+0290 <span class="comment">%   Activates the WindowButtonMotionFcn for the figure</span>
+0291 <span class="comment">% =========================================================================</span>
+0292 
+0293 <a name="_sub2" href="#_subfunctions" class="code">function activate_movefcn(obj,eventdata,h)</a>
+0294 <span class="comment">% We were once setting up renderers here. Now we only set the movefcn</span>
+0295 set(obj,<span class="string">'WindowButtonMotionFcn'</span>,{@<a href="#_sub5" class="code" title="subfunction movefcn(obj,eventdata,h)">movefcn</a>,h});
+0296 
+0297 <span class="comment">% =========================================================================</span>
+0298 <span class="comment">% FUNCTION deactivate_movefcn</span>
+0299 <span class="comment">%   Deactivates the WindowButtonMotionFcn for the figure</span>
+0300 <span class="comment">% =========================================================================</span>
+0301 
+0302 <a name="_sub3" href="#_subfunctions" class="code">function deactivate_movefcn(obj,eventdata,h)</a>
+0303 <span class="comment">% obj here is the figure containing the object</span>
+0304 <span class="comment">% Setting the original MotionFcn, DuttonDownFcn and ButtonUpFcn back</span>
+0305 set(obj,<span class="string">'WindowButtonMotionFcn'</span>,getappdata(h,<span class="string">'initial_wbmfcn'</span>));
+0306 set(obj,<span class="string">'WindowButtonDownFcn'</span>,getappdata(h,<span class="string">'initial_wbdfcn'</span>));
+0307 set(obj,<span class="string">'WindowButtonUpFcn'</span>,getappdata(h,<span class="string">'initial_wbufcn'</span>));
+0308 <span class="comment">% Executing the user's drag end function</span>
+0309 user_endfcn = getappdata(h,<span class="string">'user_endfcn'</span>);
+0310 <span class="keyword">if</span> ~isempty(user_endfcn)
+0311     feval(user_endfcn,h);           <span class="comment">% added by SMB, modified by FB</span>
+0312 <span class="keyword">end</span>
+0313 
+0314 <span class="comment">% =========================================================================</span>
+0315 <span class="comment">% FUNCTION set_initial_state</span>
+0316 <span class="comment">%   Returns the object to its initial state</span>
+0317 <span class="comment">% =========================================================================</span>
+0318 
+0319 <a name="_sub4" href="#_subfunctions" class="code">function set_initial_state(h)</a>
+0320 initial_objbdfcn = getappdata(h,<span class="string">'initial_objbdfcn'</span>);
+0321 initial_userdata = getappdata(h,<span class="string">'initial_userdata'</span>);
+0322 set(h,<span class="string">'ButtonDownFcn'</span>,initial_objbdfcn);
+0323 set(h,<span class="string">'UserData'</span>,initial_userdata);
+0324 
+0325 <span class="comment">% =========================================================================</span>
+0326 <span class="comment">% FUNCTION movefcn</span>
+0327 <span class="comment">%   Actual code for dragging the object</span>
+0328 <span class="comment">% =========================================================================</span>
+0329 
+0330 <a name="_sub5" href="#_subfunctions" class="code">function movefcn(obj,eventdata,h)</a>
+0331 <span class="comment">% obj here is the *figure* containing the object</span>
+0332 
+0333 <span class="comment">% Retrieving data saved in the figure</span>
+0334 <span class="comment">% Reminder: &quot;position&quot; refers to the object position in the axes</span>
+0335 <span class="comment">%           &quot;point&quot; refers to the location of the mouse pointer</span>
+0336 initial_point = getappdata(h,<span class="string">'initial_point'</span>);
+0337 constraint = getappdata(h,<span class="string">'constraint_type'</span>);
+0338 p = getappdata(h,<span class="string">'constraint_parameters'</span>);
+0339 user_movefcn = getappdata(h,<span class="string">'user_movefcn'</span>);
+0340 
+0341 <span class="comment">% Getting current mouse position</span>
+0342 current_point = get(gca,<span class="string">'CurrentPoint'</span>);
+0343 
+0344 <span class="comment">% Computing mouse movement (dpt is [dx dy])</span>
+0345 cpt = current_point(1,1:2);
+0346 ipt = initial_point(1,1:2);
+0347 dpt = cpt - ipt;
+0348 
+0349 <span class="comment">% Dealing with the pathetic cases of zero or infinite slopes</span>
+0350 <span class="keyword">if</span> strcmpi(constraint,<span class="string">'d'</span>)
+0351     <span class="keyword">if</span> p(1) == 0
+0352         constraint = <span class="string">'h'</span>;
+0353         p = p(2:end);
+0354     <span class="keyword">elseif</span> isinf(p(1))
+0355         constraint = <span class="string">'v'</span>;
+0356         p = p(2:end);
+0357     <span class="keyword">end</span>
+0358 <span class="keyword">end</span>
+0359 
+0360 <span class="comment">% Computing movement range and imposing movement constraints</span>
+0361 <span class="comment">% (p is always [xmin xmax ymin ymax])</span>
+0362 <span class="keyword">switch</span> lower(constraint)
+0363     <span class="keyword">case</span> <span class="string">'n'</span>
+0364         range = p;
+0365     <span class="keyword">case</span> <span class="string">'h'</span>
+0366         dpt(2) = 0;
+0367         range = [p -inf inf];
+0368     <span class="keyword">case</span> <span class="string">'v'</span>
+0369         dpt(1) = 0;
+0370         range = [-inf inf p];
+0371     <span class="keyword">case</span> <span class="string">'d'</span>
+0372         <span class="comment">% Multiple options here as to how we use dpt to move the object</span>
+0373         <span class="comment">% along a diagonal.</span>
+0374         <span class="comment">% We could use the largest of abs(dpt) for judging movement, but</span>
+0375         <span class="comment">% this causes weird behavior in some cases. E.g. when the slope</span>
+0376         <span class="comment">% is gentle (&lt;1) and dy is the largest, the object will move</span>
+0377         <span class="comment">% rapidly far away from the mouse pointer.</span>
+0378         <span class="comment">% Another option (see below) is to follow dx when the</span>
+0379         <span class="comment">% slope is &lt;1 and dy when the slope is &gt;= 1.</span>
+0380  
+0381         <span class="comment">%if abs(p(1)) &gt;=1</span>
+0382         <span class="comment">%    dpt = [dpt(2)/p(1) dpt(2)];</span>
+0383         <span class="comment">%else</span>
+0384         <span class="comment">%    dpt = [dpt(1) p(1)*dpt(1)];</span>
+0385         <span class="comment">%end</span>
+0386         
+0387         <span class="comment">% Projecting dpt along the diagonal seems to work really well.</span>
+0388         v = [1; p(1)];
+0389         Pv = v*v'/(v'*v);
+0390         dpt = dpt*Pv;
+0391         
+0392         range = p(2:5);
+0393 <span class="keyword">end</span>
+0394 
+0395 <span class="comment">% Computing new position.</span>
+0396 <span class="comment">% What we want is actually a bit complex: we want the object to adopt the</span>
+0397 <span class="comment">% new position, unless it gets out of range. If it gets out of range in a</span>
+0398 <span class="comment">% direction, we want it to stick to the limit in that direction. Also, if</span>
+0399 <span class="comment">% the object is out of range at the beginning of the movement, we want to</span>
+0400 <span class="comment">% be able to move it back into range; movement must then be allowed.</span>
+0401 
+0402 <span class="comment">% For debugging purposes only; setting debug to 1 shows range, extents,</span>
+0403 <span class="comment">% dpt, corrected dpt and in-range status of the object in the command</span>
+0404 <span class="comment">% window. Note: this will clear the command window.</span>
+0405 debug = 0;
+0406 idpt = dpt;
+0407 
+0408 <span class="comment">% Computing object extent in the [x y w h] format before and after moving</span>
+0409 initial_extent = getappdata(h,<span class="string">'initial_extent'</span>);
+0410 new_extent = initial_extent + [dpt 0 0];
+0411 
+0412 <span class="comment">% Verifying if old and new objects breach the allowed range in any</span>
+0413 <span class="comment">% direction (see the function is_inside_range below)</span>
+0414 initial_inrange = <a href="#_sub10" class="code" title="subfunction inrange = is_inside_range(extent,range)">is_inside_range</a>(initial_extent,range);
+0415 new_inrange = <a href="#_sub10" class="code" title="subfunction inrange = is_inside_range(extent,range)">is_inside_range</a>(new_extent,range);
+0416 
+0417 <span class="comment">% Modifying dpt to stick to range limit if range violation occured,</span>
+0418 <span class="comment">% but the movement won't get restricted if the object was out of</span>
+0419 <span class="comment">% range to begin with.</span>
+0420 <span class="comment">%</span>
+0421 <span class="comment">% We use if/ends and no elseif's because once an object hits a range limit,</span>
+0422 <span class="comment">% it is still free to move along the other axis, and another range limit</span>
+0423 <span class="comment">% could be hit aftwards. That is, except for diagonal constraints, in</span>
+0424 <span class="comment">% which a first limit hit must completely lock the object until the mouse</span>
+0425 <span class="comment">% is inside the range.</span>
+0426 
+0427 <span class="comment">% In-line correction functions to dpt due to range violations</span>
+0428 xminc = @(dpt) [range(1) - initial_extent(1) dpt(2)];
+0429 xmaxc = @(dpt) [range(2) - (initial_extent(1) + initial_extent(3)) dpt(2)];
+0430 yminc = @(dpt) [dpt(1) range(3) - initial_extent(2)];
+0431 ymaxc = @(dpt) [dpt(1) range(4) - (initial_extent(2) + initial_extent(4))];
+0432 
+0433 <span class="comment">% We build a list of corrections to apply</span>
+0434 corrections = {};
+0435 <span class="keyword">if</span> initial_inrange(1) &amp;&amp; ~new_inrange(1)
+0436     <span class="comment">% was within, now out of xmin range -- add xminc</span>
+0437     corrections = [corrections {xminc}];
+0438 <span class="keyword">end</span>
+0439 <span class="keyword">if</span> initial_inrange(2) &amp;&amp; ~new_inrange(2)
+0440     <span class="comment">% was within, now out of xmax range -- add xmaxc</span>
+0441     corrections = [corrections {xmaxc}];
+0442 <span class="keyword">end</span>
+0443 <span class="keyword">if</span> initial_inrange(3) &amp;&amp; ~new_inrange(3)
+0444     <span class="comment">% was within, now out of ymin range -- add yminc</span>
+0445     corrections = [corrections {yminc}];
+0446 <span class="keyword">end</span>
+0447 <span class="keyword">if</span> initial_inrange(4) &amp;&amp; ~new_inrange(4)
+0448     <span class="comment">% was within, now out of ymax range -- add ymaxc</span>
+0449     corrections = [corrections {ymaxc}];
+0450 <span class="keyword">end</span>
+0451 
+0452 <span class="comment">% Applying all corrections, except for objects following a diagonal</span>
+0453 <span class="comment">% constraint, which must stop at the first one</span>
+0454 <span class="keyword">if</span> ~isempty(corrections)
+0455     <span class="keyword">if</span> strcmpi(constraint,<span class="string">'d'</span>)
+0456         c = corrections{1};
+0457         dpt = c(dpt);
+0458         <span class="comment">% Forcing the object to remain on the diagonal constraint</span>
+0459         <span class="keyword">if</span> isequal(c,xminc) || isequal(c,xmaxc) <span class="comment">% horizontal correction</span>
+0460             dpt(2) = p(1)*dpt(1);
+0461         <span class="keyword">elseif</span> isequal(c,yminc) || isequal(c,ymaxc) <span class="comment">% vertical correction</span>
+0462             dpt(1) = dpt(2)/p(1);
+0463         <span class="keyword">end</span>
+0464     <span class="keyword">else</span>
+0465         <span class="comment">% Just applying all corrections</span>
+0466         <span class="keyword">for</span> c = corrections
+0467             dpt = c{1}(dpt);
+0468         <span class="keyword">end</span>
+0469     <span class="keyword">end</span>
+0470 <span class="keyword">end</span>
+0471 
+0472 <span class="comment">% Debug messages</span>
+0473 <span class="keyword">if</span> debug
+0474     <span class="keyword">if</span> all(new_inrange)
+0475         status = <span class="string">'OK'</span>;
+0476     <span class="keyword">else</span>
+0477         status = <span class="string">'RANGE VIOLATION'</span>;
+0478     <span class="keyword">end</span>
+0479     clc
+0480     disp(sprintf(<span class="string">'          range: %0.3f %0.3f %0.3f %0.3f'</span>, range));
+0481     disp(sprintf(<span class="string">' initial extent: %0.3f %0.3f %0.3f %0.3f'</span>, initial_extent))
+0482     disp(sprintf(<span class="string">'     new extent: %0.3f %0.3f %0.3f %0.3f'</span>, new_extent))
+0483     disp(sprintf(<span class="string">'initial inrange: %d %d %d %d'</span>, initial_inrange))
+0484     disp(sprintf(<span class="string">'    new inrange: %d %d %d %d [%s]'</span>, new_inrange, status))
+0485     disp(sprintf(<span class="string">'    initial dpt: %0.3f %0.3f'</span>, idpt))
+0486     disp(sprintf(<span class="string">'  corrected dpt: %0.3f %0.3f'</span>, dpt))
+0487 <span class="keyword">end</span>
+0488 
+0489 <span class="comment">% Re-computing new position with modified dpt</span>
+0490 newpos = <a href="#_sub7" class="code" title="subfunction newpos = update_position(pos,dpt)">update_position</a>(getappdata(h,<span class="string">'initial_position'</span>),dpt);
+0491 
+0492 <span class="comment">% Setting the new position which actually moves the object</span>
+0493 <a href="#_sub8" class="code" title="subfunction set_position(obj,pos)">set_position</a>(h,newpos);
+0494 
+0495 <span class="comment">% Calling user-provided function handle</span>
+0496 <span class="keyword">if</span> ~isempty(user_movefcn)
+0497     feval(user_movefcn,h);
+0498 <span class="keyword">end</span>;
+0499 
+0500 <span class="comment">% =========================================================================</span>
+0501 <span class="comment">% FUNCTION get_position</span>
+0502 <span class="comment">%   Return an object's position: [x y [z / w h]] or [xdata; ydata]</span>
+0503 <span class="comment">% =========================================================================</span>
+0504 <a name="_sub6" href="#_subfunctions" class="code">function pos = get_position(obj)</a>
+0505 props = get(obj);
+0506 <span class="keyword">if</span> isfield(props,<span class="string">'Position'</span>)
+0507     pos = props.Position;
+0508 <span class="keyword">elseif</span> isfield(props,<span class="string">'XData'</span>)
+0509     pos = [props.XData(:)'; props.YData(:)'];
+0510 <span class="keyword">else</span>
+0511     error(<span class="string">'Unable to find position'</span>);
+0512 <span class="keyword">end</span>
+0513 
+0514 <span class="comment">% =========================================================================</span>
+0515 <span class="comment">% FUNCTION update_position</span>
+0516 <span class="comment">%   Adds dpt to a position specification as returned by get_position</span>
+0517 <span class="comment">% =========================================================================</span>
+0518 <a name="_sub7" href="#_subfunctions" class="code">function newpos = update_position(pos,dpt)</a>
+0519 newpos = pos;
+0520 <span class="keyword">if</span> size(pos,1) == 1 <span class="comment">% [x y [z / w h]]</span>
+0521     newpos(1:2) = newpos(1:2) + dpt;
+0522 <span class="keyword">else</span>                <span class="comment">% [xdata; ydata]</span>
+0523     newpos(1,:) = newpos(1,:) + dpt(1);
+0524     newpos(2,:) = newpos(2,:) + dpt(2);
+0525 <span class="keyword">end</span>
+0526 
+0527 <span class="comment">% =========================================================================</span>
+0528 <span class="comment">% FUNCTION set_position</span>
+0529 <span class="comment">%   Sets the position of an object obj using get_position's format</span>
+0530 <span class="comment">% =========================================================================</span>
+0531 <a name="_sub8" href="#_subfunctions" class="code">function set_position(obj,pos)</a>
+0532 <span class="keyword">if</span> size(pos,1) == 1 <span class="comment">% 'Position' property</span>
+0533     set(obj,<span class="string">'Position'</span>,pos);
+0534 <span class="keyword">else</span>                <span class="comment">% 'XData/YData' properties</span>
+0535     set(obj,<span class="string">'XData'</span>,pos(1,:),<span class="string">'YData'</span>,pos(2,:));
+0536 <span class="keyword">end</span>
+0537 
+0538 <span class="comment">% =========================================================================</span>
+0539 <span class="comment">% FUNCTION compute_extent</span>
+0540 <span class="comment">%   Computes an object's extent for different object types;</span>
+0541 <span class="comment">%   extent is [x y w h]</span>
+0542 <span class="comment">% =========================================================================</span>
+0543 
+0544 <a name="_sub9" href="#_subfunctions" class="code">function extent = compute_extent(obj)</a>
+0545 props = get(obj);
+0546 <span class="keyword">if</span> isfield(props,<span class="string">'Extent'</span>)
+0547     extent = props.Extent;
+0548 <span class="keyword">elseif</span> isfield(props,<span class="string">'Position'</span>)
+0549     extent = props.Position;
+0550 <span class="keyword">elseif</span> isfield(props,<span class="string">'XData'</span>)
+0551     minx = min(props.XData);
+0552     miny = min(props.YData);
+0553     w = max(props.XData) - minx;
+0554     h = max(props.YData) - miny;
+0555     extent = [minx miny w h];
+0556 <span class="keyword">else</span>
+0557     error(<span class="string">'Unable to compute extent'</span>);
+0558 <span class="keyword">end</span>
+0559     
+0560 <span class="comment">% =========================================================================</span>
+0561 <span class="comment">% FUNCTION is_inside_range</span>
+0562 <span class="comment">%   Checks if a rectangular object is entirely inside a rectangular range</span>
+0563 <span class="comment">% =========================================================================</span>
+0564 
+0565 <a name="_sub10" href="#_subfunctions" class="code">function inrange = is_inside_range(extent,range)</a>
+0566 <span class="comment">% extent is in the [x y w h] format</span>
+0567 <span class="comment">% range is in the [xmin xmax ymin ymax] format</span>
+0568 <span class="comment">% inrange is a 4x1 vector of boolean values corresponding to range limits</span>
+0569 inrange = [extent(1) &gt;= range(1) <span class="keyword">...</span>
+0570            extent(1) + extent(3) &lt;= range(2) <span class="keyword">...</span>
+0571            extent(2) &gt;= range(3) <span class="keyword">...</span>
+0572            extent(2) + extent(4) &lt;= range(4)];</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

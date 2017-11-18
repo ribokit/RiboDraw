@@ -1,0 +1,553 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of loadubjson</title>
+  <meta name="keywords" content="loadubjson">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="#">external</a> &gt; <a href="#">jsonlab-1.5</a> &gt; <a href="index.html">jsonlab-1.5</a> &gt; loadubjson.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../../index.html"><img alt="<" border="0" src="../../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/external/jsonlab-1.5/jsonlab-1.5&nbsp;<img alt=">" border="0" src="../../../../right.png"></a></td></tr></table>-->
+
+<h1>loadubjson
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="box"><strong>function data = loadubjson(fname,varargin) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">
+ data=loadubjson(fname,opt)
+    or
+ data=loadubjson(fname,'param1',value1,'param2',value2,...)
+
+ parse a JSON (JavaScript Object Notation) file or string
+
+ authors:Qianqian Fang (q.fang &lt;at&gt; neu.edu)
+ created on 2013/08/01
+
+ $Id$
+
+ input:
+      fname: input file name, if fname contains &quot;{}&quot; or &quot;[]&quot;, fname
+             will be interpreted as a UBJSON string
+      opt: a struct to store parsing options, opt can be replaced by 
+           a list of ('param',value) pairs - the param string is equivallent
+           to a field in opt. opt can have the following 
+           fields (first in [.|.] is the default)
+
+           opt.SimplifyCell [0|1]: if set to 1, loadubjson will call cell2mat
+                         for each element of the JSON data, and group 
+                         arrays based on the cell2mat rules.
+           opt.IntEndian [B|L]: specify the endianness of the integer fields
+                         in the UBJSON input data. B - Big-Endian format for 
+                         integers (as required in the UBJSON specification); 
+                         L - input integer fields are in Little-Endian order.
+           opt.NameIsString [0|1]: for UBJSON Specification Draft 8 or 
+                         earlier versions (JSONLab 1.0 final or earlier), 
+                         the &quot;name&quot; tag is treated as a string. To load 
+                         these UBJSON data, you need to manually set this 
+                         flag to 1.
+
+ output:
+      dat: a cell array, where {...} blocks are converted into cell arrays,
+           and [...] are converted to arrays
+
+ examples:
+      obj=struct('string','value','array',[1 2 3]);
+      ubjdata=saveubjson('obj',obj);
+      dat=loadubjson(ubjdata)
+      dat=loadubjson(['examples' filesep 'example1.ubj'])
+      dat=loadubjson(['examples' filesep 'example1.ubj'],'SimplifyCell',1)
+
+ license:
+     BSD License, see LICENSE_BSD.txt files for details 
+
+ -- this function is part of JSONLab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>	</li><li><a href="struct2jdata.html" class="code" title="function newdata=struct2jdata(data,varargin)">struct2jdata</a>	</li><li><a href="varargin2struct.html" class="code" title="function opt=varargin2struct(varargin)">varargin2struct</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<ul style="list-style-image:url(../../../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function object = parse_object(varargin)</a></li><li><a href="#_sub2" class="code">function [cid,len]=elem_info(type)</a></li><li><a href="#_sub3" class="code">function [data, adv]=parse_block(type,count,varargin)</a></li><li><a href="#_sub4" class="code">function object = parse_array(varargin)</a></li><li><a href="#_sub5" class="code">function parse_char(c)</a></li><li><a href="#_sub6" class="code">function c = next_char</a></li><li><a href="#_sub7" class="code">function skip_whitespace</a></li><li><a href="#_sub8" class="code">function str = parse_name(varargin)</a></li><li><a href="#_sub9" class="code">function str = parseStr(varargin)</a></li><li><a href="#_sub10" class="code">function num = parse_number(varargin)</a></li><li><a href="#_sub11" class="code">function val = parse_value(varargin)</a></li><li><a href="#_sub12" class="code">function error_pos(msg)</a></li><li><a href="#_sub13" class="code">function str = valid_field(str)</a></li><li><a href="#_sub14" class="code">function endpos = matching_quote(str,pos)</a></li><li><a href="#_sub15" class="code">function [endpos, e1l, e1r, maxlevel] = matching_bracket(str,pos)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function data = loadubjson(fname,varargin)</a>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% data=loadubjson(fname,opt)</span>
+0004 <span class="comment">%    or</span>
+0005 <span class="comment">% data=loadubjson(fname,'param1',value1,'param2',value2,...)</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% parse a JSON (JavaScript Object Notation) file or string</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% authors:Qianqian Fang (q.fang &lt;at&gt; neu.edu)</span>
+0010 <span class="comment">% created on 2013/08/01</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% $Id$</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% input:</span>
+0015 <span class="comment">%      fname: input file name, if fname contains &quot;{}&quot; or &quot;[]&quot;, fname</span>
+0016 <span class="comment">%             will be interpreted as a UBJSON string</span>
+0017 <span class="comment">%      opt: a struct to store parsing options, opt can be replaced by</span>
+0018 <span class="comment">%           a list of ('param',value) pairs - the param string is equivallent</span>
+0019 <span class="comment">%           to a field in opt. opt can have the following</span>
+0020 <span class="comment">%           fields (first in [.|.] is the default)</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">%           opt.SimplifyCell [0|1]: if set to 1, loadubjson will call cell2mat</span>
+0023 <span class="comment">%                         for each element of the JSON data, and group</span>
+0024 <span class="comment">%                         arrays based on the cell2mat rules.</span>
+0025 <span class="comment">%           opt.IntEndian [B|L]: specify the endianness of the integer fields</span>
+0026 <span class="comment">%                         in the UBJSON input data. B - Big-Endian format for</span>
+0027 <span class="comment">%                         integers (as required in the UBJSON specification);</span>
+0028 <span class="comment">%                         L - input integer fields are in Little-Endian order.</span>
+0029 <span class="comment">%           opt.NameIsString [0|1]: for UBJSON Specification Draft 8 or</span>
+0030 <span class="comment">%                         earlier versions (JSONLab 1.0 final or earlier),</span>
+0031 <span class="comment">%                         the &quot;name&quot; tag is treated as a string. To load</span>
+0032 <span class="comment">%                         these UBJSON data, you need to manually set this</span>
+0033 <span class="comment">%                         flag to 1.</span>
+0034 <span class="comment">%</span>
+0035 <span class="comment">% output:</span>
+0036 <span class="comment">%      dat: a cell array, where {...} blocks are converted into cell arrays,</span>
+0037 <span class="comment">%           and [...] are converted to arrays</span>
+0038 <span class="comment">%</span>
+0039 <span class="comment">% examples:</span>
+0040 <span class="comment">%      obj=struct('string','value','array',[1 2 3]);</span>
+0041 <span class="comment">%      ubjdata=saveubjson('obj',obj);</span>
+0042 <span class="comment">%      dat=loadubjson(ubjdata)</span>
+0043 <span class="comment">%      dat=loadubjson(['examples' filesep 'example1.ubj'])</span>
+0044 <span class="comment">%      dat=loadubjson(['examples' filesep 'example1.ubj'],'SimplifyCell',1)</span>
+0045 <span class="comment">%</span>
+0046 <span class="comment">% license:</span>
+0047 <span class="comment">%     BSD License, see LICENSE_BSD.txt files for details</span>
+0048 <span class="comment">%</span>
+0049 <span class="comment">% -- this function is part of JSONLab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)</span>
+0050 <span class="comment">%</span>
+0051 
+0052 <span class="keyword">global</span> pos inStr len  esc index_esc len_esc isoct arraytoken fileendian systemendian
+0053 
+0054 <span class="keyword">if</span>(regexp(fname,<span class="string">'[\{\}\]\[]'</span>,<span class="string">'once'</span>))
+0055    string=fname;
+0056 <span class="keyword">elseif</span>(exist(fname,<span class="string">'file'</span>))
+0057    fid = fopen(fname,<span class="string">'rb'</span>);
+0058    string = fread(fid,inf,<span class="string">'uint8=&gt;char'</span>)';
+0059    fclose(fid);
+0060 <span class="keyword">else</span>
+0061    error(<span class="string">'input file does not exist'</span>);
+0062 <span class="keyword">end</span>
+0063 
+0064 pos = 1; len = length(string); inStr = string;
+0065 isoct=exist(<span class="string">'OCTAVE_VERSION'</span>,<span class="string">'builtin'</span>);
+0066 arraytoken=find(inStr==<span class="string">'['</span> | inStr==<span class="string">']'</span> | inStr==<span class="string">'&quot;'</span>);
+0067 jstr=regexprep(inStr,<span class="string">'\\\\'</span>,<span class="string">'  '</span>);
+0068 escquote=regexp(jstr,<span class="string">'\\&quot;'</span>);
+0069 arraytoken=sort([arraytoken escquote]);
+0070 
+0071 <span class="comment">% String delimiters and escape chars identified to improve speed:</span>
+0072 esc = find(inStr==<span class="string">'&quot;'</span> | inStr==<span class="string">'\'</span> ); <span class="comment">% comparable to: regexp(inStr, '[&quot;\\]');</span>
+0073 index_esc = 1; len_esc = length(esc);
+0074 
+0075 opt=<a href="varargin2struct.html" class="code" title="function opt=varargin2struct(varargin)">varargin2struct</a>(varargin{:});
+0076 fileendian=upper(<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'IntEndian'</span>,<span class="string">'B'</span>,opt));
+0077 [os,maxelem,systemendian]=computer;
+0078 
+0079 jsoncount=1;
+0080 <span class="keyword">while</span> pos &lt;= len
+0081     <span class="keyword">switch</span>(<a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a>)
+0082         <span class="keyword">case</span> <span class="string">'{'</span>
+0083             data{jsoncount} = <a href="#_sub1" class="code" title="subfunction object = parse_object(varargin)">parse_object</a>(opt);
+0084         <span class="keyword">case</span> <span class="string">'['</span>
+0085             data{jsoncount} = <a href="#_sub4" class="code" title="subfunction object = parse_array(varargin) ">parse_array</a>(opt);
+0086         <span class="keyword">otherwise</span>
+0087             <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(<span class="string">'Outer level structure must be an object or an array'</span>);
+0088     <span class="keyword">end</span>
+0089     jsoncount=jsoncount+1;
+0090 <span class="keyword">end</span> <span class="comment">% while</span>
+0091 
+0092 jsoncount=length(data);
+0093 <span class="keyword">if</span>(jsoncount==1 &amp;&amp; iscell(data))
+0094     data=data{1};
+0095 <span class="keyword">end</span>
+0096 
+0097 <span class="comment">%%-------------------------------------------------------------------------</span>
+0098 <a name="_sub1" href="#_subfunctions" class="code">function object = parse_object(varargin)</a>
+0099     <a href="#_sub5" class="code" title="subfunction parse_char(c)">parse_char</a>(<span class="string">'{'</span>);
+0100     object = [];
+0101     type=<span class="string">''</span>;
+0102     count=-1;
+0103     <span class="keyword">if</span>(<a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a> == <span class="string">'$'</span>)
+0104         type=inStr(pos+1); <span class="comment">% TODO</span>
+0105         pos=pos+2;
+0106     <span class="keyword">end</span>
+0107     <span class="keyword">if</span>(<a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a> == <span class="string">'#'</span>)
+0108         pos=pos+1;
+0109         count=double(<a href="#_sub10" class="code" title="subfunction num = parse_number(varargin)">parse_number</a>());
+0110     <span class="keyword">end</span>
+0111     <span class="keyword">if</span> <a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a> ~= <span class="string">'}'</span>
+0112         num=0;
+0113         <span class="keyword">while</span> 1
+0114             <span class="keyword">if</span>(<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'NameIsString'</span>,0,varargin{:}))
+0115                 str = <a href="#_sub9" class="code" title="subfunction str = parseStr(varargin)">parseStr</a>(varargin{:});
+0116             <span class="keyword">else</span>
+0117                 str = <a href="#_sub8" class="code" title="subfunction str = parse_name(varargin)">parse_name</a>(varargin{:});
+0118             <span class="keyword">end</span>
+0119             <span class="keyword">if</span> isempty(str)
+0120                 <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(<span class="string">'Name of value at position %d cannot be empty'</span>);
+0121             <span class="keyword">end</span>
+0122             <span class="comment">%parse_char(':');</span>
+0123             val = <a href="#_sub11" class="code" title="subfunction val = parse_value(varargin)">parse_value</a>(varargin{:});
+0124             num=num+1;
+0125             object.(<a href="#_sub13" class="code" title="subfunction str = valid_field(str)">valid_field</a>(str))=val;
+0126             <span class="keyword">if</span> <a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a> == <span class="string">'}'</span> || (count&gt;=0 &amp;&amp; num&gt;=count)
+0127                 <span class="keyword">break</span>;
+0128             <span class="keyword">end</span>
+0129             <span class="comment">%parse_char(',');</span>
+0130         <span class="keyword">end</span>
+0131     <span class="keyword">end</span>
+0132     <span class="keyword">if</span>(count==-1)
+0133         <a href="#_sub5" class="code" title="subfunction parse_char(c)">parse_char</a>(<span class="string">'}'</span>);
+0134     <span class="keyword">end</span>
+0135     <span class="keyword">if</span>(isstruct(object))
+0136         object=<a href="struct2jdata.html" class="code" title="function newdata=struct2jdata(data,varargin)">struct2jdata</a>(object);
+0137     <span class="keyword">end</span>
+0138 
+0139 <span class="comment">%%-------------------------------------------------------------------------</span>
+0140 <a name="_sub2" href="#_subfunctions" class="code">function [cid,len]=elem_info(type)</a>
+0141 id=strfind(<span class="string">'iUIlLdD'</span>,type);
+0142 dataclass={<span class="string">'int8'</span>,<span class="string">'uint8'</span>,<span class="string">'int16'</span>,<span class="string">'int32'</span>,<span class="string">'int64'</span>,<span class="string">'single'</span>,<span class="string">'double'</span>};
+0143 bytelen=[1,1,2,4,8,4,8];
+0144 <span class="keyword">if</span>(id&gt;0)
+0145     cid=dataclass{id};
+0146     len=bytelen(id);
+0147 <span class="keyword">else</span>
+0148     <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(<span class="string">'unsupported type at position %d'</span>);
+0149 <span class="keyword">end</span>
+0150 <span class="comment">%%-------------------------------------------------------------------------</span>
+0151 
+0152 
+0153 <a name="_sub3" href="#_subfunctions" class="code">function [data, adv]=parse_block(type,count,varargin)</a>
+0154 <span class="keyword">global</span> pos inStr isoct fileendian systemendian
+0155 [cid,len]=<a href="#_sub2" class="code" title="subfunction [cid,len]=elem_info(type)">elem_info</a>(type);
+0156 datastr=inStr(pos:pos+len*count-1);
+0157 <span class="keyword">if</span>(isoct)
+0158     newdata=int8(datastr);
+0159 <span class="keyword">else</span>
+0160     newdata=uint8(datastr);
+0161 <span class="keyword">end</span>
+0162 id=strfind(<span class="string">'iUIlLdD'</span>,type);
+0163 <span class="keyword">if</span>(fileendian~=systemendian)
+0164     newdata=swapbytes(typecast(newdata,cid));
+0165 <span class="keyword">end</span>
+0166 data=typecast(newdata,cid);
+0167 adv=double(len*count);
+0168 
+0169 <span class="comment">%%-------------------------------------------------------------------------</span>
+0170 
+0171 
+0172 <a name="_sub4" href="#_subfunctions" class="code">function object = parse_array(varargin) </a><span class="comment">% JSON array is written in row-major order</span>
+0173 <span class="keyword">global</span> pos inStr
+0174     <a href="#_sub5" class="code" title="subfunction parse_char(c)">parse_char</a>(<span class="string">'['</span>);
+0175     object = cell(0, 1);
+0176     dim=[];
+0177     type=<span class="string">''</span>;
+0178     count=-1;
+0179     <span class="keyword">if</span>(<a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a> == <span class="string">'$'</span>)
+0180         type=inStr(pos+1);
+0181         pos=pos+2;
+0182     <span class="keyword">end</span>
+0183     <span class="keyword">if</span>(<a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a> == <span class="string">'#'</span>)
+0184         pos=pos+1;
+0185         <span class="keyword">if</span>(<a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a>==<span class="string">'['</span>)
+0186             dim=<a href="#_sub4" class="code" title="subfunction object = parse_array(varargin) ">parse_array</a>(varargin{:});
+0187             count=prod(double(dim));
+0188         <span class="keyword">else</span>
+0189             count=double(<a href="#_sub10" class="code" title="subfunction num = parse_number(varargin)">parse_number</a>());
+0190         <span class="keyword">end</span>
+0191     <span class="keyword">end</span>
+0192     <span class="keyword">if</span>(~isempty(type))
+0193         <span class="keyword">if</span>(count&gt;=0)
+0194             [object, adv]=<a href="#_sub3" class="code" title="subfunction [data, adv]=parse_block(type,count,varargin)">parse_block</a>(type,count,varargin{:});
+0195             <span class="keyword">if</span>(~isempty(dim))
+0196                 object=reshape(object,dim);
+0197             <span class="keyword">end</span>
+0198             pos=pos+adv;
+0199             <span class="keyword">return</span>;
+0200         <span class="keyword">else</span>
+0201             endpos=<a href="#_sub15" class="code" title="subfunction [endpos, e1l, e1r, maxlevel] = matching_bracket(str,pos)">matching_bracket</a>(inStr,pos);
+0202             [cid,len]=<a href="#_sub2" class="code" title="subfunction [cid,len]=elem_info(type)">elem_info</a>(type);
+0203             count=(endpos-pos)/len;
+0204             [object, adv]=<a href="#_sub3" class="code" title="subfunction [data, adv]=parse_block(type,count,varargin)">parse_block</a>(type,count,varargin{:});
+0205             pos=pos+adv;
+0206             <a href="#_sub5" class="code" title="subfunction parse_char(c)">parse_char</a>(<span class="string">']'</span>);
+0207             <span class="keyword">return</span>;
+0208         <span class="keyword">end</span>
+0209     <span class="keyword">end</span>
+0210     <span class="keyword">if</span> <a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a> ~= <span class="string">']'</span>
+0211          <span class="keyword">while</span> 1
+0212             val = <a href="#_sub11" class="code" title="subfunction val = parse_value(varargin)">parse_value</a>(varargin{:});
+0213             object{end+1} = val;
+0214             <span class="keyword">if</span> <a href="#_sub6" class="code" title="subfunction c = next_char">next_char</a> == <span class="string">']'</span>
+0215                 <span class="keyword">break</span>;
+0216             <span class="keyword">end</span>
+0217             <span class="comment">%parse_char(',');</span>
+0218          <span class="keyword">end</span>
+0219     <span class="keyword">end</span>
+0220     <span class="keyword">if</span>(<a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'SimplifyCell'</span>,0,varargin{:})==1)
+0221       <span class="keyword">try</span>
+0222         oldobj=object;
+0223         object=cell2mat(object')';
+0224         <span class="keyword">if</span>(iscell(oldobj) &amp;&amp; isstruct(object) &amp;&amp; numel(object)&gt;1 &amp;&amp; <a href="jsonopt.html" class="code" title="function val=jsonopt(key,default,varargin)">jsonopt</a>(<span class="string">'SimplifyCellArray'</span>,1,varargin{:})==0)
+0225             object=oldobj;
+0226         <span class="keyword">elseif</span>(size(object,1)&gt;1 &amp;&amp; ismatrix(object))
+0227             object=object';
+0228         <span class="keyword">end</span>
+0229       <span class="keyword">catch</span>
+0230       <span class="keyword">end</span>
+0231     <span class="keyword">end</span>
+0232     <span class="keyword">if</span>(count==-1)
+0233         <a href="#_sub5" class="code" title="subfunction parse_char(c)">parse_char</a>(<span class="string">']'</span>);
+0234     <span class="keyword">end</span>
+0235 
+0236 <span class="comment">%%-------------------------------------------------------------------------</span>
+0237 
+0238 <a name="_sub5" href="#_subfunctions" class="code">function parse_char(c)</a>
+0239     <span class="keyword">global</span> pos inStr len
+0240     <a href="#_sub7" class="code" title="subfunction skip_whitespace">skip_whitespace</a>;
+0241     <span class="keyword">if</span> pos &gt; len || inStr(pos) ~= c
+0242         <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(sprintf(<span class="string">'Expected %c at position %%d'</span>, c));
+0243     <span class="keyword">else</span>
+0244         pos = pos + 1;
+0245         <a href="#_sub7" class="code" title="subfunction skip_whitespace">skip_whitespace</a>;
+0246     <span class="keyword">end</span>
+0247 
+0248 <span class="comment">%%-------------------------------------------------------------------------</span>
+0249 
+0250 <a name="_sub6" href="#_subfunctions" class="code">function c = next_char</a>
+0251     <span class="keyword">global</span> pos inStr len
+0252     <a href="#_sub7" class="code" title="subfunction skip_whitespace">skip_whitespace</a>;
+0253     <span class="keyword">if</span> pos &gt; len
+0254         c = [];
+0255     <span class="keyword">else</span>
+0256         c = inStr(pos);
+0257     <span class="keyword">end</span>
+0258 
+0259 <span class="comment">%%-------------------------------------------------------------------------</span>
+0260 
+0261 <a name="_sub7" href="#_subfunctions" class="code">function skip_whitespace</a>
+0262     <span class="keyword">global</span> pos inStr len
+0263     <span class="keyword">while</span> pos &lt;= len &amp;&amp; isspace(inStr(pos))
+0264         pos = pos + 1;
+0265     <span class="keyword">end</span>
+0266 
+0267 <span class="comment">%%-------------------------------------------------------------------------</span>
+0268 <a name="_sub8" href="#_subfunctions" class="code">function str = parse_name(varargin)</a>
+0269     <span class="keyword">global</span> pos inStr
+0270     bytelen=double(<a href="#_sub10" class="code" title="subfunction num = parse_number(varargin)">parse_number</a>());
+0271     <span class="keyword">if</span>(length(inStr)&gt;=pos+bytelen-1)
+0272         str=inStr(pos:pos+bytelen-1);
+0273         pos=pos+bytelen;
+0274     <span class="keyword">else</span>
+0275         <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(<span class="string">'End of file while expecting end of name'</span>);
+0276     <span class="keyword">end</span>
+0277 <span class="comment">%%-------------------------------------------------------------------------</span>
+0278 
+0279 <a name="_sub9" href="#_subfunctions" class="code">function str = parseStr(varargin)</a>
+0280     <span class="keyword">global</span> pos inStr
+0281  <span class="comment">% len, ns = length(inStr), keyboard</span>
+0282     type=inStr(pos);
+0283     <span class="keyword">if</span> type ~= <span class="string">'S'</span> &amp;&amp; type ~= <span class="string">'C'</span> &amp;&amp; type ~= <span class="string">'H'</span>
+0284         <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(<span class="string">'String starting with S expected at position %d'</span>);
+0285     <span class="keyword">else</span>
+0286         pos = pos + 1;
+0287     <span class="keyword">end</span>
+0288     <span class="keyword">if</span>(type == <span class="string">'C'</span>)
+0289         str=inStr(pos);
+0290         pos=pos+1;
+0291         <span class="keyword">return</span>;
+0292     <span class="keyword">end</span>
+0293     bytelen=double(<a href="#_sub10" class="code" title="subfunction num = parse_number(varargin)">parse_number</a>());
+0294     <span class="keyword">if</span>(length(inStr)&gt;=pos+bytelen-1)
+0295         str=inStr(pos:pos+bytelen-1);
+0296         pos=pos+bytelen;
+0297     <span class="keyword">else</span>
+0298         <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(<span class="string">'End of file while expecting end of inStr'</span>);
+0299     <span class="keyword">end</span>
+0300 
+0301 <span class="comment">%%-------------------------------------------------------------------------</span>
+0302 
+0303 <a name="_sub10" href="#_subfunctions" class="code">function num = parse_number(varargin)</a>
+0304     <span class="keyword">global</span> pos inStr isoct fileendian systemendian
+0305     id=strfind(<span class="string">'iUIlLdD'</span>,inStr(pos));
+0306     <span class="keyword">if</span>(isempty(id))
+0307         <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(<span class="string">'expecting a number at position %d'</span>);
+0308     <span class="keyword">end</span>
+0309     type={<span class="string">'int8'</span>,<span class="string">'uint8'</span>,<span class="string">'int16'</span>,<span class="string">'int32'</span>,<span class="string">'int64'</span>,<span class="string">'single'</span>,<span class="string">'double'</span>};
+0310     bytelen=[1,1,2,4,8,4,8];
+0311     datastr=inStr(pos+1:pos+bytelen(id));
+0312     <span class="keyword">if</span>(isoct)
+0313         newdata=int8(datastr);
+0314     <span class="keyword">else</span>
+0315         newdata=uint8(datastr);
+0316     <span class="keyword">end</span>
+0317     <span class="keyword">if</span>(fileendian~=systemendian)
+0318         newdata=swapbytes(typecast(newdata,type{id}));
+0319     <span class="keyword">end</span>
+0320     num=typecast(newdata,type{id});
+0321     pos = pos + bytelen(id)+1;
+0322 
+0323 <span class="comment">%%-------------------------------------------------------------------------</span>
+0324 
+0325 <a name="_sub11" href="#_subfunctions" class="code">function val = parse_value(varargin)</a>
+0326     <span class="keyword">global</span> pos inStr
+0327 
+0328     <span class="keyword">switch</span>(inStr(pos))
+0329         <span class="keyword">case</span> {<span class="string">'S'</span>,<span class="string">'C'</span>,<span class="string">'H'</span>}
+0330             val = <a href="#_sub9" class="code" title="subfunction str = parseStr(varargin)">parseStr</a>(varargin{:});
+0331             <span class="keyword">return</span>;
+0332         <span class="keyword">case</span> <span class="string">'['</span>
+0333             val = <a href="#_sub4" class="code" title="subfunction object = parse_array(varargin) ">parse_array</a>(varargin{:});
+0334             <span class="keyword">return</span>;
+0335         <span class="keyword">case</span> <span class="string">'{'</span>
+0336             val = <a href="#_sub1" class="code" title="subfunction object = parse_object(varargin)">parse_object</a>(varargin{:});
+0337             <span class="keyword">return</span>;
+0338         <span class="keyword">case</span> {<span class="string">'i'</span>,<span class="string">'U'</span>,<span class="string">'I'</span>,<span class="string">'l'</span>,<span class="string">'L'</span>,<span class="string">'d'</span>,<span class="string">'D'</span>}
+0339             val = <a href="#_sub10" class="code" title="subfunction num = parse_number(varargin)">parse_number</a>(varargin{:});
+0340             <span class="keyword">return</span>;
+0341         <span class="keyword">case</span> <span class="string">'T'</span>
+0342             val = true;
+0343             pos = pos + 1;
+0344             <span class="keyword">return</span>;
+0345         <span class="keyword">case</span> <span class="string">'F'</span>
+0346             val = false;
+0347             pos = pos + 1;
+0348             <span class="keyword">return</span>;
+0349         <span class="keyword">case</span> {<span class="string">'Z'</span>,<span class="string">'N'</span>}
+0350             val = [];
+0351             pos = pos + 1;
+0352             <span class="keyword">return</span>;
+0353     <span class="keyword">end</span>
+0354     <a href="#_sub12" class="code" title="subfunction error_pos(msg)">error_pos</a>(<span class="string">'Value expected at position %d'</span>);
+0355 <span class="comment">%%-------------------------------------------------------------------------</span>
+0356 
+0357 <a name="_sub12" href="#_subfunctions" class="code">function error_pos(msg)</a>
+0358     <span class="keyword">global</span> pos inStr len
+0359     poShow = max(min([pos-15 pos-1 pos pos+20],len),1);
+0360     <span class="keyword">if</span> poShow(3) == poShow(2)
+0361         poShow(3:4) = poShow(2)+[0 -1];  <span class="comment">% display nothing after</span>
+0362     <span class="keyword">end</span>
+0363     msg = [sprintf(msg, pos) <span class="string">': '</span> <span class="keyword">...</span>
+0364     inStr(poShow(1):poShow(2)) <span class="string">'&lt;error&gt;'</span> inStr(poShow(3):poShow(4)) ];
+0365     error( [<span class="string">'JSONparser:invalidFormat: '</span> msg] );
+0366 
+0367 <span class="comment">%%-------------------------------------------------------------------------</span>
+0368 
+0369 <a name="_sub13" href="#_subfunctions" class="code">function str = valid_field(str)</a>
+0370 <span class="keyword">global</span> isoct
+0371 <span class="comment">% From MATLAB doc: field names must begin with a letter, which may be</span>
+0372 <span class="comment">% followed by any combination of letters, digits, and underscores.</span>
+0373 <span class="comment">% Invalid characters will be converted to underscores, and the prefix</span>
+0374 <span class="comment">% &quot;x0x[Hex code]_&quot; will be added if the first character is not a letter.</span>
+0375     pos=regexp(str,<span class="string">'^[^A-Za-z]'</span>,<span class="string">'once'</span>);
+0376     <span class="keyword">if</span>(~isempty(pos))
+0377         <span class="keyword">if</span>(~isoct)
+0378             str=regexprep(str,<span class="string">'^([^A-Za-z])'</span>,<span class="string">'x0x${sprintf(''%X'',unicode2native($1))}_'</span>,<span class="string">'once'</span>);
+0379         <span class="keyword">else</span>
+0380             str=sprintf(<span class="string">'x0x%X_%s'</span>,char(str(1)),str(2:end));
+0381         <span class="keyword">end</span>
+0382     <span class="keyword">end</span>
+0383     <span class="keyword">if</span>(isempty(regexp(str,<span class="string">'[^0-9A-Za-z_]'</span>, <span class="string">'once'</span> )))
+0384         <span class="keyword">return</span>;
+0385     <span class="keyword">end</span>
+0386     <span class="keyword">if</span>(~isoct)
+0387         str=regexprep(str,<span class="string">'([^0-9A-Za-z_])'</span>,<span class="string">'_0x${sprintf(''%X'',unicode2native($1))}_'</span>);
+0388     <span class="keyword">else</span>
+0389         pos=regexp(str,<span class="string">'[^0-9A-Za-z_]'</span>);
+0390         <span class="keyword">if</span>(isempty(pos))
+0391             <span class="keyword">return</span>;
+0392         <span class="keyword">end</span>
+0393         str0=str;
+0394         pos0=[0 pos(:)' length(str)];
+0395         str=<span class="string">''</span>;
+0396         <span class="keyword">for</span> i=1:length(pos)
+0397             str=[str str0(pos0(i)+1:pos(i)-1) sprintf(<span class="string">'_0x%X_'</span>,str0(pos(i)))];
+0398         <span class="keyword">end</span>
+0399         <span class="keyword">if</span>(pos(end)~=length(str))
+0400             str=[str str0(pos0(end-1)+1:pos0(end))];
+0401         <span class="keyword">end</span>
+0402     <span class="keyword">end</span>
+0403     <span class="comment">%str(~isletter(str) &amp; ~('0' &lt;= str &amp; str &lt;= '9')) = '_';</span>
+0404 
+0405 <span class="comment">%%-------------------------------------------------------------------------</span>
+0406 <a name="_sub14" href="#_subfunctions" class="code">function endpos = matching_quote(str,pos)</a>
+0407 len=length(str);
+0408 <span class="keyword">while</span>(pos&lt;len)
+0409     <span class="keyword">if</span>(str(pos)==<span class="string">'&quot;'</span>)
+0410         <span class="keyword">if</span>(~(pos&gt;1 &amp;&amp; str(pos-1)==<span class="string">'\'</span>))
+0411             endpos=pos;
+0412             <span class="keyword">return</span>;
+0413         <span class="keyword">end</span>        
+0414     <span class="keyword">end</span>
+0415     pos=pos+1;
+0416 <span class="keyword">end</span>
+0417 error(<span class="string">'unmatched quotation mark'</span>);
+0418 <span class="comment">%%-------------------------------------------------------------------------</span>
+0419 <a name="_sub15" href="#_subfunctions" class="code">function [endpos, e1l, e1r, maxlevel] = matching_bracket(str,pos)</a>
+0420 <span class="keyword">global</span> arraytoken
+0421 level=1;
+0422 maxlevel=level;
+0423 endpos=0;
+0424 bpos=arraytoken(arraytoken&gt;=pos);
+0425 tokens=str(bpos);
+0426 len=length(tokens);
+0427 pos=1;
+0428 e1l=[];
+0429 e1r=[];
+0430 <span class="keyword">while</span>(pos&lt;=len)
+0431     c=tokens(pos);
+0432     <span class="keyword">if</span>(c==<span class="string">']'</span>)
+0433         level=level-1;
+0434         <span class="keyword">if</span>(isempty(e1r))
+0435             e1r=bpos(pos);
+0436         <span class="keyword">end</span>
+0437         <span class="keyword">if</span>(level==0)
+0438             endpos=bpos(pos);
+0439             <span class="keyword">return</span>
+0440         <span class="keyword">end</span>
+0441     <span class="keyword">end</span>
+0442     <span class="keyword">if</span>(c==<span class="string">'['</span>)
+0443         <span class="keyword">if</span>(isempty(e1l))
+0444             e1l=bpos(pos);
+0445         <span class="keyword">end</span>
+0446         level=level+1;
+0447         maxlevel=max(maxlevel,level);
+0448     <span class="keyword">end</span>
+0449     <span class="keyword">if</span>(c==<span class="string">'&quot;'</span>)
+0450         pos=<a href="#_sub14" class="code" title="subfunction endpos = matching_quote(str,pos)">matching_quote</a>(tokens,pos+1);
+0451     <span class="keyword">end</span>
+0452     pos=pos+1;
+0453 <span class="keyword">end</span>
+0454 <span class="keyword">if</span>(endpos==0) 
+0455     error(<span class="string">'unmatched &quot;]&quot;'</span>);
+0456 <span class="keyword">end</span>
+0457</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

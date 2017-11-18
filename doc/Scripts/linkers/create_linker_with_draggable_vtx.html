@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of create_linker_with_draggable_vtx</title>
+  <meta name="keywords" content="create_linker_with_draggable_vtx">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="index.html">linkers</a> &gt; create_linker_with_draggable_vtx.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/linkers&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>create_linker_with_draggable_vtx
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function linker = create_linker_with_draggable_vtx( linker ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>	delete_tertiary_contact( contact_name )</li><li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>	linker = draw_linker( linker )</li><li><a href="rectify_linker.html" class="code" title="function linker = rectify_linker( linker, overwrite );">rectify_linker</a>	linker = rectify_linker();</li><li><a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )">setup_tertiary_contact</a>	setup_tertiary_contact( contact_name, res_tags1, res_tags2)</li><li><a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>	show_split_arrows( linker, setting )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>	linker = draw_linker( linker )</li><li><a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )">setup_tertiary_contact</a>	setup_tertiary_contact( contact_name, res_tags1, res_tags2)</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function h_new = create_linker_vertex( pos, linker_tag );</a></li><li><a href="#_sub2" class="code">function h_new = create_draggable_linker_vertex( pos, linker_tag )</a></li><li><a href="#_sub3" class="code">function h = create_endpoint_linker_vertex( pos, linker_tag )</a></li><li><a href="#_sub4" class="code">function new_linker_vtx( h )</a></li><li><a href="#_sub5" class="code">function relpos = get_relpos_based_on_restag( plot_pos, res_tag );</a></li><li><a href="#_sub6" class="code">function redraw_linker_vtx( h )</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker = create_linker_with_draggable_vtx( linker )</a>
+0002 linker.vtx = {};
+0003 nvtx = size(linker.plot_pos,1);
+0004 linker.vtx{1}  = <a href="#_sub3" class="code" title="subfunction h = create_endpoint_linker_vertex( pos, linker_tag )">create_endpoint_linker_vertex</a>(linker.plot_pos(1,:), linker.linker_tag );
+0005 <span class="keyword">for</span> i = 2:(nvtx-1)
+0006     linker.vtx{i}  = <a href="#_sub2" class="code" title="subfunction h_new = create_draggable_linker_vertex( pos, linker_tag )">create_draggable_linker_vertex</a>(linker.plot_pos(i,:), linker.linker_tag  );
+0007 <span class="keyword">end</span>
+0008 linker.vtx{nvtx}  = <a href="#_sub3" class="code" title="subfunction h = create_endpoint_linker_vertex( pos, linker_tag )">create_endpoint_linker_vertex</a>( linker.plot_pos(nvtx,:), linker.linker_tag );
+0009 <span class="keyword">for</span> i = 1:size( linker.plot_pos, 1 )
+0010     set( linker.vtx{i}, <span class="string">'xdata'</span>, linker.plot_pos(i,1), <span class="string">'ydata'</span>, linker.plot_pos(i,2) );
+0011 <span class="keyword">end</span>
+0012 
+0013 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0014 <a name="_sub1" href="#_subfunctions" class="code">function h_new = create_linker_vertex( pos, linker_tag );</a>
+0015 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0016 visible = <span class="string">'on'</span>;
+0017 <span class="keyword">if</span> ( isfield(plot_settings,<span class="string">'show_linker_controls'</span>) &amp; ~plot_settings.show_linker_controls ) visible = <span class="string">'off'</span>; <span class="keyword">end</span>; <span class="comment">% user-override</span>
+0018 h_new = plot( pos(1),pos(2),<span class="string">'o'</span>,<span class="keyword">...</span>
+0019     <span class="string">'markersize'</span>,plot_settings.spacing*1.5,<span class="keyword">...</span>
+0020     <span class="string">'color'</span>,[0.5 0.5 1],<span class="keyword">...</span>
+0021     <span class="string">'markerfacecolor'</span>,[0.5 0.5 1],<span class="keyword">...</span>
+0022     <span class="string">'visible'</span>,visible,<span class="string">'clipping'</span>,<span class="string">'off'</span>);
+0023 setappdata( h_new, <span class="string">'linker_tag'</span>, linker_tag );
+0024 
+0025 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0026 <a name="_sub2" href="#_subfunctions" class="code">function h_new = create_draggable_linker_vertex( pos, linker_tag )</a>
+0027 h_new = <a href="#_sub1" class="code" title="subfunction h_new = create_linker_vertex( pos, linker_tag );">create_linker_vertex</a>( pos, linker_tag );
+0028 draggable( h_new, <span class="string">'n'</span>,[-inf inf -inf inf], @move_snapgrid, <span class="string">'endfcn'</span>, @<a href="#_sub6" class="code" title="subfunction redraw_linker_vtx( h )">redraw_linker_vtx</a> );
+0029 
+0030 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0031 <a name="_sub3" href="#_subfunctions" class="code">function h = create_endpoint_linker_vertex( pos, linker_tag )</a>
+0032 h = <a href="#_sub1" class="code" title="subfunction h_new = create_linker_vertex( pos, linker_tag );">create_linker_vertex</a>( pos, linker_tag );
+0033 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0034 set( h, <span class="string">'markerfacecolor'</span>,<span class="string">'w'</span>,<span class="string">'markersize'</span>,plot_settings.spacing);
+0035 draggable( h,  <span class="string">'n'</span>,[-inf inf -inf inf], @move_snapgrid, <span class="string">'endfcn'</span>, @<a href="#_sub4" class="code" title="subfunction new_linker_vtx( h )">new_linker_vtx</a> );
+0036 
+0037 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0038 <a name="_sub4" href="#_subfunctions" class="code">function new_linker_vtx( h )</a>
+0039 delete_crosshair();
+0040 pos = [get(h,<span class="string">'XData'</span> ), get(h,<span class="string">'YData'</span> )];
+0041 linker_tag = getappdata( h, <span class="string">'linker_tag'</span> );
+0042 linker     = getappdata( gca, linker_tag );
+0043 <span class="keyword">if</span> isempty( linker ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0044 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0045 
+0046 <span class="comment">% special 'rearrangement' for tertcontact_interdomain.</span>
+0047 <span class="keyword">if</span>  strcmp( linker.type, <span class="string">'tertcontact_interdomain'</span> )
+0048     tertiary_contact = getappdata( gca, linker.tertiary_contact );
+0049     <span class="keyword">if</span> ( h == linker.vtx{1} )
+0050         res_tags = tertiary_contact.associated_residues1 ;
+0051         <span class="keyword">for</span> i = 2:length( res_tags )
+0052             residue = getappdata( gca, res_tags{i} );
+0053             <span class="keyword">if</span> norm( residue.plot_pos - pos ) &lt; plot_settings.bp_spacing/6
+0054                 res_tags1 = res_tags( [i, 1:i-1, i+1:end] );
+0055                 res_tags2 = tertiary_contact.associated_residues2;
+0056                 split_arrows = isfield( linker, <span class="string">'show_split_arrows'</span>) &amp;&amp; linker.show_split_arrows;
+0057                 tertiary_contact = <a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )">setup_tertiary_contact</a>( <span class="string">''</span>, res_tags1, res_tags2, linker, 0, 0 );
+0058                 <a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>( tertiary_contact.interdomain_linker, split_arrows );
+0059                 <a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>( linker.tertiary_contact, 0 );
+0060                 <span class="keyword">return</span>;
+0061             <span class="keyword">end</span>
+0062         <span class="keyword">end</span>
+0063     <span class="keyword">else</span>
+0064         assert( h == linker.vtx{end} );
+0065         res_tags = tertiary_contact.associated_residues2;
+0066         <span class="keyword">for</span> i = 2:length( res_tags )
+0067             residue = getappdata( gca, res_tags{i} );
+0068             <span class="keyword">if</span> norm( residue.plot_pos - pos ) &lt; plot_settings.bp_spacing/6
+0069                 res_tags1 = tertiary_contact.associated_residues1;
+0070                 res_tags2 = res_tags( [i, 1:i-1, i+1:end] );
+0071                 split_arrows = isfield( linker, <span class="string">'show_split_arrows'</span>) &amp;&amp; linker.show_split_arrows;
+0072                 tertiary_contact = <a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )">setup_tertiary_contact</a>( <span class="string">''</span>, res_tags1, res_tags2, linker, 0, 0 );
+0073                 <a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>( tertiary_contact.interdomain_linker, split_arrows );
+0074                 <a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>( linker.tertiary_contact, 0 );
+0075                 <span class="keyword">return</span>;
+0076             <span class="keyword">end</span>
+0077         <span class="keyword">end</span>
+0078     <span class="keyword">end</span>
+0079 <span class="keyword">end</span>
+0080 
+0081 <span class="comment">% create new draggable symbol</span>
+0082 h_new = <a href="#_sub2" class="code" title="subfunction h_new = create_draggable_linker_vertex( pos, linker_tag )">create_draggable_linker_vertex</a>( pos, linker_tag );
+0083 
+0084 <span class="comment">% install this new vertex in linker vertices.</span>
+0085 <span class="keyword">if</span> ( h == linker.vtx{1} )
+0086     relpos = <a href="#_sub5" class="code" title="subfunction relpos = get_relpos_based_on_restag( plot_pos, res_tag );">get_relpos_based_on_restag</a>( pos, linker.residue1 );
+0087     <span class="keyword">if</span> ( norm( linker.relpos1(1,:) - relpos ) &gt;= plot_settings.bp_spacing/6 )
+0088         linker.relpos1 = [ linker.relpos1(1,:); relpos; linker.relpos1(2:<span class="keyword">end</span>,:)];
+0089         linker.vtx = [linker.vtx(1), {h_new}, linker.vtx(2:end)];
+0090     <span class="keyword">else</span>
+0091         delete( h_new );
+0092     <span class="keyword">end</span>
+0093 <span class="keyword">else</span>
+0094     assert( h == linker.vtx{end} );
+0095     relpos = <a href="#_sub5" class="code" title="subfunction relpos = get_relpos_based_on_restag( plot_pos, res_tag );">get_relpos_based_on_restag</a>( pos, linker.residue2 );
+0096     <span class="keyword">if</span> ( norm( linker.relpos2(<span class="keyword">end</span>,:) - relpos ) &gt;= plot_settings.bp_spacing/6 )
+0097         linker.relpos2 = [ linker.relpos2(1:end-1,:); relpos; linker.relpos2(<span class="keyword">end</span>,:)];
+0098         linker.vtx = [linker.vtx(1:end-1), {h_new}, linker.vtx(end)];
+0099     <span class="keyword">else</span>
+0100         delete( h_new );
+0101     <span class="keyword">end</span>
+0102 <span class="keyword">end</span>
+0103 
+0104 linker = <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>( linker );
+0105 <a href="rectify_linker.html" class="code" title="function linker = rectify_linker( linker, overwrite );">rectify_linker</a>( linker ); <span class="comment">% auto-rectify!</span>
+0106 
+0107 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0108 <a name="_sub5" href="#_subfunctions" class="code">function relpos = get_relpos_based_on_restag( plot_pos, res_tag );</a>
+0109 residue = getappdata( gca, res_tag );
+0110 helix = getappdata( gca, residue.helix_tag );
+0111 relpos = get_relpos( plot_pos, helix );
+0112 
+0113 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0114 <a name="_sub6" href="#_subfunctions" class="code">function redraw_linker_vtx( h )</a>
+0115 <span class="comment">% can also delete if vtx comes close to endpoint</span>
+0116 delete_crosshair();
+0117 pos = [get(h,<span class="string">'XData'</span> ), get(h,<span class="string">'YData'</span> )];
+0118 linker_tag = getappdata( h, <span class="string">'linker_tag'</span> );
+0119 linker = getappdata( gca, linker_tag );
+0120 
+0121 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0122 n1 = size( linker.relpos1, 1 );
+0123 <span class="keyword">for</span> n = 1:length( linker.vtx )
+0124     <span class="keyword">if</span> ( linker.vtx{n} == h )
+0125         <span class="keyword">if</span> n &lt;= n1
+0126             linker.relpos1( n, : ) = <a href="#_sub5" class="code" title="subfunction relpos = get_relpos_based_on_restag( plot_pos, res_tag );">get_relpos_based_on_restag</a>( pos, linker.residue1 );
+0127             <span class="keyword">if</span> ( norm( linker.relpos1(n,:) - linker.relpos1(1,:) ) &lt; plot_settings.bp_spacing/6 ) 
+0128                 delete( h );
+0129                 linker.relpos1 = linker.relpos1( [1:n-1, n+1:end], : );
+0130                 linker.vtx = linker.vtx( [1:n-1, n+1:end] );
+0131             <span class="keyword">end</span>
+0132             <span class="keyword">break</span>;
+0133         <span class="keyword">else</span>
+0134             n_off = n - n1;
+0135             linker.relpos2( n_off, : ) = <a href="#_sub5" class="code" title="subfunction relpos = get_relpos_based_on_restag( plot_pos, res_tag );">get_relpos_based_on_restag</a>( pos, linker.residue2 );
+0136             <span class="keyword">if</span> ( norm( linker.relpos2( n_off, :) - linker.relpos2(<span class="keyword">end</span>,:) ) &lt; plot_settings.bp_spacing/6 )
+0137                 delete( h );
+0138                 linker.relpos2 = linker.relpos2( [1:n_off-1, n_off+1:end], : );
+0139                 linker.vtx = linker.vtx( [1:n-1, n+1:end] );
+0140             <span class="keyword">end</span>
+0141             <span class="keyword">break</span>;
+0142         <span class="keyword">end</span>
+0143     <span class="keyword">end</span>
+0144 <span class="keyword">end</span>
+0145 
+0146 <span class="comment">% above loop should find a vertex match and break!</span>
+0147 assert( n &lt;= length( linker.vtx ) );
+0148 assert( size( [linker.relpos1;linker.relpos2], 1 ) == length(linker.vtx) );
+0149 
+0150 linker = <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>( linker );
+0151 <a href="rectify_linker.html" class="code" title="function linker = rectify_linker( linker, overwrite );">rectify_linker</a>( linker ); <span class="comment">% auto-rectify!</span>
+0152</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

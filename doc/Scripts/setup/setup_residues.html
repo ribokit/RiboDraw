@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of setup_residues</title>
+  <meta name="keywords" content="setup_residues">
+  <meta name="description" content="setup_residues( stems, sequence, resnum, chains, segid );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="index.html">setup</a> &gt; setup_residues.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/setup&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>setup_residues
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>setup_residues( stems, sequence, resnum, chains, segid );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function stems = setup_residues( stems, sequence, resnum, chains, segid ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> setup_residues( stems, sequence, resnum, chains, segid );
+
+ Creates initial residue objects in appdata for gca
+ Also assigns each residue to be associated to a helix, based
+  on sequence distance. Important for initial setup of a drawing.
+
+ Inputs
+
+  stems = cell of helix objects with resnum1, chain1, resnum2, chain2
+  sequence = sequence as string 
+  resnum   = residue numbers that go with each position in the sequence
+  chains   = string: chain characters that go with each position in the sequence
+  segid    = cell of strings (possibly blank), segment IDs that go with
+              each position in the sequence
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function stems = setup_residues( stems, sequence, resnum, chains, segid );</a>
+0002 <span class="comment">% setup_residues( stems, sequence, resnum, chains, segid );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Creates initial residue objects in appdata for gca</span>
+0005 <span class="comment">% Also assigns each residue to be associated to a helix, based</span>
+0006 <span class="comment">%  on sequence distance. Important for initial setup of a drawing.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% Inputs</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%  stems = cell of helix objects with resnum1, chain1, resnum2, chain2</span>
+0011 <span class="comment">%  sequence = sequence as string</span>
+0012 <span class="comment">%  resnum   = residue numbers that go with each position in the sequence</span>
+0013 <span class="comment">%  chains   = string: chain characters that go with each position in the sequence</span>
+0014 <span class="comment">%  segid    = cell of strings (possibly blank), segment IDs that go with</span>
+0015 <span class="comment">%              each position in the sequence</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0018 
+0019 <span class="keyword">for</span> n = 1:length( stems )
+0020     stem_start1(n) = stems{n}.resnum1(1);
+0021     stem_stop1 (n) = stems{n}.resnum1(end);
+0022     stem_chain1(n) = stems{n}.chain1(1);
+0023     stem_segid1(n) = stems{n}.segid1(1);
+0024     stem_start2(n) = stems{n}.resnum2(1);
+0025     stem_stop2 (n) = stems{n}.resnum2(end);
+0026     stem_chain2(n) = stems{n}.chain2(1);
+0027     stem_segid2(n) = stems{n}.segid2(1);
+0028     stems{n}.associated_residues = {};
+0029 <span class="keyword">end</span>
+0030 <span class="keyword">for</span> i = 1:length(resnum)
+0031     <span class="comment">% find which helix is closest to the residue.</span>
+0032     chain = chains(i);
+0033     res   = resnum(i);
+0034     seg   = segid{i};
+0035     res_tag = sprintf(<span class="string">'Residue_%s%s%d'</span>,chain,seg,res);
+0036     dists1 = Inf * ones( 1, length( stems ) );
+0037     dists2 = Inf * ones( 1, length( stems ) );
+0038     m = strfind( stem_chain1, chain );
+0039     dists1(m) = min( abs( stem_start1(m) - res ), abs( abs(stem_stop1(m) - res) ) ); 
+0040     m = strfind( stem_chain2, chain );
+0041     dists2(m) = min( abs( stem_start2(m) - res ), abs( abs(stem_stop2(m) - res) ) ); 
+0042     dists = min( dists1, dists2 );
+0043     [~,n] = min( dists );
+0044     stems{n}.associated_residues = [ stems{n}.associated_residues, res_tag ];
+0045 
+0046     residue.chain  = chain;
+0047     residue.segid  = seg;
+0048     residue.resnum = res;
+0049     residue.helix_tag = stems{n}.helix_tag;
+0050     seqpos = intersect(strfind(chains,chain), find(resnum==res));
+0051     residue.nucleotide = upper(sequence(seqpos));
+0052     residue.res_tag = res_tag;
+0053     residue.linkers = {};
+0054     setappdata( gca, res_tag, residue );
+0055 <span class="keyword">end</span>
+0056 
+0057 <span class="keyword">for</span> n = 1:length( stems )
+0058     setappdata( gca, stems{n}.helix_tag, stems{n} );
+0059 <span class="keyword">end</span>
+0060</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

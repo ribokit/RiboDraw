@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of show_split_arrows</title>
+  <meta name="keywords" content="show_split_arrows">
+  <meta name="description" content="show_split_arrows( linker, setting )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="index.html">linkers</a> &gt; show_split_arrows.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../index.html"><img alt="<" border="0" src="../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/linkers&nbsp;<img alt=">" border="0" src="../../right.png"></a></td></tr></table>-->
+
+<h1>show_split_arrows
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>show_split_arrows( linker, setting )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function show_split_arrows( linker, setting, domain_names ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> show_split_arrows( linker, setting )</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>	linker = draw_linker( linker )</li><li><a href="get_interdomain_linkers.html" class="code" title="function interdomain_linkers = get_interdomain_linkers( linkers, domain_names )">get_interdomain_linkers</a>	interdomain_linkers = get_interdomain_linkers( linkers, domain_names )</li><li><a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>	show_split_arrows( linker, setting )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="create_linker_with_draggable_vtx.html" class="code" title="function linker = create_linker_with_draggable_vtx( linker )">create_linker_with_draggable_vtx</a>	</li><li><a href="hide_split_arrows.html" class="code" title="function hide_split_arrows( linker )">hide_split_arrows</a>	show_split_arrows( linker, setting )</li><li><a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>	show_split_arrows( linker, setting )</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function show_split_arrows( linker, setting, domain_names )</a>
+0002 <span class="comment">% show_split_arrows( linker, setting )</span>
+0003 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>,<span class="string">'var'</span>) setting = 1; <span class="keyword">end</span>;
+0004 <span class="keyword">if</span> ~exist( <span class="string">'domain_names'</span> ) domain_names = {}; <span class="keyword">end</span>;
+0005 <span class="keyword">if</span> ~exist( <span class="string">'linker'</span>,<span class="string">'var'</span> ) || isempty( linker ); linker = get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span> ); <span class="keyword">end</span>;
+0006 <span class="keyword">if</span> iscell( linker ); <span class="keyword">for</span> i = 1:length( linker ); <a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>( linker{i}, setting, domain_names ); <span class="keyword">end</span>; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0007 <span class="keyword">if</span> ischar( linker ); linker = getappdata( gca, linker ); <span class="keyword">end</span>;
+0008 <span class="keyword">if</span> ~isempty( domain_names ) &gt; 0 &amp;&amp; isempty( <a href="get_interdomain_linkers.html" class="code" title="function interdomain_linkers = get_interdomain_linkers( linkers, domain_names )">get_interdomain_linkers</a>( {linker.linker_tag}, domain_names ) ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0009 
+0010 linker.show_split_arrows = setting;
+0011 <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>( linker );</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

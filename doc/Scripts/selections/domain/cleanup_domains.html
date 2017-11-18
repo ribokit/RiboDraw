@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of cleanup_domains</title>
+  <meta name="keywords" content="cleanup_domains">
+  <meta name="description" content="cleanup_domains()">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html v1.5 &copy; 2003-2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+</head>
+<body>
+<a name="_top"></a>
+<div><a href="../../../index.html">Home</a> &gt;  <a href="#">Scripts</a> &gt; <a href="../index.html">selections</a> &gt; <a href="index.html">domain</a> &gt; cleanup_domains.m</div>
+
+<!--<table width="100%"><tr><td align="left"><a href="../../../index.html"><img alt="<" border="0" src="../../../left.png">&nbsp;Master index</a></td>
+<td align="right"><a href="index.html">Index for Scripts/selections/domain&nbsp;<img alt=">" border="0" src="../../../right.png"></a></td></tr></table>-->
+
+<h1>cleanup_domains
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>cleanup_domains()</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>function cleanup_domains() </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> cleanup_domains()</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function cleanup_domains()</a>
+0002 <span class="comment">% cleanup_domains()</span>
+0003 
+0004 <span class="comment">% Cleanup 1: make sure there are no 'stray' domains associated with</span>
+0005 <span class="comment">% residues.</span>
+0006 res_tags = get_tags( <span class="string">'Residue'</span> );
+0007 <span class="keyword">for</span> i = 1:length( res_tags )
+0008     res_tag = res_tags{i};
+0009     residue = getappdata( gca, res_tag );
+0010     <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> ); <span class="keyword">continue</span>; <span class="keyword">end</span>; 
+0011     selections = residue.associated_selections;
+0012     <span class="keyword">for</span>  k = 1:length( selections )
+0013         selection = selections{k};
+0014         <span class="keyword">if</span> ~isappdata( gca, selection )
+0015             fprintf( <span class="string">'Could not find selection %s for residue %s -- will delete this as associated_selection\n'</span>, <span class="keyword">...</span>
+0016                 selection, res_tag )
+0017             residue.associated_selections = setdiff( residue.associated_selections, selection );
+0018         <span class="keyword">end</span>
+0019         setappdata( gca, res_tag, residue );
+0020     <span class="keyword">end</span>
+0021 <span class="keyword">end</span>
+0022 
+0023 <span class="comment">% Cleanup 2: fix names of domains.</span>
+0024 tags = get_tags( <span class="string">'Selection'</span> );
+0025 <span class="keyword">for</span> i = 1:length( tags )
+0026     tag = tags{i};
+0027     selection = getappdata( gca, tag );
+0028     <span class="keyword">if</span> strcmp( selection.type, <span class="string">'domain'</span> )
+0029         <span class="keyword">if</span> ( length( tag ) &lt; 7 | ~strcmp( tag(end-6:end), <span class="string">'_domain'</span> ) )
+0030             new_tag = [ tag,<span class="string">'_domain'</span> ];
+0031             fprintf( <span class="string">'Changing name of %s to %s\n'</span>, tag, new_tag );
+0032             selection.selection_tag = new_tag;
+0033             setappdata( gca, new_tag, selection );
+0034             rmappdata( gca, tag );
+0035 
+0036             <span class="keyword">for</span> i = 1:length( res_tags )
+0037                 res_tag = res_tags{i};
+0038                 residue = getappdata( gca, res_tag );
+0039                 <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0040                 <span class="keyword">if</span> any( strcmp( residue.associated_selections, tag ) )
+0041                     residue.associated_selections = setdiff( residue.associated_selections, tag );
+0042                     residue.associated_selections = [residue.associated_selections, new_tag ];
+0043                     setappdata( gca, res_tag, residue );
+0044                 <span class="keyword">end</span>
+0045             <span class="keyword">end</span>
+0046         <span class="keyword">end</span>
+0047     <span class="keyword">end</span>
+0048 <span class="keyword">end</span>
+0049 
+0050 
+0051</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 17:25:01 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" title="Matlab Documentation in HTML">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

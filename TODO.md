@@ -1,9 +1,8 @@
 ## TODO
-* push middle layer to right
-* complete 16S rRNA
-* move to RiboKit/
-* request ribokit.github.io to be mirrored at ribokit.stanford.edu
-
+* push 23S middle layer to right
+* complete 16S rRNA layout as test of tutorials and docs.
+* move repo to `RiboKit/`
+* request `ribokit.github.io` to be mirrored at `ribokit.stanford.edu`
 * show long-range stem pairs on 23S
 * put in docstrings for base_doublets
 * put in docstrings for color
@@ -23,17 +22,18 @@
 
 ### Future
 * lay out other ribosome states.
-* settings icon for toggles --> menu.
-* automatic legend creation
-* rename_tertiary_contact (for group II intron?)
-* pathfinder routine for arrow linkers & noncanonical pairs
-* K-turn assignment in rna_motif
-* Read-in & auto-color motifs [SRL, etc.]
-* convert to javascript
-* Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations
+* Read-in `.motifs.txt` & auto-color motifs [SRL, etc.]
+* K-turn assignment in `rna_motif`
 * Allow DSSR setup of input files from PDB (skipping Rosetta)
 * Initialization from secstruct alone (no PDB)
-
+* convert to javascript for web deployment and perhaps to allow faster i/o; MATLAB is slow.
+* settings icon for toggles --> menu.
+* automatic legend creation (noncanonicals, stacks if visible, etc.)
+* rename_tertiary_contact (for group II intron?)
+* completely automated pathfinder routine for arrow linkers & noncanonical pairs
+* Calculate 3D helix axis vectors in Rosetta and use to cross-check 2D helix orientations
+* use open source SVG library to output drawings in SVG format.
+ 
 ### Gamification
 * Create a 'score' for total number of harmonious elements [e.g. lack of explicit linkers, mainly horizontal and vertical lines]
 * 

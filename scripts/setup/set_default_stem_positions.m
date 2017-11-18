@@ -1,5 +1,11 @@
 function stems = set_default_stem_positions( stems )
-% set_default_stem_positions()
+% stems = set_default_stem_positions( stems )
+%
+% when starting place helices ('stems') in rows and columns 
+%  in a square matrix on figure.
+%
+% (C) R. Das, Stanford University, 2017
+
 for n = 1:length( stems )
     col = mod( n-1, 5 ) + 1;
     row = floor((n-1)/5);

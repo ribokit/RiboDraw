@@ -1,5 +1,5 @@
 function stems = setup_residues( stems, sequence, resnum, chains, segid );
-% setup_residues( stems, sequence, resnum, chains, segid );
+% stems = setup_residues( stems, sequence, resnum, chains, segid );
 %
 % Creates initial residue objects in appdata for gca
 % Also assigns each residue to be associated to a helix, based

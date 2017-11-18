@@ -1,4 +1,14 @@
 function output_name = get_preferred_display_name( name )
+% output_name = get_preferred_display_name( name )
+%
+% INPUT
+%  name = name in FASTA file, e.g., if sequence is Z[2MA] this is '2MA'
+%
+% OUTPUT
+%  output_name = display name for nucleotide, e.g., m^2A. Will be rendered with
+%                 MATLAB's LaTeX interpreter (e.g., the 2 will be superscript.)
+%
+% (C) R. Das, Stanford University, 2017
 output_name = name;
 switch name
     case '6MZ'

@@ -1,4 +1,33 @@
 function other_contacts = read_other_contacts( other_contacts_file )
+% other_contacts = read_other_contacts( other_contacts_file )
+%
+%  Read .other_contacts.txt file output by Rosetta rna_motif executable.
+%
+%    All pairs of nucleotides that make an atom-atom contact less than 3 Angstroms, after
+%       filtering out doublets that are recognized as base pairs and base stacks.
+%    Mostly hydrogen bonds involving O2' (2' hydroxyl)  and O1P/O2P (phosphate).
+%
+% INPUT
+%
+%  other_contacts_file = text file with lines like
+%
+%                      A:1  B:20 O2' O2'
+%
+%                    i.e.,
+%
+%                      chain1[:segid1]:resnum1 chain2[:segid2]:resnum2  atom1 atom2
+%
+%                    where atom1 and atom2 denote names  of atoms that come within 3 Angstroms.
+%
+% OUTPUT
+%
+%  other_contacts       = cell of struct()s with the same information. 
+%
+%
+% See also: read_base_stacks, read_base_pairs.
+% 
+% (C) R. Das, Stanford University, 2017
+
 fid = fopen( other_contacts_file );
 other_contacts = {};
 while ~feof( fid )

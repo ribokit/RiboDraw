@@ -1,5 +1,20 @@
 function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )
-% Convert "A:1-4" to 'AAAA' and [1,2,3,4]
+% [resnum,chains,segid,ok] = get_resnum_from_tag( tag )
+%
+% Convert "A:1-4"    to 'AAAA' and [1,2,3,4] 
+%               or
+%         "B:QA:2-3" to 'BB' and [2,3] and {'QA','QA'}
+%
+% INPUT:
+%   tag = string like "B:QA:2-3" or "A:1-4"  (missing segid)
+%
+% OUTPUT
+%  resnum = number           (integer)
+%  chain  = chain characters (string with length matching resnum)
+%  segid  = segment IDs      (cell of strings with length matching resnum, may all be blank)
+%  ok     = 1 if tag follows acceptable forms, 0 otherwise
+%
+% (C) R. Das, Stanford University
 
 % there might be multiple tags like "A:1-4 B:1-4"
 residue_tags = strsplit( tag );

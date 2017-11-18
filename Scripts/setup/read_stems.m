@@ -1,5 +1,24 @@
 function helices = read_stems( helix_file )
 % helices = read_stems( helix_file )
+%
+%  Read .stems.txt file output by Rosetta rna_motif executable, which
+%      should include all directly stacked Watson-Crick/G*U wobble pairs with
+%      length of 2 base pairs or greater. 
+%
+% TODO: probably should change the data structure so that it has only one chain, segid 
+%        for each strand of the helix.
+%
+% INPUT
+%
+%  helix_file = text file with lines like
+%
+%                      A:1-4  B:20-17
+%
+% OUTPUT
+%
+%  helices       = cell of struct()s with the same information and a helix_tag like 'Helix_A4'
+%
+% (C) R. Das, Stanford University, 2017.
 
 fid = fopen( helix_file );
 helices = {};

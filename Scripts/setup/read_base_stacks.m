@@ -1,4 +1,35 @@
 function base_stacks = read_base_stacks( base_stacks_file )
+% base_stacks = read_base_stacks( base_stacks_file )
+%
+%  Read .base_stacks.txt file output by Rosetta rna_motif executable
+%      should include all base-base combinations in which one resides in the
+%      appropriate 'z' range above/below the other one.
+%
+% INPUT
+%
+%  base_stacks_file = text file with lines like
+%
+%                      A:1  B:20 A P
+%
+%                    i.e.,
+%
+%                      chain1[:segid1]:resnum1 chain2[:segid2]:resnum2  side orientation
+%
+%                    where side        is A/B (for the second nucleobase being above/below first nucleobase)
+%                          orientation is A/P (antiparallel/parallel based on how the two base's normal vectors
+%                                                   are aligned)
+%
+%
+% OUTPUT
+%
+%  base_stacks       = cell of struct()s with the same information. Reordered so that 
+%                         the residue that has an earlier chain/segid (or if same, earlier resnum) is first.
+%
+%
+% See also: read_base_pairs.
+% 
+% (C) R. Das, Stanford University, 2017
+
 fid = fopen( base_stacks_file );
 base_stacks = {};
 while ~feof( fid )

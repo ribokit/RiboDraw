@@ -1,11 +1,10 @@
 function [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( fasta_file )
-% [sequence,resnum,chains,non_standard_residues] = get_sequence( fasta_file )
+% [sequence,resnum,chains,segid, non_standard_residues] = get_sequence( fasta_file )
+%
 % read sequence from FASTA file ? and figure out chain/numbering from tags
 % like "A:4-89" in header. Allow sequence to include "Z[1MA]" to define 
 % non-standard residues, like in Rosetta.
 %
-% TODO: need to change non-standard residues data structure to be just
-% indices & names of non-standards, like Rosetta. JSON is getting too fat.
 % (C) R. Das, Stanford University, 2017
 
 fasta = fastaread( fasta_file );

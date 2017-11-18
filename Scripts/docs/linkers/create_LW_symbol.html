@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of create_LW_symbol</title>
+  <meta name="keywords" content="create_LW_symbol">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html linkers -->
+<h1>create_LW_symbol
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function h = create_LW_symbol( edge, orientation, bp_spacing ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>	linker = draw_linker( linker )</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function h = create_LW_symbol( edge, orientation, bp_spacing );</a>
+0002 <span class="keyword">switch</span> edge
+0003     <span class="keyword">case</span> <span class="string">'W'</span>
+0004         t = linspace(0, 2*pi);
+0005         r = bp_spacing/10;
+0006     <span class="keyword">case</span> <span class="string">'H'</span>
+0007         t = [0 pi/2 pi 3*pi/2]+pi/4;
+0008         r = bp_spacing/10 * sqrt(2);
+0009     <span class="keyword">case</span> <span class="string">'S'</span>
+0010         t = [0 2*pi/3 2*pi*2/3];
+0011         r = bp_spacing/10 * 1.5*sqrt(3)/2;
+0012     <span class="keyword">otherwise</span>
+0013         fprintf( <span class="string">'PROBLEM: edge should be W, H, S\n'</span> );
+0014 <span class="keyword">end</span>
+0015 x = r*cos(t);
+0016 y = r*sin(t);
+0017 h = patch( x,y,<span class="string">'w'</span>,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>);
+0018 
+0019 <span class="keyword">switch</span> orientation
+0020     <span class="keyword">case</span> <span class="string">'C'</span>
+0021         set( h, <span class="string">'facecolor'</span>, <span class="string">'k'</span> );
+0022     <span class="keyword">case</span> <span class="string">'T'</span>
+0023         set( h, <span class="string">'facecolor'</span>, <span class="string">'w'</span> );
+0024     <span class="keyword">otherwise</span>
+0025         set( h, <span class="string">'facecolor'</span>, <span class="string">'r'</span> );
+0026 <span class="keyword">end</span>
+0027 
+0028 set( h, <span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0029</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

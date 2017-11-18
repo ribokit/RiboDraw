@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of export_drawing</title>
+  <meta name="keywords" content="export_drawing">
+  <meta name="description" content="export_drawing( filename )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html drawing -->
+<h1>export_drawing
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>export_drawing( filename )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function export_drawing( filename ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> export_drawing( filename )
+
+ Inputs:
+  filename = name of output image (should end in .eps, .jpg, .pdf, or .png)
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function export_drawing( filename )</a>
+0002 <span class="comment">% export_drawing( filename )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Inputs:</span>
+0005 <span class="comment">%  filename = name of output image (should end in .eps, .jpg, .pdf, or .png)</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University</span>
+0008 
+0009 cols = strsplit( filename, <span class="string">'.'</span> );
+0010 <span class="keyword">switch</span> cols{end}
+0011     <span class="keyword">case</span> {<span class="string">'eps'</span>,<span class="string">'ps'</span>,<span class="string">'ai'</span>}
+0012         opt = <span class="string">'-depsc2'</span>;
+0013     <span class="keyword">case</span> <span class="string">'pdf'</span>
+0014         opt = <span class="string">'-dpdf'</span>;
+0015     <span class="keyword">case</span> <span class="string">'jpg'</span>,<span class="string">'jpeg'</span>
+0016         opt = <span class="string">'-djpg'</span>;
+0017     <span class="keyword">case</span> <span class="string">'png'</span>
+0018         opt = <span class="string">'-dpng'</span>;
+0019     <span class="keyword">otherwise</span> 
+0020         fprintf( <span class="string">'Unrecognized extension'</span> )
+0021         help
+0022         <span class="keyword">return</span>;
+0023 <span class="keyword">end</span>
+0024 
+0025 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0026 
+0027 hide_helix_controls;
+0028 hide_selection_controls;
+0029 hide_linker_controls;
+0030 
+0031 print( filename, opt );
+0032 fprintf( <span class="string">'Created: %s\n'</span>, filename ); 
+0033 
+0034 show_helix_controls ( plot_settings.show_helix_controls );
+0035 show_domain_controls( plot_settings.show_domain_controls );
+0036 show_coax_controls( plot_settings.show_coax_controls );
+0037 show_linker_controls( plot_settings.show_linker_controls );
+0038</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

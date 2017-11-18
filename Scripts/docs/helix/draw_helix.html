@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draw_helix</title>
+  <meta name="keywords" content="draw_helix">
+  <meta name="description" content="helix = draw_helix( helix )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html helix -->
+<h1>draw_helix
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>helix = draw_helix( helix )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function helix = draw_helix( helix ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> helix = draw_helix( helix )
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>	R = get_helix_rotation_matrix( helix )</li><li><a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a>	</li><li><a href="redraw_res_and_helix.html" class="code" title="function redraw_res_and_helix( h )">redraw_res_and_helix</a>	Redraw residue and any other residues associated with its parent helix.</li><li><a href="reflect_helix.html" class="code" title="function reflect_helix( h, ~, ~ )">reflect_helix</a>	</li><li><a href="rotate_helix.html" class="code" title="function rotate_helix( h, ~, ~ )">rotate_helix</a>	</li><li><a href="set_text_alignment.html" class="code" title="function set_text_alignment( h, v )">set_text_alignment</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="convert_problem_helices_to_domains.html" class="code" title="function convert_problem_helices_to_domains()">convert_problem_helices_to_domains</a>	</li><li><a href="draw_helices.html" class="code" title="function draw_helices( helices )">draw_helices</a>	draw_helices( helices )</li><li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="redraw_helices.html" class="code" title="function redraw_helices()">redraw_helices</a>	redraw_helices()</li><li><a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a>	</li><li><a href="redraw_res_and_helix.html" class="code" title="function redraw_res_and_helix( h )">redraw_res_and_helix</a>	Redraw residue and any other residues associated with its parent helix.</li><li><a href="redraw_residues.html" class="code" title="function redraw_residues( residues )">redraw_residues</a>	update relpos for all residues</li><li><a href="reflect_helix.html" class="code" title="function reflect_helix( h, ~, ~ )">reflect_helix</a>	</li><li><a href="rotate_helix.html" class="code" title="function rotate_helix( h, ~, ~ )">rotate_helix</a>	</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function h = draw_residue( res_tag, helix_center, R, plot_settings );</a></li><li><a href="#_sub2" class="code">function relpos = set_default_relpos( residue, helix, plot_settings )</a></li><li><a href="#_sub3" class="code">function pos = update_residue_pos( res_tag, relpos, center, R );</a></li><li><a href="#_sub4" class="code">function helix = make_helix_label( helix, plot_settings, R )</a></li><li><a href="#_sub5" class="code">function move_helix_label(h)</a></li><li><a href="#_sub6" class="code">function redraw_helix_label(h)</a></li><li><a href="#_sub7" class="code">function residue = draw_tick( residue, bp_spacing, fontsize, R )</a></li><li><a href="#_sub8" class="code">function residue = set_default_tickrot( residue )</a></li><li><a href="#_sub9" class="code">function move_tick(h)</a></li><li><a href="#_sub10" class="code">function redraw_tick_res_and_helix(h)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function helix = draw_helix( helix )</a>
+0002 <span class="comment">% helix = draw_helix( helix )</span>
+0003 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0004 
+0005 <span class="keyword">if</span> ischar( helix ); helix = getappdata(gca,helix); <span class="keyword">end</span>;
+0006     
+0007 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0008 
+0009 helix_center = helix.center;
+0010 R = <a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>( helix ); 
+0011 N = length( helix.resnum1 );
+0012 spacing = plot_settings.spacing;
+0013 bp_spacing = plot_settings.bp_spacing;
+0014 helix_res_tags = {};
+0015 <span class="keyword">for</span> k = 1:N
+0016     <span class="comment">% first partner of base pair -- will draw below.</span>
+0017     res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, helix.chain1(k), helix.segid1{k}, helix.resnum1(k) );
+0018     pos1 = <a href="#_sub3" class="code" title="subfunction pos = update_residue_pos( res_tag, relpos, center, R );">update_residue_pos</a>( res_tag, [ spacing*((k-1)-(N-1)/2), -bp_spacing/2], helix.center, R );
+0019     helix_res_tags = [helix_res_tags, res_tag ];
+0020     
+0021     <span class="comment">% second partner of base pair -- will draw below.</span>
+0022     res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, helix.chain2(N-k+1), helix.segid1{N-k+1}, helix.resnum2(N-k+1) );
+0023     pos2 = <a href="#_sub3" class="code" title="subfunction pos = update_residue_pos( res_tag, relpos, center, R );">update_residue_pos</a>( res_tag, [ spacing*((k-1)-(N-1)/2), +bp_spacing/2], helix.center, R );
+0024     helix_res_tags = [helix_res_tags, res_tag ];
+0025     
+0026     all_pos1(k,:) = pos1;
+0027     all_pos2(k,:) = pos2;
+0028 <span class="keyword">end</span>
+0029 
+0030 <span class="comment">% draw all residues that are associated with the helix</span>
+0031 not_helix_res_tags = {};
+0032 <span class="keyword">for</span> i = 1:length( helix.associated_residues )
+0033     res_tag = helix.associated_residues{i};
+0034     residue = getappdata( gca, res_tag );
+0035     <span class="keyword">if</span> ~isfield( residue, <span class="string">'nucleotide'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0036     <span class="keyword">if</span> ~isfield( residue, <span class="string">'relpos'</span> ) 
+0037         residue.relpos = <a href="#_sub2" class="code" title="subfunction relpos = set_default_relpos( residue, helix, plot_settings )">set_default_relpos</a>( residue, helix, plot_settings ); 
+0038         setappdata( gca, res_tag, residue );
+0039     <span class="keyword">end</span>;
+0040     <a href="#_sub1" class="code" title="subfunction h = draw_residue( res_tag, helix_center, R, plot_settings );">draw_residue</a>( res_tag, helix_center, R, plot_settings );
+0041     <span class="keyword">if</span> ~any(strcmp(  helix_res_tags, res_tag )) not_helix_res_tags = [not_helix_res_tags, res_tag]; <span class="keyword">end</span>;
+0042 <span class="keyword">end</span>
+0043 
+0044 <span class="comment">% update any linkers associated with these residues</span>
+0045 <span class="comment">% in the future, these could include base pairs (incl. non-canonicals)</span>
+0046 redrawn_linkers = {};
+0047 <span class="keyword">for</span> i = 1:length( helix.associated_residues )
+0048     res_tag = helix.associated_residues{i};
+0049     residue = getappdata( gca, res_tag );
+0050     <span class="keyword">if</span> ~isfield( residue, <span class="string">'linkers'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0051     linker_tags = residue.linkers;
+0052     <span class="comment">% silly cleanup</span>
+0053     <span class="keyword">for</span> k = 1 : length( linker_tags )
+0054         <span class="keyword">if</span> any( strcmp( redrawn_linkers, linker_tags{k} ) ); <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% don't double-render, to save time.</span>
+0055         linker = getappdata( gca, linker_tags{k} );
+0056         draw_linker( linker );
+0057         redrawn_linkers = [ redrawn_linkers, linker.linker_tag ];
+0058     <span class="keyword">end</span>
+0059 <span class="keyword">end</span>
+0060 
+0061 <span class="keyword">if</span> ~isfield( helix, <span class="string">'label_relpos'</span> ) helix.label_relpos = plot_settings.bp_spacing *[0 1]; <span class="keyword">end</span>;
+0062 helix = <a href="#_sub4" class="code" title="subfunction helix = make_helix_label( helix, plot_settings, R )">make_helix_label</a>( helix, plot_settings, R );
+0063 
+0064 <span class="comment">% Selections (if they exist)</span>
+0065 selections = {};
+0066 <span class="keyword">for</span> i = 1:length( helix.associated_residues )
+0067     res_tag = helix.associated_residues{i};
+0068     residue = getappdata( gca, res_tag );
+0069     <span class="keyword">if</span> isfield( residue, <span class="string">'associated_selections'</span> ) &amp; length( residue.associated_selections ) &gt; 0
+0070         selections = [ selections, residue.associated_selections ];
+0071     <span class="keyword">end</span>    
+0072 <span class="keyword">end</span>
+0073 selections = unique( selections );
+0074 draw_selections( selections );
+0075 
+0076 <span class="comment">% handles for helix editing</span>
+0077 <span class="comment">% rectangle for dragging.</span>
+0078 minpos = min( [all_pos1; all_pos2 ] );
+0079 maxpos = max( [all_pos1; all_pos2 ] );
+0080 helix = create_default_rectangle( helix, <span class="string">'helix_tag'</span>, helix.helix_tag, @<a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a> );
+0081 set_rectangle_coords( helix, minpos, maxpos, spacing );
+0082 
+0083 <span class="comment">% for helix: clickable line of reflection</span>
+0084 <span class="keyword">if</span> ~isfield( helix, <span class="string">'reflect_line1'</span> )
+0085     h = plot( [0 0], [0 0], <span class="string">'color'</span>,[0.5 0.5 1],<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0086     setappdata( h, <span class="string">'helix_tag'</span>, helix.helix_tag);
+0087     set(h,<span class="string">'ButtonDownFcn'</span>,{@<a href="reflect_helix.html" class="code" title="function reflect_helix( h, ~, ~ )">reflect_helix</a>,h});
+0088     helix.reflect_line1 = h;
+0089 <span class="keyword">end</span>
+0090 line1 = helix_center + spacing*[-(N+0.25)/2, 0]*R;
+0091 line1x = helix_center + spacing*[-(N-0.75)/2, 0]*R;
+0092 set( helix.reflect_line1, <span class="string">'Xdata'</span>, [line1(1) line1x(1)], <span class="string">'Ydata'</span>, [line1(2) line1x(2)]);
+0093 
+0094 <span class="keyword">if</span> ~isfield( helix, <span class="string">'reflect_line2'</span> )
+0095     h = plot( [0 0], [0 0], <span class="string">'color'</span>,[0.5 0.5 1],<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0096     setappdata( h, <span class="string">'helix_tag'</span>, helix.helix_tag);
+0097     set(h,<span class="string">'ButtonDownFcn'</span>,{@<a href="reflect_helix.html" class="code" title="function reflect_helix( h, ~, ~ )">reflect_helix</a>,h});
+0098     helix.reflect_line2 = h;
+0099 <span class="keyword">end</span>
+0100 line2 = helix_center + spacing*[ (N+0.25)/2, 0]*R;
+0101 line2x = helix_center + spacing*[ (N-0.75)/2, 0]*R;
+0102 set( helix.reflect_line2, <span class="string">'Xdata'</span>, [line2(1) line2x(1)], <span class="string">'Ydata'</span>, [line2(2) line2x(2)]);
+0103 
+0104 <span class="comment">% for helix: clickable center of rotation</span>
+0105 <span class="keyword">if</span> ~isfield( helix, <span class="string">'click_center'</span> )
+0106     h = rectangle( <span class="string">'Position'</span>,<span class="keyword">...</span>
+0107         [ 0 0 0 0 ], <span class="keyword">...</span>
+0108         <span class="string">'curvature'</span>,[0.5 0.5],<span class="keyword">...</span>
+0109         <span class="string">'edgecolor'</span>,[0.5 0.5 1],<span class="keyword">...</span>
+0110         <span class="string">'facecolor'</span>,[0.5 0.5 1],<span class="string">'linewidth'</span>,1.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0111     setappdata( h,<span class="string">'helix_tag'</span>, helix.helix_tag);
+0112     set(h,<span class="string">'ButtonDownFcn'</span>,{@<a href="rotate_helix.html" class="code" title="function rotate_helix( h, ~, ~ )">rotate_helix</a>,h});
+0113     helix.click_center = h;
+0114 <span class="keyword">end</span>
+0115 set( helix.click_center, <span class="string">'Position'</span>, [helix_center(1)-0.15*spacing helix_center(2)-0.15*spacing,<span class="keyword">...</span>
+0116     0.3*spacing 0.3*spacing]);
+0117 
+0118 <span class="comment">% make ticklabels draggable</span>
+0119 <span class="keyword">for</span> i = 1:length( helix.associated_residues )
+0120     res_tag = helix.associated_residues{i};
+0121     residue = getappdata( gca, res_tag );
+0122     <span class="keyword">if</span> isfield( residue, <span class="string">'tick_label'</span> ) &amp; isvalid( residue.tick_label )
+0123         setappdata( residue.tick_label, <span class="string">'res_tag'</span>, res_tag );
+0124         draggable( residue.tick_label, @<a href="#_sub9" class="code" title="subfunction move_tick(h)">move_tick</a>, <span class="string">'endfcn'</span>, @<a href="#_sub10" class="code" title="subfunction redraw_tick_res_and_helix(h)">redraw_tick_res_and_helix</a> );
+0125     <span class="keyword">end</span>
+0126 <span class="keyword">end</span>
+0127 
+0128 <span class="comment">% make single-stranded residues draggable...</span>
+0129 <span class="keyword">for</span> i = 1:length( not_helix_res_tags )
+0130     res_tag = not_helix_res_tags{i};
+0131     residue = getappdata( gca, res_tag );
+0132     draggable( residue.handle,<span class="string">'n'</span>,[-inf inf -inf inf],@move_snapgrid, <span class="string">'endfcn'</span>, @<a href="redraw_res_and_helix.html" class="code" title="function redraw_res_and_helix( h )">redraw_res_and_helix</a> )
+0133 <span class="keyword">end</span>
+0134 
+0135 
+0136 <span class="comment">%%%%%%%%%%%%%%%%%%%%%</span>
+0137 <span class="comment">% DO THIS AT THE END</span>
+0138 <span class="comment">%%%%%%%%%%%%%%%%%%%%%</span>
+0139 <span class="comment">% 'global data' (stored in figure)</span>
+0140 setappdata( gca, helix.helix_tag, helix );
+0141 
+0142 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0143 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0144 <span class="comment">% Helper functions</span>
+0145 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0146 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0147 
+0148 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0149 <span class="comment">% Residue</span>
+0150 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0151 <a name="_sub1" href="#_subfunctions" class="code">function h = draw_residue( res_tag, helix_center, R, plot_settings );</a>
+0152 residue = getappdata( gca, res_tag );
+0153 <span class="keyword">if</span> isfield( residue, <span class="string">'relpos'</span> ) 
+0154     pos = helix_center +  residue.relpos * R ;
+0155     <span class="keyword">if</span> ~isfield( residue, <span class="string">'handle'</span> ) | ~isvalid( residue.handle )
+0156         residue.handle = text( <span class="keyword">...</span>
+0157             0, 0,<span class="keyword">...</span>
+0158             residue.nucleotide,<span class="keyword">...</span>
+0159             <span class="string">'fontsize'</span>, plot_settings.fontsize, <span class="keyword">...</span>
+0160             <span class="string">'fontname'</span>,<span class="string">'helvetica'</span>,<span class="string">'horizontalalign'</span>,<span class="string">'center'</span>,<span class="string">'verticalalign'</span>,<span class="string">'middle'</span>,<span class="keyword">...</span>
+0161             <span class="string">'clipping'</span>,<span class="string">'off'</span>);
+0162         <span class="keyword">if</span> isfield( plot_settings, <span class="string">'boldface'</span> )
+0163             <span class="keyword">if</span> plot_settings.boldface == 1; fontweight = <span class="string">'bold'</span>; <span class="keyword">else</span>; fontweight = <span class="string">'normal'</span>; <span class="keyword">end</span>;
+0164             set( residue.handle, <span class="string">'fontweight'</span>,fontweight );
+0165         <span class="keyword">end</span>
+0166     <span class="keyword">end</span>
+0167     <span class="keyword">if</span> ( plot_settings.fontsize ~= get( residue.handle, <span class="string">'fontsize'</span> ) ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize ); <span class="keyword">end</span>;
+0168     h = residue.handle;
+0169     set( h, <span class="string">'Position'</span>, pos );
+0170     <span class="keyword">if</span> ( length( residue.nucleotide ) &gt; 1 ) set( h, <span class="string">'fontsize'</span>, plot_settings.fontsize*4/5); <span class="keyword">end</span>;
+0171     setappdata( residue.handle, <span class="string">'res_tag'</span>, res_tag );
+0172     residue.res_tag = res_tag;
+0173     residue.plot_pos = pos;
+0174     <span class="keyword">if</span> isfield( residue, <span class="string">'rgb_color'</span> ) set(h,<span class="string">'color'</span>,residue.rgb_color ); <span class="keyword">end</span>;
+0175     residue = <a href="#_sub7" class="code" title="subfunction residue = draw_tick( residue, bp_spacing, fontsize, R )">draw_tick</a>( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
+0176     <span class="comment">% quick linker cleanup</span>
+0177     <span class="keyword">if</span> isfield( residue, <span class="string">'linkers'</span> );
+0178         linker_tags = residue.linkers;
+0179         ok_linker = zeros(1,length(linker_tags));
+0180         <span class="keyword">for</span> k = 1 : length( linker_tags );  ok_linker(k) = isappdata( gca, linker_tags{k} );     <span class="keyword">end</span>
+0181         residue.linkers = linker_tags( find(ok_linker) );
+0182     <span class="keyword">end</span>
+0183     <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> );
+0184         residue = draw_image_boundary( residue );
+0185     <span class="keyword">end</span>
+0186     setappdata( gca, res_tag, residue );
+0187 <span class="keyword">end</span>
+0188 
+0189 
+0190 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0191 <a name="_sub2" href="#_subfunctions" class="code">function relpos = set_default_relpos( residue, helix, plot_settings )</a>
+0192 <span class="comment">% need to find which helix st;rand to append to, and then go out a bit.</span>
+0193 dist1 = min( abs(helix.resnum1 - residue.resnum) );
+0194 <span class="keyword">if</span> ( residue.chain ~= helix.chain1(1) ) dist1 = Inf * dist1; <span class="keyword">end</span>;
+0195 dist2 = min( abs(helix.resnum2 - residue.resnum) );
+0196 <span class="keyword">if</span> ( residue.chain ~= helix.chain2(1) ) dist2 = Inf * dist2; <span class="keyword">end</span>;
+0197 [~,strand] = min( [min( dist1 ), min( dist2 )] );
+0198 N = length( helix.resnum1 );
+0199 <span class="keyword">if</span> ( strand == 1 )   
+0200     d = residue.resnum-helix.resnum1(1);
+0201     <span class="keyword">if</span> abs(d) &gt; 10; d = sign(d) * 10 * ( log( abs(d)/ 10) + 1 );  <span class="keyword">end</span>;
+0202     relpos = [ plot_settings.spacing*(d-(N-1)/2), -plot_settings.bp_spacing/2];
+0203 <span class="keyword">else</span>
+0204     assert( strand == 2 );    
+0205     d = residue.resnum-helix.resnum2(1);
+0206     <span class="keyword">if</span> abs(d) &gt; 10; d = sign(d) * 10 * ( log( abs(d)/ 10) + 1 );  <span class="keyword">end</span>;
+0207     relpos = [ plot_settings.spacing*(-d+(N-1)/2), +plot_settings.bp_spacing/2];  
+0208 <span class="keyword">end</span>
+0209 
+0210 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0211 <a name="_sub3" href="#_subfunctions" class="code">function pos = update_residue_pos( res_tag, relpos, center, R );</a>
+0212 residue = getappdata( gca, res_tag );
+0213 residue.relpos = relpos;
+0214 pos = center + relpos*R;
+0215 setappdata( gca, res_tag, residue);
+0216         
+0217 
+0218 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0219 <span class="comment">% Helix label</span>
+0220 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0221 <a name="_sub4" href="#_subfunctions" class="code">function helix = make_helix_label( helix, plot_settings, R )</a>
+0222 <span class="comment">% make label</span>
+0223 <span class="keyword">if</span> ~isfield( helix, <span class="string">'label'</span> ) | ~isvalid( helix.label)
+0224     h = text( 0,0, helix.name,<span class="keyword">...</span>
+0225         <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5, <span class="string">'fontname'</span>,<span class="string">'helvetica'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span>);
+0226     helix.label = h;
+0227     <span class="comment">% draggable helix label</span>
+0228     setappdata( helix.label, <span class="string">'helix_tag'</span>, helix.helix_tag );
+0229     draggable( helix.label, <span class="string">'n'</span>,[-inf inf -inf inf], @<a href="#_sub5" class="code" title="subfunction move_helix_label(h)">move_helix_label</a>, <span class="string">'endfcn'</span>, @<a href="#_sub6" class="code" title="subfunction redraw_helix_label(h)">redraw_helix_label</a> )
+0230 <span class="keyword">end</span>
+0231 h = helix.label;
+0232 label_pos = helix.center + helix.label_relpos * R;
+0233 set( h, <span class="string">'String'</span>, helix.name );
+0234 set( h, <span class="string">'position'</span>, label_pos );
+0235 set( h, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5 );
+0236 <span class="keyword">if</span> isfield( helix, <span class="string">'rgb_color'</span> ) set( h, <span class="string">'color'</span>, helix.rgb_color ); <span class="keyword">end</span>;
+0237 v = [0,sign(helix.label_relpos(2))]*R;
+0238 <a href="set_text_alignment.html" class="code" title="function set_text_alignment( h, v )">set_text_alignment</a>( h, v );
+0239 <span class="keyword">if</span> isfield( helix, <span class="string">'label_visible'</span> )
+0240     <span class="keyword">if</span> helix.label_visible; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0241     set( helix.label, <span class="string">'visible'</span>, visible );
+0242 <span class="keyword">end</span>
+0243 
+0244 
+0245 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0246 <a name="_sub5" href="#_subfunctions" class="code">function move_helix_label(h)</a>
+0247 pos = get(h,<span class="string">'position'</span>); 
+0248 helix_tag = getappdata( h, <span class="string">'helix_tag'</span> );
+0249 helix = getappdata( gca, helix_tag );
+0250 R = <a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>( helix );
+0251 relpos = (pos(1:2) - helix.center)*R';
+0252 v = [0,sign(relpos(2))]*R;
+0253 <a href="set_text_alignment.html" class="code" title="function set_text_alignment( h, v )">set_text_alignment</a>( h, v );
+0254 
+0255 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0256 <a name="_sub6" href="#_subfunctions" class="code">function redraw_helix_label(h)</a>
+0257 
+0258 pos = get(h,<span class="string">'position'</span>); 
+0259 helix_tag = getappdata( h, <span class="string">'helix_tag'</span> );
+0260 helix = getappdata( gca, helix_tag );
+0261 
+0262 <span class="comment">% need to figure out rel_pos back in the 'frame' of the helix.</span>
+0263 <span class="comment">% for that I need to figure out rotation matrix.</span>
+0264 R = <a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>( helix );
+0265 helix.label_relpos = ( pos(1:2) - helix.center ) * R';
+0266 
+0267 <span class="comment">% snap to grid?</span>
+0268 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0269 snap_spacing = plot_settings.bp_spacing/4;
+0270 helix.label_relpos = round( helix.label_relpos / snap_spacing ) * snap_spacing;
+0271 
+0272 <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
+0273 
+0274 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0275 <span class="comment">% Ticks</span>
+0276 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0277 <a name="_sub7" href="#_subfunctions" class="code">function residue = draw_tick( residue, bp_spacing, fontsize, R )</a>
+0278 
+0279 <span class="keyword">if</span> ( mod(residue.resnum,10) ~= 0 ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0280 <span class="keyword">if</span> isfield(residue,<span class="string">'ligand_partners'</span>); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0281 
+0282 <span class="keyword">if</span> ~isfield( residue, <span class="string">'tickrot'</span> ) residue.tickrot = nan; <span class="keyword">end</span>; <span class="comment">% nan means set later based on how helix is rotated.</span>
+0283 
+0284 <span class="keyword">if</span> ~isfield( residue, <span class="string">'tick_handle'</span> ) | ~isvalid( residue.tick_handle )
+0285     residue.tick_handle = plot( [0,0],[0,0],<span class="string">'k'</span>,<span class="string">'linewidth'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span>); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0286     setappdata( gca, residue.res_tag, residue );
+0287 <span class="keyword">end</span>
+0288 
+0289 <span class="keyword">if</span> ~isfield( residue, <span class="string">'tick_label'</span> ) | ~isvalid( residue.tick_label )
+0290     residue.tick_label = text( 0, 0, num2str(residue.resnum), <span class="string">'fontsize'</span>, fontsize,<span class="keyword">...</span>
+0291         <span class="string">'horizontalalign'</span>,<span class="string">'center'</span>,<span class="string">'verticalalign'</span>,<span class="string">'middle'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0292     setappdata( gca, residue.res_tag, residue );
+0293 <span class="keyword">end</span>
+0294 
+0295 <span class="keyword">if</span> isfield( residue, <span class="string">'tickrot'</span> ) 
+0296     <span class="keyword">if</span>  isnan(residue.tickrot) residue = <a href="#_sub8" class="code" title="subfunction residue = set_default_tickrot( residue )">set_default_tickrot</a>( residue ); <span class="keyword">end</span>;
+0297     theta = residue.tickrot;
+0298     v = [cos(theta*pi/180), sin(theta*pi/180)]*R;
+0299     tickpos1 = residue.plot_pos + v*bp_spacing/3; 
+0300     tickpos2 = residue.plot_pos + v*bp_spacing*2/3;
+0301     set( residue.tick_handle, <span class="string">'xdata'</span>, [tickpos1(1) tickpos2(1)] );
+0302     set( residue.tick_handle, <span class="string">'ydata'</span>, [tickpos1(2) tickpos2(2)] );
+0303     labelpos = residue.plot_pos + v*bp_spacing*2/3;
+0304     set( residue.tick_label, <span class="string">'position'</span>, labelpos );
+0305     plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0306     <span class="keyword">if</span> ( get(residue.tick_label, <span class="string">'fontsize'</span>) ~= plot_settings.fontsize ) 
+0307         set( residue.tick_label, <span class="string">'fontsize'</span>, plot_settings.fontsize );  
+0308     <span class="keyword">end</span>;
+0309     <a href="set_text_alignment.html" class="code" title="function set_text_alignment( h, v )">set_text_alignment</a>( residue.tick_label, v );
+0310 <span class="keyword">end</span>
+0311 
+0312 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0313 <a name="_sub8" href="#_subfunctions" class="code">function residue = set_default_tickrot( residue )</a>
+0314 <span class="keyword">if</span> ( sign( residue.relpos(2) ) &gt; 0 ) 
+0315     residue.tickrot = 90;
+0316 <span class="keyword">else</span>
+0317     residue.tickrot = 270;
+0318 <span class="keyword">end</span>
+0319 
+0320 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0321 <a name="_sub9" href="#_subfunctions" class="code">function move_tick(h)</a>
+0322 <span class="comment">% snap to grid during movement.</span>
+0323 pos = get(h,<span class="string">'Position'</span>);
+0324 pos = pos(1:2); <span class="comment">% text</span>
+0325 residue = getappdata( gca, getappdata(h,<span class="string">'res_tag'</span>) );
+0326 v = pos - residue.plot_pos;
+0327 theta = atan2( v(2), v(1) );
+0328 theta = round(theta*180/pi/45)*45;
+0329 v = [cos(theta*pi/180),sin(theta*pi/180)];
+0330 plot_settings = getappdata(gca,<span class="string">'plot_settings'</span>);
+0331 labelpos = residue.plot_pos + v*plot_settings.bp_spacing*2/3;
+0332 set(h,<span class="string">'Position'</span>,labelpos);
+0333 <a href="set_text_alignment.html" class="code" title="function set_text_alignment( h, v )">set_text_alignment</a>( h, v );
+0334 
+0335 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0336 <a name="_sub10" href="#_subfunctions" class="code">function redraw_tick_res_and_helix(h)</a>
+0337 
+0338 pos = get(h,<span class="string">'Position'</span>);
+0339 pos = pos(1:2); <span class="comment">% text</span>
+0340 
+0341 <span class="comment">% position relative to residue will define tickrot</span>
+0342 res_tag =  getappdata(h,<span class="string">'res_tag'</span>);
+0343 residue = getappdata( gca,res_tag );
+0344 v = pos - residue.plot_pos;
+0345 helix = getappdata( gca, residue.helix_tag );
+0346 
+0347 <span class="comment">% need to get into 'helix frame';</span>
+0348 R = <a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>( helix );
+0349 v = v*R'; 
+0350 tickrot = mod( round(atan2(v(2),v(1))*180/pi/45)*45, 360 );
+0351 residue.tickrot = tickrot;
+0352 setappdata( gca, res_tag, residue );
+0353 
+0354 <span class="comment">% shortcut to redraw everything.</span>
+0355 <a href="redraw_res_and_helix.html" class="code" title="function redraw_res_and_helix( h )">redraw_res_and_helix</a>( residue.handle );
+0356</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

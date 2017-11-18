@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draw_coaxial_stacks</title>
+  <meta name="keywords" content="draw_coaxial_stacks">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- ../menu.html selections --><!-- menu.html coaxial_stacks -->
+<h1>draw_coaxial_stacks
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function draw_coaxial_stacks( coaxial_stacks ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function draw_coaxial_stacks( coaxial_stacks )</a>
+0002 
+0003 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0004 <span class="keyword">for</span> i = 1:length( coaxial_stacks )
+0005     coax_color = rand(1,3);
+0006     coax_pairs = coaxial_stacks{i}.coax_pairs;
+0007     all_pos1 = [];all_pos2 = [];
+0008     <span class="keyword">for</span> j = 1:length( coax_pairs )
+0009         coax_pair = coax_pairs{j};
+0010         
+0011         res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, coax_pair.chain1, coax_pair.segid1, coax_pair.resnum1 );
+0012         residue = getappdata( gca, res_tag );
+0013         set( residue.handle, <span class="string">'color'</span>, coax_color );
+0014         all_pos1(j,:) = residue.plot_pos;
+0015 
+0016         res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, coax_pair.chain2, coax_pair.segid2, coax_pair.resnum2 );
+0017         residue = getappdata( gca, res_tag );
+0018         set( residue.handle, <span class="string">'color'</span>, coax_color );
+0019         all_pos2(j,:) = residue.plot_pos;
+0020     <span class="keyword">end</span>
+0021     
+0022     
+0023     minpos = min( [all_pos1; all_pos2 ] );
+0024     maxpos = max( [all_pos1; all_pos2 ] );
+0025     h = rectangle( <span class="string">'Position'</span>,<span class="keyword">...</span>
+0026         [minpos(1) minpos(2) maxpos(1)-minpos(1) maxpos(2)-minpos(2) ]+<span class="keyword">...</span>
+0027         [-0.5 -0.5 1 1]*0.75*plot_settings.spacing,<span class="keyword">...</span>
+0028         <span class="string">'edgecolor'</span>,coax_color,<span class="string">'clipping'</span>,<span class="string">'off'</span>);
+0029 
+0030 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

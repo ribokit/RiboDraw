@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of read_other_contacts</title>
+  <meta name="keywords" content="read_other_contacts">
+  <meta name="description" content="other_contacts = read_other_contacts( other_contacts_file )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html setup -->
+<h1>read_other_contacts
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>other_contacts = read_other_contacts( other_contacts_file )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function other_contacts = read_other_contacts( other_contacts_file ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> other_contacts = read_other_contacts( other_contacts_file )
+
+  Read .other_contacts.txt file output by Rosetta rna_motif executable.
+
+    All pairs of nucleotides that make an atom-atom contact less than 3 Angstroms, after
+       filtering out doublets that are recognized as base pairs and base stacks.
+    Mostly hydrogen bonds involving O2' (2' hydroxyl)  and O1P/O2P (phosphate).
+
+ INPUT
+
+  other_contacts_file = text file with lines like
+
+                      A:1  B:20 O2' O2'
+
+                    i.e.,
+
+                      chain1[:segid1]:resnum1 chain2[:segid2]:resnum2  atom1 atom2
+
+                    where atom1 and atom2 denote names  of atoms that come within 3 Angstroms.
+
+ OUTPUT
+
+  other_contacts       = cell of struct()s with the same information. 
+
+
+ See also: <a href="read_base_stacks.html" class="code" title="function base_stacks = read_base_stacks( base_stacks_file )">read_base_stacks</a>, <a href="read_base_pairs.html" class="code" title="function base_pairs = read_base_pairs( base_pairs_file )">read_base_pairs</a>.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_one_resnum_from_tag( tag )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function other_contacts = read_other_contacts( other_contacts_file )</a>
+0002 <span class="comment">% other_contacts = read_other_contacts( other_contacts_file )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Read .other_contacts.txt file output by Rosetta rna_motif executable.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%    All pairs of nucleotides that make an atom-atom contact less than 3 Angstroms, after</span>
+0007 <span class="comment">%       filtering out doublets that are recognized as base pairs and base stacks.</span>
+0008 <span class="comment">%    Mostly hydrogen bonds involving O2' (2' hydroxyl)  and O1P/O2P (phosphate).</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% INPUT</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%  other_contacts_file = text file with lines like</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">%                      A:1  B:20 O2' O2'</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">%                    i.e.,</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">%                      chain1[:segid1]:resnum1 chain2[:segid2]:resnum2  atom1 atom2</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">%                    where atom1 and atom2 denote names  of atoms that come within 3 Angstroms.</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">% OUTPUT</span>
+0023 <span class="comment">%</span>
+0024 <span class="comment">%  other_contacts       = cell of struct()s with the same information.</span>
+0025 <span class="comment">%</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">% See also: read_base_stacks, read_base_pairs.</span>
+0028 <span class="comment">%</span>
+0029 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0030 
+0031 fid = fopen( other_contacts_file );
+0032 other_contacts = {};
+0033 <span class="keyword">while</span> ~feof( fid )
+0034     line = fgetl( fid );
+0035     <span class="comment">% C:1347 C:1599 O2' N3</span>
+0036     cols = strsplit( line, <span class="string">' '</span> );
+0037     <span class="keyword">if</span> length( cols ) &gt;= 4       
+0038         [other_contact.resnum1,other_contact.chain1,other_contact.segid1] = <a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>( cols{1} );
+0039         [other_contact.resnum2,other_contact.chain2,other_contact.segid2] = <a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>( cols{2} );
+0040         other_contact.atom1 = cols{3};
+0041         other_contact.atom2 = cols{4};
+0042         other_contacts = [other_contacts, other_contact];
+0043     <span class="keyword">end</span>;
+0044 <span class="keyword">end</span>
+0045</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

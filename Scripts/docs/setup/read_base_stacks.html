@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of read_base_stacks</title>
+  <meta name="keywords" content="read_base_stacks">
+  <meta name="description" content="base_stacks = read_base_stacks( base_stacks_file )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html setup -->
+<h1>read_base_stacks
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>base_stacks = read_base_stacks( base_stacks_file )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function base_stacks = read_base_stacks( base_stacks_file ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> base_stacks = read_base_stacks( base_stacks_file )
+
+  Read .base_stacks.txt file output by Rosetta rna_motif executable
+      should include all base-base combinations in which one resides in the
+      appropriate 'z' range above/below the other one.
+
+ INPUT
+
+  base_stacks_file = text file with lines like
+
+                      A:1  B:20 A P
+
+                    i.e.,
+
+                      chain1[:segid1]:resnum1 chain2[:segid2]:resnum2  side orientation
+
+                    where side        is A/B (for the second nucleobase being above/below first nucleobase)
+                          orientation is A/P (antiparallel/parallel based on how the two base's normal vectors
+                                                   are aligned)
+
+
+ OUTPUT
+
+  base_stacks       = cell of struct()s with the same information. Reordered so that 
+                         the residue that has an earlier chain/segid (or if same, earlier resnum) is first.
+
+
+ See also: <a href="read_base_pairs.html" class="code" title="function base_pairs = read_base_pairs( base_pairs_file )">read_base_pairs</a>.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_one_resnum_from_tag( tag )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function base_stacks = read_base_stacks( base_stacks_file )</a>
+0002 <span class="comment">% base_stacks = read_base_stacks( base_stacks_file )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Read .base_stacks.txt file output by Rosetta rna_motif executable</span>
+0005 <span class="comment">%      should include all base-base combinations in which one resides in the</span>
+0006 <span class="comment">%      appropriate 'z' range above/below the other one.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% INPUT</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%  base_stacks_file = text file with lines like</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%                      A:1  B:20 A P</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">%                    i.e.,</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">%                      chain1[:segid1]:resnum1 chain2[:segid2]:resnum2  side orientation</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">%                    where side        is A/B (for the second nucleobase being above/below first nucleobase)</span>
+0019 <span class="comment">%                          orientation is A/P (antiparallel/parallel based on how the two base's normal vectors</span>
+0020 <span class="comment">%                                                   are aligned)</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">%</span>
+0023 <span class="comment">% OUTPUT</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">%  base_stacks       = cell of struct()s with the same information. Reordered so that</span>
+0026 <span class="comment">%                         the residue that has an earlier chain/segid (or if same, earlier resnum) is first.</span>
+0027 <span class="comment">%</span>
+0028 <span class="comment">%</span>
+0029 <span class="comment">% See also: read_base_pairs.</span>
+0030 <span class="comment">%</span>
+0031 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0032 
+0033 fid = fopen( base_stacks_file );
+0034 base_stacks = {};
+0035 <span class="keyword">while</span> ~feof( fid )
+0036     line = fgetl( fid );
+0037     <span class="comment">% C:1347 C:1599 W W C</span>
+0038     cols = strsplit( line, <span class="string">' '</span> );
+0039     <span class="keyword">if</span> length( cols ) &gt;= 4       
+0040         [base_stack.resnum1,base_stack.chain1,base_stack.segid1] = <a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>( cols{1} );
+0041         [base_stack.resnum2,base_stack.chain2,base_stack.segid2] = <a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>( cols{2} );
+0042         base_stack.side = cols{3};
+0043         base_stack.orientation = cols{4};
+0044         base_stacks = [base_stacks, base_stack];
+0045     <span class="keyword">end</span>;
+0046 <span class="keyword">end</span>
+0047</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of autoformat_coaxial_stack</title>
+  <meta name="keywords" content="autoformat_coaxial_stack">
+  <meta name="description" content="autoformat_coaxial_stack( coaxial_stack_tag )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- ../menu.html selections --><!-- menu.html coaxial_stacks -->
+<h1>autoformat_coaxial_stack
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>autoformat_coaxial_stack( coaxial_stack_tag )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function autoformat_coaxial_stack( coaxial_stack, ~, ~ ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> autoformat_coaxial_stack( coaxial_stack_tag )
+
+ (C) Rhiju Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="autoformat_coaxial_stack.html" class="code" title="function autoformat_coaxial_stack( coaxial_stack, ~, ~ )">autoformat_coaxial_stack</a>	autoformat_coaxial_stack( coaxial_stack_tag )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="autoformat_coaxial_stack.html" class="code" title="function autoformat_coaxial_stack( coaxial_stack, ~, ~ )">autoformat_coaxial_stack</a>	autoformat_coaxial_stack( coaxial_stack_tag )</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function residue = set_parent_helix( residue, new_helix_tag);</a></li><li><a href="#_sub2" class="code">function residues = superimpose_residues( residues, superimpose_res_idx );</a></li><li><a href="#_sub3" class="code">function largest_helix = find_largest_helix( helices );</a></li><li><a href="#_sub4" class="code">function res_idx = find_res_in_helix( residues, helix_tag )</a></li><li><a href="#_sub5" class="code">function helix = rotation_search( helix, residues );</a></li><li><a href="#_sub6" class="code">function residue =  find_in_residues( residues, res_tag );</a></li><li><a href="#_sub7" class="code">function [best_theta, best_parity, best_R, start_ctr, target_ctr ] = brute_force_rotation_search( start_pos, target_pos );</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function autoformat_coaxial_stack( coaxial_stack, ~, ~ )</a>
+0002 <span class="comment">% autoformat_coaxial_stack( coaxial_stack_tag )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
+0005 
+0006 
+0007 <span class="keyword">if</span> ischar( coaxial_stack ) <span class="comment">% its a tag</span>
+0008     <a href="autoformat_coaxial_stack.html" class="code" title="function autoformat_coaxial_stack( coaxial_stack, ~, ~ )">autoformat_coaxial_stack</a>( getappdata( gca, coaxial_stack ) );
+0009     <span class="keyword">return</span>;
+0010 <span class="keyword">elseif</span> ~isstruct( coaxial_stack ) &amp; isappdata( coaxial_stack, <span class="string">'selection_tag'</span> )
+0011     <a href="autoformat_coaxial_stack.html" class="code" title="function autoformat_coaxial_stack( coaxial_stack, ~, ~ )">autoformat_coaxial_stack</a>( getappdata( coaxial_stack, <span class="string">'selection_tag'</span> ) );
+0012     <span class="keyword">return</span>;
+0013 <span class="keyword">end</span>
+0014 
+0015 <span class="comment">% starter helix parent.</span>
+0016 <span class="keyword">if</span> length( coaxial_stack.associated_helices ) &gt; 0;
+0017     current_helix_tag = coaxial_stack.associated_helices{1};
+0018 <span class="keyword">else</span>
+0019     <span class="comment">% its possible that this coaxial stack is all noncanonical pairs, and</span>
+0020     <span class="comment">% does not include a Watson-Crick stem. In that case take the</span>
+0021     <span class="comment">% parent helix of the first residues as a good parent for all the</span>
+0022     <span class="comment">% rest of the residues in the coaxial stack.</span>
+0023     residue = getappdata( gca, coaxial_stack.associated_residues{1} );
+0024     current_helix_tag = residue.helix_tag;
+0025 <span class="keyword">end</span>
+0026 
+0027 <span class="comment">% residues is local working copy of the residues in the coaxial stack.</span>
+0028 <span class="comment">% also, figure out possible parent helix for each residue based on</span>
+0029 <span class="comment">% nearest helix inside this coaxial stack.</span>
+0030 coax_pairs = coaxial_stack.coax_pairs;
+0031 N  = length( coax_pairs );
+0032 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0033 spacing = plot_settings.spacing;
+0034 bp_spacing = plot_settings.bp_spacing;
+0035 residues = {};
+0036 <span class="comment">% create positions of an ideal stack. This is pretty similar to what's in draw_helix.</span>
+0037 <span class="keyword">for</span> k = 1:N
+0038     residue1 = getappdata( gca, sprintf( <span class="string">'Residue_%s%s%d'</span>, coax_pairs{k}.chain1, coax_pairs{k}.segid1, coax_pairs{k}.resnum1 ) );
+0039     residue1.plot_pos = [ spacing*((k-1)-(N-1)/2), -bp_spacing/2];
+0040 
+0041     residue2 = getappdata( gca, sprintf( <span class="string">'Residue_%s%s%d'</span>, coax_pairs{k}.chain2, coax_pairs{k}.segid2, coax_pairs{k}.resnum2 ) );
+0042     residue2.plot_pos = [ spacing*((k-1)-(N-1)/2), +bp_spacing/2];
+0043     
+0044     <span class="keyword">if</span> (  isfield( residue1, <span class="string">'stem_partner'</span> ) ) 
+0045         assert( isfield( residue2, <span class="string">'stem_partner'</span> ) );
+0046         assert( strcmp( residue1.stem_partner, residue2.res_tag ) );
+0047         assert( strcmp( residue2.stem_partner, residue1.res_tag ) );
+0048         current_helix_tag = residue1.helix_tag; 
+0049     <span class="keyword">end</span>
+0050     
+0051     residue1 = <a href="#_sub1" class="code" title="subfunction residue = set_parent_helix( residue, new_helix_tag);">set_parent_helix</a>( residue1, current_helix_tag);
+0052     residue2 = <a href="#_sub1" class="code" title="subfunction residue = set_parent_helix( residue, new_helix_tag);">set_parent_helix</a>( residue2, current_helix_tag);
+0053 
+0054     residues = [residues, residue1];
+0055     residues = [residues, residue2];
+0056 <span class="keyword">end</span>
+0057 
+0058 <span class="comment">% find the largest helix associated with this domain -- superimpose based</span>
+0059 <span class="comment">% on those residues.</span>
+0060 <span class="keyword">if</span> length( coaxial_stack.associated_helices ) &gt; 0;
+0061     superimpose_helix = <a href="#_sub3" class="code" title="subfunction largest_helix = find_largest_helix( helices );">find_largest_helix</a>( coaxial_stack.associated_helices );
+0062     superimpose_res_idx = <a href="#_sub4" class="code" title="subfunction res_idx = find_res_in_helix( residues, helix_tag )">find_res_in_helix</a>( residues, superimpose_helix );
+0063 <span class="keyword">else</span>
+0064     <span class="comment">% if the coaxial stack does not have any stems inside it, just</span>
+0065     <span class="comment">% translate/rotate to be as similar as possible to current arrangement in figure.</span>
+0066     superimpose_res_idx = [1:length(residues)];
+0067 <span class="keyword">end</span>
+0068 assert( length( superimpose_res_idx ) &gt;= 4 );
+0069 
+0070 <span class="comment">% slight trick here -- going to use plot_pos saved in gca residues to figure out</span>
+0071 <span class="comment">%  how to transform positions of working residues</span>
+0072 residues = <a href="#_sub2" class="code" title="subfunction residues = superimpose_residues( residues, superimpose_res_idx );">superimpose_residues</a>( residues, superimpose_res_idx );
+0073 
+0074 <span class="comment">% for any helices that have stem residues involved in this coaxial stack,</span>
+0075 <span class="comment">% recompute their helix centers, rotations, and parity to ensure that their</span>
+0076 <span class="comment">% residues line up OK.</span>
+0077 <span class="comment">%</span>
+0078 <span class="comment">% Note that in some cases the associated helix is not part of coaxial</span>
+0079 <span class="comment">% stack (happens with base triples, I think...)</span>
+0080 involved_helices = {};
+0081 res_idx_involved_in_helix = {};
+0082 <span class="keyword">for</span> i = 1:length( residues )
+0083     residue = residues{i};
+0084     <span class="keyword">if</span> isfield( residue, <span class="string">'stem_partner'</span> )
+0085         involved_helices = unique( [involved_helices, residue.helix_tag ] );
+0086         idx = find( strcmp( involved_helices, residue.helix_tag ) );
+0087         <span class="keyword">if</span> ( idx &gt; length( res_idx_involved_in_helix ) ) res_idx_involved_in_helix{idx} = []; <span class="keyword">end</span>;
+0088         res_idx_involved_in_helix{ idx } = [ res_idx_involved_in_helix{ idx }, i ];
+0089     <span class="keyword">end</span>
+0090 <span class="keyword">end</span>
+0091 
+0092 <span class="keyword">for</span> j = 1:length( involved_helices )
+0093     helix = getappdata( gca, involved_helices{j} );
+0094     <span class="comment">% brute force rotation search:</span>
+0095     helix = <a href="#_sub5" class="code" title="subfunction helix = rotation_search( helix, residues );">rotation_search</a>( helix, residues( res_idx_involved_in_helix{j} ) );
+0096     setappdata( gca, helix.helix_tag, helix );
+0097 <span class="keyword">end</span>
+0098 
+0099 redraw_residues( residues );
+0100 
+0101 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0102 <a name="_sub1" href="#_subfunctions" class="code">function residue = set_parent_helix( residue, new_helix_tag);</a>
+0103 
+0104 <span class="keyword">if</span> strcmp( residue.helix_tag,  new_helix_tag ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0105 
+0106 <span class="comment">%fprintf( 'For residue %s, changing helix from %s to %s\n', residue.res_tag, residue.helix_tag, new_helix_tag );</span>
+0107 original_helix_tag = residue.helix_tag;
+0108 helix = getappdata( gca, original_helix_tag );
+0109 helix.associated_residues = setdiff( helix.associated_residues, residue.res_tag );
+0110 setappdata( gca, original_helix_tag, helix );
+0111 
+0112 helix = getappdata( gca, new_helix_tag );
+0113 assert( ~any( strcmp( helix.associated_residues, residue.res_tag ) ) );
+0114 helix.associated_residues = [ helix.associated_residues, residue.res_tag ];
+0115 setappdata( gca, new_helix_tag, helix );
+0116 
+0117 residue.helix_tag = new_helix_tag;
+0118 
+0119 
+0120 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0121 <a name="_sub2" href="#_subfunctions" class="code">function residues = superimpose_residues( residues, superimpose_res_idx );</a>
+0122 <a href="#_sub2" class="code" title="subfunction residues = superimpose_residues( residues, superimpose_res_idx );">superimpose_residues</a> = residues( superimpose_res_idx );
+0123 plot_pos   = [];
+0124 target_pos = [];
+0125 N = length( <a href="#_sub2" class="code" title="subfunction residues = superimpose_residues( residues, superimpose_res_idx );">superimpose_residues</a> );
+0126 <span class="keyword">for</span> i = 1:N
+0127     residue = <a href="#_sub2" class="code" title="subfunction residues = superimpose_residues( residues, superimpose_res_idx );">superimpose_residues</a>{ i };
+0128     plot_pos = [plot_pos; residue.plot_pos];
+0129 
+0130     <span class="comment">% target residue lives in gca (figure workspace)</span>
+0131     target_residue = getappdata( gca, residue.res_tag );
+0132     target_pos = [ target_pos; target_residue.plot_pos ];
+0133 <span class="keyword">end</span>
+0134 
+0135 [~,~, best_R, plot_ctr, target_ctr ] = <a href="#_sub7" class="code" title="subfunction [best_theta, best_parity, best_R, start_ctr, target_ctr ] = brute_force_rotation_search( start_pos, target_pos );">brute_force_rotation_search</a>( plot_pos, target_pos ); 
+0136 
+0137 <span class="keyword">for</span> i = 1:length( residues )
+0138     residues{i}.plot_pos = target_ctr + (residues{i}.plot_pos - plot_ctr) * best_R;
+0139 <span class="keyword">end</span>
+0140 
+0141 
+0142 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0143 <a name="_sub3" href="#_subfunctions" class="code">function largest_helix = find_largest_helix( helices );</a>
+0144 <span class="keyword">for</span> i = 1:length( helices )
+0145     helix = getappdata( gca, helices{i} );
+0146     L(i) = length( helix.resnum1 );
+0147 <span class="keyword">end</span>
+0148 [~,idx] = min( L );
+0149 largest_helix = helices{idx};
+0150 
+0151 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0152 <a name="_sub4" href="#_subfunctions" class="code">function res_idx = find_res_in_helix( residues, helix_tag )</a>
+0153 res_idx = [];
+0154 <span class="keyword">for</span> i = 1:length( residues )
+0155     <span class="keyword">if</span> strcmp( residues{i}.helix_tag, helix_tag ) &amp; isfield( residues{i}, <span class="string">'stem_partner'</span> )
+0156         res_idx = [res_idx, i]; 
+0157     <span class="keyword">end</span>;
+0158 <span class="keyword">end</span>
+0159 
+0160 
+0161 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0162 <a name="_sub5" href="#_subfunctions" class="code">function helix = rotation_search( helix, residues );</a>
+0163 res_tags = {};
+0164 <span class="keyword">for</span> i = 1:length( helix.resnum1 );
+0165     res_tags = [res_tags, sprintf( <span class="string">'Residue_%s%d'</span>, helix.chain1(i), helix.resnum1(i) ) ];
+0166     res_tags = [res_tags, sprintf( <span class="string">'Residue_%s%d'</span>, helix.chain2(i), helix.resnum2(i) ) ];
+0167 <span class="keyword">end</span>
+0168 start_pos = [];
+0169 target_pos = [];
+0170 <span class="keyword">for</span> i = 1:length( res_tags )
+0171     res_tag = res_tags{i};
+0172     residue = getappdata( gca, res_tag );
+0173     start_pos = [start_pos; residue.relpos ];
+0174 
+0175     residue = <a href="#_sub6" class="code" title="subfunction residue =  find_in_residues( residues, res_tag );">find_in_residues</a>( residues, res_tag );
+0176     target_pos = [target_pos; residue.plot_pos ];
+0177 <span class="keyword">end</span>
+0178 
+0179 [theta, parity, ~, start_ctr, target_ctr ] = <a href="#_sub7" class="code" title="subfunction [best_theta, best_parity, best_R, start_ctr, target_ctr ] = brute_force_rotation_search( start_pos, target_pos );">brute_force_rotation_search</a>( start_pos, target_pos ); 
+0180 assert( all( start_ctr == 0 ) );
+0181 helix.center   = target_ctr;
+0182 helix.rotation = theta;
+0183 helix.parity   = parity;
+0184 
+0185 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0186 <a name="_sub6" href="#_subfunctions" class="code">function residue =  find_in_residues( residues, res_tag );</a>
+0187 <span class="keyword">for</span> i = 1:length( residues )
+0188     residue = residues{ i };
+0189     <span class="keyword">if</span> strcmp( residue.res_tag, res_tag ) <span class="keyword">break</span>; <span class="keyword">end</span>;
+0190 <span class="keyword">end</span>
+0191 
+0192 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0193 <a name="_sub7" href="#_subfunctions" class="code">function [best_theta, best_parity, best_R, start_ctr, target_ctr ] = brute_force_rotation_search( start_pos, target_pos ); </a>
+0194 start_ctr = mean( start_pos, 1 );
+0195 target_ctr = mean( target_pos, 1 );
+0196 N = size( start_pos, 1 );
+0197 start_ctr_repmat = repmat( start_ctr, N, 1 );
+0198 target_ctr_repmat = repmat( target_ctr, N, 1);
+0199 
+0200 <span class="comment">% brute force rotational search</span>
+0201 thetas  = [0, 90, 180, 270, 0, 90, 180, 270];
+0202 paritys = [1, 1, 1, 1, -1, -1, -1, -1 ];
+0203 <span class="keyword">for</span> i = 1:length( thetas )
+0204     theta = thetas(i);
+0205     parity = paritys(i);
+0206     R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
+0207     R = [1 0; 0 parity] * R;
+0208     transform_pos = target_ctr_repmat + (start_pos - start_ctr_repmat)*R;
+0209     rmsds(i) = norm( transform_pos - target_pos );
+0210     all_R{i} = R;
+0211 <span class="keyword">end</span>
+0212 [rmsd, best_idx] = min( rmsds );
+0213 best_theta  = thetas(best_idx);
+0214 best_parity = paritys(best_idx);
+0215 best_R      = all_R{ best_idx };
+0216 
+0217     
+0218 
+0219</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

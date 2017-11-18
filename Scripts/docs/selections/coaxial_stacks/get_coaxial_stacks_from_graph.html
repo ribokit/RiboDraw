@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_coaxial_stacks_from_graph</title>
+  <meta name="keywords" content="get_coaxial_stacks_from_graph">
+  <meta name="description" content="OK let's pull out the coaxial stacks...">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- ../menu.html selections --><!-- menu.html coaxial_stacks -->
+<h1>get_coaxial_stacks_from_graph
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>OK let's pull out the coaxial stacks...</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> OK let's pull out the coaxial stacks...
+ within each connected component, create an ordering of base pairs.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="ordered_stacked_pair.html" class="code" title="function  stacked_pair = ordered_stacked_pair( base_pair, other_pair );">ordered_stacked_pair</a>	convention -- choose base pair based on minimum index (lowest chain, then</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="get_coaxial_stacks.html" class="code" title="function coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );">get_coaxial_stacks</a>	coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function next_pair = figure_out_next_pair_in_stack( current_pair, ordered_next_pair, all_base_stacks );</a></li><li><a href="#_sub2" class="code">function ok = check_stacked_pair_ordering( current_pair, next_pair, all_base_stacks )</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );</a>
+0002 <span class="comment">% OK let's pull out the coaxial stacks...</span>
+0003 <span class="comment">% within each connected component, create an ordering of base pairs.</span>
+0004 bins = conncomp( g );
+0005 <span class="keyword">if</span>( max(degree(g)) &gt; 2 )
+0006     fprintf(<span class="string">'Warning! Some base pairs have more than two possible coaxial stack neighboring pairs!?'</span>);
+0007 <span class="keyword">end</span>
+0008 
+0009 <span class="comment">% check that all stems are connected,</span>
+0010 <span class="comment">% and get rid of co-axial stacks that are 'just' stems</span>
+0011 just_a_stem = zeros( 1, max(bins) );
+0012 in_stem = zeros( 1, length(bins) );
+0013 <span class="keyword">for</span> i = 1 : length( stems)
+0014     stem = stems{i};
+0015     stem_length = length( stem.resnum1 );
+0016     stem_bins = [];
+0017     <span class="keyword">for</span> j = 1:stem_length
+0018         base_pair.resnum1 = stem.resnum1(j); 
+0019         base_pair.chain1  = stem.chain1(j);
+0020         base_pair.segid1  = stem.segid1{j};
+0021         base_pair.resnum2 = stem.resnum2(stem_length-j+1); 
+0022         base_pair.chain2  = stem.chain2(stem_length-j+1);
+0023         base_pair.segid2  = stem.segid2{stem_length-j+1};
+0024         base_pair.edge1 = <span class="string">'W'</span>;
+0025         base_pair.edge2 = <span class="string">'W'</span>;
+0026         base_pair.LW_orientation = <span class="string">'C'</span>;
+0027         base_pair.orientation = <span class="string">'A'</span>;
+0028         idx = find_in_doublets( base_pairs, ordered_base_pair(base_pair) );
+0029         in_stem( idx ) = i;
+0030         stem_bins = [stem_bins, bins( idx )];
+0031     <span class="keyword">end</span>
+0032     stem_bin = unique( stem_bins );
+0033     assert( length( stem_bin ) == 1 );
+0034     <span class="keyword">if</span> length( find( bins == stem_bin ) ) == stem_length;
+0035         just_a_stem( stem_bin ) = 1;
+0036     <span class="keyword">end</span>
+0037 <span class="keyword">end</span>
+0038 
+0039 coax_size = [];
+0040 <span class="keyword">for</span> i = 1 : max( bins )
+0041     coax_size(i) = length( find( bins == i ) );
+0042 <span class="keyword">end</span>
+0043 
+0044 coaxial_stacks = {};
+0045 <span class="keyword">for</span> i = 1:max( bins )
+0046      <span class="keyword">if</span> ( just_a_stem( i ) ); <span class="keyword">continue</span>;  <span class="keyword">end</span>;
+0047      coax_pair_idx = find( bins == i );
+0048      <span class="keyword">if</span> ( length( coax_pair_idx ) == 1 ); <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% don't bother with singlets</span>
+0049 
+0050      <span class="comment">% edge pairs</span>
+0051      edge_idx = find( degree(g, coax_pair_idx) == 1 );
+0052      assert( length( edge_idx ) == 2 );
+0053 
+0054      <span class="comment">% Need to find which edge pair has lowest index. Reuse the code in 'ordered_stack_pair'</span>
+0055      <span class="comment">% Note that there is no guarantee that we'll traverse any group of</span>
+0056      <span class="comment">% residues (even in a helix stem) from 5' to 3'!</span>
+0057      stacked_pair = <a href="ordered_stacked_pair.html" class="code" title="function  stacked_pair = ordered_stacked_pair( base_pair, other_pair );">ordered_stacked_pair</a>( <span class="keyword">...</span>
+0058          base_pairs{coax_pair_idx(edge_idx(1))}, <span class="keyword">...</span>
+0059          base_pairs{coax_pair_idx(edge_idx(2))} );     
+0060      current_pair = stacked_pair.base_pair1;  <span class="comment">% note that this may not be ordered</span>
+0061      current_idx = find_in_doublets( base_pairs, ordered_base_pair( current_pair ) );
+0062      coax_idx   = [current_idx]; <span class="comment">% index in base_pairs list</span>
+0063      coax_pairs = { current_pair };
+0064      <span class="keyword">for</span> j = 1:length( coax_pair_idx )-1
+0065          nbr_idx = neighbors( g, current_idx );
+0066          next_idx = setdiff( nbr_idx, coax_idx );
+0067          assert( length( next_idx ) == 1 );
+0068          coax_idx = [ coax_idx, next_idx ];
+0069          <span class="comment">% base_pairs{next_idx} is the next pair, but we want to find the</span>
+0070          <span class="comment">% ordering of its residues that maintains continuous stacks for</span>
+0071          <span class="comment">% res1 and res2 all the way through the stack.</span>
+0072          next_pair = <a href="#_sub1" class="code" title="subfunction next_pair = figure_out_next_pair_in_stack( current_pair, ordered_next_pair, all_base_stacks );">figure_out_next_pair_in_stack</a>( current_pair, base_pairs{next_idx}, all_base_stacks );
+0073          coax_pairs = [ coax_pairs, next_pair ];
+0074          current_idx = next_idx;
+0075          current_pair = next_pair;
+0076      <span class="keyword">end</span>
+0077      coaxial_stack.coax_pairs = coax_pairs;
+0078 
+0079      <span class="comment">% save information on associated_residues</span>
+0080      associated_residues = {};
+0081      <span class="keyword">for</span> j = 1:length( coax_pairs )
+0082          associated_residues = [ associated_residues, sprintf( <span class="string">'Residue_%s%s%d'</span>, coax_pairs{j}.chain1,coax_pairs{j}.segid1,coax_pairs{j}.resnum1 ) ];
+0083          associated_residues = [ associated_residues, sprintf( <span class="string">'Residue_%s%s%d'</span>, coax_pairs{j}.chain2,coax_pairs{j}.segid2,coax_pairs{j}.resnum2 ) ];
+0084      <span class="keyword">end</span>
+0085      coaxial_stack.associated_residues = associated_residues;
+0086      
+0087      <span class="comment">% save information on associated_helices.</span>
+0088      stem_idx = sort( unique( setdiff( in_stem( coax_pair_idx ), [0] ) ) );
+0089      associated_helices = {};
+0090      <span class="keyword">for</span> idx = stem_idx
+0091          associated_helices = [ associated_helices, sprintf( <span class="string">'Helix_%s%s%d'</span>, stems{idx}.chain1(1), stems{idx}.segid1{1}, stems{idx}.resnum1(1) ) ];
+0092      <span class="keyword">end</span>
+0093      coaxial_stack.associated_helices = associated_helices;
+0094 
+0095      coaxial_stacks = [ coaxial_stacks, coaxial_stack];
+0096 <span class="keyword">end</span>
+0097 
+0098 
+0099 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0100 <a name="_sub1" href="#_subfunctions" class="code">function next_pair = figure_out_next_pair_in_stack( current_pair, ordered_next_pair, all_base_stacks );</a>
+0101 <span class="keyword">if</span> <a href="#_sub2" class="code" title="subfunction ok = check_stacked_pair_ordering( current_pair, next_pair, all_base_stacks )">check_stacked_pair_ordering</a>( current_pair, ordered_next_pair, all_base_stacks )
+0102     next_pair = ordered_next_pair;
+0103 <span class="keyword">else</span>
+0104     next_pair = reverse_pair( ordered_next_pair );
+0105     assert( <a href="#_sub2" class="code" title="subfunction ok = check_stacked_pair_ordering( current_pair, next_pair, all_base_stacks )">check_stacked_pair_ordering</a>( current_pair, next_pair, all_base_stacks ) ); 
+0106 <span class="keyword">end</span>
+0107 
+0108 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0109 <a name="_sub2" href="#_subfunctions" class="code">function ok = check_stacked_pair_ordering( current_pair, next_pair, all_base_stacks )</a>
+0110 <span class="comment">% this is probably slower than it needs to be. Oh well! Doesn't need to be</span>
+0111 <span class="comment">% called very much. There's a similar (longer) set of nested loops in</span>
+0112 <span class="comment">% get_coaxial_stacks that should be optimized before this one... just</span>
+0113 <span class="comment">% need a hash/map.</span>
+0114 ok1 = 0;
+0115 ok2 = 0;
+0116 <span class="keyword">for</span> i = 1:length( all_base_stacks )
+0117     base_stack = all_base_stacks{i};
+0118     <span class="keyword">if</span> ( current_pair.resnum1 == base_stack.resnum1 &amp; <span class="keyword">...</span>
+0119             strcmp(current_pair.chain1,base_stack.chain1) &amp; <span class="keyword">...</span>
+0120             strcmp(current_pair.segid1,base_stack.segid1))
+0121         <span class="keyword">if</span> (next_pair.resnum1 == base_stack.resnum2 &amp; <span class="keyword">...</span>
+0122             strcmp(next_pair.chain1,base_stack.chain2) &amp; <span class="keyword">...</span>
+0123             strcmp(next_pair.segid1,base_stack.segid2))        
+0124             ok1 = 1; <span class="keyword">break</span>;
+0125         <span class="keyword">end</span>
+0126     <span class="keyword">end</span>
+0127 <span class="keyword">end</span>
+0128 
+0129 <span class="keyword">for</span> i = 1:length( all_base_stacks )
+0130     base_stack = all_base_stacks{i};
+0131     <span class="keyword">if</span> ( current_pair.resnum2 == base_stack.resnum1 &amp; <span class="keyword">...</span>
+0132             strcmp(current_pair.chain2,base_stack.chain1) &amp; <span class="keyword">...</span>
+0133             strcmp(current_pair.segid2,base_stack.segid1))
+0134         <span class="keyword">if</span> (next_pair.resnum2 == base_stack.resnum2 &amp; <span class="keyword">...</span>
+0135             strcmp(next_pair.chain2,base_stack.chain2) &amp; <span class="keyword">...</span>
+0136             strcmp(next_pair.segid2,base_stack.segid2))
+0137             ok2 = 1; <span class="keyword">break</span>;
+0138         <span class="keyword">end</span>
+0139     <span class="keyword">end</span>
+0140 <span class="keyword">end</span>
+0141 ok = ok1 &amp; ok2;</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

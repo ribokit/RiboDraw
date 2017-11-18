@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of slice_drawing</title>
+  <meta name="keywords" content="slice_drawing">
+  <meta name="description" content="slice_drawing( slice_res )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html drawing -->
+<h1>slice_drawing
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>slice_drawing( slice_res )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function slice_drawing( slice_res ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> slice_drawing( slice_res )
+ slice_drawing( slice_res_tags )
+ slice_drawing( slice_domain )
+ slice_drawing( {slice_domain1,slice_domain2...} )</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_drawing.html" class="code" title="function savedata = get_drawing( slice_res );">get_drawing</a>	savedata = get_drawing( slice_res );</li><li><a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>	load RiboDraw drawing from JSON drawing file.</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function slice_drawing( slice_res )</a>
+0002 <span class="comment">% slice_drawing( slice_res )</span>
+0003 <span class="comment">% slice_drawing( slice_res_tags )</span>
+0004 <span class="comment">% slice_drawing( slice_domain )</span>
+0005 <span class="comment">% slice_drawing( {slice_domain1,slice_domain2...} )</span>
+0006 
+0007 parent_figure_number = get(gcf,<span class="string">'number'</span>);
+0008 subdrawing = <a href="get_drawing.html" class="code" title="function savedata = get_drawing( slice_res );">get_drawing</a>( slice_res );
+0009 <span class="keyword">if</span> ~isfield( subdrawing, <span class="string">'plot_settings'</span> );  <span class="keyword">return</span>; <span class="keyword">end</span>;
+0010 
+0011 figure()
+0012 <a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>( subdrawing, 0, 1 );
+0013 setappdata( gca, <span class="string">'parent_figure_number'</span>, parent_figure_number );
+0014</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of setup_stem_partner</title>
+  <meta name="keywords" content="setup_stem_partner">
+  <meta name="description" content="setup_stem_partner( stems );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html setup -->
+<h1>setup_stem_partner
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>setup_stem_partner( stems );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function setup_stem_partner( stems ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> setup_stem_partner( stems );
+
+ set up stem partner map to help define 'canonical' pairs.
+ puts stem_partner information in Residue objects in appdata.
+
+ Input
+  stems = cell of stem objects which contain chain1, resnum1, chain2, resnum2 fields.
+
+ Output
+  (none, but updates Residue objects stored as 'appdata' in gca)
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function setup_stem_partner( stems );</a>
+0002 <span class="comment">% setup_stem_partner( stems );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% set up stem partner map to help define 'canonical' pairs.</span>
+0005 <span class="comment">% puts stem_partner information in Residue objects in appdata.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Input</span>
+0008 <span class="comment">%  stems = cell of stem objects which contain chain1, resnum1, chain2, resnum2 fields.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% Output</span>
+0011 <span class="comment">%  (none, but updates Residue objects stored as 'appdata' in gca)</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0014 
+0015 <span class="keyword">for</span> n = 1:length( stems )
+0016     stem = stems{n};
+0017     N = length( stem.resnum1 );
+0018     <span class="keyword">for</span> k = 1:N
+0019         res_tag1 = sprintf( <span class="string">'Residue_%s%s%d'</span>, stem.chain1(k), stem.segid1{k}, stem.resnum1(k) );
+0020         res_tag2 = sprintf( <span class="string">'Residue_%s%s%d'</span>, stem.chain2(N-k+1), stem.segid2{N-k+1}, stem.resnum2(N-k+1) );
+0021         residue1 = getappdata( gca, res_tag1 );
+0022         residue2 = getappdata( gca, res_tag2 );
+0023         residue1.stem_partner = res_tag2;
+0024         residue2.stem_partner = res_tag1;
+0025         setappdata( gca, res_tag1, residue1 );
+0026         setappdata( gca, res_tag2, residue2 );
+0027     <span class="keyword">end</span>
+0028 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

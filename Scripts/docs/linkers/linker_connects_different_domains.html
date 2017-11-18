@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of linker_connects_different_domains</title>
+  <meta name="keywords" content="linker_connects_different_domains">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html linkers -->
+<h1>linker_connects_different_domains
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function val = linker_connects_different_domains( residue1, residue2 ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function val = linker_connects_different_domains( residue1, residue2 )</a>
+0002 
+0003 val = ~strcmp(residue1.chain,residue2.chain) | <span class="keyword">...</span>
+0004       ~strcmp(residue1.segid,residue2.segid);
+0005 
+0006   <span class="keyword">if</span> ~val &amp; isfield( residue1, <span class="string">'rgb_color'</span> ) &amp; isfield( residue2, <span class="string">'rgb_color'</span> ) 
+0007     val = ( length(unique( residue1.rgb_color)) &gt; 1 &amp; <span class="keyword">...</span>
+0008             length(unique( residue2.rgb_color)) &gt; 1 &amp;  <span class="keyword">...</span>
+0009             ( norm( residue1.rgb_color - residue2.rgb_color ) &gt;= 0.1 ) );
+0010 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

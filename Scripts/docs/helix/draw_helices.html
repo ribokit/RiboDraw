@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draw_helices</title>
+  <meta name="keywords" content="draw_helices">
+  <meta name="description" content="draw_helices( helices )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html helix -->
+<h1>draw_helices
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>draw_helices( helices )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function draw_helices( helices ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> draw_helices( helices )
+
+ Render initial helices for RiboDraw drawing, as well
+   as associated residues, linkers, and base pairs.
+
+ Wrapper around draw_helix().
+
+ If helices not supplied, find all objects in current
+  figure axes with names like &quot;Helix_C1247&quot; 
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function draw_helices( helices )</a>
+0002 <span class="comment">% draw_helices( helices )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Render initial helices for RiboDraw drawing, as well</span>
+0005 <span class="comment">%   as associated residues, linkers, and base pairs.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Wrapper around draw_helix().</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% If helices not supplied, find all objects in current</span>
+0010 <span class="comment">%  figure axes with names like &quot;Helix_C1247&quot;</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0013 
+0014 <span class="keyword">if</span> ~exist( <span class="string">'helices'</span>, <span class="string">'var'</span> )
+0015     helices = {};
+0016     appdata = getappdata( gca );
+0017     objnames = fields( appdata );
+0018     <span class="keyword">for</span> n = 1:length( objnames )
+0019         <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
+0020             helices = [helices,getfield(appdata,objnames{n})];
+0021         <span class="keyword">end</span>
+0022     <span class="keyword">end</span>
+0023 <span class="keyword">end</span>
+0024 
+0025 <span class="keyword">for</span> n = 1:length( helices )
+0026     <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helices{n} );
+0027 <span class="keyword">end</span>
+0028 
+0029 axis off
+0030 <span class="comment">%axis equal</span>
+0031 set(gcf,<span class="string">'color'</span>,<span class="string">'white'</span>)</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

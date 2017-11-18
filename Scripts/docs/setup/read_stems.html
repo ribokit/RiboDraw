@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of read_stems</title>
+  <meta name="keywords" content="read_stems">
+  <meta name="description" content="helices = read_stems( helix_file )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html setup -->
+<h1>read_stems
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>helices = read_stems( helix_file )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function helices = read_stems( helix_file ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> helices = read_stems( helix_file )
+
+  Read .stems.txt file output by Rosetta rna_motif executable, which
+      should include all directly stacked Watson-Crick/G*U wobble pairs with
+      length of 2 base pairs or greater. 
+
+ TODO: probably should change the data structure so that it has only one chain, segid 
+        for each strand of the helix.
+
+ INPUT
+
+  helix_file = text file with lines like
+
+                      A:1-4  B:20-17
+
+ OUTPUT
+
+  helices       = cell of struct()s with the same information and a helix_tag like 'Helix_A4'
+
+ (C) R. Das, Stanford University, 2017.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_resnum_from_tag( tag )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function helices = read_stems( helix_file )</a>
+0002 <span class="comment">% helices = read_stems( helix_file )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Read .stems.txt file output by Rosetta rna_motif executable, which</span>
+0005 <span class="comment">%      should include all directly stacked Watson-Crick/G*U wobble pairs with</span>
+0006 <span class="comment">%      length of 2 base pairs or greater.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% TODO: probably should change the data structure so that it has only one chain, segid</span>
+0009 <span class="comment">%        for each strand of the helix.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% INPUT</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%  helix_file = text file with lines like</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%                      A:1-4  B:20-17</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% OUTPUT</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">%  helices       = cell of struct()s with the same information and a helix_tag like 'Helix_A4'</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">% (C) R. Das, Stanford University, 2017.</span>
+0022 
+0023 fid = fopen( helix_file );
+0024 helices = {};
+0025 <span class="keyword">while</span> ~feof( fid )
+0026     line = fgetl( fid );
+0027     <span class="comment">% A:1-4 B:5-8 HelixX</span>
+0028     cols = strsplit( line, <span class="string">' '</span> );
+0029     <span class="keyword">if</span> length( cols ) &gt;= 2
+0030         [helix.resnum1,helix.chain1,helix.segid1] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( cols{1} );
+0031         [helix.resnum2,helix.chain2,helix.segid2] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( cols{2} );
+0032         <span class="keyword">if</span> length( cols ) &gt; 2 
+0033             helix.name = cols{3};
+0034         <span class="keyword">else</span>
+0035             helix.name = <span class="string">''</span>;
+0036         <span class="keyword">end</span>
+0037         helices = [helices,helix];
+0038         helix.helix_tag = sprintf(<span class="string">'Helix_%s%s%d'</span>,helix.chain1(1),helix.segid1{1},helix.resnum1(1));
+0039     <span class="keyword">end</span>;
+0040 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

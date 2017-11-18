@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_patch_from_image</title>
+  <meta name="keywords" content="get_patch_from_image">
+  <meta name="description" content="a hack from plot_2d (rhiju's attempts to auto-solve jigsaw puzzles)">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html ligands -->
+<h1>get_patch_from_image
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>a hack from plot_2d (rhiju's attempts to auto-solve jigsaw puzzles)</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function bounds = get_patch_from_image( image_file, show_drawing ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> a hack from plot_2d (rhiju's attempts to auto-solve jigsaw puzzles)
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="setup_image_for_ligand.html" class="code" title="function setup_image_for_ligand( ligand, image_file, new_name, skip_move_stuff_to_back );">setup_image_for_ligand</a>	setup_image_for_ligand( ligand, image_file );</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function bounds = get_patch_from_image( image_file, show_drawing );</a>
+0002 <span class="comment">% a hack from plot_2d (rhiju's attempts to auto-solve jigsaw puzzles)</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% (C) R. Das, Stanford University</span>
+0005 
+0006 <span class="keyword">if</span> ~exist( <span class="string">'show_drawing'</span>, <span class="string">'var'</span> ) show_drawing = 1; <span class="keyword">end</span>;
+0007 THRESHOLD = 5;
+0008 
+0009 image_x = imread( image_file ); 
+0010 
+0011 <span class="keyword">if</span> show_drawing; 
+0012     image( image_x ); 
+0013     hold on; 
+0014 <span class="keyword">end</span>
+0015 image_mean = mean( image_x, 3 );
+0016 
+0017 <span class="comment">% color contrast.</span>
+0018 <span class="comment">%for i = 1:3</span>
+0019 <span class="comment">%  image_y(:,:,i) = max( double( image_x(:,:,i) ) - image_mean, 0);</span>
+0020 <span class="comment">%end</span>
+0021 <span class="comment">%image_y = max( 2*image_y, 0 );</span>
+0022 image_y = 256 - image_x;
+0023 THRESHOLD = min( THRESHOLD, max( image_y(:)/10 ) );
+0024 image_binary = ( sum(image_y,3) &gt; THRESHOLD );
+0025 
+0026 [b,l,n] = bwboundaries( image_binary );
+0027 
+0028 <span class="comment">% find longest boundary</span>
+0029 numpts = [];
+0030 <span class="keyword">for</span> i = 1:length(b)
+0031     numpts(i) = size(b{i},1);
+0032 <span class="keyword">end</span>
+0033 [~,idx] = max( numpts );
+0034 bounds = b{idx};
+0035 
+0036 ctr = centerOfMass( uint8(image_binary) );
+0037 
+0038 <span class="keyword">if</span> show_drawing
+0039     plot( bounds(:,2), bounds(:,1),<span class="string">'linew'</span>,2,<span class="string">'color'</span>,<span class="string">'r'</span> );
+0040     plot( ctr(2), ctr(1),<span class="string">'x'</span> )
+0041     hold off
+0042 <span class="keyword">end</span>
+0043 
+0044 bounds = bounds - repmat( ctr, size( bounds,1), 1 );
+0045 bounds = bounds(:,end:-1:1);      <span class="comment">% in ribodraw, x&lt;-&gt;y is normal.</span>
+0046 bounds(:,2) = -bounds(:,2); <span class="comment">% need to flip y axis.</span></pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

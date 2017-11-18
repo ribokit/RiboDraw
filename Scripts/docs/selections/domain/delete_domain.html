@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of delete_domain</title>
+  <meta name="keywords" content="delete_domain">
+  <meta name="description" content="setup_domain( residue_string, name );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- ../menu.html selections --><!-- menu.html domain -->
+<h1>delete_domain
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>setup_domain( residue_string, name );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function delete_domain( name ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> setup_domain( residue_string, name );
+ (C) Rhiju Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function delete_domain( name );</a>
+0002 <span class="comment">% setup_domain( residue_string, name );</span>
+0003 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
+0004 
+0005 delete_tag = <a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>( name );
+0006 
+0007 <span class="keyword">if</span> isappdata( gca, delete_tag )
+0008     domain = getappdata( gca, delete_tag );
+0009     
+0010     <span class="keyword">for</span> j = 1:length( domain.associated_residues )
+0011         residue_tag = domain.associated_residues{j};
+0012         residue = getappdata( gca, residue_tag );
+0013         <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> )
+0014             residue.associated_selections = {};
+0015         <span class="keyword">end</span>
+0016         residue.associated_selections = setdiff( residue.associated_selections, delete_tag );
+0017         setappdata( gca, residue_tag, residue );
+0018     <span class="keyword">end</span>
+0019     
+0020     <span class="keyword">if</span> isfield( domain,<span class="string">'label'</span> ); delete( domain.label ); <span class="keyword">end</span>;
+0021     <span class="keyword">if</span> isfield( domain,<span class="string">'rectangle'</span> ); delete( domain.rectangle ); <span class="keyword">end</span>;
+0022     rmappdata( gca, delete_tag );
+0023     
+0024 <span class="keyword">else</span> <span class="comment">% do some cleanup</span>
+0025       res_tags = get_tags( <span class="string">'Residue_'</span> );      
+0026       <span class="keyword">for</span> i = 1:length( res_tags )
+0027           res_tag = res_tags{i};
+0028           residue = getappdata( gca, res_tag );
+0029           <span class="keyword">if</span> isfield( residue, <span class="string">'associated_selections'</span> )
+0030               <span class="keyword">if</span> any( strcmp( residue.associated_selections, delete_tag ) )
+0031                   fprintf( <span class="string">'Cleaning up %s\n'</span>, res_tag );
+0032                   residue.associated_selections = setdiff( residue.associated_selections, delete_tag );
+0033                   setappdata( gca, res_tag, residue );
+0034               <span class="keyword">end</span>
+0035           <span class="keyword">end</span>
+0036       <span class="keyword">end</span>
+0037 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

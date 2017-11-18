@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of make_crosshair</title>
+  <meta name="keywords" content="make_crosshair">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html gui -->
+<h1>make_crosshair
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function make_crosshair( pos ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"></pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="move_snapgrid.html" class="code" title="function move_snapgrid(h)">move_snapgrid</a>	snap to grid during movement.</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function make_crosshair( pos );</a>
+0002 <span class="keyword">if</span> ~isappdata( gca, <span class="string">'vertical_crosshair'</span> )
+0003     setappdata( gca, <span class="string">'vertical_crosshair'</span>, plot( [0 0],[0 0],<span class="string">'-'</span>, <span class="string">'color'</span>, [0.5 0.5 1], <span class="string">'linew'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ) );
+0004 <span class="keyword">end</span>
+0005 <span class="keyword">if</span> ~isappdata( gca, <span class="string">'horizontal_crosshair'</span> )
+0006     setappdata( gca, <span class="string">'horizontal_crosshair'</span>, plot([0 0],[0 0],<span class="string">'-'</span>, <span class="string">'color'</span>, [0.5 0.5 1], <span class="string">'linew'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ) );
+0007 <span class="keyword">end</span>
+0008 xlim = get(gca,<span class="string">'xlim'</span>);
+0009 ylim = get(gca,<span class="string">'ylim'</span>);
+0010 set( getappdata( gca, <span class="string">'vertical_crosshair'</span>)  , <span class="string">'XData'</span>, pos(1)*[1 1], <span class="string">'YData'</span>, ylim ); 
+0011 set( getappdata( gca, <span class="string">'horizontal_crosshair'</span>), <span class="string">'XData'</span>, xlim,         <span class="string">'YData'</span>, pos(2)*[1 1] );</pre></div>
+<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

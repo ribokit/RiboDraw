@@ -15,6 +15,9 @@ function color_drawing( color, selection )
 % (C) R. Das, Stanford University.
 
 if ~exist( 'selection', 'var' ) selection = 'all'; end;
+
+% get_res() is a magic function that converts residue strings, domain names, etc. into
+%  a list of residue tags.
 [ res_tags, obj_name ] = get_res( selection );
 
 nres = length( res_tags );

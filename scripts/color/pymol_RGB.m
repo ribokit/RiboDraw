@@ -3,8 +3,14 @@ function rgb_color = pymol_RGB( colorname )
 %
 % grabbed from https://pymolwiki.org/index.php/Color_Values
 %
-% if not a pymol color, use rgb() package.
+% if not a pymol color, use external rgb() package.
 % 
+% INPUT
+%  colorname  = string with name of color ('aquamarine','green')
+%
+% OUPUT
+%  rgb_color  = 1 x 3 RGB value 
+%
 % (C) R. Das, Stanford University
 
 rgb_color = -1;

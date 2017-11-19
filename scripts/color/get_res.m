@@ -9,6 +9,7 @@ function [ res_tags, obj_name ] = get_res( selection )
 % res_tags  = all residues associated with selection
 % obj_name  = object name with that selection 
 %
+% (C) R. Das, Stanford University
 
 res_tags = {};
 obj_name = '';

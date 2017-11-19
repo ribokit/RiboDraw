@@ -1,8 +1,5 @@
 ## TODO
 * push 23S middle layer to right
-* complete 16S rRNA layout as test of tutorials and docs.
-* move repo to `RiboKit/`
-* request `ribokit.github.io` to be mirrored at `ribokit.stanford.edu`
 * show long-range stem pairs on 23S
 * put in docstrings for base_doublets
 * put in docstrings for color
@@ -19,7 +16,9 @@
 
 * Write 'Getting Started' with tRNA example: explain 'Helix' object
 * Write 'Multidomain RNAs documentation'
-
+* complete 16S rRNA layout as test of tutorials and docs.
+* convert following to GitHub Issues.
+ 
 ### Future
 * lay out other ribosome states.
 * Read-in `.motifs.txt` & auto-color motifs [SRL, etc.]

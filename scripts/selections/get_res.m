@@ -1,6 +1,6 @@
 function [ res_tags, obj_name ] = get_res( selection )
 % [ res_tags, obj_name ] = get_res( selection )
-%  figure out which object in drawing (gca)  corresponds to selection.
+%  figure out which object in drawing (gca) corresponds to selection.
 %
 % INPUT
 % selection = string with name of selection (domain,residue,whatever)

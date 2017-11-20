@@ -1,6 +1,21 @@
 function draw_selections( selections );
 % draw_selections( selections );
 % draw_selections( selection );
+% draw_selections( selection_string );
+%
+%  Draws domain (or coaxial stack) selection with label 
+%   and, if plot_settings.show_domain_controls is 1,
+%   box & special controls for flipping, dragging, & rotating.
+%
+%  This function is in charge of drawing the initial
+%   graphics if they don't exist, or revising them if
+%   they already do exist.
+%
+% INPUT:
+%  selections = cell of tag strings or selection objects, or a
+%                     single one of those tag strings or selection objects
+%
+% (C) R. Das, Stanford University, 2017
 
 if ~exist( 'selections', 'var' ); selections = get_tags( 'Selection' ); end
 if ~iscell( selections ) & ischar( selections ); selections = { selections }; end

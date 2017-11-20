@@ -1,4 +1,9 @@
 function redraw_selection( h );
+% redraw_selection( handle );
+%   Called after dragging a domain or coaxial stack. 
+%
+% (C) Rhiju Das, Stanford University, 2017.
+
 delete_crosshair();
 pos = get(h,'position'); 
 init_pos = getappdata(h,'initial_position');
@@ -20,6 +25,3 @@ for i = 1:length( associated_helices )
     draw_helix( helix );
 end
 
-%for i = 1:length( associated_helices )
-%    helix = getappdata( gca, associated_helices{i} );
-%end

@@ -1,4 +1,10 @@
 function move_selection_label(h)
+% move_selection_label( handle )
+% 
+% Update figure (gca) info after dragging
+%  a selection (domain or coaxial stack)
+% 
+% (C) R. Das, Stanford University
 
 pos = get(h,'position'); 
 selection_tag = getappdata( h, 'selection_tag' );

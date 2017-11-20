@@ -1,7 +1,12 @@
-function res_tags = get_res_tags( residue_string, check_exists ); 
+ifunction res_tags = get_res_tags( residue_string, check_exists ); 
 % res_tags = get_res_tags( residue_string ); 
+%
 % helper function that takes 'A:1-4' and gives back { 'Residue_A1',
 % 'Residue_A2', 'Residue_A3', 'Residue_A4'};
+%
+% May be redundant with GET_RES().
+%
+% (C) R. Das, Stanford University.
 if ~exist( 'check_exists','var') check_exists = 0; end;
 res_tags = {};
 if ischar( residue_string )

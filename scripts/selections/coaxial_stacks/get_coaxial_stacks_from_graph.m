@@ -1,5 +1,20 @@
 function coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );
-% OK let's pull out the coaxial stacks...
+% coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );
+%
+% Graph manipulations used by GET_COAXIAL_STACKS: 
+%     define connected components of coaxial stacked pair graph
+%     remove 'just stems'
+%     create list of actual coaxial_stack objects
+%
+% INPUTS
+%  g               = graph where each node is a base_pair, and each edge is a coaxial stack.
+%  base_pairs      = the base_pair object associated with the node of the graph
+%  all_base_stacks = list of base_stacks (and their redundant, flipped versions too to aid lookup)
+%  stems           = known stems already defined by READ_STEMS in GET_COAXIAL_STACKS
+%
+% (C) Rhiju Das, Stanford University, 2017
+
+% Let's pull out the coaxial stacks...
 % within each connected component, create an ordering of base pairs.
 bins = conncomp( g );
 if( max(degree(g)) > 2 )

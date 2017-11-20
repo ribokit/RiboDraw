@@ -7,6 +7,8 @@ function remove_residues_from_domain( residue_string, name );
 %   residue_string = string like 'A:QA:1-5', or residue tags, or cell of those.
 %   name           =  name or tag for domain
 %
+% See also: ADD_RESIDUES_TO_DOMAIN, SETUP_DOMAIN.
+%
 % (C) Rhiju Das, Stanford University, 2017
 
 domain_tag = get_domain_tag( name );

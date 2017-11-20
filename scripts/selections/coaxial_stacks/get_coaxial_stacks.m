@@ -1,11 +1,23 @@
 function coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
 % coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
 %
-% * define a graph of stacked pairs. Then let's see if we can get connected
+% Experimental code to see if layout might be accelerated or made more accurate
+%  by auto-identification of coaxial stacks. Currently produces some
+%  2D layout features that are not human-intuitive.
+%
+% * Define a graph of stacked pairs. Then let's see if we can get connected
 %   components.
-% * consecutive pairs in helix stems are assumed to always qualify as stacked pairs.
-% * if a residue is in a helix stem, other pairs (e.g. triplet
+% * Consecutive pairs in helix stems are assumed to always qualify as stacked pairs.
+% * If a residue is in a helix stem, other pairs (e.g. triplet
 %    interactions) are excluded from seeding new coaxial stacks. 
+% 
+% Takes as input the information produced by Rosetta's rna_motif. (Probably
+%   could/should port this code into Rosetta itself.)
+%
+% INPUTS
+%  base_pairs  = cell of base pair objects from READ_BASE_PAIRS
+%  base_stacks = cell of base stacks objects from READ_BASE_STACKS
+%  stems       = cell of stem objects from READ_STEMS
 %
 % (C) Rhiju Das, Stanford University, 2017
 
@@ -24,7 +36,8 @@ for i = 1:length( base_pairs )
     all_base_pairs = [ all_base_pairs, reverse_pair( base_pairs{i} ) ];
 end
 
-% to save time, a kind of hash map
+% to save time, a kind of hash map could be set up,
+%  but I never completed this time-saving route.
 % for i = 1:length( all_base_stacks )
 %     stack =all_base_stacks{i};
 %     all_base_stack_tags{i} = sprintf( '%s%d%s%d', stack.chain1,stack.resnum1,stack.chain2,stack.resnum2 );

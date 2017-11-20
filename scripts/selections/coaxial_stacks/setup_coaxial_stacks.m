@@ -1,6 +1,14 @@
 function setup_coaxial_stacks( coaxial_stacks, delete_other_coaxial_stacks );
 % setup_coaxial_stacks( coaxial_stacks, delete_other_coaxial_stacks );
+%
+% Set up coaxial stacks [from GET_COAXIAL_STACKS] into drawing.
+%
+% INPUTS
+%  coaxial_stacks              = cell of coaxial stack objects from GET_COAXIAL_STACKS
+%  delete_other_coaxial_stacks = 0 or 1 to prune any pre-existing coaxial stacks in drawing. [default 0]
+%
 % (C) Rhiju Das, Stanford University, 2017
+
 if ~exist( 'delete_other_coaxial_stacks', 'var' ) delete_other_coaxial_stacks = 0; end;
 coaxial_stack_tags = {};
 for i = 1:length( coaxial_stacks )

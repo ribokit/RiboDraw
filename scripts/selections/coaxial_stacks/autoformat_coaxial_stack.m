@@ -1,6 +1,10 @@
 function autoformat_coaxial_stack( coaxial_stack, ~, ~ )
 % autoformat_coaxial_stack( coaxial_stack_tag )
 %
+% Triggered by clicking on 'auto' associated with a coaxial stack box.
+%  Currently produces some 2D layout features that are not 
+%  human-intuitive.
+%
 % (C) Rhiju Das, Stanford University, 2017
 
 

@@ -8,6 +8,8 @@ function domain = setup_domain( residue_string, name );
 %   residue_string = string like 'A:QA:1-5', or residue tag, or cell of those.
 %   name           =  name of new domain
 %
+% See also: ADD_RESIDUES_TO_DOMAIN, REMOVE_RESIDUES_FROM_DOMAIN, DELETE_DOMAIN.
+%
 % (C) Rhiju Das, Stanford University, 2017
 
 domain.type = 'domain'; 

@@ -2,16 +2,12 @@
 * push 23S middle layer to right
 * show long-range stem pairs on 23S
 * put in docstrings for base_doublets
-* put in docstrings for color
-* put in docstrings for devel
 * put in docstrings for drawing
 * put in docstrings for gui
 * put in docstrings for helix
 * put in docstrings for ligands
 * put in docstrings for linkers
-* put in docstrings for selections
 * put in docstrings for settings
-* put in docstrings for setup
 * document JSON file format.
 
 * Write 'Getting Started' with tRNA example: explain 'Helix' object

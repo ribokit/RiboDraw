@@ -1,5 +1,8 @@
 function delete_domain( name );
-% setup_domain( residue_string, name );
+% delete_domain( name );
+%
+%  Find and remove domain with supplied name or tag.
+%
 % (C) Rhiju Das, Stanford University, 2017
 
 delete_tag = get_domain_tag( name );

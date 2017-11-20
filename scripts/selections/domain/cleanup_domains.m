@@ -1,5 +1,12 @@
 function cleanup_domains()
 % cleanup_domains()
+%
+% * Make sure there are no 'stray' domains associated with
+%   residues.
+%
+% * fix tags for domains to be of the form Selection_*_domain
+%
+% (C) R. Das, Stanford University, 2017
 
 % Cleanup 1: make sure there are no 'stray' domains associated with
 % residues.
@@ -20,7 +27,7 @@ for i = 1:length( res_tags )
     end
 end
 
-% Cleanup 2: fix names of domains.
+% Cleanup 2: fix tags of domains.
 tags = get_tags( 'Selection' );
 for i = 1:length( tags )
     tag = tags{i};

@@ -1,4 +1,13 @@
 function tag = get_domain_tag( name );
+% tag = get_domain_tag( name );
+%
+% Give tag in drawing (gca, current axes of figure) that
+%  corresponds to tag or name supplied. 
+% Appropriate converts ' ' and '_' to '-'
+%
+% See also: LIST_DOMAINS() to get possible tags.
+%
+% (C) R. Das, Stanford University
 
 tag = sprintf('Selection_%s_domain', strrep(strrep(name, ' ', '_' ),'-','_') );
 if ~isappdata( gca, tag );

@@ -1,4 +1,10 @@
 function [minpos,maxpos] = get_minpos_maxpos( selection );  
+% [minpos,maxpos] = get_minpos_maxpos( selection );  
+%
+% helper function that gets corners that define bounding box of selection.
+%
+% (C) R. Das, Stanford University
+
 dom_pos = [];
 for j = 1:length( selection.associated_residues )
     residue = getappdata( gca, selection.associated_residues{j} );

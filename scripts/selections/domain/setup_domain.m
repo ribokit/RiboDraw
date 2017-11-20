@@ -1,5 +1,13 @@
 function domain = setup_domain( residue_string, name );
 % setup_domain( residue_string, name );
+%
+% Important: allows user to define a new domain based on any
+%  desired combination of residues.
+%
+% INPUTS
+%   residue_string = string like 'A:QA:1-5', or residue tag, or cell of those.
+%   name           =  name of new domain
+%
 % (C) Rhiju Das, Stanford University, 2017
 
 domain.type = 'domain'; 
@@ -57,11 +65,6 @@ else
     setappdata( gca, domain_tag, domain );
 end
 
-% associated_helices =  unique( associated_helices );
-% for i = 1:length( associated_helices );
-%     helix = getappdata( gca, associated_helices{i} );
-%     draw_helix( helix );
-% end
 draw_selections( {domain_tag} );
 domain = getappdata( gca, domain_tag );
 

@@ -1,4 +1,12 @@
 function show_domain_label( name, setting )
+%  show_domain_label( name, setting )
+%
+%  INPUT
+%   name    = string with domain name or actual tag for it in gca
+%   setting = 0 or 1 for visible to be 'off' or 'on', respectively.   
+%
+% (C) R. Das, Stanford University, 2017
+
 if ~exist( 'setting', 'var' ) setting = 1; end;
 
 tag = get_domain_tag( name );

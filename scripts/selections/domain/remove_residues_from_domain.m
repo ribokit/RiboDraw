@@ -1,5 +1,12 @@
 function remove_residues_from_domain( residue_string, name );
-% remove_residues_from_domain( residue_string, domainn_name );
+% remove_residues_from_domain( residue_string, domain_name );
+%
+% Removes residues from pre-existing domain.
+%
+% INPUTS
+%   residue_string = string like 'A:QA:1-5', or residue tags, or cell of those.
+%   name           =  name or tag for domain
+%
 % (C) Rhiju Das, Stanford University, 2017
 
 domain_tag = get_domain_tag( name );

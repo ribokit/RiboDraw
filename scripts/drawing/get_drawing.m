@@ -1,11 +1,16 @@
 function savedata = get_drawing( slice_res );
-%  savedata = get_drawing( slice_res );
+% savedata = get_drawing( slice_res );
 %
-% pull information needed to render drawing from current figure ('gca')
+% Pull information needed to render drawing from current figure ('gca')
 %
-% INPUTS:
-%    slice_res = subset of residues to 'slice out' of drawing. Can be
+% INPUT:
+%   slice_res = subset of residues to 'slice out' of drawing. Can be
 %                string like "C:QA:12-13" or name of domains or helices.
+%
+% OUTPUT:
+%   savedata = MATLAB 'drawing' data structure with all the saved info
+%
+% See also: SAVE_DRAWING
 %
 % (C) R. Das, Stanford University, 2017
 

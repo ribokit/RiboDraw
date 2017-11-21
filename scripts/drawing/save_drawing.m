@@ -1,6 +1,16 @@
 function savedata = save_drawing( filename );
-% pull information needed to render drawing from current figure ('gca'), and
+% drawing = save_drawing( filename );
+%
+% Pulls information needed to render drawing from current figure ('gca'), and
 % save to a JSON file or .mat MATLAB workspace file.
+%
+% INPUT
+%   filename = name of .json or .mat file with drawing
+%
+% OUTPUT
+%   savedata = MATLAB 'drawing' data structure with all the saved info
+%
+% See also: GET_DRAWING.
 %
 % (C) R. Das, Stanford University, 2017
 

@@ -1,6 +1,26 @@
 function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )
-% load RiboDraw drawing from JSON drawing file.
+% loaddata = load_drawing( filename )
+% loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )
+%
+% load RiboDraw drawing from JSON or .mat drawing file.
+%
+% INPUTS:
+%   filename              = name of .json or .mat file with drawing
+%   keep_previous drawing = [Optional] import drawing but keep 
+%                              residues, linkers, etc. not covered
+%                              by loaded drawing [default 0]
+%   keep_drawing_axes     = [Optional] keep axes (x,y dimensions,
+%                             etc.) of previous drawing without
+%                             trying to equalize image
+%                             axes. [default 0]
+%
+% OUTPUT
+%   savedata = MATLAB 'drawing' data structure with all the saved info
+%
+% See also: IMPORT_DRAWING, SAVE_DRAWING.
+%
 % (C) R. Das, Stanford University, 2017
+
 if ~exist( 'keep_previous_drawing', 'var' ) keep_previous_drawing = 0; end;
 if ~exist( 'keep_drawing_axes', 'var' )     keep_drawing_axes = 0; end;
 if isstruct( filename )

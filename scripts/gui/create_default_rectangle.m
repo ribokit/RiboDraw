@@ -1,4 +1,10 @@
 function obj = create_default_rectangle( obj, tag_type, tag, redraw_fcn )
+% obj = create_default_rectangle( obj, tag_type, tag, redraw_fcn )
+%
+%  create a draggable rectangle at a dummy position, used by both helix and
+%   domain/selection drawing functions.
+%
+% (C) Rhiju Das, Stanford University, 2017
 
 if isfield( obj, 'rectangle' ) & isvalid( obj.rectangle ) return; end;
 

@@ -1,6 +1,18 @@
 function move_snapgrid(h)
-% snap to grid during movement.
-% show crosshairs too
+% move_snapgrid( handle )
+%
+% Snap to grid during movement of a graphical element associated with handle.
+% Works for:
+%
+%      lines/symbol (like linker vertices), 
+%      rectangle    (like the draggable bounding boxes of helices, domains)
+%      text         (like nucleotides & domain labels), 
+%      patch        (like silhouettes of nucleotides)
+%
+% Shows & updates crosshairs too.
+%
+% (C) R. Das, Stanford University, 2017
+
 
 % works for both text (residue) and rectangle (helix).
 if strcmp( h.Type, 'line' )

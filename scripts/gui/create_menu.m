@@ -1,5 +1,10 @@
 function create_menu( h );
 % test code -- figuring out right-click context menus.
+% really silly -- changes font for now.
+%
+% TODO: embed all other functions in setting/ into context menus
+%         that show up on right click of graphical elements.
+%    
 c = uicontextmenu;
 
 % Assign the uicontextmenu to the plot line

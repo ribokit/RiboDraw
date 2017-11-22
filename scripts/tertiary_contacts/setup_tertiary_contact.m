@@ -1,6 +1,18 @@
 function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )
-% setup_tertiary_contact( contact_name, res_tags1, res_tags2)
-% setup_tertiary_contact( contact_name, res1_string, res2_string )
+% setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )
+%
+% Inputs:
+%    contact_name = name for tertiary contact (if empty string '', a default name is defined based on first residue in res1 and res2 sets.
+%    res_tags1    = cell of tags defining first set of residues on one side of tertiary contact. 
+%                       Example: {'Residue_A23','Resisdue_A26',...}  
+%                   also acceptable is a string like: 'A:23 A:26...' (easier for manual input)
+%    res_tags2    = cell of tags defining second set of residues the other side of tertiary contact. 
+%
+%  [Optional]
+%    template_linker = Existing linker object whose path will be copied over to the new interdomain linker for the tertiary contact. [default: no template]
+%    skip_move_stuff_to_back = don't move the linkers to back (takes a long time; sometimes better to call move_stuff_to_back() outside this function). [default: 0]
+%    print_stuff             = Verbose output [default 1]
+%
 % (C) R. Das, Stanford University, 2017
 if iscell( res1_string ) & iscell( res2_string )
     res_tags1 = res1_string;
@@ -75,14 +87,6 @@ if default_name; update_tertiary_contact_names( {tag}, print_stuff ); end;
 
 % draw these linkers
 draw_linker( [{tertiary_contact.interdomain_linker},tertiary_contact.intradomain_linkers1,tertiary_contact.intradomain_linkers2] );
-% res_tags = [res_tags1, res_tags2 ]; 
-% helix_tags = {};
-% for i = 1:length( res_tags );
-%     residue = getappdata( gca, res_tags{i});
-%     helix_tags = [ helix_tags, residue.helix_tag ];
-% end
-% helix_tags = unique( helix_tags );
-% for i = 1:length( helix_tags ); draw_helix( getappdata( gca, helix_tags{i} ) ); end
 
 if ~exist( 'skip_move_stuff_to_back','var') skip_move_stuff_to_back = 0; end;
 if ~skip_move_stuff_to_back 

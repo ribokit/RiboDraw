@@ -1,5 +1,29 @@
 function linker_groups = group_interdomain_linkers( domain_names )
 % linker_groups = group_interdomain_linkers( domain_names )
+%
+%  Main function for cleaning up multidomain drawings at 
+%   the scale of the ribosome.
+%
+%  Looks up noncanonical pairs (and other linkers) that are in different domains,
+%   (as defined by the user in the domain_names input variable).
+%
+%  Hides those noncanonical pairs and instead shows intradomain connections and a single
+%   interdomain connection with colors reflecting the domains. 
+%
+%  (The information for each group is saved in a TertiaryContact object.)
+%
+% TODO: may need to set interdomain field to the grouped linkers to allow
+%    them to be properly hidden.
+%
+% Input:
+%  domain_names  = cell of strings with names of domains (previously must have been defined by user
+%                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}
+%
+% Output:
+%  linker_groups = cell of cells of linker tags that were grouped. 
+%
+% (C) R. Das, Stanford University
+
 linker_groups = {};
 if ~exist( 'domain_names', 'var' ) | ~iscell( domain_names ) | length( domain_names ) < 2;
     fprintf( 'Provide at least two domain names' ); return;
@@ -76,6 +100,8 @@ end
 for i = 1:length( linker_groups )
     linker_group = linker_groups{i};
 
+    % TODO: May need to tag the associated linkers with 'interdomain' field. But then how to reverse?
+
     % need to assign a pair of interdomain connection residues.
     [res_tags1, res_tags2 ] = get_res_tags( linker_group );
     main_linker = look_for_previous_tertiary_contact( res_tags1, res_tags2 );
@@ -86,7 +112,7 @@ for i = 1:length( linker_groups )
     residue2 = getappdata( gca, main_linker.residue2 );
     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
-
+    
     tertiary_contact_tag = setup_tertiary_contact( '', res_tags1, res_tags2, main_linker, 1 );
 end
 

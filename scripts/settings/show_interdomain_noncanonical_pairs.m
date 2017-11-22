@@ -1,4 +1,13 @@
 function show_interdomain_noncanonical_pairs( setting );
+% show_interdomain_noncanonical_pairs( setting );
+%
+% show or hide (if setting is 1 or 0) noncanonical pairs whose linker objects have the
+%  .interdomain field.
+%
+% NOTE: This function or others may need to be updated; code like
+%  GROUP_INTERDOMAIN_LINKERS no longer seems to be setting the interdomain field.
+%
+% (C) R. Das, Stanford University
 if ~exist( 'setting', 'var' ); setting = 1; end;
 
 plot_settings = getappdata( gca, 'plot_settings' );

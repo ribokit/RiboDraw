@@ -1,4 +1,10 @@
 function show_ligand_linkers( setting );
+% show_ligand_linkers( setting );
+%
+% Show or hide linkers that connect ligands (like proteins) to RNA, based on
+%  whether setting is 1 or 0.
+%
+% (C) R. Das, Stanford University, 2017
 if ~exist( 'setting', 'var' ); setting = 1; end;
 
 plot_settings = getappdata( gca, 'plot_settings' );

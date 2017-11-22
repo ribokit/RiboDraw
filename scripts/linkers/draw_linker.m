@@ -5,6 +5,12 @@ function linker = draw_linker( linker )
 % Draw the linker (arrow, stem_pair, noncanonical_pair, tertiary contact)
 %  including symbols.
 %
+% Input:
+%  linker = Linker object (or tag string) to draw. Cell of multiple linkers is also OK.
+%  
+% Output:
+%  linker = Linker object potentially with updated plot_pos or graphics handles
+%
 % (C) R. Das, Stanford University, 2017
 
 if iscell( linker )

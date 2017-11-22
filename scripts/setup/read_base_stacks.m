@@ -26,7 +26,7 @@ function base_stacks = read_base_stacks( base_stacks_file )
 %                         the residue that has an earlier chain/segid (or if same, earlier resnum) is first.
 %
 %
-% See also: read_base_pairs.
+% See also: SETUP_BASE_STACKS, READ_BASE_PAIRS
 % 
 % (C) R. Das, Stanford University, 2017
 

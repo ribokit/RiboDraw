@@ -1,5 +1,17 @@
 function bounds = get_patch_from_image( image_file, show_drawing );
-% a hack from plot_2d (rhiju's attempts to auto-solve jigsaw puzzles)
+%
+% A hack from plot_2d (rhiju's attempts to auto-solve jigsaw puzzles)
+%
+%
+% TODO: set thresholding to work on any image output from Pymol.
+%
+% Inputs:
+%  image_file   = .png or .jpg file with a picture of the ligand, e.g. a ray-traced picture from Pymol.
+%  show_drawing = 0 or 1 to draw the image and boundary in a new MATLAB figure. [default is 1] 
+%
+% Output:
+%  bounds = N x 2 path of the boundary of the image, which allows drawing of silhouette patches when
+%            installed into a ligand's image_boundary field.
 %
 % (C) R. Das, Stanford University
 
@@ -9,6 +21,7 @@ THRESHOLD = 5;
 image_x = imread( image_file ); 
 
 if show_drawing; 
+    figure();
     image( image_x ); 
     hold on; 
 end

@@ -1,4 +1,14 @@
 function ligand = draw_image_boundary( ligand )
+% ligand = draw_image_boundary( ligand )
+% 
+% Draw the 'silhouette' of a ligand (like a protein) if
+%  its image_boundary field has been setup by SETUP_IMAGE_FOR_LIGAND.
+%
+% Note: this function does not move the image boundary to the back of the
+%  drawing -- that needs to be handled by a call to MOVE_STUFF_TO_BACK later.
+% 
+% (C) Rhiju Das, Stanford Universrity
+
 
 assert( isfield( ligand, 'image_boundary') );
 if ( ~isfield( ligand, 'image_handle2' ) | ~isvalid( ligand.image_handle2 ) )

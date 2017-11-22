@@ -24,7 +24,7 @@ function other_contacts = read_other_contacts( other_contacts_file )
 %  other_contacts       = cell of struct()s with the same information. 
 %
 %
-% See also: read_base_stacks, read_base_pairs.
+% See also: READ_BASE_STACKS, READ_BASE_PAIRS.
 % 
 % (C) R. Das, Stanford University, 2017
 

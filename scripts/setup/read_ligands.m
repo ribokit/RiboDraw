@@ -1,4 +1,29 @@
 function ligands = read_ligands( ligand_file );
+% base_pairs = read_base_pairs( base_pairs_file )
+%
+%  Read .ligands.txt file output by Rosetta rna_motif executable, which
+%      should include information on which non-RNA chains make contact with RNA.
+%
+% TODO: rna_motif does not recognize 'ligands' if they have the same chain/segmentID as
+%   an RNA chain. Fix that in Rosetta.
+%
+% INPUT
+%
+%  ligands_file = text file with lines like
+%
+%                      C:AB protein  C:QA:1664-1667 C:QA:1669 ...
+%
+%                    i.e.,
+%
+%                      ligand_chain[:segid]  ligand_name  RNApartner1_chain:segid:resnum ...
+%
+% OUTPUT
+%
+% ligands       = cell of struct()s with the same information.
+%
+% See also: SETUP_LIGANDS, SETUP_IMAGE_FOR_LIGAND.
+% 
+% (C) R. Das, Stanford University, 2017
 
 fid = fopen( ligand_file );
 ligands = {};

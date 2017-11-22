@@ -1,5 +1,20 @@
 function add_ligands_to_domains( tags )
-% add_ligands_to_domains()
+% add_ligands_to_domains( tags )
+%
+% After reading in ligands its useful to associate them
+%  pre-existing domains defined for RNA residues.
+%
+% This function uses the heuristic that the ligand should belong
+%   to the same domains as its RNA residue partners.
+%
+% For convenience reasons, exceptions are made to any domain with 
+%   the substring 'helixgroup' or '_RNA_'. 
+% TODO: allow user to input this exclude list.
+%
+% Input
+%  tags = 'Residue' tags for ligands to add to domains.
+% 
+% (C) R. Das, Stanford University, 2017
 
 if ~exist( 'tags', 'var' ) tags = get_tags( 'Residue_' ); end;
 
@@ -19,7 +34,7 @@ for i = 1:length( tags )
         if strcmp( residue.helix_tag, helix_tag ) 
             associated_domains = get_tags( 'Selection','domain', residue.associated_selections );
             for k = 1:length( associated_domains )
-                % hacky hack.
+                % TODO: let user provide an exclude_domains input that can override these choices.
                 if ( strfind( associated_domains{k}, 'helixgroup' ) ) continue; end;
                 if ( strfind( associated_domains{k}, '_RNA_' ) ) continue; end;
                 domains = [ domains, associated_domains(k) ];

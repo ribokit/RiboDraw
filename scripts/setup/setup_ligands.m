@@ -1,6 +1,13 @@
 function setup_ligands( ligands )
 % setup_ligands( ligands )
-% draw ligands as 'residues'.
+%
+% Draw ligands as 'Residue' objects in the current drawing (gca).
+%
+% Input:
+%  ligands = cell of ligand objects (initialized from READ_LIGANDS )
+%
+% (C) R. Das, Stanford University, 2017
+
 if ischar( ligands ) ligands = read_ligands( ligands ); end;
 for i = 1:length(ligands)
     ligand = ligands{i};

@@ -1,4 +1,12 @@
 function tag = get_helix_tag( name );
+% tag = get_helix_tag( name );
+%
+% Get tag of a helix object in the current drawing (gca)
+%   based on its name (or its tag). 
+%
+% [ Might be deprecated by get_res() ]
+%
+% (C) Rhiju Das, Stanford University, 2017
 
 tag = '';
 

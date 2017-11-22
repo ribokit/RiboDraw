@@ -1,5 +1,26 @@
 function helix = draw_helix( helix )
 % helix = draw_helix( helix )
+%
+% This is the *master drawing function* of RiboDraw.
+%
+% It draws a 'helix' which is composed of a stem of Watson-Crick
+%  paired residues, as well as loop residues that are nearby and 
+%  translate, reflect, or rotate with the helix.
+%
+% The function also updates any linkers, selections (domains), helix labels,
+%  and ticks associated with these residues.
+%
+% The name 'helix' is probably a misnomer, but grew historically out of the
+%  very first scratch code for RiboDraw.
+%
+% TODO: Update to handle non-helical RNA structures like G-quadruplexes.
+%
+% INPUT:
+%   helix = helix object, or tag of helix object in current drawing (gca)
+%
+% OUTPUT:
+%   helix = updated helix object
+%
 % (C) R. Das, Stanford University, 2017
 
 if ischar( helix ); helix = getappdata(gca,helix); end;

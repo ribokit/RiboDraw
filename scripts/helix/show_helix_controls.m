@@ -1,4 +1,11 @@
 function show_helix_controls( setting );
+% show_helix_controls( setting );
+%
+% Turn off/on (based on setting 0/1) the bounding
+%  boxes that allow users to translate, reflect, and rotate
+%  helices.
+% 
+% (C) R. Das, Stanford University
 
 if ~exist( 'setting', 'var' ) setting = 1; end;
 

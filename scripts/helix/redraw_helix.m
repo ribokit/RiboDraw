@@ -1,4 +1,12 @@
 function redraw_helix( h )
+% redraw_helix( h )
+%  Redraw helix after its bounding box is dragged
+%
+% Input
+%   h = graphics handle for bounding box.
+%
+% (C) R. Das, Stanford University
+
 delete_crosshair();
 if ischar( h ) % might be specifying by name
     tags = get_tags( 'Helix' );

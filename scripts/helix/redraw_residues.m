@@ -1,4 +1,14 @@
 function redraw_residues( residues )
+% redraw_residues( residues )
+%
+% Redraw all residues, e.g., after autoformatting a coaxial stack.
+%  The function does this by finding the helices to which the
+%  residues belong and redrawing those helices.
+%
+% Input:
+%  residues = cell of residue objects to redraw.
+%
+% (C) R. Das, Stanford University, 2017
 
 % update relpos for all residues
 helices_to_redraw = {};

@@ -1,4 +1,10 @@
 function set_text_alignment( h, v )
+% set_text_alignment( h, v )
+% 
+% Set horizontal and vertical alignment of a text handle (h) based
+%  on the vector of that handle from the thing it labels (v).
+%
+% (C) R. Das, Stanford University, 2017
 
 theta = atan2( v(2), v(1) );
 theta =  45 * round( (theta * 180/pi)/45 );

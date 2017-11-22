@@ -1,7 +1,7 @@
 function R = get_helix_rotation_matrix( helix )
 % R = get_helix_rotation_matrix( helix )
 %
-% return 2x2 rotation matrix given theta and parity stored in helix.
+% return 2x2 rotation matrix given theta and parity stored in helix object.
 %
 % (C) R. Das, Stanford University, 2017.
 

@@ -1,4 +1,23 @@
 function convert_problem_helices_to_domains()
+% convert_problem_helices_to_domains()
+%
+% Important for multi-domain drawings with long-range pseudoknots.
+%
+% When a sub-drawing is imported into another one,
+%  it may bring in residues that form the 'other half'
+%  of a helix. 
+%
+% Those residues might have been positioned nicely in
+%  the totally separate subdrawing which might not even know
+%  about the long-range interdomain helix.
+%
+% This function deletes the helix and replaces it with a domain 
+%  with the same helix name. The associated Watson/Crick pairs are
+%  changed from the 'stem_pair' type to the 'long_range_stem_pair' type.
+%
+% (C) Rhiju Das, Stanford University, 2017
+
+
 helix_tags = get_tags( 'Helix_' );
 for i = 1:length( helix_tags )
     helix_tag = helix_tags{i};

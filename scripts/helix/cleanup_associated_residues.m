@@ -1,4 +1,13 @@
 function cleanup_associated_residues()
+%  cleanup_associated_residues()
+%
+% Goes through all Residue objects and checks their membership in
+%   helix objects; update associated_residues fields of helices.
+%
+% Used in LOAD_DRAWING.
+%
+% (C) Rhiju Das, Stanford University, 2017
+
 helix_tags = get_tags( 'Helix_' );
 
 for k = 1:length( helix_tags )

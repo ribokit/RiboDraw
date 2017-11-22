@@ -1,4 +1,12 @@
 function show_helix_label( name, setting )
+% show_helix_label( name, setting )
+%
+% Allows turn on/off of labels, to curate clutter.
+% E.g. for replacing 'small helices'
+%    with helix groups.
+%
+% (C) R. Das, Stanford University, 2017
+
 if ~exist( 'setting', 'var' ) setting = 1; end;
 
 tag = get_helix_tag( name );

@@ -1,5 +1,17 @@
 function define_helix_groups( prefix );
-% define_helix_groups();
+% define_helix_groups( prefix);
+%
+% Declutter drawings with lots of helices by grouping helices with similar names, and
+%   showing those group names as domain labels while hiding individual helix labels.
+%
+% INPUT:
+%  prefix = [optional] look only at helices that have form prefix + single non-numerical character. 
+%              E.g., if prefix is 'H10', group together 'H10a','H10b', ...
+%
+% TODO: allow user specification of exactly which helices to group.
+% TODO: allow auto-grouping of P10.1, P10.2, etc.
+%
+% (C) R. Das, Stanford University, 2017.
 
 tags = get_tags( 'Helix' );
 for i = 1:length( tags )

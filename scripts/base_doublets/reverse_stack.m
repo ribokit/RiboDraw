@@ -1,6 +1,8 @@
 function new_stack = reverse_stack( base_stack );
 %  base_stack = reverse_stack( base_stack );
 %
+%  Switch the nucleotide partners involved in the base stack.
+%
 %  Input:
 %   base_stack = struct with resnum1, chain1, resnum2, chain2
 %

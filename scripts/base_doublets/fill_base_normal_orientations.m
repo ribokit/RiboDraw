@@ -1,8 +1,8 @@
 function base_pairs = fill_base_normal_orientations( base_pairs );
 % base_pairs = fill_base_normal_orientations( base_pairs );
 %
-%  looks up anti/para orientation of a base pair based on 
-%   the edges involved and cis/trans (Leontis-Westhof style)
+%  Looks up antiparallel/parallel orientation of a base pair based on 
+%   the edges involved and (Leontis-Westhof style) cis/trans orientation.
 %
 % Input
 %  base_pairs = cell of base pairs with edge1, edge2, LW_orientation fields as characters.

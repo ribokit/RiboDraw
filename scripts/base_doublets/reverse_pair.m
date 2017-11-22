@@ -1,6 +1,8 @@
 function new_pair = reverse_pair( base_pair );
 %  base_pair = reverse_pair( base_pair );
 %
+%  Switch the nucleotide partners involved in the base pair.
+%
 %  Input:
 %   base_pair = struct with resnum1, chain1, resnum2, chain2
 %

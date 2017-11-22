@@ -1,4 +1,16 @@
 function linker = set_linker_visibility( linker, visible );
+% linker = set_linker_visibility( linker, visible );
+%
+% Helper function used widely inside RiboDraw to show/hide linkers & associated graphical elements.
+%
+% Input:
+%  linker  = linker object
+%  visible = string: must be 'on' or 'off' 
+%
+% Output:
+%  linker = updated linker object.
+%
+% (C) R. Das, Stanford University
 
 if isfield( linker,'line_handle' ) set( linker.line_handle, 'visible', visible ); end;
 if isfield( linker,'symbol' ) set( linker.symbol, 'visible', visible ); end;

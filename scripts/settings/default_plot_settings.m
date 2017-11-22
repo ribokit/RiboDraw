@@ -1,4 +1,9 @@
 function plot_settings = default_plot_settings();
+% plot_settings = default_plot_settings();
+%
+% Default settings for plot's fontsize, boldface, linker control display, etc.
+%
+% (C) R. Das, Stanford University
 
 plot_settings.fontsize    = 10;
 plot_settings.spacing     =  3;

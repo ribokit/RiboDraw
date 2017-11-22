@@ -1,7 +1,23 @@
 function update_tertiary_contact_names( tags, print_stuff )
 % update_tertiary_contact_names( tags, print_stuff )
-% update_tertiary_contact_names( tag, print_stuff )
+% 
+% Tertiary contacts have display names that can be displayed in the 'split_arrows' display mode.
 %
+% These names are initialized based on the names of helices that are connected by the tertiary contact,
+%  or multiple helices, in the case of proteins or other ligands that interconnect numerous parts of the RNA.
+%
+%  There is also some fancy code to make the names render in RGB colors that reflect those helix colors for
+%  tertiary contacts that involve ligands.
+%
+% TODO: make a function that allows user to input their own name for the tertiary contact (e.g., for alpha, beta, etc. in group II intron).
+%
+% Input
+%  tag(s) = tags of tertiary contacts for which to define inputs. [default: all drawing tags that start with 'Tertiary']
+%  print_stuff = verbose ( default 1 )
+% 
+% See also: GROUP_INTERDOMAIN_LINKERS, SHOW_SPLIT_ARROWS.
+%
+% (C) R. Das, Stanford University
 
 if ~exist( 'print_stuff' ) print_stuff = 1; end;
 if ~exist( 'tags','var' )

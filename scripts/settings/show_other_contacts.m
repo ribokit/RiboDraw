@@ -1,4 +1,12 @@
 function show_other_contacts( setting )
+% show_other_contacts( setting );
+%
+% Show or hide gray dashed lines associated with 'other contacts' (i.e
+%   residue pairs that are not base paired or base stacked but form
+%   a hydrogen bond involving the 2'-OH or phosphate), based on whether setting is 1 or 0.
+%
+% (C) R. Das, Stanford University, 2017
+
 if ~exist( 'setting', 'var' ) setting = 1; end;
 
 plot_settings = getappdata( gca, 'plot_settings' );

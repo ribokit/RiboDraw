@@ -19,12 +19,11 @@ or check for the latest release at:
 https://github.com/RiboKit/RiboDraw/releases
 ```
 
-Then add the `RiboDraw/scripts/` directory to your MATLAB path using the command `pathtool` or `Set path...` from the menu.
-
+Then add the `RiboDraw/scripts/` directory  to your MATLAB path using the command `pathtool` or `Set path...` from the menu. Make sure to use the option to include all subdirectories.
 
 ### Tutorial: tRNA
 
-### Advanced tutorial: 
+### Advanced tutorial: a multidomain RNA with proteins
 
 ## Documentation
 ### Documentation
@@ -36,7 +35,7 @@ The core format for RiboDraw 'drawing' files is JSON-like to allow for their eve
 
 ## For developers
 ### Open Source policy
-* Want to improve RiboKit? Port to JavaScript? Check out [TODO.md](TODO.md) for current issues. Feel free to fork and make pull requests.
+* Want to improve RiboKit's MATLAB interface? Port to JavaScript? Check out [TODO.md](TODO.md) for current issues. Feel free to fork and make pull requests. 
 
 ### Building docs
 * We are currently using M2HTML to quickly generate docs for MATLAB scripts. Download it [here](https://www.artefact.tk/software/matlab/m2html/), and run in MATLAB from the `Ribodraw/scripts/` directory:

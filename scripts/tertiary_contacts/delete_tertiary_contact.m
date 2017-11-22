@@ -1,5 +1,12 @@
 function delete_tertiary_contact( contact_name, print_stuff )
 % delete_tertiary_contact( contact_name )
+%
+% Remove tertiary contact with provided name, and associated linkers and graphical elements.
+%
+% Inputs:
+%  contact_name = name used to set up tertiary contact (not the display name, typically instead something like 'Residue_C123_Residue_C45')
+%  print_stuff  = verbose (default 1)
+%
 % (C) R. Das, Stanford University, 2017
 if ~exist( 'print_stuff', 'var' ) print_stuff = 1; end;
 if iscell( contact_name )

@@ -1,4 +1,11 @@
 function show_linker_controls( setting )
+% show_linker_controls( setting );
+%
+% Show or hide symbols that allow user to adjust linker paths,
+%  depending on whether setting is 1 or 0.
+%
+% (C) R. Das, Stanford University
+
 if ~exist( 'setting', 'var' ) setting = 1; end;
 
 plot_settings = getappdata( gca, 'plot_settings' );

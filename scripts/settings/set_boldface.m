@@ -1,6 +1,9 @@
 function set_boldface( setting )
 % set_boldface( setting )
-% (C) R. Das, Stanford University
+%
+% Set nucleotide labels to be boldface or not, depending on setting.
+%
+% (C) R. Das, Stanford University, 2017
 
 if ~exist( 'setting', 'var' ) setting = 1; end;
 res_tags = get_tags( 'Residue' );

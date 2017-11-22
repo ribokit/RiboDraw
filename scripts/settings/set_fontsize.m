@@ -1,5 +1,10 @@
 function set_fontsize( fontsize )
 % set_fontsize( fontsize )
+%
+% Set fontsize for nucleotides, and also rescale all other
+%   text labels in figure based on hard-wired proportions.
+% 
+% (C) R. Das, Stanford University, 2017
 
 plot_settings = getappdata( gca, 'plot_settings' );
 plot_settings.fontsize = fontsize;

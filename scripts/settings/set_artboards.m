@@ -1,4 +1,10 @@
 function set_artboards();
+% set_artboards();
+%
+% Reset the axis limits of the figure based on the minimum and
+%  maximum position of the residues. (Plus an extra +/- 2.5% margin.)
+%
+% (C) R. Das, Stanford University, 2017
 
 res_tags = get_tags( 'Residue_' );
 all_pos = [];
@@ -7,6 +13,10 @@ for i = 1:length( res_tags )
     if isfield( residue, 'plot_pos' )
         all_pos = [all_pos; residue.plot_pos ];
     end
+%
+% Maybe we should restore this (at least look over visible linkers) and
+%  also look over text labels.
+%
 %     if isfield( residue, 'linkers' )
 %         for j = 1:length( residue.linkers )
 %             linker = getappdata( gca, residue.linkers{j} );

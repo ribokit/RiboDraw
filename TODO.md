@@ -1,9 +1,5 @@
 ## TODO
-* put in docstrings for helix
-* put in docstrings for ligands
-* put in docstrings for linkers
 * put in docstrings for settings
-* put in docstrings for tertiary_contacts
 
 * document JSON file format.
 
@@ -11,10 +7,10 @@
 * show long-range stem pairs on 23S
 * try fade out trick to recolor middle and back domain [and interconnecting arrows?].
 
-* Write 'Getting Started' with tRNA & P4-P6 examples: explain 'Helix' object
-* Write 'Multidomain RNAs documentation'
+* Write 'Getting Started' with tRNA examples: explain 'Helix' object
+* Write 'Getting Started' advanced tutorial with multidomain RNP example.
 * complete 16S rRNA layout as test of tutorials and docs.
-* Convert future to GitHub Issues.
+* Convert Future section of this document to GitHub Issues.
  
 ### Future
 * lay out other ribosome states.

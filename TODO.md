@@ -1,6 +1,4 @@
 ## TODO
-* put in docstrings for base_doublets
-* put in docstrings for gui
 * put in docstrings for helix
 * put in docstrings for ligands
 * put in docstrings for linkers

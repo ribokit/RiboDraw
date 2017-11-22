@@ -1,4 +1,22 @@
 function initialize_drawing( tag )
+% initialize_drawing( tag )
+%
+%  Master function for starting RiboDraw, based on output of
+%  Rosetta rna_motif run on a PDB file.
+%
+% INPUT: 
+%  tag = name of input PDB file, possibly including path. 
+%            If tag is "RNA.pdb", this function expects filenames
+%            with the names
+%
+%                RNA.pdb.fasta
+%                RNA.pdb.base_pairs.txt
+%                RNA.pdb.stacks.txt
+%                RNA.pdb.other_contacts.txt
+%                RNA.pdb.stems.txt
+%                RNA.pdb.ligands.txt    
+%
+% (C) R. Das, Stanford University, 2017
 
 [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( [tag,'.fasta']);
 base_pairs = read_base_pairs( [tag,'.base_pairs.txt'] ); % includes noncanonical pairs.

@@ -1,8 +1,15 @@
 function export_drawing( filename )
 % export_drawing( filename )
 %
+%  Export drawing to different formats: PostScript, JPEG, PDF, PNG
+%
+%  TODO: allow SVG output (there is a public domain MATLAB package
+%  for it.)
+%
 % Inputs:
 %  filename = name of output image (should end in .eps, .jpg, .pdf, or .png)
+%
+% See also: SAVE_DRAWING
 %
 % (C) R. Das, Stanford University
 

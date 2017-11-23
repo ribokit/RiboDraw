@@ -1,6 +1,14 @@
 function setup_basic_linkers( basics, type )
 % setup_basic_linkers( basics )
 %
+%  Simple base function for taking objects like other_contacts or stacks
+%   and installing them into the drawing (gca).
+%
+% Inputs:
+%  basics = objects with chain1, segid1, resnum1, chain2, segid2, and resnum2 information.
+%  type   = (string) type of linker to create.
+%
+% (C) R. Das, Stanford University, 2017.
 
 for i = 1:length( basics )
     basic = basics{i};

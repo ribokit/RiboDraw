@@ -17,7 +17,7 @@ for i = 1:length( res_tags )
     if ~isfield( residue, 'associated_selections' ); continue; end; 
     selections = residue.associated_selections;
     for  k = 1:length( selections )
-        selection = selections{k}
+        selection = selections{k};
         if ~isappdata( gca, selection )
             fprintf( 'Could not find selection %s for residue %s -- will delete this as associated_selection\n', ...
                 selection, res_tag )

@@ -5,6 +5,8 @@ function create_menu( h );
 % TODO: embed all other functions in setting/ into context menus
 %         that show up on right click of graphical elements.
 %    
+% (C) R. Das, Stanford University, 2017
+    
 c = uicontextmenu;
 
 % Assign the uicontextmenu to the plot line

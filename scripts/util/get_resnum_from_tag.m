@@ -28,7 +28,7 @@ if length( residue_tags ) > 1
         if ok
             resnum = [ resnum, tag_resnum ];
             chains = [ chains, tag_chains ];
-            segid  = [segid, tag_segid ];
+            segid  = [ segid, tag_segid ];
         else
             ok = false;
             return

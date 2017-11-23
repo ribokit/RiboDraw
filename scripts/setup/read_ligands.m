@@ -30,6 +30,7 @@ ligands = {};
 while ~feof( fid )
     line = fgetl( fid );
     % B     protein     R:6 R:8-9 R:11
+    if line == -1 ; break ; end
     cols = strsplit( line, ' ' );
     if length( cols ) >= 3 
         clear ligand

@@ -96,6 +96,7 @@ plot_pos(end,:) = plot_pos2(end,:);
 linker.plot_pos = plot_pos;
 
 % replot the line
+if ~isfield( linker, 'line_handle' ) ; return ; end
 set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 
 % draw (draggable) vertices if they don't exist yet.

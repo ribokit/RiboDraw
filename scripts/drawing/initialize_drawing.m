@@ -23,7 +23,7 @@ base_pairs = read_base_pairs( [tag,'.base_pairs.txt'] ); % includes noncanonical
 base_stacks = read_base_stacks( [tag,'.stacks.txt'] ); % includes noncanonical pairs.
 other_contacts = read_other_contacts( [tag,'.other_contacts.txt'] );
 stems = read_stems( [tag,'.stems.txt'] );
-ligands = read_ligands([tag,'ligands.txt']);
+ligands = read_ligands([tag,'.ligands.txt']);
 
 clf; set(gca,'Position',[0 0 1 1]);
 hold on

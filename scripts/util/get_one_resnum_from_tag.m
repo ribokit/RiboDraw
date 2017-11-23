@@ -1,5 +1,5 @@
 function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )
-% [resnum,chains,segid,ok] = get_one_resnum_from_tag( tag )
+% [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )
 %
 % Convert "A:CQ:1" to 'A','CQ',1
 %
@@ -15,10 +15,11 @@ function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )
 % (C) R. Das, Stanford University
 
 
-[resnum,chains,segid,ok] = get_resnum_from_tag( tag );
+[resnum,chain,segid,ok] = get_resnum_from_tag( tag );
+
 if ok
     assert( length( resnum ) == 1 );
-    assert( length( chains ) == 1 );
+    assert( length( chain ) == 1 );
     assert( length( segid ) == 1 );
     segid = segid{1};
 end

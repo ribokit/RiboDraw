@@ -1,12 +1,9 @@
 ## TODO
-* put in docstrings for settings
-
+* put in docstrings for linkers
 * document JSON file format.
-
 * push 23S middle layer to right [spacing]
 * show long-range stem pairs on 23S
 * try fade out trick to recolor middle and back domain [and interconnecting arrows?].
-
 * Write 'Getting Started' with tRNA examples: explain 'Helix' object
 * Write 'Getting Started' advanced tutorial with multidomain RNP example.
 * complete 16S rRNA layout as test of tutorials and docs.

@@ -1,4 +1,8 @@
 function linker = create_linker_with_draggable_vtx( linker )
+% linker = create_linker_with_draggable_vtx( linker )
+%
+% (C) R. Das, Stanford University.
+
 linker.vtx = {};
 nvtx = size(linker.plot_pos,1);
 linker.vtx{1}  = create_endpoint_linker_vertex(linker.plot_pos(1,:), linker.linker_tag );

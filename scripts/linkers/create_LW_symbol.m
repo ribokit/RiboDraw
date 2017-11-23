@@ -1,4 +1,16 @@
 function h = create_LW_symbol( edge, orientation, bp_spacing );
+% h = create_LW_symbol( edge, orientation, bp_spacing );
+%
+% Inputs
+%   edge = 'W', 'H', or 'S' for Watson-Crick, Hoogsteen, or Sugar
+%   orientation = 'C' or 'T'
+%   bp_spacing  = from plot_settings, how many pixels between nucleotides in a base pair.
+%
+% Output
+%   h = handle to a 'patch' graphic object.
+%
+% (C) R. Das, Stanford University, 2017
+
 switch edge
     case 'W'
         t = linspace(0, 2*pi);

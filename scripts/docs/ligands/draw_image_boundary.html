@@ -4,7 +4,7 @@
 <head>
   <title>Description of draw_image_boundary</title>
   <meta name="keywords" content="draw_image_boundary">
-  <meta name="description" content="">
+  <meta name="description" content="ligand = draw_image_boundary( ligand )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,21 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>ligand = draw_image_boundary( ligand )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function ligand = draw_image_boundary( ligand ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> ligand = draw_image_boundary( ligand )
+ 
+ Draw the 'silhouette' of a ligand (like a protein) if
+  its image_boundary field has been setup by SETUP_IMAGE_FOR_LIGAND.
+
+ Note: this function does not move the image boundary to the back of the
+  drawing -- that needs to be handled by a call to MOVE_STUFF_TO_BACK later.
+ 
+ (C) Rhiju Das, Stanford Universrity</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -35,45 +43,55 @@ This function calls:
 <li><a href="set_ligand_image_color.html" class="code" title="function set_ligand_image_color( ligand );">set_ligand_image_color</a>	set_ligand_image_color( ligand )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="set_ligand_image_scaling.html" class="code" title="function set_ligand_image_scaling( setting );">set_ligand_image_scaling</a>	</li><li><a href="setup_image_for_ligand.html" class="code" title="function setup_image_for_ligand( ligand, image_file, new_name, skip_move_stuff_to_back );">setup_image_for_ligand</a>	setup_image_for_ligand( ligand, image_file );</li></ul>
+<li><a href="setup_image_for_ligand.html" class="code" title="function setup_image_for_ligand( ligand, image_file, new_name, skip_move_stuff_to_back );">setup_image_for_ligand</a>	setup_image_for_ligand( ligand, image_file );</li></ul>
 <!-- crossreference -->
 
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function ligand = draw_image_boundary( ligand )</a>
-0002 
-0003 assert( isfield( ligand, <span class="string">'image_boundary'</span>) );
-0004 <span class="keyword">if</span> ( ~isfield( ligand, <span class="string">'image_handle2'</span> ) | ~isvalid( ligand.image_handle2 ) )
-0005     ligand.image_handle2 = patch(0,0,[0,0,0],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>);
-0006     send_to_top_of_back( ligand.image_handle2 );
-0007 <span class="keyword">end</span>
-0008 <span class="keyword">if</span>( ~isfield( ligand, <span class="string">'image_handle'</span> ) | ~isvalid( ligand.image_handle ) )
-0009     ligand.image_handle = patch(0,0,[0,0,0],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>);
-0010     send_to_top_of_back( ligand.image_handle );
-0011     setappdata( ligand.image_handle, <span class="string">'res_tag'</span>, ligand.res_tag );
-0012     draggable( ligand.image_handle,<span class="string">'n'</span>,[-inf inf -inf inf], @move_snapgrid, <span class="string">'endfcn'</span>, @redraw_res_and_helix );
-0013 <span class="keyword">end</span>
-0014 <span class="keyword">if</span>( ~isfield( ligand, <span class="string">'image_offset'</span> ) )
-0015     ligand.image_offset = [0,0];
-0016 <span class="keyword">end</span>
-0017 
-0018 image_boundary = ligand.image_boundary;
-0019 
-0020 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0021 <span class="keyword">if</span> isfield( plot_settings, <span class="string">'ligand_image_scaling'</span> ) image_boundary = image_boundary * plot_settings.ligand_image_scaling; <span class="keyword">end</span>;
-0022 
-0023 set( ligand.image_handle, <span class="keyword">...</span>
-0024     <span class="string">'XData'</span>, image_boundary(:,1) + ligand.plot_pos(:,1) + ligand.image_offset(1), <span class="keyword">...</span>
-0025     <span class="string">'YData'</span>, image_boundary(:,2) + ligand.plot_pos(:,2) + ligand.image_offset(2) );
-0026 set( ligand.image_handle2, <span class="keyword">...</span>
-0027     <span class="string">'XData'</span>, image_boundary(:,1) + ligand.plot_pos(:,1) + ligand.image_offset(1) + 0.25, <span class="keyword">...</span>
-0028     <span class="string">'YData'</span>, image_boundary(:,2) + ligand.plot_pos(:,2) + ligand.image_offset(2) - 0.25);
+0002 <span class="comment">% ligand = draw_image_boundary( ligand )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Draw the 'silhouette' of a ligand (like a protein) if</span>
+0005 <span class="comment">%  its image_boundary field has been setup by SETUP_IMAGE_FOR_LIGAND.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Note: this function does not move the image boundary to the back of the</span>
+0008 <span class="comment">%  drawing -- that needs to be handled by a call to MOVE_STUFF_TO_BACK later.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) Rhiju Das, Stanford Universrity</span>
+0011 
+0012 
+0013 assert( isfield( ligand, <span class="string">'image_boundary'</span>) );
+0014 <span class="keyword">if</span> ( ~isfield( ligand, <span class="string">'image_handle2'</span> ) | ~isvalid( ligand.image_handle2 ) )
+0015     ligand.image_handle2 = patch(0,0,[0,0,0],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>);
+0016     send_to_top_of_back( ligand.image_handle2 );
+0017 <span class="keyword">end</span>
+0018 <span class="keyword">if</span>( ~isfield( ligand, <span class="string">'image_handle'</span> ) | ~isvalid( ligand.image_handle ) )
+0019     ligand.image_handle = patch(0,0,[0,0,0],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>);
+0020     send_to_top_of_back( ligand.image_handle );
+0021     setappdata( ligand.image_handle, <span class="string">'res_tag'</span>, ligand.res_tag );
+0022     draggable( ligand.image_handle,<span class="string">'n'</span>,[-inf inf -inf inf], @move_snapgrid, <span class="string">'endfcn'</span>, @redraw_res_and_helix );
+0023 <span class="keyword">end</span>
+0024 <span class="keyword">if</span>( ~isfield( ligand, <span class="string">'image_offset'</span> ) )
+0025     ligand.image_offset = [0,0];
+0026 <span class="keyword">end</span>
+0027 
+0028 image_boundary = ligand.image_boundary;
 0029 
-0030 <a href="set_ligand_image_color.html" class="code" title="function set_ligand_image_color( ligand );">set_ligand_image_color</a>( ligand );
-0031    
-0032 <span class="keyword">if</span> isfield( ligand, <span class="string">'handle'</span> )  set( ligand.handle, <span class="string">'fontsize'</span>,  plot_settings.fontsize*1.5  ); <span class="keyword">end</span>;
-0033</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0030 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0031 <span class="keyword">if</span> isfield( plot_settings, <span class="string">'ligand_image_scaling'</span> ) image_boundary = image_boundary * plot_settings.ligand_image_scaling; <span class="keyword">end</span>;
+0032 
+0033 set( ligand.image_handle, <span class="keyword">...</span>
+0034     <span class="string">'XData'</span>, image_boundary(:,1) + ligand.plot_pos(:,1) + ligand.image_offset(1), <span class="keyword">...</span>
+0035     <span class="string">'YData'</span>, image_boundary(:,2) + ligand.plot_pos(:,2) + ligand.image_offset(2) );
+0036 set( ligand.image_handle2, <span class="keyword">...</span>
+0037     <span class="string">'XData'</span>, image_boundary(:,1) + ligand.plot_pos(:,1) + ligand.image_offset(1) + 0.25, <span class="keyword">...</span>
+0038     <span class="string">'YData'</span>, image_boundary(:,2) + ligand.plot_pos(:,2) + ligand.image_offset(2) - 0.25);
+0039 
+0040 <a href="set_ligand_image_color.html" class="code" title="function set_ligand_image_color( ligand );">set_ligand_image_color</a>( ligand );
+0041    
+0042 <span class="keyword">if</span> isfield( ligand, <span class="string">'handle'</span> )  set( ligand.handle, <span class="string">'fontsize'</span>,  plot_settings.fontsize*1.5  ); <span class="keyword">end</span>;
+0043</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

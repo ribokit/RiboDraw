@@ -4,7 +4,7 @@
 <head>
   <title>Description of default_plot_settings</title>
   <meta name="keywords" content="default_plot_settings">
-  <meta name="description" content="">
+  <meta name="description" content="plot_settings = default_plot_settings();">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,17 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>plot_settings = default_plot_settings();</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function plot_settings = default_plot_settings(); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> plot_settings = default_plot_settings();
+
+ Default settings for plot's fontsize, boldface, linker control display, etc.
+
+ (C) R. Das, Stanford University</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -42,19 +46,24 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function plot_settings = default_plot_settings();</a>
-0002 
-0003 plot_settings.fontsize    = 10;
-0004 plot_settings.spacing     =  3;
-0005 plot_settings.bp_spacing  =  6;
-0006 plot_settings.boldface    =  1;
-0007 plot_settings.show_helix_controls  = 1;
-0008 plot_settings.show_coax_controls   = 0;
-0009 plot_settings.show_domain_controls = 1;
-0010 plot_settings.show_linker_controls = 0;
-0011 plot_settings.show_stacks          = 1;
-0012 plot_settings.show_other_contacts  = 0;
-0013 plot_settings.show_interdomain_noncanonical_pairs = 1;
-0014 plot_settings.show_extra_arrows    = 1;</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% plot_settings = default_plot_settings();</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Default settings for plot's fontsize, boldface, linker control display, etc.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% (C) R. Das, Stanford University</span>
+0007 
+0008 plot_settings.fontsize    = 10;
+0009 plot_settings.spacing     =  3;
+0010 plot_settings.bp_spacing  =  6;
+0011 plot_settings.boldface    =  1;
+0012 plot_settings.show_helix_controls  = 1;
+0013 plot_settings.show_coax_controls   = 0;
+0014 plot_settings.show_domain_controls = 1;
+0015 plot_settings.show_linker_controls = 0;
+0016 plot_settings.show_stacks          = 1;
+0017 plot_settings.show_other_contacts  = 0;
+0018 plot_settings.show_interdomain_noncanonical_pairs = 1;
+0019 plot_settings.show_extra_arrows    = 1;</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

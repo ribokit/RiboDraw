@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_resnum_from_tag</title>
+  <meta name="keywords" content="get_resnum_from_tag">
+  <meta name="description" content="[resnum,chains,segid,ok] = get_resnum_from_tag( tag )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html util -->
+<h1>get_resnum_from_tag
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>[resnum,chains,segid,ok] = get_resnum_from_tag( tag )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [resnum,chains,segid,ok] = get_resnum_from_tag( tag ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> [resnum,chains,segid,ok] = get_resnum_from_tag( tag )
+
+ Convert &quot;A:1-4&quot;    to 'AAAA' and [1,2,3,4] 
+               or
+         &quot;B:QA:2-3&quot; to 'BB' and [2,3] and {'QA','QA'}
+
+ INPUT:
+   tag = string like &quot;B:QA:2-3&quot; or &quot;A:1-4&quot;  (missing segid)
+
+ OUTPUT
+  resnum = number           (integer)
+  chain  = chain characters (string with length matching resnum)
+  segid  = segment IDs      (cell of strings with length matching resnum, may all be blank)
+  ok     = 1 if tag follows acceptable forms, 0 otherwise
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_resnum_from_tag( tag )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>	[resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )</li><li><a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>	[ res_tags, obj_name ] = get_res( selection )</li><li><a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_resnum_from_tag( tag )</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )</a>
+0002 <span class="comment">% [resnum,chains,segid,ok] = get_resnum_from_tag( tag )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Convert &quot;A:1-4&quot;    to 'AAAA' and [1,2,3,4]</span>
+0005 <span class="comment">%               or</span>
+0006 <span class="comment">%         &quot;B:QA:2-3&quot; to 'BB' and [2,3] and {'QA','QA'}</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% INPUT:</span>
+0009 <span class="comment">%   tag = string like &quot;B:QA:2-3&quot; or &quot;A:1-4&quot;  (missing segid)</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% OUTPUT</span>
+0012 <span class="comment">%  resnum = number           (integer)</span>
+0013 <span class="comment">%  chain  = chain characters (string with length matching resnum)</span>
+0014 <span class="comment">%  segid  = segment IDs      (cell of strings with length matching resnum, may all be blank)</span>
+0015 <span class="comment">%  ok     = 1 if tag follows acceptable forms, 0 otherwise</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% (C) R. Das, Stanford University</span>
+0018 
+0019 <span class="comment">% there might be multiple tags like &quot;A:1-4 B:1-4&quot;</span>
+0020 residue_tags = strsplit( tag );
+0021 <span class="keyword">if</span> length( residue_tags ) &gt; 1
+0022     resnum = [];
+0023     chains = <span class="string">''</span>;
+0024     segid  = {};
+0025     ok = true;
+0026     <span class="keyword">for</span> i = 1:length( residue_tags )
+0027         [tag_resnum,tag_chains,tag_segid,ok] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( residue_tags{i} );
+0028         <span class="keyword">if</span> ok
+0029             resnum = [ resnum, tag_resnum ];
+0030             chains = [ chains, tag_chains ];
+0031             segid  = [ segid, tag_segid ];
+0032         <span class="keyword">else</span>
+0033             ok = false;
+0034             <span class="keyword">return</span>
+0035         <span class="keyword">end</span>
+0036     <span class="keyword">end</span>
+0037     <span class="keyword">return</span>;
+0038 <span class="keyword">end</span>
+0039 
+0040 <span class="comment">% following is for single tag like &quot;A:1-4&quot;</span>
+0041 resnum = [];
+0042 chains = <span class="string">''</span>;
+0043 segid  = {<span class="string">''</span>};
+0044 ok = false;
+0045 <span class="keyword">if</span> isempty( strfind( tag , <span class="string">':'</span> ) ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0046 elems = strsplit( tag, <span class="string">':'</span> );
+0047 chain = elems{1}; chains = chain;
+0048 <span class="keyword">if</span> length( elems ) == 3
+0049     segid = {elems{2}};
+0050     elems = elems([1,3]);
+0051 <span class="keyword">end</span>
+0052 dashes = strfind( elems{2}, <span class="string">'-'</span> );
+0053 <span class="keyword">if</span> length( dashes ) == 0 | dashes(1) == 1;
+0054     resnum = str2num( elems{2} );
+0055     ok = true;
+0056     <span class="keyword">return</span>;
+0057 <span class="keyword">end</span>
+0058 dash = dashes(1);
+0059 <span class="keyword">if</span> dash == 1; assert( length( dashes ) &gt; 1 ); dash == dashes(2); <span class="keyword">end</span>;
+0060 start_res = str2num( elems{2}(1:dash-1) );
+0061 <span class="keyword">if</span> isempty ( start_res ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0062 stop_res = str2num( elems{2}((dash+1):end) );
+0063 <span class="keyword">if</span> isempty ( stop_res ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0064 <span class="keyword">if</span>( stop_res &lt;= start_res ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0065 resnum = start_res:stop_res;
+0066 chains = repmat( chain, [1 length(resnum)] );
+0067 segid  = repmat( segid, [1 length(resnum)] );
+0068 ok = true;</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

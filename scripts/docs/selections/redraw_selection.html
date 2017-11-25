@@ -4,7 +4,7 @@
 <head>
   <title>Description of redraw_selection</title>
   <meta name="keywords" content="redraw_selection">
-  <meta name="description" content="">
+  <meta name="description" content="redraw_selection( handle );">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,19 +20,22 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>redraw_selection( handle );</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function redraw_selection( h ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> redraw_selection( handle );
+   Called after dragging a domain or coaxial stack. 
+
+ (C) Rhiju Das, Stanford University, 2017.</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="get_res_helix_for_selection.html" class="code" title="function [residues, associated_helices] = get_res_helix_for_selection( selection );">get_res_helix_for_selection</a>	</li></ul>
+<li><a href="get_res_helix_for_selection.html" class="code" title="function [residues, associated_helices] = get_res_helix_for_selection( selection );">get_res_helix_for_selection</a>	[residues, associated_helices] = get_res_helix_for_selection( selection );</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 <li><a href="draw_selections.html" class="code" title="function draw_selections( selections );">draw_selections</a>	draw_selections( selections );</li></ul>
@@ -42,30 +45,32 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function redraw_selection( h );</a>
-0002 delete_crosshair();
-0003 pos = get(h,<span class="string">'position'</span>); 
-0004 init_pos = getappdata(h,<span class="string">'initial_position'</span>);
-0005 selection_tag = getappdata( h, <span class="string">'selection_tag'</span> );
-0006 selection = getappdata(gca,selection_tag );
-0007 
-0008 translation = pos - init_pos;
-0009 
-0010 [residues, associated_helices] = <a href="get_res_helix_for_selection.html" class="code" title="function [residues, associated_helices] = get_res_helix_for_selection( selection );">get_res_helix_for_selection</a>( selection );
-0011 
-0012 <span class="keyword">for</span> i = 1:length( residues )
-0013     residues{i}.plot_pos = residues{i}.plot_pos + translation(1:2);
-0014 <span class="keyword">end</span>
-0015 
-0016 <span class="keyword">for</span> i = 1:length( associated_helices )
-0017     helix = getappdata( gca, associated_helices{i} );
-0018     helix.center = helix.center + translation(1:2);
-0019     setappdata( gca, helix.helix_tag, helix );
-0020     draw_helix( helix );
-0021 <span class="keyword">end</span>
-0022 
-0023 <span class="comment">%for i = 1:length( associated_helices )</span>
-0024 <span class="comment">%    helix = getappdata( gca, associated_helices{i} );</span>
-0025 <span class="comment">%end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% redraw_selection( handle );</span>
+0003 <span class="comment">%   Called after dragging a domain or coaxial stack.</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% (C) Rhiju Das, Stanford University, 2017.</span>
+0006 
+0007 delete_crosshair();
+0008 pos = get(h,<span class="string">'position'</span>); 
+0009 init_pos = getappdata(h,<span class="string">'initial_position'</span>);
+0010 selection_tag = getappdata( h, <span class="string">'selection_tag'</span> );
+0011 selection = getappdata(gca,selection_tag );
+0012 
+0013 translation = pos - init_pos;
+0014 
+0015 [residues, associated_helices] = <a href="get_res_helix_for_selection.html" class="code" title="function [residues, associated_helices] = get_res_helix_for_selection( selection );">get_res_helix_for_selection</a>( selection );
+0016 
+0017 <span class="keyword">for</span> i = 1:length( residues )
+0018     residues{i}.plot_pos = residues{i}.plot_pos + translation(1:2);
+0019 <span class="keyword">end</span>
+0020 
+0021 <span class="keyword">for</span> i = 1:length( associated_helices )
+0022     helix = getappdata( gca, associated_helices{i} );
+0023     helix.center = helix.center + translation(1:2);
+0024     setappdata( gca, helix.helix_tag, helix );
+0025     draw_helix( helix );
+0026 <span class="keyword">end</span>
+0027</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

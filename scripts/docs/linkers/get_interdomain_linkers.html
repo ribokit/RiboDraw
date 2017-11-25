@@ -26,7 +26,20 @@
 <div class="box"><strong>function interdomain_linkers = get_interdomain_linkers( linkers, domain_names ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> interdomain_linkers = get_interdomain_linkers( linkers, domain_names )</pre></div>
+<div class="fragment"><pre class="comment"> interdomain_linkers = get_interdomain_linkers( linkers, domain_names )
+
+ Inputs:
+  linkers       = cell of linker tags to go through and filter for interdomain.
+  domain_names  = cell of strings with names of domains (previously must have been defined by user
+                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}
+
+ Outputs:
+  interdomain_linkenrs = filtered cell of linker tags that interconnect different domains.
+
+ TODO: see note in GROUP_INTERDOMAIN_LINKERS -- would be better to
+   force user to run this first, and then run grouping function.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -35,7 +48,7 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="group_interdomain_linkers.html" class="code" title="function linker_groups = group_interdomain_linkers( domain_names )">group_interdomain_linkers</a>	linker_groups = group_interdomain_linkers( domain_names )</li><li><a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>	show_split_arrows( linker, setting )</li></ul>
+</ul>
 <!-- crossreference -->
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -45,54 +58,72 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function interdomain_linkers = get_interdomain_linkers( linkers, domain_names )</a>
 0002 <span class="comment">% interdomain_linkers = get_interdomain_linkers( linkers, domain_names )</span>
-0003 
-0004 interdomain_linkers = {};
-0005 [domain_tags,ok] = <a href="#_sub2" class="code" title="subfunction [domain_tags,ok] = get_gca_domain_tags( domain_names );">get_gca_domain_tags</a>( domain_names );
-0006 <span class="keyword">if</span> ~ok; <span class="keyword">return</span>; <span class="keyword">end</span>;
-0007 
-0008 <span class="keyword">for</span> i = 1:length( linkers )
-0009     linker = getappdata( gca, linkers{i} );
-0010     domain_member1 = <a href="#_sub1" class="code" title="subfunction domain_member = get_domain_membership( res_tag, domain_tags );">get_domain_membership</a>( linker.residue1, domain_tags );
-0011     domain_member2 = <a href="#_sub1" class="code" title="subfunction domain_member = get_domain_membership( res_tag, domain_tags );">get_domain_membership</a>( linker.residue2, domain_tags );
-0012 
-0013     <span class="keyword">if</span> ~any( domain_member1 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0014     <span class="keyword">if</span> ~any( domain_member2 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0015     
-0016     <span class="comment">% the two residues should not be part of the same domain.</span>
-0017     <span class="keyword">if</span> any( domain_member1 .* domain_member2 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0018     <span class="comment">%if linker_connects_different_domains( residue1, residue2 )</span>
-0019     domains1 = domain_tags(find(domain_member1));
-0020     linker.domain1 = domains1{1}; <span class="comment">% first one.</span>
-0021     domains2 = domain_tags(find(domain_member2));
-0022     linker.domain2 = domains2{1}; <span class="comment">% first one.</span>
-0023     linker.interdomain = 1;
-0024     setappdata( gca, linker.linker_tag, linker );
-0025     interdomain_linkers = [ interdomain_linkers, linker ];    
-0026 <span class="keyword">end</span>
-0027 
-0028 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0029 <a name="_sub1" href="#_subfunctions" class="code">function domain_member = get_domain_membership( res_tag, domain_tags );</a>
-0030 domain_member = zeros( 1, length( domain_tags ) );
-0031 residue = getappdata( gca, res_tag );
-0032 <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> ); <span class="keyword">return</span>; <span class="keyword">end</span>;
-0033 
-0034 <span class="keyword">for</span> i = 1:length( domain_tags )
-0035     domain_member(i) = any( strcmp( residue.associated_selections, domain_tags{i} ) );
-0036 <span class="keyword">end</span>
-0037 
-0038 
-0039 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0040 <a name="_sub2" href="#_subfunctions" class="code">function [domain_tags,ok] = get_gca_domain_tags( domain_names );</a>
-0041 ok = 1;
-0042 domain_tags = {};
-0043 <span class="keyword">for</span> i = 1:length( domain_names )
-0044     domain_tags{i} = get_domain_tag( domain_names{i} );
-0045     <span class="keyword">if</span> length( domain_tags{i} ) == 0;
-0046         ok = 0; <span class="keyword">break</span>;
-0047     <span class="keyword">end</span>;
-0048 <span class="keyword">end</span>
-0049 
-0050</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Inputs:</span>
+0005 <span class="comment">%  linkers       = cell of linker tags to go through and filter for interdomain.</span>
+0006 <span class="comment">%  domain_names  = cell of strings with names of domains (previously must have been defined by user</span>
+0007 <span class="comment">%                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% Outputs:</span>
+0010 <span class="comment">%  interdomain_linkenrs = filtered cell of linker tags that interconnect different domains.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% TODO: see note in GROUP_INTERDOMAIN_LINKERS -- would be better to</span>
+0013 <span class="comment">%   force user to run this first, and then run grouping function.</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0016 
+0017 dbstack();
+0018 fprintf( <span class="string">'\n Running get_interdomain_linkers(). TODO: ask user to run this outside rather than here!\n'</span> );
+0019 
+0020 interdomain_linkers = {};
+0021 [domain_tags,ok] = <a href="#_sub2" class="code" title="subfunction [domain_tags,ok] = get_gca_domain_tags( domain_names );">get_gca_domain_tags</a>( domain_names );
+0022 <span class="keyword">if</span> ~ok; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0023 
+0024 <span class="keyword">for</span> i = 1:length( linkers )
+0025     linker = getappdata( gca, linkers{i} );
+0026     domain_member1 = <a href="#_sub1" class="code" title="subfunction domain_member = get_domain_membership( res_tag, domain_tags );">get_domain_membership</a>( linker.residue1, domain_tags );
+0027     domain_member2 = <a href="#_sub1" class="code" title="subfunction domain_member = get_domain_membership( res_tag, domain_tags );">get_domain_membership</a>( linker.residue2, domain_tags );
+0028 
+0029     <span class="keyword">if</span> ~any( domain_member1 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0030     <span class="keyword">if</span> ~any( domain_member2 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0031     
+0032     <span class="comment">% the two residues should not be part of the same domain.</span>
+0033     <span class="keyword">if</span> any( domain_member1 .* domain_member2 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0034     <span class="comment">%if linker_connects_different_domains( residue1, residue2 )</span>
+0035     domains1 = domain_tags(find(domain_member1));
+0036     linker.domain1 = domains1{1}; <span class="comment">% first one.</span>
+0037     domains2 = domain_tags(find(domain_member2));
+0038     linker.domain2 = domains2{1}; <span class="comment">% first one.</span>
+0039     linker.interdomain = 1;
+0040     
+0041     <span class="comment">% this is cryptic.</span>
+0042     setappdata( gca, linker.linker_tag, linker );
+0043     interdomain_linkers = [ interdomain_linkers, linker ];    
+0044 <span class="keyword">end</span>
+0045 
+0046 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0047 <a name="_sub1" href="#_subfunctions" class="code">function domain_member = get_domain_membership( res_tag, domain_tags );</a>
+0048 domain_member = zeros( 1, length( domain_tags ) );
+0049 residue = getappdata( gca, res_tag );
+0050 <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0051 
+0052 <span class="keyword">for</span> i = 1:length( domain_tags )
+0053     domain_member(i) = any( strcmp( residue.associated_selections, domain_tags{i} ) );
+0054 <span class="keyword">end</span>
+0055 
+0056 
+0057 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0058 <a name="_sub2" href="#_subfunctions" class="code">function [domain_tags,ok] = get_gca_domain_tags( domain_names );</a>
+0059 ok = 1;
+0060 domain_tags = {};
+0061 <span class="keyword">for</span> i = 1:length( domain_names )
+0062     domain_tags{i} = get_domain_tag( domain_names{i} );
+0063     <span class="keyword">if</span> length( domain_tags{i} ) == 0;
+0064         ok = 0; <span class="keyword">break</span>;
+0065     <span class="keyword">end</span>;
+0066 <span class="keyword">end</span>
+0067 
+0068</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

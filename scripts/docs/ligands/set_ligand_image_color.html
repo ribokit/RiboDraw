@@ -28,8 +28,10 @@
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> set_ligand_image_color( ligand )
 
- Grabs rgb_color for ligand residue and sets 
- color of image silhouette as faded version.</pre></div>
+ Grabs rgb_color for ligand (residue object) and sets 
+ color of image silhouette as faded version.
+
+ (C) R. Das, Stanford University, 2017.</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -38,7 +40,7 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="draw_image_boundary.html" class="code" title="function ligand = draw_image_boundary( ligand )">draw_image_boundary</a>	</li></ul>
+<li><a href="draw_image_boundary.html" class="code" title="function ligand = draw_image_boundary( ligand )">draw_image_boundary</a>	ligand = draw_image_boundary( ligand )</li></ul>
 <!-- crossreference -->
 
 
@@ -47,16 +49,18 @@ This function is called by:
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_ligand_image_color( ligand );</a>
 0002 <span class="comment">% set_ligand_image_color( ligand )</span>
 0003 <span class="comment">%</span>
-0004 <span class="comment">% Grabs rgb_color for ligand residue and sets</span>
+0004 <span class="comment">% Grabs rgb_color for ligand (residue object) and sets</span>
 0005 <span class="comment">% color of image silhouette as faded version.</span>
 0006 <span class="comment">%</span>
-0007 ligand_color = fade_color([0 0 0]);
-0008 <span class="keyword">if</span> isfield( ligand, <span class="string">'rgb_color'</span>)
-0009     ligand_color = fade_color(ligand.rgb_color);
-0010 <span class="keyword">end</span>
-0011 set( ligand.image_handle , <span class="string">'facecolor'</span>, fade_color(ligand_color) );
-0012 set( ligand.image_handle2, <span class="string">'facecolor'</span>, ligand_color );
-0013</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0007 <span class="comment">% (C) R. Das, Stanford University, 2017.</span>
+0008 
+0009 ligand_color = fade_color([0 0 0]);
+0010 <span class="keyword">if</span> isfield( ligand, <span class="string">'rgb_color'</span>)
+0011     ligand_color = fade_color(ligand.rgb_color);
+0012 <span class="keyword">end</span>
+0013 set( ligand.image_handle , <span class="string">'facecolor'</span>, fade_color(ligand_color) );
+0014 set( ligand.image_handle2, <span class="string">'facecolor'</span>, ligand_color );
+0015</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

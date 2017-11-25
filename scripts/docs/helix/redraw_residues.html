@@ -4,7 +4,7 @@
 <head>
   <title>Description of redraw_residues</title>
   <meta name="keywords" content="redraw_residues">
-  <meta name="description" content="update relpos for all residues">
+  <meta name="description" content="redraw_residues( residues )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,19 +20,28 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>update relpos for all residues</strong></div>
+<div class="box"><strong>redraw_residues( residues )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function redraw_residues( residues ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> update relpos for all residues</pre></div>
+<div class="fragment"><pre class="comment"> redraw_residues( residues )
+
+ Redraw all residues, e.g., after autoformatting a coaxial stack.
+  The function does this by finding the helices to which the
+  residues belong and redrawing those helices.
+
+ Input:
+  residues = cell of residue objects to redraw.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>	</li></ul>
+<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>	relpos = get_relpos( plot_pos, helix )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -42,27 +51,37 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function redraw_residues( residues )</a>
-0002 
-0003 <span class="comment">% update relpos for all residues</span>
-0004 helices_to_redraw = {};
-0005 <span class="keyword">for</span> i = 1:length( residues )
-0006     helix = getappdata( gca, residues{i}.helix_tag );
-0007     residues{i}.relpos = <a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>( residues{i}.plot_pos, helix );
-0008     helices_to_redraw = [helices_to_redraw, helix.helix_tag ];
-0009 <span class="keyword">end</span>
-0010 
-0011 <span class="comment">% ready to install residues into figure workspace (gca)</span>
-0012 <span class="keyword">for</span> i = 1:length( residues )
-0013     residue = residues{i};
-0014     setappdata( gca, residue.res_tag, residue );
-0015 <span class="keyword">end</span>
-0016 
-0017 <span class="comment">% now redraw all helices that this domain involves</span>
-0018 helices_to_redraw = unique( helices_to_redraw );
-0019 <span class="keyword">for</span> i = 1:length( helices_to_redraw )
-0020     helix = getappdata( gca, helices_to_redraw{i} );
-0021     <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
-0022 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% redraw_residues( residues )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Redraw all residues, e.g., after autoformatting a coaxial stack.</span>
+0005 <span class="comment">%  The function does this by finding the helices to which the</span>
+0006 <span class="comment">%  residues belong and redrawing those helices.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% Input:</span>
+0009 <span class="comment">%  residues = cell of residue objects to redraw.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0012 
+0013 <span class="comment">% update relpos for all residues</span>
+0014 helices_to_redraw = {};
+0015 <span class="keyword">for</span> i = 1:length( residues )
+0016     helix = getappdata( gca, residues{i}.helix_tag );
+0017     residues{i}.relpos = <a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>( residues{i}.plot_pos, helix );
+0018     helices_to_redraw = [helices_to_redraw, helix.helix_tag ];
+0019 <span class="keyword">end</span>
+0020 
+0021 <span class="comment">% ready to install residues into figure workspace (gca)</span>
+0022 <span class="keyword">for</span> i = 1:length( residues )
+0023     residue = residues{i};
+0024     setappdata( gca, residue.res_tag, residue );
+0025 <span class="keyword">end</span>
+0026 
+0027 <span class="comment">% now redraw all helices that this domain involves</span>
+0028 helices_to_redraw = unique( helices_to_redraw );
+0029 <span class="keyword">for</span> i = 1:length( helices_to_redraw )
+0030     helix = getappdata( gca, helices_to_redraw{i} );
+0031     <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
+0032 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

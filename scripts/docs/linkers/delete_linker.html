@@ -4,7 +4,7 @@
 <head>
   <title>Description of delete_linker</title>
   <meta name="keywords" content="delete_linker">
-  <meta name="description" content="">
+  <meta name="description" content="linker = delete_linker( linker, remove_linker )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,22 +20,35 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>linker = delete_linker( linker, remove_linker )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function linker = delete_linker( linker, remove_linker ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> linker = delete_linker( linker, remove_linker )
+
+ Delete a linker and all associated graphics handles.
+
+ Inputs
+  linker = linker object or tag for linker. Cell of several such objects 
+              or tags is also acceptable
+  remove_linker = 0/1 to actually delete linker from drawing (gca) rather
+                   than simply erase graphics handles. (default: 1, total destruction)
+
+ Output
+  linker = the struct() after removal of graphics handles.
+
+ (C) R. Das, Stanford University.</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>	</li></ul>
+<li><a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>	linker = delete_linker( linker, remove_linker )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>	</li><li><a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>	delete_tertiary_contact( contact_name )</li><li><a href="restore_straight_linkers.html" class="code" title="function restore_straight_linkers( tags )">restore_straight_linkers</a>	restore_straight_linkers( tags )</li></ul>
+<li><a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>	linker = delete_linker( linker, remove_linker )</li></ul>
 <!-- crossreference -->
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -44,34 +57,49 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker = delete_linker( linker, remove_linker );</a>
-0002 <span class="keyword">if</span> ~exist( <span class="string">'remove_linker'</span>, <span class="string">'var'</span> ) remove_linker = 1; <span class="keyword">end</span>;
-0003 <span class="keyword">if</span> iscell( linker )
-0004     <span class="keyword">for</span> i = 1:length( linker ); 
-0005         linker{i} = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker{i}, remove_linker ); 
-0006     <span class="keyword">end</span>; 
-0007     <span class="keyword">return</span>; 
-0008 <span class="keyword">end</span>;
-0009 <span class="keyword">if</span> ischar( linker ) linker = getappdata( gca, linker ); <span class="keyword">end</span>;
-0010 
-0011 linker = <a href="#_sub1" class="code" title="subfunction linker = rmgraphics( linker, tags )">rmgraphics</a>( linker, {<span class="string">'line_handle'</span>,<span class="string">'symbol'</span>,<span class="string">'symbol1'</span>,<span class="string">'symbol2'</span>,<span class="string">'side_line1'</span>,<span class="string">'side_line2'</span>,<span class="string">'node1'</span>,<span class="string">'node2'</span>,<span class="string">'outarrow1'</span>,<span class="string">'outarrow2'</span>,<span class="string">'outarrow_label1'</span>,<span class="string">'outarrow_label2'</span>} );
-0012 <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
-0013     <span class="keyword">for</span> i = 1:length( linker.vtx ); delete( linker.vtx{i} );  <span class="keyword">end</span>;
-0014     linker = rmfield( linker, <span class="string">'vtx'</span> );
-0015 <span class="keyword">end</span>;
+0002 <span class="comment">% linker = delete_linker( linker, remove_linker )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Delete a linker and all associated graphics handles.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Inputs</span>
+0007 <span class="comment">%  linker = linker object or tag for linker. Cell of several such objects</span>
+0008 <span class="comment">%              or tags is also acceptable</span>
+0009 <span class="comment">%  remove_linker = 0/1 to actually delete linker from drawing (gca) rather</span>
+0010 <span class="comment">%                   than simply erase graphics handles. (default: 1, total destruction)</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% Output</span>
+0013 <span class="comment">%  linker = the struct() after removal of graphics handles.</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">% (C) R. Das, Stanford University.</span>
 0016 
-0017 <span class="keyword">if</span> remove_linker
-0018     rmappdata( gca, linker.linker_tag )
-0019 <span class="keyword">end</span>
-0020 
-0021 <a name="_sub1" href="#_subfunctions" class="code">function linker = rmgraphics( linker, tags )</a>
-0022 <span class="keyword">for</span> i = 1:length( tags )
-0023    tag = tags{i};
-0024    <span class="keyword">if</span> isfield( linker,tag ) 
-0025        h = getfield(linker,tag);
-0026        <span class="keyword">if</span> isvalid( h ) delete(h); <span class="keyword">end</span>;
-0027        linker = rmfield( linker, tag );
-0028    <span class="keyword">end</span>;
-0029 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0017 <span class="keyword">if</span> ~exist( <span class="string">'remove_linker'</span>, <span class="string">'var'</span> ) remove_linker = 1; <span class="keyword">end</span>;
+0018 <span class="keyword">if</span> iscell( linker )
+0019     <span class="keyword">for</span> i = 1:length( linker ); 
+0020         linker{i} = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker{i}, remove_linker ); 
+0021     <span class="keyword">end</span>; 
+0022     <span class="keyword">return</span>; 
+0023 <span class="keyword">end</span>;
+0024 <span class="keyword">if</span> ischar( linker ) linker = getappdata( gca, linker ); <span class="keyword">end</span>;
+0025 
+0026 linker = <a href="#_sub1" class="code" title="subfunction linker = rmgraphics( linker, tags )">rmgraphics</a>( linker, {<span class="string">'line_handle'</span>,<span class="string">'symbol'</span>,<span class="string">'symbol1'</span>,<span class="string">'symbol2'</span>,<span class="string">'side_line1'</span>,<span class="string">'side_line2'</span>,<span class="string">'node1'</span>,<span class="string">'node2'</span>,<span class="string">'outarrow1'</span>,<span class="string">'outarrow2'</span>,<span class="string">'outarrow_label1'</span>,<span class="string">'outarrow_label2'</span>} );
+0027 <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
+0028     <span class="keyword">for</span> i = 1:length( linker.vtx ); delete( linker.vtx{i} );  <span class="keyword">end</span>;
+0029     linker = rmfield( linker, <span class="string">'vtx'</span> );
+0030 <span class="keyword">end</span>;
+0031 
+0032 <span class="keyword">if</span> remove_linker
+0033     rmappdata( gca, linker.linker_tag )
+0034 <span class="keyword">end</span>
+0035 
+0036 <a name="_sub1" href="#_subfunctions" class="code">function linker = rmgraphics( linker, tags )</a>
+0037 <span class="keyword">for</span> i = 1:length( tags )
+0038    tag = tags{i};
+0039    <span class="keyword">if</span> isfield( linker,tag ) 
+0040        h = getfield(linker,tag);
+0041        <span class="keyword">if</span> isvalid( h ) delete(h); <span class="keyword">end</span>;
+0042        linker = rmfield( linker, tag );
+0043    <span class="keyword">end</span>;
+0044 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

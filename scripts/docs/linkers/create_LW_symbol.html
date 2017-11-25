@@ -4,7 +4,7 @@
 <head>
   <title>Description of create_LW_symbol</title>
   <meta name="keywords" content="create_LW_symbol">
-  <meta name="description" content="">
+  <meta name="description" content="h = create_LW_symbol( edge, orientation, bp_spacing );">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,23 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>h = create_LW_symbol( edge, orientation, bp_spacing );</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function h = create_LW_symbol( edge, orientation, bp_spacing ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> h = create_LW_symbol( edge, orientation, bp_spacing );
+
+ Inputs
+   edge = 'W', 'H', or 'S' for Watson-Crick, Hoogsteen, or Sugar
+   orientation = 'C' or 'T'
+   bp_spacing  = from plot_settings, how many pixels between nucleotides in a base pair.
+
+ Output
+   h = handle to a 'patch' graphic object.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -42,34 +52,46 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function h = create_LW_symbol( edge, orientation, bp_spacing );</a>
-0002 <span class="keyword">switch</span> edge
-0003     <span class="keyword">case</span> <span class="string">'W'</span>
-0004         t = linspace(0, 2*pi);
-0005         r = bp_spacing/10;
-0006     <span class="keyword">case</span> <span class="string">'H'</span>
-0007         t = [0 pi/2 pi 3*pi/2]+pi/4;
-0008         r = bp_spacing/10 * sqrt(2);
-0009     <span class="keyword">case</span> <span class="string">'S'</span>
-0010         t = [0 2*pi/3 2*pi*2/3];
-0011         r = bp_spacing/10 * 1.5*sqrt(3)/2;
-0012     <span class="keyword">otherwise</span>
-0013         fprintf( <span class="string">'PROBLEM: edge should be W, H, S\n'</span> );
-0014 <span class="keyword">end</span>
-0015 x = r*cos(t);
-0016 y = r*sin(t);
-0017 h = patch( x,y,<span class="string">'w'</span>,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>);
-0018 
-0019 <span class="keyword">switch</span> orientation
-0020     <span class="keyword">case</span> <span class="string">'C'</span>
-0021         set( h, <span class="string">'facecolor'</span>, <span class="string">'k'</span> );
-0022     <span class="keyword">case</span> <span class="string">'T'</span>
-0023         set( h, <span class="string">'facecolor'</span>, <span class="string">'w'</span> );
+0002 <span class="comment">% h = create_LW_symbol( edge, orientation, bp_spacing );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Inputs</span>
+0005 <span class="comment">%   edge = 'W', 'H', or 'S' for Watson-Crick, Hoogsteen, or Sugar</span>
+0006 <span class="comment">%   orientation = 'C' or 'T'</span>
+0007 <span class="comment">%   bp_spacing  = from plot_settings, how many pixels between nucleotides in a base pair.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% Output</span>
+0010 <span class="comment">%   h = handle to a 'patch' graphic object.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0013 
+0014 <span class="keyword">switch</span> edge
+0015     <span class="keyword">case</span> <span class="string">'W'</span>
+0016         t = linspace(0, 2*pi);
+0017         r = bp_spacing/10;
+0018     <span class="keyword">case</span> <span class="string">'H'</span>
+0019         t = [0 pi/2 pi 3*pi/2]+pi/4;
+0020         r = bp_spacing/10 * sqrt(2);
+0021     <span class="keyword">case</span> <span class="string">'S'</span>
+0022         t = [0 2*pi/3 2*pi*2/3];
+0023         r = bp_spacing/10 * 1.5*sqrt(3)/2;
 0024     <span class="keyword">otherwise</span>
-0025         set( h, <span class="string">'facecolor'</span>, <span class="string">'r'</span> );
+0025         fprintf( <span class="string">'PROBLEM: edge should be W, H, S\n'</span> );
 0026 <span class="keyword">end</span>
-0027 
-0028 set( h, <span class="string">'clipping'</span>,<span class="string">'off'</span> );
-0029</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0027 x = r*cos(t);
+0028 y = r*sin(t);
+0029 h = patch( x,y,<span class="string">'w'</span>,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>);
+0030 
+0031 <span class="keyword">switch</span> orientation
+0032     <span class="keyword">case</span> <span class="string">'C'</span>
+0033         set( h, <span class="string">'facecolor'</span>, <span class="string">'k'</span> );
+0034     <span class="keyword">case</span> <span class="string">'T'</span>
+0035         set( h, <span class="string">'facecolor'</span>, <span class="string">'w'</span> );
+0036     <span class="keyword">otherwise</span>
+0037         set( h, <span class="string">'facecolor'</span>, <span class="string">'r'</span> );
+0038 <span class="keyword">end</span>
+0039 
+0040 set( h, <span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0041</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

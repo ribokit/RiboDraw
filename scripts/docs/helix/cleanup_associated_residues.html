@@ -4,7 +4,7 @@
 <head>
   <title>Description of cleanup_associated_residues</title>
   <meta name="keywords" content="cleanup_associated_residues">
-  <meta name="description" content="">
+  <meta name="description" content="cleanup_associated_residues()">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,20 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>cleanup_associated_residues()</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function cleanup_associated_residues() </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment">  cleanup_associated_residues()
+
+ Goes through all Residue objects and checks their membership in
+   helix objects; update associated_residues fields of helices.
+
+ Used in LOAD_DRAWING.
+
+ (C) Rhiju Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -42,33 +49,42 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function cleanup_associated_residues()</a>
-0002 helix_tags = get_tags( <span class="string">'Helix_'</span> );
-0003 
-0004 <span class="keyword">for</span> k = 1:length( helix_tags )
-0005     associated_res{k} = {};
-0006 <span class="keyword">end</span>
-0007 
-0008 res_tags = get_tags( <span class="string">'Residue_'</span> );
-0009 <span class="keyword">for</span> i = 1:length( res_tags )
-0010     res_tag = res_tags{i};
-0011     residue = getappdata( gca, res_tag );
-0012     <span class="keyword">if</span> ~isfield( residue, <span class="string">'helix_tag'</span> ) 
-0013         <span class="comment">% weird thing that seems to happen, residue with just linkers</span>
-0014         rmappdata( gca, res_tag );
-0015         <span class="keyword">continue</span>;
-0016     <span class="keyword">end</span>
-0017     assert( any( strcmp( helix_tags, residue.helix_tag ) ) );
-0018     k = find(  strcmp( helix_tags, residue.helix_tag ) );
-0019     associated_res{k} = [associated_res{k}, res_tag ];
-0020 <span class="keyword">end</span>
-0021 
-0022 <span class="keyword">for</span> k = 1:length( helix_tags )
-0023     helix = getappdata( gca, helix_tags{k} );
-0024     helix.associated_residues = associated_res{k};
-0025     setappdata( gca, helix_tags{k}, helix );
-0026 <span class="keyword">end</span>
-0027 
-0028</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">%  cleanup_associated_residues()</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Goes through all Residue objects and checks their membership in</span>
+0005 <span class="comment">%   helix objects; update associated_residues fields of helices.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Used in LOAD_DRAWING.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
+0010 
+0011 helix_tags = get_tags( <span class="string">'Helix_'</span> );
+0012 
+0013 <span class="keyword">for</span> k = 1:length( helix_tags )
+0014     associated_res{k} = {};
+0015 <span class="keyword">end</span>
+0016 
+0017 res_tags = get_tags( <span class="string">'Residue_'</span> );
+0018 <span class="keyword">for</span> i = 1:length( res_tags )
+0019     res_tag = res_tags{i};
+0020     residue = getappdata( gca, res_tag );
+0021     <span class="keyword">if</span> ~isfield( residue, <span class="string">'helix_tag'</span> ) 
+0022         <span class="comment">% weird thing that seems to happen, residue with just linkers</span>
+0023         rmappdata( gca, res_tag );
+0024         <span class="keyword">continue</span>;
+0025     <span class="keyword">end</span>
+0026     assert( any( strcmp( helix_tags, residue.helix_tag ) ) );
+0027     k = find(  strcmp( helix_tags, residue.helix_tag ) );
+0028     associated_res{k} = [associated_res{k}, res_tag ];
+0029 <span class="keyword">end</span>
+0030 
+0031 <span class="keyword">for</span> k = 1:length( helix_tags )
+0032     helix = getappdata( gca, helix_tags{k} );
+0033     helix.associated_residues = associated_res{k};
+0034     setappdata( gca, helix_tags{k}, helix );
+0035 <span class="keyword">end</span>
+0036 
+0037</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

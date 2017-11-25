@@ -32,6 +32,12 @@
    exactly match what Pymol gives for  cmd.spectrum()
    coloring on the 23S rRNA.
 
+ INPUT
+   ncolors = number of RGB colors to produce
+   
+ OUTPUT
+   colors  = N x 3 array of RGB colors used by pymol for spectrum/rainbow coloring.
+
  (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
@@ -54,15 +60,21 @@ This function is called by:
 0005 <span class="comment">%   exactly match what Pymol gives for  cmd.spectrum()</span>
 0006 <span class="comment">%   coloring on the 23S rRNA.</span>
 0007 <span class="comment">%</span>
-0008 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
-0009 
-0010 <span class="comment">% pymol_rainbow.txt is a bunch of RGB colors from applying the</span>
-0011 <span class="comment">% cmd.spectrum() command to the E. coli ribosome and then pulling out</span>
-0012 <span class="comment">% RGB values with RiboVis get_residue_colors()</span>
-0013 pymol_colors = load( <span class="string">'pymol_rainbow.txt'</span> );
-0014 
-0015 colors = interp1( [0:(length(pymol_colors)-1)]/(length(pymol_colors)-1),<span class="keyword">...</span>
-0016                     pymol_colors,[0:(ncolors-1)]/(ncolors-1));</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0008 <span class="comment">% INPUT</span>
+0009 <span class="comment">%   ncolors = number of RGB colors to produce</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% OUTPUT</span>
+0012 <span class="comment">%   colors  = N x 3 array of RGB colors used by pymol for spectrum/rainbow coloring.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0015 
+0016 <span class="comment">% pymol_rainbow.txt is a bunch of RGB colors from applying the</span>
+0017 <span class="comment">% cmd.spectrum() command to the E. coli ribosome and then pulling out</span>
+0018 <span class="comment">% RGB values with RiboVis get_residue_colors()</span>
+0019 pymol_colors = load( <span class="string">'pymol_rainbow.txt'</span> );
+0020 
+0021 colors = interp1( [0:(length(pymol_colors)-1)]/(length(pymol_colors)-1),<span class="keyword">...</span>
+0022                     pymol_colors,[0:(ncolors-1)]/(ncolors-1));</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -51,7 +51,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_resnum_from_tag( tag )</li></ul>
+</ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -89,8 +89,8 @@ This function is called by:
 0027     <span class="comment">% A:1-4 B:5-8 HelixX</span>
 0028     cols = strsplit( line, <span class="string">' '</span> );
 0029     <span class="keyword">if</span> length( cols ) &gt;= 2
-0030         [helix.resnum1,helix.chain1,helix.segid1] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( cols{1} );
-0031         [helix.resnum2,helix.chain2,helix.segid2] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( cols{2} );
+0030         [helix.resnum1,helix.chain1,helix.segid1] = get_resnum_from_tag( cols{1} );
+0031         [helix.resnum2,helix.chain2,helix.segid2] = get_resnum_from_tag( cols{2} );
 0032         <span class="keyword">if</span> length( cols ) &gt; 2 
 0033             helix.name = cols{3};
 0034         <span class="keyword">else</span>
@@ -100,6 +100,6 @@ This function is called by:
 0038         helix.helix_tag = sprintf(<span class="string">'Helix_%s%s%d'</span>,helix.chain1(1),helix.segid1{1},helix.resnum1(1));
 0039     <span class="keyword">end</span>;
 0040 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

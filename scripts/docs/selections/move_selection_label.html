@@ -4,7 +4,7 @@
 <head>
   <title>Description of move_selection_label</title>
   <meta name="keywords" content="move_selection_label">
-  <meta name="description" content="">
+  <meta name="description" content="move_selection_label( handle )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,18 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>move_selection_label( handle )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function move_selection_label(h) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> move_selection_label( handle )
+ 
+ Update figure (gca) info after dragging
+  a selection (domain or coaxial stack)
+ 
+ (C) R. Das, Stanford University</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -42,14 +47,20 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function move_selection_label(h)</a>
-0002 
-0003 pos = get(h,<span class="string">'position'</span>); 
-0004 selection_tag = getappdata( h, <span class="string">'selection_tag'</span> );
-0005 selection = getappdata( gca, selection_tag );
-0006 rectpos = get( selection.rectangle, <span class="string">'position'</span> );
-0007 rect_ctr = [rectpos(1)+rectpos(3)/2, rectpos(2)+rectpos(4)/2];
-0008 selection.label_relpos = pos(1:2) - rect_ctr;
-0009 setappdata( gca, selection_tag, selection );</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% move_selection_label( handle )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Update figure (gca) info after dragging</span>
+0005 <span class="comment">%  a selection (domain or coaxial stack)</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University</span>
+0008 
+0009 pos = get(h,<span class="string">'position'</span>); 
+0010 selection_tag = getappdata( h, <span class="string">'selection_tag'</span> );
+0011 selection = getappdata( gca, selection_tag );
+0012 rectpos = get( selection.rectangle, <span class="string">'position'</span> );
+0013 rect_ctr = [rectpos(1)+rectpos(3)/2, rectpos(2)+rectpos(4)/2];
+0014 selection.label_relpos = pos(1:2) - rect_ctr;
+0015 setappdata( gca, selection_tag, selection );</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

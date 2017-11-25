@@ -4,7 +4,7 @@
 <head>
   <title>Description of initialize_drawing</title>
   <meta name="keywords" content="initialize_drawing">
-  <meta name="description" content="">
+  <meta name="description" content="initialize_drawing( tag )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,30 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>initialize_drawing( tag )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function initialize_drawing( tag ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> initialize_drawing( tag )
+
+  Master function for starting RiboDraw, based on output of
+  Rosetta rna_motif run on a PDB file.
+
+ INPUT: 
+  tag = name of input PDB file, possibly including path. 
+            If tag is &quot;RNA.pdb&quot;, this function expects filenames
+            with the names
+
+                RNA.pdb.fasta
+                RNA.pdb.base_pairs.txt
+                RNA.pdb.stacks.txt
+                RNA.pdb.other_contacts.txt
+                RNA.pdb.stems.txt
+                RNA.pdb.ligands.txt    
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -42,36 +59,54 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function initialize_drawing( tag )</a>
-0002 
-0003 [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( [tag,<span class="string">'.fasta'</span>]);
-0004 base_pairs = read_base_pairs( [tag,<span class="string">'.base_pairs.txt'</span>] ); <span class="comment">% includes noncanonical pairs.</span>
-0005 base_stacks = read_base_stacks( [tag,<span class="string">'.stacks.txt'</span>] ); <span class="comment">% includes noncanonical pairs.</span>
-0006 other_contacts = read_other_contacts( [tag,<span class="string">'.other_contacts.txt'</span>] );
-0007 stems = read_stems( [tag,<span class="string">'.stems.txt'</span>] );
-0008 ligands = read_ligands([tag,<span class="string">'ligands.txt'</span>]);
-0009 
-0010 clf; set(gca,<span class="string">'Position'</span>,[0 0 1 1]);
-0011 hold on
-0012 t = zeros( 1, length(sequence ) );
-0013 axis( [0 200 0 200] );
-0014 
-0015 setappdata( gca, <span class="string">'plot_settings'</span>, default_plot_settings );
-0016 
-0017 stems = set_default_stem_positions( stems ); <span class="comment">% helix_center setup  could happen *inside* draw_helix or draw_helices</span>
-0018 stems = setup_residues(  stems, sequence, resnum, chains, segid ); <span class="comment">%  helix_tag setup could happen inside draw_helices</span>
-0019 setup_stem_partner( stems ); <span class="comment">% could happen inside draw_helices? need some kind of boolean</span>
-0020 setup_arrow_linkers(resnum, chains, segid);
-0021 setup_base_pair_linkers( base_pairs );
-0022 setup_base_stack_linkers( base_stacks );
-0023 setup_other_contact_linkers( other_contacts );
-0024 try_non_standard_names( sequence, resnum, chains, segid, non_standard_residues);
-0025 
-0026 coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
-0027 setup_coaxial_stacks( coaxial_stacks );
-0028 setup_ligands( ligands );
-0029 
-0030 draw_helices( stems );
-0031 setup_zoom();</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% initialize_drawing( tag )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Master function for starting RiboDraw, based on output of</span>
+0005 <span class="comment">%  Rosetta rna_motif run on a PDB file.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% INPUT:</span>
+0008 <span class="comment">%  tag = name of input PDB file, possibly including path.</span>
+0009 <span class="comment">%            If tag is &quot;RNA.pdb&quot;, this function expects filenames</span>
+0010 <span class="comment">%            with the names</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%                RNA.pdb.fasta</span>
+0013 <span class="comment">%                RNA.pdb.base_pairs.txt</span>
+0014 <span class="comment">%                RNA.pdb.stacks.txt</span>
+0015 <span class="comment">%                RNA.pdb.other_contacts.txt</span>
+0016 <span class="comment">%                RNA.pdb.stems.txt</span>
+0017 <span class="comment">%                RNA.pdb.ligands.txt</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0020 
+0021 [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( [tag,<span class="string">'.fasta'</span>]);
+0022 base_pairs = read_base_pairs( [tag,<span class="string">'.base_pairs.txt'</span>] ); <span class="comment">% includes noncanonical pairs.</span>
+0023 base_stacks = read_base_stacks( [tag,<span class="string">'.stacks.txt'</span>] ); <span class="comment">% includes noncanonical pairs.</span>
+0024 other_contacts = read_other_contacts( [tag,<span class="string">'.other_contacts.txt'</span>] );
+0025 stems = read_stems( [tag,<span class="string">'.stems.txt'</span>] );
+0026 ligands = read_ligands([tag,<span class="string">'.ligands.txt'</span>]);
+0027 
+0028 clf; set(gca,<span class="string">'Position'</span>,[0 0 1 1]);
+0029 hold on
+0030 t = zeros( 1, length(sequence ) );
+0031 axis( [0 200 0 200] );
+0032 
+0033 setappdata( gca, <span class="string">'plot_settings'</span>, default_plot_settings );
+0034 
+0035 stems = set_default_stem_positions( stems ); <span class="comment">% helix_center setup  could happen *inside* draw_helix or draw_helices</span>
+0036 stems = setup_residues(  stems, sequence, resnum, chains, segid ); <span class="comment">%  helix_tag setup could happen inside draw_helices</span>
+0037 setup_stem_partner( stems ); <span class="comment">% could happen inside draw_helices? need some kind of boolean</span>
+0038 setup_arrow_linkers(resnum, chains, segid);
+0039 setup_base_pair_linkers( base_pairs );
+0040 setup_base_stack_linkers( base_stacks );
+0041 setup_other_contact_linkers( other_contacts );
+0042 try_non_standard_names( sequence, resnum, chains, segid, non_standard_residues);
+0043 
+0044 coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
+0045 setup_coaxial_stacks( coaxial_stacks );
+0046 setup_ligands( ligands );
+0047 
+0048 draw_helices( stems );
+0049 setup_zoom();</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

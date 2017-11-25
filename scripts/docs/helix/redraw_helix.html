@@ -4,7 +4,7 @@
 <head>
   <title>Description of redraw_helix</title>
   <meta name="keywords" content="redraw_helix">
-  <meta name="description" content="">
+  <meta name="description" content="redraw_helix( h )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,49 +20,63 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>redraw_helix( h )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function redraw_helix( h ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> redraw_helix( h )
+  Redraw helix after its bounding box is dragged
+
+ Input
+   h = graphics handle for bounding box.
+
+ (C) R. Das, Stanford University</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a>	</li></ul>
+<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a>	redraw_helix( h )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a>	</li></ul>
+<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a>	redraw_helix( h )</li></ul>
 <!-- crossreference -->
 
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function redraw_helix( h )</a>
-0002 delete_crosshair();
-0003 <span class="keyword">if</span> ischar( h ) <span class="comment">% might be specifying by name</span>
-0004     tags = get_tags( <span class="string">'Helix'</span> );
-0005     <span class="keyword">for</span> i = 1:length( tags )
-0006         helix = getappdata( gca, tags{i} );
-0007         <span class="keyword">if</span> strcmp( helix.name, h ) 
-0008             <a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a>( helix.rectangle );
-0009             <span class="keyword">return</span>;
-0010         <span class="keyword">end</span>
-0011     <span class="keyword">end</span>
-0012 <span class="keyword">end</span>
-0013 helix_tag = getappdata( h, <span class="string">'helix_tag'</span> );
-0014 helix = getappdata(gca,helix_tag );
-0015 
-0016 pos = get(h,<span class="string">'Position'</span>);
-0017 helix.center = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
-0018 setappdata( gca, helix_tag, helix );
-0019 
-0020 <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
-0021 
-0022</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% redraw_helix( h )</span>
+0003 <span class="comment">%  Redraw helix after its bounding box is dragged</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% Input</span>
+0006 <span class="comment">%   h = graphics handle for bounding box.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% (C) R. Das, Stanford University</span>
+0009 
+0010 delete_crosshair();
+0011 <span class="keyword">if</span> ischar( h ) <span class="comment">% might be specifying by name</span>
+0012     tags = get_tags( <span class="string">'Helix'</span> );
+0013     <span class="keyword">for</span> i = 1:length( tags )
+0014         helix = getappdata( gca, tags{i} );
+0015         <span class="keyword">if</span> strcmp( helix.name, h ) 
+0016             <a href="redraw_helix.html" class="code" title="function redraw_helix( h )">redraw_helix</a>( helix.rectangle );
+0017             <span class="keyword">return</span>;
+0018         <span class="keyword">end</span>
+0019     <span class="keyword">end</span>
+0020 <span class="keyword">end</span>
+0021 helix_tag = getappdata( h, <span class="string">'helix_tag'</span> );
+0022 helix = getappdata(gca,helix_tag );
+0023 
+0024 pos = get(h,<span class="string">'Position'</span>);
+0025 helix.center = [ pos(1) + pos(3)/2, pos(2) + pos(4)/2];
+0026 setappdata( gca, helix_tag, helix );
+0027 
+0028 <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
+0029 
+0030</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

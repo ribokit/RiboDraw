@@ -27,6 +27,16 @@
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> setup_domain( residue_string, name );
+
+ Important: allows user to define a new domain based on any
+  desired combination of residues.
+
+ INPUTS
+   residue_string = string like 'A:QA:1-5', or residue tag, or cell of those.
+   name           =  name of new domain
+
+ See also: <a href="add_residues_to_domain.html" class="code" title="function add_residues_to_domain( residue_string, name );">ADD_RESIDUES_TO_DOMAIN</a>, <a href="remove_residues_from_domain.html" class="code" title="function remove_residues_from_domain( residue_string, name );">REMOVE_RESIDUES_FROM_DOMAIN</a>, <a href="delete_domain.html" class="code" title="function delete_domain( name );">DELETE_DOMAIN</a>.
+
  (C) Rhiju Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
@@ -44,72 +54,77 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function domain = setup_domain( residue_string, name );</a>
 0002 <span class="comment">% setup_domain( residue_string, name );</span>
-0003 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
-0004 
-0005 domain.type = <span class="string">'domain'</span>; 
-0006 domain.name = name;
-0007 domain_tag = sprintf(<span class="string">'Selection_%s_domain'</span>, strrep( strrep(name, <span class="string">' '</span>, <span class="string">'_'</span> ), <span class="string">'-'</span>, <span class="string">'_'</span> ) );
-0008 domain.selection_tag = domain_tag;
-0009 
-0010 res_tags = get_res( residue_string );
-0011 
-0012 domain.associated_residues = {};
-0013 associated_helices = {};
-0014 <span class="keyword">for</span> i = 1:length( res_tags )
-0015     res_tag = res_tags{i};
-0016     <span class="keyword">if</span> isappdata( gca, res_tag )
-0017         domain.associated_residues = [domain.associated_residues, res_tag ];
-0018         residue = getappdata( gca, res_tag );
-0019         
-0020         <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> )
-0021             residue.associated_selections = {};
-0022         <span class="keyword">end</span>
-0023         residue.associated_selections = unique( [ residue.associated_selections, domain_tag ] );
-0024         setappdata( gca, res_tag, residue );
-0025         
-0026         <span class="keyword">if</span> isfield( residue, <span class="string">'helix_tag'</span> ) 
-0027             associated_helices = [associated_helices, residue.helix_tag ];
-0028         <span class="keyword">end</span>
-0029     <span class="keyword">else</span>
-0030         fprintf( <span class="string">'Warning: could not find %s.\n'</span>, res_tag );
-0031     <span class="keyword">end</span>
-0032 <span class="keyword">end</span>
-0033 
-0034 <span class="comment">% check residues outside domain -- make sure they don't have this domain.</span>
-0035 tags = get_tags( <span class="string">'Residue'</span> );
-0036 <span class="keyword">for</span> i = 1:length( tags )
-0037     tag = tags{i};
-0038     <span class="keyword">if</span> any( strcmp( res_tags, tag ) ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0039     residue = getappdata( gca, tag );    
-0040     <span class="keyword">if</span> isfield( residue, <span class="string">'associated_selections'</span> )
-0041         <span class="keyword">if</span> any( strcmp( residue.associated_selections, domain_tag ) )
-0042             fprintf( <span class="string">'Updating residue %s which is no longer in domain %s.\n'</span>, tag, domain_tag );
-0043             residue.associated_selections = setdiff( residue.associated_selections, domain_tag );
-0044             setappdata( gca, tag, residue );
-0045         <span class="keyword">end</span>
-0046     <span class="keyword">end</span>
-0047     
-0048 <span class="keyword">end</span>
-0049 
-0050 <span class="keyword">if</span> isappdata( gca, domain_tag )
-0051     fprintf( <span class="string">'Updating: %s\n'</span>, domain_tag );
-0052     domain_new = domain;
-0053     domain = getappdata( gca, domain_tag );
-0054     domain.associated_residues = domain_new.associated_residues;
-0055     setappdata( gca, domain_tag, domain );
-0056 <span class="keyword">else</span>
-0057     setappdata( gca, domain_tag, domain );
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Important: allows user to define a new domain based on any</span>
+0005 <span class="comment">%  desired combination of residues.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% INPUTS</span>
+0008 <span class="comment">%   residue_string = string like 'A:QA:1-5', or residue tag, or cell of those.</span>
+0009 <span class="comment">%   name           =  name of new domain</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% See also: ADD_RESIDUES_TO_DOMAIN, REMOVE_RESIDUES_FROM_DOMAIN, DELETE_DOMAIN.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
+0014 
+0015 domain.type = <span class="string">'domain'</span>; 
+0016 domain.name = name;
+0017 domain_tag = sprintf(<span class="string">'Selection_%s_domain'</span>, strrep( strrep(name, <span class="string">' '</span>, <span class="string">'_'</span> ), <span class="string">'-'</span>, <span class="string">'_'</span> ) );
+0018 domain.selection_tag = domain_tag;
+0019 
+0020 res_tags = get_res( residue_string );
+0021 
+0022 domain.associated_residues = {};
+0023 associated_helices = {};
+0024 <span class="keyword">for</span> i = 1:length( res_tags )
+0025     res_tag = res_tags{i};
+0026     <span class="keyword">if</span> isappdata( gca, res_tag )
+0027         domain.associated_residues = [domain.associated_residues, res_tag ];
+0028         residue = getappdata( gca, res_tag );
+0029         
+0030         <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> )
+0031             residue.associated_selections = {};
+0032         <span class="keyword">end</span>
+0033         residue.associated_selections = unique( [ residue.associated_selections, domain_tag ] );
+0034         setappdata( gca, res_tag, residue );
+0035         
+0036         <span class="keyword">if</span> isfield( residue, <span class="string">'helix_tag'</span> ) 
+0037             associated_helices = [associated_helices, residue.helix_tag ];
+0038         <span class="keyword">end</span>
+0039     <span class="keyword">else</span>
+0040         fprintf( <span class="string">'Warning: could not find %s.\n'</span>, res_tag );
+0041     <span class="keyword">end</span>
+0042 <span class="keyword">end</span>
+0043 
+0044 <span class="comment">% check residues outside domain -- make sure they don't have this domain.</span>
+0045 tags = get_tags( <span class="string">'Residue'</span> );
+0046 <span class="keyword">for</span> i = 1:length( tags )
+0047     tag = tags{i};
+0048     <span class="keyword">if</span> any( strcmp( res_tags, tag ) ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0049     residue = getappdata( gca, tag );    
+0050     <span class="keyword">if</span> isfield( residue, <span class="string">'associated_selections'</span> )
+0051         <span class="keyword">if</span> any( strcmp( residue.associated_selections, domain_tag ) )
+0052             fprintf( <span class="string">'Updating residue %s which is no longer in domain %s.\n'</span>, tag, domain_tag );
+0053             residue.associated_selections = setdiff( residue.associated_selections, domain_tag );
+0054             setappdata( gca, tag, residue );
+0055         <span class="keyword">end</span>
+0056     <span class="keyword">end</span>
+0057     
 0058 <span class="keyword">end</span>
 0059 
-0060 <span class="comment">% associated_helices =  unique( associated_helices );</span>
-0061 <span class="comment">% for i = 1:length( associated_helices );</span>
-0062 <span class="comment">%     helix = getappdata( gca, associated_helices{i} );</span>
-0063 <span class="comment">%     draw_helix( helix );</span>
-0064 <span class="comment">% end</span>
-0065 draw_selections( {domain_tag} );
-0066 domain = getappdata( gca, domain_tag );
-0067 
-0068</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0060 <span class="keyword">if</span> isappdata( gca, domain_tag )
+0061     fprintf( <span class="string">'Updating: %s\n'</span>, domain_tag );
+0062     domain_new = domain;
+0063     domain = getappdata( gca, domain_tag );
+0064     domain.associated_residues = domain_new.associated_residues;
+0065     setappdata( gca, domain_tag, domain );
+0066 <span class="keyword">else</span>
+0067     setappdata( gca, domain_tag, domain );
+0068 <span class="keyword">end</span>
+0069 
+0070 draw_selections( {domain_tag} );
+0071 domain = getappdata( gca, domain_tag );
+0072 
+0073</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

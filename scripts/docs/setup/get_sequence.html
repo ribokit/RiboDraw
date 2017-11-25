@@ -38,7 +38,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_resnum_from_tag( tag )</li></ul>
+</ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -83,7 +83,7 @@ This function is called by:
 0034 
 0035 cols = strsplit( fasta.Header );
 0036 <span class="keyword">for</span> i = 1:length( cols )
-0037     [tag_resnum, tag_chains, tag_segids, ok ] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( cols{i} );
+0037     [tag_resnum, tag_chains, tag_segids, ok ] = get_resnum_from_tag( cols{i} );
 0038     <span class="keyword">if</span> ( ok ) 
 0039         resnum = [resnum, tag_resnum ];
 0040         chains = [chains, tag_chains ];
@@ -100,6 +100,6 @@ This function is called by:
 0051 assert( length( chains ) == length( sequence ) );
 0052 assert( length( chains ) == length( segid ) );
 0053</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

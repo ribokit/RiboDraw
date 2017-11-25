@@ -28,7 +28,7 @@
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> R = get_helix_rotation_matrix( helix )
 
- return 2x2 rotation matrix given theta and parity stored in helix.
+ return 2x2 rotation matrix given theta and parity stored in helix object.
 
  (C) R. Das, Stanford University, 2017.</pre></div>
 
@@ -39,7 +39,7 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>	</li></ul>
+<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>	relpos = get_relpos( plot_pos, helix )</li></ul>
 <!-- crossreference -->
 
 
@@ -48,13 +48,13 @@ This function is called by:
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function R = get_helix_rotation_matrix( helix )</a>
 0002 <span class="comment">% R = get_helix_rotation_matrix( helix )</span>
 0003 <span class="comment">%</span>
-0004 <span class="comment">% return 2x2 rotation matrix given theta and parity stored in helix.</span>
+0004 <span class="comment">% return 2x2 rotation matrix given theta and parity stored in helix object.</span>
 0005 <span class="comment">%</span>
 0006 <span class="comment">% (C) R. Das, Stanford University, 2017.</span>
 0007 
 0008 theta = helix.rotation;
 0009 R = [cos(theta*pi/180) -sin(theta*pi/180);sin(theta*pi/180) cos(theta*pi/180)];
 0010 R = [1 0; 0 helix.parity] * R;</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

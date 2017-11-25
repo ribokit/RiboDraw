@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of setup_arrow_linkers</title>
+  <meta name="keywords" content="setup_arrow_linkers">
+  <meta name="description" content="setup_arrow_linkers( resnum, chains, segid )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html setup -->
+<h1>setup_arrow_linkers
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>setup_arrow_linkers( resnum, chains, segid )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function setup_arrow_linkers(resnum,chains,segid) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> setup_arrow_linkers( resnum, chains, segid )
+
+ Define arrow linkers connecting contiguous residues. 
+
+ See DRAW_LINKER for functions that render the actual graphics.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function setup_arrow_linkers(resnum,chains,segid)</a>
+0002 <span class="comment">% setup_arrow_linkers( resnum, chains, segid )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Define arrow linkers connecting contiguous residues.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% See DRAW_LINKER for functions that render the actual graphics.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0009 
+0010 <span class="keyword">for</span> i = 1:length(resnum)
+0011     j = i + 1;
+0012     <span class="keyword">if</span> ( j &gt; length( resnum ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0013     <span class="keyword">if</span> ( chains(j) ~= chains(i) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;    
+0014     <span class="keyword">if</span> ( resnum(j) ~= resnum(i)+1 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;    
+0015     res_tag_i = sprintf(<span class="string">'Residue_%s%s%d'</span>,chains(i),segid{i},resnum(i));
+0016     res_tag_j = sprintf(<span class="string">'Residue_%s%s%d'</span>,chains(j),segid{j},resnum(j));
+0017     linker.residue1 = res_tag_i;
+0018     linker.residue2 = res_tag_j;
+0019     linker.type = <span class="string">'arrow'</span>;
+0020     linker_tag = sprintf(<span class="string">'Linker_%s%s%d_%s%s%d_%s'</span>, chains(i),segid{i},resnum(i),chains(j),segid{j},resnum(j),linker.type);
+0021     linker.linker_tag = linker_tag;
+0022     <span class="comment">% stick this linker information in the connected residues.</span>
+0023     add_linker_to_residue( res_tag_i, linker_tag );
+0024     add_linker_to_residue( res_tag_j, linker_tag );
+0025     <span class="keyword">if</span> ~isappdata( gca, linker_tag ) setappdata( gca, linker_tag, linker ); <span class="keyword">end</span>;
+0026 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -51,7 +51,7 @@
   other_contacts       = cell of struct()s with the same information. 
 
 
- See also: <a href="read_base_stacks.html" class="code" title="function base_stacks = read_base_stacks( base_stacks_file )">read_base_stacks</a>, <a href="read_base_pairs.html" class="code" title="function base_pairs = read_base_pairs( base_pairs_file )">read_base_pairs</a>.
+ See also: <a href="read_base_stacks.html" class="code" title="function base_stacks = read_base_stacks( base_stacks_file )">READ_BASE_STACKS</a>, <a href="read_base_pairs.html" class="code" title="function base_pairs = read_base_pairs( base_pairs_file )">READ_BASE_PAIRS</a>.
 
  (C) R. Das, Stanford University, 2017</pre></div>
 
@@ -59,7 +59,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_one_resnum_from_tag( tag )</li></ul>
+</ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -94,7 +94,7 @@ This function is called by:
 0024 <span class="comment">%  other_contacts       = cell of struct()s with the same information.</span>
 0025 <span class="comment">%</span>
 0026 <span class="comment">%</span>
-0027 <span class="comment">% See also: read_base_stacks, read_base_pairs.</span>
+0027 <span class="comment">% See also: READ_BASE_STACKS, READ_BASE_PAIRS.</span>
 0028 <span class="comment">%</span>
 0029 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
 0030 
@@ -105,14 +105,14 @@ This function is called by:
 0035     <span class="comment">% C:1347 C:1599 O2' N3</span>
 0036     cols = strsplit( line, <span class="string">' '</span> );
 0037     <span class="keyword">if</span> length( cols ) &gt;= 4       
-0038         [other_contact.resnum1,other_contact.chain1,other_contact.segid1] = <a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>( cols{1} );
-0039         [other_contact.resnum2,other_contact.chain2,other_contact.segid2] = <a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>( cols{2} );
+0038         [other_contact.resnum1,other_contact.chain1,other_contact.segid1] = get_one_resnum_from_tag( cols{1} );
+0039         [other_contact.resnum2,other_contact.chain2,other_contact.segid2] = get_one_resnum_from_tag( cols{2} );
 0040         other_contact.atom1 = cols{3};
 0041         other_contact.atom2 = cols{4};
 0042         other_contacts = [other_contacts, other_contact];
 0043     <span class="keyword">end</span>;
 0044 <span class="keyword">end</span>
 0045</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

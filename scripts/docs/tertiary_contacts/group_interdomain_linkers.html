@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of group_interdomain_linkers</title>
+  <meta name="keywords" content="group_interdomain_linkers">
+  <meta name="description" content="linker_groups = group_interdomain_linkers( domain_names )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html tertiary_contacts -->
+<h1>group_interdomain_linkers
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>linker_groups = group_interdomain_linkers( domain_names )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function linker_groups = group_interdomain_linkers( domain_names ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> linker_groups = group_interdomain_linkers( domain_names )
+
+  Main function for cleaning up multidomain drawings at 
+   the scale of the ribosome.
+
+  Looks up noncanonical pairs (and other linkers) that are in different domains,
+   (as defined by the user in the domain_names input variable).
+
+  Hides those noncanonical pairs and instead shows intradomain connections and a single
+   interdomain connection with colors reflecting the domains. 
+
+  (The information for each group is saved in a TertiaryContact object.)
+
+ TODO: the 'interdomain' field is assigned to grouped linkers to allow
+    them to be properly hidden -- and this happens inside GET_INTERDOMAIN_LINKERS,
+    would be better to expose this function to user -- perhaps force it to be
+    run first by user, and then this group function.
+
+ Input:
+  domain_names  = cell of strings with names of domains (previously must have been defined by user
+                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}
+
+ Output:
+  linker_groups = cell of cells of linker tags that were grouped. 
+
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )">setup_tertiary_contact</a>	setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function match = check_sequence_close( residue, other_res_tag )</a></li><li><a href="#_sub2" class="code">function linker_groups_filter = filter_groups_without_pairs( linker_groups );</a></li><li><a href="#_sub3" class="code">function [res_tags1,res_tags2] = get_res_tags( linker_group );</a></li><li><a href="#_sub4" class="code">function main_linker = find_shortest_possible_linker( linker_group, linker_types );</a></li><li><a href="#_sub5" class="code">function main_linker = look_for_previous_tertiary_contact( res_tags1, res_tags2 );</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker_groups = group_interdomain_linkers( domain_names )</a>
+0002 <span class="comment">% linker_groups = group_interdomain_linkers( domain_names )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Main function for cleaning up multidomain drawings at</span>
+0005 <span class="comment">%   the scale of the ribosome.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%  Looks up noncanonical pairs (and other linkers) that are in different domains,</span>
+0008 <span class="comment">%   (as defined by the user in the domain_names input variable).</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%  Hides those noncanonical pairs and instead shows intradomain connections and a single</span>
+0011 <span class="comment">%   interdomain connection with colors reflecting the domains.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%  (The information for each group is saved in a TertiaryContact object.)</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">% TODO: the 'interdomain' field is assigned to grouped linkers to allow</span>
+0016 <span class="comment">%    them to be properly hidden -- and this happens inside GET_INTERDOMAIN_LINKERS,</span>
+0017 <span class="comment">%    would be better to expose this function to user -- perhaps force it to be</span>
+0018 <span class="comment">%    run first by user, and then this group function.</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% Input:</span>
+0021 <span class="comment">%  domain_names  = cell of strings with names of domains (previously must have been defined by user</span>
+0022 <span class="comment">%                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}</span>
+0023 <span class="comment">%</span>
+0024 <span class="comment">% Output:</span>
+0025 <span class="comment">%  linker_groups = cell of cells of linker tags that were grouped.</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">%</span>
+0028 <span class="comment">% (C) R. Das, Stanford University</span>
+0029 
+0030 linker_groups = {};
+0031 <span class="keyword">if</span> ~exist( <span class="string">'domain_names'</span>, <span class="string">'var'</span> ) | ~iscell( domain_names ) | length( domain_names ) &lt; 2;
+0032     fprintf( <span class="string">'Provide at least two domain names'</span> ); <span class="keyword">return</span>;
+0033 <span class="keyword">end</span>
+0034 
+0035 <span class="comment">% get interdomain_linkers</span>
+0036 linkers = {};
+0037 <span class="comment">% order of preference</span>
+0038 linker_types = {<span class="string">'ligand'</span>,<span class="string">'noncanonical_pair'</span>,<span class="string">'long_range_stem_pair'</span>,<span class="string">'stack'</span>,<span class="string">'other_contact'</span>};
+0039 <span class="keyword">for</span> i = 1:length( linker_types )
+0040     linkers = [ linkers; get_tags( <span class="string">'Linker'</span>, linker_types{i} ) ];
+0041 <span class="keyword">end</span>
+0042 
+0043 interdomain_linkers = get_interdomain_linkers( linkers, domain_names );
+0044 
+0045 <span class="comment">% now group by domain.</span>
+0046 linker_groups = {};
+0047 <span class="keyword">for</span> i = 1:length( interdomain_linkers )
+0048     linker = interdomain_linkers{i};
+0049     match = 0; switch_res = 0;
+0050     residue1 = getappdata( gca, linker.residue1 );
+0051     residue2 = getappdata( gca, linker.residue2 );
+0052     <span class="keyword">for</span> j = 1:length( linker_groups )
+0053         <span class="comment">% look for match of domain (as defined by rgb color )</span>
+0054         <span class="keyword">if</span> ( strcmp( linker.domain1, linker_groups{j}{1}.domain1 ) &amp; <span class="keyword">...</span>
+0055                 strcmp( linker.domain2, linker_groups{j}{1}.domain2 ) )
+0056             <span class="keyword">if</span> ( <a href="#_sub1" class="code" title="subfunction match = check_sequence_close( residue, other_res_tag )">check_sequence_close</a>( residue1, linker_groups{j}{1}.residue1 ) &amp; <span class="keyword">...</span>
+0057                     <a href="#_sub1" class="code" title="subfunction match = check_sequence_close( residue, other_res_tag )">check_sequence_close</a>( residue2, linker_groups{j}{1}.residue2 ) )
+0058                 match = j; switch_res = 0; <span class="keyword">break</span>;
+0059             <span class="keyword">end</span>
+0060         <span class="keyword">end</span>
+0061         <span class="keyword">if</span> ( strcmp( linker.domain1, linker_groups{j}{1}.domain2 ) &amp; <span class="keyword">...</span>
+0062                 strcmp( linker.domain2, linker_groups{j}{1}.domain1 ) )
+0063             <span class="keyword">if</span> ( <a href="#_sub1" class="code" title="subfunction match = check_sequence_close( residue, other_res_tag )">check_sequence_close</a>( residue1, linker_groups{j}{1}.residue2 ) &amp; <span class="keyword">...</span>
+0064                     <a href="#_sub1" class="code" title="subfunction match = check_sequence_close( residue, other_res_tag )">check_sequence_close</a>( residue2, linker_groups{j}{1}.residue1 ) )
+0065                 match = j; switch_res = 1; <span class="keyword">break</span>;
+0066             <span class="keyword">end</span>
+0067         <span class="keyword">end</span>
+0068     <span class="keyword">end</span>
+0069     <span class="keyword">if</span> match 
+0070         <span class="keyword">if</span> switch_res
+0071             <span class="comment">% used to define associated_residues for tertiary_contacts --</span>
+0072             <span class="comment">% see below</span>
+0073             res1 = linker.residue1;
+0074             res2 = linker.residue2;
+0075             linker.residue1 = res2;
+0076             linker.residue2 = res1;
+0077         <span class="keyword">end</span>
+0078         linker_groups{match} = [ linker_groups{match}, linker ];
+0079     <span class="keyword">else</span>
+0080         linker_groups = [ linker_groups, {{linker}} ];
+0081     <span class="keyword">end</span>
+0082 <span class="comment">%     if ~isfield( linker, 'plot_pos' )</span>
+0083 <span class="comment">%         fprintf( 'Need to figure out where linker is... drawing it temporarily\n' );</span>
+0084 <span class="comment">%         show_interdomain_noncanonical_pairs;</span>
+0085 <span class="comment">%         show_ligand_linkers;</span>
+0086 <span class="comment">%     end</span>
+0087 <span class="keyword">end</span>
+0088 
+0089 <span class="comment">% get rid of any linker groups that are all stacks...</span>
+0090 linker_groups = <a href="#_sub2" class="code" title="subfunction linker_groups_filter = filter_groups_without_pairs( linker_groups );">filter_groups_without_pairs</a>( linker_groups );
+0091 
+0092 <span class="comment">% allows quick check by eye...</span>
+0093 <span class="keyword">for</span> i = 1:length( linker_groups )
+0094     color = rand(3,1);
+0095     linker_group = linker_groups{i};
+0096     <span class="keyword">for</span> j = 1:length( linker_group )
+0097         linker = linker_group{j};
+0098         <span class="keyword">if</span> isfield( linker, <span class="string">'line_handle'</span> ) set( linker.line_handle, <span class="string">'color'</span>, color ); <span class="keyword">end</span>;
+0099     <span class="keyword">end</span>
+0100 <span class="keyword">end</span>
+0101 
+0102 <span class="comment">% let's try to set up a tertiary contact</span>
+0103 <span class="keyword">for</span> i = 1:length( linker_groups )
+0104     linker_group = linker_groups{i};
+0105 
+0106     <span class="comment">% TODO: May need to tag the associated linkers with 'interdomain' field. But then how to reverse?</span>
+0107 
+0108     <span class="comment">% need to assign a pair of interdomain connection residues.</span>
+0109     [res_tags1, res_tags2 ] = <a href="#_sub3" class="code" title="subfunction [res_tags1,res_tags2] = get_res_tags( linker_group );">get_res_tags</a>( linker_group );
+0110     main_linker = <a href="#_sub5" class="code" title="subfunction main_linker = look_for_previous_tertiary_contact( res_tags1, res_tags2 );">look_for_previous_tertiary_contact</a>( res_tags1, res_tags2 );
+0111     <span class="keyword">if</span> isempty( main_linker ) main_linker = <a href="#_sub4" class="code" title="subfunction main_linker = find_shortest_possible_linker( linker_group, linker_types );">find_shortest_possible_linker</a>( linker_group, linker_types ); <span class="keyword">end</span>;
+0112             
+0113     <span class="comment">% get all residues involved in tertiary contact.</span>
+0114     residue1 = getappdata( gca, main_linker.residue1 );
+0115     residue2 = getappdata( gca, main_linker.residue2 );
+0116     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
+0117     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
+0118     
+0119     tertiary_contact_tag = <a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )">setup_tertiary_contact</a>( <span class="string">''</span>, res_tags1, res_tags2, main_linker, 1 );
+0120 <span class="keyword">end</span>
+0121 
+0122 hide_interdomain_noncanonical_pairs;
+0123 hide_ligand_linkers;
+0124 move_stuff_to_back;
+0125 
+0126 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0127 <a name="_sub1" href="#_subfunctions" class="code">function match = check_sequence_close( residue, other_res_tag ) </a>
+0128 <span class="comment">% now look for closeness, based on all residues in parent helix.</span>
+0129 other_res = getappdata( gca, other_res_tag );
+0130 helix = getappdata( gca, other_res.helix_tag );
+0131 match = 0;
+0132 <span class="keyword">for</span> k = 1:length( helix.associated_residues )
+0133     other_helix_res = getappdata( gca, helix.associated_residues{k} );
+0134     <span class="keyword">if</span> strcmp( other_helix_res.chain, residue.chain ) &amp; <span class="keyword">...</span>
+0135             strcmp( other_helix_res.segid, residue.segid ) &amp; <span class="keyword">...</span>
+0136             abs( other_helix_res.resnum - residue.resnum ) &lt;= 5
+0137         match = 1; <span class="keyword">return</span>;
+0138     <span class="keyword">end</span>
+0139 <span class="keyword">end</span>
+0140 
+0141 
+0142 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0143 <a name="_sub2" href="#_subfunctions" class="code">function linker_groups_filter = filter_groups_without_pairs( linker_groups );</a>
+0144 linker_groups_filter = {};
+0145 <span class="keyword">for</span> i = 1:length( linker_groups )
+0146     linker_group = linker_groups{i};
+0147     ok = 0;
+0148     <span class="keyword">for</span> j = 1:length( linker_group )
+0149         linker = linker_group{j};
+0150         <span class="keyword">if</span> any(strcmp( linker.type, {<span class="string">'noncanonical_pair'</span>,<span class="string">'ligand'</span>,<span class="string">'long_range_stem_pair'</span>} ) )
+0151             ok = 1;
+0152             <span class="keyword">break</span>;
+0153         <span class="keyword">end</span>
+0154     <span class="keyword">end</span>
+0155     <span class="keyword">if</span> ok
+0156         linker_groups_filter = [ linker_groups_filter, {linker_group} ];
+0157     <span class="keyword">end</span>
+0158 <span class="keyword">end</span>
+0159 
+0160 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0161 <a name="_sub3" href="#_subfunctions" class="code">function [res_tags1,res_tags2] = get_res_tags( linker_group );</a>
+0162 res_tags1 = {};
+0163 res_tags2 = {};
+0164 <span class="keyword">for</span> j = 1:length( linker_group )
+0165     linker = linker_group{j};
+0166     res_tags1 = [res_tags1, linker.residue1 ];
+0167     res_tags2 = [res_tags2, linker.residue2 ];
+0168 <span class="keyword">end</span>
+0169         
+0170 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0171 <a name="_sub4" href="#_subfunctions" class="code">function main_linker = find_shortest_possible_linker( linker_group, linker_types );</a>
+0172 linker_lengths = [];
+0173 <span class="keyword">for</span> j = 1:length( linker_group )
+0174     linker = linker_group{j};
+0175     linker_length = 0;
+0176     <span class="keyword">if</span> isfield( linker, <span class="string">'plot_pos'</span> )
+0177         <span class="keyword">for</span> i = 1:size( linker.plot_pos, 1 )-1
+0178             linker_length = linker_length + norm( linker.plot_pos( i, : ) - linker.plot_pos( i+1, : ) );
+0179         <span class="keyword">end</span>
+0180     <span class="keyword">else</span>
+0181         res1 = getappdata( gca, linker.residue1 );
+0182         res2 = getappdata( gca, linker.residue2 );
+0183         linker_length = norm( res1.plot_pos - res2.plot_pos );
+0184     <span class="keyword">end</span>
+0185     linker_lengths(j,:) = [find(strcmp(linker.type, linker_types)), linker_length];
+0186 <span class="keyword">end</span>
+0187 [~, idx ] = sortrows( linker_lengths );
+0188 main_linker = linker_group{idx};
+0189 
+0190 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0191 <a name="_sub5" href="#_subfunctions" class="code">function main_linker = look_for_previous_tertiary_contact( res_tags1, res_tags2 );</a>
+0192 main_linker = [];
+0193 tags = get_tags( <span class="string">'TertiaryContact'</span> );
+0194 <span class="keyword">for</span> i = 1:length( tags )
+0195     tertiary_contact = getappdata( gca, tags{i} );
+0196     <span class="keyword">if</span> ( any(strcmp(tertiary_contact.associated_residues1{1},res_tags1 )) &amp; <span class="keyword">...</span>
+0197             any(strcmp(tertiary_contact.associated_residues2{1},res_tags2 )) )
+0198         fprintf( <span class="string">'Found template linker from tertiary contact %s\n'</span>,  tags{i} );
+0199         main_linker = getappdata( gca, tertiary_contact.interdomain_linker );
+0200         <span class="keyword">return</span>;
+0201     <span class="keyword">elseif</span> ( any(strcmp(tertiary_contact.associated_residues2{1},res_tags1 )) &amp; <span class="keyword">...</span>
+0202             any(strcmp(tertiary_contact.associated_residues1{1},res_tags2 ))   )
+0203         fprintf( <span class="string">'Found template linker from tertiary contact %s\n'</span>,  tags{i} );
+0204         main_linker = getappdata( gca, tertiary_contact.interdomain_linker );
+0205         res1 = main_linker.residue1;
+0206         res2 = main_linker.residue2;
+0207         main_linker.residue1 = res2;
+0208         main_linker.residue2 = res1;
+0209         <span class="keyword">return</span>;
+0210     <span class="keyword">end</span>
+0211 <span class="keyword">end</span>
+0212</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

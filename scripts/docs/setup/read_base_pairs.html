@@ -52,7 +52,7 @@
                          the residue that has an earlier chain/segid (or if same, earlier resnum) is first.
 
 
- See also: <a href="read_base_stacks.html" class="code" title="function base_stacks = read_base_stacks( base_stacks_file )">read_base_stacks</a>.
+ See also: SETUP_BASE_PAIRS, <a href="read_base_stacks.html" class="code" title="function base_stacks = read_base_stacks( base_stacks_file )">READ_BASE_STACKS</a>
 
  (C) R. Das, Stanford University, 2017</pre></div>
 
@@ -60,7 +60,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_one_resnum_from_tag( tag )</li></ul>
+</ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -96,7 +96,7 @@ This function is called by:
 0025 <span class="comment">%                         the residue that has an earlier chain/segid (or if same, earlier resnum) is first.</span>
 0026 <span class="comment">%</span>
 0027 <span class="comment">%</span>
-0028 <span class="comment">% See also: read_base_stacks.</span>
+0028 <span class="comment">% See also: SETUP_BASE_PAIRS, READ_BASE_STACKS</span>
 0029 <span class="comment">%</span>
 0030 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
 0031 
@@ -107,8 +107,8 @@ This function is called by:
 0036     <span class="comment">% C:QA:1347 C:QA:1599 W W C</span>
 0037     cols = strsplit( line, <span class="string">' '</span> );
 0038     <span class="keyword">if</span> length( cols ) &gt;= 5        
-0039         [base_pair.resnum1,base_pair.chain1,base_pair.segid1] = <a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>( cols{1} );
-0040         [base_pair.resnum2,base_pair.chain2,base_pair.segid2] = <a href="get_one_resnum_from_tag.html" class="code" title="function [resnum,chain,segid,ok] = get_one_resnum_from_tag( tag )">get_one_resnum_from_tag</a>( cols{2} );
+0039         [base_pair.resnum1,base_pair.chain1,base_pair.segid1] = get_one_resnum_from_tag( cols{1} );
+0040         [base_pair.resnum2,base_pair.chain2,base_pair.segid2] = get_one_resnum_from_tag( cols{2} );
 0041         base_pair.edge1 = cols{3};
 0042         base_pair.edge2 = cols{4};
 0043         base_pair.LW_orientation = cols{5};
@@ -116,6 +116,6 @@ This function is called by:
 0045     <span class="keyword">end</span>;
 0046 <span class="keyword">end</span>
 0047</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

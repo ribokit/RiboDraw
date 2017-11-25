@@ -4,7 +4,7 @@
 <head>
   <title>Description of show_helix_controls</title>
   <meta name="keywords" content="show_helix_controls">
-  <meta name="description" content="">
+  <meta name="description" content="show_helix_controls( setting );">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,19 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>show_helix_controls( setting );</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function show_helix_controls( setting ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> show_helix_controls( setting );
+
+ Turn off/on (based on setting 0/1) the bounding
+  boxes that allow users to translate, reflect, and rotate
+  helices.
+ 
+ (C) R. Das, Stanford University</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -44,37 +50,44 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function show_helix_controls( setting );</a>
-0002 
-0003 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>, <span class="string">'var'</span> ) setting = 1; <span class="keyword">end</span>;
-0004 
-0005 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0006 plot_settings.show_helix_controls = setting;
-0007 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
-0008 
-0009 <a href="#_sub1" class="code" title="subfunction set_control_handle_visibility( setting )">set_control_handle_visibility</a>( setting );
-0010 
+0002 <span class="comment">% show_helix_controls( setting );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Turn off/on (based on setting 0/1) the bounding</span>
+0005 <span class="comment">%  boxes that allow users to translate, reflect, and rotate</span>
+0006 <span class="comment">%  helices.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% (C) R. Das, Stanford University</span>
+0009 
+0010 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>, <span class="string">'var'</span> ) setting = 1; <span class="keyword">end</span>;
 0011 
-0012 <a name="_sub1" href="#_subfunctions" class="code">function set_control_handle_visibility( setting )</a>
-0013 <span class="keyword">if</span> setting; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0014 
-0015 <span class="comment">% hide all blue stuff that was used for interactive movement.</span>
-0016 vals = getappdata( gca );
-0017 objnames = fields( vals );
-0018 <span class="keyword">for</span> n = 1:length( objnames )
-0019     <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Residue_'</span> ) );
-0020         residue = getappdata( gca, objnames{n} );
-0021          <span class="keyword">if</span> isfield( residue, <span class="string">'residue_rectangle'</span> ) set( residue.residue_rectangle, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0022     <span class="keyword">elseif</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
-0023         helix = getappdata( gca, objnames{n} );
-0024         <span class="keyword">if</span> isfield( helix, <span class="string">'click_center'</span> )   set( helix.click_center,<span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0025         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line'</span> )   set( helix.reflect_line, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0026         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line1'</span> )   set( helix.reflect_line1, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0027         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line2'</span> )   set( helix.reflect_line2, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0028         <span class="keyword">if</span> isfield( helix, <span class="string">'rectangle'</span> )      set( helix.rectangle, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0029     <span class="keyword">end</span>
-0030 <span class="keyword">end</span>
-0031 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0032</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0012 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0013 plot_settings.show_helix_controls = setting;
+0014 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0015 
+0016 <a href="#_sub1" class="code" title="subfunction set_control_handle_visibility( setting )">set_control_handle_visibility</a>( setting );
+0017 
+0018 
+0019 <a name="_sub1" href="#_subfunctions" class="code">function set_control_handle_visibility( setting )</a>
+0020 <span class="keyword">if</span> setting; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0021 
+0022 <span class="comment">% hide all blue stuff that was used for interactive movement.</span>
+0023 vals = getappdata( gca );
+0024 objnames = fields( vals );
+0025 <span class="keyword">for</span> n = 1:length( objnames )
+0026     <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Residue_'</span> ) );
+0027         residue = getappdata( gca, objnames{n} );
+0028          <span class="keyword">if</span> isfield( residue, <span class="string">'residue_rectangle'</span> ) set( residue.residue_rectangle, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0029     <span class="keyword">elseif</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
+0030         helix = getappdata( gca, objnames{n} );
+0031         <span class="keyword">if</span> isfield( helix, <span class="string">'click_center'</span> )   set( helix.click_center,<span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0032         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line'</span> )   set( helix.reflect_line, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0033         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line1'</span> )   set( helix.reflect_line1, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0034         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line2'</span> )   set( helix.reflect_line2, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0035         <span class="keyword">if</span> isfield( helix, <span class="string">'rectangle'</span> )      set( helix.rectangle, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0036     <span class="keyword">end</span>
+0037 <span class="keyword">end</span>
+0038 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0039</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set_artboards</title>
+  <meta name="keywords" content="set_artboards">
+  <meta name="description" content="set_artboards();">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html settings -->
+<h1>set_artboards
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>set_artboards();</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function set_artboards(); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> set_artboards();
+
+ Reset the axis limits of the figure based on the minimum and
+  maximum position of the residues. (Plus an extra +/- 2.5% margin.)
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_artboards();</a>
+0002 <span class="comment">% set_artboards();</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Reset the axis limits of the figure based on the minimum and</span>
+0005 <span class="comment">%  maximum position of the residues. (Plus an extra +/- 2.5% margin.)</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0008 
+0009 res_tags = get_tags( <span class="string">'Residue_'</span> );
+0010 all_pos = [];
+0011 <span class="keyword">for</span> i = 1:length( res_tags )
+0012     residue = getappdata( gca, res_tags{i} );
+0013     <span class="keyword">if</span> isfield( residue, <span class="string">'plot_pos'</span> )
+0014         all_pos = [all_pos; residue.plot_pos ];
+0015     <span class="keyword">end</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% Maybe we should restore this (at least look over visible linkers) and</span>
+0018 <span class="comment">%  also look over text labels.</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">%     if isfield( residue, 'linkers' )</span>
+0021 <span class="comment">%         for j = 1:length( residue.linkers )</span>
+0022 <span class="comment">%             linker = getappdata( gca, residue.linkers{j} );</span>
+0023 <span class="comment">%             if isfield( linker, 'vtx' )</span>
+0024 <span class="comment">%                 for k = 1:length( linker.vtx )</span>
+0025 <span class="comment">%                     vtx_x = get( linker.vtx{k}, 'XData' );</span>
+0026 <span class="comment">%                     vtx_y = get( linker.vtx{k}, 'YData' );</span>
+0027 <span class="comment">%                     all_pos = [all_pos; vtx_x, vtx_y ];</span>
+0028 <span class="comment">%                 end</span>
+0029 <span class="comment">%             end</span>
+0030 <span class="comment">%         end</span>
+0031 <span class="comment">%     end</span>
+0032 <span class="keyword">end</span>
+0033 
+0034 min_pos = min( all_pos );
+0035 max_pos = max( all_pos );
+0036 dims = (max_pos - min_pos);
+0037 axes =  [min_pos - dims*0.025; min_pos + dims*1.025 ];
+0038  
+0039 axis( reshape( axes, [1 4] ) );
+0040 reset_fontsize</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

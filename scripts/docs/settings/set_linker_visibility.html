@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set_linker_visibility</title>
+  <meta name="keywords" content="set_linker_visibility">
+  <meta name="description" content="linker = set_linker_visibility( linker, visible );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html settings -->
+<h1>set_linker_visibility
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>linker = set_linker_visibility( linker, visible );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function linker = set_linker_visibility( linker, visible ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> linker = set_linker_visibility( linker, visible );
+
+ Helper function used widely inside RiboDraw to show/hide linkers &amp; associated graphical elements.
+
+ Input:
+  linker  = linker object
+  visible = string: must be 'on' or 'off' 
+
+ Output:
+  linker = updated linker object.
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="show_noncanonical_pairs.html" class="code" title="function show_noncanonical_pairs( setting )">show_noncanonical_pairs</a>	show_noncanonical_pairs( setting );</li><li><a href="show_other_contacts.html" class="code" title="function show_other_contacts( setting )">show_other_contacts</a>	show_other_contacts( setting );</li><li><a href="show_stacks.html" class="code" title="function show_stacks( setting )">show_stacks</a>	show_stacks( setting );</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker = set_linker_visibility( linker, visible );</a>
+0002 <span class="comment">% linker = set_linker_visibility( linker, visible );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Helper function used widely inside RiboDraw to show/hide linkers &amp; associated graphical elements.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Input:</span>
+0007 <span class="comment">%  linker  = linker object</span>
+0008 <span class="comment">%  visible = string: must be 'on' or 'off'</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% Output:</span>
+0011 <span class="comment">%  linker = updated linker object.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% (C) R. Das, Stanford University</span>
+0014 
+0015 <span class="keyword">if</span> isfield( linker,<span class="string">'line_handle'</span> ) set( linker.line_handle, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0016 <span class="keyword">if</span> isfield( linker,<span class="string">'symbol'</span> ) set( linker.symbol, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0017 <span class="keyword">if</span> isfield( linker,<span class="string">'symbol1'</span> ) set( linker.symbol1, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0018 <span class="keyword">if</span> isfield( linker,<span class="string">'symbol2'</span> ) set( linker.symbol2, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0019 <span class="keyword">if</span> isfield( linker,<span class="string">'side_line1'</span> ) set( linker.side_line1, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0020 <span class="keyword">if</span> isfield( linker,<span class="string">'side_line2'</span> ) set( linker.side_line2, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0021 <span class="keyword">if</span> isfield( linker,<span class="string">'node1'</span> ) set( linker.node1, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0022 <span class="keyword">if</span> isfield( linker,<span class="string">'node2'</span> ) set( linker.node2, <span class="string">'visible'</span>, visible ); <span class="keyword">end</span>;
+0023 <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
+0024     vtx_visible = visible;
+0025     plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0026     <span class="keyword">if</span> ( isfield( plot_settings, <span class="string">'show_linker_controls'</span> ) &amp; ~plot_settings.show_linker_controls ) vtx_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0027     <span class="keyword">for</span> i = 1:length( linker.vtx ), set( linker.vtx{i}, <span class="string">'visible'</span>, vtx_visible ); <span class="keyword">end</span>;
+0028 <span class="keyword">end</span>;</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <head>
   <title>Description of add_ligands_to_domains</title>
   <meta name="keywords" content="add_ligands_to_domains">
-  <meta name="description" content="add_ligands_to_domains()">
+  <meta name="description" content="add_ligands_to_domains( tags )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,28 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>add_ligands_to_domains()</strong></div>
+<div class="box"><strong>add_ligands_to_domains( tags )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function add_ligands_to_domains( tags ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> add_ligands_to_domains()</pre></div>
+<div class="fragment"><pre class="comment"> add_ligands_to_domains( tags )
+
+ After reading in ligands its useful to associate them
+  pre-existing domains defined for RNA residues.
+
+ This function uses the heuristic that the ligand should belong
+   to the same domains as its RNA residue partners.
+
+ For convenience reasons, exceptions are made to any domain with 
+   the substring 'helixgroup' or '_RNA_'. 
+ TODO: allow user to input this exclude list.
+
+ Input
+  tags = 'Residue' tags for ligands to add to domains.
+ 
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -42,41 +57,56 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function add_ligands_to_domains( tags )</a>
-0002 <span class="comment">% add_ligands_to_domains()</span>
-0003 
-0004 <span class="keyword">if</span> ~exist( <span class="string">'tags'</span>, <span class="string">'var'</span> ) tags = get_tags( <span class="string">'Residue_'</span> ); <span class="keyword">end</span>;
-0005 
-0006 <span class="keyword">for</span> i = 1:length( tags )
-0007     ligand_tag = tags{i};
-0008     ligand = getappdata( gca, ligand_tag );
-0009     <span class="keyword">if</span> ~isfield( ligand, <span class="string">'ligand_partners'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0010     
-0011     <span class="comment">% look up parent helix</span>
-0012     helix_tag = ligand.helix_tag;
-0013     
-0014     <span class="comment">% look up all partner residues associated with that parent helix</span>
-0015     <span class="comment">% look up all domains associated with those partner residues</span>
-0016     domains = [];
-0017     <span class="keyword">for</span> j = 1:length( ligand.ligand_partners )
-0018         residue = getappdata( gca, ligand.ligand_partners{j} );
-0019         <span class="keyword">if</span> strcmp( residue.helix_tag, helix_tag ) 
-0020             associated_domains = get_tags( <span class="string">'Selection'</span>,<span class="string">'domain'</span>, residue.associated_selections );
-0021             <span class="keyword">for</span> k = 1:length( associated_domains )
-0022                 <span class="comment">% hacky hack.</span>
-0023                 <span class="keyword">if</span> ( strfind( associated_domains{k}, <span class="string">'helixgroup'</span> ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0024                 <span class="keyword">if</span> ( strfind( associated_domains{k}, <span class="string">'_RNA_'</span> ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0025                 domains = [ domains, associated_domains(k) ];
-0026             <span class="keyword">end</span>
-0027         <span class="keyword">end</span>
-0028     <span class="keyword">end</span>
-0029     domains = unique( domains );
-0030     
-0031     <span class="comment">% add this ligand to those domains</span>
-0032     <span class="keyword">for</span> j = 1:length( domains )
-0033         add_residues_to_domain( ligand_tag, domains{j} );
-0034     <span class="keyword">end</span>
-0035 
-0036 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% add_ligands_to_domains( tags )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% After reading in ligands its useful to associate them</span>
+0005 <span class="comment">%  pre-existing domains defined for RNA residues.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% This function uses the heuristic that the ligand should belong</span>
+0008 <span class="comment">%   to the same domains as its RNA residue partners.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% For convenience reasons, exceptions are made to any domain with</span>
+0011 <span class="comment">%   the substring 'helixgroup' or '_RNA_'.</span>
+0012 <span class="comment">% TODO: allow user to input this exclude list.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% Input</span>
+0015 <span class="comment">%  tags = 'Residue' tags for ligands to add to domains.</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0018 
+0019 <span class="keyword">if</span> ~exist( <span class="string">'tags'</span>, <span class="string">'var'</span> ) tags = get_tags( <span class="string">'Residue_'</span> ); <span class="keyword">end</span>;
+0020 
+0021 <span class="keyword">for</span> i = 1:length( tags )
+0022     ligand_tag = tags{i};
+0023     ligand = getappdata( gca, ligand_tag );
+0024     <span class="keyword">if</span> ~isfield( ligand, <span class="string">'ligand_partners'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0025     
+0026     <span class="comment">% look up parent helix</span>
+0027     helix_tag = ligand.helix_tag;
+0028     
+0029     <span class="comment">% look up all partner residues associated with that parent helix</span>
+0030     <span class="comment">% look up all domains associated with those partner residues</span>
+0031     domains = [];
+0032     <span class="keyword">for</span> j = 1:length( ligand.ligand_partners )
+0033         residue = getappdata( gca, ligand.ligand_partners{j} );
+0034         <span class="keyword">if</span> strcmp( residue.helix_tag, helix_tag ) 
+0035             associated_domains = get_tags( <span class="string">'Selection'</span>,<span class="string">'domain'</span>, residue.associated_selections );
+0036             <span class="keyword">for</span> k = 1:length( associated_domains )
+0037                 <span class="comment">% TODO: let user provide an exclude_domains input that can override these choices.</span>
+0038                 <span class="keyword">if</span> ( strfind( associated_domains{k}, <span class="string">'helixgroup'</span> ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0039                 <span class="keyword">if</span> ( strfind( associated_domains{k}, <span class="string">'_RNA_'</span> ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0040                 domains = [ domains, associated_domains(k) ];
+0041             <span class="keyword">end</span>
+0042         <span class="keyword">end</span>
+0043     <span class="keyword">end</span>
+0044     domains = unique( domains );
+0045     
+0046     <span class="comment">% add this ligand to those domains</span>
+0047     <span class="keyword">for</span> j = 1:length( domains )
+0048         add_residues_to_domain( ligand_tag, domains{j} );
+0049     <span class="keyword">end</span>
+0050 
+0051 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

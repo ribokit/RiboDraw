@@ -26,7 +26,12 @@
 <div class="box"><strong>function set_fontsize( fontsize ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> set_fontsize( fontsize )</pre></div>
+<div class="fragment"><pre class="comment"> set_fontsize( fontsize )
+
+ Set fontsize for nucleotides, and also rescale all other
+   text labels in figure based on hard-wired proportions.
+ 
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -35,7 +40,7 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="reset_fontsize.html" class="code" title="function reset_fontsize( fontsize );">reset_fontsize</a>	</li></ul>
+</ul>
 <!-- crossreference -->
 
 
@@ -43,43 +48,48 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_fontsize( fontsize )</a>
 0002 <span class="comment">% set_fontsize( fontsize )</span>
-0003 
-0004 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0005 plot_settings.fontsize = fontsize;
-0006 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
-0007         
-0008 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0009 <span class="comment">% Actually go and fix up labels</span>
-0010 residue_tags = get_tags( <span class="string">'Residue_'</span>);
-0011 <span class="keyword">for</span> i = 1:length( residue_tags );
-0012     residue = getappdata( gca, residue_tags{i} );
-0013     <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> )
-0014         set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize );
-0015         <span class="keyword">if</span> ( length( residue.nucleotide ) &gt; 1 ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*4/5); <span class="keyword">end</span>;
-0016         <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5  ); <span class="keyword">end</span>;
-0017     <span class="keyword">end</span>
-0018     <span class="keyword">if</span> isfield( residue, <span class="string">'tick_label'</span> )
-0019         set( residue.tick_label, <span class="string">'fontsize'</span>, plot_settings.fontsize );
-0020     <span class="keyword">end</span>
-0021 <span class="keyword">end</span>
-0022 helix_tags = get_tags( <span class="string">'Helix_'</span>);
-0023 <span class="keyword">for</span> i = 1:length( helix_tags );
-0024     helix = getappdata( gca, helix_tags{i} );
-0025     <span class="keyword">if</span> isfield( helix, <span class="string">'label'</span> )
-0026         set( helix.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5 );
-0027     <span class="keyword">end</span>
-0028 <span class="keyword">end</span>
-0029 domain_tags = get_tags( <span class="string">'Selection_'</span>);
-0030 <span class="keyword">for</span> i = 1:length( domain_tags );
-0031     domain = getappdata( gca, domain_tags{i} );
-0032     <span class="keyword">if</span> isfield( domain, <span class="string">'label'</span> )
-0033         set( domain.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*14/10 );
-0034     <span class="keyword">end</span>
-0035 <span class="keyword">end</span>
-0036 
-0037 
-0038 linker_tags = [get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span>); get_tags( <span class="string">'Linker'</span>,<span class="string">'intradomain'</span>)];
-0039 draw_linker( linker_tags );</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Set fontsize for nucleotides, and also rescale all other</span>
+0005 <span class="comment">%   text labels in figure based on hard-wired proportions.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0008 
+0009 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0010 plot_settings.fontsize = fontsize;
+0011 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0012         
+0013 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0014 <span class="comment">% Actually go and fix up labels</span>
+0015 residue_tags = get_tags( <span class="string">'Residue_'</span>);
+0016 <span class="keyword">for</span> i = 1:length( residue_tags );
+0017     residue = getappdata( gca, residue_tags{i} );
+0018     <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> )
+0019         set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize );
+0020         <span class="keyword">if</span> ( length( residue.nucleotide ) &gt; 1 ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*4/5); <span class="keyword">end</span>;
+0021         <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5  ); <span class="keyword">end</span>;
+0022     <span class="keyword">end</span>
+0023     <span class="keyword">if</span> isfield( residue, <span class="string">'tick_label'</span> )
+0024         set( residue.tick_label, <span class="string">'fontsize'</span>, plot_settings.fontsize );
+0025     <span class="keyword">end</span>
+0026 <span class="keyword">end</span>
+0027 helix_tags = get_tags( <span class="string">'Helix_'</span>);
+0028 <span class="keyword">for</span> i = 1:length( helix_tags );
+0029     helix = getappdata( gca, helix_tags{i} );
+0030     <span class="keyword">if</span> isfield( helix, <span class="string">'label'</span> )
+0031         set( helix.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5 );
+0032     <span class="keyword">end</span>
+0033 <span class="keyword">end</span>
+0034 domain_tags = get_tags( <span class="string">'Selection_'</span>);
+0035 <span class="keyword">for</span> i = 1:length( domain_tags );
+0036     domain = getappdata( gca, domain_tags{i} );
+0037     <span class="keyword">if</span> isfield( domain, <span class="string">'label'</span> )
+0038         set( domain.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*14/10 );
+0039     <span class="keyword">end</span>
+0040 <span class="keyword">end</span>
+0041 
+0042 
+0043 linker_tags = [get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span>); get_tags( <span class="string">'Linker'</span>,<span class="string">'intradomain'</span>)];
+0044 draw_linker( linker_tags );</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of setup_ligands</title>
+  <meta name="keywords" content="setup_ligands">
+  <meta name="description" content="setup_ligands( ligands )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html setup -->
+<h1>setup_ligands
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>setup_ligands( ligands )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function setup_ligands( ligands ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> setup_ligands( ligands )
+
+ Draw ligands as 'Residue' objects in the current drawing (gca).
+
+ Input:
+  ligands = cell of ligand objects (initialized from READ_LIGANDS )
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="read_ligands.html" class="code" title="function ligands = read_ligands( ligand_file );">read_ligands</a>	base_pairs = read_base_pairs( base_pairs_file )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function setup_ligands( ligands )</a>
+0002 <span class="comment">% setup_ligands( ligands )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Draw ligands as 'Residue' objects in the current drawing (gca).</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Input:</span>
+0007 <span class="comment">%  ligands = cell of ligand objects (initialized from READ_LIGANDS )</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0010 
+0011 <span class="keyword">if</span> ischar( ligands ) ligands = <a href="read_ligands.html" class="code" title="function ligands = read_ligands( ligand_file );">read_ligands</a>( ligands ); <span class="keyword">end</span>;
+0012 <span class="keyword">for</span> i = 1:length(ligands)
+0013     ligand = ligands{i};
+0014     ligand.resnum = 0; <span class="comment">% fitting ligand into 'residue' framework.</span>
+0015     ligand.res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, ligand.chain,ligand.segid,ligand.resnum);
+0016     ligand.nucleotide = [ligand.name,<span class="string">' '</span>,ligand.chain,ligand.segid];
+0017 
+0018     <span class="comment">% get this ligand into global data (gca)</span>
+0019     <span class="keyword">if</span> ~isappdata( gca, ligand.res_tag ) setappdata( gca, ligand.res_tag, ligand ); <span class="keyword">end</span>
+0020 
+0021     <span class="comment">% add linkers</span>
+0022     possible_helix_tags = {};
+0023     ligand.linkers = {};
+0024     <span class="keyword">for</span> j = 1:length( ligand.ligand_partners )
+0025         linker = struct();
+0026         linker.residue1 = ligand.res_tag;
+0027         linker.residue2 = ligand.ligand_partners{j};
+0028         linker.type = <span class="string">'ligand'</span>;
+0029         
+0030         partner = getappdata( gca, linker.residue2 );
+0031         linker_tag = sprintf(<span class="string">'Linker_%s%s%d_%s%s%d_%s'</span>,<span class="keyword">...</span>
+0032             ligand.chain,ligand.segid,ligand.resnum,<span class="keyword">...</span>
+0033             partner.chain,partner.segid,partner.resnum,<span class="keyword">...</span>
+0034             linker.type);
+0035         linker.linker_tag = linker_tag;
+0036         
+0037         <span class="comment">% stick this linker information in the connected residues.</span>
+0038 
+0039         ligand.linkers = [ ligand.linkers, linker_tag ];
+0040         add_linker_to_residue( linker.residue2, linker_tag );
+0041         <span class="keyword">if</span> ~isappdata( gca, linker_tag ) setappdata( gca, linker_tag, linker ); <span class="keyword">end</span>;
+0042         
+0043         possible_helix_tags = [ possible_helix_tags, partner.helix_tag ];
+0044     <span class="keyword">end</span>
+0045  
+0046     unique_helix_tags = unique( possible_helix_tags );
+0047     helix_tag_count = zeros( 1, length( unique_helix_tags ) );
+0048     <span class="keyword">for</span> n = 1:length( unique_helix_tags )
+0049         helix_tag_count( n ) = length( find( strcmp( unique_helix_tags{n}, possible_helix_tags ) ) );
+0050     <span class="keyword">end</span>
+0051     [~,idx] = max( helix_tag_count );
+0052     
+0053     ligand.helix_tag = unique_helix_tags{ idx };
+0054     ligand.relpos    = [10,0]; <span class="comment">% wild guess</span>
+0055     setappdata( gca, ligand.res_tag, ligand );
+0056     
+0057     ligands{i} = ligand;
+0058 <span class="keyword">end</span>
+0059 
+0060 helices = {};
+0061 <span class="keyword">for</span> i = 1:length( ligands )
+0062     ligand = getappdata( gca, ligands{i}.res_tag );
+0063     helix = getappdata( gca, ligand.helix_tag );
+0064     helix.associated_residues = unique( [ helix.associated_residues, ligand.res_tag ] );
+0065     setappdata( gca, ligand.helix_tag, helix );
+0066     helices = [ helices, ligand.helix_tag ];
+0067 <span class="keyword">end</span>
+0068 draw_helices( unique( helices ) );
+0069 move_stuff_to_back(); <span class="comment">% move linkers to back.</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -28,11 +28,23 @@
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
 
- * define a graph of stacked pairs. Then let's see if we can get connected
+ Experimental code to see if layout might be accelerated or made more accurate
+  by auto-identification of coaxial stacks. Currently produces some
+  2D layout features that are not human-intuitive.
+
+ * Define a graph of stacked pairs. Then let's see if we can get connected
    components.
- * consecutive pairs in helix stems are assumed to always qualify as stacked pairs.
- * if a residue is in a helix stem, other pairs (e.g. triplet
+ * Consecutive pairs in helix stems are assumed to always qualify as stacked pairs.
+ * If a residue is in a helix stem, other pairs (e.g. triplet
     interactions) are excluded from seeding new coaxial stacks. 
+ 
+ Takes as input the information produced by Rosetta's rna_motif. (Probably
+   could/should port this code into Rosetta itself.)
+
+ INPUTS
+  base_pairs  = cell of base pair objects from READ_BASE_PAIRS
+  base_stacks = cell of base stacks objects from READ_BASE_STACKS
+  stems       = cell of stem objects from READ_STEMS
 
  (C) Rhiju Das, Stanford University, 2017</pre></div>
 
@@ -40,7 +52,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../matlabicon.gif)">
-<li><a href="get_coaxial_stacks_from_graph.html" class="code" title="function coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );">get_coaxial_stacks_from_graph</a>	OK let's pull out the coaxial stacks...</li><li><a href="ordered_stacked_pair.html" class="code" title="function  stacked_pair = ordered_stacked_pair( base_pair, other_pair );">ordered_stacked_pair</a>	convention -- choose base pair based on minimum index (lowest chain, then</li></ul>
+<li><a href="get_coaxial_stacks_from_graph.html" class="code" title="function coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );">get_coaxial_stacks_from_graph</a>	coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );</li><li><a href="ordered_stacked_pair.html" class="code" title="function stacked_pair = ordered_stacked_pair( base_pair, other_pair );">ordered_stacked_pair</a>	stacked_pair = ordered_stacked_pair( base_pair, other_pair );</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../matlabicon.gif)">
 </ul>
@@ -54,181 +66,194 @@ This function is called by:
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );</a>
 0002 <span class="comment">% coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );</span>
 0003 <span class="comment">%</span>
-0004 <span class="comment">% * define a graph of stacked pairs. Then let's see if we can get connected</span>
-0005 <span class="comment">%   components.</span>
-0006 <span class="comment">% * consecutive pairs in helix stems are assumed to always qualify as stacked pairs.</span>
-0007 <span class="comment">% * if a residue is in a helix stem, other pairs (e.g. triplet</span>
-0008 <span class="comment">%    interactions) are excluded from seeding new coaxial stacks.</span>
-0009 <span class="comment">%</span>
-0010 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
-0011 
-0012 base_pairs = <a href="#_sub4" class="code" title="subfunction filtered_base_pairs = filter_out_extra_base_pairs_for_stem_residues( base_pairs, stems );">filter_out_extra_base_pairs_for_stem_residues</a>( base_pairs, stems );
-0013 base_pairs = fill_base_normal_orientations( base_pairs );
-0014 base_stacks = <a href="#_sub2" class="code" title="subfunction base_stacks = include_stacks_for_stems( base_stacks, stems );">include_stacks_for_stems</a>( base_stacks, stems );
-0015 
-0016 <span class="comment">% cleaner code (at the expense of increased computation) in testing base stack information</span>
-0017 all_base_stacks = base_stacks;
-0018 <span class="keyword">for</span> i = 1:length( base_stacks )
-0019     all_base_stacks = [ all_base_stacks, reverse_stack( base_stacks{i} ) ];
-0020 <span class="keyword">end</span>
-0021 
-0022 all_base_pairs = base_pairs;
-0023 <span class="keyword">for</span> i = 1:length( base_pairs )
-0024     all_base_pairs = [ all_base_pairs, reverse_pair( base_pairs{i} ) ];
-0025 <span class="keyword">end</span>
-0026 
-0027 <span class="comment">% to save time, a kind of hash map</span>
-0028 <span class="comment">% for i = 1:length( all_base_stacks )</span>
-0029 <span class="comment">%     stack =all_base_stacks{i};</span>
-0030 <span class="comment">%     all_base_stack_tags{i} = sprintf( '%s%d%s%d', stack.chain1,stack.resnum1,stack.chain2,stack.resnum2 );</span>
-0031 <span class="comment">% end</span>
-0032 <span class="comment">% for i = 1:length( all_base_pairs )</span>
-0033 <span class="comment">%     pair =all_base_pairs{i};</span>
-0034 <span class="comment">%     all_base_pair_tags{i} = sprintf( '%s%d%s%d', pair.chain1,pair.resnum1,pair.chain2,pair.resnum2 );</span>
-0035 <span class="comment">% end</span>
-0036 
-0037 
-0038 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0039 <span class="comment">% accumulate list of stacked_pairs</span>
-0040 <span class="comment">% figure out possible base pairs that stack on this base pair.</span>
-0041 <span class="comment">%</span>
-0042 <span class="comment">%          stack</span>
-0043 <span class="comment">%        1      2</span>
-0044 <span class="comment">%      1 X  --  Z 1</span>
-0045 <span class="comment">%  pair  |      | other_pair</span>
-0046 <span class="comment">%      2 Y  --  W 2</span>
-0047 <span class="comment">%        1      2</span>
-0048 <span class="comment">%        other_stack</span>
-0049 <span class="comment">%</span>
-0050 <span class="comment">% Just 'go around the loop'</span>
+0004 <span class="comment">% Experimental code to see if layout might be accelerated or made more accurate</span>
+0005 <span class="comment">%  by auto-identification of coaxial stacks. Currently produces some</span>
+0006 <span class="comment">%  2D layout features that are not human-intuitive.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% * Define a graph of stacked pairs. Then let's see if we can get connected</span>
+0009 <span class="comment">%   components.</span>
+0010 <span class="comment">% * Consecutive pairs in helix stems are assumed to always qualify as stacked pairs.</span>
+0011 <span class="comment">% * If a residue is in a helix stem, other pairs (e.g. triplet</span>
+0012 <span class="comment">%    interactions) are excluded from seeding new coaxial stacks.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% Takes as input the information produced by Rosetta's rna_motif. (Probably</span>
+0015 <span class="comment">%   could/should port this code into Rosetta itself.)</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% INPUTS</span>
+0018 <span class="comment">%  base_pairs  = cell of base pair objects from READ_BASE_PAIRS</span>
+0019 <span class="comment">%  base_stacks = cell of base stacks objects from READ_BASE_STACKS</span>
+0020 <span class="comment">%  stems       = cell of stem objects from READ_STEMS</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
+0023 
+0024 base_pairs = <a href="#_sub4" class="code" title="subfunction filtered_base_pairs = filter_out_extra_base_pairs_for_stem_residues( base_pairs, stems );">filter_out_extra_base_pairs_for_stem_residues</a>( base_pairs, stems );
+0025 base_pairs = fill_base_normal_orientations( base_pairs );
+0026 base_stacks = <a href="#_sub2" class="code" title="subfunction base_stacks = include_stacks_for_stems( base_stacks, stems );">include_stacks_for_stems</a>( base_stacks, stems );
+0027 
+0028 <span class="comment">% cleaner code (at the expense of increased computation) in testing base stack information</span>
+0029 all_base_stacks = base_stacks;
+0030 <span class="keyword">for</span> i = 1:length( base_stacks )
+0031     all_base_stacks = [ all_base_stacks, reverse_stack( base_stacks{i} ) ];
+0032 <span class="keyword">end</span>
+0033 
+0034 all_base_pairs = base_pairs;
+0035 <span class="keyword">for</span> i = 1:length( base_pairs )
+0036     all_base_pairs = [ all_base_pairs, reverse_pair( base_pairs{i} ) ];
+0037 <span class="keyword">end</span>
+0038 
+0039 <span class="comment">% to save time, a kind of hash map could be set up,</span>
+0040 <span class="comment">%  but I never completed this time-saving route.</span>
+0041 <span class="comment">% for i = 1:length( all_base_stacks )</span>
+0042 <span class="comment">%     stack =all_base_stacks{i};</span>
+0043 <span class="comment">%     all_base_stack_tags{i} = sprintf( '%s%d%s%d', stack.chain1,stack.resnum1,stack.chain2,stack.resnum2 );</span>
+0044 <span class="comment">% end</span>
+0045 <span class="comment">% for i = 1:length( all_base_pairs )</span>
+0046 <span class="comment">%     pair =all_base_pairs{i};</span>
+0047 <span class="comment">%     all_base_pair_tags{i} = sprintf( '%s%d%s%d', pair.chain1,pair.resnum1,pair.chain2,pair.resnum2 );</span>
+0048 <span class="comment">% end</span>
+0049 
+0050 
 0051 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0052 stacked_pairs = {};
-0053 
-0054 <span class="comment">% TODO: speed this up with hash of residue/chain that stack and/or pair</span>
-0055 <span class="comment">% with each other reschains</span>
-0056 fprintf( <span class="string">'Calculating stacked_pairs (this could be accelerated)\n'</span> );
-0057 <span class="keyword">for</span> h = 1:length( all_base_pairs )
-0058     base_pair = all_base_pairs{h};    
-0059 
-0060     <span class="keyword">for</span> i = 1:length( all_base_stacks )
-0061         base_stack = all_base_stacks{i};
-0062         <span class="keyword">if</span> ( base_stack.resnum1 == base_pair.resnum1 &amp; <span class="keyword">...</span>
-0063              base_stack.chain1  == base_pair.chain1 &amp; <span class="keyword">...</span>
-0064              strcmp(base_stack.segid1, base_pair.segid1) )
-0065              
-0066              <span class="keyword">for</span> j = 1:length( all_base_pairs )
-0067                  other_base_pair = all_base_pairs{j};
-0068                  <span class="keyword">if</span> ( other_base_pair.resnum1 == base_stack.resnum2 &amp; <span class="keyword">...</span>
-0069                       other_base_pair.chain1 == base_stack.chain2 &amp; <span class="keyword">...</span>
-0070                       strcmp(other_base_pair.segid1, base_stack.segid2) )
-0071                       
-0072                       <span class="keyword">for</span> k = 1:length( all_base_stacks )
-0073                           other_base_stack = all_base_stacks{k};
-0074                           <span class="keyword">if</span> ( other_base_stack.resnum2 == other_base_pair.resnum2 &amp; <span class="keyword">...</span>
-0075                                other_base_stack.chain2 == other_base_pair.chain2 &amp; <span class="keyword">...</span>
-0076                                strcmp( other_base_stack.segid2, other_base_pair.segid2) )
-0077                                
-0078                                <span class="keyword">if</span> ( other_base_stack.resnum1 == base_pair.resnum2 &amp; <span class="keyword">...</span>
-0079                                     other_base_stack.chain1  == base_pair.chain2 &amp; <span class="keyword">...</span>
-0080                                     strcmp(other_base_stack.segid1, base_pair.segid2) )
-0081                                    <span class="comment">% add_stacked_pair() will create unique</span>
-0082                                    <span class="comment">% entry, and track how many times its</span>
-0083                                    <span class="comment">% found, which better be 2x2 = 4 times</span>
-0084                                    stacked_pairs = <a href="#_sub1" class="code" title="subfunction stacked_pairs = add_stacked_pair( stacked_pairs, base_pair, base_stack, other_base_pair, other_base_stack );">add_stacked_pair</a>( stacked_pairs, base_pair, base_stack, other_base_pair, other_base_stack );
-0085                                <span class="keyword">end</span>
-0086                           <span class="keyword">end</span>
-0087                       <span class="keyword">end</span>
-0088                       
-0089                  <span class="keyword">end</span>
-0090              <span class="keyword">end</span>
-0091         <span class="keyword">end</span>
-0092     <span class="keyword">end</span>    
-0093 <span class="keyword">end</span>
-0094 
-0095 <span class="comment">% create a graph and then find connected_components</span>
-0096 g = addnode( graph(), length( base_pairs ) );
-0097 
-0098 <span class="comment">% the ordering here is to find unique base pairs in the graph</span>
-0099 <span class="keyword">for</span> i = 1:length( stacked_pairs )
-0100     idx1 = find_in_doublets( base_pairs, ordered_base_pair( stacked_pairs{i}.base_pair1 ) );
-0101     idx2 = find_in_doublets( base_pairs, ordered_base_pair( stacked_pairs{i}.base_pair2 ) );
-0102     g = addedge( g, idx1, idx2 );
-0103 <span class="keyword">end</span>
-0104 
-0105 fprintf( <span class="string">'Working out coaxial stacks from graph\n'</span> );
-0106 coaxial_stacks = <a href="get_coaxial_stacks_from_graph.html" class="code" title="function coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );">get_coaxial_stacks_from_graph</a>( g, base_pairs, all_base_stacks, stems );
+0052 <span class="comment">% accumulate list of stacked_pairs</span>
+0053 <span class="comment">% figure out possible base pairs that stack on this base pair.</span>
+0054 <span class="comment">%</span>
+0055 <span class="comment">%          stack</span>
+0056 <span class="comment">%        1      2</span>
+0057 <span class="comment">%      1 X  --  Z 1</span>
+0058 <span class="comment">%  pair  |      | other_pair</span>
+0059 <span class="comment">%      2 Y  --  W 2</span>
+0060 <span class="comment">%        1      2</span>
+0061 <span class="comment">%        other_stack</span>
+0062 <span class="comment">%</span>
+0063 <span class="comment">% Just 'go around the loop'</span>
+0064 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0065 stacked_pairs = {};
+0066 
+0067 <span class="comment">% TODO: speed this up with hash of residue/chain that stack and/or pair</span>
+0068 <span class="comment">% with each other reschains</span>
+0069 fprintf( <span class="string">'Calculating stacked_pairs (this could be accelerated)\n'</span> );
+0070 <span class="keyword">for</span> h = 1:length( all_base_pairs )
+0071     base_pair = all_base_pairs{h};    
+0072 
+0073     <span class="keyword">for</span> i = 1:length( all_base_stacks )
+0074         base_stack = all_base_stacks{i};
+0075         <span class="keyword">if</span> ( base_stack.resnum1 == base_pair.resnum1 &amp; <span class="keyword">...</span>
+0076              base_stack.chain1  == base_pair.chain1 &amp; <span class="keyword">...</span>
+0077              strcmp(base_stack.segid1, base_pair.segid1) )
+0078              
+0079              <span class="keyword">for</span> j = 1:length( all_base_pairs )
+0080                  other_base_pair = all_base_pairs{j};
+0081                  <span class="keyword">if</span> ( other_base_pair.resnum1 == base_stack.resnum2 &amp; <span class="keyword">...</span>
+0082                       other_base_pair.chain1 == base_stack.chain2 &amp; <span class="keyword">...</span>
+0083                       strcmp(other_base_pair.segid1, base_stack.segid2) )
+0084                       
+0085                       <span class="keyword">for</span> k = 1:length( all_base_stacks )
+0086                           other_base_stack = all_base_stacks{k};
+0087                           <span class="keyword">if</span> ( other_base_stack.resnum2 == other_base_pair.resnum2 &amp; <span class="keyword">...</span>
+0088                                other_base_stack.chain2 == other_base_pair.chain2 &amp; <span class="keyword">...</span>
+0089                                strcmp( other_base_stack.segid2, other_base_pair.segid2) )
+0090                                
+0091                                <span class="keyword">if</span> ( other_base_stack.resnum1 == base_pair.resnum2 &amp; <span class="keyword">...</span>
+0092                                     other_base_stack.chain1  == base_pair.chain2 &amp; <span class="keyword">...</span>
+0093                                     strcmp(other_base_stack.segid1, base_pair.segid2) )
+0094                                    <span class="comment">% add_stacked_pair() will create unique</span>
+0095                                    <span class="comment">% entry, and track how many times its</span>
+0096                                    <span class="comment">% found, which better be 2x2 = 4 times</span>
+0097                                    stacked_pairs = <a href="#_sub1" class="code" title="subfunction stacked_pairs = add_stacked_pair( stacked_pairs, base_pair, base_stack, other_base_pair, other_base_stack );">add_stacked_pair</a>( stacked_pairs, base_pair, base_stack, other_base_pair, other_base_stack );
+0098                                <span class="keyword">end</span>
+0099                           <span class="keyword">end</span>
+0100                       <span class="keyword">end</span>
+0101                       
+0102                  <span class="keyword">end</span>
+0103              <span class="keyword">end</span>
+0104         <span class="keyword">end</span>
+0105     <span class="keyword">end</span>    
+0106 <span class="keyword">end</span>
 0107 
-0108 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0109 <a name="_sub1" href="#_subfunctions" class="code">function stacked_pairs = add_stacked_pair( stacked_pairs, base_pair, base_stack, other_base_pair, other_base_stack );</a>
-0110 stacked_pair = <a href="ordered_stacked_pair.html" class="code" title="function  stacked_pair = ordered_stacked_pair( base_pair, other_pair );">ordered_stacked_pair</a>( base_pair, other_base_pair );
-0111 <span class="keyword">for</span> i = 1:length( stacked_pairs )
-0112     <span class="keyword">if</span> isequal( stacked_pair, stacked_pairs{i} )
-0113         <span class="keyword">return</span>;
-0114     <span class="keyword">end</span>
-0115 <span class="keyword">end</span>
-0116 stacked_pairs = [stacked_pairs, stacked_pair];
+0108 <span class="comment">% create a graph and then find connected_components</span>
+0109 g = addnode( graph(), length( base_pairs ) );
+0110 
+0111 <span class="comment">% the ordering here is to find unique base pairs in the graph</span>
+0112 <span class="keyword">for</span> i = 1:length( stacked_pairs )
+0113     idx1 = find_in_doublets( base_pairs, ordered_base_pair( stacked_pairs{i}.base_pair1 ) );
+0114     idx2 = find_in_doublets( base_pairs, ordered_base_pair( stacked_pairs{i}.base_pair2 ) );
+0115     g = addedge( g, idx1, idx2 );
+0116 <span class="keyword">end</span>
 0117 
-0118 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0119 <a name="_sub2" href="#_subfunctions" class="code">function base_stacks = include_stacks_for_stems( base_stacks, stems );</a>
-0120 <span class="keyword">for</span> i = 1 : length( stems)
-0121     stem = stems{i};
-0122     base_stacks = <a href="#_sub3" class="code" title="subfunction base_stacks = add_stacks( base_stacks, stem_resnum, stem_chain, stem_segid );">add_stacks</a>( base_stacks, stem.resnum1, stem.chain1, stem.segid1 );
-0123     base_stacks = <a href="#_sub3" class="code" title="subfunction base_stacks = add_stacks( base_stacks, stem_resnum, stem_chain, stem_segid );">add_stacks</a>( base_stacks, stem.resnum2, stem.chain2, stem.segid2 );
-0124 <span class="keyword">end</span>
-0125 
-0126 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0127 <a name="_sub3" href="#_subfunctions" class="code">function base_stacks = add_stacks( base_stacks, stem_resnum, stem_chain, stem_segid );</a>
-0128 stem_length = length( stem_resnum );
-0129 <span class="keyword">for</span> j = 1:stem_length-1
-0130     stack.resnum1= stem_resnum(j);
-0131     stack.chain1 = stem_chain(j);
-0132     stack.segid1 = stem_segid{j};
-0133     stack.resnum2= stem_resnum(j+1);
-0134     stack.chain2 = stem_chain(j+1);
-0135     stack.segid2 = stem_segid{j+1};
-0136     stack.side = <span class="string">'A'</span>;
-0137     stack.orientation = <span class="string">'P'</span>;
-0138     idx = find_in_doublets( base_stacks, stack );
-0139     <span class="keyword">if</span> ( idx == 0 )
-0140         <span class="comment">% fprintf( 'Missing stem stack in base_stacks: %s%d-%s%d\n', stack.chain1, stack.resnum1, stack.chain2, stack.resnum2 );</span>
-0141         base_stacks = [base_stacks, stack ];
-0142     <span class="keyword">end</span>
-0143 <span class="keyword">end</span>
-0144 
-0145 
-0146 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0147 <a name="_sub4" href="#_subfunctions" class="code">function filtered_base_pairs = filter_out_extra_base_pairs_for_stem_residues( base_pairs, stems );</a>
-0148 stem_res     = {};
-0149 stem_partner = {};
-0150 <span class="keyword">for</span> i = 1:length( stems )
-0151     stem = stems{i};
-0152     L = length( stem.resnum1 );
-0153     <span class="keyword">for</span> j = 1:L
-0154         stem_res    = [stem_res,     sprintf(<span class="string">'%s%s%d'</span>,stem.chain1(j),stem.segid1{j},stem.resnum1(j)) ];
-0155         stem_partner = [stem_partner, sprintf(<span class="string">'%s%s%d'</span>,stem.chain2(L-j+1),stem.segid2{L-j+1},stem.resnum2(L-j+1))];
-0156     <span class="keyword">end</span>
-0157 <span class="keyword">end</span>
+0118 fprintf( <span class="string">'Working out coaxial stacks from graph\n'</span> );
+0119 coaxial_stacks = <a href="get_coaxial_stacks_from_graph.html" class="code" title="function coaxial_stacks = get_coaxial_stacks_from_graph( g, base_pairs, all_base_stacks, stems );">get_coaxial_stacks_from_graph</a>( g, base_pairs, all_base_stacks, stems );
+0120 
+0121 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0122 <a name="_sub1" href="#_subfunctions" class="code">function stacked_pairs = add_stacked_pair( stacked_pairs, base_pair, base_stack, other_base_pair, other_base_stack );</a>
+0123 stacked_pair = <a href="ordered_stacked_pair.html" class="code" title="function stacked_pair = ordered_stacked_pair( base_pair, other_pair );">ordered_stacked_pair</a>( base_pair, other_base_pair );
+0124 <span class="keyword">for</span> i = 1:length( stacked_pairs )
+0125     <span class="keyword">if</span> isequal( stacked_pair, stacked_pairs{i} )
+0126         <span class="keyword">return</span>;
+0127     <span class="keyword">end</span>
+0128 <span class="keyword">end</span>
+0129 stacked_pairs = [stacked_pairs, stacked_pair];
+0130 
+0131 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0132 <a name="_sub2" href="#_subfunctions" class="code">function base_stacks = include_stacks_for_stems( base_stacks, stems );</a>
+0133 <span class="keyword">for</span> i = 1 : length( stems)
+0134     stem = stems{i};
+0135     base_stacks = <a href="#_sub3" class="code" title="subfunction base_stacks = add_stacks( base_stacks, stem_resnum, stem_chain, stem_segid );">add_stacks</a>( base_stacks, stem.resnum1, stem.chain1, stem.segid1 );
+0136     base_stacks = <a href="#_sub3" class="code" title="subfunction base_stacks = add_stacks( base_stacks, stem_resnum, stem_chain, stem_segid );">add_stacks</a>( base_stacks, stem.resnum2, stem.chain2, stem.segid2 );
+0137 <span class="keyword">end</span>
+0138 
+0139 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0140 <a name="_sub3" href="#_subfunctions" class="code">function base_stacks = add_stacks( base_stacks, stem_resnum, stem_chain, stem_segid );</a>
+0141 stem_length = length( stem_resnum );
+0142 <span class="keyword">for</span> j = 1:stem_length-1
+0143     stack.resnum1= stem_resnum(j);
+0144     stack.chain1 = stem_chain(j);
+0145     stack.segid1 = stem_segid{j};
+0146     stack.resnum2= stem_resnum(j+1);
+0147     stack.chain2 = stem_chain(j+1);
+0148     stack.segid2 = stem_segid{j+1};
+0149     stack.side = <span class="string">'A'</span>;
+0150     stack.orientation = <span class="string">'P'</span>;
+0151     idx = find_in_doublets( base_stacks, stack );
+0152     <span class="keyword">if</span> ( idx == 0 )
+0153         <span class="comment">% fprintf( 'Missing stem stack in base_stacks: %s%d-%s%d\n', stack.chain1, stack.resnum1, stack.chain2, stack.resnum2 );</span>
+0154         base_stacks = [base_stacks, stack ];
+0155     <span class="keyword">end</span>
+0156 <span class="keyword">end</span>
+0157 
 0158 
-0159 <span class="keyword">for</span> i = 1:length( stem_res )
-0160     stem_res     = [stem_res, stem_partner{i} ];
-0161     stem_partner = [stem_partner, stem_res{i} ];
-0162 <span class="keyword">end</span>
-0163 
-0164 <span class="comment">% only allow the canonical pairs for stem residues:</span>
-0165 filtered_base_pairs = {};
-0166 <span class="keyword">for</span> i = 1:length( base_pairs )
-0167     base_pair = base_pairs{i};
-0168     reschain1 = sprintf(<span class="string">'%s%s%d'</span>,base_pair.chain1,base_pair.segid1,base_pair.resnum1 );
-0169     reschain2 = sprintf(<span class="string">'%s%s%d'</span>,base_pair.chain2,base_pair.segid2,base_pair.resnum2 );
-0170     <span class="keyword">if</span> ( any(strcmp( stem_res, reschain1 )) | any(strcmp( stem_res, reschain2 )) )
-0171         gp = find( strcmp( stem_res, reschain1 ) );
-0172         <span class="keyword">if</span> isempty( gp ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0173         <span class="keyword">if</span> ~strcmp( stem_partner(gp), reschain2 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0174         assert( strcmp( stem_partner( strcmp( stem_res, reschain2 ) ), reschain1 ) );
-0175     <span class="keyword">end</span>
-0176     filtered_base_pairs = [filtered_base_pairs, base_pair ];
-0177 <span class="keyword">end</span>
-0178</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0159 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0160 <a name="_sub4" href="#_subfunctions" class="code">function filtered_base_pairs = filter_out_extra_base_pairs_for_stem_residues( base_pairs, stems );</a>
+0161 stem_res     = {};
+0162 stem_partner = {};
+0163 <span class="keyword">for</span> i = 1:length( stems )
+0164     stem = stems{i};
+0165     L = length( stem.resnum1 );
+0166     <span class="keyword">for</span> j = 1:L
+0167         stem_res    = [stem_res,     sprintf(<span class="string">'%s%s%d'</span>,stem.chain1(j),stem.segid1{j},stem.resnum1(j)) ];
+0168         stem_partner = [stem_partner, sprintf(<span class="string">'%s%s%d'</span>,stem.chain2(L-j+1),stem.segid2{L-j+1},stem.resnum2(L-j+1))];
+0169     <span class="keyword">end</span>
+0170 <span class="keyword">end</span>
+0171 
+0172 <span class="keyword">for</span> i = 1:length( stem_res )
+0173     stem_res     = [stem_res, stem_partner{i} ];
+0174     stem_partner = [stem_partner, stem_res{i} ];
+0175 <span class="keyword">end</span>
+0176 
+0177 <span class="comment">% only allow the canonical pairs for stem residues:</span>
+0178 filtered_base_pairs = {};
+0179 <span class="keyword">for</span> i = 1:length( base_pairs )
+0180     base_pair = base_pairs{i};
+0181     reschain1 = sprintf(<span class="string">'%s%s%d'</span>,base_pair.chain1,base_pair.segid1,base_pair.resnum1 );
+0182     reschain2 = sprintf(<span class="string">'%s%s%d'</span>,base_pair.chain2,base_pair.segid2,base_pair.resnum2 );
+0183     <span class="keyword">if</span> ( any(strcmp( stem_res, reschain1 )) | any(strcmp( stem_res, reschain2 )) )
+0184         gp = find( strcmp( stem_res, reschain1 ) );
+0185         <span class="keyword">if</span> isempty( gp ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0186         <span class="keyword">if</span> ~strcmp( stem_partner(gp), reschain2 ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0187         assert( strcmp( stem_partner( strcmp( stem_res, reschain2 ) ), reschain1 ) );
+0188     <span class="keyword">end</span>
+0189     filtered_base_pairs = [filtered_base_pairs, base_pair ];
+0190 <span class="keyword">end</span>
+0191</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

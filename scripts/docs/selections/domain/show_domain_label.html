@@ -4,7 +4,7 @@
 <head>
   <title>Description of show_domain_label</title>
   <meta name="keywords" content="show_domain_label">
-  <meta name="description" content="">
+  <meta name="description" content="show_domain_label( name, setting )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,43 +20,57 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>show_domain_label( name, setting )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="box"><strong>function show_domain_label( name, setting ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment">  show_domain_label( name, setting )
+
+  INPUT
+   name    = string with domain name or actual tag for it in gca
+   setting = 0 or 1 for visible to be 'off' or 'on', respectively.   
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../matlabicon.gif)">
-<li><a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>	</li></ul>
+<li><a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>	tag = get_domain_tag( name );</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../matlabicon.gif)">
-<li><a href="hide_domain_label.html" class="code" title="function hide_domain_label( name )">hide_domain_label</a>	</li></ul>
+<li><a href="hide_domain_label.html" class="code" title="function hide_domain_label( name )">hide_domain_label</a>	hide_domain_label( name )</li></ul>
 <!-- crossreference -->
 
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function show_domain_label( name, setting )</a>
-0002 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>, <span class="string">'var'</span> ) setting = 1; <span class="keyword">end</span>;
-0003 
-0004 tag = <a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>( name );
-0005 
-0006 <span class="keyword">if</span> setting; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0007 
-0008 <span class="keyword">if</span> isappdata( gca, tag )
-0009     domain = getappdata( gca, tag );
-0010     <span class="keyword">if</span> isfield( domain, <span class="string">'label'</span> )
-0011         set( domain.label, <span class="string">'visible'</span>, visible );
-0012     <span class="keyword">end</span>
-0013     domain.label_visible = setting;
-0014     setappdata( gca, tag, domain );
-0015 <span class="keyword">end</span>
-0016</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">%  show_domain_label( name, setting )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  INPUT</span>
+0005 <span class="comment">%   name    = string with domain name or actual tag for it in gca</span>
+0006 <span class="comment">%   setting = 0 or 1 for visible to be 'off' or 'on', respectively.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0009 
+0010 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>, <span class="string">'var'</span> ) setting = 1; <span class="keyword">end</span>;
+0011 
+0012 tag = <a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>( name );
+0013 
+0014 <span class="keyword">if</span> setting; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0015 
+0016 <span class="keyword">if</span> isappdata( gca, tag )
+0017     domain = getappdata( gca, tag );
+0018     <span class="keyword">if</span> isfield( domain, <span class="string">'label'</span> )
+0019         set( domain.label, <span class="string">'visible'</span>, visible );
+0020     <span class="keyword">end</span>
+0021     domain.label_visible = setting;
+0022     setappdata( gca, tag, domain );
+0023 <span class="keyword">end</span>
+0024</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

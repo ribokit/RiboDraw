@@ -4,7 +4,7 @@
 <head>
   <title>Description of get_relpos</title>
   <meta name="keywords" content="get_relpos">
-  <meta name="description" content="">
+  <meta name="description" content="relpos = get_relpos( plot_pos, helix )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,24 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>relpos = get_relpos( plot_pos, helix )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function relpos = get_relpos( plot_pos, helix ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> relpos = get_relpos( plot_pos, helix )
+
+ Helper function for redrawing labels and nucleotides relative to helix
+
+ Input:
+  plot_pos = Plot position (x,y) of element on drawing.
+  helix    = Helix object that defines a local coordinate frame for element
+
+ Output
+  relpos   = Local coordinates of element in frame of helix (defined by the helix center &amp; rotation)
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -35,15 +46,28 @@ This function calls:
 <li><a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>	R = get_helix_rotation_matrix( helix )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="redraw_res_and_helix.html" class="code" title="function redraw_res_and_helix( h )">redraw_res_and_helix</a>	Redraw residue and any other residues associated with its parent helix.</li><li><a href="redraw_residues.html" class="code" title="function redraw_residues( residues )">redraw_residues</a>	update relpos for all residues</li></ul>
+<li><a href="redraw_res_and_helix.html" class="code" title="function redraw_res_and_helix( h )">redraw_res_and_helix</a>	redraw_res_and_helix( h )</li><li><a href="redraw_residues.html" class="code" title="function redraw_residues( residues )">redraw_residues</a>	redraw_residues( residues )</li></ul>
 <!-- crossreference -->
 
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function relpos = get_relpos( plot_pos, helix )</a>
-0002 R = <a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>( helix );
-0003 relpos = (plot_pos - repmat(helix.center,size(plot_pos,1),1))*R';</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% relpos = get_relpos( plot_pos, helix )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Helper function for redrawing labels and nucleotides relative to helix</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Input:</span>
+0007 <span class="comment">%  plot_pos = Plot position (x,y) of element on drawing.</span>
+0008 <span class="comment">%  helix    = Helix object that defines a local coordinate frame for element</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% Output</span>
+0011 <span class="comment">%  relpos   = Local coordinates of element in frame of helix (defined by the helix center &amp; rotation)</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0014 
+0015 R = <a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>( helix );
+0016 relpos = (plot_pos - repmat(helix.center,size(plot_pos,1),1))*R';</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -26,13 +26,21 @@
 <div class="box"><strong>function import_drawing( filename ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment">
+ Import RiboDraw drawing from JSON or .mat drawing file.
+  Loads the drawing while keeping any  residues, linkers, etc. 
+   that are already in figure and not covered by loaded drawing 
+
+ INPUTS:
+   filename              = name of .json or .mat file with drawing
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>	load RiboDraw drawing from JSON drawing file.</li></ul>
+<li><a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>	loaddata = load_drawing( filename )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 <li><a href="merge_drawing.html" class="code" title="function merge_drawing( merge_figure_number )">merge_drawing</a>	merge_drawing( merge_figure_number )</li></ul>
@@ -42,7 +50,17 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function import_drawing( filename )</a>
-0002 <a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>( filename, 1 );</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% Import RiboDraw drawing from JSON or .mat drawing file.</span>
+0004 <span class="comment">%  Loads the drawing while keeping any  residues, linkers, etc.</span>
+0005 <span class="comment">%   that are already in figure and not covered by loaded drawing</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% INPUTS:</span>
+0008 <span class="comment">%   filename              = name of .json or .mat file with drawing</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0011 
+0012 <a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>( filename, 1 );</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -27,15 +27,24 @@
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> move_stuff_to_back()
-  should be faster to move all tertiary contact linkers to 'back' all at once
-  all the relevant graphics handles need to have field 'send_to_back'
-  defined in appdata -- created in draw_linker() calles to send_to_back().</pre></div>
+
+  Its faster to move all tertiary contact graphical elements to 'back' all at once. This
+   is that final big call.
+
+  All the relevant graphics handles need to have field 'send_to_back' or 'send_to_top_of_back' set by previous
+      function in appdata. 
+
+ TODO: Could allow levels of 'backness' to be set as integer rather than as back or top_of_back.
+
+ See also: <a href="send_to_back.html" class="code" title="function send_to_back( h )">SEND_TO_BACK</a>, <a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">SEND_TO_TOP_OF_BACK</a>.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="send_to_back.html" class="code" title="function send_to_back( h )">send_to_back</a>	uistack( h, 'bottom' );</li><li><a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">send_to_top_of_back</a>	uistack( h, 'bottom' );</li></ul>
+<li><a href="send_to_back.html" class="code" title="function send_to_back( h )">send_to_back</a>	send_to_back( handle )</li><li><a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">send_to_top_of_back</a>	send_to_back( handle )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -46,26 +55,36 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function move_stuff_to_back()</a>
 0002 <span class="comment">% move_stuff_to_back()</span>
-0003 <span class="comment">%  should be faster to move all tertiary contact linkers to 'back' all at once</span>
-0004 <span class="comment">%  all the relevant graphics handles need to have field 'send_to_back'</span>
-0005 <span class="comment">%  defined in appdata -- created in draw_linker() calles to send_to_back().</span>
-0006 x = get( gca, <span class="string">'Children'</span> );
-0007 tic
-0008 fprintf( <span class="string">'Moving graphic elements to back... could take a while.\n'</span> );
-0009 <a href="send_to_back.html" class="code" title="function send_to_back( h )">send_to_back</a>        = zeros( 1, length(x) );
-0010 <a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">send_to_top_of_back</a> = zeros( 1, length(x) );
-0011 send_to_front       = zeros( 1, length(x) );
-0012 <span class="keyword">for</span> i = 1:length(x)
-0013     <span class="keyword">if</span> isappdata( x(i), <span class="string">'send_to_back'</span> )
-0014         <a href="send_to_back.html" class="code" title="function send_to_back( h )">send_to_back</a>(i)        = 1;
-0015     <span class="keyword">elseif</span> isappdata( x(i), <span class="string">'send_to_top_of_back'</span> )
-0016         <a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">send_to_top_of_back</a>(i) = 1;
-0017     <span class="keyword">else</span>
-0018         send_to_front(i) = 1;
-0019    <span class="keyword">end</span>
-0020 <span class="keyword">end</span>
-0021 set( gca, <span class="string">'Children'</span>, x( [find(send_to_front),find(<a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">send_to_top_of_back</a>),find(<a href="send_to_back.html" class="code" title="function send_to_back( h )">send_to_back</a>)] ) );
-0022 toc</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Its faster to move all tertiary contact graphical elements to 'back' all at once. This</span>
+0005 <span class="comment">%   is that final big call.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%  All the relevant graphics handles need to have field 'send_to_back' or 'send_to_top_of_back' set by previous</span>
+0008 <span class="comment">%      function in appdata.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% TODO: Could allow levels of 'backness' to be set as integer rather than as back or top_of_back.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% See also: SEND_TO_BACK, SEND_TO_TOP_OF_BACK.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0015 
+0016 x = get( gca, <span class="string">'Children'</span> );
+0017 tic
+0018 fprintf( <span class="string">'Moving graphic elements to back... could take a while.\n'</span> );
+0019 <a href="send_to_back.html" class="code" title="function send_to_back( h )">send_to_back</a>        = zeros( 1, length(x) );
+0020 <a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">send_to_top_of_back</a> = zeros( 1, length(x) );
+0021 send_to_front       = zeros( 1, length(x) );
+0022 <span class="keyword">for</span> i = 1:length(x)
+0023     <span class="keyword">if</span> isappdata( x(i), <span class="string">'send_to_back'</span> )
+0024         <a href="send_to_back.html" class="code" title="function send_to_back( h )">send_to_back</a>(i)        = 1;
+0025     <span class="keyword">elseif</span> isappdata( x(i), <span class="string">'send_to_top_of_back'</span> )
+0026         <a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">send_to_top_of_back</a>(i) = 1;
+0027     <span class="keyword">else</span>
+0028         send_to_front(i) = 1;
+0029    <span class="keyword">end</span>
+0030 <span class="keyword">end</span>
+0031 set( gca, <span class="string">'Children'</span>, x( [find(send_to_front),find(<a href="send_to_top_of_back.html" class="code" title="function send_to_top_of_back( h  )">send_to_top_of_back</a>),find(<a href="send_to_back.html" class="code" title="function send_to_back( h )">send_to_back</a>)] ) );
+0032 toc</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

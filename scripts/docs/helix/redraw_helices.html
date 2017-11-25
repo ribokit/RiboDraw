@@ -26,7 +26,13 @@
 <div class="box"><strong>function redraw_helices() </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> redraw_helices()</pre></div>
+<div class="fragment"><pre class="comment"> redraw_helices()
+
+ Runs draw_helix() again for all helices. 
+ May not be in use anymore due to 
+  handling of graphics objects by other functions.
+ 
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -43,14 +49,21 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function redraw_helices()</a>
 0002 <span class="comment">% redraw_helices()</span>
-0003 vals = getappdata( gca );
-0004 objnames = fields( vals );
-0005 <span class="keyword">for</span> n = 1:length( objnames )
-0006     <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
-0007         helix = getappdata( gca, objnames{n} );
-0008         <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
-0009     <span class="keyword">end</span>
-0010 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Runs draw_helix() again for all helices.</span>
+0005 <span class="comment">% May not be in use anymore due to</span>
+0006 <span class="comment">%  handling of graphics objects by other functions.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0009 
+0010 vals = getappdata( gca );
+0011 objnames = fields( vals );
+0012 <span class="keyword">for</span> n = 1:length( objnames )
+0013     <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
+0014         helix = getappdata( gca, objnames{n} );
+0015         <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
+0016     <span class="keyword">end</span>
+0017 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

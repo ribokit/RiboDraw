@@ -4,7 +4,7 @@
 <head>
   <title>Description of list_domains</title>
   <meta name="keywords" content="list_domains">
-  <meta name="description" content="">
+  <meta name="description" content="list_domains();">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,18 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>list_domains();</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="box"><strong>function list_domains(); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> list_domains();
+
+ List name and tag in parentheses of all 
+  domains defined by user for drawing.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
@@ -42,13 +47,19 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function list_domains();</a>
-0002 
-0003 tags = get_tags( <span class="string">'Selection'</span>,<span class="string">'domain'</span> );
-0004 <span class="keyword">for</span> i = 1:length( tags )
-0005     domain = getappdata( gca, tags{i} );
-0006     fprintf( <span class="string">'%s (%s)\n'</span>, domain.name, tags{i} );
-0007 <span class="keyword">end</span>
-0008</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% list_domains();</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% List name and tag in parentheses of all</span>
+0005 <span class="comment">%  domains defined by user for drawing.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0008 
+0009 tags = get_tags( <span class="string">'Selection'</span>,<span class="string">'domain'</span> );
+0010 <span class="keyword">for</span> i = 1:length( tags )
+0011     domain = getappdata( gca, tags{i} );
+0012     fprintf( <span class="string">'%s (%s)\n'</span>, domain.name, tags{i} );
+0013 <span class="keyword">end</span>
+0014</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

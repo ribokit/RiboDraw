@@ -4,7 +4,7 @@
 <head>
   <title>Description of get_domain_tag</title>
   <meta name="keywords" content="get_domain_tag">
-  <meta name="description" content="">
+  <meta name="description" content="tag = get_domain_tag( name );">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,21 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>tag = get_domain_tag( name );</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="box"><strong>function tag = get_domain_tag( name ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> tag = get_domain_tag( name );
+
+ Give tag in drawing (gca, current axes of figure) that
+  corresponds to tag or name supplied. 
+ Appropriate converts ' ' and '_' to '-'
+
+ See also: LIST_DOMAINS() to get possible tags.
+
+ (C) R. Das, Stanford University</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
@@ -35,27 +43,36 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../../matlabicon.gif)">
-<li><a href="add_residues_to_domain.html" class="code" title="function add_residues_to_domain( residue_string, name );">add_residues_to_domain</a>	add_residues_from_domain( residue_string, domainn_name );</li><li><a href="delete_domain.html" class="code" title="function delete_domain( name );">delete_domain</a>	setup_domain( residue_string, name );</li><li><a href="remove_residues_from_domain.html" class="code" title="function remove_residues_from_domain( residue_string, name );">remove_residues_from_domain</a>	remove_residues_from_domain( residue_string, domainn_name );</li><li><a href="show_domain_label.html" class="code" title="function show_domain_label( name, setting )">show_domain_label</a>	</li></ul>
+<li><a href="add_residues_to_domain.html" class="code" title="function add_residues_to_domain( residue_string, name );">add_residues_to_domain</a>	add_residues_to_domain( residue_string, name );</li><li><a href="delete_domain.html" class="code" title="function delete_domain( name );">delete_domain</a>	delete_domain( name );</li><li><a href="remove_residues_from_domain.html" class="code" title="function remove_residues_from_domain( residue_string, name );">remove_residues_from_domain</a>	remove_residues_from_domain( residue_string, domain_name );</li><li><a href="show_domain_label.html" class="code" title="function show_domain_label( name, setting )">show_domain_label</a>	show_domain_label( name, setting )</li></ul>
 <!-- crossreference -->
 
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function tag = get_domain_tag( name );</a>
-0002 
-0003 tag = sprintf(<span class="string">'Selection_%s_domain'</span>, strrep(strrep(name, <span class="string">' '</span>, <span class="string">'_'</span> ),<span class="string">'-'</span>,<span class="string">'_'</span>) );
-0004 <span class="keyword">if</span> ~isappdata( gca, tag );
-0005     tag = sprintf(<span class="string">'Selection_%s'</span>,strrep(strrep(name, <span class="string">' '</span>, <span class="string">'_'</span> ),<span class="string">'-'</span>,<span class="string">'_'</span>) );
-0006 <span class="keyword">end</span>
-0007 <span class="keyword">if</span> ~isappdata( gca, tag );
-0008     [~,tag] = get_res( name ); <span class="comment">% look inside domain names.</span>
-0009 <span class="keyword">end</span>
-0010 <span class="keyword">if</span> ~isappdata( gca, tag );
-0011     tag = name;
-0012     <span class="keyword">if</span> ~isappdata( gca, tag ) 
-0013         fprintf( <span class="string">'Could not find domain with name: %s\n'</span>, name );
-0014     <span class="keyword">end</span>
-0015 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% tag = get_domain_tag( name );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Give tag in drawing (gca, current axes of figure) that</span>
+0005 <span class="comment">%  corresponds to tag or name supplied.</span>
+0006 <span class="comment">% Appropriate converts ' ' and '_' to '-'</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% See also: LIST_DOMAINS() to get possible tags.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) R. Das, Stanford University</span>
+0011 
+0012 tag = sprintf(<span class="string">'Selection_%s_domain'</span>, strrep(strrep(name, <span class="string">' '</span>, <span class="string">'_'</span> ),<span class="string">'-'</span>,<span class="string">'_'</span>) );
+0013 <span class="keyword">if</span> ~isappdata( gca, tag );
+0014     tag = sprintf(<span class="string">'Selection_%s'</span>,strrep(strrep(name, <span class="string">' '</span>, <span class="string">'_'</span> ),<span class="string">'-'</span>,<span class="string">'_'</span>) );
+0015 <span class="keyword">end</span>
+0016 <span class="keyword">if</span> ~isappdata( gca, tag );
+0017     [~,tag] = get_res( name ); <span class="comment">% look inside domain names.</span>
+0018 <span class="keyword">end</span>
+0019 <span class="keyword">if</span> ~isappdata( gca, tag );
+0020     tag = name;
+0021     <span class="keyword">if</span> ~isappdata( gca, tag ) 
+0022         fprintf( <span class="string">'Could not find domain with name: %s\n'</span>, name );
+0023     <span class="keyword">end</span>
+0024 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

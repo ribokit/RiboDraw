@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of show_split_arrow_lines</title>
+  <meta name="keywords" content="show_split_arrow_lines">
+  <meta name="description" content="show_split_arrows( linker, setting, domain_names )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html settings -->
+<h1>show_split_arrow_lines
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>show_split_arrows( linker, setting, domain_names )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function show_split_arrow_lines( setting ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> show_split_arrows( linker, setting, domain_names )
+
+ Show or hide thin gray lines that trace the interdomain_linker between
+  two residues that define a TertiaryContact. Allows user to reduce
+  clutter in the drawing.
+
+ See also: <a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">SHOW_SPLIT_ARROWS</a>, GROUP_INTERDOMAIN_LINKERS
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="hide_split_arrow_lines.html" class="code" title="function hide_split_arrow_lines()">hide_split_arrow_lines</a>	show_split_arrows( linker, setting, domain_names )</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function show_split_arrow_lines( setting )</a>
+0002 <span class="comment">% show_split_arrows( linker, setting, domain_names )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Show or hide thin gray lines that trace the interdomain_linker between</span>
+0005 <span class="comment">%  two residues that define a TertiaryContact. Allows user to reduce</span>
+0006 <span class="comment">%  clutter in the drawing.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% See also: SHOW_SPLIT_ARROWS, GROUP_INTERDOMAIN_LINKERS</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0011 
+0012 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>, <span class="string">'var'</span> ) setting = 1; <span class="keyword">end</span>;
+0013 
+0014 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0015 plot_settings.show_split_arrow_lines = setting;
+0016 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0017 draw_linker( get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span> ) );</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

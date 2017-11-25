@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of show_linker_controls</title>
+  <meta name="keywords" content="show_linker_controls">
+  <meta name="description" content="show_linker_controls( setting );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html settings -->
+<h1>show_linker_controls
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>show_linker_controls( setting );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function show_linker_controls( setting ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> show_linker_controls( setting );
+
+ Show or hide symbols that allow user to adjust linker paths,
+  depending on whether setting is 1 or 0.
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="hide_linker_controls.html" class="code" title="function hide_linker_controls()">hide_linker_controls</a>	hide_linker_controls( setting );</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function set_control_handle_visibility( setting )</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function show_linker_controls( setting )</a>
+0002 <span class="comment">% show_linker_controls( setting );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Show or hide symbols that allow user to adjust linker paths,</span>
+0005 <span class="comment">%  depending on whether setting is 1 or 0.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University</span>
+0008 
+0009 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>, <span class="string">'var'</span> ) setting = 1; <span class="keyword">end</span>;
+0010 
+0011 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0012 plot_settings.show_linker_controls = setting;
+0013 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0014 
+0015 <a href="#_sub1" class="code" title="subfunction set_control_handle_visibility( setting )">set_control_handle_visibility</a>( setting );
+0016 
+0017 <a name="_sub1" href="#_subfunctions" class="code">function set_control_handle_visibility( setting )</a>
+0018 <span class="keyword">if</span> setting; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0019 <span class="comment">% hide all blue stuff that was used for interactive movement.</span>
+0020 objnames = get_tags( <span class="string">'Linker'</span> );
+0021 <span class="keyword">for</span> n = 1:length( objnames )
+0022     linker = getappdata( gca, objnames{n} );
+0023     <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> ) &amp; isfield( linker, <span class="string">'line_handle'</span> )
+0024         vtx_visible = visible;
+0025         <span class="keyword">if</span> strcmp( get( linker.line_handle, <span class="string">'visible'</span> ), <span class="string">'off'</span> ) vtx_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0026         <span class="keyword">for</span> i = 1:length( linker.vtx ) set( linker.vtx{i},<span class="string">'visible'</span>, vtx_visible);  <span class="keyword">end</span>;
+0027     <span class="keyword">end</span>;
+0028 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

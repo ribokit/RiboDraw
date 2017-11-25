@@ -4,7 +4,7 @@
 <head>
   <title>Description of rotate_helix</title>
   <meta name="keywords" content="rotate_helix">
-  <meta name="description" content="">
+  <meta name="description" content="rotate_helix( h, ~, ~ )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,18 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong></strong></div>
+<div class="box"><strong>rotate_helix( h, ~, ~ )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function rotate_helix( h, ~, ~ ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"></pre></div>
+<div class="fragment"><pre class="comment"> rotate_helix( h, ~, ~ )
+
+ Rotate helix clockwise 90 degress around the helix center point.
+ Called after user clicks on center point control.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -42,12 +47,19 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function rotate_helix( h, ~, ~ )</a>
-0002 helix_tag = getappdata( h, <span class="string">'helix_tag'</span> );
-0003 helix = getappdata(gca,helix_tag );
-0004 helix.rotation = mod( helix.rotation + 90, 360 );
-0005 setappdata( gca, helix_tag, helix );
-0006 <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
-0007</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% rotate_helix( h, ~, ~ )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Rotate helix clockwise 90 degress around the helix center point.</span>
+0005 <span class="comment">% Called after user clicks on center point control.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0008 
+0009 helix_tag = getappdata( h, <span class="string">'helix_tag'</span> );
+0010 helix = getappdata(gca,helix_tag );
+0011 helix.rotation = mod( helix.rotation + 90, 360 );
+0012 setappdata( gca, helix_tag, helix );
+0013 <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
+0014</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

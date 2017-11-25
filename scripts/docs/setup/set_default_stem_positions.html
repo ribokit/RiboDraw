@@ -4,7 +4,7 @@
 <head>
   <title>Description of set_default_stem_positions</title>
   <meta name="keywords" content="set_default_stem_positions">
-  <meta name="description" content="set_default_stem_positions()">
+  <meta name="description" content="stems = set_default_stem_positions( stems )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,18 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>set_default_stem_positions()</strong></div>
+<div class="box"><strong>stems = set_default_stem_positions( stems )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function stems = set_default_stem_positions( stems ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> set_default_stem_positions()</pre></div>
+<div class="fragment"><pre class="comment"> stems = set_default_stem_positions( stems )
+
+ when starting place helices ('stems') in rows and columns 
+  in a square matrix on figure.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -42,19 +47,25 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function stems = set_default_stem_positions( stems )</a>
-0002 <span class="comment">% set_default_stem_positions()</span>
-0003 <span class="keyword">for</span> n = 1:length( stems )
-0004     col = mod( n-1, 5 ) + 1;
-0005     row = floor((n-1)/5);
-0006     stems{n}.center = [col*30, row*20]+20;
-0007     stems{n}.rotation =  180;
-0008     stems{n}.parity   = 1;
-0009     stems{n}.helix_tag = sprintf(<span class="string">'Helix_%s%s%d'</span>,<span class="keyword">...</span>
-0010         stems{n}.chain1(1),<span class="keyword">...</span>
-0011         stems{n}.segid1{1},<span class="keyword">...</span>
-0012         stems{n}.resnum1(1));<span class="comment">% this better be a unique identifier</span>
-0013     setappdata( gca, stems{n}.helix_tag, stems{n} );
-0014 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0002 <span class="comment">% stems = set_default_stem_positions( stems )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% when starting place helices ('stems') in rows and columns</span>
+0005 <span class="comment">%  in a square matrix on figure.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0008 
+0009 <span class="keyword">for</span> n = 1:length( stems )
+0010     col = mod( n-1, 5 ) + 1;
+0011     row = floor((n-1)/5);
+0012     stems{n}.center = [col*30, row*20]+20;
+0013     stems{n}.rotation =  180;
+0014     stems{n}.parity   = 1;
+0015     stems{n}.helix_tag = sprintf(<span class="string">'Helix_%s%s%d'</span>,<span class="keyword">...</span>
+0016         stems{n}.chain1(1),<span class="keyword">...</span>
+0017         stems{n}.segid1{1},<span class="keyword">...</span>
+0018         stems{n}.resnum1(1));<span class="comment">% this better be a unique identifier</span>
+0019     setappdata( gca, stems{n}.helix_tag, stems{n} );
+0020 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

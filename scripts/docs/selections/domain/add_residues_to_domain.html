@@ -4,7 +4,7 @@
 <head>
   <title>Description of add_residues_to_domain</title>
   <meta name="keywords" content="add_residues_to_domain">
-  <meta name="description" content="add_residues_from_domain( residue_string, domainn_name );">
+  <meta name="description" content="add_residues_to_domain( residue_string, name );">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,20 +20,29 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="box"><strong>add_residues_from_domain( residue_string, domainn_name );</strong></div>
+<div class="box"><strong>add_residues_to_domain( residue_string, name );</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="box"><strong>function add_residues_to_domain( residue_string, name ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> add_residues_from_domain( residue_string, domainn_name );
+<div class="fragment"><pre class="comment"> add_residues_to_domain( residue_string, name );
+
+ Adds residues to pre-existing domain.
+
+ INPUTS
+   residue_string = string like 'A:QA:1-5', or residue tag, or cell of those.
+   name           =  name or tag for domain
+
+ See also: <a href="remove_residues_from_domain.html" class="code" title="function remove_residues_from_domain( residue_string, name );">REMOVE_RESIDUES_FROM_DOMAIN</a>, <a href="setup_domain.html" class="code" title="function domain = setup_domain( residue_string, name );">SETUP_DOMAIN</a>.
+
  (C) Rhiju Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../../matlabicon.gif)">
-<li><a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>	</li></ul>
+<li><a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>	tag = get_domain_tag( name );</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../../matlabicon.gif)">
 </ul>
@@ -43,32 +52,41 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function add_residues_to_domain( residue_string, name );</a>
-0002 <span class="comment">% add_residues_from_domain( residue_string, domainn_name );</span>
-0003 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
-0004 
-0005 domain_tag = <a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>( name );
-0006 add_res_tags = get_res( residue_string );
-0007 
-0008 <span class="keyword">if</span> ~isappdata( gca, domain_tag ) <span class="keyword">return</span>; <span class="keyword">end</span>;
-0009 <span class="keyword">if</span> isempty( add_res_tags) <span class="keyword">return</span>; <span class="keyword">end</span>;
-0010 
-0011 domain = getappdata(gca , domain_tag);
-0012 domain.associated_residues = unique( [domain.associated_residues, add_res_tags] );
-0013 setappdata( gca, domain_tag, domain );
-0014 
-0015 <span class="keyword">for</span> i = 1:length( add_res_tags );
-0016     res_tag = add_res_tags{i};
-0017     residue = getappdata( gca, res_tag );
-0018     fprintf( <span class="string">'Add %s to %s\n'</span>, residue.res_tag, domain_tag );
-0019     <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> ) residue.associated_selections = {}; <span class="keyword">end</span>;
-0020     residue.associated_selections = unique( [residue.associated_selections, domain_tag] );
-0021     setappdata( gca, res_tag, residue );
-0022 <span class="keyword">end</span>
+0002 <span class="comment">% add_residues_to_domain( residue_string, name );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Adds residues to pre-existing domain.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% INPUTS</span>
+0007 <span class="comment">%   residue_string = string like 'A:QA:1-5', or residue tag, or cell of those.</span>
+0008 <span class="comment">%   name           =  name or tag for domain</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% See also: REMOVE_RESIDUES_FROM_DOMAIN, SETUP_DOMAIN.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% (C) Rhiju Das, Stanford University, 2017</span>
+0013 
+0014 domain_tag = <a href="get_domain_tag.html" class="code" title="function tag = get_domain_tag( name );">get_domain_tag</a>( name );
+0015 add_res_tags = get_res( residue_string );
+0016 
+0017 <span class="keyword">if</span> ~isappdata( gca, domain_tag ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0018 <span class="keyword">if</span> isempty( add_res_tags) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0019 
+0020 domain = getappdata(gca , domain_tag);
+0021 domain.associated_residues = unique( [domain.associated_residues, add_res_tags] );
+0022 setappdata( gca, domain_tag, domain );
 0023 
-0024 draw_selections( domain_tag );
-0025 
-0026 
-0027</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0024 <span class="keyword">for</span> i = 1:length( add_res_tags );
+0025     res_tag = add_res_tags{i};
+0026     residue = getappdata( gca, res_tag );
+0027     fprintf( <span class="string">'Add %s to %s\n'</span>, residue.res_tag, domain_tag );
+0028     <span class="keyword">if</span> ~isfield( residue, <span class="string">'associated_selections'</span> ) residue.associated_selections = {}; <span class="keyword">end</span>;
+0029     residue.associated_selections = unique( [residue.associated_selections, domain_tag] );
+0030     setappdata( gca, res_tag, residue );
+0031 <span class="keyword">end</span>
+0032 
+0033 draw_selections( domain_tag );
+0034 
+0035 
+0036</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

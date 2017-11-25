@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of generate_ribodraw_docs</title>
+  <meta name="keywords" content="generate_ribodraw_docs">
+  <meta name="description" content="generate_ribodraw_docs()">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html util -->
+<h1>generate_ribodraw_docs
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>generate_ribodraw_docs()</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function generate_ribodraw_docs() </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> generate_ribodraw_docs()
+
+ Wrapper around M2HTML to generate documents from all MATLAB scripts.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function generate_ribodraw_docs()</a>
+0002 <span class="comment">% generate_ribodraw_docs()</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Wrapper around M2HTML to generate documents from all MATLAB scripts.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0007 <span class="keyword">if</span> ~exist( <span class="string">'m2html'</span>,<span class="string">'file'</span> )
+0008     fprintf( <span class="string">'\n You need to install M2HTML and put it in your path.\n Check it out at  http://www.artefact.tk/software/matlab/m2html/ \n Then run this function %s again!\n'</span>, mfilename );
+0009     <span class="keyword">return</span>;
+0010 <span class="keyword">end</span>
+0011 
+0012 cwd = pwd();
+0013 [pathstr,~] = fileparts( fileparts( which( mfilename ) ) );
+0014 
+0015 fprintf( <span class="string">'Going into %s\n'</span>, pathstr );
+0016 chdir( pathstr );
+0017 
+0018 <span class="comment">% here are the settings I like.</span>
+0019 warning( <span class="string">'off'</span> , <span class="string">'all'</span> );
+0020 m2html( <span class="string">'mfiles'</span>,<span class="string">''</span>,<span class="keyword">...</span>
+0021     <span class="string">'htmldir'</span>,<span class="string">'docs'</span>,<span class="keyword">...</span>
+0022     <span class="string">'ignoredDir'</span>,{<span class="string">'external'</span>,<span class="string">'devel'</span>},<span class="keyword">...</span>
+0023     <span class="string">'recursive'</span>,<span class="string">'on'</span>,<span class="keyword">...</span>
+0024     <span class="string">'template'</span>,<span class="string">'frame'</span>,<span class="keyword">...</span>
+0025     <span class="string">'index'</span>,<span class="string">'menu'</span>);
+0026 
+0027 fprintf( <span class="string">'Returning to %s\n'</span>, cwd );
+0028 chdir( cwd );
+0029 fprintf( <span class="string">'\nCreated docs at %s/docs\n'</span>, pathstr );
+0030</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

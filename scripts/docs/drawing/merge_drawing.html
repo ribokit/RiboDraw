@@ -29,7 +29,19 @@
 <div class="fragment"><pre class="comment"> merge_drawing( merge_figure_number )
  merge_drawing()
 
- reverses 'slice_drawing'</pre></div>
+ Reverses 'slice_drawing' -- by default puts the edited 
+   subdrawing back in its parent drawing.
+
+ INPUT
+   merge_figure_number = [Optional] figure number to use as
+                           parent. In typical use case this does
+                           not have to be supplied -- the
+                           subdrawing will remember its parent
+                           if created by slice_res
+
+  See also: <a href="slice_drawing.html" class="code" title="function slice_drawing( slice_res )">SLICE_DRAWING</a>.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -48,20 +60,31 @@ This function is called by:
 0002 <span class="comment">% merge_drawing( merge_figure_number )</span>
 0003 <span class="comment">% merge_drawing()</span>
 0004 <span class="comment">%</span>
-0005 <span class="comment">% reverses 'slice_drawing'</span>
-0006 <span class="comment">%</span>
-0007 
-0008 <span class="keyword">if</span> ~exist( <span class="string">'merge_figure_number'</span>,<span class="string">'var'</span> )
-0009     <span class="keyword">if</span> ~isappdata( gca,<span class="string">'parent_figure_number'</span> )
-0010         fprintf( <span class="string">'Cannot find parent_figure_number in gca -- please supply figure number to merge into.'</span> );     
-0011         <span class="keyword">return</span>;
-0012     <span class="keyword">end</span>
-0013     merge_figure_number = getappdata( gca, <span class="string">'parent_figure_number'</span> );
-0014 <span class="keyword">end</span>
-0015 
-0016 subdrawing = <a href="get_drawing.html" class="code" title="function savedata = get_drawing( slice_res );">get_drawing</a>();
-0017 figure( merge_figure_number );
-0018 <a href="import_drawing.html" class="code" title="function import_drawing( filename )">import_drawing</a>( subdrawing );</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0005 <span class="comment">% Reverses 'slice_drawing' -- by default puts the edited</span>
+0006 <span class="comment">%   subdrawing back in its parent drawing.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% INPUT</span>
+0009 <span class="comment">%   merge_figure_number = [Optional] figure number to use as</span>
+0010 <span class="comment">%                           parent. In typical use case this does</span>
+0011 <span class="comment">%                           not have to be supplied -- the</span>
+0012 <span class="comment">%                           subdrawing will remember its parent</span>
+0013 <span class="comment">%                           if created by slice_res</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%  See also: SLICE_DRAWING.</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0018 
+0019 <span class="keyword">if</span> ~exist( <span class="string">'merge_figure_number'</span>,<span class="string">'var'</span> )
+0020     <span class="keyword">if</span> ~isappdata( gca,<span class="string">'parent_figure_number'</span> )
+0021         fprintf( <span class="string">'Cannot find parent_figure_number in gca -- please supply figure number to merge into.'</span> );     
+0022         <span class="keyword">return</span>;
+0023     <span class="keyword">end</span>
+0024     merge_figure_number = getappdata( gca, <span class="string">'parent_figure_number'</span> );
+0025 <span class="keyword">end</span>
+0026 
+0027 subdrawing = <a href="get_drawing.html" class="code" title="function savedata = get_drawing( slice_res );">get_drawing</a>();
+0028 figure( merge_figure_number );
+0029 <a href="import_drawing.html" class="code" title="function import_drawing( filename )">import_drawing</a>( subdrawing );</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

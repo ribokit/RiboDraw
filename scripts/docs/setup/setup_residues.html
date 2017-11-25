@@ -4,7 +4,7 @@
 <head>
   <title>Description of setup_residues</title>
   <meta name="keywords" content="setup_residues">
-  <meta name="description" content="setup_residues( stems, sequence, resnum, chains, segid );">
+  <meta name="description" content="stems = setup_residues( stems, sequence, resnum, chains, segid );">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,13 +20,13 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>setup_residues( stems, sequence, resnum, chains, segid );</strong></div>
+<div class="box"><strong>stems = setup_residues( stems, sequence, resnum, chains, segid );</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="box"><strong>function stems = setup_residues( stems, sequence, resnum, chains, segid ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> setup_residues( stems, sequence, resnum, chains, segid );
+<div class="fragment"><pre class="comment"> stems = setup_residues( stems, sequence, resnum, chains, segid );
 
  Creates initial residue objects in appdata for gca
  Also assigns each residue to be associated to a helix, based
@@ -57,7 +57,7 @@ This function is called by:
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function stems = setup_residues( stems, sequence, resnum, chains, segid );</a>
-0002 <span class="comment">% setup_residues( stems, sequence, resnum, chains, segid );</span>
+0002 <span class="comment">% stems = setup_residues( stems, sequence, resnum, chains, segid );</span>
 0003 <span class="comment">%</span>
 0004 <span class="comment">% Creates initial residue objects in appdata for gca</span>
 0005 <span class="comment">% Also assigns each residue to be associated to a helix, based</span>
@@ -116,6 +116,6 @@ This function is called by:
 0058     setappdata( gca, stems{n}.helix_tag, stems{n} );
 0059 <span class="keyword">end</span>
 0060</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

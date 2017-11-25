@@ -4,7 +4,7 @@
 <head>
   <title>Description of get_res_tags</title>
   <meta name="keywords" content="get_res_tags">
-  <meta name="description" content="res_tags = get_res_tags( residue_string );">
+  <meta name="description" content="">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,46 +20,49 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>res_tags = get_res_tags( residue_string );</strong></div>
+<div class="box"><strong></strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>function res_tags = get_res_tags( residue_string, check_exists ); </strong></div>
+<div class="box"><strong>This is a script file. </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> res_tags = get_res_tags( residue_string ); 
- helper function that takes 'A:1-4' and gives back { 'Residue_A1',
- 'Residue_A2', 'Residue_A3', 'Residue_A4'};</pre></div>
+<div class="fragment"><pre class="comment"></pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-</ul>
+<li><a href="get_res_tags.html" class="code" title="">get_res_tags</a>	</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-</ul>
+<li><a href="get_res_tags.html" class="code" title="">get_res_tags</a>	</li></ul>
 <!-- crossreference -->
 
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function res_tags = get_res_tags( residue_string, check_exists ); </a>
+<div class="fragment"><pre>0001 ifunction res_tags = <a href="get_res_tags.html" class="code" title="">get_res_tags</a>( residue_string, check_exists ); 
 0002 <span class="comment">% res_tags = get_res_tags( residue_string );</span>
-0003 <span class="comment">% helper function that takes 'A:1-4' and gives back { 'Residue_A1',</span>
-0004 <span class="comment">% 'Residue_A2', 'Residue_A3', 'Residue_A4'};</span>
-0005 <span class="keyword">if</span> ~exist( <span class="string">'check_exists'</span>,<span class="string">'var'</span>) check_exists = 0; <span class="keyword">end</span>;
-0006 res_tags = {};
-0007 <span class="keyword">if</span> ischar( residue_string )
-0008     [resnum, chains, segid, ok ] = get_resnum_from_tag( residue_string );
-0009     <span class="keyword">if</span> ~ok;  fprintf( <span class="string">'unrecognized tag: %s. Should be of form A:1-4 C:50-67\n'</span>, residue_string ); <span class="keyword">end</span>
-0010     <span class="keyword">for</span> i = 1:length( resnum )
-0011         res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, chains(i),segid{i},resnum(i) );
-0012         <span class="keyword">if</span> ( check_exists &amp; ~isappdata( gca, res_tag) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0013         res_tags = [res_tags, res_tag ];
-0014     <span class="keyword">end</span>
-0015 <span class="keyword">elseif</span> iscell( residue_string )
-0016     res_tags = residue_string;
-0017 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% helper function that takes 'A:1-4' and gives back { 'Residue_A1',</span>
+0005 <span class="comment">% 'Residue_A2', 'Residue_A3', 'Residue_A4'};</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% May be redundant with GET_RES().</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% (C) R. Das, Stanford University.</span>
+0010 <span class="keyword">if</span> ~exist( <span class="string">'check_exists'</span>,<span class="string">'var'</span>) check_exists = 0; <span class="keyword">end</span>;
+0011 res_tags = {};
+0012 <span class="keyword">if</span> ischar( residue_string )
+0013     [resnum, chains, segid, ok ] = get_resnum_from_tag( residue_string );
+0014     <span class="keyword">if</span> ~ok;  fprintf( <span class="string">'unrecognized tag: %s. Should be of form A:1-4 C:50-67\n'</span>, residue_string ); <span class="keyword">end</span>
+0015     <span class="keyword">for</span> i = 1:length( resnum )
+0016         res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, chains(i),segid{i},resnum(i) );
+0017         <span class="keyword">if</span> ( check_exists &amp; ~isappdata( gca, res_tag) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0018         res_tags = [res_tags, res_tag ];
+0019     <span class="keyword">end</span>
+0020 <span class="keyword">elseif</span> iscell( residue_string )
+0021     res_tags = residue_string;
+0022 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

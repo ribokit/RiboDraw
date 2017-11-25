@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_res</title>
+  <meta name="keywords" content="get_res">
+  <meta name="description" content="[ res_tags, obj_name ] = get_res( selection )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html util -->
+<h1>get_res
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>[ res_tags, obj_name ] = get_res( selection )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [ res_tags, obj_name ] = get_res( selection ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> [ res_tags, obj_name ] = get_res( selection )
+  figure out which object in drawing (gca) corresponds to selection.
+
+ INPUT
+ selection = string with name of selection (domain,residue,whatever)
+
+ OUTPUTS
+ res_tags  = all residues associated with selection
+ obj_name  = object name with that selection 
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>	[ res_tags, obj_name ] = get_res( selection )</li><li><a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_resnum_from_tag( tag )</li><li><a href="get_tags.html" class="code" title="function tags = get_tags( headstring, tailstring, objnames )">get_tags</a>	tags = get_tags( headstring )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>	[ res_tags, obj_name ] = get_res( selection )</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [ res_tags, obj_name ] = get_res( selection )</a>
+0002 <span class="comment">% [ res_tags, obj_name ] = get_res( selection )</span>
+0003 <span class="comment">%  figure out which object in drawing (gca) corresponds to selection.</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% INPUT</span>
+0006 <span class="comment">% selection = string with name of selection (domain,residue,whatever)</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% OUTPUTS</span>
+0009 <span class="comment">% res_tags  = all residues associated with selection</span>
+0010 <span class="comment">% obj_name  = object name with that selection</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% (C) R. Das, Stanford University</span>
+0013 
+0014 res_tags = {};
+0015 obj_name = <span class="string">''</span>;
+0016 
+0017 <span class="keyword">if</span> iscell( selection )
+0018     <span class="keyword">for</span> i = 1:length( selection )
+0019         [ res_tags_i, obj_name ] = <a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>( selection{i} );
+0020         res_tags = [res_tags, res_tags_i ]; 
+0021     <span class="keyword">end</span>
+0022     <span class="keyword">return</span>;
+0023 <span class="keyword">end</span>
+0024 
+0025 <span class="keyword">if</span> strcmp( selection, <span class="string">'all'</span> )
+0026     res_tags = <a href="get_tags.html" class="code" title="function tags = get_tags( headstring, tailstring, objnames )">get_tags</a>( <span class="string">'Residue_'</span> );
+0027 <span class="keyword">else</span>
+0028     [resnum,chains,segid,ok] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( selection );
+0029     <span class="keyword">if</span> ok 
+0030         <span class="keyword">for</span> i = 1:length( resnum )
+0031             res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, chains(i), segid{i}, resnum(i) );
+0032             <span class="keyword">if</span> isappdata( gca, res_tag )
+0033                 res_tags = [res_tags, res_tag ];
+0034             <span class="keyword">end</span>
+0035         <span class="keyword">end</span>
+0036     <span class="keyword">else</span>
+0037         vals = getappdata( gca );
+0038         objnames = fields( vals );
+0039         <span class="keyword">if</span> any( strcmp( objnames, selection ) )
+0040             obj = getappdata( gca, selection );
+0041             <span class="keyword">if</span> isfield( obj, <span class="string">'associated_residues'</span> )
+0042                 res_tags = obj.associated_residues;
+0043             <span class="keyword">else</span>
+0044                 res_tags = { selection };
+0045             <span class="keyword">end</span>
+0046             obj_name = selection;
+0047         <span class="keyword">else</span>
+0048             <span class="keyword">for</span> n = 1:length( objnames )
+0049                 obj = getappdata( gca, objnames{n} );
+0050                 <span class="keyword">if</span> isfield( obj, <span class="string">'associated_residues'</span> ) &amp; <span class="keyword">...</span>
+0051                     isfield( obj, <span class="string">'name'</span> ) &amp; <span class="keyword">...</span>
+0052                     strcmp( obj.name, selection )
+0053                     res_tags = obj.associated_residues;
+0054                     obj_name = objnames{n};
+0055                     <span class="keyword">break</span>;
+0056                 <span class="keyword">end</span>
+0057                 <span class="keyword">if</span> isfield( obj, <span class="string">'nucleotide'</span> ) &amp; <span class="keyword">...</span>
+0058                        strcmp( obj.nucleotide, selection )
+0059                     res_tags = { objnames{n} };
+0060                     obj_name = objnames{n};
+0061                     <span class="keyword">break</span>;
+0062                 <span class="keyword">end</span>
+0063             <span class="keyword">end</span>
+0064         <span class="keyword">end</span> 
+0065     <span class="keyword">end</span>
+0066 <span class="keyword">end</span>
+0067 
+0068 <span class="keyword">if</span> length( res_tags ) == 0
+0069     obj_name = <span class="string">''</span>;
+0070     fprintf( <span class="string">'Could not find residues for selection %s\n'</span>, selection );
+0071     <span class="keyword">return</span>;
+0072 <span class="keyword">end</span>
+0073 
+0074 reschain = {};
+0075 <span class="comment">% now sort based on order</span>
+0076 <span class="keyword">for</span> i = 1:length( res_tags )
+0077     residue = getappdata( gca, res_tags{i} );
+0078     reschain{i} = sprintf( <span class="string">'%2s%09d'</span>, residue.chain, residue.resnum );
+0079 <span class="keyword">end</span>
+0080 [~,idx] = sort( reschain );
+0081 res_tags = res_tags( idx );</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

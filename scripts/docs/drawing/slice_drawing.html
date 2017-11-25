@@ -29,13 +29,24 @@
 <div class="fragment"><pre class="comment"> slice_drawing( slice_res )
  slice_drawing( slice_res_tags )
  slice_drawing( slice_domain )
- slice_drawing( {slice_domain1,slice_domain2...} )</pre></div>
+ slice_drawing( {slice_domain1,slice_domain2...} )
+
+ slices out a set of desired residues and any 
+  selections, linkers, and helices that are internal
+  to that set; produces a new window.
+
+ INPUT
+  slice_res = string with residues, cell of res_tags, name of a domain.
+
+ See also: <a href="merge_drawing.html" class="code" title="function merge_drawing( merge_figure_number )">MERGE_DRAWING</a>
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="get_drawing.html" class="code" title="function savedata = get_drawing( slice_res );">get_drawing</a>	savedata = get_drawing( slice_res );</li><li><a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>	load RiboDraw drawing from JSON drawing file.</li></ul>
+<li><a href="get_drawing.html" class="code" title="function savedata = get_drawing( slice_res );">get_drawing</a>	savedata = get_drawing( slice_res );</li><li><a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>	loaddata = load_drawing( filename )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -49,15 +60,25 @@ This function is called by:
 0003 <span class="comment">% slice_drawing( slice_res_tags )</span>
 0004 <span class="comment">% slice_drawing( slice_domain )</span>
 0005 <span class="comment">% slice_drawing( {slice_domain1,slice_domain2...} )</span>
-0006 
-0007 parent_figure_number = get(gcf,<span class="string">'number'</span>);
-0008 subdrawing = <a href="get_drawing.html" class="code" title="function savedata = get_drawing( slice_res );">get_drawing</a>( slice_res );
-0009 <span class="keyword">if</span> ~isfield( subdrawing, <span class="string">'plot_settings'</span> );  <span class="keyword">return</span>; <span class="keyword">end</span>;
-0010 
-0011 figure()
-0012 <a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>( subdrawing, 0, 1 );
-0013 setappdata( gca, <span class="string">'parent_figure_number'</span>, parent_figure_number );
-0014</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% slices out a set of desired residues and any</span>
+0008 <span class="comment">%  selections, linkers, and helices that are internal</span>
+0009 <span class="comment">%  to that set; produces a new window.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% INPUT</span>
+0012 <span class="comment">%  slice_res = string with residues, cell of res_tags, name of a domain.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% See also: MERGE_DRAWING</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0017 parent_figure_number = get(gcf,<span class="string">'number'</span>);
+0018 subdrawing = <a href="get_drawing.html" class="code" title="function savedata = get_drawing( slice_res );">get_drawing</a>( slice_res );
+0019 <span class="keyword">if</span> ~isfield( subdrawing, <span class="string">'plot_settings'</span> );  <span class="keyword">return</span>; <span class="keyword">end</span>;
+0020 
+0021 figure()
+0022 <a href="load_drawing.html" class="code" title="function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_axes )">load_drawing</a>( subdrawing, 0, 1 );
+0023 setappdata( gca, <span class="string">'parent_figure_number'</span>, parent_figure_number );
+0024</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

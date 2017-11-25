@@ -26,7 +26,13 @@
 <div class="box"><strong>function create_menu( h ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> test code -- figuring out right-click context menus.</pre></div>
+<div class="fragment"><pre class="comment"> test code -- figuring out right-click context menus.
+ really silly -- changes font for now.
+
+ TODO: embed all other functions in setting/ into context menus
+         that show up on right click of graphical elements.
+    
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -45,22 +51,29 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function create_menu( h );</a>
 0002 <span class="comment">% test code -- figuring out right-click context menus.</span>
-0003 c = uicontextmenu;
-0004 
-0005 <span class="comment">% Assign the uicontextmenu to the plot line</span>
-0006 h.UIContextMenu = c;
-0007 r<span class="comment">% Create child menu items for the uicontextmenu</span>
-0008 m1 = uimenu(c,<span class="string">'Label'</span>,<span class="string">'Times'</span>,<span class="string">'Callback'</span>,{@<a href="#_sub1" class="code" title="subfunction setlinestyle(source,callbackdata, h)">setlinestyle</a>, h});
-0009 m2 = uimenu(c,<span class="string">'Label'</span>,<span class="string">'Helvetica'</span>,<span class="string">'Callback'</span>,{@<a href="#_sub1" class="code" title="subfunction setlinestyle(source,callbackdata, h)">setlinestyle</a>, h});
-0010 
-0011     <a name="_sub1" href="#_subfunctions" class="code">function setlinestyle(source,callbackdata, h)</a>
-0012     <span class="keyword">switch</span> source.Label
-0013         <span class="keyword">case</span> <span class="string">'Times'</span>
-0014             h.FontName = <span class="string">'Times'</span>;
-0015         <span class="keyword">case</span> <span class="string">'Helvetica'</span>
-0016             h.FontName = <span class="string">'Helvetica'</span>;
-0017     <span class="keyword">end</span>
-0018     h</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0003 <span class="comment">% really silly -- changes font for now.</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% TODO: embed all other functions in setting/ into context menus</span>
+0006 <span class="comment">%         that show up on right click of graphical elements.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0009     
+0010 c = uicontextmenu;
+0011 
+0012 <span class="comment">% Assign the uicontextmenu to the plot line</span>
+0013 h.UIContextMenu = c;
+0014 r<span class="comment">% Create child menu items for the uicontextmenu</span>
+0015 m1 = uimenu(c,<span class="string">'Label'</span>,<span class="string">'Times'</span>,<span class="string">'Callback'</span>,{@<a href="#_sub1" class="code" title="subfunction setlinestyle(source,callbackdata, h)">setlinestyle</a>, h});
+0016 m2 = uimenu(c,<span class="string">'Label'</span>,<span class="string">'Helvetica'</span>,<span class="string">'Callback'</span>,{@<a href="#_sub1" class="code" title="subfunction setlinestyle(source,callbackdata, h)">setlinestyle</a>, h});
+0017 
+0018     <a name="_sub1" href="#_subfunctions" class="code">function setlinestyle(source,callbackdata, h)</a>
+0019     <span class="keyword">switch</span> source.Label
+0020         <span class="keyword">case</span> <span class="string">'Times'</span>
+0021             h.FontName = <span class="string">'Times'</span>;
+0022         <span class="keyword">case</span> <span class="string">'Helvetica'</span>
+0023             h.FontName = <span class="string">'Helvetica'</span>;
+0024     <span class="keyword">end</span>
+0025     h</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

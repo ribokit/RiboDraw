@@ -26,7 +26,26 @@
 <div class="box"><strong>function [v,start_pos,pointing_out_of_polygon] = first_crossing( polygon, plot_pos ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> first_crossing( polygon, plot_pos );</pre></div>
+<div class="fragment"><pre class="comment"> first_crossing( polygon, plot_pos );
+
+  Used in drawing split arrows that need to peek out from under
+    silhouette images of proteins (or other ligands).
+
+  Figure out if the line emanating from the ligand is passing out of
+    the silhouette image_boundary and, if so, where does this happen.
+
+ Inputs:
+   polygon  = M X 2 trajectory defining the silhouette of the protein (image_boundary)
+   plot_pos = N x 2 line pointing out of ligand to its partner residue.
+
+ Outputs:
+  v         = unit vector pointing out of first crossing.
+  start_pos = point of first crossing
+  pointing_out_of_polygon = 1 or 0 if pointing out or into image ilhouette.
+
+
+
+ (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -43,33 +62,52 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [v,start_pos,pointing_out_of_polygon] = first_crossing( polygon, plot_pos );</a>
 0002 <span class="comment">% first_crossing( polygon, plot_pos );</span>
-0003 
-0004 v         = plot_pos(2,:) - plot_pos(1,:);
-0005 v = v / norm(v);
-0006 start_pos = plot_pos(1,:);
-0007 pointing_out_of_polygon = 1;
-0008 
-0009 <span class="comment">% find crossings</span>
-0010 [xi,yi,ii] = polyxpoly( plot_pos(:,1),plot_pos(:,2), polygon(:,1),polygon(:,2) );
-0011 <span class="keyword">if</span> length( xi ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
-0012 
-0013 <span class="comment">% find first of these crossings -- closest to  residue that starts the</span>
-0014 <span class="comment">% plot_pos line</span>
-0015 <span class="keyword">for</span> k = 1:length(xi)
-0016     dist_to_residue1(k) = norm( [xi(k) - plot_pos(1,1), yi(k) - plot_pos(1,2) ]);
-0017 <span class="keyword">end</span>
-0018 
-0019 [~,idx] = min( dist_to_residue1 );
-0020 start_pos = [xi(idx),yi(idx)];
-0021 plot_pos_idx = ii(idx,1);
-0022 v = plot_pos(plot_pos_idx+1,:) - plot_pos(plot_pos_idx,:);
-0023 v = v / norm(v);
-0024 
-0025 start_pos_nudge_back =  start_pos - 0.01*v;
-0026 pointing_out_of_polygon = inpolygon( start_pos_nudge_back(1), start_pos_nudge_back(2),<span class="keyword">...</span>
-0027                                      polygon(:,1),polygon(:,2));
-0028 
-0029</pre></div>
-<hr><address>Generated on Fri 17-Nov-2017 21:30:16 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Used in drawing split arrows that need to peek out from under</span>
+0005 <span class="comment">%    silhouette images of proteins (or other ligands).</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%  Figure out if the line emanating from the ligand is passing out of</span>
+0008 <span class="comment">%    the silhouette image_boundary and, if so, where does this happen.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% Inputs:</span>
+0011 <span class="comment">%   polygon  = M X 2 trajectory defining the silhouette of the protein (image_boundary)</span>
+0012 <span class="comment">%   plot_pos = N x 2 line pointing out of ligand to its partner residue.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% Outputs:</span>
+0015 <span class="comment">%  v         = unit vector pointing out of first crossing.</span>
+0016 <span class="comment">%  start_pos = point of first crossing</span>
+0017 <span class="comment">%  pointing_out_of_polygon = 1 or 0 if pointing out or into image ilhouette.</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0022 
+0023 v         = plot_pos(2,:) - plot_pos(1,:);
+0024 v = v / norm(v);
+0025 start_pos = plot_pos(1,:);
+0026 pointing_out_of_polygon = 1;
+0027 
+0028 <span class="comment">% find crossings</span>
+0029 [xi,yi,ii] = polyxpoly( plot_pos(:,1),plot_pos(:,2), polygon(:,1),polygon(:,2) );
+0030 <span class="keyword">if</span> length( xi ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0031 
+0032 <span class="comment">% find first of these crossings -- closest to  residue that starts the</span>
+0033 <span class="comment">% plot_pos line</span>
+0034 <span class="keyword">for</span> k = 1:length(xi)
+0035     dist_to_residue1(k) = norm( [xi(k) - plot_pos(1,1), yi(k) - plot_pos(1,2) ]);
+0036 <span class="keyword">end</span>
+0037 
+0038 [~,idx] = min( dist_to_residue1 );
+0039 start_pos = [xi(idx),yi(idx)];
+0040 plot_pos_idx = ii(idx,1);
+0041 v = plot_pos(plot_pos_idx+1,:) - plot_pos(plot_pos_idx,:);
+0042 v = v / norm(v);
+0043 
+0044 start_pos_nudge_back =  start_pos - 0.01*v;
+0045 pointing_out_of_polygon = inpolygon( start_pos_nudge_back(1), start_pos_nudge_back(2),<span class="keyword">...</span>
+0046                                      polygon(:,1),polygon(:,2));
+0047 
+0048</pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of show_noncanonical_pairs</title>
+  <meta name="keywords" content="show_noncanonical_pairs">
+  <meta name="description" content="show_noncanonical_pairs( setting );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html settings -->
+<h1>show_noncanonical_pairs
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>show_noncanonical_pairs( setting );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function show_noncanonical_pairs( setting ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> show_noncanonical_pairs( setting );
+
+ Show or hide lines with Leontis-Westhof symbol for noncanonical pairs, based on 
+    whether setting is 1 or 0.
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="set_linker_visibility.html" class="code" title="function linker = set_linker_visibility( linker, visible );">set_linker_visibility</a>	linker = set_linker_visibility( linker, visible );</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="hide_noncanonical_pairs.html" class="code" title="function hide_noncanonical_pairs()">hide_noncanonical_pairs</a>	hide_noncanonical_pairs()</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function show_noncanonical_pairs( setting )</a>
+0002 <span class="comment">% show_noncanonical_pairs( setting );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Show or hide lines with Leontis-Westhof symbol for noncanonical pairs, based on</span>
+0005 <span class="comment">%    whether setting is 1 or 0.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0008 
+0009 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>, <span class="string">'var'</span> ) setting = 1; <span class="keyword">end</span>;
+0010 <span class="keyword">if</span> setting; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0011 noncanonical_tags = get_tags( <span class="string">'Linker_'</span>, <span class="string">'noncanonical_pair'</span> );
+0012 <span class="keyword">for</span> i = 1:length( noncanonical_tags )
+0013     tag = noncanonical_tags{i};
+0014     linker = getappdata( gca, tag );
+0015     linker = <a href="set_linker_visibility.html" class="code" title="function linker = set_linker_visibility( linker, visible );">set_linker_visibility</a>( linker, visible );
+0016  <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Fri 24-Nov-2017 17:23:44 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

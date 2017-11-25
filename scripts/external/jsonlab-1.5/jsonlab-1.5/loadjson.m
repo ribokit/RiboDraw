@@ -129,6 +129,7 @@ function object = parse_object(inStr, esc, varargin)
             end
             parse_char(inStr, ':');
             val = parse_value(inStr, esc, varargin{:});
+            
             object.(valid_field(str))=val;
             if next_char(inStr) == '}'
                 break;
@@ -215,7 +216,9 @@ function object = parse_array(inStr, esc, varargin) % JSON array is written in r
            if(isoct && regexp(arraystr,'"','once'))
                 error('Octave eval can produce empty cells for JSON-like input');
            end
-           object=eval(arraystr);
+           tmpobject=eval(arraystr);
+		   assert(iscell(tmpobject));
+		   object = tmpobject;
            pos=endpos;
         catch
          while 1
@@ -311,6 +314,10 @@ function str = parseStr(inStr, esc, varargin)
                     elseif(strcmp(str,'_NaN_'))
                         str=NaN;
                     end
+                end
+                if ~isempty( strfind( str, 'Selection' ) ) 
+                    str
+                    dbstack
                 end
                 return;
             case '\'

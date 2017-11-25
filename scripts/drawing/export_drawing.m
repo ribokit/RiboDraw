@@ -3,9 +3,6 @@ function export_drawing( filename )
 %
 %  Export drawing to different formats: PostScript, JPEG, PDF, PNG
 %
-%  TODO: allow SVG output (there is a public domain MATLAB package
-%  for it.)
-%
 % Inputs:
 %  filename = name of output image (should end in .eps, .jpg, .pdf, or .png)
 %
@@ -23,6 +20,8 @@ switch cols{end}
         opt = '-djpg';
     case 'png'
         opt = '-dpng';
+	case: 'svg'
+		opt = '';
     otherwise 
         fprintf( 'Unrecognized extension' )
         help
@@ -35,7 +34,12 @@ hide_helix_controls;
 hide_selection_controls;
 hide_linker_controls;
 
-print( filename, opt );
+if opt = ''
+	print( filename, opt );
+else
+	% Use library function
+	plot2svg( 'myfile.svg', gcf );
+end
 fprintf( 'Created: %s\n', filename ); 
 
 show_helix_controls ( plot_settings.show_helix_controls );

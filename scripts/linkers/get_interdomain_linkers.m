@@ -1,5 +1,21 @@
 function interdomain_linkers = get_interdomain_linkers( linkers, domain_names )
 % interdomain_linkers = get_interdomain_linkers( linkers, domain_names )
+%
+% Inputs:
+%  linkers       = cell of linker tags to go through and filter for interdomain.
+%  domain_names  = cell of strings with names of domains (previously must have been defined by user
+%                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}
+%
+% Outputs:
+%  interdomain_linkenrs = filtered cell of linker tags that interconnect different domains.
+%
+% TODO: see note in GROUP_INTERDOMAIN_LINKERS -- would be better to
+%   force user to run this first, and then run grouping function.
+%
+% (C) R. Das, Stanford University, 2017
+
+dbstack();
+fprintf( '\n Running get_interdomain_linkers(). TODO: ask user to run this outside rather than here!\n' );
 
 interdomain_linkers = {};
 [domain_tags,ok] = get_gca_domain_tags( domain_names );
@@ -21,6 +37,8 @@ for i = 1:length( linkers )
     domains2 = domain_tags(find(domain_member2));
     linker.domain2 = domains2{1}; % first one.
     linker.interdomain = 1;
+    
+    % this is cryptic.
     setappdata( gca, linker.linker_tag, linker );
     interdomain_linkers = [ interdomain_linkers, linker ];    
 end

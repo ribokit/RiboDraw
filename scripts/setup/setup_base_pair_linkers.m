@@ -1,7 +1,12 @@
 function setup_base_pair_linkers( base_pairs )
-% draw_dummy_base_pairs( base_pairs )
+% setup_base_pair_linkers( base_pairs )
 %
+% Define base pair linkers connecting stem pairs and noncanonical pairs.
 %
+% See DRAW_LINKER for functions that render the actual graphics.
+%
+% (C) Rhiju Das, Stanford University, 2017
+
 for i = 1:length( base_pairs )
     base_pair = base_pairs{i};
     res_tag1 = sprintf('Residue_%s%s%d',base_pair.chain1,base_pair.segid1,base_pair.resnum1);

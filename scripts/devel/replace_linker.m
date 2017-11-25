@@ -1,6 +1,9 @@
 function replace_linker( tag, new_tag,  linker );
-% replace linker at tag with new linker object (linker) with new_tag.
-% update any associated residues
+% Replace linker at tag with new linker object (linker) with new_tag.
+% Update any associated residues
+% Used only when cleaning up drawings upon format changes, so move to devel/
+%
+% (C) R. Das, Stanford University
 
 assert( strcmp( linker.linker_tag, new_tag ) )
 %if ~strcmp( new_tag, tag )
@@ -11,6 +14,7 @@ fprintf( 'Replacing %s with %s\n', tag, new_tag );
 if isappdata(gca,tag); rmappdata(gca,tag); end;
 setappdata( gca, new_tag, linker );
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function fix_residue( res_tag, tag, new_tag );
 residue = getappdata( gca, res_tag );
 residue.linkers = setdiff( residue.linkers, tag );

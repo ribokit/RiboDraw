@@ -1,6 +1,11 @@
 function setup_arrow_linkers(resnum,chains,segid)
-% setup_arrow_linkers(resnum,chains)
-% draw arrows at dummy locations.
+% setup_arrow_linkers( resnum, chains, segid )
+%
+% Define arrow linkers connecting contiguous residues. 
+%
+% See DRAW_LINKER for functions that render the actual graphics.
+%
+% (C) R. Das, Stanford University, 2017
 
 for i = 1:length(resnum)
     j = i + 1;

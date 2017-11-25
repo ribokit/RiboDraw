@@ -1,4 +1,19 @@
 function linker = delete_linker( linker, remove_linker );
+% linker = delete_linker( linker, remove_linker )
+%
+% Delete a linker and all associated graphics handles.
+%
+% Inputs
+%  linker = linker object or tag for linker. Cell of several such objects 
+%              or tags is also acceptable
+%  remove_linker = 0/1 to actually delete linker from drawing (gca) rather
+%                   than simply erase graphics handles. (default: 1, total destruction)
+%
+% Output
+%  linker = the struct() after removal of graphics handles.
+%
+% (C) R. Das, Stanford University.
+
 if ~exist( 'remove_linker', 'var' ) remove_linker = 1; end;
 if iscell( linker )
     for i = 1:length( linker ); 

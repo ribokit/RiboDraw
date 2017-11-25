@@ -1,6 +1,18 @@
 function linker = create_linker_with_draggable_vtx( linker )
 % linker = create_linker_with_draggable_vtx( linker )
 %
+% Updates linker to show symbols at beginning and end of linker, and any intermediate 
+%    vertices, allowing editing of the linker path.
+%
+% The beginning and end vertices, if dragged, spawn new vertices, allowing
+%    the linker to get zigs and zags, rather than being a straight-shot
+%    between the connected residues.
+%
+% The internal vertices can be dragged to refine the linker path. If they
+%    are dragged onto an endpoint residues, they can be removed.
+%
+% Note: must SHOW_LINKER_CONTROLS to see these vertices.
+%
 % (C) R. Das, Stanford University.
 
 linker.vtx = {};

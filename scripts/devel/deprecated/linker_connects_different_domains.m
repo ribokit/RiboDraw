@@ -1,5 +1,7 @@
 function val = linker_connects_different_domains( residue1, residue2 )
-
+%
+% deprecated in favor of get_interdomain_linkers
+%
 val = ~strcmp(residue1.chain,residue2.chain) | ...
       ~strcmp(residue1.segid,residue2.segid);
 

@@ -12,8 +12,10 @@ function linker_groups = group_interdomain_linkers( domain_names )
 %
 %  (The information for each group is saved in a TertiaryContact object.)
 %
-% TODO: may need to set interdomain field to the grouped linkers to allow
-%    them to be properly hidden.
+% TODO: the 'interdomain' field is assigned to grouped linkers to allow
+%    them to be properly hidden -- and this happens inside GET_INTERDOMAIN_LINKERS,
+%    would be better to expose this function to user -- perhaps force it to be
+%    run first by user, and then this group function.
 %
 % Input:
 %  domain_names  = cell of strings with names of domains (previously must have been defined by user
@@ -21,6 +23,7 @@ function linker_groups = group_interdomain_linkers( domain_names )
 %
 % Output:
 %  linker_groups = cell of cells of linker tags that were grouped. 
+%
 %
 % (C) R. Das, Stanford University
 

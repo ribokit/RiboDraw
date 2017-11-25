@@ -3,9 +3,15 @@ function linker = rectify_linker( linker, overwrite );
 % linker = rectify_linker( linker );
 % linker = rectify_linker( linker, overwrite );
 %
-%  specify overwrite = 0 to just do a test.
+%  Applies a super-simple heuristic to adjust segments of a linker that are close
+%    to horizontal or vertical to actually be vertical or horizontal.
 %
-% (C) R. Das, 2017
+%  The cutoff for 'close' is 10 degrees (defined by ANGLE_CUTOFF inside function).
+%
+%  Specify overwrite = 0 to just do a test. I ended up just making this
+%    run always by default after a linker edit.
+%
+% (C) R. Das, Stanford University, 2017
 
 if ~exist( 'linker', 'var' ) || isempty(linker); linker = get_tags( 'Linker' ); end;
 if ~exist( 'overwrite', 'var' ) overwrite = 1; end;

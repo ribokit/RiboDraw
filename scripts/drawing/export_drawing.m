@@ -21,7 +21,7 @@ switch cols{end}
     case 'png'
         opt = '-dpng';
     case 'svg'
-		opt = '';
+		opt = 'SVG';
     otherwise 
         fprintf( 'Unrecognized extension' )
         help
@@ -34,11 +34,11 @@ hide_helix_controls;
 hide_selection_controls;
 hide_linker_controls;
 
-if opt == ''
-	print( filename, opt );
-else
+if strcmp(opt, 'SVG') == 1
 	% Use library function
 	plot2svg( filename, gcf );
+else
+	print( filename, opt );
 end
 fprintf( 'Created: %s\n', filename ); 
 

@@ -34,11 +34,7 @@ The core format for RiboDraw 'drawing' files is JSON-like to allow for their eve
 
 
 ## For developers
-### Open Source policy
-* Want to improve RiboKit's MATLAB interface? Port to JavaScript? Check out [TODO.md](TODO.md) for current issues. Feel free to fork and make pull requests. 
-
-### Building docs
-* We are currently using M2HTML to quickly generate docs for MATLAB scripts. Download it [here](https://www.artefact.tk/software/matlab/m2html/), and run in MATLAB from the `Ribodraw/scripts/` directory:
-```
-m2html( 'mfiles','','htmldir','docs','ignoredDir',{'external' 'devel'},'recursive','on','template','frame', 'index','menu');
-```
+* *Ribodraw is Open Source*. Want to improve RiboKit's MATLAB interface? Port to JavaScript? Check out our Issue on GitHub. Feel free to fork and make pull requests. 
+* *Its easy to generate HTML docs* We are currently using M2HTML to quickly generate docs for MATLAB scripts. Download it [here](https://www.artefact.tk/software/matlab/m2html/), and run the
+`generate_ribodraw_docs` command to update docs.
+* *We need unit tests* MATLAB has a framework for this.

@@ -5,7 +5,16 @@ function update_helix_names( stems );
 %  may have useful new names specified by user; update any
 %  helices in appdata to have those names too.
 %
+% INPUT:
+%  stems = cell of Helix objects (e.g., as read infrom READ_STEMS)
+%            *or* filename of '*stems.txt' file with tags
+%            written at end of each helix line.
+%
 % (C) R. Das, Stanford University
+
+if ischar( stems )
+    stems = read_stems( stems );
+end
 
 for n = 1:length( stems )
     stem = stems{n};
@@ -14,7 +23,6 @@ for n = 1:length( stems )
         stems{n}.segid1{1},...
         stems{n}.resnum1(1));% this better be a unique identifier
     helix = getappdata( gca, helix_tag );
-    helix
     helix.name = stem.name;
     if isfield( helix, 'label' )
         set( helix.label, 'String', helix.name );

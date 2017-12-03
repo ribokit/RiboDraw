@@ -1,4 +1,4 @@
 Domain 5prime                 B:V:1-559 B:V:913-920
 Domain C                      B:V:560-912
-Domain 3primeM		      B:V:921-1398
-Domain 3primem                B:V:1399-1542
+Domain 3primeMajor            B:V:921-1400
+Domain 3primeminor            B:V:1401-1542

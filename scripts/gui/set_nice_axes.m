@@ -10,6 +10,6 @@ function set_nice_axes()
 % R. Das, Stanford University, 2017
 
 axis image % tight cropping
-axlim = axis();
+axlim = axis()
 axis normal
 axis( axlim );

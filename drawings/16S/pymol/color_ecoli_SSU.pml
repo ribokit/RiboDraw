@@ -1,8 +1,8 @@
 # back layer, domain 3
 select domain_5prime,  segid V  and (resi 1-559 or resi 913-920)
 select domain_C,       segid V  and (resi 560-912)
-select domain_3primeMajor, segid V  and (resi 921-1398)
-select domain_3primeminor, segid V  and (resi 1399-1542)
+select domain_3primeMajor, segid V  and (resi 921-1400)
+select domain_3primeminor, segid V  and (resi 1401-1542)
 
 color white, chain CA
 color marine, domain_5prime

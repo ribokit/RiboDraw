@@ -99,10 +99,7 @@ move_stuff_to_back();
 
 axis off
 if ~keep_drawing_axes
-    axis image % tight cropping
-    axlim = axis();
-    axis normal
-    axis( axlim );
+    set_nice_axes();
 end
 set(gcf,'color','white')
 

@@ -67,7 +67,7 @@ for n = 1:length( objnames )
     % let's save time.
     if ~isempty( slice_res_tags )
         residue.linkers = intersect( residue.linkers, filter_linker_tags);
-        residue.associated_selections = intersect( residue.associated_selections, filter_selection_tags);
+        if isfield( residue, 'associated_selections' ) residue.associated_selections = intersect( residue.associated_selections, filter_selection_tags); end;
     end
     savedata = setfield( savedata, objnames{n}, residue );
 end
@@ -175,6 +175,10 @@ for i = 1:length( helix_tags )
     if length( intersect_tags ) == 0; 
         % helix could be cleanly outside target res
         continue;
+    elseif  length( intersect_tags ) < length( helix.associated_residues )
+        fprintf( 'Warning! slice_res only catches part of helix %s. Will include the rest of that helix too\n', tag);
+        new_helix_tags = [new_helix_tags, tag ];
+        new_residue_tags = unique( [ new_residue_tags; helix.associated_residues' ] );
     else
         new_helix_tags = [new_helix_tags, tag ];
     end

@@ -47,3 +47,7 @@ setup_ligands( ligands );
 
 draw_helices( stems );
 setup_zoom();
+
+
+set_nice_axes();
+reset_fontsize();

@@ -26,9 +26,16 @@ if ischar( color ) & strcmp(color,'rainbow')
         residue = getappdata( gca, res_tags{i} );
         resnum(i) = residue.resnum;
     end
-    all_resnum = [min(resnum):max(resnum)];
-    all_res_colors = pymol_rainbow( length(all_resnum) );
-    res_colors = all_res_colors( resnum - min(resnum) + 1, :);
+    
+   
+    % pymol seems to use this sometimes
+    res_colors = pymol_rainbow( length(resnum) );
+   
+    % ... this other times
+    %all_resnum = [min(resnum):max(resnum)];
+    %all_res_colors = pymol_rainbow( length(all_resnum) );
+    %res_colors = all_res_colors( resnum - min(resnum) + 1, :);
+
     label_color = [0,0,0];
 else
     rgb_color = pymol_RGB( color );
@@ -36,14 +43,17 @@ else
     label_color = rgb_color;
 end
 
+linkers = {};
 for n = 1:length( res_tags )
     res_tag = res_tags{n};
     residue = getappdata( gca, res_tag );
     residue.rgb_color = res_colors(n,:);
     if isfield( residue, 'handle' ) set( residue.handle, 'color', residue.rgb_color ); end;
+    linkers = [ linkers, residue.linkers ];
     setappdata( gca, res_tag, residue);
-    draw_helix( residue.helix_tag );
+    %draw_helix( residue.helix_tag );
 end
+draw_linker( unique( linkers ) );
 
 if length( obj_name ) > 0
     obj = getappdata( gca, obj_name );

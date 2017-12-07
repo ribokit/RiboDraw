@@ -218,6 +218,7 @@ for k = 1:Noptarg
    end;
 end;
 
+
 % Assigning defaults for constraint parameter
 switch lower(constraint)
     case {'n','none'}

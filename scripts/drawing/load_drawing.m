@@ -97,14 +97,10 @@ convert_problem_helices_to_domains; % happens when helices get disconnected acro
 draw_helices( get_helices( loaddata ) );
 move_stuff_to_back();
 
-axis off
-if ~keep_drawing_axes
-    set_nice_axes();
-end
-set(gcf,'color','white')
-
+%show_artboards();
 set_fontsize( loaddata.plot_settings.fontsize );
 setup_zoom();
+setup_pan();
 toc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -88,8 +88,8 @@ for i = 1:length( selections )
     if ~isempty( minpos ) & ~isempty( maxpos )
         if isfield( selection, 'rectangle')  set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
         if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
-        if isfield( selection, 'label') & ~isempty( ctr_pos ) & ~isempty( selection.label_relpos )
-            set( selection.label, 'Position',  ctr_pos + selection.label_relpos );
+        if isfield( selection, 'label') & ~isempty( ctr_pos ) 
+            if~isempty( selection.label_relpos ) set( selection.label, 'Position',  ctr_pos + selection.label_relpos ); end;
             set( selection.label, 'String', strrep(strrep(selection.name,'prime','^{\prime}'),'_','\_') );
             if isfield( selection, 'rgb_color' ) & isempty(strfind(selection.name,'\color')); set( selection.label, 'color', selection.rgb_color ); end
             if isfield( selection, 'helix_group' ) set( selection.label, 'fontsize', plot_settings.fontsize*1.5,'fontweight','normal'); end;

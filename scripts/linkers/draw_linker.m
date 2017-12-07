@@ -32,8 +32,8 @@ plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( linker, 'line_handle' )   
     residue1 = getappdata( gca, linker.residue1 );
     residue2 = getappdata( gca, linker.residue2 );
-    if ~isfield( residue1, 'plot_pos' ) return; end;
-    if ~isfield( residue2, 'plot_pos' ) return; end;
+    if ~isfield( residue1, 'plot_pos' ) residue1.plot_pos = get_plot_pos( residue1, linker.relpos1 ); end;
+    if ~isfield( residue2, 'plot_pos' ) residue2.plot_pos = get_plot_pos( residue2, linker.relpos2 ); end;
     if strcmp(linker.type,'stack' ) 
         if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) return; end;
     end
@@ -112,6 +112,8 @@ if isfield( linker, 'plot_pos' )
     end
     if ( ~isfield( linker, 'vtx' ) & ~strcmp( linker.type, 'stem_pair' ) )                
         linker = create_linker_with_draggable_vtx( linker );
+    end  
+    if (isfield( linker, 'vtx' ) )
         for i = 1:size( linker.plot_pos, 1 )
             set( linker.vtx{i}, 'xdata', linker.plot_pos(i,1), 'ydata', linker.plot_pos(i,2) );
         end

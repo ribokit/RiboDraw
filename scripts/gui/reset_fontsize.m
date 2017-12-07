@@ -8,8 +8,10 @@ function reset_fontsize( fontsize );
 % (C) R. Das, Stanford University, 2017
 
 
-xlim = get(gca,'xlim' );
-if ~exist( 'fontsize', 'var' ) fontsize = 2700/(xlim(2)-xlim(1)); end;
+if ~exist( 'fontsize', 'var' ) 
+    xlim = get(gca,'xlim' );
+    fontsize = 2700/(xlim(2)-xlim(1)); 
+end;
 % change font size accordingly
 set_fontsize( fontsize );
 set_linker_width( fontsize );

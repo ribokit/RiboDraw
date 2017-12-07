@@ -37,4 +37,5 @@ dims = (max_pos - min_pos);
 axes =  [min_pos - dims*0.025; min_pos + dims*1.025 ];
  
 axis( reshape( axes, [1 4] ) );
+update_artboards
 reset_fontsize

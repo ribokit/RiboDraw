@@ -32,9 +32,9 @@ if ischar( color ) & strcmp(color,'rainbow')
     res_colors = pymol_rainbow( length(resnum) );
    
     % ... this other times
-    %all_resnum = [min(resnum):max(resnum)];
-    %all_res_colors = pymol_rainbow( length(all_resnum) );
-    %res_colors = all_res_colors( resnum - min(resnum) + 1, :);
+    all_resnum = [min(resnum):max(resnum)];
+    all_res_colors = pymol_rainbow( length(all_resnum) );
+    res_colors = all_res_colors( resnum - min(resnum) + 1, :);
 
     label_color = [0,0,0];
 else

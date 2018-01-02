@@ -32,8 +32,10 @@ plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( linker, 'line_handle' )   
     residue1 = getappdata( gca, linker.residue1 );
     residue2 = getappdata( gca, linker.residue2 );
-    if ~isfield( residue1, 'plot_pos' ) residue1.plot_pos = get_plot_pos( residue1, linker.relpos1 ); end;
-    if ~isfield( residue2, 'plot_pos' ) residue2.plot_pos = get_plot_pos( residue2, linker.relpos2 ); end;
+    if ~isfield( linker, 'relpos1' ) return; end;
+    if ~isfield( linker, 'relpos2' ) return; end;
+    if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
+    if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
     if strcmp(linker.type,'stack' ) 
         if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) return; end;
     end
@@ -306,7 +308,11 @@ pos1 = pos1 +  (bp_spacing/5)*v;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function plot_pos = get_plot_pos( res_tag, relpos );
-residue = getappdata( gca, res_tag );
+if ischar( res_tag ) 
+    residue = getappdata( gca, res_tag );
+else
+    residue = res_tag;
+end
 helix = getappdata( gca, residue.helix_tag );
 R = get_helix_rotation_matrix( helix );
 plot_pos = repmat(helix.center,size(relpos,1),1) + relpos*R;

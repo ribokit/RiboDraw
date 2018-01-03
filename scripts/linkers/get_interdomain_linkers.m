@@ -15,7 +15,7 @@ function interdomain_linkers = get_interdomain_linkers( linkers, domain_names )
 % (C) R. Das, Stanford University, 2017
 
 dbstack();
-fprintf( '\n Running get_interdomain_linkers(). TODO: ask user to run this outside rather than here!\n' );
+fprintf( 'Running get_interdomain_linkers(). TODO: ask user to run this outside rather than here!\n\n' );
 
 interdomain_linkers = {};
 [domain_tags,ok] = get_gca_domain_tags( domain_names );

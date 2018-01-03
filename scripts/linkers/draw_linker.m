@@ -32,15 +32,15 @@ plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( linker, 'line_handle' )   
     residue1 = getappdata( gca, linker.residue1 );
     residue2 = getappdata( gca, linker.residue2 );
-    if ~isfield( linker, 'relpos1' ) return; end;
-    if ~isfield( linker, 'relpos2' ) return; end;
-    if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
-    if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
-    if strcmp(linker.type,'stack' ) 
-        if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) return; end;
-    end
-    if strcmp(linker.type,'arrow' ) 
-        if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) return; end;
+    if isfield( linker, 'relpos1' ) & isfield( linker, 'relpos2' )
+        if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
+        if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
+        if strcmp(linker.type,'stack' )
+            if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) return; end;
+        end
+        if strcmp(linker.type,'arrow' )
+            if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) return; end;
+        end
     end
 end
 if strcmp(linker.type,'stack' ) && isfield( plot_settings, 'show_stacks') && ~plot_settings.show_stacks; return; end;

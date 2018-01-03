@@ -24,7 +24,7 @@ tertiary_contact_tags = get_tertiary_contact_tags();
 
 if exist( 'slice_res', 'var' )
     slice_res_tags = get_res( slice_res );
-    [residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
+    [residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
     if ~ok; return; end;
 else
     slice_res_tags = {};
@@ -149,7 +149,7 @@ tags = sort( get_tags( 'TertiaryContact_' ) );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
+function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
 fprintf( 'Filtering by slice_res\n' );
 tic
 ok = 1;
@@ -183,6 +183,10 @@ for i = 1:length( helix_tags )
         new_helix_tags = [new_helix_tags, tag ];
     end
 end
+
+% NEW -- let's actually update slice_res to include those extra helices
+% that are brought in.
+slice_res_tags = new_residue_tags;
 
 % linkers
 for i = 1:length( linker_tags )

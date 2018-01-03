@@ -52,7 +52,13 @@ for i = 1:length(ligands)
     
     ligand.helix_tag = unique_helix_tags{ idx };
     ligand.relpos    = [10,0]; % wild guess
-    setappdata( gca, ligand.res_tag, ligand );
+    if isappdata( gca, ligand.res_tag ) % keep ligand but update linkers
+        ligand_original = getappdata( gca, ligand.res_tag );
+        ligand_original.linkers = ligand.linkers;
+        setappdata( gca, ligand.res_tag, ligand_original );
+    else
+        setappdata( gca, ligand.res_tag, ligand ); 
+    end;
     
     ligands{i} = ligand;
 end

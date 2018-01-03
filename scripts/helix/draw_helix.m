@@ -136,6 +136,8 @@ end
 set( helix.click_center, 'Position', [helix_center(1)-0.15*spacing helix_center(2)-0.15*spacing,...
     0.3*spacing 0.3*spacing]);
 
+set_helix_visibility( helix, plot_settings.show_helix_controls );
+
 % make ticklabels draggable
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};

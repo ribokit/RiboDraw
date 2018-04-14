@@ -41,8 +41,9 @@ setup_base_stack_linkers( base_stacks );
 setup_other_contact_linkers( other_contacts );
 try_non_standard_names( sequence, resnum, chains, segid, non_standard_residues);
 
-coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
-setup_coaxial_stacks( coaxial_stacks );
+%coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
+%setup_coaxial_stacks( coaxial_stacks );
+
 setup_ligands( ligands );
 
 draw_helices( stems );

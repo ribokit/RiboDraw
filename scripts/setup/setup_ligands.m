@@ -55,6 +55,7 @@ for i = 1:length(ligands)
     if isappdata( gca, ligand.res_tag ) % keep ligand but update linkers
         ligand_original = getappdata( gca, ligand.res_tag );
         ligand_original.linkers = ligand.linkers;
+        if ~isfield( ligand_original, 'helix_tag' ) ligand_original.helix_tag = ligand.helix_tag; end;
         setappdata( gca, ligand.res_tag, ligand_original );
     else
         setappdata( gca, ligand.res_tag, ligand ); 

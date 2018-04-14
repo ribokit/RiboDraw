@@ -31,6 +31,7 @@ end
 plot_settings = getappdata( gca, 'plot_settings' );
 
 hide_helix_controls;
+hide_domain_controls;
 hide_selection_controls;
 hide_linker_controls;
 

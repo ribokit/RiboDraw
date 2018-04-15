@@ -1,14 +1,23 @@
-function export_drawing( filename )
-% export_drawing( filename )
+function coords = export_drawing( filename, output_coords )
+% coords = export_drawing( filename )
 %
 %  Export drawing to different formats: PostScript, JPEG, PDF, PNG
 %
 % Inputs:
-%  filename = name of output image (should end in .eps, .jpg, .pdf, or .png)
+%  filename      = name of output image (should end in .eps, .jpg, .pdf, or .png)
+%  output_coords = [default: 0] Also output tab-separated file with:
 %
-% See also: SAVE_DRAWING
+%                    x y chain segid resnum name
+%
+%            for each residue/ligand/protein in the drawing.
+%            Name will be filename.coords.txt. 
+%
+
+%
+% See also: SAVE_DRAWING, EXPORT_COORDINATES
 %
 % (C) R. Das, Stanford University
+if ~exist( 'output_coords','var' ) output_coords = 0; end;
 
 cols = strsplit( filename, '.' );
 switch cols{end}
@@ -35,13 +44,25 @@ hide_domain_controls;
 hide_selection_controls;
 hide_linker_controls;
 
+tic
 if strcmp(opt, 'SVG') == 1
 	% Use library function
 	plot2svg( filename, gcf );
 else
-	print( filename, opt );
+    print( filename, opt );
 end
 fprintf( 'Created: %s\n', filename ); 
+toc
+
+tic
+coords = [];
+if output_coords
+    cdata = imread( filename );
+    s = size(cdata);
+    coord_filename = [filename, '.coords.txt'];
+    coords = export_coordinates( coord_filename, s([2 1]) ); % have to switch x <--> y
+end
+toc
 
 show_helix_controls ( plot_settings.show_helix_controls );
 show_domain_controls( plot_settings.show_domain_controls );

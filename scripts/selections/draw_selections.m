@@ -33,8 +33,8 @@ for i = 1:length( selections )
     selection_tag = selections{i};
     if ~isappdata( gca, selection_tag ); fprintf( 'Problem with %s\n', selection_tag ); continue; end; % some cleanup
     selection = getappdata( gca, selection_tag );
-    [minpos,maxpos] = get_minpos_maxpos( selection );  
-    ctr_pos = (minpos + maxpos )/ 2;
+    if ~isfield( selection, 'minpos' ); selection = update_selection_minpos_maxpos_ctrpos( selection, selection_tag ); end;
+    minpos = selection.minpos; maxpos = selection.maxpos; ctrpos = selection.ctrpos;
     if strcmp( selection.type, 'coaxial_stack' )
         if ( plot_settings.show_coax_controls )
             selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
@@ -51,7 +51,7 @@ for i = 1:length( selections )
     end
     if strcmp( selection.type, 'domain' )
         % perhaps should create a plot_settings.show_domain_labels
-        if ~isfield( selection, 'label_relpos' ) selection.label_relpos = minpos - ctr_pos; end;
+        if ~isfield( selection, 'label_relpos' ) selection.label_relpos = minpos - ctrpos; end;
         if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
             h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....
                 'fontweight', 'bold', 'verticalalign','middle','horizontalalign','center','clipping','off' );
@@ -88,33 +88,46 @@ for i = 1:length( selections )
     if ~isempty( minpos ) & ~isempty( maxpos )
         if isfield( selection, 'rectangle')  set_rectangle_coords( selection, minpos, maxpos, spacing ); end;
         if isfield( selection, 'auto_text') set( selection.auto_text, 'Position',  minpos + [-0.5 -0.5]*0.75*spacing ); end
-        if isfield( selection, 'label') & ~isempty( ctr_pos ) 
-            if~isempty( selection.label_relpos ) set( selection.label, 'Position',  ctr_pos + selection.label_relpos ); end;
+        if isfield( selection, 'label') & ~isempty( ctrpos ) 
+            if~isempty( selection.label_relpos ) set( selection.label, 'Position',  ctrpos + selection.label_relpos ); end;
             set( selection.label, 'String', strrep(strrep(selection.name,'prime','^{\prime}'),'_','\_') );
             if isfield( selection, 'rgb_color' ) & isempty(strfind(selection.name,'\color')); set( selection.label, 'color', selection.rgb_color ); end
             if isfield( selection, 'helix_group' ) set( selection.label, 'fontsize', plot_settings.fontsize*1.5,'fontweight','normal'); end;
         end
         if isfield( selection, 'reflect_line_horizontal1' );
-            set( selection.reflect_line_horizontal1, 'Xdata', minpos(1) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
+            set( selection.reflect_line_horizontal1, 'Xdata', minpos(1) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Ydata', ctrpos(2) * [1 1] );
             if isfield( selection, 'rgb_color' ) set( selection.reflect_line_horizontal1, 'color', selection.rgb_color ); end
         end
         if isfield( selection, 'reflect_line_horizontal2' );
-            set( selection.reflect_line_horizontal2, 'Xdata', maxpos(1) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Ydata', ctr_pos(2) * [1 1] );
+            set( selection.reflect_line_horizontal2, 'Xdata', maxpos(1) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Ydata', ctrpos(2) * [1 1] );
             if isfield( selection, 'rgb_color' ) set( selection.reflect_line_horizontal2, 'color', selection.rgb_color ); end
         end
         if isfield( selection, 'reflect_line_vertical1' );
-            set( selection.reflect_line_vertical1, 'Ydata', minpos(2) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
+            set( selection.reflect_line_vertical1, 'Ydata', minpos(2) + 0.75*spacing * ( -0.5 + [-0.5,0.5]), 'Xdata', ctrpos(1) * [1 1] );
             if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical1, 'color', selection.rgb_color ); end
         end
         if isfield( selection, 'reflect_line_vertical2' );
-            set( selection.reflect_line_vertical2, 'Ydata', maxpos(2) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Xdata', ctr_pos(1) * [1 1] );
+            set( selection.reflect_line_vertical2, 'Ydata', maxpos(2) + 0.75*spacing * ( +0.5 + [-0.5,0.5]), 'Xdata', ctrpos(1) * [1 1] );
             if isfield( selection, 'rgb_color' ) set( selection.reflect_line_vertical2, 'color', selection.rgb_color ); end
         end
         if isfield( selection, 'click_center' );
-            set( selection.click_center, 'Position', [ctr_pos(1)-0.15*spacing ctr_pos(2)-0.15*spacing,...
+            set( selection.click_center, 'Position', [ctrpos(1)-0.15*spacing ctrpos(2)-0.15*spacing,...
                 0.3*spacing 0.3*spacing] );
             if isfield( selection, 'rgb_color' ) set( selection.click_center, 'edgecolor', selection.rgb_color ); end
         end
+    end
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [all_res_plot_pos,all_res_tags] = get_all_res_info(); % pull all residue positions at once, rather than running getappdata again and again.
+all_res_tags = get_tags('Residue_');
+for j = 1:length( all_res_tags )
+    residue = getappdata( gca, all_res_tags{j} );
+    if isfield( residue, 'plot_pos' );
+        all_res_plot_pos(j,:) = residue.plot_pos;
+    else
+        all_res_plot_pos(j,:) = [nan, nan];
     end
 end
 
@@ -140,9 +153,14 @@ function reflect_selection( h, ~, ~ )
 selection_tag = getappdata( h, 'selection_tag' );
 flip = getappdata( h, 'flip' );
 selection = getappdata(gca,selection_tag );
-[residues, associated_helices] = get_res_helix_for_selection( selection );
+[residues, associated_helices, associated_selections] = get_res_helix_for_selection( selection );
 
-[minpos,maxpos] = get_minpos_maxpos( selection );  
+update_selection_minpos_maxpos_ctrpos( selection, selection_tag );
+minpos = selection.minpos; maxpos = selection.maxpos; ctrpos = selection.ctrpos;
+for i = 1:length( associated_selections )
+    update_selection_minpos_maxpos_ctrpos( associated_selections{i} );
+end
+
 for i = 1:length( associated_helices )
     helix = getappdata( gca, associated_helices{i} );
 
@@ -168,18 +186,21 @@ end
 
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function rotate_selection( h, ~, ~ )
 selection_tag = getappdata( h, 'selection_tag' );
 selection = getappdata(gca,selection_tag );
-[residues, associated_helices] = get_res_helix_for_selection( selection );
+[residues, associated_helices, associated_selections] = get_res_helix_for_selection( selection );
 
-[minpos,maxpos] = get_minpos_maxpos( selection );  
-ctr_pos = ( minpos + maxpos ) / 2;
+update_selection_minpos_maxpos_ctrpos( selection, selection_tag );
+minpos = selection.minpos; maxpos = selection.maxpos; ctrpos = selection.ctrpos;
+for i = 1:length( associated_selections )
+    update_selection_minpos_maxpos_ctrpos( associated_selections{i} );
+end
+
 for i = 1:length( associated_helices )
     helix = getappdata( gca, associated_helices{i} );
-    helix.center = ( helix.center - ctr_pos ) * [0 -1; 1 0] + ctr_pos;
+    helix.center = ( helix.center - ctrpos ) * [0 -1; 1 0] + ctrpos;
     helix.rotation = mod( helix.rotation + 90, 360 );
     setappdata( gca, associated_helices{i}, helix );
     draw_helix( helix );

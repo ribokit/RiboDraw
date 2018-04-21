@@ -12,7 +12,7 @@ selection = getappdata(gca,selection_tag );
 
 translation = pos - init_pos;
 
-[residues, associated_helices] = get_res_helix_for_selection( selection );
+[residues, associated_helices, associated_selections] = get_res_helix_for_selection( selection );
 
 for i = 1:length( residues )
     residues{i}.plot_pos = residues{i}.plot_pos + translation(1:2);
@@ -23,5 +23,12 @@ for i = 1:length( associated_helices )
     helix.center = helix.center + translation(1:2);
     setappdata( gca, helix.helix_tag, helix );
     draw_helix( helix );
+end
+
+% still not working!?
+update_selection_minpos_maxpos_ctrpos( selection_tag );
+for i = 1:length( associated_selections )
+    selection = update_selection_minpos_maxpos_ctrpos( associated_selections{i} );
+    draw_selection( selection );
 end
 

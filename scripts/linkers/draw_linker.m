@@ -478,7 +478,7 @@ set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )
-
+if (isfield(plot_settings,'image_representation') & ~strcmp(plot_settings.image_representation,'image_boundary') ) return; end;
 if ~isfield( linker, outarrow_fieldname ) return; end;
 
 % if this is the ligand side of an interdomain outarrow, 

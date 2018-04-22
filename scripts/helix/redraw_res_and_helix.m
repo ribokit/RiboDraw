@@ -13,7 +13,7 @@ delete_crosshair();
 res_tag = getappdata( h, 'res_tag' );
 residue = getappdata(gca,res_tag );
 original_plot_pos = residue.plot_pos;
-if isfield( h, 'position' ) ||  strcmp( h.Type, 'text' )
+if isfield( h, 'position' ) ||  strcmp( h.Type, 'text' ) || strcmp( h.Type, 'rectangle' )
     pos = get(h,'position');
     original_residue_plot_pos = residue.plot_pos;
     if length( pos ) == 4 % rectangle

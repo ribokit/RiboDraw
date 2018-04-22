@@ -12,9 +12,7 @@ function ligand = draw_image_boundary( ligand, plot_settings )
 assert( isfield( ligand, 'image_boundary') );
 if ~isfield( plot_settings, 'image_representation' ) plot_settings.image_representation = 'image_boundary'; end;
 if ( ~isfield( plot_settings, 'show_images') || plot_settings.show_images );
-    if( ~isfield( ligand, 'image_offset' ) )
-        ligand.image_offset = [0,0];
-    end
+    if ~isfield( ligand, 'image_offset' ) ligand.image_offset = [0,0]; end;
     switch plot_settings.image_representation
         case 'image_boundary'
             if ( ~isfield( ligand, 'image_handle2' ) | ~isvalid( ligand.image_handle2 ) )
@@ -46,6 +44,8 @@ if ( ~isfield( plot_settings, 'show_images') || plot_settings.show_images );
                 setappdata( ligand.image_handle, 'res_tag', ligand.res_tag );
                 draggable( ligand.image_handle,'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @redraw_res_and_helix );
             end
+            
+            % should make these user-settable (perhaps by draggable 'image controls')
             ligand.image_radius1 = 2 * std( ligand.image_boundary(:,1) );
             ligand.image_radius2 = 2 * std( ligand.image_boundary(:,2) );
             set( ligand.image_handle,...
@@ -56,15 +56,27 @@ if ( ~isfield( plot_settings, 'show_images') || plot_settings.show_images );
                 'Position', ...
                 [ligand.image_offset(1)+ligand.plot_pos(:,1)-(ligand.image_radius1+0.25), ligand.image_offset(2)+ligand.plot_pos(:,2)-(ligand.image_radius2+0.25),...
                  2*(ligand.image_radius1+0.25),2*(ligand.image_radius2+0.25)]);
-        case 'circle'
-            ligand
     end
     set_ligand_image_color( ligand );
+    
+    if ~isfield( ligand, 'image_label_relpos' ) ligand.image_label_relpos = [0,0]; end;
+     if ~isfield( ligand, 'label' ) & isfield( ligand, 'name' )
+         %%% TODO -- Need to define a draggable function, etc.
+         h = text( 0, 0, ligand.nucleotide, 'fontsize',plot_settings.fontsize*14/10, ....
+             'fontweight', 'bold', 'verticalalign','middle','horizontalalign','center','clipping','off' );
+         selection.label = h;
+         %draggable( h, 'n',[-inf inf -inf inf], @move_selection_label )
+         %setappdata( h, 'selection_tag', selection_tag );
+         %setappdata( gca, selection_tag, selection );
+     end
+     if isfield( ligand, 'handle' ) set( ligand.handle, 'visible', 'off'  ); end;
 else
-    ligand = rmgraphics( ligand, {'image_handle','image_handle2'} );
+    ligand = rmgraphics( ligand, {'image_handle','image_handle2','label'} );
+    if isfield( ligand, 'handle' ) 
+        set( ligand.handle, 'fontsize',  plot_settings.fontsize*1.5,'visible','on');
+    end;
 end
    
-if isfield( ligand, 'handle' )  set( ligand.handle, 'fontsize',  plot_settings.fontsize*1.5  ); end;
 
 
 

@@ -15,9 +15,9 @@ function linker = draw_linker( linker, plot_settings )
 %
 % (C) R. Das, Stanford University, 2017
 
-if ~exist( 'plot_settings' ) plot_settings = getappdata( gca, 'plot_settings' ); end;
+if ~exist( 'plot_settings','var' ) plot_settings = getappdata( gca, 'plot_settings' ); end
 if iscell( linker )
-    for i = 1:length( linker ); draw_linker( linker{i}, plot_settings ); end;
+    for i = 1:length( linker ); draw_linker( linker{i}, plot_settings ); end
     return;
 end
 if ischar( linker ) 
@@ -31,13 +31,18 @@ end;
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return if we don't have to make anything
+if strcmp(linker.type,'base_stack' ) && isfield( plot_settings, 'show_stacks') && ~plot_settings.show_stacks; return; end;
+if strcmp(linker.type,'other_contact' )&& isfield( plot_settings, 'show_other_contacts') && ~plot_settings.show_other_contacts; return; end;
+if strcmp(linker.type,'noncanonical_pair' )&& isfield( plot_settings, 'show_noncanonical_pairs') && ~plot_settings.show_noncanonical_pairs; return; end;
+if strcmp(linker.type,'ligand' )&& isfield( plot_settings, 'show_ligand_linkers') && ~plot_settings.show_ligand_linkers; return; end;
+if ( strcmp(linker.type,'tertcontact_intradomain' ) || strcmp(linker.type,'tertcontact_interdomain' ) ) && isfield( plot_settings, 'show_tertiary_contacts') && ~plot_settings.show_tertiary_contacts; return; end;
 if ~isfield( linker, 'line_handle' )   
     residue1 = getappdata( gca, linker.residue1 );
     residue2 = getappdata( gca, linker.residue2 );
     if isfield( linker, 'relpos1' ) & isfield( linker, 'relpos2' )
         if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
         if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
-        if strcmp(linker.type,'stack' )
+        if strcmp(linker.type,'base_stack' )
             if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) return; end;
         end
         if strcmp(linker.type,'arrow' )
@@ -45,12 +50,12 @@ if ~isfield( linker, 'line_handle' )
         end
     end
 end
-if strcmp(linker.type,'stack' ) && isfield( plot_settings, 'show_stacks') && ~plot_settings.show_stacks; return; end;
-if strcmp(linker.type,'other_contact' )&& isfield( plot_settings, 'show_other_contacts') && ~plot_settings.show_other_contacts; return; end;
        
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
 linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
+
+linker.type
 
 % figure out positions in figure frame, based on each residue's
 % helix frame:
@@ -195,7 +200,7 @@ switch linker.type
         linker.arrow = patch( [0,0,0],[0,0,0],'k','clipping','off' );
         set( linker.line_handle, 'linewidth', get_arrow_linewidth( plot_settings.fontsize ) ); 
         setappdata( gca, linker.linker_tag, linker );
-    case 'stack'
+    case 'base_stack'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
     case 'other_contact'

@@ -6,4 +6,4 @@ function setup_base_stack_linkers( base_stacks )
 %
 % (C) R. Das, Stanford University, 2017
 
-setup_basic_linkers( base_stacks, 'base_stack' );
+setup_basic_linkers( base_stacks, 'stack' );

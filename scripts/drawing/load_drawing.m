@@ -91,6 +91,7 @@ for i = 1:length( datafields )
 end
 cleanup_associated_residues();
 cleanup_stray_linkers();
+cleanup_stack_linkers();
 cleanup_domains();
 cleanup_segids();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.

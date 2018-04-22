@@ -37,21 +37,8 @@ if strcmp(linker.type,'noncanonical_pair' )&& isfield( plot_settings, 'show_nonc
 if strcmp(linker.type,'stem_pair' )&& isfield( plot_settings, 'show_stem_pairs') && ~plot_settings.show_stem_pairs; return; end;
 if strcmp(linker.type,'ligand' )&& isfield( plot_settings, 'show_ligand_linkers') && ~plot_settings.show_ligand_linkers; return; end;
 if ( strcmp(linker.type,'tertcontact_intradomain' ) || strcmp(linker.type,'tertcontact_interdomain' ) ) && isfield( plot_settings, 'show_tertiary_contacts') && ~plot_settings.show_tertiary_contacts; return; end;
-if ~isfield( linker, 'line_handle' )   
-    residue1 = getappdata( gca, linker.residue1 );
-    residue2 = getappdata( gca, linker.residue2 );
-    if isfield( linker, 'relpos1' ) & isfield( linker, 'relpos2' )
-        if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
-        if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
-        if strcmp(linker.type,'stack' )
-            if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) return; end;
-        end
-        if strcmp(linker.type,'arrow' )
-            if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) return; end;
-        end
-    end
-end
-       
+if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); return; end;
+
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
 linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
@@ -245,6 +232,21 @@ send_to_back( h );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Linkers (base pairs & arrow connectors)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function too_short = linker_is_too_short_for_display( linker, plot_settings )
+too_short = 0;
+residue1 = getappdata( gca, linker.residue1 );
+residue2 = getappdata( gca, linker.residue2 );
+if isfield( linker, 'relpos1' ) && isfield( linker, 'relpos2' )
+    if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
+    if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
+    if strcmp(linker.type,'stack' )
+        if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) too_short = 1; return; end;
+    end
+    if strcmp(linker.type,'arrow' )
+        if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) too_short = 1;  return; end;
+    end
+end
+    
 function linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );
 if ~isfield( linker, relpos_field )
     linker = setfield( linker, relpos_field, [0,0]);

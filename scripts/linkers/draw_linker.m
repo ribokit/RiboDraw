@@ -92,7 +92,6 @@ elseif strcmp( linker.type, 'stack' )  % to guide the eye.
 else
     linker = draw_default_linker( linker );
 end
-
     
 % nudge beginning and end of linker away from residue.
 nudge_spacing = plot_settings.bp_spacing;

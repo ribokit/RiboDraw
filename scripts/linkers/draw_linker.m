@@ -34,6 +34,7 @@ end;
 if strcmp(linker.type,'stack' ) && isfield( plot_settings, 'show_stacks') && ~plot_settings.show_stacks; return; end;
 if strcmp(linker.type,'other_contact' )&& isfield( plot_settings, 'show_other_contacts') && ~plot_settings.show_other_contacts; return; end;
 if strcmp(linker.type,'noncanonical_pair' )&& isfield( plot_settings, 'show_noncanonical_pairs') && ~plot_settings.show_noncanonical_pairs; return; end;
+if strcmp(linker.type,'stem_pair' )&& isfield( plot_settings, 'show_stem_pairs') && ~plot_settings.show_stem_pairs; return; end;
 if strcmp(linker.type,'ligand' )&& isfield( plot_settings, 'show_ligand_linkers') && ~plot_settings.show_ligand_linkers; return; end;
 if ( strcmp(linker.type,'tertcontact_intradomain' ) || strcmp(linker.type,'tertcontact_interdomain' ) ) && isfield( plot_settings, 'show_tertiary_contacts') && ~plot_settings.show_tertiary_contacts; return; end;
 if ~isfield( linker, 'line_handle' )   
@@ -54,7 +55,6 @@ end
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
 linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
-
 % figure out positions in figure frame, based on each residue's
 % helix frame:
 plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );

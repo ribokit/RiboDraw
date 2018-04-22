@@ -66,9 +66,10 @@ function blink_helix_rectangle( helix );
 % provide some visual feedback to user.
 if isfield(helix,'rectangle')
     color = get( helix.rectangle, 'edgecolor' );
-    set( helix.rectangle,'edgecolor','k' );
-    pause(0.2)
-    set( helix.rectangle,'edgecolor',color );
+    linew = get( helix.rectangle,'linewidth');
+    set( helix.rectangle,'edgecolor','k','linewidth',linew*3 );
+    pause(0.1)
+    set( helix.rectangle,'edgecolor',color,'linewidth',linew );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

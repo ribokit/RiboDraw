@@ -31,13 +31,14 @@ end;
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return if we don't have to make anything
-if strcmp(linker.type,'stack' ) && isfield( plot_settings, 'show_stacks') && ~plot_settings.show_stacks; return; end;
-if strcmp(linker.type,'other_contact' )&& isfield( plot_settings, 'show_other_contacts') && ~plot_settings.show_other_contacts; return; end;
-if strcmp(linker.type,'noncanonical_pair' )&& isfield( plot_settings, 'show_noncanonical_pairs') && ~plot_settings.show_noncanonical_pairs; return; end;
-if strcmp(linker.type,'stem_pair' )&& isfield( plot_settings, 'show_stem_pairs') && ~plot_settings.show_stem_pairs; return; end;
-if strcmp(linker.type,'ligand' )&& isfield( plot_settings, 'show_ligand_linkers') && ~plot_settings.show_ligand_linkers; return; end;
-if ( strcmp(linker.type,'tertcontact_intradomain' ) || strcmp(linker.type,'tertcontact_interdomain' ) ) && isfield( plot_settings, 'show_tertiary_contacts') && ~plot_settings.show_tertiary_contacts; return; end;
-if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); return; end;
+toggle_types    = {'stack','other_contact','noncanonical_pair','stem_pair','ligand','tertcontact_intradomain','tertcontact_interdomain' };
+toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_ligand_linkers','tertcontact_intradomain','tertcontact_interdomain'};
+for i = 1:length(toggle_types)
+    if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) 
+        linker = delete_linker( linker, 0 ); return;
+    end;
+end
+if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 ); return; end;
 
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
@@ -89,8 +90,9 @@ elseif strcmp( linker.type, 'stack' )  % to guide the eye.
     linker = draw_default_linker( linker );
     set( linker.line_handle, 'visible', visible);
 else
-    return; %%% TEMPPORARY%%%
+    linker = draw_default_linker( linker );
 end
+
     
 % nudge beginning and end of linker away from residue.
 nudge_spacing = plot_settings.bp_spacing;

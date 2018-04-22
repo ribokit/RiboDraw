@@ -33,13 +33,3 @@ if remove_linker
     rmappdata( gca, linker.linker_tag )
 end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function linker = rmgraphics( linker, tags )
-for i = 1:length( tags )
-   tag = tags{i};
-   if isfield( linker,tag ) 
-       h = getfield(linker,tag);
-       if isvalid( h ) delete(h); end;
-       linker = rmfield( linker, tag );
-   end;
-end

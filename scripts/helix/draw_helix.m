@@ -74,7 +74,7 @@ for i = 1:length( helix.associated_residues )
     for k = 1 : length( linker_tags )
         if any( strcmp( redrawn_linkers, linker_tags{k} ) ); continue; end; % don't double-render, to save time.
         linker = getappdata( gca, linker_tags{k} );
-        draw_linker( linker );
+        draw_linker( linker, plot_settings );
         redrawn_linkers = [ redrawn_linkers, linker.linker_tag ];
     end
 end
@@ -196,13 +196,14 @@ if isfield( residue, 'relpos' )
     residue.plot_pos = pos;
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
     residue = draw_tick( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
-    % quick linker cleanup
-    if isfield( residue, 'linkers' );
-        linker_tags = residue.linkers;
-        ok_linker = zeros(1,length(linker_tags));
-        for k = 1 : length( linker_tags );  ok_linker(k) = isappdata( gca, linker_tags{k} );     end
-        residue.linkers = linker_tags( find(ok_linker) );
-    end
+    % quick linker cleanup -- this actually  becomes slow due to the
+    % isappdata calls! don't do this in an inner loop!
+    % if isfield( residue, 'linkers' );
+    %   linker_tags = residue.linkers;
+    %    ok_linker = zeros(1,length(linker_tags));
+    %    for k = 1 : length( linker_tags );  ok_linker(k) = isappdata( gca, linker_tags{k} );     end
+    %    residue.linkers = linker_tags( find(ok_linker) );
+    % end
     if isfield( residue, 'image_boundary' );
         residue = draw_image_boundary( residue );
     end

@@ -17,6 +17,8 @@ function draw_selections( selections );
 %
 % (C) R. Das, Stanford University, 2017
 
+return;
+
 if ~exist( 'selections', 'var' ); selections = get_tags( 'Selection' ); end
 if ~iscell( selections ) & ischar( selections ); selections = { selections }; end
 

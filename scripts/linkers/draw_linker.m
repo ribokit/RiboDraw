@@ -1,4 +1,4 @@
-function linker = draw_linker( linker )
+function linker = draw_linker( linker, plot_settings )
 % linker = draw_linker( linker )
 % linker = draw_linker( linkers )
 %
@@ -7,14 +7,17 @@ function linker = draw_linker( linker )
 %
 % Input:
 %  linker = Linker object (or tag string) to draw. Cell of multiple linkers is also OK.
-%  
+%  plot_settings = [optional] plot settings (if not supplied, funciton will
+%                       infer from current axes)
+%
 % Output:
 %  linker = Linker object potentially with updated plot_pos or graphics handles
 %
 % (C) R. Das, Stanford University, 2017
 
+if ~exist( 'plot_settings' ) plot_settings = getappdata( gca, 'plot_settings' ); end;
 if iscell( linker )
-    for i = 1:length( linker ); draw_linker( linker{i} ); end;
+    for i = 1:length( linker ); draw_linker( linker{i}, plot_settings ); end;
     return;
 end
 if ischar( linker ) 
@@ -28,7 +31,6 @@ end;
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return if we don't have to make anything
-plot_settings = getappdata( gca, 'plot_settings' );
 if ~isfield( linker, 'line_handle' )   
     residue1 = getappdata( gca, linker.residue1 );
     residue2 = getappdata( gca, linker.residue2 );
@@ -45,9 +47,7 @@ if ~isfield( linker, 'line_handle' )
 end
 if strcmp(linker.type,'stack' ) && isfield( plot_settings, 'show_stacks') && ~plot_settings.show_stacks; return; end;
 if strcmp(linker.type,'other_contact' )&& isfield( plot_settings, 'show_other_contacts') && ~plot_settings.show_other_contacts; return; end;
-    
-linker = draw_default_linker( linker );
-   
+       
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
 linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
@@ -60,7 +60,7 @@ plot_pos = [plot_pos1; plot_pos2 ];
 end_pos1 = plot_pos1(1,:);
 end_pos2 = plot_pos2(end,:);
 
-if isfield( linker, 'arrow' ) 
+if strcmp( linker.type, 'arrow' ) 
     % hide linkers connecting consecutive residues if they are close
     % (this is a choice; could also show linker without arrow)
     if ( size( plot_pos, 1 ) == 2 & ...
@@ -70,6 +70,11 @@ if isfield( linker, 'arrow' )
         visible = 'on'; 
     end;
     if ( check_for_base_pair( linker.residue1, linker.residue2 ) ) visible = 'off'; end;
+    if strcmp( visible, 'off' );
+        linker = delete_linker( linker, 0 ); % delete linker handle!
+        return;
+    end;
+    linker = draw_default_linker( linker );
     set( linker.line_handle, 'visible', visible); 
     if isfield( linker, 'vtx' ); 
         vtx_visible = visible;
@@ -83,9 +88,18 @@ if isfield( linker, 'arrow' )
     set( linker.line_handle, 'color',color);
     set( linker.arrow, 'edgecolor',color );
     set( linker.arrow, 'facecolor',color );
+    arrow_linewidth = get_arrow_linewidth( plot_settings.fontsize );
+    set( linker.line_handle, 'linewidth', arrow_linewidth );
 elseif strcmp( linker.type, 'stack' )  % to guide the eye.
     if ( norm( plot_pos(end,:) - plot_pos(1,:) ) < 1.5 * plot_settings.bp_spacing ); visible = 'off'; else visible = 'on'; end;
+    if strcmp( visible, 'off' ) 
+        linker = delete_linker( linker, 0 ); % delete linker handle!
+        return; 
+    end;
+    linker = draw_default_linker( linker );
     set( linker.line_handle, 'visible', visible);
+else
+    return; %%% TEMPPORARY%%%
 end
     
 % nudge beginning and end of linker away from residue.
@@ -240,7 +254,8 @@ if isfield( residue,'relpos' )
     end
 end
 linker = setfield( linker, relpos_field, relpos);
-setappdata( gca, linker.linker_tag, linker );
+% does not seem necessary...
+%setappdata( gca, linker.linker_tag, linker ); 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_arrow( h, ctr, v, visible, spacing, add_stem );

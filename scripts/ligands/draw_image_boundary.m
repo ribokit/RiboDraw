@@ -58,18 +58,17 @@ if ( ~isfield( plot_settings, 'show_images') || plot_settings.show_images );
                  2*(ligand.image_radius1+0.25),2*(ligand.image_radius2+0.25)]);
     end
     set_ligand_image_color( ligand );
-    
-    if ~isfield( ligand, 'image_label_relpos' ) ligand.image_label_relpos = [0,0]; end;
-     if ~isfield( ligand, 'label' ) & isfield( ligand, 'name' )
-         %%% TODO -- Need to define a draggable function, etc.
+    if ~isfield( ligand, 'label_relpos' ) ligand.label_relpos = ligand.relpos; end;
+    if ~isfield( ligand, 'label' ) & isfield( ligand, 'nucleotide' )
          h = text( 0, 0, ligand.nucleotide, 'fontsize',plot_settings.fontsize*14/10, ....
              'fontweight', 'bold', 'verticalalign','middle','horizontalalign','center','clipping','off' );
-         selection.label = h;
-         %draggable( h, 'n',[-inf inf -inf inf], @move_selection_label )
-         %setappdata( h, 'selection_tag', selection_tag );
-         %setappdata( gca, selection_tag, selection );
-     end
-     if isfield( ligand, 'handle' ) set( ligand.handle, 'visible', 'off'  ); end;
+         ligand.label = h;
+         draggable( h, 'n',[-inf inf -inf inf], @move_ligand_label )
+         setappdata( h, 'ligand_tag', ligand.res_tag );
+    end
+    set(ligand.label,'position',get_plot_pos(ligand,ligand.label_relpos) );
+    if isfield( ligand, 'handle' ) set( ligand.handle, 'visible', 'off'  ); end;
+    setappdata( gca, ligand.res_tag, ligand );
 else
     ligand = rmgraphics( ligand, {'image_handle','image_handle2','label'} );
     if isfield( ligand, 'handle' ) 

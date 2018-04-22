@@ -328,17 +328,6 @@ v = v/norm(v);
 pos1 = pos1 +  (bp_spacing/5)*v;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function plot_pos = get_plot_pos( res_tag, relpos );
-if ischar( res_tag ) 
-    residue = getappdata( gca, res_tag );
-else
-    residue = res_tag;
-end
-helix = getappdata( gca, residue.helix_tag );
-R = get_helix_rotation_matrix( helix );
-plot_pos = repmat(helix.center,size(relpos,1),1) + relpos*R;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_symbol( h, pos, v, which_symbol, bp_spacing );
 vertices = get(h,'Vertices');
 numv = size(vertices,1);

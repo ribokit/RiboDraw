@@ -35,6 +35,7 @@ else
     else
         fprintf( 'Reading JSON: %s\n',filename );
         loaddata = loadjson( filename );
+        loaddata = cleanup_json( loaddata );
     end
     toc
 end

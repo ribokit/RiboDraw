@@ -35,7 +35,7 @@ toggle_types    = {'stack','other_contact','noncanonical_pair','stem_pair','liga
 toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_ligand_linkers','show_tertiary_contacts','show_tertiary_contacts'};
 for i = 1:length(toggle_types)
     if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) 
-        linker = delete_linker( linker, 0 ); return;
+        linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); return;
     end;
 end
 if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 ); return; end;
@@ -474,6 +474,7 @@ if ~isfield( linker, arrow_label )
 end
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
 h = getfield(linker, arrow_label);
+if ~isvalid( h ) return; end;
 set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize*0.75 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

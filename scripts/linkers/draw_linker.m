@@ -118,7 +118,7 @@ if isfield( linker, 'plot_pos' )
             linker = rmfield( linker, 'vtx' );
         end
     end
-    if ( ~isfield( linker, 'vtx' ) & ~strcmp( linker.type, 'stem_pair' ) )                
+    if ( ~isfield( linker, 'vtx' ) && ~strcmp( linker.type, 'stem_pair' ) && plot_settings.show_linker_controls  )                
         linker = create_linker_with_draggable_vtx( linker );
     end  
     if (isfield( linker, 'vtx' ) )

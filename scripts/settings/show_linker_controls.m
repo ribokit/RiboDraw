@@ -20,7 +20,7 @@ if setting; visible = 'on'; else; visible = 'off'; end;
 objnames = get_tags( 'Linker' );
 for n = 1:length( objnames )
     linker = getappdata( gca, objnames{n} );
-    if isfield( linker, 'vtx' ) & isfield( linker, 'line_handle' )
+    if isfield( linker, 'vtx' ) & isfield( linker, 'line_handle' ) & isvalid( linker.line_handle )
         vtx_visible = visible;
         if strcmp( get( linker.line_handle, 'visible' ), 'off' ) vtx_visible = 'off'; end;
         for i = 1:length( linker.vtx ) set( linker.vtx{i},'visible', vtx_visible);  end;

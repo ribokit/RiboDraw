@@ -144,7 +144,7 @@ for i = 1:length( helix.associated_residues )
     residue = getappdata( gca, res_tag );
     if isfield( residue, 'tick_label' ) & isvalid( residue.tick_label )
         setappdata( residue.tick_label, 'res_tag', res_tag );
-        draggable( residue.tick_label, @move_tick, 'endfcn', @redraw_tick_res_and_helix );
+        if ~isappdata(residue.tick_label,'user_movefcn'); draggable( residue.tick_label, @move_tick, 'endfcn', @redraw_tick_res_and_helix ); end;
     end
 end
 
@@ -152,7 +152,7 @@ end
 for i = 1:length( not_helix_res_tags )
     res_tag = not_helix_res_tags{i};
     residue = getappdata( gca, res_tag );
-    draggable( residue.handle,'n',[-inf inf -inf inf],@move_snapgrid, 'endfcn', @redraw_res_and_helix )
+    if ~isappdata(residue.handle,'user_movefcn'); draggable( residue.handle,'n',[-inf inf -inf inf],@move_snapgrid, 'endfcn', @redraw_res_and_helix ); end;
 end
 
 

@@ -95,6 +95,7 @@ cleanup_stray_linkers();
 cleanup_stack_linkers();
 cleanup_domains();
 cleanup_segids();
+convert_images_from_legacy();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.
 draw_helices( get_helices( loaddata ) );
 move_stuff_to_back();

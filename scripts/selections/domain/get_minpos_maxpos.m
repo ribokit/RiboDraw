@@ -7,7 +7,7 @@ function [minpos,maxpos] = get_minpos_maxpos( selection );
 
 dom_pos = [];
 for j = 1:length( selection.associated_residues )
-    residue = getappdata( gca, selection.associated_residues{j} );
+    residue = getappdata( gca, char(selection.associated_residues{j}) );
     if isfield( residue, 'plot_pos' );
         dom_pos = [ dom_pos; residue.plot_pos ];
     end

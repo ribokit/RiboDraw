@@ -35,6 +35,6 @@ The core format for RiboDraw 'drawing' files is JSON-like to allow for their eve
 
 ## For developers
 * *Ribodraw is Open Source*. Want to improve RiboKit's MATLAB interface? Port to JavaScript? Check out our Issue on GitHub. Feel free to fork and make pull requests. 
+* *Running unit tests* Go to `RiboDraw/unittests` and type `runtests`. Add your own tests to [RiboDrawTest.m](unittests/RiboDrawTest.m)
 * *Its easy to generate HTML docs* We are currently using M2HTML to quickly generate docs for MATLAB scripts. Download it [here](https://www.artefact.tk/software/matlab/m2html/), and run the
 `generate_ribodraw_docs` command to update docs.
-* *We need unit tests* MATLAB has a framework for this.

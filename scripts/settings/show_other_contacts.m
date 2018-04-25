@@ -16,7 +16,5 @@ setappdata( gca, 'plot_settings', plot_settings );
 if setting; visible = 'on'; else; visible = 'off'; end;
 linker_tags = get_tags( 'Linker_', 'other_contact' );
 for i = 1:length( linker_tags )
-    tag = linker_tags{i};
-    linker = getappdata( gca, tag );
-    set_linker_visibility( linker, visible );
+    draw_linker( linker_tags{i} );
 end

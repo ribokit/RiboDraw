@@ -13,7 +13,7 @@ delete_crosshair();
 res_tag = getappdata( h, 'res_tag' );
 residue = getappdata(gca,res_tag );
 original_plot_pos = residue.plot_pos;
-if isfield( h, 'position' ) ||  strcmp( h.Type, 'text' )
+if isfield( h, 'position' ) ||  strcmp( h.Type, 'text' ) || strcmp( h.Type, 'rectangle' )
     pos = get(h,'position');
     original_residue_plot_pos = residue.plot_pos;
     if length( pos ) == 4 % rectangle
@@ -66,9 +66,10 @@ function blink_helix_rectangle( helix );
 % provide some visual feedback to user.
 if isfield(helix,'rectangle')
     color = get( helix.rectangle, 'edgecolor' );
-    set( helix.rectangle,'edgecolor','k' );
-    pause(0.2)
-    set( helix.rectangle,'edgecolor',color );
+    linew = get( helix.rectangle,'linewidth');
+    set( helix.rectangle,'edgecolor','k','linewidth',linew*3 );
+    pause(0.1)
+    set( helix.rectangle,'edgecolor',color,'linewidth',linew );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -5,5 +5,5 @@ function show_coaxial_stacks( setting )
 %  Hiding can give a huge speedup.
 %
 % (C) R. Das, Stanford University, 2017
-
-show_coax_controls( 0 );
+if ~exist( 'setting', 'var' ) setting = 1; end;
+show_coax_controls( setting );

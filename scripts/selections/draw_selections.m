@@ -17,8 +17,6 @@ function draw_selections( selections );
 %
 % (C) R. Das, Stanford University, 2017
 
-return;
-
 if ~exist( 'selections', 'var' ); selections = get_tags( 'Selection' ); end
 if ~iscell( selections ) & ischar( selections ); selections = { selections }; end
 
@@ -35,8 +33,20 @@ for i = 1:length( selections )
     selection_tag = selections{i};
     if ~isappdata( gca, selection_tag ); fprintf( 'Problem with %s\n', selection_tag ); continue; end; % some cleanup
     selection = getappdata( gca, selection_tag );
+    if strcmp( selection.type,'domain') && isfield(plot_settings,'show_domains') && ~plot_settings.show_domains
+        selection = rmgraphics( selection, {'auto_text','label','click_center','reflect_line_horizontal1','reflect_line_horizontal2','reflect_line_vertical1','reflect_line_horizontal2'} );
+        setappdata( gca, selection_tag, selection ); continue
+    end
+    if strcmp( selection.type,'coaxial_stack') && isfield(plot_settings,'show_coax_controls') && ~plot_settings.show_coax_controls
+        selection = rmgraphics( selection, {'auto_text','label','click_center','reflect_line_horizontal1','reflect_line_horizontal2','reflect_line_vertical1','reflect_line_horizontal2'} );
+        setappdata( gca, selection_tag, selection ); continue
+    end
+    
+    % minpos,maxpos computation can be slow (due to iteration over all
+    % residues).
     [minpos,maxpos] = get_minpos_maxpos( selection );  
     ctr_pos = (minpos + maxpos )/ 2;
+    
     if strcmp( selection.type, 'coaxial_stack' )
         if ( plot_settings.show_coax_controls )
             selection = create_default_rectangle( selection, 'selection_tag', selection_tag, @redraw_selection );
@@ -52,7 +62,6 @@ for i = 1:length( selections )
         end
     end
     if strcmp( selection.type, 'domain' )
-        % perhaps should create a plot_settings.show_domain_labels
         if ~isfield( selection, 'label_relpos' ) selection.label_relpos = minpos - ctr_pos; end;
         if ~isfield( selection, 'label' ) & isfield( selection, 'name' )
             h = text( 0, 0, selection.name, 'fontsize',plot_settings.fontsize*14/10, ....

@@ -12,3 +12,4 @@ plot_settings = getappdata( gca, 'plot_settings' );
 plot_settings.show_domains = setting;
 setappdata( gca, 'plot_settings', plot_settings );
 draw_selections();
+if setting; list_domains; end;

@@ -15,7 +15,7 @@ arrow_linewidth = get_arrow_linewidth( fontsize );
 tags = get_tags( 'Linker_','arrow');
 for i = 1:length( tags );
     linker = getappdata( gca, tags{i} );
-    if isfield( linker, 'line_handle' )
+    if isfield( linker, 'line_handle' ) && isvalid( linker.line_handle )
         set( linker.line_handle, 'linewidth', arrow_linewidth );
     end
 end

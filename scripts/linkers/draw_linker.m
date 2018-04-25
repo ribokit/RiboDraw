@@ -34,8 +34,11 @@ end;
 toggle_types    = {'stack','other_contact','noncanonical_pair','stem_pair','long_range_stem_pair','ligand','tertcontact_intradomain','tertcontact_interdomain' };
 toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs','show_ligand_linkers','show_tertiary_contacts','show_tertiary_contacts'};
 for i = 1:length(toggle_types)
-    if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) && isfield(linker,line_handle)
-        linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); return;
+    if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) 
+        if isfield(linker,'line_handle') 
+            linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); 
+        end;
+        return;
     end;
 end
 if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 ); return; end;
@@ -61,8 +64,8 @@ if strcmp( linker.type, 'arrow' )
         visible = 'on'; 
     end;
     if ( check_for_base_pair( linker.residue1, linker.residue2 ) ) visible = 'off'; end;
-    if strcmp( visible, 'off' );
-        linker = delete_linker( linker, 0 ); % delete linker handle!
+    if strcmp( visible, 'off' ) 
+        if isfield( linker, 'line_handle')   linker = delete_linker( linker, 0 ); end; % delete linker handle!
         return;
     end;
     linker = draw_default_linker( linker );

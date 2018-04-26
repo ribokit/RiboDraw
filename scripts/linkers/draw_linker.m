@@ -418,10 +418,16 @@ if isfield( residue2, 'rgb_color' ) rescolor2 = residue2.rgb_color; else; rescol
 % make color informative about *other* domain
 color1 = fade_color( rescolor2 );
 color2 = fade_color( rescolor1 );
+if isfield( residue1, 'ligand_partners' ) 
+    color1 = get_single_color_for_ligand_linker( residue1, residue2 );
+    color2 = color1;
+end
+
 if isfield(plot_settings,'tertiary_contact_domain_coloring' ) & ~plot_settings.tertiary_contact_domain_coloring
     color1 = [0.9 0.9 0.9];
     color2 = [0.9 0.9 0.9];
 end
+
 if strcmp( linker.type, 'tertcontact_interdomain' )
     set( linker.node1, 'edgecolor',color1);
     set( linker.node2, 'edgecolor',color2);
@@ -520,17 +526,19 @@ function update_ligand_linker( linker, plot_settings );
 if ~isfield( plot_settings, 'show_ligand_linkers' ); return; end;
 if ( plot_settings.show_ligand_linkers ) visible = 'on'; else; visible = 'off'; end;
 set( linker.line_handle, 'visible', visible );
-
 residue1 = getappdata( gca, linker.residue1 );
 residue2 = getappdata( gca, linker.residue2 );
+linecolor = get_single_color_for_ligand_linker( residue1, residue2 );
+set( linker.line_handle, 'color', linecolor );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linecolor = get_single_color_for_ligand_linker( residue1, residue2 );
 if isfield( residue1, 'rgb_color' ) rescolor1 = residue1.rgb_color; else; rescolor1 = [0,0,0]; end;
 if isfield( residue2, 'rgb_color' ) rescolor2 = residue2.rgb_color; else; rescolor2 = [0,0,0]; end;
 linecolor = [0,0,0];
 if all( rescolor2 == 0 ); linecolor = rescolor1; end; 
 if all( rescolor1 == 0 ); linecolor = rescolor2; end; % RNA takes precedence to define color
 linecolor = fade_color( linecolor );
-set( linker.line_handle, 'color', linecolor );
-
 
 
     

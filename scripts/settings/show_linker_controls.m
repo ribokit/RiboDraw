@@ -22,9 +22,13 @@ objnames = get_tags( 'Linker' );
 
 % outright destroy or create the vertices -- trying to reduce number of
 % graphics objects in window.
+if (setting); textprogressbar('Re-drawing linkers '); end;
 for n = 1:length( objnames )
     draw_linker( objnames{n} );
+    if (setting) textprogressbar( 100 * n/length(objnames) ); end;
 end
+if (setting); textprogressbar('done'); end;
+
 
 
 % OLD -- toggle graphics 'visible' field.

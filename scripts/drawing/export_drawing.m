@@ -49,7 +49,7 @@ if strcmp(opt, 'SVG') == 1
 	% Use library function
 	plot2svg( filename, gcf );
 else
-    print( filename, opt );
+    print( filename, opt, '-r300' );
 end
 fprintf( 'Created: %s\n', filename ); 
 toc

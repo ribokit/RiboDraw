@@ -22,8 +22,6 @@ interdomain_linker_types = get_interdomain_linker_types();
 for i = 1:length( linker_groups )
     linker_group = linker_groups{i};
 
-    % TODO: May need to tag the associated linkers with 'interdomain' field. But then how to reverse?
-
     % need to assign a pair of interdomain connection residues.
     [res_tags1, res_tags2 ] = get_res_tags( linker_group );
     main_linker = look_for_previous_tertiary_contact( res_tags1, res_tags2 );

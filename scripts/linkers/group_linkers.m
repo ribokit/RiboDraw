@@ -1,7 +1,8 @@
 function linker_groups = group_linkers( linkers )
 % linker_groups = group_linkers( linkers )
 %
-% 
+%  Find clusters of linkers that are close in sequence and
+%     interconnect the same domains.
 %
 % Only groups two linkers that connect the same domains
 %   (as defined by the user in the linker.domain1 and linker.domain2 input variables)
@@ -18,52 +19,47 @@ function linker_groups = group_linkers( linkers )
 
 linker_groups = {};
 
-
 fprintf( 'Grouping linkers...\n' );
 tic
 % now group by domain.
 linker_groups = {};
+nbrs = [];
 for i = 1:length( linkers )
-    linker = linkers{i};
-    match = 0; switch_res = 0;
-    residue1 = getappdata( gca, linker.residue1 );
-    residue2 = getappdata( gca, linker.residue2 );
-    for j = 1:length( linker_groups )
-        % look for match of domain
-        if ( strcmp( linker.domain1, linker_groups{j}{1}.domain1 ) && ...
-                strcmp( linker.domain2, linker_groups{j}{1}.domain2 ) )
-            if ( check_sequence_close( residue1, linker_groups{j}{1}.residue1 ) && ...
-                    check_sequence_close( residue2, linker_groups{j}{1}.residue2 ) )
-                match = j; switch_res = 0; break;
-            end
+    linker_i = linkers{i};
+    residue_i1 = getappdata(gca,linker_i.residue1);
+    residue_i2 = getappdata(gca,linker_i.residue2);
+    for j = (i+1):length( linkers )
+        linker_j = linkers{j};
+        residue_j1 = getappdata(gca,linker_j.residue1);
+        residue_j2 = getappdata(gca,linker_j.residue2);
+        % look for match of domain and closeness of sequence
+        if ( strcmp( linker_i.domain1, linker_j.domain1 ) && ...
+                strcmp( linker_i.domain2, linker_j.domain2 ) && ...
+                check_sequence_close( residue_i1, residue_j1 ) && ...
+                check_sequence_close( residue_i2, residue_j2 ) )
+            nbrs = [nbrs; i,j];
+        elseif ( strcmp( linker_i.domain1, linker_j.domain2 ) && ...
+                 strcmp( linker_i.domain2, linker_j.domain1 ) && ...
+                check_sequence_close( residue_i1, residue_j2 ) && ...
+                check_sequence_close( residue_i2, residue_j1 ) )
+            nbrs = [nbrs; i,j];
         end
-        if ( strcmp( linker.domain1, linker_groups{j}{1}.domain2 ) && ...
-                strcmp( linker.domain2, linker_groups{j}{1}.domain1 ) )
-            if ( check_sequence_close( residue1, linker_groups{j}{1}.residue2 ) && ...
-                    check_sequence_close( residue2, linker_groups{j}{1}.residue1 ) )
-                match = j; switch_res = 1; break;
-            end
-        end
-    end
-    if match
-        if switch_res
-            % used to define associated_residues for tertiary_contacts --
-            % see below
-            res1 = linker.residue1;
-            res2 = linker.residue2;
-            linker.residue1 = res2;
-            linker.residue2 = res1;
-        end
-        linker_groups{match} = [ linker_groups{match}, linker ];
-    else
-        % start a new linker group
-        linker_groups = [ linker_groups, {{linker}} ];
     end
 end
 toc
 
+g = graph(nbrs(:,1),nbrs(:,2));
+bins = conncomp( g );
+
+for i = 1:max(bins)
+    linker_groups{i} = linkers( find( bins == i ) );
+end
+
 % get rid of any linker groups that are all stacks...
 linker_groups = filter_groups_without_pairs( linker_groups );
+
+% need to reorder residues in linkers to match 'parent' of linker group.
+
 
 % allows quick check by eye...
 for i = 1:length( linker_groups )
@@ -77,9 +73,8 @@ end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function match = check_sequence_close( residue, other_res_tag ) 
+function match = check_sequence_close( residue, other_res ) 
 % now look for closeness, based on all residues in parent helix.
-other_res = getappdata( gca, other_res_tag );
 helix = getappdata( gca, other_res.helix_tag );
 match = 0;
 for k = 1:length( helix.associated_residues )

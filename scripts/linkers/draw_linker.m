@@ -41,7 +41,8 @@ for i = 1:length(toggle_types)
         return;
     end;
 end
-if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 ); return; end;
+if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); return; end;
+if ( strcmp( linker.type, 'arrow' ) && check_for_base_pair( linker.residue1, linker.residue2 ) ); linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); return; end;
 
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
@@ -54,47 +55,7 @@ plot_pos = [plot_pos1; plot_pos2 ];
 end_pos1 = plot_pos1(1,:);
 end_pos2 = plot_pos2(end,:);
 
-if strcmp( linker.type, 'arrow' ) 
-    % hide linkers connecting consecutive residues if they are close
-    % (this is a choice; could also show linker without arrow)
-    if ( size( plot_pos, 1 ) == 2 & ...
-            norm( plot_pos(2,:) - plot_pos(1,:) ) < 1.5*plot_settings.spacing );
-        visible = 'off'; 
-    else 
-        visible = 'on'; 
-    end;
-    if ( check_for_base_pair( linker.residue1, linker.residue2 ) ) visible = 'off'; end;
-    if strcmp( visible, 'off' ) 
-        if isfield( linker, 'line_handle')   linker = delete_linker( linker, 0 ); end; % delete linker handle!
-        return;
-    end;
-    linker = draw_default_linker( linker );
-    set( linker.line_handle, 'visible', visible); 
-    if isfield( linker, 'vtx' ); 
-        vtx_visible = visible;
-        if ( isfield( plot_settings, 'show_linker_controls' ) & ~plot_settings.show_linker_controls ) vtx_visible = 'off'; end;
-        for i = 1:length( linker.vtx ), if isvalid( linker.vtx{i} ); set( linker.vtx{i}, 'visible', vtx_visible ); end; end;
-    end;
-    residue1 = getappdata( gca, linker.residue1 );
-    % color setting
-    color = 'k';  %black is default
-    if ( isfield( plot_settings, 'color_arrows' ) & plot_settings.color_arrows & isfield( residue1, 'rgb_color' ) ); color = residue1.rgb_color; end
-    set( linker.line_handle, 'color',color);
-    set( linker.arrow, 'edgecolor',color );
-    set( linker.arrow, 'facecolor',color );
-    arrow_linewidth = get_arrow_linewidth( plot_settings.fontsize );
-    set( linker.line_handle, 'linewidth', arrow_linewidth );
-elseif strcmp( linker.type, 'stack' )  % to guide the eye.
-    if ( norm( plot_pos(end,:) - plot_pos(1,:) ) < 1.5 * plot_settings.bp_spacing ); visible = 'off'; else visible = 'on'; end;
-    if strcmp( visible, 'off' ) 
-        linker = delete_linker( linker, 0 ); % delete linker handle!
-        return; 
-    end;
-    linker = draw_default_linker( linker );
-    set( linker.line_handle, 'visible', visible);
-else
-    linker = draw_default_linker( linker );
-end
+linker = draw_default_linker( linker );
     
 % nudge beginning and end of linker away from residue.
 nudge_spacing = plot_settings.bp_spacing;
@@ -112,7 +73,7 @@ set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 % draw (draggable) vertices if they don't exist yet.
 if isfield( linker, 'plot_pos' ) 
     if isfield( linker, 'vtx' ) 
-        linker_vtx_ok = 1;
+        linker_vtx_ok = plot_settings.show_linker_controls;
         for i = 1:length( linker.vtx ); if ~isvalid( linker.vtx{i} ); linker_vtx_ok = 0; break; end; end;
         if size(linker.plot_pos,1) ~= length( linker.vtx ) linker_vtx_ok = 0; end;
         if ~linker_vtx_ok
@@ -136,7 +97,8 @@ pos2 = plot_pos2(   1, : );
 ctr = (pos1+pos2)/2; % center of connecting line
 v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
 num_pos1 = size(plot_pos1,1);
-if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, plot_settings.spacing ); end;
+if isfield(linker,'arrow'); linker = update_arrow_style( linker, plot_settings ); end;
+if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, plot_settings.spacing ); end;
 if isfield(linker,'arrow') & isfield(plot_settings,'show_extra_arrows'); linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings ); end;
 if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  end
 if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  end;
@@ -267,9 +229,8 @@ linker = setfield( linker, relpos_field, relpos);
 %setappdata( gca, linker.linker_tag, linker ); 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function update_arrow( h, ctr, v, visible, spacing, add_stem );
+function update_arrow( h, ctr, v, spacing, add_stem );
 x = v * 1.5 * [0 1; -1 0]; % cross direction
-set( h, 'visible', visible);
 a  = [ ...
     ctr - spacing/3*v+spacing/5*x;
     ctr - spacing/6*v+spacing/10*x;
@@ -294,6 +255,18 @@ set( h, 'xdata', ...
     a(:,1) );
 set( h, 'ydata', ...
     a(:,2) );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linker = update_arrow_style( linker, plot_settings )
+color = 'k';  %black is default
+residue1 = getappdata(gca,linker.residue1);
+if ( isfield( plot_settings, 'color_arrows' ) & plot_settings.color_arrows & isfield( residue1, 'rgb_color' ) ); color = residue1.rgb_color; end
+set( linker.line_handle, 'color',color);
+set( linker.arrow, 'edgecolor',color );
+set( linker.arrow, 'facecolor',color );
+arrow_linewidth = get_arrow_linewidth( plot_settings.fontsize );
+set( linker.line_handle, 'linewidth', arrow_linewidth );
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -320,8 +293,12 @@ for i = 1:num_extra_arrows;
     ctr = (pos1+pos2)/2; % center of connecting line
     v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
     show_arrow = plot_settings.show_extra_arrows & norm( pos2 - pos1 ) >= 5 * plot_settings.bp_spacing;
-    if ( show_arrow ) visible = 'on'; else; visible = 'off'; end;
-    update_arrow( linker.extra_arrows{ i }, ctr, v, visible, plot_settings.spacing );
+    if ( show_arrow )  
+        set( linker.extra_arrows{i}, 'visible','on' );
+        update_arrow( linker.extra_arrows{ i }, ctr, v, plot_settings.spacing ); 
+    else; 
+        set( linker.extra_arrows{i}, 'visible','off' );
+    end;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

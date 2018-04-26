@@ -196,7 +196,7 @@ if isfield( residue, 'relpos' )
     residue.plot_pos = pos;
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
     residue = draw_tick( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
-    if isfield( residue, 'image_boundary' ); residue = draw_image_boundary( residue, plot_settings ); end
+    if any(isfield( residue, {'image_boundary','image_radius'} ); residue = draw_image( residue, plot_settings ); end
     setappdata( gca, res_tag, residue );
 end
 

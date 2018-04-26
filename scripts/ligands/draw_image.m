@@ -1,5 +1,5 @@
-function ligand = draw_image_boundary( ligand, plot_settings )
-% ligand = draw_image_boundary( ligand, plot_settings )
+function ligand = draw_image( ligand, plot_settings )
+% ligand = draw_image( ligand, plot_settings )
 % 
 % Draw the 'silhouette' of a ligand (like a protein) if
 %  its image_boundary field has been setup by SETUP_IMAGE_FOR_LIGAND.

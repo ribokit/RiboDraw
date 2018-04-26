@@ -41,6 +41,7 @@ for i = 1:length( tags )
             all_name = {name1};
             name = sprintf('\\color{black}%s',name1);
             for j = 1:length( linker_tags )
+                if ~isappdata( gca, linker_tags{j} ); continue; end; %%% HACK HACK HACK THIS SHOULD NOT BE NECESSARY!!
                 linker = getappdata( gca, linker_tags{j} );
                 [name2,rgb2] = get_partner_name( linker.residue2 );
                 if any( strcmp( all_name, name2 ) ) continue; end; % don't repeat

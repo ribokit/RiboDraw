@@ -8,7 +8,18 @@ function delete_tertiary_contact( contact_name, print_stuff )
 %  print_stuff  = verbose (default 1)
 %
 % (C) R. Das, Stanford University, 2017
+if ~exist( 'contact_name', 'var' ) 
+    contact_name = get_tags( 'TertiaryContact' );
+end
 if ~exist( 'print_stuff', 'var' ) print_stuff = 1; end;
+
+if iscell( contact_name )
+    for i = 1:length( contact_name );
+        delete_tertiary_contact( contact_name{i}, print_stuff);
+    end
+    return;
+end
+
 if iscell( contact_name )
     for i = 1:length( contact_name )
         delete_tertiary_contact( contact_name{i}, print_stuff );

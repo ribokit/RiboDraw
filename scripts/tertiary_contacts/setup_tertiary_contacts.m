@@ -38,6 +38,7 @@ end
 
 hide_interdomain_noncanonical_pairs;
 hide_ligand_linkers;
+show_tertiary_contacts;
 move_stuff_to_back;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -535,9 +535,8 @@ set( linker.line_handle, 'color', linecolor );
 function linecolor = get_single_color_for_ligand_linker( residue1, residue2 );
 if isfield( residue1, 'rgb_color' ) rescolor1 = residue1.rgb_color; else; rescolor1 = [0,0,0]; end;
 if isfield( residue2, 'rgb_color' ) rescolor2 = residue2.rgb_color; else; rescolor2 = [0,0,0]; end;
-linecolor = [0,0,0];
-if all( rescolor2 == 0 ); linecolor = rescolor1; end; 
-if all( rescolor1 == 0 ); linecolor = rescolor2; end; % RNA takes precedence to define color
+linecolor = rescolor1;
+if all( rescolor1 == 0 ); linecolor = rescolor2; end; 
 linecolor = fade_color( linecolor );
 
 

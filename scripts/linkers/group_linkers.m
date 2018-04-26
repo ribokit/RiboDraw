@@ -94,13 +94,13 @@ end
 % deprecated in favor of check_distance_close
 function match = check_graph_close( g, res_tags, res_tag1, res_tag2 );
 [P,d] = shortestpath(g,find(strcmp(res_tags,res_tag1)),find(strcmp(res_tags,res_tag2)));
-match = ( d <= 5 );
+match = ( d <= 2 );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function match = check_distance_close( D, res_tags, res_tag1, res_tag2 );
 d = D(find(strcmp(res_tags,res_tag1)),find(strcmp(res_tags,res_tag2)));
-match = ( d <= 5 );
+match = ( d <= 2 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker_groups_filter = filter_groups_without_pairs( linker_groups );

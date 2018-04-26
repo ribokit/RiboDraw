@@ -87,7 +87,9 @@ setappdata( gca, tag, tertiary_contact );
 if default_name; update_tertiary_contact_names( {tag}, print_stuff ); end;
 
 % draw these linkers
-draw_linker( [{tertiary_contact.interdomain_linker},tertiary_contact.intradomain_linkers1,tertiary_contact.intradomain_linkers2] );
+draw_linker( tertiary_contact.interdomain_linker );
+autotrace_intradomain_linker( tertiary_contact.intradomain_linkers1 );
+autotrace_intradomain_linker( tertiary_contact.intradomain_linkers2 );
 
 if ~exist( 'skip_move_stuff_to_back','var') skip_move_stuff_to_back = 0; end;
 if ~skip_move_stuff_to_back 

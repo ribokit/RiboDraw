@@ -22,10 +22,12 @@ if ~exist( 'helices', 'var' )
     end
 end
 
+textprogressbar('Re-drawing helices ');
 for n = 1:length( helices )
     draw_helix( helices{n} );
+    textprogressbar( 100 * n/length(helices) );
 end
-
+textprogressbar('done');
 axis off
 %axis equal
 set(gcf,'color','white')

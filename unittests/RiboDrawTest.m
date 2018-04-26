@@ -1,10 +1,10 @@
 % setupTests
 fprintf( '\nTo run these unit tests, go to RiboDraw/unittests and type\n runtests;\n\n');
 tag =  'testdata/1ehz.pdb';
+initialize_drawing( tag );
 nc_pairs = get_tags( 'Linker','noncanonical_pair' );
 
 %% initialize_drawing
-initialize_drawing( tag );
 assert( isappdata( gca, 'Residue_A45' ) );
 assert( isappdata( gca, 'Linker_A17_A18_arrow' ) );
 assert( length(get(gca,'Children')) > 100 );

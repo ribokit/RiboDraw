@@ -24,6 +24,8 @@ tic
 % now group by domain.
 linker_groups = {};
 nbrs = [];
+[g,res_tags] = get_graph_for_drawing( 1 );
+D = distances(g);
 for i = 1:length( linkers )
     linker_i = linkers{i};
     residue_i1 = getappdata(gca,linker_i.residue1);
@@ -35,21 +37,22 @@ for i = 1:length( linkers )
         % look for match of domain and closeness of sequence
         if ( strcmp( linker_i.domain1, linker_j.domain1 ) && ...
                 strcmp( linker_i.domain2, linker_j.domain2 ) && ...
-                check_sequence_close( residue_i1, residue_j1 ) && ...
-                check_sequence_close( residue_i2, residue_j2 ) )
+                check_distance_close( D, res_tags, linker_i.residue1, linker_j.residue1 ) && ...
+                check_distance_close( D, res_tags, linker_i.residue2, linker_j.residue2 ) )
             nbrs = [nbrs; i,j];
         elseif ( strcmp( linker_i.domain1, linker_j.domain2 ) && ...
                  strcmp( linker_i.domain2, linker_j.domain1 ) && ...
-                check_sequence_close( residue_i1, residue_j2 ) && ...
-                check_sequence_close( residue_i2, residue_j1 ) )
+                check_distance_close( D, res_tags, linker_i.residue1, linker_j.residue2 ) && ...
+                check_distance_close( D, res_tags, linker_i.residue2, linker_j.residue1 ) )
             nbrs = [nbrs; i,j];
         end
     end
 end
 toc
 
-g = graph(nbrs(:,1),nbrs(:,2));
-bins = conncomp( g );
+if isempty( nbrs); return; end;
+g_linker = graph(nbrs(:,1),nbrs(:,2));
+bins = conncomp( g_linker );
 
 for i = 1:max(bins)
     linker_groups{i} = linkers( find( bins == i ) );
@@ -58,7 +61,7 @@ end
 % get rid of any linker groups that are all stacks...
 linker_groups = filter_groups_without_pairs( linker_groups );
 
-% need to reorder residues in linkers to match 'parent' of linker group.
+% TODO: need to reorder residues in linkers to match 'parent' of linker group.
 
 
 % allows quick check by eye...
@@ -73,6 +76,7 @@ end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% deprecated in favor of check_distance_close
 function match = check_sequence_close( residue, other_res ) 
 % now look for closeness, based on all residues in parent helix.
 helix = getappdata( gca, other_res.helix_tag );
@@ -85,6 +89,18 @@ for k = 1:length( helix.associated_residues )
         match = 1; return;
     end
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% deprecated in favor of check_distance_close
+function match = check_graph_close( g, res_tags, res_tag1, res_tag2 );
+[P,d] = shortestpath(g,find(strcmp(res_tags,res_tag1)),find(strcmp(res_tags,res_tag2)));
+match = ( d <= 5 );
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function match = check_distance_close( D, res_tags, res_tag1, res_tag2 );
+d = D(find(strcmp(res_tags,res_tag1)),find(strcmp(res_tags,res_tag2)));
+match = ( d <= 5 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker_groups_filter = filter_groups_without_pairs( linker_groups );

@@ -63,6 +63,7 @@ if isappdata( gca, linker.linker_tag ) & isappdata( gca, tag )
         fprintf( 'Already set up %s so not creating again.\n', linker.linker_tag );
         return;
     else
+        fprintf( 'Already set up %s now will DELETE\n', linker.linker_tag );
         template_linker = getappdata( gca, prev_tertiary_contact.interdomain_linker );
         delete_tertiary_contact( tag );
     end

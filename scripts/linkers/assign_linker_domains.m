@@ -52,7 +52,7 @@ residue = getappdata( gca, res_tag );
 if ~isfield( residue, 'associated_selections' ); return; end;
 
 for i = 1:length( domain_tags )
-    domain_member(i) = any( strcmp( residue.associated_selections, domain_tags{i} ) );
+    domain_member(i) = any( strcmp( residue.associated_selections, domain_tags{i} ) ) || strcmp(residue.res_tag,domain_tags{i});
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

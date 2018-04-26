@@ -1,6 +1,9 @@
 function tertiary_contact_tags = setup_interdomain_tertiary_contacts( domain_names )
 % setup_interdomain_tertiary_contacts( domain_names )
 %
+% Example for ligands:
+%  setup_interdomain_tertiary_contacts( [{'RNA'},get_ligand_tags()] );
+%
 %  Main function for cleaning up multidomain drawings at 
 %   the scale of the ribosome.
 %

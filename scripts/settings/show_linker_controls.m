@@ -14,8 +14,9 @@ setappdata( gca, 'plot_settings', plot_settings );
 
 set_control_handle_visibility( setting );
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function set_control_handle_visibility( setting )
-if setting; visible = 'on'; else; visible = 'off'; end;
+
 % hide all blue stuff that was used for interactive movement.
 objnames = get_tags( 'Linker' );
 
@@ -27,6 +28,7 @@ end
 
 
 % OLD -- toggle graphics 'visible' field.
+% if setting; visible = 'on'; else; visible = 'off'; end;
 % for n = 1:length( objnames )
 %     linker = getappdata( gca, objnames{n} );
 %     if isfield( linker, 'vtx' ) & isfield( linker, 'line_handle' ) & isvalid( linker.line_handle )

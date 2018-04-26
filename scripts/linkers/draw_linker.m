@@ -35,7 +35,7 @@ toggle_types    = {'stack','other_contact','noncanonical_pair','stem_pair','long
 toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs','show_ligand_linkers','show_tertiary_contacts','show_tertiary_contacts'};
 for i = 1:length(toggle_types)
     if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) 
-        if isfield(linker,'line_handle') 
+        if isfield(linker,'line_handle')            
             linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); 
         end;
         return;
@@ -141,11 +141,11 @@ if isfield(linker,'arrow') & isfield(plot_settings,'show_extra_arrows'); linker 
 if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  end
 if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  end;
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
-if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*2.5 ); end; 
-if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*2.5 ); end; 
+if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*3 ); end; 
+if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*3 ); end; 
 if isfield( linker, 'tertiary_contact' ); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
 if any(strcmp(linker.type, {'noncanonical_pair'} )) check_interdomain( linker, plot_settings ); end;
-if strcmp( linker.type, 'ligand' ) update_ligand_linker_visibility( linker, plot_settings ); end;
+if strcmp( linker.type, 'ligand' ) update_ligand_linker( linker, plot_settings ); end;
 
 % if there are vertex symbols at end points, re-draw them.
 if isfield( linker, 'vtx' )
@@ -227,10 +227,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = create_undercircle( bp_spacing );
 t = linspace(0, 2*pi);
-r = bp_spacing/3;
+r = 10 * bp_spacing/2;
 x = r*cos(t);
 y = r*sin(t);
-h = patch( x,y,'w','edgecolor',[0.8,0.8,0.8],'facecolor','w','linewidth',2);
+h = patch( x,y,'w','edgecolor',[0.8,0.8,0.8],'facecolor','w','linewidth',1);
 send_to_back( h );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -388,7 +388,7 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     for i = 1:length( plot_pos ) - 1
         segv = plot_pos(i+1,:) - plot_pos(i,:);
         segv = segv/norm(segv);
-        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/8; % rotate
+        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/16; % rotate
         side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
         side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
     end
@@ -445,7 +445,7 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     end
 else
     assert( strcmp( linker.type, 'tertcontact_intradomain' ) );
-    set( linker.line_handle, 'linewidth', 2*get_arrow_linewidth( plot_settings.fontsize ) );
+    set( linker.line_handle, 'linewidth', get_arrow_linewidth( plot_settings.fontsize ) );
     if any( strcmp( tertiary_contact.associated_residues1, linker.residue1 ) ) % in domain 1
         set( linker.node2, 'edgecolor',color1);
         set( linker.line_handle, 'color',color1);
@@ -516,10 +516,22 @@ if setting; visible = 'on'; else; visible = 'off'; end;
 linker = set_linker_visibility( linker, visible );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function update_ligand_linker_visibility( linker, plot_settings );
+function update_ligand_linker( linker, plot_settings );
 if ~isfield( plot_settings, 'show_ligand_linkers' ); return; end;
 if ( plot_settings.show_ligand_linkers ) visible = 'on'; else; visible = 'off'; end;
 set( linker.line_handle, 'visible', visible );
+
+residue1 = getappdata( gca, linker.residue1 );
+residue2 = getappdata( gca, linker.residue2 );
+if isfield( residue1, 'rgb_color' ) rescolor1 = residue1.rgb_color; else; rescolor1 = [0,0,0]; end;
+if isfield( residue2, 'rgb_color' ) rescolor2 = residue2.rgb_color; else; rescolor2 = [0,0,0]; end;
+linecolor = [0,0,0];
+if all( rescolor2 == 0 ); linecolor = rescolor1; end; 
+if all( rescolor1 == 0 ); linecolor = rescolor2; end; % RNA takes precedence to define color
+linecolor = fade_color( linecolor );
+set( linker.line_handle, 'color', linecolor );
+
+
 
     
 

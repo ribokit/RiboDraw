@@ -47,12 +47,21 @@ if keep_previous_drawing;
     loaddata.xlim = getappdata( gca, 'xlim' );
     loaddata.ylim = getappdata( gca, 'ylim' );
     loaddata.windowposition = getappdata( gca, 'windowposition' );
+    loaddata.data_aspect_ratio_mode = getappdata( gca, 'data_aspect_ratio_mode' );
 else
     clf; 
     set(gca,'Position',[0 0 1 1]);
     set(gca, 'xlim', loaddata.xlim );
     set(gca, 'ylim', loaddata.ylim );
     set(gcf,'Position',loaddata.window_position)
+    if isfield( loaddata, 'data_aspect_ratio_mode' )
+        switch loaddata.data_aspect_ratio_mode
+            case 'manual'
+                axis image;
+            case 'auto'
+                axis normal;
+        end;
+    end
 end
 hold on;
 

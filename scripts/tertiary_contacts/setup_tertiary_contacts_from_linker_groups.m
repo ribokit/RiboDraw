@@ -32,8 +32,15 @@ for i = 1:length( linker_groups )
     residue2 = getappdata( gca, main_linker.residue2 );
     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
-    
+        
     tertiary_contact_tags{i} = setup_tertiary_contact( '', res_tags1, res_tags2, main_linker, 1 );
+    
+    for j = 1:length( linker_group )
+        linker = getappdata( gca, linker_group{j}.linker_tag );
+        linker.grouped_in_tertiary_contact = tertiary_contact_tags{i};
+        setappdata( gca, linker.linker_tag, linker );
+    end
+
 end
 
 hide_interdomain_noncanonical_pairs;

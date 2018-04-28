@@ -68,17 +68,17 @@ if isappdata( gca, linker.linker_tag ) & isappdata( gca, tag )
         delete_tertiary_contact( tag );
     end
 else
-    if print_stuff; fprintf( 'Setting up %s.\n', linker.linker_tag ); end;
+    %if print_stuff; fprintf( 'Setting up %s.\n', linker.linker_tag ); end;
 end
 
 if exist( 'template_linker', 'var' )
     linker.relpos1  = template_linker.relpos1;
     linker.relpos2  = template_linker.relpos2;
-    if ~isfield( template_linker, 'plot_pos' )
+    if ~isfield( linker, 'plot_pos' )
         plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
         plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
         linker.plot_pos = [plot_pos1; plot_pos2 ];
-    end;
+    end;    
     linker = create_linker_with_draggable_vtx( linker );
 end
 add_linker( linker );
@@ -87,7 +87,8 @@ tertiary_contact.interdomain_linker = linker.linker_tag;
 tertiary_contact.intradomain_linkers1 = setup_intradomain_linkers( res_tags1, contact_name_cleaned, tag );
 tertiary_contact.intradomain_linkers2 = setup_intradomain_linkers( res_tags2, contact_name_cleaned, tag );
 setappdata( gca, tag, tertiary_contact );
-if default_name; update_tertiary_contact_names( {tag}, print_stuff ); end;
+if default_name; update_tertiary_contact_names( {tag}, 0 ); end;
+if print_stuff; fprintf( 'Set up %s.\n', tag ); end;
 
 % draw these linkers
 draw_linker( tertiary_contact.interdomain_linker );

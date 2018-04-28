@@ -6,4 +6,4 @@ function interdomain_linker_types = get_interdomain_linker_types();
 % 
 % (C) R. Das, Stanford University 2018
 
-interdomain_linker_types = {'ligand'}; %,'noncanonical_pair','long_range_stem_pair','stack','other_contact'};
+interdomain_linker_types = {'ligand','noncanonical_pair','long_range_stem_pair','stack','other_contact'};

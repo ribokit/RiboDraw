@@ -1,4 +1,4 @@
-function linker_groups = group_linkers( linkers )
+function linker_groups = group_linkers( linkers, domain_assignments )
 % linker_groups = group_linkers( linkers )
 %
 %  Find clusters of linkers that are close in sequence and
@@ -28,20 +28,18 @@ nbrs = [];
 D = distances(g);
 for i = 1:length( linkers )
     linker_i = linkers{i};
-    residue_i1 = getappdata(gca,linker_i.residue1);
-    residue_i2 = getappdata(gca,linker_i.residue2);
+    domain_assignment_i = domain_assignments{i};
     for j = (i+1):length( linkers )
         linker_j = linkers{j};
-        residue_j1 = getappdata(gca,linker_j.residue1);
-        residue_j2 = getappdata(gca,linker_j.residue2);
+        domain_assignment_j = domain_assignments{j};
         % look for match of domain and closeness of sequence
-        if ( strcmp( linker_i.domain1, linker_j.domain1 ) && ...
-                strcmp( linker_i.domain2, linker_j.domain2 ) && ...
-                check_distance_close( D, res_tags, linker_i.residue1, linker_j.residue1 ) && ...
-                check_distance_close( D, res_tags, linker_i.residue2, linker_j.residue2 ) )
+        if ( strcmp( domain_assignment_i{1}, domain_assignment_j{1} ) && ...
+             strcmp( domain_assignment_i{2}, domain_assignment_j{2}  ) && ...
+             check_distance_close( D, res_tags, linker_i.residue1, linker_j.residue1 ) && ...
+             check_distance_close( D, res_tags, linker_i.residue2, linker_j.residue2 ) )
             nbrs = [nbrs; i,j];
-        elseif ( strcmp( linker_i.domain1, linker_j.domain2 ) && ...
-                 strcmp( linker_i.domain2, linker_j.domain1 ) && ...
+        elseif (strcmp( domain_assignment_i{1}, domain_assignment_j{2} ) && ...
+                strcmp( domain_assignment_i{2}, domain_assignment_j{1}  ) && ...
                 check_distance_close( D, res_tags, linker_i.residue1, linker_j.residue2 ) && ...
                 check_distance_close( D, res_tags, linker_i.residue2, linker_j.residue1 ) )
             nbrs = [nbrs; i,j];
@@ -61,7 +59,9 @@ end
 % get rid of any linker groups that are all stacks...
 linker_groups = filter_groups_without_pairs( linker_groups );
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TODO: need to reorder residues in linkers to match 'parent' of linker group.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % allows quick check by eye...

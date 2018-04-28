@@ -11,5 +11,6 @@ function linker = rmdomainfields( linker );
 if isfield( linker, 'domain1' ) linker = rmfield( linker, 'domain1'); end
 if isfield( linker, 'domain2' ) linker = rmfield( linker, 'domain2'); end
 if isfield( linker, 'interdomain' ) linker = rmfield( linker, 'interdomain'); end
+if isfield( linker, 'grouped_into_tertiary_contact' ) linker = rmfield( linker, 'grouped_into_tertiary_contact'); end
 setappdata( gca, linker.linker_tag, linker );
 

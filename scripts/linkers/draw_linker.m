@@ -491,7 +491,11 @@ function check_interdomain( linker, plot_settings )
 if ~isfield( plot_settings, 'show_interdomain_noncanonical_pairs' ) return; end;
 setting = 1;
 if ~plot_settings.show_interdomain_noncanonical_pairs
-    if isfield( linker, 'interdomain' ) & linker.interdomain
+    % interdomain will be deprecated in favor of grouped_in_tertiary_contact
+    if isfield( linker, 'interdomain' ) && linker.interdomain
+        setting = 0;
+    end
+    if isfield( linker, 'grouped_in_tertiary_contact' ) && length(linker.grouped_in_tertiary_contact) > 0
         setting = 0;
     end
 end

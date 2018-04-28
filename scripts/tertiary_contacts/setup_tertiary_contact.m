@@ -3,10 +3,10 @@ function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, r
 %
 % Inputs:
 %    contact_name = name for tertiary contact (if empty string '', a default name is defined based on first residue in res1 and res2 sets.
-%    res_tags1    = cell of tags defining first set of residues on one side of tertiary contact. 
-%                       Example: {'Residue_A23','Resisdue_A26',...}  
+%    res_tags1    = cell of tags defining first set of residues on one side of tertiary contact.
+%                       Example: {'Residue_A23','Resisdue_A26',...}
 %                   also acceptable is a string like: 'A:23 A:26...' (easier for manual input)
-%    res_tags2    = cell of tags defining second set of residues the other side of tertiary contact. 
+%    res_tags2    = cell of tags defining second set of residues the other side of tertiary contact.
 %
 %  [Optional]
 %    template_linker = Existing linker object whose path will be copied over to the new interdomain linker for the tertiary contact. [default: no template]
@@ -34,12 +34,12 @@ else
     default_name = 0;
 end
 if ~exist( 'print_stuff' ) print_stuff = 1; end;
-    
+
 if ~isempty( intersect( res_tags1, res_tags2 ) )
     tag = '';
     fprintf( 'res_tags1 and res_tags2 have common residues... not creating tertiary contact %s\n', contact_name );
     intersect( res_tags1, res_tags2 );
-    return 
+    return
 end
 
 contact_name_cleaned = strrep( strrep(contact_name, ' ', '_' ), '-', '_' ) ;
@@ -72,10 +72,13 @@ else
 end
 
 if exist( 'template_linker', 'var' )
-    if ~isfield( template_linker, 'plot_pos' ) template_linker = draw_linker( template_linker ); end;
-    linker.plot_pos = template_linker.plot_pos;
     linker.relpos1  = template_linker.relpos1;
     linker.relpos2  = template_linker.relpos2;
+    if ~isfield( template_linker, 'plot_pos' )
+        plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
+        plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
+        linker.plot_pos = [plot_pos1; plot_pos2 ];
+    end;
     linker = create_linker_with_draggable_vtx( linker );
 end
 add_linker( linker );
@@ -92,7 +95,7 @@ autotrace_intradomain_linker( tertiary_contact.intradomain_linkers1 );
 autotrace_intradomain_linker( tertiary_contact.intradomain_linkers2 );
 
 if ~exist( 'skip_move_stuff_to_back','var') skip_move_stuff_to_back = 0; end;
-if ~skip_move_stuff_to_back 
+if ~skip_move_stuff_to_back
     tic
     move_stuff_to_back(); % should be faster to move all tertiary contact linkers to 'back' all at once
     toc

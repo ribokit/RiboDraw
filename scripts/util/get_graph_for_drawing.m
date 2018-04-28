@@ -26,8 +26,10 @@ for i = 1:length( res_tags )
     end
     if isfield( residue, 'stem_partner' )
         j = find(strcmp( res_tags, residue.stem_partner ));
-        assert( length( j ) == 1 );
-        nbrs = [nbrs; i,j];
+        if ~isempty( j )
+            assert( length( j ) == 1 );
+            nbrs = [nbrs; i,j];
+        end
     end
 end
 

@@ -1,5 +1,5 @@
-function linker_groups = group_interdomain_linkers( domain_names )
-% linker_groups = group_interdomain_linkers( domain_names )
+function linker_groups = group_linkers_for_tertiary_contacts( domain_names )
+% linker_groups = group_linkers_for_tertiary_contacts( domain_names )
 %
 %  Main function for cleaning up multidomain drawings at 
 %   the scale of the ribosome.

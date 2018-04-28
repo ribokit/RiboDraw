@@ -359,12 +359,17 @@ residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
 residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
 
 if strcmp( linker.type, 'tertcontact_interdomain' )
+    segwidth = plot_settings.bp_spacing/16;
+    if isfield( tertiary_contact,'linkers');
+        segwidth = length(tertiary_contact.linkers) * plot_settings.bp_spacing/160;
+    end
+    
     % double color lines for interdomain;
     side_line1_pos = []; side_line2_pos = [];
     for i = 1:length( plot_pos ) - 1
         segv = plot_pos(i+1,:) - plot_pos(i,:);
         segv = segv/norm(segv);
-        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/16; % rotate
+        segv = segv * [0 1; -1 0] * segwidth; % rotate
         side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
         side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
     end

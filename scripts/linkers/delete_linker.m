@@ -39,5 +39,7 @@ if remove_linker
     setappdata( gca, linker.residue2, residue2 );
     
     rmappdata( gca, linker.linker_tag );
+else
+    setappdata( gca, linker.linker_tag, linker ); 
 end
 

@@ -30,19 +30,19 @@ if ischar( linker )
 end;
 
 % the rendering in this function  ends up being rate limiting for
-% draw_helix -- early return if we don't have to make anything
+% draw_helix -- early return (and delete the linker graphics!) if we don't have to make anything
 toggle_types    = {'stack',      'other_contact',      'noncanonical_pair',      'stem_pair',      'long_range_stem_pair','ligand',             'tertcontact_intradomain','tertcontact_interdomain' };
 toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs',     'show_ligand_linkers','show_tertiary_contacts', 'show_tertiary_contacts'};
 for i = 1:length(toggle_types)
     if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) 
-        if isfield(linker,'line_handle')            
-            linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); 
-        end;
+        if isfield(linker,'line_handle'); linker = delete_linker( linker, 0 ); end;
         return;
     end;
 end
-if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); return; end;
-if ( strcmp( linker.type, 'arrow' ) && check_for_base_pair( linker.residue1, linker.residue2 ) ); linker = delete_linker( linker, 0 ); setappdata( gca, linker.linker_tag, linker ); return; end;
+if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 );  return; end;
+if ( strcmp( linker.type, 'arrow' ) && check_for_base_pair( linker.residue1, linker.residue2 ) ); linker = delete_linker( linker, 0 ); return; end;
+if strcmp(linker.type, {'noncanonical_pair'} ) && ~show_tertiary_noncanonical_pair( linker, plot_settings ); linker = delete_linker( linker, 0 ); return; end;
+
 
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
@@ -106,7 +106,6 @@ if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_set
 if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*3 ); end; 
 if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*3 ); end; 
 if any(strcmp(linker.type, {'tertcontact_interdomain','tertcontact_intradomain'} )); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
-if any(strcmp(linker.type, {'noncanonical_pair'} )) check_interdomain( linker, plot_settings ); end;
 if strcmp( linker.type, 'ligand' ) update_ligand_linker( linker, plot_settings ); end;
 
 % if there are vertex symbols at end points, re-draw them.
@@ -490,21 +489,16 @@ for i = 1:length( sister_linker_tags )
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function check_interdomain( linker, plot_settings )
+function setting = show_tertiary_noncanonical_pair( linker, plot_settings )
 % for show/hide interdomain_noncanonical_pairs
-if ~isfield( plot_settings, 'show_interdomain_noncanonical_pairs' ) return; end;
 setting = 1;
-if ~plot_settings.show_interdomain_noncanonical_pairs
-    % interdomain will be deprecated in favor of grouped_in_tertiary_contact
-    if isfield( linker, 'interdomain' ) && linker.interdomain
-        setting = 0;
-    end
+if ~isfield( plot_settings, 'show_tertiary_noncanonical_pairs' ) return; end;
+if ~plot_settings.show_tertiary_noncanonical_pairs
     if isfield( linker, 'tertiary_contact' ) && length(linker.tertiary_contact) > 0
         setting = 0;
     end
 end
-if setting; visible = 'on'; else; visible = 'off'; end;
-linker = set_linker_visibility( linker, visible );
+return;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_ligand_linker( linker, plot_settings );

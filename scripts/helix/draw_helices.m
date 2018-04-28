@@ -35,7 +35,7 @@ axis off
 
 %axis equal
 set(gcf,'color','white')
-if save_show_domains; show_domains(); end;
+if save_show_domains; show_domains(1,0); end;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function save_show_domains = temporarily_hide_domains();

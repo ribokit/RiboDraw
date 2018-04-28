@@ -58,6 +58,11 @@ for k = 1 : length( linker_tags )
     end
     setappdata( gca, linker_tags{k}, linker );
 end
+if isfield( residue, 'label_relpos' )
+    label_plot_pos = get_plot_pos(residue,residue.label_relpos);
+    label_plot_pos = label_plot_pos + residue.plot_pos - original_plot_pos;
+    residue.label_relpos = get_relpos( label_plot_pos, helix );
+end
 setappdata( gca, res_tag, residue );
 draw_helix( helix );
 

@@ -28,10 +28,10 @@ function linker_groups = group_linkers_for_tertiary_contacts( domain_names, sepa
 linker_groups = {};
 
 % get interdomain_linkers -- order of preference
-interdomain_linker_types = get_interdomain_linker_types();
+linker_types_for_tertiary_contacts = get_linker_types_for_tertiary_contacts();
 linkers = {};
-for i = 1:length( interdomain_linker_types )
-    linkers = [ linkers; get_tags( 'Linker', interdomain_linker_types{i} ) ];
+for i = 1:length( linker_types_for_tertiary_contacts )
+    linkers = [ linkers; get_tags( 'Linker', linker_types_for_tertiary_contacts{i} ) ];
 end
 
 [domain_residue_sets, domain_names] = get_domain_residue_sets( domain_names, separate_out_ligands, group_other_residues );

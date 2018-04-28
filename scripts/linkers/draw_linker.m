@@ -31,8 +31,8 @@ end;
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return if we don't have to make anything
-toggle_types    = {'stack','other_contact','noncanonical_pair','stem_pair','long_range_stem_pair','ligand','tertcontact_intradomain','tertcontact_interdomain' };
-toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs','show_ligand_linkers','show_tertiary_contacts','show_tertiary_contacts'};
+toggle_types    = {'stack',      'other_contact',      'noncanonical_pair',      'stem_pair',      'long_range_stem_pair','ligand',             'tertcontact_intradomain','tertcontact_interdomain' };
+toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs',     'show_ligand_linkers','show_tertiary_contacts', 'show_tertiary_contacts'};
 for i = 1:length(toggle_types)
     if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) 
         if isfield(linker,'line_handle')            
@@ -105,7 +105,7 @@ if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_set
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
 if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*3 ); end; 
 if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*3 ); end; 
-if isfield( linker, 'tertiary_contact' ); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
+if any(strcmp(linker.type, {'tertcontact_interdomain','tertcontact_intradomain'} )); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
 if any(strcmp(linker.type, {'noncanonical_pair'} )) check_interdomain( linker, plot_settings ); end;
 if strcmp( linker.type, 'ligand' ) update_ligand_linker( linker, plot_settings ); end;
 
@@ -350,7 +350,6 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_tertiary_contact( linker, plot_pos, plot_settings );
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
-    
 if isfield( plot_settings, 'show_tertiary_contacts' )
     if plot_settings.show_tertiary_contacts; visible = 'on'; else; visible = 'off'; end;
     linker = set_linker_visibility( linker, visible );
@@ -495,7 +494,7 @@ if ~plot_settings.show_interdomain_noncanonical_pairs
     if isfield( linker, 'interdomain' ) && linker.interdomain
         setting = 0;
     end
-    if isfield( linker, 'grouped_in_tertiary_contact' ) && length(linker.grouped_in_tertiary_contact) > 0
+    if isfield( linker, 'tertiary_contact' ) && length(linker.tertiary_contact) > 0
         setting = 0;
     end
 end

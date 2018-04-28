@@ -16,5 +16,5 @@ linker_tags = get_tags( 'Linker', 'ligand');
 for i = 1:length( linker_tags )
     draw_linker( getappdata( gca, linker_tags{i} ) );
 end
-move_stuff_to_back();
+if setting; move_stuff_to_back(); end;
 

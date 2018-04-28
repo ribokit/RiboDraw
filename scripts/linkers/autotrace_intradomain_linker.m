@@ -15,7 +15,7 @@ residue2 = getappdata(gca,linker.residue2);
 
 d = norm( residue1.plot_pos  - residue2.plot_pos );
 plot_settings = getappdata(gca,'plot_settings');
-if ( d < 2*plot_settings.bp_spacing) return; end;
+if ( d < 2*plot_settings.bp_spacing) draw_linker( linker ); return; end;
 
 helix1 = getappdata( gca, residue1.helix_tag );
 helix2 = getappdata( gca, residue2.helix_tag );
@@ -37,6 +37,6 @@ end
 
 linker.relpos1 = get_relpos( residue1.plot_pos, helix1 );
 linker.relpos2 = get_relpos( [vtx_plot_pos; residue2.plot_pos], helix2 );
-draw_linker( linker );
+linker = draw_linker( linker );
 setappdata( gca, linker.linker_tag, linker );
 

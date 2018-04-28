@@ -6,16 +6,10 @@ function tertiary_contact_tags = setup_tertiary_contacts_from_linker_groups( lin
 % INPUTS:
 %  linker_groups = cell of cells of linker tags that were grouped. 
 % 
-% See also SETUP_INTERDOMAIN_TERTIARY_CONTACTS and SETUP_LIGAND_TERTIARY_CONTACTS
 %
 % (C) R. Das, Stanford University 2017-2018
 
 tertiary_contact_tags = {};
-if ~exist( 'linker_groups', 'var' )
-    fprintf( 'You probably want to use either <a href="matlab: help setup_interdomain_tertiary_contacts">setup_interdomain_tertiary_contacts</a> or setup_ligand_tertiary_contacts!' );
-    return;
-end
-
 interdomain_linker_types = get_interdomain_linker_types();
 
 % let's try to set up a tertiary contact
@@ -33,20 +27,13 @@ for i = 1:length( linker_groups )
     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
         
-    tertiary_contact_tags{i} = setup_tertiary_contact( '', res_tags1, res_tags2, main_linker, 1 );
-    
-    for j = 1:length( linker_group )
-        linker = getappdata( gca, linker_group{j}.linker_tag );
-        linker.grouped_in_tertiary_contact = tertiary_contact_tags{i};
-        setappdata( gca, linker.linker_tag, linker );
-    end
-
+    tertiary_contact_tags{i} = setup_tertiary_contact( '', res_tags1, res_tags2, main_linker, 1, 1, linker_group );
 end
 
 hide_interdomain_noncanonical_pairs;
 hide_ligand_linkers;
 show_tertiary_contacts;
-move_stuff_to_back;
+%move_stuff_to_back; % already done in show_tertiary_contacts
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [res_tags1,res_tags2] = get_res_tags( linker_group );

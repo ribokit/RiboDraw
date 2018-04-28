@@ -19,6 +19,7 @@ interdomain_linkers = {};
 domain_assignments = {};
 tic
 fprintf( 'Assigning linker domains...\n' );
+
 for i = 1:length( linkers );
     linker = getappdata( gca, linkers{i} );
     domain_member1 = get_domain_membership( linker.residue1, domain_residue_sets );

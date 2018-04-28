@@ -9,10 +9,12 @@ function linker_groups = group_linkers( linkers, domain_assignments )
 %  or that involve the same ligand.
 %
 % Input:
-%  linkers  = cell of linkers to group (either all ligands, or previously defined by user
-%                  with ASSIGN_LINKER_DOMAINS). 
+%  linkers  = cell of linkers to group. 
+%
 % Output:
-%  linker_groups = cell of cells of linker tags that were grouped. 
+%  linker_groups = cell of cells of linker tags that were grouped.  Residue1 and Residue2 will be
+%             switched for each linker to match order of domains in
+%             'parent' linker of linker_group.
 %
 %
 % (C) R. Das, Stanford University
@@ -52,27 +54,38 @@ if isempty( nbrs); return; end;
 g_linker = graph(nbrs(:,1),nbrs(:,2));
 bins = conncomp( g_linker );
 
-for i = 1:max(bins)
-    linker_groups{i} = linkers( find( bins == i ) );
+for n = 1:max(bins)
+    linker_group = {};
+    idx = find( bins == n );
+    for i = idx;
+        % need to reorder residues in linkers to match 'parent' of linker group.
+        linker = linkers{i};
+        if ~strcmp(domain_assignments{i}{1},domain_assignments{idx(1)}{1} )
+            assert( strcmp(domain_assignments{i}{1},domain_assignments{idx(1)}{2} ) );
+            assert( strcmp(domain_assignments{i}{2},domain_assignments{idx(1)}{1} ) );
+            res1 = linker.residue1;
+            res2 = linker.residue2;
+            linker.residue1 = res2;
+            linker.residue2 = res1;
+        end
+        linker_group = [linker_group, linker ];
+    end
+    linker_groups{i} = linker_group;
 end
 
 % get rid of any linker groups that are all stacks...
 linker_groups = filter_groups_without_pairs( linker_groups );
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TODO: need to reorder residues in linkers to match 'parent' of linker group.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% allows quick check by eye...
-for i = 1:length( linker_groups )
-    color = rand(3,1);
-    linker_group = linker_groups{i};
-    for j = 1:length( linker_group )
-        linker = linker_group{j};
-        if isfield( linker, 'line_handle' ) set( linker.line_handle, 'color', color ); end;
-    end
-end
+% 
+% % allows quick check by eye...
+% for i = 1:length( linker_groups )
+%     color = rand(3,1);
+%     linker_group = linker_groups{i};
+%     for j = 1:length( linker_group )
+%         linker = linker_group{j};
+%         if isfield( linker, 'line_handle' ) set( linker.line_handle, 'color', color ); end;
+%     end
+% end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -94,13 +107,13 @@ end
 % deprecated in favor of check_distance_close
 function match = check_graph_close( g, res_tags, res_tag1, res_tag2 );
 [P,d] = shortestpath(g,find(strcmp(res_tags,res_tag1)),find(strcmp(res_tags,res_tag2)));
-match = ( d <= 2 );
+match = ( d <= 5 );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function match = check_distance_close( D, res_tags, res_tag1, res_tag2 );
 d = D(find(strcmp(res_tags,res_tag1)),find(strcmp(res_tags,res_tag2)));
-match = ( d <= 2 );
+match = ( d <= 5 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker_groups_filter = filter_groups_without_pairs( linker_groups );

@@ -1,4 +1,4 @@
-function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )
+function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff, linker_group )
 % setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )
 %
 % Inputs:
@@ -86,8 +86,20 @@ tertiary_contact.interdomain_linker = linker.linker_tag;
 
 tertiary_contact.intradomain_linkers1 = setup_intradomain_linkers( res_tags1, contact_name_cleaned, tag );
 tertiary_contact.intradomain_linkers2 = setup_intradomain_linkers( res_tags2, contact_name_cleaned, tag );
+
+if exist( 'linker_group','var' )
+    tertiary_contact.linkers = {};
+    for j = 1:length( linker_group )
+        linker = getappdata( gca, linker_group{j}.linker_tag );
+        linker.tertiary_contact = tag;
+        tertiary_contact.linkers = [tertiary_contact.linkers,linker_group{j}.linker_tag];
+        setappdata( gca, linker.linker_tag, linker );
+    end
+end
+
 setappdata( gca, tag, tertiary_contact );
 if default_name; update_tertiary_contact_names( {tag}, 0 ); end;
+    
 if print_stuff; fprintf( 'Set up %s.\n', tag ); end;
 
 % draw these linkers

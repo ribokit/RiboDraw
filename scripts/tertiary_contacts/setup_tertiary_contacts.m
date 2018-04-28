@@ -26,9 +26,14 @@ function tertiary_contact_tags = setup_interdomain_tertiary_contacts( domain_nam
 % See also SETUP_LIGAND_TERTIARY_CONTACTS
 %
 % (C) R. Das, Stanford University 2017-2018
-if ~exist( 'domain_names', 'var' ) domain_names = {}; end;
+if ~exist( 'domain_names', 'var' )         domain_names = {}; end;
 if ~exist( 'separate_out_ligands', 'var' ) separate_out_ligands = 1; end;
 if ~exist( 'group_other_residues', 'var' ) group_other_residues = 1; end;
+
+% Clear domain information from any linkers
+all_linkers = get_tags( 'Linker' );
+for i = 1:length( all_linkers ); rmdomainfields( getappdata(gca,all_linkers{i}) ); end
+
 linker_groups = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues );
 tertiary_contact_tags = setup_tertiary_contacts_from_linker_groups( linker_groups );
 

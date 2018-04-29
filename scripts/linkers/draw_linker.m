@@ -348,6 +348,8 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_tertiary_contact( linker, plot_pos, plot_settings );
+if ~isfield( linker, 'tertiary_contact' ) linker
+end
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
 if isfield( plot_settings, 'show_tertiary_contacts' )
     if plot_settings.show_tertiary_contacts; visible = 'on'; else; visible = 'off'; end;
@@ -452,6 +454,7 @@ end
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
 h = getfield(linker, arrow_label);
 if ~isvalid( h ) return; end;
+if ~isfield( tertiary_contact, 'name' ) tertiary_contact = update_tertiary_contact_name( tertiary_contact, 0 ); end;
 set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize*0.75 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -471,7 +474,9 @@ else
     v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
     start_pos = plot_pos(1,:);
 end
-update_arrow( getfield(linker,outarrow_fieldname), start_pos + v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );
+outarrow = getfield( linker, outarrow_fieldname );
+if ~arrow_visible; set( outarrow, 'visible','on' ); else;  set( outarrow, 'visible','off' ); end;
+update_arrow( getfield(linker,outarrow_fieldname), start_pos + v*outarrow_size*0.5, v, outarrow_size, 1 );
 linker = update_tertiary_arrow_label( linker, outarrow_label_fieldname, start_pos + v*outarrow_size, arrow_visible, plot_settings );
 set_text_alignment( getfield( linker, outarrow_label_fieldname ), v );
 

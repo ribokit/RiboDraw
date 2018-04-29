@@ -35,6 +35,8 @@ else
     pos = mean( current_image_boundary ) - mean( image_boundary );
     residue.plot_pos = pos - residue.image_offset;
 end
+if isfield( residue, 'label_relpos' );    label_plot_pos = get_plot_pos(residue,residue.label_relpos); end;
+
 [residue,switched_helix] = reassign_parent_helix( residue );
 if (switched_helix) residue.plot_pos = original_plot_pos; end;
 
@@ -58,8 +60,7 @@ for k = 1 : length( linker_tags )
     end
     setappdata( gca, linker_tags{k}, linker );
 end
-if isfield( residue, 'label_relpos' )
-    label_plot_pos = get_plot_pos(residue,residue.label_relpos);
+if isfield( residue, 'label_relpos' ); 
     label_plot_pos = label_plot_pos + residue.plot_pos - original_plot_pos;
     residue.label_relpos = get_relpos( label_plot_pos, helix );
 end
@@ -88,10 +89,14 @@ function [residue,switched_helix] = reassign_parent_helix( residue )
 %
 % possible helix parents -- judge based on sequence.
 %
-% Don't do this for ligands
 
+     
 switched_helix = 0;
-if isfield( residue, 'ligand_partners' ) return; end;
+
+% Don't do this for ligands if helix controls are off
+plot_settings = getappdata( gca, 'plot_settings' );
+if ~plot_settings.show_helix_controls && isfield( residue, 'ligand_partners' ) return; end;
+
 % if the residue was moved into its current helix, don't do anything...
 current_helix = getappdata( gca, residue.helix_tag );
 if ( check_in_helix_rectangle( residue, current_helix ) )

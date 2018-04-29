@@ -9,7 +9,7 @@ contact_name = get_tags( 'TertiaryContact' );
 textprogressbar( 'Deleting tertiary contacts ' );
 for i = 1:length( contact_name );
     delete_tertiary_contact( contact_name{i}, 0);
-    textprogressbar( i/length(contact_name) );
+    textprogressbar( 100*(i/length(contact_name)) );
 end
 textprogressbar( ' done' );
 

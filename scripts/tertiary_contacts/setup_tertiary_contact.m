@@ -25,14 +25,15 @@ end
 if length( res_tags1 ) == 0; return; end;
 if length( res_tags2 ) == 0; return; end;
 
-if length(contact_name) == 0
-    default_name = 1;
+if length(contact_name) > 0
+    tertiary_contact.name = contact_name;
+else
     residue1 = getappdata( gca, res_tags1{1} );
     residue2 = getappdata( gca, res_tags2{1}  );
     contact_name = sprintf( '%s%s%d_%s%s%d',  residue1.chain,residue1.segid,residue1.resnum, residue2.chain,residue2.segid,residue2.resnum  );
-else
-    default_name = 0;
+    % do not tertiary_contact.set name -- it will be updated later.
 end
+
 if ~exist( 'print_stuff' ) print_stuff = 1; end;
 
 if ~isempty( intersect( res_tags1, res_tags2 ) )
@@ -46,7 +47,6 @@ contact_name_cleaned = strrep( strrep(contact_name, ' ', '_' ), '-', '_' ) ;
 tag = sprintf('TertiaryContact_%s', contact_name_cleaned );
 tertiary_contact.associated_residues1 = res_tags1;
 tertiary_contact.associated_residues2 = res_tags2;
-tertiary_contact.name = contact_name;
 tertiary_contact.tertiary_contact_tag = tag;
 
 % interdomain connector.
@@ -98,7 +98,7 @@ if exist( 'linker_group','var' )
 end
 
 setappdata( gca, tag, tertiary_contact );
-if default_name; update_tertiary_contact_names( {tag}, 0 ); end;
+%if default_name; update_tertiary_contact_names( {tag}, 0 ); end;
     
 if print_stuff; fprintf( 'Set up %s.\n', tag ); end;
 
@@ -161,4 +161,5 @@ function add_linker( linker )
 linker_tag = linker.linker_tag;
 add_linker_to_residue( linker.residue1, linker_tag )
 add_linker_to_residue( linker.residue2, linker_tag )
-if ~isappdata( gca, linker_tag );  setappdata( gca, linker_tag, linker );  end
+if isappdata( gca, linker_tag ); delete_linker( linker_tag ); end;
+setappdata( gca, linker_tag, linker );

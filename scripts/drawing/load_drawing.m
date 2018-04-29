@@ -61,6 +61,7 @@ else
             case 'auto'
                 axis normal;
         end;
+        %axis manual; % uh hope this works.
     end
 end
 hold on;

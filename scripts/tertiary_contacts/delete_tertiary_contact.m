@@ -33,18 +33,29 @@ end
 
 tertiary_contact = getappdata( gca, tag );
 
-linker_tags = get_tags( 'Linker' ); %[ get_tags( 'Linker','interdomain' ); get_tags( 'Linker','intradomain' )];
-for i = 1:length( linker_tags )
-    linker_tag = linker_tags{i};
-    linker = getappdata( gca, linker_tag );
-    if ~isfield( linker, 'tertiary_contact' ) continue; end;
-    if strcmp( linker.tertiary_contact, tertiary_contact.tertiary_contact_tag )
-        if print_stuff; fprintf( 'Deleting %s\n', linker_tag ); end;
-        if strcmp(linker.type,'tertcontact_interdomain') || strcmp(linker.type,'tertcontact_intradomain') 
-            delete_linker( linker );
-        else
-            linker = rmfield( linker, 'tertiary_contact' );
-            setappdata( gca, linker_tag, linker );
+if isfield( tertiary_contact, 'linkers' ) 
+    delete_linker( tertiary_contact.interdomain_linker );
+    delete_linker( tertiary_contact.intradomain_linkers1 );
+    delete_linker( tertiary_contact.intradomain_linkers2 );
+    for i = 1:length( tertiary_contact.linkers );
+        linker = getappdata( gca, tertiary_contact.linkers{i} );
+        linker = rmfield( linker, 'tertiary_contact' );
+        setappdata( gca, linker.linker_tag, linker );
+    end
+else    
+    linker_tags = get_tags( 'Linker' ); %[ get_tags( 'Linker','interdomain' ); get_tags( 'Linker','intradomain' )];
+    for i = 1:length( linker_tags )
+        linker_tag = linker_tags{i};
+        linker = getappdata( gca, linker_tag );
+        if ~isfield( linker, 'tertiary_contact' ) continue; end;
+        if strcmp( linker.tertiary_contact, tertiary_contact.tertiary_contact_tag )
+            if print_stuff; fprintf( 'Deleting %s\n', linker_tag ); end;
+            if strcmp(linker.type,'tertcontact_interdomain') || strcmp(linker.type,'tertcontact_intradomain')
+                delete_linker( linker );
+            else
+                linker = rmfield( linker, 'tertiary_contact' );
+                setappdata( gca, linker_tag, linker );
+            end
         end
     end
 end
@@ -52,23 +63,4 @@ end
 if print_stuff; fprintf( 'Deleting %s\n', tag ); end;
 rmappdata( gca, tag )
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );
-linkers = {};
-for k = 2:length( res_tags );
-    linker.residue1 = res_tags{1};
-    linker.residue2 = res_tags{k};
-    linker.type = 'tertcontact_intradomain';
-    linker.linker_tag = sprintf('Linker_%s_%s_%s_%s',linker.residue1(9:end),linker.residue2(9:end),  ...
-        contact_name,linker.type);
-    linker.tertiary_contact = tag;
-    add_linker( linker );
-    linkers = [ linkers, linker.linker_tag ];
-end
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function add_linker( linker )
-linker_tag = linker.linker_tag;
-add_linker_to_residue( linker.residue1, linker_tag )
-add_linker_to_residue( linker.residue2, linker_tag )
-if ~isappdata( gca, linker_tag );  setappdata( gca, linker_tag, linker );  end

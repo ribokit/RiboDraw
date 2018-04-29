@@ -8,7 +8,7 @@ if ischar( res_tags ) res_tags = {res_tags}; end;
 axlim = axis();
 plot_settings = getappdata( gca, 'plot_settings' );
 fontsize = plot_settings.fontsize;
-
+did_fontsize_resize = 0;
 for i = 1:length( res_tags );
     res_tag = res_tags{i};
     residue = getappdata( gca, res_tag );
@@ -18,7 +18,7 @@ for i = 1:length( res_tags );
         
         plot_pos = residue.plot_pos;
         axis( [plot_pos(1)-50, plot_pos(1)+50,plot_pos(2)-50, plot_pos(2)+50] );
-        reset_fontsize();
+        if ~did_fontsize_resize; reset_fontsize(); did_fontsize_resize = 1; end;
         plot_settings = getappdata( gca, 'plot_settings' );
         helix = getappdata( gca, residue.helix_tag );
 
@@ -42,4 +42,4 @@ for i = 1:length( res_tags );
 end
     
 axis( axlim );
-reset_fontsize( fontsize );
+if did_fontsize_resize; reset_fontsize( fontsize ); end;

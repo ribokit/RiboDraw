@@ -195,7 +195,7 @@ if isfield( residue, 'relpos' )
     residue.res_tag = res_tag;
     residue.plot_pos = pos;
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
-    residue = draw_tick( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
+    residue = draw_tick( residue, plot_settings, R );
     if any(isfield( residue, {'image_boundary','image_radius'} )); residue = draw_image( residue, plot_settings ); end
     setappdata( gca, res_tag, residue );
 end
@@ -288,7 +288,7 @@ draw_helix( helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ticks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function residue = draw_tick( residue, bp_spacing, fontsize, R )
+function residue = draw_tick( residue, plot_settings, R )
 
 if ( mod(residue.resnum,10) ~= 0 ); return; end;
 if isfield(residue,'ligand_partners'); return; end;
@@ -308,19 +308,7 @@ end
 
 if isfield( residue, 'tickrot' ) 
     if  isnan(residue.tickrot) residue = set_default_tickrot( residue ); end;
-    theta = residue.tickrot;
-    v = [cos(theta*pi/180), sin(theta*pi/180)]*R;
-    tickpos1 = residue.plot_pos + v*bp_spacing/3; 
-    tickpos2 = residue.plot_pos + v*bp_spacing*2/3;
-    set( residue.tick_handle, 'xdata', [tickpos1(1) tickpos2(1)] );
-    set( residue.tick_handle, 'ydata', [tickpos1(2) tickpos2(2)] );
-    labelpos = residue.plot_pos + v*bp_spacing*2/3;
-    set( residue.tick_label, 'position', labelpos );
-    plot_settings = getappdata( gca, 'plot_settings' );
-    if ( get(residue.tick_label, 'fontsize') ~= plot_settings.fontsize ) 
-        set( residue.tick_label, 'fontsize', plot_settings.fontsize );  
-    end;
-    set_text_alignment( residue.tick_label, v );
+    update_tick( residue, plot_settings, R );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

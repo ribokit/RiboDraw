@@ -15,7 +15,7 @@ res_tags = get_tags( 'Residue' );
 for i = 1:length( res_tags )
     residue = getappdata( gca, res_tags{i} );
     if ~isfield( residue, 'ligand_partners' ); continue; end
-    residue = draw_image_boundary( residue, plot_settings );
+    residue = draw_image( residue, plot_settings );
     setappdata(gca,res_tags{i},residue);
 end
 if setting; move_stuff_to_back; end;

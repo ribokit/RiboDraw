@@ -15,6 +15,12 @@ function show_split_arrows( linker, setting, domain_names )
 % (C) R. Das, Stanford University, 2017
 
 if ~exist( 'setting','var') setting = 1; end;
+plot_settings = getappdata( gca, 'plot_settings' );
+if setting & ~strcmp( plot_settings.image_representation, 'image_boundary' )
+    fprintf( 'Click: <a href="matlab: show_images_as_boundaries">show_images_as boundaries</a> to see split arrows. Then run again.\n' ); return;
+end
+
+
 if ~exist( 'domain_names' ) domain_names = {}; end;
 if ~exist( 'linker','var' ) || isempty( linker ); linker = get_tags( 'Linker','interdomain' ); end;
 if iscell( linker ); for i = 1:length( linker ); show_split_arrows( linker{i}, setting, domain_names ); end; return; end;
@@ -23,3 +29,4 @@ if ~isempty( domain_names ) > 0 && isempty( get_interdomain_linkers( {linker.lin
 
 linker.show_split_arrows = setting;
 draw_linker( linker );
+

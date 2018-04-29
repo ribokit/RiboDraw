@@ -26,7 +26,7 @@ if exist( 'new_name', 'var' ) && length( new_name ) > 0
     if isfield( ligand, 'handle' )  set( ligand.handle, 'String', ligand.nucleotide ); end;
 end
 ligand.image_boundary = boundary;
-ligand = draw_image_boundary( ligand );
+ligand = draw_image( ligand );
 setappdata( gca, ligand.res_tag, ligand );
 fprintf( 'Setup image %s for %s.\n', image_file, ligand.res_tag );
 if ~exist( 'skip_move_stuff_to_back', 'var' )

@@ -1,12 +1,12 @@
-function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )
+function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff, linker_group )
 % setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )
 %
 % Inputs:
 %    contact_name = name for tertiary contact (if empty string '', a default name is defined based on first residue in res1 and res2 sets.
-%    res_tags1    = cell of tags defining first set of residues on one side of tertiary contact. 
-%                       Example: {'Residue_A23','Resisdue_A26',...}  
+%    res_tags1    = cell of tags defining first set of residues on one side of tertiary contact.
+%                       Example: {'Residue_A23','Resisdue_A26',...}
 %                   also acceptable is a string like: 'A:23 A:26...' (easier for manual input)
-%    res_tags2    = cell of tags defining second set of residues the other side of tertiary contact. 
+%    res_tags2    = cell of tags defining second set of residues the other side of tertiary contact.
 %
 %  [Optional]
 %    template_linker = Existing linker object whose path will be copied over to the new interdomain linker for the tertiary contact. [default: no template]
@@ -25,28 +25,28 @@ end
 if length( res_tags1 ) == 0; return; end;
 if length( res_tags2 ) == 0; return; end;
 
-if length(contact_name) == 0
-    default_name = 1;
+if length(contact_name) > 0
+    tertiary_contact.name = contact_name;
+else
     residue1 = getappdata( gca, res_tags1{1} );
     residue2 = getappdata( gca, res_tags2{1}  );
     contact_name = sprintf( '%s%s%d_%s%s%d',  residue1.chain,residue1.segid,residue1.resnum, residue2.chain,residue2.segid,residue2.resnum  );
-else
-    default_name = 0;
+    % do not tertiary_contact.set name -- it will be updated later.
 end
+
 if ~exist( 'print_stuff' ) print_stuff = 1; end;
-    
+
 if ~isempty( intersect( res_tags1, res_tags2 ) )
     tag = '';
     fprintf( 'res_tags1 and res_tags2 have common residues... not creating tertiary contact %s\n', contact_name );
     intersect( res_tags1, res_tags2 );
-    return 
+    return
 end
 
 contact_name_cleaned = strrep( strrep(contact_name, ' ', '_' ), '-', '_' ) ;
 tag = sprintf('TertiaryContact_%s', contact_name_cleaned );
 tertiary_contact.associated_residues1 = res_tags1;
 tertiary_contact.associated_residues2 = res_tags2;
-tertiary_contact.name = contact_name;
 tertiary_contact.tertiary_contact_tag = tag;
 
 % interdomain connector.
@@ -63,18 +63,22 @@ if isappdata( gca, linker.linker_tag ) & isappdata( gca, tag )
         fprintf( 'Already set up %s so not creating again.\n', linker.linker_tag );
         return;
     else
+        fprintf( 'Already set up %s now will DELETE\n', linker.linker_tag );
         template_linker = getappdata( gca, prev_tertiary_contact.interdomain_linker );
         delete_tertiary_contact( tag );
     end
 else
-    if print_stuff; fprintf( 'Setting up %s.\n', linker.linker_tag ); end;
+    %if print_stuff; fprintf( 'Setting up %s.\n', linker.linker_tag ); end;
 end
 
 if exist( 'template_linker', 'var' )
-    if ~isfield( template_linker, 'plot_pos' ) template_linker = draw_linker( template_linker ); end;
-    linker.plot_pos = template_linker.plot_pos;
     linker.relpos1  = template_linker.relpos1;
     linker.relpos2  = template_linker.relpos2;
+    if ~isfield( linker, 'plot_pos' )
+        plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
+        plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
+        linker.plot_pos = [plot_pos1; plot_pos2 ];
+    end;    
     linker = create_linker_with_draggable_vtx( linker );
 end
 add_linker( linker );
@@ -82,14 +86,29 @@ tertiary_contact.interdomain_linker = linker.linker_tag;
 
 tertiary_contact.intradomain_linkers1 = setup_intradomain_linkers( res_tags1, contact_name_cleaned, tag );
 tertiary_contact.intradomain_linkers2 = setup_intradomain_linkers( res_tags2, contact_name_cleaned, tag );
+
+if exist( 'linker_group','var' )
+    tertiary_contact.linkers = {};
+    for j = 1:length( linker_group )
+        linker = getappdata( gca, linker_group{j}.linker_tag );
+        linker.tertiary_contact = tag;
+        tertiary_contact.linkers = [tertiary_contact.linkers,linker_group{j}.linker_tag];
+        setappdata( gca, linker.linker_tag, linker );
+    end
+end
+
 setappdata( gca, tag, tertiary_contact );
-if default_name; update_tertiary_contact_names( {tag}, print_stuff ); end;
+%if default_name; update_tertiary_contact_names( {tag}, 0 ); end;
+    
+if print_stuff; fprintf( 'Set up %s.\n', tag ); end;
 
 % draw these linkers
-draw_linker( [{tertiary_contact.interdomain_linker},tertiary_contact.intradomain_linkers1,tertiary_contact.intradomain_linkers2] );
+draw_linker( tertiary_contact.interdomain_linker );
+autotrace_intradomain_linker( tertiary_contact.intradomain_linkers1 );
+autotrace_intradomain_linker( tertiary_contact.intradomain_linkers2 );
 
 if ~exist( 'skip_move_stuff_to_back','var') skip_move_stuff_to_back = 0; end;
-if ~skip_move_stuff_to_back 
+if ~skip_move_stuff_to_back
     tic
     move_stuff_to_back(); % should be faster to move all tertiary contact linkers to 'back' all at once
     toc
@@ -142,4 +161,5 @@ function add_linker( linker )
 linker_tag = linker.linker_tag;
 add_linker_to_residue( linker.residue1, linker_tag )
 add_linker_to_residue( linker.residue2, linker_tag )
-if ~isappdata( gca, linker_tag );  setappdata( gca, linker_tag, linker );  end
+if isappdata( gca, linker_tag ); delete_linker( linker_tag ); end;
+setappdata( gca, linker_tag, linker );

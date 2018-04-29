@@ -30,6 +30,16 @@ if isfield( linker, 'vtx' )
 end;
 
 if remove_linker
-    rmappdata( gca, linker.linker_tag )
+    residue1 = getappdata( gca, linker.residue1 );
+    residue1.linkers = setdiff( residue1.linkers, linker.linker_tag );
+    setappdata( gca, linker.residue1, residue1 );
+    
+    residue2 = getappdata( gca, linker.residue2 );
+    residue2.linkers = setdiff( residue2.linkers, linker.linker_tag );
+    setappdata( gca, linker.residue2, residue2 );
+    
+    rmappdata( gca, linker.linker_tag );
+else
+    setappdata( gca, linker.linker_tag, linker ); 
 end
 

@@ -1,0 +1,22 @@
+color_drawing( 'pink', 'S2');
+color_drawing( 'salmon', 'S3');
+color_drawing( 'palecyan', 'S4');
+color_drawing( 'lightteal', 'S5');
+color_drawing( 'darksalmon', 'S6');
+color_drawing( 'wheat', 'S7');
+color_drawing( 'lightmagenta', 'S8');
+color_drawing( 'lightorange', 'S9');
+color_drawing( 'deepsalmon', 'S10');
+color_drawing( 'ruby', 'S11');
+color_drawing( 'smudge', 'S12');
+color_drawing( 'sand', 'S13');
+color_drawing( 'warmpink', 'S14');
+color_drawing( 'lightpink', 'S15');
+color_drawing( 'lightblue', 'S16');
+color_drawing( 'greencyan', 'S17');
+color_drawing( 'dirtyviolet', 'S18');
+color_drawing( 'raspberry', 'S19');
+color_drawing( 'palegreen', 'S20');
+color_drawing( 'olive', 'S21');
+
+show_images_as_rounded_rectangles;

@@ -115,6 +115,7 @@ move_stuff_to_back();
 set_fontsize( loaddata.plot_settings.fontsize );
 setup_zoom();
 setup_pan();
+axis manual; % after plots, axis image/normal -- this keeps axes from going nuts when dragging.
 toc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

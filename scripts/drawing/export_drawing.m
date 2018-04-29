@@ -1,5 +1,5 @@
 function coords = export_drawing( filename, output_coords )
-% coords = export_drawing( filename )
+% coords = export_drawing( filename, output_coords )
 %
 %  Export drawing to different formats: PostScript, JPEG, PDF, PNG
 %

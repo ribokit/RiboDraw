@@ -10,6 +10,7 @@ function ligand = draw_image( ligand, plot_settings )
 % (C) Rhiju Das, Stanford University
 
 assert( isfield( ligand, 'image_boundary') );
+if ~exist( 'plot_settings', 'var' ) plot_settings = getappdata(gca, 'plot_settings' ); end;
 if ~isfield( plot_settings, 'image_representation' ) plot_settings.image_representation = 'image_boundary'; end;
 if ( ~isfield( plot_settings, 'show_images') || plot_settings.show_images );
     if ~isfield( ligand, 'image_offset' ) ligand.image_offset = [0,0]; end;

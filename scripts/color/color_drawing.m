@@ -49,7 +49,7 @@ for n = 1:length( res_tags )
     residue = getappdata( gca, res_tag );
     residue.rgb_color = res_colors(n,:);
     if isfield( residue, 'handle' ) set( residue.handle, 'color', residue.rgb_color ); end;
-    if isfield( residue, 'image_boundaries' ) draw_image( residue, plot_settings ); end;
+    if isfield( residue, 'image_boundary' ) draw_image( residue ); end;
     linkers = [ linkers, residue.linkers ];
     setappdata( gca, res_tag, residue);
     %draw_helix( residue.helix_tag );

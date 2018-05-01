@@ -56,7 +56,7 @@ function data = loadjson(fname,varargin)
 %      dat=loadjson(['examples' filesep 'example1.json'],'SimplifyCell',1)
 %
 % license:
-%     BSD License, see LICENSE_BSD.txt files for details 
+%     BSD or GPL version 3, see LICENSE_{BSD,GPLv3}.txt files for details 
 %
 % -- this function is part of JSONLab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)
 %
@@ -485,15 +485,13 @@ while(pos<=len)
             endpos=bpos(pos);
             return
         end
-    end
-    if(c=='[')
+    elseif(c=='[')
         if(isempty(e1l))
             e1l=bpos(pos);
         end
         level=level+1;
         maxlevel=max(maxlevel,level);
-    end
-    if(c=='"')
+    elseif(c=='"')
         pos=matching_quote(tokens,pos+1);
     end
     pos=pos+1;

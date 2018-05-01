@@ -17,7 +17,7 @@ function opt=varargin2struct(varargin)
 %      opt: a struct where opt.param1=value1, opt.param2=value2 ...
 %
 % license:
-%     BSD License, see LICENSE_BSD.txt files for details 
+%     BSD or GPL version 3, see LICENSE_{BSD,GPLv3}.txt files for details 
 %
 % -- this function is part of jsonlab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)
 %

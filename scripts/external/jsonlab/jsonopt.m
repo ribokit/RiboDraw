@@ -18,7 +18,7 @@ function val=jsonopt(key,default,varargin)
 %      val: if key exists, val=optstruct.key; otherwise val=default
 %
 % license:
-%     BSD License, see LICENSE_BSD.txt files for details
+%     BSD or GPL version 3, see LICENSE_{BSD,GPLv3}.txt files for details
 %
 % -- this function is part of jsonlab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)
 % 

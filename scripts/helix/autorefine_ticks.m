@@ -1,9 +1,12 @@
-function [scores,sample_tickrot] = autorefine_tick( res_tags )
+function [best_tickrot,scores,sample_tickrot] = autorefine_tick( res_tags )
 % autorefine_tick( res_tag )
 sample_tickrot = [0:45:315];
+best_tickrot = [];
 scores = [];
 if ~exist( 'res_tags','var' ); res_tags  = get_tags( 'Residue_' ); end;
 if ischar( res_tags ) res_tags = {res_tags}; end;
+
+set(gcf,'renderer','painters'); % TURNS OUT TO BE ABSOLUTELY CRITICAL
 
 axlim = axis();
 figpos = get(gcf,'position');
@@ -19,8 +22,8 @@ for i = 1:length( res_tags );
         
         plot_pos = residue.plot_pos;
         %set(gcf,'position',[0 0 200 200]);
-        axis( [plot_pos(1)-25, plot_pos(1)+25,plot_pos(2)-25, plot_pos(2)+25] );
-        if ~did_fontsize_resize; reset_fontsize(8); did_fontsize_resize = 1; end;
+        axis( [plot_pos(1)-50, plot_pos(1)+50,plot_pos(2)-50, plot_pos(2)+50] );
+        if ~did_fontsize_resize; reset_fontsize(); did_fontsize_resize = 1; end;
         plot_settings = getappdata( gca, 'plot_settings' );
         helix = getappdata( gca, residue.helix_tag );
 
@@ -31,12 +34,19 @@ for i = 1:length( res_tags );
             setappdata( gca, residue.res_tag, residue );
             update_tick( residue, plot_settings, R);
             %cdata = print('-RGBImage','-r50');
-            cdata = screencapture(gca);
+            cdata = screencapture(gca);     
+            %cdata = (255.0-cdata)/256.0;
             scores(j) = sum(sum(sum(cdata)));
         end
-        
+        % scale by size of image to get density per pixel^2;
+        %s = size(cdata);
+        %scores = scores/prod(s(1:2))
+        % give bonus
+        %mean(cdata(:)) 
+        %scores = scores + 1000*mean(cdata(:)) * (mod( sample_tickrot,90)==0);
         [~,idx] = min( scores );
-        residue.tickrot = sample_tickrot( idx );
+        best_tickrot = sample_tickrot( idx );
+        residue.tickrot = best_tickrot;
         update_tick( residue, plot_settings, R);
         setappdata( gca, residue.res_tag, residue );
         cdata = screencapture(gca);

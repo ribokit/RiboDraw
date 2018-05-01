@@ -100,10 +100,10 @@ for i = 1:length( datafields )
     setappdata( gca, datafield, datum );    
 end
 cleanup_associated_residues();
+loaddata = cleanup_segids( loaddata );
 cleanup_stray_linkers();
 cleanup_stack_linkers();
 cleanup_domains();
-cleanup_segids();
 convert_images_from_legacy();
 cleanup_plot_settings();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.

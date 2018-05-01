@@ -11,6 +11,7 @@ function reset_fontsize( fontsize );
 if ~exist( 'fontsize', 'var' ) 
     xlim = get(gca,'xlim' );
     fontsize = 2700/(xlim(2)-xlim(1)); 
+    fontsize = max(fontsize,6);
 end;
 % change font size accordingly
 set_fontsize( fontsize );

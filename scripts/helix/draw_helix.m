@@ -21,7 +21,7 @@ function helix = draw_helix( helix )
 % OUTPUT:
 %   helix = updated helix object
 %
-% (C) R. Das, Stanford University, 2017
+% (C) R. Das, Stanford University, 2017-2018
 
 if ischar( helix ); helix = getappdata(gca,helix); end;
     
@@ -73,8 +73,8 @@ for i = 1:length( helix.associated_residues )
     % silly cleanup
     for k = 1 : length( linker_tags )
         if any( strcmp( redrawn_linkers, linker_tags{k} ) ); continue; end; % don't double-render, to save time.
-        linker = getappdata( gca, char(linker_tags{k}) );
-        draw_linker( linker );
+        linker = getappdata( gca, linker_tags{k} );
+        draw_linker( linker, plot_settings );
         redrawn_linkers = [ redrawn_linkers, linker.linker_tag ];
     end
 end
@@ -148,7 +148,7 @@ for i = 1:length( helix.associated_residues )
     residue = getappdata( gca, res_tag );
     if isfield( residue, 'tick_label' ) & isvalid( residue.tick_label )
         setappdata( residue.tick_label, 'res_tag', res_tag );
-        draggable( residue.tick_label, @move_tick, 'endfcn', @redraw_tick_res_and_helix );
+        if ~isappdata(residue.tick_label,'user_movefcn'); draggable( residue.tick_label, @move_tick, 'endfcn', @redraw_tick_res_and_helix ); end;
     end
 end
 
@@ -156,7 +156,7 @@ end
 for i = 1:length( not_helix_res_tags )
     res_tag = not_helix_res_tags{i};
     residue = getappdata( gca, res_tag );
-    draggable( residue.handle,'n',[-inf inf -inf inf],@move_snapgrid, 'endfcn', @redraw_res_and_helix )
+    if ~isappdata(residue.handle,'user_movefcn'); draggable( residue.handle,'n',[-inf inf -inf inf],@move_snapgrid, 'endfcn', @redraw_res_and_helix ); end;
 end
 
 
@@ -200,6 +200,7 @@ if isfield( residue, 'relpos' )
     residue.plot_pos = pos;
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
     residue = draw_tick( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
+<<<<<<< HEAD
     % quick linker cleanup
     if isfield( residue, 'linkers' );
         linker_tags = residue.linkers;
@@ -211,6 +212,10 @@ if isfield( residue, 'relpos' )
         residue = draw_image_boundary( residue );
     end
     setappdata( gca, char(res_tag), residue );
+=======
+    if any(isfield( residue, {'image_boundary','image_radius'} )); residue = draw_image( residue, plot_settings ); end
+    setappdata( gca, res_tag, residue );
+>>>>>>> master
 end
 
 

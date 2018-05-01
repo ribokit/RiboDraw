@@ -15,5 +15,5 @@ setappdata( gca, 'plot_settings', plot_settings );
 tags = get_tags( 'Residue' );
 for i = 1:length( tags )
     obj = getappdata( gca, tags{i} );
-    if isfield( obj, 'image_boundary' ) draw_image_boundary( obj ); end;
+    if isfield( obj, 'image_boundary' ) draw_image( obj ); end;
 end

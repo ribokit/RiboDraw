@@ -35,6 +35,7 @@ else
     else
         fprintf( 'Reading JSON: %s\n',filename );
         loaddata = loadjson( filename );
+        loaddata = cleanup_json( loaddata );
     end
     toc
 end
@@ -46,12 +47,22 @@ if keep_previous_drawing;
     loaddata.xlim = getappdata( gca, 'xlim' );
     loaddata.ylim = getappdata( gca, 'ylim' );
     loaddata.windowposition = getappdata( gca, 'windowposition' );
+    loaddata.data_aspect_ratio_mode = getappdata( gca, 'data_aspect_ratio_mode' );
 else
     clf; 
     set(gca,'Position',[0 0 1 1]);
     set(gca, 'xlim', loaddata.xlim );
     set(gca, 'ylim', loaddata.ylim );
     set(gcf,'Position',loaddata.window_position)
+    if isfield( loaddata, 'data_aspect_ratio_mode' )
+        switch loaddata.data_aspect_ratio_mode
+            case 'manual'
+                axis image;
+            case 'auto'
+                axis normal;
+        end;
+        %axis manual; % uh hope this works.
+    end
 end
 hold on;
 
@@ -91,8 +102,11 @@ for i = 1:length( datafields )
 end
 cleanup_associated_residues();
 cleanup_stray_linkers();
+cleanup_stack_linkers();
 cleanup_domains();
 cleanup_segids();
+convert_images_from_legacy();
+cleanup_plot_settings();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.
 draw_helices( get_helices( loaddata ) );
 move_stuff_to_back();

@@ -25,6 +25,7 @@ if ~exist( 'objnames','var' )
     vals = getappdata( gca );
     objnames = fields( vals );
 end
+if ~exist( 'tailstring', 'var' ); tailstring = ''; end
 tags = {};
 tag_ok = zeros(length(objnames),1);
 for n = 1:length( objnames )
@@ -32,7 +33,7 @@ for n = 1:length( objnames )
     % TODO actually check for headstring at beginning of tag rather than anywhere:
     if isempty( strfind( objnames{n}, headstring ) ); continue; end;
 
-    if exist( 'tailstring', 'var' ) && ~isempty( tailstring )
+    if ~isempty( tailstring )
         if length( objnames{n} ) < length(tailstring ) | ...
                 ~strcmp( objnames{n}(end-length(tailstring)+1 : end), tailstring ); continue; end;
     end

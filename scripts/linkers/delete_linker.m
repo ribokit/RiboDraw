@@ -23,22 +23,23 @@ if iscell( linker )
 end;
 if ischar( linker ) linker = getappdata( gca, linker ); end;
 
-linker = rmgraphics( linker, {'line_handle','symbol','symbol1','symbol2','side_line1','side_line2','node1','node2','outarrow1','outarrow2','outarrow_label1','outarrow_label2'} );
+linker = rmgraphics( linker, {'line_handle','arrow','symbol','symbol1','symbol2','side_line1','side_line2','node1','node2','outarrow1','outarrow2','outarrow_label1','outarrow_label2'} );
 if isfield( linker, 'vtx' )
     for i = 1:length( linker.vtx ); delete( linker.vtx{i} );  end;
     linker = rmfield( linker, 'vtx' );
 end;
 
 if remove_linker
-    rmappdata( gca, linker.linker_tag )
+    residue1 = getappdata( gca, linker.residue1 );
+    residue1.linkers = setdiff( residue1.linkers, linker.linker_tag );
+    setappdata( gca, linker.residue1, residue1 );
+    
+    residue2 = getappdata( gca, linker.residue2 );
+    residue2.linkers = setdiff( residue2.linkers, linker.linker_tag );
+    setappdata( gca, linker.residue2, residue2 );
+    
+    rmappdata( gca, linker.linker_tag );
+else
+    setappdata( gca, linker.linker_tag, linker ); 
 end
 
-function linker = rmgraphics( linker, tags )
-for i = 1:length( tags )
-   tag = tags{i};
-   if isfield( linker,tag ) 
-       h = getfield(linker,tag);
-       if isvalid( h ) delete(h); end;
-       linker = rmfield( linker, tag );
-   end;
-end

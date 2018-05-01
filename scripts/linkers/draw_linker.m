@@ -1,4 +1,4 @@
-function linker = draw_linker( linker )
+function linker = draw_linker( linker, plot_settings )
 % linker = draw_linker( linker )
 % linker = draw_linker( linkers )
 %
@@ -7,14 +7,17 @@ function linker = draw_linker( linker )
 %
 % Input:
 %  linker = Linker object (or tag string) to draw. Cell of multiple linkers is also OK.
-%  
+%  plot_settings = [optional] plot settings (if not supplied, funciton will
+%                       infer from current axes)
+%
 % Output:
 %  linker = Linker object potentially with updated plot_pos or graphics handles
 %
 % (C) R. Das, Stanford University, 2017
 
+if ~exist( 'plot_settings','var' ) plot_settings = getappdata( gca, 'plot_settings' ); end
 if iscell( linker )
-    for i = 1:length( linker ); draw_linker( linker{i} ); end;
+    for i = 1:length( linker ); draw_linker( linker{i}, plot_settings ); end
     return;
 end
 if ischar( linker ) 
@@ -27,31 +30,23 @@ if ischar( linker )
 end;
 
 % the rendering in this function  ends up being rate limiting for
-% draw_helix -- early return if we don't have to make anything
-plot_settings = getappdata( gca, 'plot_settings' );
-if ~isfield( linker, 'line_handle' )   
-    residue1 = getappdata( gca, linker.residue1 );
-    residue2 = getappdata( gca, linker.residue2 );
-    if isfield( linker, 'relpos1' ) & isfield( linker, 'relpos2' )
-        if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
-        if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
-        if strcmp(linker.type,'stack' )
-            if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) return; end;
-        end
-        if strcmp(linker.type,'arrow' )
-            if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) return; end;
-        end
-    end
+% draw_helix -- early return (and delete the linker graphics!) if we don't have to make anything
+toggle_types    = {'stack',      'other_contact',      'noncanonical_pair',      'stem_pair',      'long_range_stem_pair','ligand',             'tertcontact_intradomain','tertcontact_interdomain' };
+toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs',     'show_ligand_linkers','show_tertiary_contacts', 'show_tertiary_contacts'};
+for i = 1:length(toggle_types)
+    if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) 
+        if isfield(linker,'line_handle'); linker = delete_linker( linker, 0 ); end;
+        return;
+    end;
 end
-if strcmp(linker.type,'stack' ) && isfield( plot_settings, 'show_stacks') && ~plot_settings.show_stacks; return; end;
-if strcmp(linker.type,'other_contact' )&& isfield( plot_settings, 'show_other_contacts') && ~plot_settings.show_other_contacts; return; end;
-    
-linker = draw_default_linker( linker );
-   
+if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 );  return; end;
+if ( strcmp( linker.type, 'arrow' ) && check_for_base_pair( linker.residue1, linker.residue2 ) ); linker = delete_linker( linker, 0 ); return; end;
+if strcmp(linker.type, {'noncanonical_pair'} ) && ~show_tertiary_noncanonical_pair( linker, plot_settings ); linker = delete_linker( linker, 0 ); return; end;
+
+
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
 linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 );
-
 % figure out positions in figure frame, based on each residue's
 % helix frame:
 plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
@@ -60,33 +55,7 @@ plot_pos = [plot_pos1; plot_pos2 ];
 end_pos1 = plot_pos1(1,:);
 end_pos2 = plot_pos2(end,:);
 
-if isfield( linker, 'arrow' ) 
-    % hide linkers connecting consecutive residues if they are close
-    % (this is a choice; could also show linker without arrow)
-    if ( size( plot_pos, 1 ) == 2 & ...
-            norm( plot_pos(2,:) - plot_pos(1,:) ) < 1.5*plot_settings.spacing );
-        visible = 'off'; 
-    else 
-        visible = 'on'; 
-    end;
-    if ( check_for_base_pair( linker.residue1, linker.residue2 ) ) visible = 'off'; end;
-    set( linker.line_handle, 'visible', visible); 
-    if isfield( linker, 'vtx' ); 
-        vtx_visible = visible;
-        if ( isfield( plot_settings, 'show_linker_controls' ) & ~plot_settings.show_linker_controls ) vtx_visible = 'off'; end;
-        for i = 1:length( linker.vtx ), if isvalid( linker.vtx{i} ); set( linker.vtx{i}, 'visible', vtx_visible ); end; end;
-    end;
-    residue1 = getappdata( gca, linker.residue1 );
-    % color setting
-    color = 'k';  %black is default
-    if ( isfield( plot_settings, 'color_arrows' ) & plot_settings.color_arrows & isfield( residue1, 'rgb_color' ) ); color = residue1.rgb_color; end
-    set( linker.line_handle, 'color',color);
-    set( linker.arrow, 'edgecolor',color );
-    set( linker.arrow, 'facecolor',color );
-elseif strcmp( linker.type, 'stack' )  % to guide the eye.
-    if ( norm( plot_pos(end,:) - plot_pos(1,:) ) < 1.5 * plot_settings.bp_spacing ); visible = 'off'; else visible = 'on'; end;
-    set( linker.line_handle, 'visible', visible);
-end
+linker = draw_default_linker( linker );
     
 % nudge beginning and end of linker away from residue.
 nudge_spacing = plot_settings.bp_spacing;
@@ -104,7 +73,7 @@ set( linker.line_handle, 'xdata', plot_pos(:,1), 'ydata', plot_pos(:,2) );
 % draw (draggable) vertices if they don't exist yet.
 if isfield( linker, 'plot_pos' ) 
     if isfield( linker, 'vtx' ) 
-        linker_vtx_ok = 1;
+        linker_vtx_ok = plot_settings.show_linker_controls;
         for i = 1:length( linker.vtx ); if ~isvalid( linker.vtx{i} ); linker_vtx_ok = 0; break; end; end;
         if size(linker.plot_pos,1) ~= length( linker.vtx ) linker_vtx_ok = 0; end;
         if ~linker_vtx_ok
@@ -112,7 +81,7 @@ if isfield( linker, 'plot_pos' )
             linker = rmfield( linker, 'vtx' );
         end
     end
-    if ( ~isfield( linker, 'vtx' ) & ~strcmp( linker.type, 'stem_pair' ) )                
+    if ( ~isfield( linker, 'vtx' ) && ~strcmp( linker.type, 'stem_pair' ) && plot_settings.show_linker_controls  )                
         linker = create_linker_with_draggable_vtx( linker );
     end  
     if (isfield( linker, 'vtx' ) )
@@ -128,16 +97,16 @@ pos2 = plot_pos2(   1, : );
 ctr = (pos1+pos2)/2; % center of connecting line
 v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
 num_pos1 = size(plot_pos1,1);
-if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, visible, plot_settings.spacing ); end;
+if isfield(linker,'arrow'); linker = update_arrow_style( linker, plot_settings ); end;
+if isfield(linker,'arrow'); update_arrow( linker.arrow, ctr, v, plot_settings.spacing ); end;
 if isfield(linker,'arrow') & isfield(plot_settings,'show_extra_arrows'); linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings ); end;
 if isfield(linker,'symbol');  update_symbol( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  end
 if isfield(linker,'symbol1'); update_symbol( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  end;
 if isfield(linker,'symbol2'); update_symbol( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  end
-if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*2.5 ); end; 
-if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*2.5 ); end; 
-if isfield( linker, 'tertiary_contact' ); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
-if any(strcmp(linker.type, {'noncanonical_pair','long_range_stem_pair'} )) check_interdomain( linker, plot_settings ); end;
-if strcmp( linker.type, 'ligand' ) update_ligand_linker_visibility( linker, plot_settings ); end;
+if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*3 ); end; 
+if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*3 ); end; 
+if any(strcmp(linker.type, {'tertcontact_interdomain','tertcontact_intradomain'} )); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
+if strcmp( linker.type, 'ligand' ) update_ligand_linker( linker, plot_settings ); end;
 
 % if there are vertex symbols at end points, re-draw them.
 if isfield( linker, 'vtx' )
@@ -185,7 +154,7 @@ switch linker.type
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
     case 'other_contact'
-        linker.line_handle = plot( [0,0],[0,0],'color',[0.5 0.5 1],'linestyle',':','linewidth',5,'clipping','off' ); % dummy for now -- will get redrawn later.
+        linker.line_handle = plot( [0,0],[0,0],'color',[0.5 0.5 1],'linestyle',':','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         setappdata( gca, linker.linker_tag, linker );
     case 'ligand'
         linker.line_handle = plot( [0,0],[0,0],'color',[0.8 0.8 0.8],'linestyle','-','linewidth',1.5,'clipping','off' ); % dummy for now -- will get redrawn later.
@@ -219,15 +188,30 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = create_undercircle( bp_spacing );
 t = linspace(0, 2*pi);
-r = bp_spacing/3;
+r = 10 * bp_spacing/2;
 x = r*cos(t);
 y = r*sin(t);
-h = patch( x,y,'w','edgecolor',[0.8,0.8,0.8],'facecolor','w','linewidth',2);
+h = patch( x,y,'w','edgecolor',[0.8,0.8,0.8],'facecolor','w','linewidth',1);
 send_to_back( h );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Linkers (base pairs & arrow connectors)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function too_short = linker_is_too_short_for_display( linker, plot_settings )
+too_short = 0;
+residue1 = getappdata( gca, linker.residue1 );
+residue2 = getappdata( gca, linker.residue2 );
+if isfield( linker, 'relpos1' ) && isfield( linker, 'relpos2' )
+    if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
+    if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
+    if strcmp(linker.type,'stack' )
+        if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) too_short = 1; return; end;
+    end
+    if strcmp(linker.type,'arrow' )
+        if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.spacing ) too_short = 1;  return; end;
+    end
+end
+    
 function linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );
 if ~isfield( linker, relpos_field )
     linker = setfield( linker, relpos_field, [0,0]);
@@ -240,12 +224,12 @@ if isfield( residue,'relpos' )
     end
 end
 linker = setfield( linker, relpos_field, relpos);
-setappdata( gca, linker.linker_tag, linker );
+% does not seem necessary...
+%setappdata( gca, linker.linker_tag, linker ); 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function update_arrow( h, ctr, v, visible, spacing, add_stem );
+function update_arrow( h, ctr, v, spacing, add_stem );
 x = v * 1.5 * [0 1; -1 0]; % cross direction
-set( h, 'visible', visible);
 a  = [ ...
     ctr - spacing/3*v+spacing/5*x;
     ctr - spacing/6*v+spacing/10*x;
@@ -270,6 +254,18 @@ set( h, 'xdata', ...
     a(:,1) );
 set( h, 'ydata', ...
     a(:,2) );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linker = update_arrow_style( linker, plot_settings )
+color = 'k';  %black is default
+residue1 = getappdata(gca,linker.residue1);
+if ( isfield( plot_settings, 'color_arrows' ) & plot_settings.color_arrows & isfield( residue1, 'rgb_color' ) ); color = residue1.rgb_color; end
+set( linker.line_handle, 'color',color);
+set( linker.arrow, 'edgecolor',color );
+set( linker.arrow, 'facecolor',color );
+arrow_linewidth = get_arrow_linewidth( plot_settings.fontsize );
+set( linker.line_handle, 'linewidth', arrow_linewidth );
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -296,8 +292,12 @@ for i = 1:num_extra_arrows;
     ctr = (pos1+pos2)/2; % center of connecting line
     v = pos2 - pos1; v = v/norm(v); % unit vector from res1 to res2
     show_arrow = plot_settings.show_extra_arrows & norm( pos2 - pos1 ) >= 5 * plot_settings.bp_spacing;
-    if ( show_arrow ) visible = 'on'; else; visible = 'off'; end;
-    update_arrow( linker.extra_arrows{ i }, ctr, v, visible, plot_settings.spacing );
+    if ( show_arrow )  
+        set( linker.extra_arrows{i}, 'visible','on' );
+        update_arrow( linker.extra_arrows{ i }, ctr, v, plot_settings.spacing ); 
+    else; 
+        set( linker.extra_arrows{i}, 'visible','off' );
+    end;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -305,17 +305,6 @@ function pos1 = nudge_pos( pos1, pos2, bp_spacing );
 v = pos2 - pos1; 
 v = v/norm(v);
 pos1 = pos1 +  (bp_spacing/5)*v;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function plot_pos = get_plot_pos( res_tag, relpos );
-if ischar( res_tag ) 
-    residue = getappdata( gca, res_tag );
-else
-    residue = res_tag;
-end
-helix = getappdata( gca, residue.helix_tag );
-R = get_helix_rotation_matrix( helix );
-plot_pos = repmat(helix.center,size(relpos,1),1) + relpos*R;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function update_symbol( h, pos, v, which_symbol, bp_spacing );
@@ -359,8 +348,9 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_tertiary_contact( linker, plot_pos, plot_settings );
+if ~isfield( linker, 'tertiary_contact' ) linker
+end
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
-    
 if isfield( plot_settings, 'show_tertiary_contacts' )
     if plot_settings.show_tertiary_contacts; visible = 'on'; else; visible = 'off'; end;
     linker = set_linker_visibility( linker, visible );
@@ -370,12 +360,17 @@ residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
 residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
 
 if strcmp( linker.type, 'tertcontact_interdomain' )
+    segwidth = plot_settings.bp_spacing/16;
+    if isfield( tertiary_contact,'linkers');
+        segwidth = length(tertiary_contact.linkers) * plot_settings.bp_spacing/160;
+    end
+    
     % double color lines for interdomain;
     side_line1_pos = []; side_line2_pos = [];
     for i = 1:length( plot_pos ) - 1
         segv = plot_pos(i+1,:) - plot_pos(i,:);
         segv = segv/norm(segv);
-        segv = segv * [0 1; -1 0] * plot_settings.bp_spacing/8; % rotate
+        segv = segv * [0 1; -1 0] * segwidth; % rotate
         side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
         side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
     end
@@ -405,10 +400,16 @@ if isfield( residue2, 'rgb_color' ) rescolor2 = residue2.rgb_color; else; rescol
 % make color informative about *other* domain
 color1 = fade_color( rescolor2 );
 color2 = fade_color( rescolor1 );
+if isfield( residue1, 'ligand_partners' ) 
+    color1 = get_single_color_for_ligand_linker( residue1, residue2 );
+    color2 = color1;
+end
+
 if isfield(plot_settings,'tertiary_contact_domain_coloring' ) & ~plot_settings.tertiary_contact_domain_coloring
     color1 = [0.9 0.9 0.9];
     color2 = [0.9 0.9 0.9];
 end
+
 if strcmp( linker.type, 'tertcontact_interdomain' )
     set( linker.node1, 'edgecolor',color1);
     set( linker.node2, 'edgecolor',color2);
@@ -432,7 +433,7 @@ if strcmp( linker.type, 'tertcontact_interdomain' )
     end
 else
     assert( strcmp( linker.type, 'tertcontact_intradomain' ) );
-    set( linker.line_handle, 'linewidth', 2*get_arrow_linewidth( plot_settings.fontsize ) );
+    set( linker.line_handle, 'linewidth', get_arrow_linewidth( plot_settings.fontsize ) );
     if any( strcmp( tertiary_contact.associated_residues1, linker.residue1 ) ) % in domain 1
         set( linker.node2, 'edgecolor',color1);
         set( linker.line_handle, 'color',color1);
@@ -452,11 +453,13 @@ if ~isfield( linker, arrow_label )
 end
 tertiary_contact = getappdata( gca, linker.tertiary_contact );
 h = getfield(linker, arrow_label);
+if ~isvalid( h ) return; end;
+if ~isfield( tertiary_contact, 'name' ) tertiary_contact = update_tertiary_contact_name( tertiary_contact, 0 ); end;
 set( h, 'string', strrep(tertiary_contact.name,'_','-'), 'Position', default_plot_pos, 'visible',arrow_visible,'fontsize', plot_settings.fontsize*0.75 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )
-
+if (isfield(plot_settings,'image_representation') & ~strcmp(plot_settings.image_representation,'image_boundary') ) return; end;
 if ~isfield( linker, outarrow_fieldname ) return; end;
 
 % if this is the ligand side of an interdomain outarrow, 
@@ -471,7 +474,9 @@ else
     v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
     start_pos = plot_pos(1,:);
 end
-update_arrow( getfield(linker,outarrow_fieldname), start_pos + v*outarrow_size*0.5, v, arrow_visible, outarrow_size, 1 );
+outarrow = getfield( linker, outarrow_fieldname );
+if ~arrow_visible; set( outarrow, 'visible','on' ); else;  set( outarrow, 'visible','off' ); end;
+update_arrow( getfield(linker,outarrow_fieldname), start_pos + v*outarrow_size*0.5, v, outarrow_size, 1 );
 linker = update_tertiary_arrow_label( linker, outarrow_label_fieldname, start_pos + v*outarrow_size, arrow_visible, plot_settings );
 set_text_alignment( getfield( linker, outarrow_label_fieldname ), v );
 
@@ -489,23 +494,35 @@ for i = 1:length( sister_linker_tags )
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function check_interdomain( linker, plot_settings )
+function setting = show_tertiary_noncanonical_pair( linker, plot_settings )
 % for show/hide interdomain_noncanonical_pairs
-if ~isfield( plot_settings, 'show_interdomain_noncanonical_pairs' ) return; end;
 setting = 1;
-if ~plot_settings.show_interdomain_noncanonical_pairs
-    if isfield( linker, 'interdomain' ) & linker.interdomain
+if ~isfield( plot_settings, 'show_tertiary_noncanonical_pairs' ) return; end;
+if ~plot_settings.show_tertiary_noncanonical_pairs
+    if isfield( linker, 'tertiary_contact' ) && length(linker.tertiary_contact) > 0
         setting = 0;
     end
 end
-if setting; visible = 'on'; else; visible = 'off'; end;
-linker = set_linker_visibility( linker, visible );
+return;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function update_ligand_linker_visibility( linker, plot_settings );
+function update_ligand_linker( linker, plot_settings );
 if ~isfield( plot_settings, 'show_ligand_linkers' ); return; end;
 if ( plot_settings.show_ligand_linkers ) visible = 'on'; else; visible = 'off'; end;
 set( linker.line_handle, 'visible', visible );
+residue1 = getappdata( gca, linker.residue1 );
+residue2 = getappdata( gca, linker.residue2 );
+linecolor = get_single_color_for_ligand_linker( residue1, residue2 );
+set( linker.line_handle, 'color', linecolor );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linecolor = get_single_color_for_ligand_linker( residue1, residue2 );
+if isfield( residue1, 'rgb_color' ) rescolor1 = residue1.rgb_color; else; rescolor1 = [0,0,0]; end;
+if isfield( residue2, 'rgb_color' ) rescolor2 = residue2.rgb_color; else; rescolor2 = [0,0,0]; end;
+linecolor = rescolor1;
+if all( rescolor1 == 0 ); linecolor = rescolor2; end; 
+linecolor = fade_color( linecolor );
+
 
     
 

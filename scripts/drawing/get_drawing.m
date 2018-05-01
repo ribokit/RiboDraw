@@ -15,7 +15,7 @@ function savedata = get_drawing( slice_res );
 % (C) R. Das, Stanford University, 2017
 
 savedata = struct();
-savedata.version = '0.68';
+savedata.version = '0.69';
 residue_tags = get_residue_tags();
 helix_tags = get_helix_tags();
 linker_tags = get_linker_tags();
@@ -40,18 +40,18 @@ savedata = save_tertiary_contacts( savedata, tertiary_contact_tags );
 savedata.plot_settings   = getappdata( gca, 'plot_settings' );
 savedata.xlim            = get(gca, 'xlim' );
 savedata.ylim            = get(gca, 'ylim' );
+savedata.data_aspect_ratio_mode = get(gca, 'DataAspectRatioMode' );
 savedata.window_position = get(gcf, 'Position' );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function new_obj = copy_fields( obj, tags )
 new_obj = struct();
-for i = 1:length( tags )
-    tag = tags{i};
-    if isfield( obj, tag );
-        new_obj = setfield( new_obj, tag, getfield( obj, tag ) );
-    end
+for i = find( isfield( obj, tags ) );
+     tag = tags{i};
+     new_obj = setfield( new_obj, tag, getfield( obj, tag ) );
 end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags, slice_res_tags )
@@ -61,7 +61,7 @@ for n = 1:length( objnames )
     figure_residue = getappdata( gca, objnames{n} );
     if ~isfield( figure_residue, 'nucleotide' ) continue; end;
     residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','nucleotide',...
-        'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary','image_offset'} );
+        'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary','image_radius','label_relpos'} );
 
     % filter if we sliced residues. could just always do this, but
     % let's save time.
@@ -103,7 +103,7 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'TertiaryContact_' ) ) );
     figure_selection = getappdata( gca, objnames{n} );
     selection = copy_fields( figure_selection, {'associated_residues1','associated_residues2','name','tertiary_contact_tag',...
-        'interdomain_linker','intradomain_linkers1','intradomain_linkers2'} );
+        'interdomain_linker','intradomain_linkers1','intradomain_linkers2','linkers'} );
     savedata = setfield( savedata, objnames{n}, selection );
 end
 
@@ -114,7 +114,7 @@ for n = 1:length( objnames )
     assert( ~isempty( strfind( objnames{n}, 'Linker_' ) ) );
     figure_linker = getappdata( gca, objnames{n} );
     linker = copy_fields( figure_linker, {'residue1','residue2','type','linker_tag','relpos1',...
-        'relpos2','edge1','edge2','LW_orientation','tertiary_contact','interdomain','show_split_arrows','outarrow_label_relpos1','outarrow_label_relpos2'} );
+        'relpos2','edge1','edge2','LW_orientation','tertiary_contact','show_split_arrows','outarrow_label_relpos1','outarrow_label_relpos2'} );
     savedata = setfield( savedata, objnames{n}, linker );
 end
 
@@ -128,14 +128,15 @@ tags = sort( get_tags( 'Helix_' ) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function tags = get_linker_tags();
-arrow_tags               = sort( get_tags( 'Linker_', 'arrow' ) );
-stem_pair_tags           = sort( get_tags( 'Linker_', 'stem_pair' ) );
-noncanonical_tags        = sort( get_tags( 'Linker_', 'noncanonical_pair' ) );
-stack_tags               = sort( get_tags( 'Linker_', 'stack' ) );
-other_contact_tags       = sort( get_tags( 'Linker_', 'other_contact' )  );
-ligand_tags              = sort( get_tags( 'Linker_', 'ligand' ) );
-tertcontact_interdomain_tags = sort( get_tags( 'Linker_', 'tertcontact_interdomain' ) );
-tertcontact_intradomain_tags = sort( get_tags( 'Linker_', 'tertcontact_intradomain' ) );
+linker_tags = get_tags( 'Linker_');
+arrow_tags               = sort( get_tags( 'Linker_', 'arrow', linker_tags ) );
+stem_pair_tags           = sort( get_tags( 'Linker_', 'stem_pair', linker_tags ) );
+noncanonical_tags        = sort( get_tags( 'Linker_', 'noncanonical_pair', linker_tags ) );
+stack_tags               = sort( get_tags( 'Linker_', 'stack', linker_tags ) );
+other_contact_tags       = sort( get_tags( 'Linker_', 'other_contact', linker_tags )  );
+ligand_tags              = sort( get_tags( 'Linker_', 'ligand', linker_tags ) );
+tertcontact_interdomain_tags = sort( get_tags( 'Linker_', 'tertcontact_interdomain', linker_tags ) );
+tertcontact_intradomain_tags = sort( get_tags( 'Linker_', 'tertcontact_intradomain', linker_tags ) );
 tags = [arrow_tags; stem_pair_tags; noncanonical_tags; stack_tags; other_contact_tags; ligand_tags; ...
     tertcontact_interdomain_tags; tertcontact_intradomain_tags ];
 

@@ -1,4 +1,4 @@
-function interdomain_linkers = get_interdomain_linkers( linkers, domain_names )
+function interdomain_linkers = assign_domains( linkers, domain_names )
 % interdomain_linkers = get_interdomain_linkers( linkers, domain_names )
 %
 % Inputs:
@@ -9,13 +9,8 @@ function interdomain_linkers = get_interdomain_linkers( linkers, domain_names )
 % Outputs:
 %  interdomain_linkenrs = filtered cell of linker tags that interconnect different domains.
 %
-% TODO: see note in GROUP_INTERDOMAIN_LINKERS -- would be better to
-%   force user to run this first, and then run grouping function.
 %
 % (C) R. Das, Stanford University, 2017
-
-dbstack();
-fprintf( 'Running get_interdomain_linkers(). TODO: ask user to run this outside rather than here!\n\n' );
 
 interdomain_linkers = {};
 [domain_tags,ok] = get_gca_domain_tags( domain_names );

@@ -16,3 +16,4 @@ linker_tags = [ get_tags( 'Linker', 'interdomain'); get_tags( 'Linker', 'intrado
 for i = 1:length( linker_tags )
     draw_linker( linker_tags{i} );
 end
+if setting; move_stuff_to_back; end;

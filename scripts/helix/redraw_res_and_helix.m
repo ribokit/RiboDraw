@@ -13,7 +13,7 @@ delete_crosshair();
 res_tag = getappdata( h, 'res_tag' );
 residue = getappdata(gca,res_tag );
 original_plot_pos = residue.plot_pos;
-if isfield( h, 'position' ) ||  strcmp( h.Type, 'text' )
+if isfield( h, 'position' ) ||  strcmp( h.Type, 'text' ) || strcmp( h.Type, 'rectangle' )
     pos = get(h,'position');
     original_residue_plot_pos = residue.plot_pos;
     if length( pos ) == 4 % rectangle
@@ -35,6 +35,8 @@ else
     pos = mean( current_image_boundary ) - mean( image_boundary );
     residue.plot_pos = pos - residue.image_offset;
 end
+if isfield( residue, 'label_relpos' );    label_plot_pos = get_plot_pos(residue,residue.label_relpos); end;
+
 [residue,switched_helix] = reassign_parent_helix( residue );
 if (switched_helix) residue.plot_pos = original_plot_pos; end;
 
@@ -58,6 +60,10 @@ for k = 1 : length( linker_tags )
     end
     setappdata( gca, linker_tags{k}, linker );
 end
+if isfield( residue, 'label_relpos' ); 
+    label_plot_pos = label_plot_pos + residue.plot_pos - original_plot_pos;
+    residue.label_relpos = get_relpos( label_plot_pos, helix );
+end
 setappdata( gca, res_tag, residue );
 draw_helix( helix );
 
@@ -66,9 +72,10 @@ function blink_helix_rectangle( helix );
 % provide some visual feedback to user.
 if isfield(helix,'rectangle')
     color = get( helix.rectangle, 'edgecolor' );
-    set( helix.rectangle,'edgecolor','k' );
-    pause(0.2)
-    set( helix.rectangle,'edgecolor',color );
+    linew = get( helix.rectangle,'linewidth');
+    set( helix.rectangle,'edgecolor','k','linewidth',linew*3 );
+    pause(0.1)
+    set( helix.rectangle,'edgecolor',color,'linewidth',linew );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -82,10 +89,14 @@ function [residue,switched_helix] = reassign_parent_helix( residue )
 %
 % possible helix parents -- judge based on sequence.
 %
-% Don't do this for ligands
 
+     
 switched_helix = 0;
-if isfield( residue, 'ligand_partners' ) return; end;
+
+% Don't do this for ligands if helix controls are off
+plot_settings = getappdata( gca, 'plot_settings' );
+if ~plot_settings.show_helix_controls && isfield( residue, 'ligand_partners' ) return; end;
+
 % if the residue was moved into its current helix, don't do anything...
 current_helix = getappdata( gca, residue.helix_tag );
 if ( check_in_helix_rectangle( residue, current_helix ) )

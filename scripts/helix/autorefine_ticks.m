@@ -3,8 +3,9 @@ function [best_tickrot,scores,sample_tickrot] = autorefine_tick( res_tags )
 sample_tickrot = [0:45:315];
 best_tickrot = [];
 scores = [];
-if ~exist( 'res_tags','var' ); res_tags  = get_tags( 'Residue_' ); end;
-if ischar( res_tags ) res_tags = {res_tags}; end;
+if ~exist( 'res_tags','var' ); res_tags  = 'all'; end;
+res_tags = get_res(res_tags);
+%if ischar( res_tags ) res_tags = {res_tags}; end;
 
 set(gcf,'renderer','painters'); % TURNS OUT TO BE ABSOLUTELY CRITICAL
 

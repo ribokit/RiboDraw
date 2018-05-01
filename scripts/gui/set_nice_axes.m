@@ -10,11 +10,11 @@ function set_nice_axes()
 % R. Das, Stanford University, 2017
 
 axis image % tight cropping
-
+set(gcf,'renderer','painters');
 %axlim = axis()
 pos = plotboxpos;
 
-axis normal
+axis manual;
 
 %axis( axlim );
-set( gca, 'position', pos );
+%set( gca, 'position', pos );

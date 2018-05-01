@@ -39,10 +39,9 @@ for i = 1:length(toggle_types)
         return;
     end;
 end
-if ~isfield( linker, 'line_handle' ) && linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 );  return; end;
+if linker_is_too_short_for_display( linker, plot_settings ); linker = delete_linker( linker, 0 );  return; end;
 if ( strcmp( linker.type, 'arrow' ) && check_for_base_pair( linker.residue1, linker.residue2 ) ); linker = delete_linker( linker, 0 ); return; end;
 if strcmp(linker.type, {'noncanonical_pair'} ) && ~show_tertiary_noncanonical_pair( linker, plot_settings ); linker = delete_linker( linker, 0 ); return; end;
-
 
 % linker starts at res1 and ends at res2
 linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 );
@@ -201,9 +200,12 @@ function too_short = linker_is_too_short_for_display( linker, plot_settings )
 too_short = 0;
 residue1 = getappdata( gca, linker.residue1 );
 residue2 = getappdata( gca, linker.residue2 );
+if ~isfield( linker, 'relpos1' ); linker = set_linker_endpos( linker, linker.residue1, 'relpos1',  1 ); end;
+if ~isfield( linker, 'relpos2' ); linker = set_linker_endpos( linker, linker.residue2, 'relpos2', -1 ); end;
 if isfield( linker, 'relpos1' ) && isfield( linker, 'relpos2' )
     if ~isfield( residue1, 'plot_pos' )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); end;
     if ~isfield( residue2, 'plot_pos' )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(end,:) ); end;
+    %if strcmp(linker.type,'arrow' ) [norm( residue1.plot_pos - residue2.plot_pos ), 1.5 * plot_settings.spacing ]; end
     if strcmp(linker.type,'stack' )
         if ( norm( residue1.plot_pos - residue2.plot_pos ) < 1.5 * plot_settings.bp_spacing ) too_short = 1; return; end;
     end

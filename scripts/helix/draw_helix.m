@@ -87,12 +87,8 @@ selections = {};
 for i = 1:length( helix.associated_residues )
     res_tag = char(helix.associated_residues{i});
     residue = getappdata( gca, res_tag );
-    if isfield( residue, 'associated_selections' ) & length( residue.associated_selections ) > 0
-        assoc = {}
-        for j = 1:length( residue.associated_selections )
-            assoc = [ assoc, char( residue.associated_selections{j} ) ];
-        end
-        selections = [ selections, assoc ];
+    if isfield( residue, 'associated_selections' ) & ~isempty( residue.associated_selections )
+        selections = [ selections, residue.associated_selections ];
     end    
 end
 selections = unique( selections );
@@ -199,23 +195,9 @@ if isfield( residue, 'relpos' )
     residue.res_tag = res_tag;
     residue.plot_pos = pos;
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
-    residue = draw_tick( residue, plot_settings.bp_spacing, plot_settings.fontsize, R );
-<<<<<<< HEAD
-    % quick linker cleanup
-    if isfield( residue, 'linkers' );
-        linker_tags = residue.linkers;
-        ok_linker = zeros(1,length(linker_tags));
-        for k = 1 : length( linker_tags );  ok_linker(k) = isappdata( gca, char(linker_tags{k}) );     end
-        residue.linkers = linker_tags( find(ok_linker) );
-    end
-    if isfield( residue, 'image_boundary' );
-        residue = draw_image_boundary( residue );
-    end
-    setappdata( gca, char(res_tag), residue );
-=======
+    residue = draw_tick( residue, plot_settings, R );
     if any(isfield( residue, {'image_boundary','image_radius'} )); residue = draw_image( residue, plot_settings ); end
     setappdata( gca, res_tag, residue );
->>>>>>> master
 end
 
 
@@ -306,7 +288,7 @@ draw_helix( helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ticks
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function residue = draw_tick( residue, bp_spacing, fontsize, R )
+function residue = draw_tick( residue, plot_settings, R )
 
 if ( mod(residue.resnum,10) ~= 0 ); return; end;
 if isfield(residue,'ligand_partners'); return; end;
@@ -319,26 +301,14 @@ if ~isfield( residue, 'tick_handle' ) | ~isvalid( residue.tick_handle )
 end
 
 if ~isfield( residue, 'tick_label' ) | ~isvalid( residue.tick_label )
-    residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', fontsize,...
+    residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', plot_settings.fontsize,...
         'horizontalalign','center','verticalalign','middle','clipping','off' );
     setappdata( gca, char(residue.res_tag), residue );
 end
 
 if isfield( residue, 'tickrot' ) 
     if  isnan(residue.tickrot) residue = set_default_tickrot( residue ); end;
-    theta = residue.tickrot;
-    v = [cos(theta*pi/180), sin(theta*pi/180)]*R;
-    tickpos1 = residue.plot_pos + v*bp_spacing/3; 
-    tickpos2 = residue.plot_pos + v*bp_spacing*2/3;
-    set( residue.tick_handle, 'xdata', [tickpos1(1) tickpos2(1)] );
-    set( residue.tick_handle, 'ydata', [tickpos1(2) tickpos2(2)] );
-    labelpos = residue.plot_pos + v*bp_spacing*2/3;
-    set( residue.tick_label, 'position', labelpos );
-    plot_settings = getappdata( gca, 'plot_settings' );
-    if ( get(residue.tick_label, 'fontsize') ~= plot_settings.fontsize ) 
-        set( residue.tick_label, 'fontsize', plot_settings.fontsize );  
-    end;
-    set_text_alignment( residue.tick_label, v );
+    update_tick( residue, plot_settings, R );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

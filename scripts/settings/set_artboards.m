@@ -6,13 +6,15 @@ function set_artboards();
 %
 % (C) R. Das, Stanford University, 2017
 
-res_tags = get_tags( 'Residue_' );
 all_pos = [];
+
+res_tags = get_tags( 'Residue_' );
 for i = 1:length( res_tags )
     residue = getappdata( gca, res_tags{i} );
     if isfield( residue, 'plot_pos' )
         all_pos = [all_pos; residue.plot_pos ];
     end
+end
 %
 % Maybe we should restore this (at least look over visible linkers) and
 %  also look over text labels.
@@ -29,13 +31,26 @@ for i = 1:length( res_tags )
 %             end
 %         end
 %     end
-end
+
+tags = fields(getappdata(gca));
+for i = 1:length( tags )
+     obj = getappdata( gca, tags{i} );
+     if isfield( obj, 'label' ) 
+         if strcmp(get(obj.label,'visible'),'on')
+             label_pos =  get(obj.label,'position');
+             all_pos = [all_pos; label_pos(1:2)];
+         end
+     end
+ end
 
 min_pos = min( all_pos );
 max_pos = max( all_pos );
 dims = (max_pos - min_pos);
-axes =  [min_pos - dims*0.025; min_pos + dims*1.025 ];
+plot_settings = getappdata( gca, 'plot_settings' );
+fontsize_in_axis_units = plot_settings.fontsize / get_fontsize_over_axisunits();
+nudge_pos = max( dims*0.025, 2*fontsize_in_axis_units * [1 1]);
+axes =  [min_pos - nudge_pos; min_pos + dims + nudge_pos ];
  
 axis( reshape( axes, [1 4] ) );
-update_artboards
-reset_fontsize
+update_artboards();
+update_graphics_size();

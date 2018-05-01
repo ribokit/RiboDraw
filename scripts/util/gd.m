@@ -6,5 +6,9 @@ function obj = gd( tag );
 % 
 % (C) R. Das, Stanford University 2018
 
-obj = getappdata( gca, tag );
-
+if ~exist( 'tag','var')
+    obj = [];
+    getappdata( gca )
+else
+    obj = getappdata( gca, tag );
+end

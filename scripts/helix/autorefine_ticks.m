@@ -23,7 +23,7 @@ for i = 1:length( res_tags );
         plot_pos = residue.plot_pos;
         %set(gcf,'position',[0 0 200 200]);
         axis( [plot_pos(1)-50, plot_pos(1)+50,plot_pos(2)-50, plot_pos(2)+50] );
-        if ~did_fontsize_resize; reset_fontsize(); did_fontsize_resize = 1; end;
+        if ~did_fontsize_resize; update_graphics_size(); did_fontsize_resize = 1; end;
         plot_settings = getappdata( gca, 'plot_settings' );
         helix = getappdata( gca, residue.helix_tag );
 
@@ -55,4 +55,4 @@ end
     
 %set( gcf, 'position', figpos);
 axis( axlim );
-if did_fontsize_resize; reset_fontsize( fontsize ); end;
+if did_fontsize_resize; update_graphics_size( fontsize ); end;

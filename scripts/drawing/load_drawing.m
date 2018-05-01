@@ -41,7 +41,6 @@ else
 end
 
 tic
-fprintf( 'Drawing helices...\n' );
 if keep_previous_drawing;
     loaddata.plot_settings = getappdata( gca, 'plot_settings' );
     loaddata.xlim = getappdata( gca, 'xlim' );

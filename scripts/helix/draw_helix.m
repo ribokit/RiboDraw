@@ -301,7 +301,7 @@ if ~isfield( residue, 'tick_handle' ) | ~isvalid( residue.tick_handle )
 end
 
 if ~isfield( residue, 'tick_label' ) | ~isvalid( residue.tick_label )
-    residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', fontsize,...
+    residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', plot_settings.fontsize,...
         'horizontalalign','center','verticalalign','middle','clipping','off' );
     setappdata( gca, residue.res_tag, residue );
 end

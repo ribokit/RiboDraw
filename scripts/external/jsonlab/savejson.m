@@ -84,7 +84,7 @@ function json=savejson(rootname,obj,varargin)
 %      savejson('',jsonmesh,'ArrayIndent',0,'FloatFormat','\t%.5g')
 %
 % license:
-%     BSD License, see LICENSE_BSD.txt files for details
+%     BSD or GPL version 3, see LICENSE_{BSD,GPLv3}.txt files for details
 %
 % -- this function is part of JSONLab toolbox (http://iso2mesh.sf.net/cgi-bin/index.cgi?jsonlab)
 %
@@ -432,9 +432,8 @@ txt=sprintf('%s%s%s',txt,padding1,'}');
 
 %%-------------------------------------------------------------------------
 function txt=matlabobject2json(name,item,level,varargin)
-if numel(item) == 0 %empty object
-    st = struct();
-else
+st = struct();
+if numel(item) > 0 %non-empty object
     % "st = struct(item);" would produce an inmutable warning, because it
     % make the protected and private properties visible. Instead we get the
     % visible properties
@@ -468,7 +467,11 @@ if(isempty(mat))
     txt='null';
     return;
 end
-floatformat=jsonopt('FloatFormat','%.10g',varargin{:});
+if(isinteger(mat))
+  floatformat=jsonopt('FloatFormat','%d',varargin{:});
+else
+  floatformat=jsonopt('FloatFormat','%.10g',varargin{:});
+end
 %if(numel(mat)>1)
     formatstr=['[' repmat([floatformat ','],1,size(mat,2)-1) [floatformat sprintf('],%s',nl)]];
 %else

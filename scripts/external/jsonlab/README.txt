@@ -4,7 +4,7 @@
 ===============================================================================
 
 *Copyright (C) 2011-2017  Qianqian Fang <q.fang at neu.edu>
-*License: BSD License, see License*.txt
+*License: BSD or GNU General Public License version 3 (GPL v3), see License*.txt
 *Version: 1.5 (Nominus - alpha)
 
 -------------------------------------------------------------------------------
@@ -88,7 +88,7 @@ JSON. The detailed help info for the four functions can be found below:
  
           Nedialko Krouchev: http://www.mathworks.com/matlabcentral/fileexchange/25713
              created on 2009/11/02
-          François Glineur: http://www.mathworks.com/matlabcentral/fileexchange/23393
+          FranÃ§ois Glineur: http://www.mathworks.com/matlabcentral/fileexchange/23393
              created on  2009/03/22
           Joel Feenstra:
           http://www.mathworks.com/matlabcentral/fileexchange/20565
@@ -223,7 +223,7 @@ JSON. The detailed help info for the four functions can be found below:
        savejson('',jsonmesh,'ArrayIndent',0,'FloatFormat','\t%.5g')
  
   license:
-      BSD License, see LICENSE_BSD.txt files for details
+      BSD or GPL version 3, see LICENSE_{BSD,GPLv3}.txt files for details
  </pre>
 
 === loadubjson.m ===
@@ -273,7 +273,7 @@ JSON. The detailed help info for the four functions can be found below:
        dat=loadubjson(['examples' filesep 'example1.ubj'],'SimplifyCell',1)
  
   license:
-      BSD License, see LICENSE_BSD.txt files for details 
+      BSD or GPL version 3, see LICENSE_{BSD,GPLv3}.txt files for details 
 </pre>
 
 === saveubjson.m ===
@@ -351,7 +351,7 @@ JSON. The detailed help info for the four functions can be found below:
        saveubjson('jsonmesh',jsonmesh,'meshdata.ubj')
  
   license:
-      BSD License, see LICENSE_BSD.txt files for details
+      BSD or GPL version 3, see LICENSE_{BSD,GPLv3}.txt files for details
 </pre>
 
 

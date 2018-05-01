@@ -335,7 +335,7 @@ function base_paired = check_for_base_pair( res_tag1, res_tag2 )
 residue1 = getappdata( gca, res_tag1 );
 base_paired = false;
 for i = 1:length( residue1.linkers )
-    linker_tag = residue1.linkers{i};
+    linker_tag = char(residue1.linkers{i});
     if ~isappdata( gca, linker_tag ) fprintf( 'Could not find linker %s\n', linker_tag ); continue; end;
     linker = getappdata( gca, linker_tag );
     if strcmp( linker.type,'noncanonical_pair' ) | strcmp( linker.type,'stem_pair' )

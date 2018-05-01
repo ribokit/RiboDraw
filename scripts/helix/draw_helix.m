@@ -52,11 +52,11 @@ end
 not_helix_res_tags = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
-    residue = getappdata( gca, res_tag );
+    residue = getappdata( gca, char(res_tag) );
     if ~isfield( residue, 'nucleotide' ) continue; end;
     if ~isfield( residue, 'relpos' ) 
         residue.relpos = set_default_relpos( residue, helix, plot_settings ); 
-        setappdata( gca, res_tag, residue );
+        setappdata( gca, char(res_tag), residue );
     end;
     draw_residue( res_tag, helix_center, R, plot_settings );
     if ~any(strcmp(  helix_res_tags, res_tag )) not_helix_res_tags = [not_helix_res_tags, res_tag]; end;
@@ -67,7 +67,7 @@ end
 redrawn_linkers = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
-    residue = getappdata( gca, res_tag );
+    residue = getappdata( gca, char(res_tag) );
     if ~isfield( residue, 'linkers' ) continue; end;
     linker_tags = residue.linkers;
     % silly cleanup
@@ -85,9 +85,9 @@ helix = make_helix_label( helix, plot_settings, R );
 % Selections (if they exist)
 selections = {};
 for i = 1:length( helix.associated_residues )
-    res_tag = helix.associated_residues{i};
+    res_tag = char(helix.associated_residues{i});
     residue = getappdata( gca, res_tag );
-    if isfield( residue, 'associated_selections' ) & length( residue.associated_selections ) > 0
+    if isfield( residue, 'associated_selections' ) & ~isempty( residue.associated_selections )
         selections = [ selections, residue.associated_selections ];
     end    
 end
@@ -140,7 +140,7 @@ set_helix_visibility( helix, plot_settings.show_helix_controls );
 
 % make ticklabels draggable
 for i = 1:length( helix.associated_residues )
-    res_tag = helix.associated_residues{i};
+    res_tag = char(helix.associated_residues{i});
     residue = getappdata( gca, res_tag );
     if isfield( residue, 'tick_label' ) & isvalid( residue.tick_label )
         setappdata( residue.tick_label, 'res_tag', res_tag );
@@ -172,7 +172,7 @@ setappdata( gca, helix.helix_tag, helix );
 % Residue 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = draw_residue( res_tag, helix_center, R, plot_settings );
-residue = getappdata( gca, res_tag );
+residue = getappdata( gca, char(res_tag) );
 if isfield( residue, 'relpos' ) 
     pos = helix_center +  residue.relpos * R ;
     if ~isfield( residue, 'handle' ) | ~isvalid( residue.handle )
@@ -297,13 +297,13 @@ if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set la
 
 if ~isfield( residue, 'tick_handle' ) | ~isvalid( residue.tick_handle )
     residue.tick_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.
-    setappdata( gca, residue.res_tag, residue );
+    setappdata( gca, char(residue.res_tag), residue );
 end
 
 if ~isfield( residue, 'tick_label' ) | ~isvalid( residue.tick_label )
     residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', plot_settings.fontsize,...
         'horizontalalign','center','verticalalign','middle','clipping','off' );
-    setappdata( gca, residue.res_tag, residue );
+    setappdata( gca, char(residue.res_tag), residue );
 end
 
 if isfield( residue, 'tickrot' ) 

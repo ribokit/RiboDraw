@@ -23,8 +23,10 @@ strDotsMaximum      = 10;   %   The total number of dots in a progress bar
 %% Main 
 
 if isempty(strCR) && ~ischar(c),
+    %textprogressbar('');textprogressbar(0);textprogressbar('');textprogressbar(c);
     % Progress bar must be initialized with a string
-    error('The text progress must be initialized with a string');
+    %error('The text progress must be initialized with a string');
+    strCR = -1;
 elseif isempty(strCR) && ischar(c),
     % Progress bar - initialization
     fprintf('%s',c);

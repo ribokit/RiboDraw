@@ -9,12 +9,13 @@ function setup_zoom()
 
 h = zoom;
 set(h,'ActionPostCallback',@zoomCallBack);
+set(gcf,'ResizeFcn',@zoomCallBack);
 set(h,'Enable','on');
 zoom off;
 
 % everytime you zoom in, this function is executed
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function zoomCallBack(~, evd)
-
-%update_artboards();
-axis equal
-reset_fontsize();
+%axis equal
+%fprintf( 'Updating graphics size... \n');
+update_graphics_size();

@@ -1,18 +1,24 @@
-function reset_fontsize( fontsize );
+function update_graphics_size( fontsize );
 % reset_fontsize( fontsize );
 %
 %  Automatically set fonts and linker widths based on 
 %    current x-axis limits and a heuristic for 
 %    how the font should scale with those limits.
 %
-% (C) R. Das, Stanford University, 2017
+% (C) R. Das, Stanford University, 2017-2018
 
 
 if ~exist( 'fontsize', 'var' ) 
-    xlim = get(gca,'xlim' );
-    fontsize = 2700/(xlim(2)-xlim(1)); 
+
+    scalefactor = get_fontsize_over_axisunits();
+    
+    plot_settings = getappdata( gca, 'plot_settings' );
+    if isempty( plot_settings ) return; end;
+
+    fontsize = plot_settings.spacing * scalefactor(1);
     fontsize = max(fontsize,6);
 end;
+
 % change font size accordingly
 set_fontsize( fontsize );
 set_linker_width( fontsize );

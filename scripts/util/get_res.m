@@ -14,6 +14,7 @@ function [ res_tags, obj_name ] = get_res( selection )
 res_tags = {};
 obj_name = '';
 
+if ~exist( 'selection','var') selection ='all'; end;
 if iscell( selection )
     for i = 1:length( selection )
         [ res_tags_i, obj_name ] = get_res( selection{i} );
@@ -21,6 +22,7 @@ if iscell( selection )
     end
     return;
 end
+if isnumeric( selection ); selection = num2str( selection ); end;
 
 if strcmp( selection, 'all' )
     res_tags = get_tags( 'Residue_' );
@@ -31,6 +33,16 @@ else
             res_tag = sprintf( 'Residue_%s%s%d', chains(i), segid{i}, resnum(i) );
             if isappdata( gca, res_tag )
                 res_tags = [res_tags, res_tag ];
+            end
+        end
+    elseif ~isempty(str2num(selection)) % just a number
+        resnum = str2num(selection);
+        res_tags = {};
+        tags = get_tags( 'Residue_' );
+        for i = 1:length( tags )
+            residue = getappdata( gca, tags{i} );
+            if (residue.resnum == resnum)
+                res_tags = [ res_tags, tags{i} ];
             end
         end
     else
@@ -75,7 +87,7 @@ reschain = {};
 % now sort based on order
 for i = 1:length( res_tags )
     residue = getappdata( gca, res_tags{i} );
-    reschain{i} = sprintf( '%2s%09d', residue.chain, residue.resnum );
+    reschain{i} = sprintf( '%2s:%s:%09d', residue.chain,residue.segid,residue.resnum );
 end
 [~,idx] = sort( reschain );
 res_tags = res_tags( idx );

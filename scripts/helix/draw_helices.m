@@ -25,12 +25,12 @@ end
 % for speed, don't show domains until end.
 save_show_domains = temporarily_hide_domains();
 
-textprogressbar('Re-drawing helices ');
+textprogressbar('Drawing helices... ');
 for n = 1:length( helices )
     draw_helix( helices{n} );
     textprogressbar( 100 * n/length(helices) );
 end
-textprogressbar('done');
+textprogressbar(' done');
 axis off
 
 %axis equal

@@ -1,4 +1,4 @@
-ifunction res_tags = get_res_tags( residue_string, check_exists ); 
+function res_tags = get_res_tags( residue_string, check_exists ); 
 % res_tags = get_res_tags( residue_string ); 
 %
 % helper function that takes 'A:1-4' and gives back { 'Residue_A1',

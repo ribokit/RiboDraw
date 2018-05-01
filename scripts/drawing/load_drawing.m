@@ -41,7 +41,6 @@ else
 end
 
 tic
-fprintf( 'Drawing helices...\n' );
 if keep_previous_drawing;
     loaddata.plot_settings = getappdata( gca, 'plot_settings' );
     loaddata.xlim = getappdata( gca, 'xlim' );
@@ -115,6 +114,7 @@ move_stuff_to_back();
 set_fontsize( loaddata.plot_settings.fontsize );
 setup_zoom();
 setup_pan();
+axis manual; % after plots, axis image/normal -- this keeps axes from going nuts when dragging.
 toc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

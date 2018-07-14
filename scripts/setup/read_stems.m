@@ -33,6 +33,7 @@ while ~feof( fid )
             helix.name = cols{3};
         else
             helix.name = '';
+            warning( 'WARNING! WARNING! No stem name found for %s/%s in file %. You might want to add a third field with names like P1, P1b, P2, etc.',cols{1},cols{2},helix_file);
         end
         helices = [helices,helix];
         helix.helix_tag = sprintf('Helix_%s%s%d',helix.chain1(1),helix.segid1{1},helix.resnum1(1));

@@ -6,8 +6,8 @@ _(C) Rhiju Das, Stanford University, 2017_
 Please e-mail questions to `ribokit.info@gmail.com`
 
 ## Getting Started
-### Installation
-Ribodraw has been tested on MATLAB R2016a. 
+### Installation of RiboDraw
+Ribodraw has been tested on MATLAB R2016a and MATLAB 2017b. 
 Some functionality makes use of the Mapping Toolbox and maybe other Toolboxes.
 
 Download RiboKit either by cloning this repository:
@@ -21,9 +21,15 @@ https://github.com/RiboKit/RiboDraw/releases
 
 Then add the `RiboDraw/scripts/` directory  to your MATLAB path using the command `pathtool` or `Set path...` from the menu. Make sure to use the option to include all subdirectories.
 
-### Tutorial: tRNA
+### Rosetta
+You'll need Rosetta's `rna_motif` executable to extract information on sequence, secondary structure, noncanonical pairs, motifs, etc. Grab the latest release at [RosettaCommons](https://www.rosettacommons.org/software) and follow the installation instructions at [RosettaCommons](https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation)
 
-### Advanced tutorial: a multidomain RNA with proteins
+### Tutorial
+Follow the [**Tutorial**](tutorial/tutorial.md), which teached you how to make a nice layout of the P4-P6 domain of the *Tetrahymena* group I self-splicing intron:
+
+![1gidA RiboDraw drawing](tutorial/images/1gidA_drawing.png)
+
+It takes about 30 minutes (or more, depending on how much you want to refine the drawing).
 
 ## Documentation
 ### Documentation

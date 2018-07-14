@@ -1,4 +1,4 @@
-function linker_groups = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )
+function [linker_groups, interdomain_linkers] = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )
 % linker_groups = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )
 %
 %  Main function for cleaning up multidomain drawings at 

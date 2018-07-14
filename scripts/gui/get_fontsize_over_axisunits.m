@@ -16,6 +16,6 @@ axis_size = [xlim(2) - xlim(1), ylim(2) - ylim(1) ];
 boxpos = plotboxpos();
 boxpos_size = boxpos(3:4);
 scalefactor = window_size./(axis_size./boxpos_size);
-assert( abs( scalefactor(2)/scalefactor(1) - 1 ) < 1e-3 );
+%assert( abs( scalefactor(2)/scalefactor(1) - 1 ) < 1e-3 );
 scalefactor = scalefactor(1);
 

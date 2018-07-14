@@ -67,71 +67,83 @@ This function is called by:
 0014 res_tags = {};
 0015 obj_name = <span class="string">''</span>;
 0016 
-0017 <span class="keyword">if</span> iscell( selection )
-0018     <span class="keyword">for</span> i = 1:length( selection )
-0019         [ res_tags_i, obj_name ] = <a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>( selection{i} );
-0020         res_tags = [res_tags, res_tags_i ]; 
-0021     <span class="keyword">end</span>
-0022     <span class="keyword">return</span>;
-0023 <span class="keyword">end</span>
-0024 
-0025 <span class="keyword">if</span> strcmp( selection, <span class="string">'all'</span> )
-0026     res_tags = <a href="get_tags.html" class="code" title="function tags = get_tags( headstring, tailstring, objnames )">get_tags</a>( <span class="string">'Residue_'</span> );
-0027 <span class="keyword">else</span>
-0028     [resnum,chains,segid,ok] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( selection );
-0029     <span class="keyword">if</span> ok 
-0030         <span class="keyword">for</span> i = 1:length( resnum )
-0031             res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, chains(i), segid{i}, resnum(i) );
-0032             <span class="keyword">if</span> isappdata( gca, res_tag )
-0033                 res_tags = [res_tags, res_tag ];
-0034             <span class="keyword">end</span>
-0035         <span class="keyword">end</span>
-0036     <span class="keyword">else</span>
-0037         vals = getappdata( gca );
-0038         objnames = fields( vals );
-0039         <span class="keyword">if</span> any( strcmp( objnames, selection ) )
-0040             obj = getappdata( gca, selection );
-0041             <span class="keyword">if</span> isfield( obj, <span class="string">'associated_residues'</span> )
-0042                 res_tags = obj.associated_residues;
-0043             <span class="keyword">else</span>
-0044                 res_tags = { selection };
-0045             <span class="keyword">end</span>
-0046             obj_name = selection;
-0047         <span class="keyword">else</span>
-0048             <span class="keyword">for</span> n = 1:length( objnames )
-0049                 obj = getappdata( gca, objnames{n} );
-0050                 <span class="keyword">if</span> isfield( obj, <span class="string">'associated_residues'</span> ) &amp; <span class="keyword">...</span>
-0051                     isfield( obj, <span class="string">'name'</span> ) &amp; <span class="keyword">...</span>
-0052                     strcmp( obj.name, selection )
-0053                     res_tags = obj.associated_residues;
-0054                     obj_name = objnames{n};
-0055                     <span class="keyword">break</span>;
-0056                 <span class="keyword">end</span>
-0057                 <span class="keyword">if</span> isfield( obj, <span class="string">'nucleotide'</span> ) &amp; <span class="keyword">...</span>
-0058                        strcmp( obj.nucleotide, selection )
-0059                     res_tags = { objnames{n} };
-0060                     obj_name = objnames{n};
-0061                     <span class="keyword">break</span>;
-0062                 <span class="keyword">end</span>
-0063             <span class="keyword">end</span>
-0064         <span class="keyword">end</span> 
-0065     <span class="keyword">end</span>
-0066 <span class="keyword">end</span>
-0067 
-0068 <span class="keyword">if</span> length( res_tags ) == 0
-0069     obj_name = <span class="string">''</span>;
-0070     fprintf( <span class="string">'Could not find residues for selection %s\n'</span>, selection );
-0071     <span class="keyword">return</span>;
-0072 <span class="keyword">end</span>
-0073 
-0074 reschain = {};
-0075 <span class="comment">% now sort based on order</span>
-0076 <span class="keyword">for</span> i = 1:length( res_tags )
-0077     residue = getappdata( gca, res_tags{i} );
-0078     reschain{i} = sprintf( <span class="string">'%2s%09d'</span>, residue.chain, residue.resnum );
-0079 <span class="keyword">end</span>
-0080 [~,idx] = sort( reschain );
-0081 res_tags = res_tags( idx );</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0017 <span class="keyword">if</span> ~exist( <span class="string">'selection'</span>,<span class="string">'var'</span>) selection =<span class="string">'all'</span>; <span class="keyword">end</span>;
+0018 <span class="keyword">if</span> iscell( selection )
+0019     <span class="keyword">for</span> i = 1:length( selection )
+0020         [ res_tags_i, obj_name ] = <a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>( selection{i} );
+0021         res_tags = [res_tags, res_tags_i ]; 
+0022     <span class="keyword">end</span>
+0023     <span class="keyword">return</span>;
+0024 <span class="keyword">end</span>
+0025 <span class="keyword">if</span> isnumeric( selection ); selection = num2str( selection ); <span class="keyword">end</span>;
+0026 
+0027 <span class="keyword">if</span> strcmp( selection, <span class="string">'all'</span> )
+0028     res_tags = <a href="get_tags.html" class="code" title="function tags = get_tags( headstring, tailstring, objnames )">get_tags</a>( <span class="string">'Residue_'</span> );
+0029 <span class="keyword">else</span>
+0030     [resnum,chains,segid,ok] = <a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>( selection );
+0031     <span class="keyword">if</span> ok 
+0032         <span class="keyword">for</span> i = 1:length( resnum )
+0033             res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, chains(i), segid{i}, resnum(i) );
+0034             <span class="keyword">if</span> isappdata( gca, res_tag )
+0035                 res_tags = [res_tags, res_tag ];
+0036             <span class="keyword">end</span>
+0037         <span class="keyword">end</span>
+0038     <span class="keyword">elseif</span> ~isempty(str2num(selection)) <span class="comment">% just a number</span>
+0039         resnum = str2num(selection);
+0040         res_tags = {};
+0041         tags = <a href="get_tags.html" class="code" title="function tags = get_tags( headstring, tailstring, objnames )">get_tags</a>( <span class="string">'Residue_'</span> );
+0042         <span class="keyword">for</span> i = 1:length( tags )
+0043             residue = getappdata( gca, tags{i} );
+0044             <span class="keyword">if</span> (residue.resnum == resnum)
+0045                 res_tags = [ res_tags, tags{i} ];
+0046             <span class="keyword">end</span>
+0047         <span class="keyword">end</span>
+0048     <span class="keyword">else</span>
+0049         vals = getappdata( gca );
+0050         objnames = fields( vals );
+0051         <span class="keyword">if</span> any( strcmp( objnames, selection ) )
+0052             obj = getappdata( gca, selection );
+0053             <span class="keyword">if</span> isfield( obj, <span class="string">'associated_residues'</span> )
+0054                 res_tags = obj.associated_residues;
+0055             <span class="keyword">else</span>
+0056                 res_tags = { selection };
+0057             <span class="keyword">end</span>
+0058             obj_name = selection;
+0059         <span class="keyword">else</span>
+0060             <span class="keyword">for</span> n = 1:length( objnames )
+0061                 obj = getappdata( gca, objnames{n} );
+0062                 <span class="keyword">if</span> isfield( obj, <span class="string">'associated_residues'</span> ) &amp; <span class="keyword">...</span>
+0063                     isfield( obj, <span class="string">'name'</span> ) &amp; <span class="keyword">...</span>
+0064                     strcmp( obj.name, selection )
+0065                     res_tags = obj.associated_residues;
+0066                     obj_name = objnames{n};
+0067                     <span class="keyword">break</span>;
+0068                 <span class="keyword">end</span>
+0069                 <span class="keyword">if</span> isfield( obj, <span class="string">'nucleotide'</span> ) &amp; <span class="keyword">...</span>
+0070                        strcmp( obj.nucleotide, selection )
+0071                     res_tags = { objnames{n} };
+0072                     obj_name = objnames{n};
+0073                     <span class="keyword">break</span>;
+0074                 <span class="keyword">end</span>
+0075             <span class="keyword">end</span>
+0076         <span class="keyword">end</span> 
+0077     <span class="keyword">end</span>
+0078 <span class="keyword">end</span>
+0079 
+0080 <span class="keyword">if</span> length( res_tags ) == 0
+0081     obj_name = <span class="string">''</span>;
+0082     fprintf( <span class="string">'Could not find residues for selection %s\n'</span>, selection );
+0083     <span class="keyword">return</span>;
+0084 <span class="keyword">end</span>
+0085 
+0086 reschain = {};
+0087 <span class="comment">% now sort based on order</span>
+0088 <span class="keyword">for</span> i = 1:length( res_tags )
+0089     residue = getappdata( gca, res_tags{i} );
+0090     reschain{i} = sprintf( <span class="string">'%2s:%s:%09d'</span>, residue.chain,residue.segid,residue.resnum );
+0091 <span class="keyword">end</span>
+0092 [~,idx] = sort( reschain );
+0093 res_tags = res_tags( idx );</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -66,30 +66,33 @@ This function is called by:
 0018     <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> )
 0019         set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize );
 0020         <span class="keyword">if</span> ( length( residue.nucleotide ) &gt; 1 ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*4/5); <span class="keyword">end</span>;
-0021         <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5  ); <span class="keyword">end</span>;
-0022     <span class="keyword">end</span>
-0023     <span class="keyword">if</span> isfield( residue, <span class="string">'tick_label'</span> )
-0024         set( residue.tick_label, <span class="string">'fontsize'</span>, plot_settings.fontsize );
+0021         <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> ) 
+0022             set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5  ); 
+0023              <span class="keyword">if</span> isfield( residue, <span class="string">'label'</span> ) set( residue.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*14/10  ); <span class="keyword">end</span>;
+0024         <span class="keyword">end</span>;
 0025     <span class="keyword">end</span>
-0026 <span class="keyword">end</span>
-0027 helix_tags = get_tags( <span class="string">'Helix_'</span>);
-0028 <span class="keyword">for</span> i = 1:length( helix_tags );
-0029     helix = getappdata( gca, helix_tags{i} );
-0030     <span class="keyword">if</span> isfield( helix, <span class="string">'label'</span> )
-0031         set( helix.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5 );
-0032     <span class="keyword">end</span>
-0033 <span class="keyword">end</span>
-0034 domain_tags = get_tags( <span class="string">'Selection_'</span>);
-0035 <span class="keyword">for</span> i = 1:length( domain_tags );
-0036     domain = getappdata( gca, domain_tags{i} );
-0037     <span class="keyword">if</span> isfield( domain, <span class="string">'label'</span> )
-0038         set( domain.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*14/10 );
-0039     <span class="keyword">end</span>
-0040 <span class="keyword">end</span>
-0041 
-0042 
-0043 linker_tags = [get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span>); get_tags( <span class="string">'Linker'</span>,<span class="string">'intradomain'</span>)];
-0044 draw_linker( linker_tags );</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0026     <span class="keyword">if</span> isfield( residue, <span class="string">'tick_label'</span> )
+0027         set( residue.tick_label, <span class="string">'fontsize'</span>, plot_settings.fontsize );
+0028     <span class="keyword">end</span>
+0029 <span class="keyword">end</span>
+0030 helix_tags = get_tags( <span class="string">'Helix_'</span>);
+0031 <span class="keyword">for</span> i = 1:length( helix_tags );
+0032     helix = getappdata( gca, helix_tags{i} );
+0033     <span class="keyword">if</span> isfield( helix, <span class="string">'label'</span> )
+0034         set( helix.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5 );
+0035     <span class="keyword">end</span>
+0036 <span class="keyword">end</span>
+0037 domain_tags = get_tags( <span class="string">'Selection_'</span>);
+0038 <span class="keyword">for</span> i = 1:length( domain_tags );
+0039     domain = getappdata( gca, domain_tags{i} );
+0040     <span class="keyword">if</span> isfield( domain, <span class="string">'label'</span> )
+0041         set( domain.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*14/10 );
+0042     <span class="keyword">end</span>
+0043 <span class="keyword">end</span>
+0044 
+0045 
+0046 linker_tags = [get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span>); get_tags( <span class="string">'Linker'</span>,<span class="string">'intradomain'</span>)];
+0047 draw_linker( linker_tags );</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

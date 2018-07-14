@@ -23,17 +23,17 @@
 <div class="box"><strong>setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff ) </strong></div>
+<div class="box"><strong>function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff, linker_group ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )
 
  Inputs:
     contact_name = name for tertiary contact (if empty string '', a default name is defined based on first residue in res1 and res2 sets.
-    res_tags1    = cell of tags defining first set of residues on one side of tertiary contact. 
-                       Example: {'Residue_A23','Resisdue_A26',...}  
+    res_tags1    = cell of tags defining first set of residues on one side of tertiary contact.
+                       Example: {'Residue_A23','Resisdue_A26',...}
                    also acceptable is a string like: 'A:23 A:26...' (easier for manual input)
-    res_tags2    = cell of tags defining second set of residues the other side of tertiary contact. 
+    res_tags2    = cell of tags defining second set of residues the other side of tertiary contact.
 
   [Optional]
     template_linker = Existing linker object whose path will be copied over to the new interdomain linker for the tertiary contact. [default: no template]
@@ -46,10 +46,10 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>	delete_tertiary_contact( contact_name )</li><li><a href="update_tertiary_contact_names.html" class="code" title="function update_tertiary_contact_names( tags, print_stuff )">update_tertiary_contact_names</a>	update_tertiary_contact_names( tags, print_stuff )</li></ul>
+<li><a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>	delete_tertiary_contact( contact_name )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="group_interdomain_linkers.html" class="code" title="function linker_groups = group_interdomain_linkers( domain_names )">group_interdomain_linkers</a>	linker_groups = group_interdomain_linkers( domain_names )</li></ul>
+<li><a href="setup_tertiary_contacts_from_linker_groups.html" class="code" title="function tertiary_contact_tags = setup_tertiary_contacts_from_linker_groups( linker_groups )">setup_tertiary_contacts_from_linker_groups</a>	setup_tertiary_contacts( linker_groups )</li></ul>
 <!-- crossreference -->
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -57,7 +57,7 @@ This function is called by:
 <li><a href="#_sub1" class="code">function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );</a></li><li><a href="#_sub2" class="code">function add_linker( linker )</a></li></ul>
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )</a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff, linker_group )</a>
 0002 <span class="comment">% setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )</span>
 0003 <span class="comment">%</span>
 0004 <span class="comment">% Inputs:</span>
@@ -84,28 +84,28 @@ This function is called by:
 0025 <span class="keyword">if</span> length( res_tags1 ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
 0026 <span class="keyword">if</span> length( res_tags2 ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
 0027 
-0028 <span class="keyword">if</span> length(contact_name) == 0
-0029     default_name = 1;
-0030     residue1 = getappdata( gca, res_tags1{1} );
-0031     residue2 = getappdata( gca, res_tags2{1}  );
-0032     contact_name = sprintf( <span class="string">'%s%s%d_%s%s%d'</span>,  residue1.chain,residue1.segid,residue1.resnum, residue2.chain,residue2.segid,residue2.resnum  );
-0033 <span class="keyword">else</span>
-0034     default_name = 0;
+0028 <span class="keyword">if</span> length(contact_name) &gt; 0
+0029     tertiary_contact.name = contact_name;
+0030 <span class="keyword">else</span>
+0031     residue1 = getappdata( gca, res_tags1{1} );
+0032     residue2 = getappdata( gca, res_tags2{1}  );
+0033     contact_name = sprintf( <span class="string">'%s%s%d_%s%s%d'</span>,  residue1.chain,residue1.segid,residue1.resnum, residue2.chain,residue2.segid,residue2.resnum  );
+0034     <span class="comment">% do not tertiary_contact.set name -- it will be updated later.</span>
 0035 <span class="keyword">end</span>
-0036 <span class="keyword">if</span> ~exist( <span class="string">'print_stuff'</span> ) print_stuff = 1; <span class="keyword">end</span>;
-0037     
-0038 <span class="keyword">if</span> ~isempty( intersect( res_tags1, res_tags2 ) )
-0039     tag = <span class="string">''</span>;
-0040     fprintf( <span class="string">'res_tags1 and res_tags2 have common residues... not creating tertiary contact %s\n'</span>, contact_name );
-0041     intersect( res_tags1, res_tags2 );
-0042     <span class="keyword">return</span> 
-0043 <span class="keyword">end</span>
-0044 
-0045 contact_name_cleaned = strrep( strrep(contact_name, <span class="string">' '</span>, <span class="string">'_'</span> ), <span class="string">'-'</span>, <span class="string">'_'</span> ) ;
-0046 tag = sprintf(<span class="string">'TertiaryContact_%s'</span>, contact_name_cleaned );
-0047 tertiary_contact.associated_residues1 = res_tags1;
-0048 tertiary_contact.associated_residues2 = res_tags2;
-0049 tertiary_contact.name = contact_name;
+0036 
+0037 <span class="keyword">if</span> ~exist( <span class="string">'print_stuff'</span> ) print_stuff = 1; <span class="keyword">end</span>;
+0038 
+0039 <span class="keyword">if</span> ~isempty( intersect( res_tags1, res_tags2 ) )
+0040     tag = <span class="string">''</span>;
+0041     fprintf( <span class="string">'res_tags1 and res_tags2 have common residues... not creating tertiary contact %s\n'</span>, contact_name );
+0042     intersect( res_tags1, res_tags2 );
+0043     <span class="keyword">return</span>
+0044 <span class="keyword">end</span>
+0045 
+0046 contact_name_cleaned = strrep( strrep(contact_name, <span class="string">' '</span>, <span class="string">'_'</span> ), <span class="string">'-'</span>, <span class="string">'_'</span> ) ;
+0047 tag = sprintf(<span class="string">'TertiaryContact_%s'</span>, contact_name_cleaned );
+0048 tertiary_contact.associated_residues1 = res_tags1;
+0049 tertiary_contact.associated_residues2 = res_tags2;
 0050 tertiary_contact.tertiary_contact_tag = tag;
 0051 
 0052 <span class="comment">% interdomain connector.</span>
@@ -122,86 +122,106 @@ This function is called by:
 0063         fprintf( <span class="string">'Already set up %s so not creating again.\n'</span>, linker.linker_tag );
 0064         <span class="keyword">return</span>;
 0065     <span class="keyword">else</span>
-0066         template_linker = getappdata( gca, prev_tertiary_contact.interdomain_linker );
-0067         <a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>( tag );
-0068     <span class="keyword">end</span>
-0069 <span class="keyword">else</span>
-0070     <span class="keyword">if</span> print_stuff; fprintf( <span class="string">'Setting up %s.\n'</span>, linker.linker_tag ); <span class="keyword">end</span>;
-0071 <span class="keyword">end</span>
-0072 
-0073 <span class="keyword">if</span> exist( <span class="string">'template_linker'</span>, <span class="string">'var'</span> )
-0074     <span class="keyword">if</span> ~isfield( template_linker, <span class="string">'plot_pos'</span> ) draw_linker( template_linker ); <span class="keyword">end</span>;
-0075     linker.plot_pos = template_linker.plot_pos;
-0076     linker.relpos1  = template_linker.relpos1;
-0077     linker.relpos2  = template_linker.relpos2;
-0078     linker = create_linker_with_draggable_vtx( linker );
-0079 <span class="keyword">end</span>
-0080 <a href="#_sub2" class="code" title="subfunction add_linker( linker )">add_linker</a>( linker );
-0081 tertiary_contact.interdomain_linker = linker.linker_tag;
-0082 
-0083 tertiary_contact.intradomain_linkers1 = <a href="#_sub1" class="code" title="subfunction linkers = setup_intradomain_linkers( res_tags, contact_name, tag );">setup_intradomain_linkers</a>( res_tags1, contact_name_cleaned, tag );
-0084 tertiary_contact.intradomain_linkers2 = <a href="#_sub1" class="code" title="subfunction linkers = setup_intradomain_linkers( res_tags, contact_name, tag );">setup_intradomain_linkers</a>( res_tags2, contact_name_cleaned, tag );
-0085 setappdata( gca, tag, tertiary_contact );
-0086 <span class="keyword">if</span> default_name; <a href="update_tertiary_contact_names.html" class="code" title="function update_tertiary_contact_names( tags, print_stuff )">update_tertiary_contact_names</a>( {tag}, print_stuff ); <span class="keyword">end</span>;
-0087 
-0088 <span class="comment">% draw these linkers</span>
-0089 draw_linker( [{tertiary_contact.interdomain_linker},tertiary_contact.intradomain_linkers1,tertiary_contact.intradomain_linkers2] );
-0090 
-0091 <span class="keyword">if</span> ~exist( <span class="string">'skip_move_stuff_to_back'</span>,<span class="string">'var'</span>) skip_move_stuff_to_back = 0; <span class="keyword">end</span>;
-0092 <span class="keyword">if</span> ~skip_move_stuff_to_back 
-0093     tic
-0094     move_stuff_to_back(); <span class="comment">% should be faster to move all tertiary contact linkers to 'back' all at once</span>
-0095     toc
-0096 <span class="keyword">end</span>
-0097 
-0098 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0099 <a name="_sub1" href="#_subfunctions" class="code">function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );</a>
-0100 linkers = {};
-0101 <span class="keyword">if</span> length( res_tags ) == 1; <span class="keyword">return</span>; <span class="keyword">end</span>;
-0102 
-0103 <span class="comment">% setup network of intradomain linkers based on minimum spanning tree --</span>
-0104 <span class="comment">% will be easier on the eyes than web to a random point.</span>
-0105 <span class="keyword">for</span> i = 1:length( res_tags );
-0106     residues{i} = getappdata( gca, res_tags{i} );
-0107 <span class="keyword">end</span>
-0108 s = [];
-0109 t = [];
-0110 weights = [];
-0111 <span class="keyword">for</span> i = 1:length( res_tags );
-0112     <span class="keyword">for</span> j = i+1:length( res_tags );
-0113         s = [s,i];
-0114         t = [t,j];
-0115         weights = [ weights, norm( residues{i}.plot_pos - residues{j}.plot_pos ) ];
-0116     <span class="keyword">end</span>
-0117 <span class="keyword">end</span>
-0118 G = graph( s, t, weights );
-0119 [T,predecessor] = minspantree( G, <span class="string">'Root'</span>,findnode(G,1) );
-0120 assert( numedges(T) == length(res_tags) - 1);
+0066         fprintf( <span class="string">'Already set up %s now will DELETE\n'</span>, linker.linker_tag );
+0067         template_linker = getappdata( gca, prev_tertiary_contact.interdomain_linker );
+0068         <a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>( tag );
+0069     <span class="keyword">end</span>
+0070 <span class="keyword">else</span>
+0071     <span class="comment">%if print_stuff; fprintf( 'Setting up %s.\n', linker.linker_tag ); end;</span>
+0072 <span class="keyword">end</span>
+0073 
+0074 <span class="keyword">if</span> exist( <span class="string">'template_linker'</span>, <span class="string">'var'</span> )
+0075     linker.relpos1  = template_linker.relpos1;
+0076     linker.relpos2  = template_linker.relpos2;
+0077     <span class="keyword">if</span> ~isfield( linker, <span class="string">'plot_pos'</span> )
+0078         plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
+0079         plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
+0080         linker.plot_pos = [plot_pos1; plot_pos2 ];
+0081     <span class="keyword">end</span>;    
+0082     linker = create_linker_with_draggable_vtx( linker );
+0083 <span class="keyword">end</span>
+0084 <a href="#_sub2" class="code" title="subfunction add_linker( linker )">add_linker</a>( linker );
+0085 tertiary_contact.interdomain_linker = linker.linker_tag;
+0086 
+0087 tertiary_contact.intradomain_linkers1 = <a href="#_sub1" class="code" title="subfunction linkers = setup_intradomain_linkers( res_tags, contact_name, tag );">setup_intradomain_linkers</a>( res_tags1, contact_name_cleaned, tag );
+0088 tertiary_contact.intradomain_linkers2 = <a href="#_sub1" class="code" title="subfunction linkers = setup_intradomain_linkers( res_tags, contact_name, tag );">setup_intradomain_linkers</a>( res_tags2, contact_name_cleaned, tag );
+0089 
+0090 <span class="keyword">if</span> exist( <span class="string">'linker_group'</span>,<span class="string">'var'</span> )
+0091     tertiary_contact.linkers = {};
+0092     <span class="keyword">for</span> j = 1:length( linker_group )
+0093         linker = getappdata( gca, linker_group{j}.linker_tag );
+0094         linker.tertiary_contact = tag;
+0095         tertiary_contact.linkers = [tertiary_contact.linkers,linker_group{j}.linker_tag];
+0096         setappdata( gca, linker.linker_tag, linker );
+0097     <span class="keyword">end</span>
+0098 <span class="keyword">end</span>
+0099 
+0100 setappdata( gca, tag, tertiary_contact );
+0101 <span class="comment">%if default_name; update_tertiary_contact_names( {tag}, 0 ); end;</span>
+0102     
+0103 <span class="keyword">if</span> print_stuff; fprintf( <span class="string">'Set up %s.\n'</span>, tag ); <span class="keyword">end</span>;
+0104 
+0105 <span class="comment">% draw these linkers</span>
+0106 draw_linker( tertiary_contact.interdomain_linker );
+0107 autotrace_intradomain_linker( tertiary_contact.intradomain_linkers1 );
+0108 autotrace_intradomain_linker( tertiary_contact.intradomain_linkers2 );
+0109 
+0110 <span class="keyword">if</span> ~exist( <span class="string">'skip_move_stuff_to_back'</span>,<span class="string">'var'</span>) skip_move_stuff_to_back = 0; <span class="keyword">end</span>;
+0111 <span class="keyword">if</span> ~skip_move_stuff_to_back
+0112     tic
+0113     move_stuff_to_back(); <span class="comment">% should be faster to move all tertiary contact linkers to 'back' all at once</span>
+0114     toc
+0115 <span class="keyword">end</span>
+0116 
+0117 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0118 <a name="_sub1" href="#_subfunctions" class="code">function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );</a>
+0119 linkers = {};
+0120 <span class="keyword">if</span> length( res_tags ) == 1; <span class="keyword">return</span>; <span class="keyword">end</span>;
 0121 
-0122 res_tags2 = {};
-0123 <span class="keyword">for</span> k = 1:numedges(T);
-0124     [i,j] = findedge(T,k);
-0125     <span class="keyword">if</span> ( predecessor(j) ~= i )
-0126         x = i; i = j; j = x;
-0127     <span class="keyword">end</span>
-0128     assert( predecessor(j) == i );
-0129     linker.residue1 = res_tags{i};
-0130     linker.residue2 = res_tags{j};
-0131     res_tags2 = [ res_tags2, linker.residue2];
-0132     linker.type = <span class="string">'tertcontact_intradomain'</span>;
-0133     linker.linker_tag = sprintf(<span class="string">'Linker_%s_%s_%s_%s'</span>,linker.residue1(9:end),linker.residue2(9:end),  <span class="keyword">...</span>
-0134         contact_name,linker.type);
-0135     linker.tertiary_contact = tag;
-0136     <a href="#_sub2" class="code" title="subfunction add_linker( linker )">add_linker</a>( linker );
-0137     linkers = [ linkers, linker.linker_tag ];
-0138 <span class="keyword">end</span>
-0139 
-0140 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0141 <a name="_sub2" href="#_subfunctions" class="code">function add_linker( linker )</a>
-0142 linker_tag = linker.linker_tag;
-0143 add_linker_to_residue( linker.residue1, linker_tag )
-0144 add_linker_to_residue( linker.residue2, linker_tag )
-0145 <span class="keyword">if</span> ~isappdata( gca, linker_tag );  setappdata( gca, linker_tag, linker );  <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0122 <span class="comment">% setup network of intradomain linkers based on minimum spanning tree --</span>
+0123 <span class="comment">% will be easier on the eyes than web to a random point.</span>
+0124 <span class="keyword">for</span> i = 1:length( res_tags );
+0125     residues{i} = getappdata( gca, res_tags{i} );
+0126 <span class="keyword">end</span>
+0127 s = [];
+0128 t = [];
+0129 weights = [];
+0130 <span class="keyword">for</span> i = 1:length( res_tags );
+0131     <span class="keyword">for</span> j = i+1:length( res_tags );
+0132         s = [s,i];
+0133         t = [t,j];
+0134         weights = [ weights, norm( residues{i}.plot_pos - residues{j}.plot_pos ) ];
+0135     <span class="keyword">end</span>
+0136 <span class="keyword">end</span>
+0137 G = graph( s, t, weights );
+0138 [T,predecessor] = minspantree( G, <span class="string">'Root'</span>,findnode(G,1) );
+0139 assert( numedges(T) == length(res_tags) - 1);
+0140 
+0141 res_tags2 = {};
+0142 <span class="keyword">for</span> k = 1:numedges(T);
+0143     [i,j] = findedge(T,k);
+0144     <span class="keyword">if</span> ( predecessor(j) ~= i )
+0145         x = i; i = j; j = x;
+0146     <span class="keyword">end</span>
+0147     assert( predecessor(j) == i );
+0148     linker.residue1 = res_tags{i};
+0149     linker.residue2 = res_tags{j};
+0150     res_tags2 = [ res_tags2, linker.residue2];
+0151     linker.type = <span class="string">'tertcontact_intradomain'</span>;
+0152     linker.linker_tag = sprintf(<span class="string">'Linker_%s_%s_%s_%s'</span>,linker.residue1(9:end),linker.residue2(9:end),  <span class="keyword">...</span>
+0153         contact_name,linker.type);
+0154     linker.tertiary_contact = tag;
+0155     <a href="#_sub2" class="code" title="subfunction add_linker( linker )">add_linker</a>( linker );
+0156     linkers = [ linkers, linker.linker_tag ];
+0157 <span class="keyword">end</span>
+0158 
+0159 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0160 <a name="_sub2" href="#_subfunctions" class="code">function add_linker( linker )</a>
+0161 linker_tag = linker.linker_tag;
+0162 add_linker_to_residue( linker.residue1, linker_tag )
+0163 add_linker_to_residue( linker.residue2, linker_tag )
+0164 <span class="keyword">if</span> isappdata( gca, linker_tag ); delete_linker( linker_tag ); <span class="keyword">end</span>;
+0165 setappdata( gca, linker_tag, linker );</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

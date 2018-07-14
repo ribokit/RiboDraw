@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of update_tertiary_contact_name</title>
+  <meta name="keywords" content="update_tertiary_contact_name">
+  <meta name="description" content="update_tertiary_contact_names( tertiary_contact, print_stuff )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html tertiary_contacts -->
+<h1>update_tertiary_contact_name
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>update_tertiary_contact_names( tertiary_contact, print_stuff )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function tertiary_contact = update_tertiary_contact_name( tertiary_contact, print_stuff ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> update_tertiary_contact_names( tertiary_contact, print_stuff )
+ 
+ Tertiary contacts have display names that can be displayed in the 'split_arrows' display mode.
+
+ These names are initialized based on the names of helices that are connected by the tertiary contact,
+  or multiple helices, in the case of proteins or other ligands that interconnect numerous parts of the RNA.
+
+  There is also some fancy code to make the names render in RGB colors that reflect those helix colors for
+  tertiary contacts that involve ligands.
+
+ TODO: make a function that allows user to input their own name for the tertiary contact (e.g., for alpha, beta, etc. in group II intron).
+
+ Input
+  tertiary_contact(s) = tertiary contacts for which to define inputs. [default: all drawing tags that start with 'Tertiary']
+  print_stuff = verbose ( default 1 )
+ 
+ See also: GROUP_INTERDOMAIN_LINKERS, SHOW_SPLIT_ARROWS.
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="update_tertiary_contact_name.html" class="code" title="function tertiary_contact = update_tertiary_contact_name( tertiary_contact, print_stuff )">update_tertiary_contact_name</a>	update_tertiary_contact_names( tertiary_contact, print_stuff )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="update_tertiary_contact_name.html" class="code" title="function tertiary_contact = update_tertiary_contact_name( tertiary_contact, print_stuff )">update_tertiary_contact_name</a>	update_tertiary_contact_names( tertiary_contact, print_stuff )</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function [name,rgb] = get_partner_name( res_tag )</a></li><li><a href="#_sub2" class="code">function [name,rgb] = get_helix_name( helix, residue )</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function tertiary_contact = update_tertiary_contact_name( tertiary_contact, print_stuff )</a>
+0002 <span class="comment">% update_tertiary_contact_names( tertiary_contact, print_stuff )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Tertiary contacts have display names that can be displayed in the 'split_arrows' display mode.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% These names are initialized based on the names of helices that are connected by the tertiary contact,</span>
+0007 <span class="comment">%  or multiple helices, in the case of proteins or other ligands that interconnect numerous parts of the RNA.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%  There is also some fancy code to make the names render in RGB colors that reflect those helix colors for</span>
+0010 <span class="comment">%  tertiary contacts that involve ligands.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% TODO: make a function that allows user to input their own name for the tertiary contact (e.g., for alpha, beta, etc. in group II intron).</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% Input</span>
+0015 <span class="comment">%  tertiary_contact(s) = tertiary contacts for which to define inputs. [default: all drawing tags that start with 'Tertiary']</span>
+0016 <span class="comment">%  print_stuff = verbose ( default 1 )</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">% See also: GROUP_INTERDOMAIN_LINKERS, SHOW_SPLIT_ARROWS.</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% (C) R. Das, Stanford University</span>
+0021 
+0022 <span class="keyword">if</span> ~exist( <span class="string">'print_stuff'</span> ) print_stuff = 1; <span class="keyword">end</span>;
+0023 <span class="keyword">if</span> ~exist( <span class="string">'tertiary_contact'</span>,<span class="string">'var'</span> );  tertiary_contact = get_tags( <span class="string">'Tertiary'</span> ); <span class="keyword">end</span>;
+0024 <span class="keyword">if</span> iscell( tertiary_contact ) 
+0025     <span class="keyword">for</span> i = 1:length(tertiary_contact)
+0026         tertiary_contact =  <a href="update_tertiary_contact_name.html" class="code" title="function tertiary_contact = update_tertiary_contact_name( tertiary_contact, print_stuff )">update_tertiary_contact_name</a>( tertiary_contact{i}, print_stuff ); 
+0027     <span class="keyword">end</span>;
+0028     <span class="keyword">return</span>
+0029 <span class="keyword">end</span>
+0030 <span class="keyword">if</span> ischar( tertiary_contact ); tertiary_contact = getappdata( gca, tertiary_contact ); <span class="keyword">end</span>;
+0031 
+0032 name1 = <a href="#_sub1" class="code" title="subfunction [name,rgb] = get_partner_name( res_tag )">get_partner_name</a>( tertiary_contact.associated_residues1{1}  );
+0033 name2 = <a href="#_sub1" class="code" title="subfunction [name,rgb] = get_partner_name( res_tag )">get_partner_name</a>( tertiary_contact.associated_residues2{1}  );
+0034 <span class="keyword">if</span> length( name1 ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0035 <span class="keyword">if</span> length( name2 ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0036 tertiary_contact.name = [ name1, <span class="string">'-'</span>, name2 ];
+0037 
+0038 <span class="comment">% new special case for ligand with interdomain tertiary contacts</span>
+0039 residue1 = getappdata( gca, tertiary_contact.associated_residues1{1}  );
+0040 <span class="keyword">if</span> isfield( residue1, <span class="string">'ligand_partners'</span> )
+0041     linker_tags = unique(get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span>,residue1.linkers));
+0042     <span class="keyword">if</span> length( linker_tags ) &gt; 0
+0043         all_name = {name1};
+0044         name = sprintf(<span class="string">'\\color{black}%s'</span>,name1);
+0045         <span class="keyword">for</span> j = 1:length( linker_tags )
+0046             <span class="keyword">if</span> ~isappdata( gca, linker_tags{j} ); <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">%%% HACK HACK HACK THIS SHOULD NOT BE NECESSARY!!</span>
+0047             linker = getappdata( gca, linker_tags{j} );
+0048             [name2,rgb2] = <a href="#_sub1" class="code" title="subfunction [name,rgb] = get_partner_name( res_tag )">get_partner_name</a>( linker.residue2 );
+0049             <span class="keyword">if</span> any( strcmp( all_name, name2 ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% don't repeat</span>
+0050             all_name = [all_name, name2];
+0051             <span class="keyword">if</span> mod(length(all_name),3) == 1; name = [name,<span class="string">'\newline'</span>]; <span class="keyword">end</span>;
+0052             name = sprintf(<span class="string">'%s-\\color[rgb]{%4.2f,%4.2f,%4.2f}%s'</span>,name,rgb2(1),rgb2(2),rgb2(3),name2);
+0053         <span class="keyword">end</span>
+0054         tertiary_contact.name = name;
+0055     <span class="keyword">end</span>
+0056 <span class="keyword">end</span>
+0057 
+0058 <span class="keyword">if</span> print_stuff; fprintf( <span class="string">'Setting tertiary contact name %s for contact %s\n'</span>, tertiary_contact.name,tertiary_contact.tertiary_contact_tag ); <span class="keyword">end</span>;
+0059 setappdata( gca, tertiary_contact.tertiary_contact_tag, tertiary_contact );
+0060 <span class="keyword">if</span> isfield( tertiary_contact, <span class="string">'interdomain_linker'</span> ); draw_linker( tertiary_contact.interdomain_linker ); <span class="keyword">end</span>;
+0061 
+0062 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0063 <a name="_sub1" href="#_subfunctions" class="code">function [name,rgb] = get_partner_name( res_tag )</a>
+0064 residue = getappdata( gca, res_tag);
+0065 name = <span class="string">''</span>;
+0066 rgb = [0,0,0];
+0067 <span class="keyword">if</span> isfield( residue, <span class="string">'ligand_partners'</span> );
+0068     <span class="keyword">if</span> isfield( residue, <span class="string">'rgb_color'</span> ) rgb = residue.rgb_color; <span class="keyword">end</span>;
+0069     name = residue.nucleotide;
+0070     <span class="keyword">return</span>;
+0071 <span class="keyword">elseif</span> isfield( residue, <span class="string">'helix_tag'</span> )
+0072     helix = getappdata( gca, residue.helix_tag );
+0073     [name,rgb] = <a href="#_sub2" class="code" title="subfunction [name,rgb] = get_helix_name( helix, residue )">get_helix_name</a>( helix, residue );
+0074     <span class="keyword">return</span>;
+0075 <span class="keyword">end</span>
+0076 
+0077 
+0078 
+0079 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0080 <a name="_sub2" href="#_subfunctions" class="code">function [name,rgb] = get_helix_name( helix, residue )</a>
+0081 rgb = [0,0,0];
+0082 helix_res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, helix.chain1(1), helix.segid1{1}, helix.resnum1(1) );
+0083 helix_residue = getappdata( gca, helix_res_tag );
+0084 <span class="keyword">if</span> isfield( helix_residue, <span class="string">'rgb_color'</span> ) rgb = helix_residue.rgb_color; <span class="keyword">end</span>;
+0085 <span class="keyword">if</span> isfield( helix_residue, <span class="string">'associated_selections'</span> )
+0086     tags = get_tags( <span class="string">'Selection'</span>, <span class="string">'helixgroup_domain'</span>,helix_residue.associated_selections);
+0087     <span class="keyword">if</span> length( tags ) &gt; 0
+0088         helixgroup = getappdata( gca, tags{1} );
+0089         name = helixgroup.name;
+0090         <span class="keyword">return</span>;
+0091     <span class="keyword">end</span>
+0092 <span class="keyword">end</span>
+0093 
+0094 <span class="keyword">if</span> length( helix.name ) &gt; 0; 
+0095     name = helix.name;
+0096     <span class="keyword">return</span>;
+0097 <span class="keyword">end</span>
+0098 
+0099 <span class="comment">% backup.</span>
+0100 <span class="keyword">if</span> isfield( residue, <span class="string">'rgb_color'</span> ) rgb = residue.rgb_color; <span class="keyword">end</span>;
+0101 name = sprintf( <span class="string">'%s%s%d'</span>, residue.chain,residue.segid, residue.resnum );
+0102 
+0103</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

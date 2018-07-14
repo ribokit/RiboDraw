@@ -34,6 +34,8 @@
   contact_name = name used to set up tertiary contact (not the display name, typically instead something like 'Residue_C123_Residue_C45')
   print_stuff  = verbose (default 1)
 
+ See also <a href="clear_tertiary_contacts.html" class="code" title="function clear_tertiary_contacts()">CLEAR_TERTIARY_CONTACTS</a>.
+
  (C) R. Das, Stanford University, 2017</pre></div>
 
 <!-- crossreference -->
@@ -43,12 +45,10 @@ This function calls:
 <li><a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>	delete_tertiary_contact( contact_name )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="delete_ligand_tertiary_contacts.html" class="code" title="function delete_ligand_tertiary_contacts()">delete_ligand_tertiary_contacts</a>	Go through each protein or other ligand and remove</li><li><a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>	delete_tertiary_contact( contact_name )</li><li><a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff )">setup_tertiary_contact</a>	setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )</li></ul>
+<li><a href="clear_tertiary_contacts.html" class="code" title="function clear_tertiary_contacts()">clear_tertiary_contacts</a>	clear_tertiary_contact()</li><li><a href="delete_ligand_tertiary_contacts.html" class="code" title="function delete_ligand_tertiary_contacts()">delete_ligand_tertiary_contacts</a>	Go through each protein or other ligand and remove</li><li><a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>	delete_tertiary_contact( contact_name )</li><li><a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff, linker_group )">setup_tertiary_contact</a>	setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )</li></ul>
 <!-- crossreference -->
 
-<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="#_sub1" class="code">function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );</a></li><li><a href="#_sub2" class="code">function add_linker( linker )</a></li></ul>
+
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function delete_tertiary_contact( contact_name, print_stuff )</a>
@@ -60,59 +60,63 @@ This function is called by:
 0007 <span class="comment">%  contact_name = name used to set up tertiary contact (not the display name, typically instead something like 'Residue_C123_Residue_C45')</span>
 0008 <span class="comment">%  print_stuff  = verbose (default 1)</span>
 0009 <span class="comment">%</span>
-0010 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
-0011 <span class="keyword">if</span> ~exist( <span class="string">'print_stuff'</span>, <span class="string">'var'</span> ) print_stuff = 1; <span class="keyword">end</span>;
-0012 <span class="keyword">if</span> iscell( contact_name )
-0013     <span class="keyword">for</span> i = 1:length( contact_name )
-0014         <a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>( contact_name{i}, print_stuff );
-0015     <span class="keyword">end</span>
-0016     <span class="keyword">return</span>;
-0017 <span class="keyword">elseif</span> isappdata( gca, contact_name )
-0018     tag = contact_name;
-0019 <span class="keyword">else</span>
-0020     contact_name_cleaned = strrep( strrep(contact_name, <span class="string">' '</span>, <span class="string">'_'</span> ), <span class="string">'-'</span>, <span class="string">'_'</span> ) ;
-0021     tag = sprintf(<span class="string">'TertiaryContact_%s'</span>, contact_name_cleaned );
-0022     <span class="keyword">if</span> ~isappdata( gca, tag )
-0023         fprintf( <span class="string">'Could not find %s or %s. Returning. \n'</span>, contact_name, tag );
-0024         <span class="keyword">return</span>;
-0025     <span class="keyword">end</span>
-0026 <span class="keyword">end</span>
-0027 
-0028 tertiary_contact = getappdata( gca, tag );
-0029 
-0030 linker_tags = [ get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span> ); get_tags( <span class="string">'Linker'</span>,<span class="string">'intradomain'</span> )];
-0031 <span class="keyword">for</span> i = 1:length( linker_tags )
-0032     linker_tag = linker_tags{i};
-0033     linker = getappdata( gca, linker_tag );
-0034     <span class="keyword">if</span> strcmp( linker.tertiary_contact, tertiary_contact.tertiary_contact_tag )
-0035         <span class="keyword">if</span> print_stuff; fprintf( <span class="string">'Deleting %s\n'</span>, linker_tag ); <span class="keyword">end</span>;
-0036         delete_linker( linker );
-0037     <span class="keyword">end</span>
-0038 <span class="keyword">end</span>
-0039 
-0040 <span class="keyword">if</span> print_stuff; fprintf( <span class="string">'Deleting %s\n'</span>, tag ); <span class="keyword">end</span>;
-0041 rmappdata( gca, tag )
-0042 
-0043 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0044 <a name="_sub1" href="#_subfunctions" class="code">function linkers = setup_intradomain_linkers( res_tags, contact_name, tag );</a>
-0045 linkers = {};
-0046 <span class="keyword">for</span> k = 2:length( res_tags );
-0047     linker.residue1 = res_tags{1};
-0048     linker.residue2 = res_tags{k};
-0049     linker.type = <span class="string">'tertcontact_intradomain'</span>;
-0050     linker.linker_tag = sprintf(<span class="string">'Linker_%s_%s_%s_%s'</span>,linker.residue1(9:end),linker.residue2(9:end),  <span class="keyword">...</span>
-0051         contact_name,linker.type);
-0052     linker.tertiary_contact = tag;
-0053     <a href="#_sub2" class="code" title="subfunction add_linker( linker )">add_linker</a>( linker );
-0054     linkers = [ linkers, linker.linker_tag ];
-0055 <span class="keyword">end</span>
-0056 
-0057 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0058 <a name="_sub2" href="#_subfunctions" class="code">function add_linker( linker )</a>
-0059 linker_tag = linker.linker_tag;
-0060 add_linker_to_residue( linker.residue1, linker_tag )
-0061 add_linker_to_residue( linker.residue2, linker_tag )
-0062 <span class="keyword">if</span> ~isappdata( gca, linker_tag );  setappdata( gca, linker_tag, linker );  <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0010 <span class="comment">% See also CLEAR_TERTIARY_CONTACTS.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0013 <span class="keyword">if</span> ~exist( <span class="string">'contact_name'</span>, <span class="string">'var'</span> ) 
+0014     contact_name = get_tags( <span class="string">'TertiaryContact'</span> );
+0015 <span class="keyword">end</span>
+0016 <span class="keyword">if</span> ~exist( <span class="string">'print_stuff'</span>, <span class="string">'var'</span> ) print_stuff = 1; <span class="keyword">end</span>;
+0017 
+0018 <span class="keyword">if</span> iscell( contact_name )
+0019     <span class="keyword">for</span> i = 1:length( contact_name )
+0020         <a href="delete_tertiary_contact.html" class="code" title="function delete_tertiary_contact( contact_name, print_stuff )">delete_tertiary_contact</a>( contact_name{i}, print_stuff );
+0021     <span class="keyword">end</span>
+0022     <span class="keyword">return</span>;
+0023 <span class="keyword">elseif</span> isappdata( gca, contact_name )
+0024     tag = contact_name;
+0025 <span class="keyword">else</span>
+0026     contact_name_cleaned = strrep( strrep(contact_name, <span class="string">' '</span>, <span class="string">'_'</span> ), <span class="string">'-'</span>, <span class="string">'_'</span> ) ;
+0027     tag = sprintf(<span class="string">'TertiaryContact_%s'</span>, contact_name_cleaned );
+0028     <span class="keyword">if</span> ~isappdata( gca, tag )
+0029         fprintf( <span class="string">'Could not find %s or %s. Returning. \n'</span>, contact_name, tag );
+0030         <span class="keyword">return</span>;
+0031     <span class="keyword">end</span>
+0032 <span class="keyword">end</span>
+0033 
+0034 tertiary_contact = getappdata( gca, tag );
+0035 
+0036 <span class="keyword">if</span> isfield( tertiary_contact, <span class="string">'linkers'</span> ) 
+0037     delete_linker( tertiary_contact.interdomain_linker );
+0038     delete_linker( tertiary_contact.intradomain_linkers1 );
+0039     delete_linker( tertiary_contact.intradomain_linkers2 );
+0040     <span class="keyword">for</span> i = 1:length( tertiary_contact.linkers );
+0041         linker = getappdata( gca, tertiary_contact.linkers{i} );
+0042         linker = rmfield( linker, <span class="string">'tertiary_contact'</span> );
+0043         setappdata( gca, linker.linker_tag, linker );
+0044     <span class="keyword">end</span>
+0045 <span class="keyword">else</span>    
+0046     linker_tags = get_tags( <span class="string">'Linker'</span> ); <span class="comment">%[ get_tags( 'Linker','interdomain' ); get_tags( 'Linker','intradomain' )];</span>
+0047     <span class="keyword">for</span> i = 1:length( linker_tags )
+0048         linker_tag = linker_tags{i};
+0049         linker = getappdata( gca, linker_tag );
+0050         <span class="keyword">if</span> ~isfield( linker, <span class="string">'tertiary_contact'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0051         <span class="keyword">if</span> strcmp( linker.tertiary_contact, tertiary_contact.tertiary_contact_tag )
+0052             <span class="keyword">if</span> print_stuff; fprintf( <span class="string">'Deleting %s\n'</span>, linker_tag ); <span class="keyword">end</span>;
+0053             <span class="keyword">if</span> strcmp(linker.type,<span class="string">'tertcontact_interdomain'</span>) || strcmp(linker.type,<span class="string">'tertcontact_intradomain'</span>)
+0054                 delete_linker( linker );
+0055             <span class="keyword">else</span>
+0056                 linker = rmfield( linker, <span class="string">'tertiary_contact'</span> );
+0057                 setappdata( gca, linker_tag, linker );
+0058             <span class="keyword">end</span>
+0059         <span class="keyword">end</span>
+0060     <span class="keyword">end</span>
+0061 <span class="keyword">end</span>
+0062 
+0063 <span class="keyword">if</span> print_stuff; fprintf( <span class="string">'Deleting %s\n'</span>, tag ); <span class="keyword">end</span>;
+0064 rmappdata( gca, tag )
+0065 
+0066</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -46,7 +46,7 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="show_noncanonical_pairs.html" class="code" title="function show_noncanonical_pairs( setting )">show_noncanonical_pairs</a>	show_noncanonical_pairs( setting );</li><li><a href="show_other_contacts.html" class="code" title="function show_other_contacts( setting )">show_other_contacts</a>	show_other_contacts( setting );</li><li><a href="show_stacks.html" class="code" title="function show_stacks( setting )">show_stacks</a>	show_stacks( setting );</li></ul>
+</ul>
 <!-- crossreference -->
 
 
@@ -79,7 +79,23 @@ This function is called by:
 0025     plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
 0026     <span class="keyword">if</span> ( isfield( plot_settings, <span class="string">'show_linker_controls'</span> ) &amp; ~plot_settings.show_linker_controls ) vtx_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
 0027     <span class="keyword">for</span> i = 1:length( linker.vtx ), set( linker.vtx{i}, <span class="string">'visible'</span>, vtx_visible ); <span class="keyword">end</span>;
-0028 <span class="keyword">end</span>;</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0028 <span class="keyword">end</span>;
+0029 <span class="comment">%</span>
+0030 <span class="comment">%</span>
+0031 <span class="comment">% if isfield( linker,'line_handle' ) set( linker.line_handle, 'visible', visible ); end;</span>
+0032 <span class="comment">% if isfield( linker,'symbol' ) set( linker.symbol, 'visible', visible ); end;</span>
+0033 <span class="comment">% if isfield( linker,'symbol1' ) set( linker.symbol1, 'visible', visible ); end;</span>
+0034 <span class="comment">% if isfield( linker,'symbol2' ) set( linker.symbol2, 'visible', visible ); end;</span>
+0035 <span class="comment">% if isfield( linker,'side_line1' ) set( linker.side_line1, 'visible', visible ); end;</span>
+0036 <span class="comment">% if isfield( linker,'side_line2' ) set( linker.side_line2, 'visible', visible ); end;</span>
+0037 <span class="comment">% if isfield( linker,'node1' ) set( linker.node1, 'visible', visible ); end;</span>
+0038 <span class="comment">% if isfield( linker,'node2' ) set( linker.node2, 'visible', visible ); end;</span>
+0039 <span class="comment">% if isfield( linker, 'vtx' )</span>
+0040 <span class="comment">%     vtx_visible = visible;</span>
+0041 <span class="comment">%     plot_settings = getappdata( gca, 'plot_settings' );</span>
+0042 <span class="comment">%     if ( isfield( plot_settings, 'show_linker_controls' ) &amp; ~plot_settings.show_linker_controls ) vtx_visible = 'off'; end;</span>
+0043 <span class="comment">%     for i = 1:length( linker.vtx ), set( linker.vtx{i}, 'visible', vtx_visible ); end;</span>
+0044 <span class="comment">% end;</span></pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of export_coordinates</title>
+  <meta name="keywords" content="export_coordinates">
+  <meta name="description" content="coords = export_coordinates( filename, image_size );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html drawing -->
+<h1>export_coordinates
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>coords = export_coordinates( filename, image_size );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function coords = export_coordinates( filename, image_size ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> coords = export_coordinates( filename, image_size );
+
+ Helper function -- better to use EXPORT_DRAWING!
+
+ filename = name of tab-separated file with:
+
+                    x y chain segid resnum name
+
+            for each residue/ligand/protein in the drawing.
+ image_size = size of output image in pixels [default: look at xlim &amp; ylim in axis]
+  
+
+ See also <a href="export_drawing.html" class="code" title="function coords = export_drawing( filename, output_coords )">EXPORT_DRAWING</a>.
+
+ (C) R. Das, Stanford University, 2018</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="export_drawing.html" class="code" title="function coords = export_drawing( filename, output_coords )">export_drawing</a>	coords = export_drawing( filename, output_coords )</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function coords = export_coordinates( filename, image_size );</a>
+0002 <span class="comment">% coords = export_coordinates( filename, image_size );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Helper function -- better to use EXPORT_DRAWING!</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% filename = name of tab-separated file with:</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%                    x y chain segid resnum name</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%            for each residue/ligand/protein in the drawing.</span>
+0011 <span class="comment">% image_size = size of output image in pixels [default: look at xlim &amp; ylim in axis]</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% See also EXPORT_DRAWING.</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% (C) R. Das, Stanford University, 2018</span>
+0017 
+0018 <span class="keyword">if</span> nargin &lt; 1; help( mfilename ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0019 
+0020 res_tags = get_tags(<span class="string">'Residue'</span>);
+0021 xl = get( gca,<span class="string">'xlim'</span> );
+0022 yl = get(gca,<span class="string">'ylim'</span>);
+0023 <span class="keyword">if</span> ~exist( <span class="string">'image_size'</span>,<span class="string">'var'</span>)
+0024     image_size = [ xl(2)-xl(1), yl(2) - yl(1) ];
+0025 <span class="keyword">end</span>
+0026 axis_size = [ xl(2)-xl(1), yl(2) - yl(1) ];
+0027 sf1 = image_size(1)/axis_size(1);
+0028 sf2 = image_size(2)/axis_size(2);
+0029     
+0030 fid = fopen( filename,<span class="string">'w'</span> );
+0031 coords = [];
+0032 <span class="keyword">for</span> i = 1:length( res_tags )
+0033     res = getappdata( gca, res_tags{i} );
+0034     x = sf1 * ( res.plot_pos(1) - xl(1) );
+0035     y = sf2 * ( yl(2) - res.plot_pos(2) ); <span class="comment">% reverse MATLAB's y-axis since every other program does that.</span>
+0036     outstring = sprintf( <span class="string">'%7.3f\t%7.3f\t%s\t%s\t%d\t%s\n'</span>,x,y,res.chain,res.segid,res.resnum,strrep(res.nucleotide,<span class="string">'\'</span>,<span class="string">'\\'</span>));
+0037     <span class="comment">%fprintf( outstring );</span>
+0038     fprintf( fid, outstring );
+0039     coords(i,:) = [x,y];
+0040 <span class="keyword">end</span>
+0041 
+0042 fprintf(<span class="string">'\nOutputted %d coordinates to %s.\n'</span>, length(res_tags), filename );
+0043 fclose( fid );</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

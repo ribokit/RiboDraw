@@ -38,7 +38,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="reset_fontsize.html" class="code" title="function reset_fontsize( fontsize );">reset_fontsize</a>	reset_fontsize( fontsize );</li></ul>
+<li><a href="update_graphics_size.html" class="code" title="function update_graphics_size( fontsize );">update_graphics_size</a>	reset_fontsize( fontsize );</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -60,15 +60,16 @@ This function is called by:
 0009 
 0010 h = zoom;
 0011 set(h,<span class="string">'ActionPostCallback'</span>,@<a href="#_sub1" class="code" title="subfunction zoomCallBack(~, evd)">zoomCallBack</a>);
-0012 set(h,<span class="string">'Enable'</span>,<span class="string">'on'</span>);
-0013 zoom off;
-0014 
-0015 <span class="comment">% everytime you zoom in, this function is executed</span>
-0016 <a name="_sub1" href="#_subfunctions" class="code">function zoomCallBack(~, evd)</a>
-0017 <span class="comment">% Since i expect to zoom in ax(4)-ax(3) gets smaller, so fontsize</span>
-0018 <span class="comment">% gets bigger.</span>
-0019 ax = axis(evd.Axes); <span class="comment">% get axis size</span>
-0020 <a href="reset_fontsize.html" class="code" title="function reset_fontsize( fontsize );">reset_fontsize</a>();</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0012 set(gcf,<span class="string">'ResizeFcn'</span>,@<a href="#_sub1" class="code" title="subfunction zoomCallBack(~, evd)">zoomCallBack</a>);
+0013 set(h,<span class="string">'Enable'</span>,<span class="string">'on'</span>);
+0014 zoom off;
+0015 
+0016 <span class="comment">% everytime you zoom in, this function is executed</span>
+0017 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0018 <a name="_sub1" href="#_subfunctions" class="code">function zoomCallBack(~, evd)</a>
+0019 <span class="comment">%axis equal</span>
+0020 <span class="comment">%fprintf( 'Updating graphics size... \n');</span>
+0021 <a href="update_graphics_size.html" class="code" title="function update_graphics_size( fontsize );">update_graphics_size</a>();</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

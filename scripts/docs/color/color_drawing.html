@@ -82,32 +82,43 @@ This function is called by:
 0026         residue = getappdata( gca, res_tags{i} );
 0027         resnum(i) = residue.resnum;
 0028     <span class="keyword">end</span>
-0029     all_resnum = [min(resnum):max(resnum)];
-0030     all_res_colors = <a href="pymol_rainbow.html" class="code" title="function colors = pymol_rainbow( ncolors )">pymol_rainbow</a>( length(all_resnum) );
-0031     res_colors = all_res_colors( resnum - min(resnum) + 1, :);
-0032     label_color = [0,0,0];
-0033 <span class="keyword">else</span>
-0034     rgb_color = <a href="pymol_RGB.html" class="code" title="function rgb_color = pymol_RGB( colorname )">pymol_RGB</a>( color );
-0035     res_colors = repmat( rgb_color, nres, 1);
-0036     label_color = rgb_color;
-0037 <span class="keyword">end</span>
+0029     
+0030    
+0031     <span class="comment">% pymol seems to use this sometimes</span>
+0032     res_colors = <a href="pymol_rainbow.html" class="code" title="function colors = pymol_rainbow( ncolors )">pymol_rainbow</a>( length(resnum) );
+0033    
+0034     <span class="comment">% ... this other times</span>
+0035     all_resnum = [min(resnum):max(resnum)];
+0036     all_res_colors = <a href="pymol_rainbow.html" class="code" title="function colors = pymol_rainbow( ncolors )">pymol_rainbow</a>( length(all_resnum) );
+0037     res_colors = all_res_colors( resnum - min(resnum) + 1, :);
 0038 
-0039 <span class="keyword">for</span> n = 1:length( res_tags )
-0040     res_tag = res_tags{n};
-0041     residue = getappdata( gca, res_tag );
-0042     residue.rgb_color = res_colors(n,:);
-0043     <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> ) set( residue.handle, <span class="string">'color'</span>, residue.rgb_color ); <span class="keyword">end</span>;
-0044     setappdata( gca, res_tag, residue);
-0045     draw_helix( residue.helix_tag );
-0046 <span class="keyword">end</span>
-0047 
-0048 <span class="keyword">if</span> length( obj_name ) &gt; 0
-0049     obj = getappdata( gca, obj_name );
-0050     obj.rgb_color = label_color;
-0051     <span class="keyword">if</span> isfield( obj, <span class="string">'label'</span> ); set( obj.label, <span class="string">'color'</span>, label_color );    <span class="keyword">end</span>
-0052     setappdata( gca, obj_name, obj );
-0053 <span class="keyword">end</span>
-0054</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0039     label_color = [0,0,0];
+0040 <span class="keyword">else</span>
+0041     rgb_color = <a href="pymol_RGB.html" class="code" title="function rgb_color = pymol_RGB( colorname )">pymol_RGB</a>( color );
+0042     res_colors = repmat( rgb_color, nres, 1);
+0043     label_color = rgb_color;
+0044 <span class="keyword">end</span>
+0045 
+0046 linkers = {};
+0047 <span class="keyword">for</span> n = 1:length( res_tags )
+0048     res_tag = res_tags{n};
+0049     residue = getappdata( gca, res_tag );
+0050     residue.rgb_color = res_colors(n,:);
+0051     <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> ) set( residue.handle, <span class="string">'color'</span>, residue.rgb_color ); <span class="keyword">end</span>;
+0052     <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> ) draw_image( residue ); <span class="keyword">end</span>;
+0053     linkers = [ linkers, residue.linkers ];
+0054     setappdata( gca, res_tag, residue);
+0055     <span class="comment">%draw_helix( residue.helix_tag );</span>
+0056 <span class="keyword">end</span>
+0057 draw_linker( unique( linkers ) );
+0058 
+0059 <span class="keyword">if</span> length( obj_name ) &gt; 0
+0060     obj = getappdata( gca, obj_name );
+0061     obj.rgb_color = label_color;
+0062     <span class="keyword">if</span> isfield( obj, <span class="string">'label'</span> ); set( obj.label, <span class="string">'color'</span>, label_color );    <span class="keyword">end</span>
+0063     setappdata( gca, obj_name, obj );
+0064 <span class="keyword">end</span>
+0065</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

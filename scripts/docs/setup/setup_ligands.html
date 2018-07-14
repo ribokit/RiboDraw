@@ -102,21 +102,28 @@ This function is called by:
 0052     
 0053     ligand.helix_tag = unique_helix_tags{ idx };
 0054     ligand.relpos    = [10,0]; <span class="comment">% wild guess</span>
-0055     setappdata( gca, ligand.res_tag, ligand );
-0056     
-0057     ligands{i} = ligand;
-0058 <span class="keyword">end</span>
-0059 
-0060 helices = {};
-0061 <span class="keyword">for</span> i = 1:length( ligands )
-0062     ligand = getappdata( gca, ligands{i}.res_tag );
-0063     helix = getappdata( gca, ligand.helix_tag );
-0064     helix.associated_residues = unique( [ helix.associated_residues, ligand.res_tag ] );
-0065     setappdata( gca, ligand.helix_tag, helix );
-0066     helices = [ helices, ligand.helix_tag ];
-0067 <span class="keyword">end</span>
-0068 draw_helices( unique( helices ) );
-0069 move_stuff_to_back(); <span class="comment">% move linkers to back.</span></pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0055     <span class="keyword">if</span> isappdata( gca, ligand.res_tag ) <span class="comment">% keep ligand but update linkers</span>
+0056         ligand_original = getappdata( gca, ligand.res_tag );
+0057         ligand_original.linkers = ligand.linkers;
+0058         <span class="keyword">if</span> ~isfield( ligand_original, <span class="string">'helix_tag'</span> ) ligand_original.helix_tag = ligand.helix_tag; <span class="keyword">end</span>;
+0059         setappdata( gca, ligand.res_tag, ligand_original );
+0060     <span class="keyword">else</span>
+0061         setappdata( gca, ligand.res_tag, ligand ); 
+0062     <span class="keyword">end</span>;
+0063     
+0064     ligands{i} = ligand;
+0065 <span class="keyword">end</span>
+0066 
+0067 helices = {};
+0068 <span class="keyword">for</span> i = 1:length( ligands )
+0069     ligand = getappdata( gca, ligands{i}.res_tag );
+0070     helix = getappdata( gca, ligand.helix_tag );
+0071     helix.associated_residues = unique( [ helix.associated_residues, ligand.res_tag ] );
+0072     setappdata( gca, ligand.helix_tag, helix );
+0073     helices = [ helices, ligand.helix_tag ];
+0074 <span class="keyword">end</span>
+0075 draw_helices( unique( helices ) );
+0076 move_stuff_to_back(); <span class="comment">% move linkers to back.</span></pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

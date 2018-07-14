@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set_nice_axes</title>
+  <meta name="keywords" content="set_nice_axes">
+  <meta name="description" content="set_nice_axes()">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html gui -->
+<h1>set_nice_axes
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>set_nice_axes()</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function set_nice_axes() </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> set_nice_axes()
+
+  Use 'axis image' to automatically set axis limits to have the correct
+   aspect ratio and include all boundary elements. 
+  But then go back to normal axis mode to prevent crazy things from 
+   happening when we drag graphical elements out of bounds.
+  
+
+ R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_nice_axes()</a>
+0002 <span class="comment">% set_nice_axes()</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Use 'axis image' to automatically set axis limits to have the correct</span>
+0005 <span class="comment">%   aspect ratio and include all boundary elements.</span>
+0006 <span class="comment">%  But then go back to normal axis mode to prevent crazy things from</span>
+0007 <span class="comment">%   happening when we drag graphical elements out of bounds.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% R. Das, Stanford University, 2017</span>
+0011 
+0012 axis image <span class="comment">% tight cropping</span>
+0013 set(gcf,<span class="string">'renderer'</span>,<span class="string">'painters'</span>);
+0014 <span class="comment">%axlim = axis()</span>
+0015 pos = plotboxpos;
+0016 
+0017 axis manual;
+0018 
+0019 <span class="comment">%axis( axlim );</span>
+0020 <span class="comment">%set( gca, 'position', pos );</span></pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

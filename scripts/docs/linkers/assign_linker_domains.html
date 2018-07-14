@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of assign_linker_domains</title>
+  <meta name="keywords" content="assign_linker_domains">
+  <meta name="description" content="[interdomain_linkers, domain_assignments ] = assign_linker_domains( domain_residue_sets, linkers )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html linkers -->
+<h1>assign_linker_domains
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>[interdomain_linkers, domain_assignments ] = assign_linker_domains( domain_residue_sets, linkers )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [interdomain_linkers, domain_assignments ] = assign_linker_domains( linkers, domain_names, domain_residue_sets ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> [interdomain_linkers, domain_assignments ] = assign_linker_domains( domain_residue_sets, linkers )
+
+ Go through linkers and find ones that connect one domain to a different
+ domain.
+  
+ Inputs:
+  linkers       = cell of linker tags to go through and filter for interdomain.
+  domain_names  = cell of strings with names of domains (previously must have been defined by user
+                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}
+
+ Outputs:
+  interdomain_linkers = filtered cell of linker tags that interconnect different domains.
+
+
+ (C) R. Das, Stanford University, 2018</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function domain_member = get_domain_membership( res_tag, domain_residue_sets );</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [interdomain_linkers, domain_assignments ] = assign_linker_domains( linkers, domain_names, domain_residue_sets )</a>
+0002 <span class="comment">% [interdomain_linkers, domain_assignments ] = assign_linker_domains( domain_residue_sets, linkers )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Go through linkers and find ones that connect one domain to a different</span>
+0005 <span class="comment">% domain.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Inputs:</span>
+0008 <span class="comment">%  linkers       = cell of linker tags to go through and filter for interdomain.</span>
+0009 <span class="comment">%  domain_names  = cell of strings with names of domains (previously must have been defined by user</span>
+0010 <span class="comment">%                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% Outputs:</span>
+0013 <span class="comment">%  interdomain_linkers = filtered cell of linker tags that interconnect different domains.</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% (C) R. Das, Stanford University, 2018</span>
+0017 
+0018 interdomain_linkers = {};
+0019 domain_assignments = {};
+0020 tic
+0021 fprintf( <span class="string">'Assigning linker domains...\n'</span> );
+0022 
+0023 <span class="keyword">for</span> i = 1:length( linkers );
+0024     linker = getappdata( gca, linkers{i} );
+0025     domain_member1 = <a href="#_sub1" class="code" title="subfunction domain_member = get_domain_membership( res_tag, domain_residue_sets );">get_domain_membership</a>( linker.residue1, domain_residue_sets );
+0026     domain_member2 = <a href="#_sub1" class="code" title="subfunction domain_member = get_domain_membership( res_tag, domain_residue_sets );">get_domain_membership</a>( linker.residue2, domain_residue_sets );
+0027 
+0028     <span class="comment">% the two residues should not be part of the same domain.</span>
+0029     <span class="keyword">if</span> any( domain_member1 ) &amp;&amp; any( domain_member2 ) &amp;&amp; ~any( domain_member1 .* domain_member2 ) 
+0030         assert( sum( domain_member1 ) == 1 );
+0031         assert( sum( domain_member2 ) == 1 );
+0032         interdomain_linkers = [ interdomain_linkers, linker ];
+0033         domain_assignments  = [ domain_assignments, { {domain_names{find(domain_member1)},domain_names{find(domain_member2)}} } ];
+0034     <span class="keyword">end</span>
+0035 <span class="keyword">end</span>
+0036 toc
+0037 
+0038 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0039 <a name="_sub1" href="#_subfunctions" class="code">function domain_member = get_domain_membership( res_tag, domain_residue_sets );</a>
+0040 domain_member = zeros( 1, length( domain_residue_sets ) );
+0041 <span class="keyword">for</span> i = 1:length( domain_residue_sets )
+0042     domain_member(i) = any( strcmp( domain_residue_sets{i}, res_tag ) );
+0043 <span class="keyword">end</span>
+0044 
+0045 
+0046</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

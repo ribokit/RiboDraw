@@ -44,7 +44,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="draw_image_boundary.html" class="code" title="function ligand = draw_image_boundary( ligand )">draw_image_boundary</a>	ligand = draw_image_boundary( ligand )</li><li><a href="get_patch_from_image.html" class="code" title="function bounds = get_patch_from_image( image_file, show_drawing );">get_patch_from_image</a>	</li></ul>
+<li><a href="draw_image.html" class="code" title="function ligand = draw_image( ligand, plot_settings )">draw_image</a>	ligand = draw_image( ligand, plot_settings )</li><li><a href="get_patch_from_image.html" class="code" title="function bounds = get_patch_from_image( image_file, show_drawing );">get_patch_from_image</a>	</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -81,12 +81,12 @@ This function is called by:
 0026     <span class="keyword">if</span> isfield( ligand, <span class="string">'handle'</span> )  set( ligand.handle, <span class="string">'String'</span>, ligand.nucleotide ); <span class="keyword">end</span>;
 0027 <span class="keyword">end</span>
 0028 ligand.image_boundary = boundary;
-0029 ligand = <a href="draw_image_boundary.html" class="code" title="function ligand = draw_image_boundary( ligand )">draw_image_boundary</a>( ligand );
+0029 ligand = <a href="draw_image.html" class="code" title="function ligand = draw_image( ligand, plot_settings )">draw_image</a>( ligand );
 0030 setappdata( gca, ligand.res_tag, ligand );
 0031 fprintf( <span class="string">'Setup image %s for %s.\n'</span>, image_file, ligand.res_tag );
 0032 <span class="keyword">if</span> ~exist( <span class="string">'skip_move_stuff_to_back'</span>, <span class="string">'var'</span> )
 0033     move_stuff_to_back();
 0034 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

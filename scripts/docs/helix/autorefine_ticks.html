@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of autorefine_ticks</title>
+  <meta name="keywords" content="autorefine_ticks">
+  <meta name="description" content="autorefine_tick( res_tag )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html helix -->
+<h1>autorefine_ticks
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>autorefine_tick( res_tag )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [best_tickrot,scores,sample_tickrot] = autorefine_tick( res_tags ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> autorefine_tick( res_tag )</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>	R = get_helix_rotation_matrix( helix )</li><li><a href="update_tick.html" class="code" title="function update_tick( residue, plot_settings, R )">update_tick</a>	update_tick( residue, plot_settings, R )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [best_tickrot,scores,sample_tickrot] = autorefine_tick( res_tags )</a>
+0002 <span class="comment">% autorefine_tick( res_tag )</span>
+0003 sample_tickrot = [0:45:315];
+0004 best_tickrot = [];
+0005 scores = [];
+0006 <span class="keyword">if</span> ~exist( <span class="string">'res_tags'</span>,<span class="string">'var'</span> ); res_tags  = <span class="string">'all'</span>; <span class="keyword">end</span>;
+0007 res_tags = get_res(res_tags);
+0008 <span class="comment">%if ischar( res_tags ) res_tags = {res_tags}; end;</span>
+0009 
+0010 set(gcf,<span class="string">'renderer'</span>,<span class="string">'painters'</span>); <span class="comment">% TURNS OUT TO BE ABSOLUTELY CRITICAL</span>
+0011 
+0012 axlim = axis();
+0013 figpos = get(gcf,<span class="string">'position'</span>);
+0014 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0015 fontsize = plot_settings.fontsize;
+0016 did_fontsize_resize = 0;
+0017 <span class="keyword">for</span> i = 1:length( res_tags );
+0018     res_tag = res_tags{i};
+0019     residue = getappdata( gca, res_tag );
+0020     <span class="keyword">if</span> isfield( residue, <span class="string">'tickrot'</span> )
+0021         fprintf( <span class="string">'Refining: %s\n'</span>, res_tag );
+0022         original_tickrot = residue.tickrot;
+0023         
+0024         plot_pos = residue.plot_pos;
+0025         <span class="comment">%set(gcf,'position',[0 0 200 200]);</span>
+0026         axis( [plot_pos(1)-50, plot_pos(1)+50,plot_pos(2)-50, plot_pos(2)+50] );
+0027         <span class="keyword">if</span> ~did_fontsize_resize; update_graphics_size(); did_fontsize_resize = 1; <span class="keyword">end</span>;
+0028         plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0029         helix = getappdata( gca, residue.helix_tag );
+0030 
+0031         R = <a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>( helix );
+0032         <span class="keyword">for</span> j = 1:length( sample_tickrot )
+0033             tickrot = sample_tickrot(j);
+0034             residue.tickrot = tickrot;
+0035             setappdata( gca, residue.res_tag, residue );
+0036             <a href="update_tick.html" class="code" title="function update_tick( residue, plot_settings, R )">update_tick</a>( residue, plot_settings, R);
+0037             <span class="comment">%cdata = print('-RGBImage','-r50');</span>
+0038             cdata = screencapture(gca);     
+0039             <span class="comment">%cdata = (255.0-cdata)/256.0;</span>
+0040             scores(j) = sum(sum(sum(cdata)));
+0041         <span class="keyword">end</span>
+0042         <span class="comment">% scale by size of image to get density per pixel^2;</span>
+0043         <span class="comment">%s = size(cdata);</span>
+0044         <span class="comment">%scores = scores/prod(s(1:2))</span>
+0045         <span class="comment">% give bonus</span>
+0046         <span class="comment">%mean(cdata(:))</span>
+0047         <span class="comment">%scores = scores + 1000*mean(cdata(:)) * (mod( sample_tickrot,90)==0);</span>
+0048         [~,idx] = min( scores );
+0049         best_tickrot = sample_tickrot( idx );
+0050         residue.tickrot = best_tickrot;
+0051         <a href="update_tick.html" class="code" title="function update_tick( residue, plot_settings, R )">update_tick</a>( residue, plot_settings, R);
+0052         setappdata( gca, residue.res_tag, residue );
+0053         cdata = screencapture(gca);
+0054     <span class="keyword">end</span>
+0055 <span class="keyword">end</span>
+0056     
+0057 <span class="comment">%set( gcf, 'position', figpos);</span>
+0058 axis( axlim );
+0059 <span class="keyword">if</span> did_fontsize_resize; update_graphics_size( fontsize ); <span class="keyword">end</span>;</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

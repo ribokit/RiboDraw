@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of autotrace_intradomain_linker</title>
+  <meta name="keywords" content="autotrace_intradomain_linker">
+  <meta name="description" content="autotrace_intradomain_linker( linker );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html linkers -->
+<h1>autotrace_intradomain_linker
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>autotrace_intradomain_linker( linker );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function linker = autotrace_intradomain_linker( linker ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> autotrace_intradomain_linker( linker );</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="autotrace_intradomain_linker.html" class="code" title="function linker = autotrace_intradomain_linker( linker );">autotrace_intradomain_linker</a>	autotrace_intradomain_linker( linker );</li><li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker, plot_settings )">draw_linker</a>	linker = draw_linker( linker )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="autotrace_intradomain_linker.html" class="code" title="function linker = autotrace_intradomain_linker( linker );">autotrace_intradomain_linker</a>	autotrace_intradomain_linker( linker );</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker = autotrace_intradomain_linker( linker );</a>
+0002 <span class="comment">% autotrace_intradomain_linker( linker );</span>
+0003 <span class="keyword">if</span> ~exist( <span class="string">'linker'</span>,<span class="string">'var'</span>) linker = get_tags( <span class="string">'Linker'</span>,<span class="string">'intradomain'</span>); <span class="keyword">end</span>;
+0004 <span class="keyword">if</span> iscell( linker ) 
+0005     <span class="keyword">for</span> i = 1:length( linker );  <a href="autotrace_intradomain_linker.html" class="code" title="function linker = autotrace_intradomain_linker( linker );">autotrace_intradomain_linker</a>(linker{i}); <span class="keyword">end</span>;
+0006     <span class="keyword">return</span>;
+0007 <span class="keyword">end</span>
+0008 <span class="keyword">if</span> ischar( linker )
+0009     <a href="autotrace_intradomain_linker.html" class="code" title="function linker = autotrace_intradomain_linker( linker );">autotrace_intradomain_linker</a>( getappdata(gca,linker) );
+0010     <span class="keyword">return</span>;
+0011 <span class="keyword">end</span>
+0012 
+0013 residue1 = getappdata(gca,linker.residue1);
+0014 residue2 = getappdata(gca,linker.residue2);
+0015 
+0016 d = norm( residue1.plot_pos  - residue2.plot_pos );
+0017 plot_settings = getappdata(gca,<span class="string">'plot_settings'</span>);
+0018 <span class="keyword">if</span> ( d &lt; 2*plot_settings.bp_spacing) <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker, plot_settings )">draw_linker</a>( linker ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0019 
+0020 helix1 = getappdata( gca, residue1.helix_tag );
+0021 helix2 = getappdata( gca, residue2.helix_tag );
+0022 vtx_plot_pos = [];
+0023 
+0024 <span class="keyword">if</span> mod( helix1.rotation,180) &gt; 0 &amp;&amp; mod(helix2.rotation,180) == 0
+0025     vtx_plot_pos = [residue2.plot_pos(1),residue1.plot_pos(2)];
+0026 <span class="keyword">elseif</span> mod( helix1.rotation,180) == 0 &amp;&amp; mod(helix2.rotation,180) &gt; 0  
+0027     vtx_plot_pos = [residue1.plot_pos(1),residue2.plot_pos(2)];
+0028 <span class="keyword">elseif</span> mod( helix1.rotation,180) &gt; 0 &amp;&amp; mod(helix2.rotation,180) &gt; 0
+0029     vtx_plot_pos = [(residue1.plot_pos(1)+residue2.plot_pos(1))/2,residue1.plot_pos(2); <span class="keyword">...</span>
+0030                     (residue1.plot_pos(1)+residue2.plot_pos(1))/2,residue2.plot_pos(2) ];
+0031 <span class="keyword">else</span>
+0032     assert( mod(helix1.rotation,180) == 0 );
+0033     assert( mod(helix2.rotation,180) == 0 );
+0034     vtx_plot_pos = [residue1.plot_pos(1),(residue1.plot_pos(2)+residue2.plot_pos(2))/2; <span class="keyword">...</span>
+0035                     residue2.plot_pos(1),(residue1.plot_pos(2)+residue2.plot_pos(2))/2 ];
+0036 <span class="keyword">end</span>
+0037 
+0038 linker.relpos1 = get_relpos( residue1.plot_pos, helix1 );
+0039 linker.relpos2 = get_relpos( [vtx_plot_pos; residue2.plot_pos], helix2 );
+0040 linker = <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker, plot_settings )">draw_linker</a>( linker );
+0041 setappdata( gca, linker.linker_tag, linker );
+0042</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

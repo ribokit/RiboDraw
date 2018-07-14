@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set_helix_visibility</title>
+  <meta name="keywords" content="set_helix_visibility">
+  <meta name="description" content="set_helix_visibility( helix, visible )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html helix -->
+<h1>set_helix_visibility
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>set_helix_visibility( helix, visible )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function set_helix_visibility( helix, visible ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> set_helix_visibility( helix, visible )
+ Helper function
+ (C) R. Das, Stanford University, 2018</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="show_helix_controls.html" class="code" title="function show_helix_controls( setting );">show_helix_controls</a>	show_helix_controls( setting );</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_helix_visibility( helix, visible )</a>
+0002 <span class="comment">% set_helix_visibility( helix, visible )</span>
+0003 <span class="comment">% Helper function</span>
+0004 <span class="comment">% (C) R. Das, Stanford University, 2018</span>
+0005 <span class="keyword">if</span> ~ischar( visible );
+0006     setting = visible;
+0007     <span class="keyword">if</span> setting; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0008 <span class="keyword">end</span>
+0009 
+0010 <span class="keyword">if</span> isfield( helix, <span class="string">'click_center'</span> )   set( helix.click_center,<span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0011 <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line'</span> )   set( helix.reflect_line, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0012 <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line1'</span> )   set( helix.reflect_line1, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0013 <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line2'</span> )   set( helix.reflect_line2, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
+0014 <span class="keyword">if</span> isfield( helix, <span class="string">'rectangle'</span> )      set( helix.rectangle, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

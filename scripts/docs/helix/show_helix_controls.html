@@ -38,7 +38,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-</ul>
+<li><a href="set_helix_visibility.html" class="code" title="function set_helix_visibility( helix, visible )">set_helix_visibility</a>	set_helix_visibility( helix, visible )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 <li><a href="hide_helix_controls.html" class="code" title="function hide_helix_controls()">hide_helix_controls</a>	</li></ul>
@@ -79,15 +79,11 @@ This function is called by:
 0028          <span class="keyword">if</span> isfield( residue, <span class="string">'residue_rectangle'</span> ) set( residue.residue_rectangle, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
 0029     <span class="keyword">elseif</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
 0030         helix = getappdata( gca, objnames{n} );
-0031         <span class="keyword">if</span> isfield( helix, <span class="string">'click_center'</span> )   set( helix.click_center,<span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0032         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line'</span> )   set( helix.reflect_line, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0033         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line1'</span> )   set( helix.reflect_line1, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0034         <span class="keyword">if</span> isfield( helix, <span class="string">'reflect_line2'</span> )   set( helix.reflect_line2, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0035         <span class="keyword">if</span> isfield( helix, <span class="string">'rectangle'</span> )      set( helix.rectangle, <span class="string">'visible'</span>, visible); <span class="keyword">end</span>;
-0036     <span class="keyword">end</span>
-0037 <span class="keyword">end</span>
-0038 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0039</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0031         <a href="set_helix_visibility.html" class="code" title="function set_helix_visibility( helix, visible )">set_helix_visibility</a>( helix, visible );
+0032     <span class="keyword">end</span>
+0033 <span class="keyword">end</span>
+0034 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0035</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

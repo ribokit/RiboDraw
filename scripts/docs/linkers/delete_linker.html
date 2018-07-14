@@ -48,12 +48,10 @@ This function calls:
 <li><a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>	linker = delete_linker( linker, remove_linker )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>	linker = delete_linker( linker, remove_linker )</li></ul>
+<li><a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>	linker = delete_linker( linker, remove_linker )</li><li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker, plot_settings )">draw_linker</a>	linker = draw_linker( linker )</li></ul>
 <!-- crossreference -->
 
-<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="#_sub1" class="code">function linker = rmgraphics( linker, tags )</a></li></ul>
+
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker = delete_linker( linker, remove_linker );</a>
@@ -81,25 +79,26 @@ This function is called by:
 0023 <span class="keyword">end</span>;
 0024 <span class="keyword">if</span> ischar( linker ) linker = getappdata( gca, linker ); <span class="keyword">end</span>;
 0025 
-0026 linker = <a href="#_sub1" class="code" title="subfunction linker = rmgraphics( linker, tags )">rmgraphics</a>( linker, {<span class="string">'line_handle'</span>,<span class="string">'symbol'</span>,<span class="string">'symbol1'</span>,<span class="string">'symbol2'</span>,<span class="string">'side_line1'</span>,<span class="string">'side_line2'</span>,<span class="string">'node1'</span>,<span class="string">'node2'</span>,<span class="string">'outarrow1'</span>,<span class="string">'outarrow2'</span>,<span class="string">'outarrow_label1'</span>,<span class="string">'outarrow_label2'</span>} );
+0026 linker = rmgraphics( linker, {<span class="string">'line_handle'</span>,<span class="string">'arrow'</span>,<span class="string">'symbol'</span>,<span class="string">'symbol1'</span>,<span class="string">'symbol2'</span>,<span class="string">'side_line1'</span>,<span class="string">'side_line2'</span>,<span class="string">'node1'</span>,<span class="string">'node2'</span>,<span class="string">'outarrow1'</span>,<span class="string">'outarrow2'</span>,<span class="string">'outarrow_label1'</span>,<span class="string">'outarrow_label2'</span>} );
 0027 <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
 0028     <span class="keyword">for</span> i = 1:length( linker.vtx ); delete( linker.vtx{i} );  <span class="keyword">end</span>;
 0029     linker = rmfield( linker, <span class="string">'vtx'</span> );
 0030 <span class="keyword">end</span>;
 0031 
 0032 <span class="keyword">if</span> remove_linker
-0033     rmappdata( gca, linker.linker_tag )
-0034 <span class="keyword">end</span>
-0035 
-0036 <a name="_sub1" href="#_subfunctions" class="code">function linker = rmgraphics( linker, tags )</a>
-0037 <span class="keyword">for</span> i = 1:length( tags )
-0038    tag = tags{i};
-0039    <span class="keyword">if</span> isfield( linker,tag ) 
-0040        h = getfield(linker,tag);
-0041        <span class="keyword">if</span> isvalid( h ) delete(h); <span class="keyword">end</span>;
-0042        linker = rmfield( linker, tag );
-0043    <span class="keyword">end</span>;
-0044 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0033     residue1 = getappdata( gca, linker.residue1 );
+0034     residue1.linkers = setdiff( residue1.linkers, linker.linker_tag );
+0035     setappdata( gca, linker.residue1, residue1 );
+0036     
+0037     residue2 = getappdata( gca, linker.residue2 );
+0038     residue2.linkers = setdiff( residue2.linkers, linker.linker_tag );
+0039     setappdata( gca, linker.residue2, residue2 );
+0040     
+0041     rmappdata( gca, linker.linker_tag );
+0042 <span class="keyword">else</span>
+0043     setappdata( gca, linker.linker_tag, linker ); 
+0044 <span class="keyword">end</span>
+0045</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

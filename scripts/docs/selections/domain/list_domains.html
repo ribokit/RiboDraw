@@ -57,9 +57,19 @@ This function is called by:
 0009 tags = get_tags( <span class="string">'Selection'</span>,<span class="string">'domain'</span> );
 0010 <span class="keyword">for</span> i = 1:length( tags )
 0011     domain = getappdata( gca, tags{i} );
-0012     fprintf( <span class="string">'%s (%s)\n'</span>, domain.name, tags{i} );
-0013 <span class="keyword">end</span>
-0014</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0012     vis_symbol = <span class="string">' '</span>;
+0013     <span class="keyword">if</span> isfield( domain,<span class="string">'label'</span>) &amp;&amp; strcmp(get(domain.label,<span class="string">'visible'</span>),<span class="string">'on'</span>) vis_symbol = <span class="string">'*'</span>; <span class="keyword">end</span>;
+0014     fprintf( <span class="string">'%s%s (%s)\n'</span>, vis_symbol, domain.name, tags{i} );
+0015 <span class="keyword">end</span>
+0016 
+0017 
+0018 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0019 <span class="keyword">if</span> ~plot_settings.show_domains; 
+0020     fprintf( <span class="string">'\nCurrently domains are not being displayed. Type &lt;a href=&quot;matlab: help show_domains&quot;&gt;show_domains&lt;/a&gt; to display &amp; update domain labels.\n'</span> ); 
+0021 <span class="keyword">else</span>
+0022     fprintf( <span class="string">'\n* = label visible.\n'</span> )
+0023     fprintf( <span class="string">'Use &lt;a href=&quot;matlab: help show_domain_label&quot;&gt;show_domain_label&lt;/a&gt; and &lt;a href=&quot;matlab: help hide_domain_label&quot;&gt;hide_domain_label&lt;/a&gt; to change label visibility.\n'</span> )
+0024 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

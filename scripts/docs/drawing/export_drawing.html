@@ -4,7 +4,7 @@
 <head>
   <title>Description of export_drawing</title>
   <meta name="keywords" content="export_drawing">
-  <meta name="description" content="export_drawing( filename )">
+  <meta name="description" content="coords = export_drawing( filename, output_coords )">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
   <meta name="robots" content="index, follow">
@@ -20,31 +20,30 @@
 </h1>
 
 <h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>export_drawing( filename )</strong></div>
+<div class="box"><strong>coords = export_drawing( filename, output_coords )</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>function export_drawing( filename ) </strong></div>
+<div class="box"><strong>function coords = export_drawing( filename, output_coords ) </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre class="comment"> export_drawing( filename )
+<div class="fragment"><pre class="comment"> coords = export_drawing( filename, output_coords )
 
   Export drawing to different formats: PostScript, JPEG, PDF, PNG
 
-  TODO: allow SVG output (there is a public domain MATLAB package
-  for it.)
-
  Inputs:
-  filename = name of output image (should end in .eps, .jpg, .pdf, or .png)
+  filename      = name of output image (should end in .eps, .jpg, .pdf, or .png)
+  output_coords = [default: 0] Also output tab-separated file with:
 
- See also: <a href="save_drawing.html" class="code" title="function savedata = save_drawing( filename );">SAVE_DRAWING</a>
+                    x y chain segid resnum name
 
- (C) R. Das, Stanford University</pre></div>
+            for each residue/ligand/protein in the drawing.
+            Name will be filename.coords.txt.</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-</ul>
+<li><a href="export_coordinates.html" class="code" title="function coords = export_coordinates( filename, image_size );">export_coordinates</a>	coords = export_coordinates( filename, image_size );</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 </ul>
@@ -53,51 +52,77 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function export_drawing( filename )</a>
-0002 <span class="comment">% export_drawing( filename )</span>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function coords = export_drawing( filename, output_coords )</a>
+0002 <span class="comment">% coords = export_drawing( filename, output_coords )</span>
 0003 <span class="comment">%</span>
 0004 <span class="comment">%  Export drawing to different formats: PostScript, JPEG, PDF, PNG</span>
 0005 <span class="comment">%</span>
-0006 <span class="comment">%  TODO: allow SVG output (there is a public domain MATLAB package</span>
-0007 <span class="comment">%  for it.)</span>
-0008 <span class="comment">%</span>
-0009 <span class="comment">% Inputs:</span>
-0010 <span class="comment">%  filename = name of output image (should end in .eps, .jpg, .pdf, or .png)</span>
+0006 <span class="comment">% Inputs:</span>
+0007 <span class="comment">%  filename      = name of output image (should end in .eps, .jpg, .pdf, or .png)</span>
+0008 <span class="comment">%  output_coords = [default: 0] Also output tab-separated file with:</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%                    x y chain segid resnum name</span>
 0011 <span class="comment">%</span>
-0012 <span class="comment">% See also: SAVE_DRAWING</span>
-0013 <span class="comment">%</span>
-0014 <span class="comment">% (C) R. Das, Stanford University</span>
+0012 <span class="comment">%            for each residue/ligand/protein in the drawing.</span>
+0013 <span class="comment">%            Name will be filename.coords.txt.</span>
+0014 <span class="comment">%</span>
 0015 
-0016 cols = strsplit( filename, <span class="string">'.'</span> );
-0017 <span class="keyword">switch</span> cols{end}
-0018     <span class="keyword">case</span> {<span class="string">'eps'</span>,<span class="string">'ps'</span>,<span class="string">'ai'</span>}
-0019         opt = <span class="string">'-depsc2'</span>;
-0020     <span class="keyword">case</span> <span class="string">'pdf'</span>
-0021         opt = <span class="string">'-dpdf'</span>;
-0022     <span class="keyword">case</span> <span class="string">'jpg'</span>,<span class="string">'jpeg'</span>
-0023         opt = <span class="string">'-djpg'</span>;
-0024     <span class="keyword">case</span> <span class="string">'png'</span>
-0025         opt = <span class="string">'-dpng'</span>;
-0026     <span class="keyword">otherwise</span> 
-0027         fprintf( <span class="string">'Unrecognized extension'</span> )
-0028         help
-0029         <span class="keyword">return</span>;
-0030 <span class="keyword">end</span>
-0031 
-0032 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0033 
-0034 hide_helix_controls;
-0035 hide_selection_controls;
-0036 hide_linker_controls;
-0037 
-0038 print( filename, opt );
-0039 fprintf( <span class="string">'Created: %s\n'</span>, filename ); 
-0040 
-0041 show_helix_controls ( plot_settings.show_helix_controls );
-0042 show_domain_controls( plot_settings.show_domain_controls );
-0043 show_coax_controls( plot_settings.show_coax_controls );
-0044 show_linker_controls( plot_settings.show_linker_controls );
-0045</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% See also: SAVE_DRAWING, EXPORT_COORDINATES</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">% (C) R. Das, Stanford University</span>
+0020 <span class="keyword">if</span> ~exist( <span class="string">'output_coords'</span>,<span class="string">'var'</span> ) output_coords = 0; <span class="keyword">end</span>;
+0021 
+0022 cols = strsplit( filename, <span class="string">'.'</span> );
+0023 <span class="keyword">switch</span> cols{end}
+0024     <span class="keyword">case</span> {<span class="string">'eps'</span>,<span class="string">'ps'</span>,<span class="string">'ai'</span>}
+0025         opt = <span class="string">'-depsc2'</span>;
+0026     <span class="keyword">case</span> <span class="string">'pdf'</span>
+0027         opt = <span class="string">'-dpdf'</span>;
+0028     <span class="keyword">case</span> <span class="string">'jpg'</span>,<span class="string">'jpeg'</span>
+0029         opt = <span class="string">'-djpg'</span>;
+0030     <span class="keyword">case</span> <span class="string">'png'</span>
+0031         opt = <span class="string">'-dpng'</span>;
+0032     <span class="keyword">case</span> <span class="string">'svg'</span>
+0033         opt = <span class="string">'SVG'</span>;
+0034     <span class="keyword">otherwise</span> 
+0035         fprintf( <span class="string">'Unrecognized extension'</span> )
+0036         help
+0037         <span class="keyword">return</span>;
+0038 <span class="keyword">end</span>
+0039 
+0040 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0041 
+0042 hide_helix_controls;
+0043 hide_domain_controls;
+0044 hide_selection_controls;
+0045 hide_linker_controls;
+0046 
+0047 tic
+0048 <span class="keyword">if</span> strcmp(opt, <span class="string">'SVG'</span>) == 1
+0049     <span class="comment">% Use library function</span>
+0050     plot2svg( filename, gcf );
+0051 <span class="keyword">else</span>
+0052     print( filename, opt, <span class="string">'-r300'</span> );
+0053 <span class="keyword">end</span>
+0054 fprintf( <span class="string">'Created: %s\n'</span>, filename ); 
+0055 toc
+0056 
+0057 tic
+0058 coords = [];
+0059 <span class="keyword">if</span> output_coords
+0060     cdata = imread( filename );
+0061     s = size(cdata);
+0062     coord_filename = [filename, <span class="string">'.coords.txt'</span>];
+0063     coords = <a href="export_coordinates.html" class="code" title="function coords = export_coordinates( filename, image_size );">export_coordinates</a>( coord_filename, s([2 1]) ); <span class="comment">% have to switch x &lt;--&gt; y</span>
+0064 <span class="keyword">end</span>
+0065 toc
+0066 
+0067 show_helix_controls ( plot_settings.show_helix_controls );
+0068 show_domain_controls( plot_settings.show_domain_controls );
+0069 show_coax_controls( plot_settings.show_coax_controls );
+0070 show_linker_controls( plot_settings.show_linker_controls );
+0071</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -64,18 +64,33 @@ This function is called by:
 0014 
 0015 <a href="#_sub1" class="code" title="subfunction set_control_handle_visibility( setting )">set_control_handle_visibility</a>( setting );
 0016 
-0017 <a name="_sub1" href="#_subfunctions" class="code">function set_control_handle_visibility( setting )</a>
-0018 <span class="keyword">if</span> setting; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0019 <span class="comment">% hide all blue stuff that was used for interactive movement.</span>
-0020 objnames = get_tags( <span class="string">'Linker'</span> );
-0021 <span class="keyword">for</span> n = 1:length( objnames )
-0022     linker = getappdata( gca, objnames{n} );
-0023     <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> ) &amp; isfield( linker, <span class="string">'line_handle'</span> )
-0024         vtx_visible = visible;
-0025         <span class="keyword">if</span> strcmp( get( linker.line_handle, <span class="string">'visible'</span> ), <span class="string">'off'</span> ) vtx_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0026         <span class="keyword">for</span> i = 1:length( linker.vtx ) set( linker.vtx{i},<span class="string">'visible'</span>, vtx_visible);  <span class="keyword">end</span>;
-0027     <span class="keyword">end</span>;
-0028 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0017 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0018 <a name="_sub1" href="#_subfunctions" class="code">function set_control_handle_visibility( setting )</a>
+0019 
+0020 <span class="comment">% hide all blue stuff that was used for interactive movement.</span>
+0021 objnames = get_tags( <span class="string">'Linker'</span> );
+0022 
+0023 <span class="comment">% outright destroy or create the vertices -- trying to reduce number of</span>
+0024 <span class="comment">% graphics objects in window.</span>
+0025 <span class="keyword">if</span> (setting); textprogressbar(<span class="string">'Re-drawing linkers '</span>); <span class="keyword">end</span>;
+0026 <span class="keyword">for</span> n = 1:length( objnames )
+0027     draw_linker( objnames{n} );
+0028     <span class="keyword">if</span> (setting) textprogressbar( 100 * n/length(objnames) ); <span class="keyword">end</span>;
+0029 <span class="keyword">end</span>
+0030 <span class="keyword">if</span> (setting); textprogressbar(<span class="string">'done'</span>); <span class="keyword">end</span>;
+0031 
+0032 
+0033 
+0034 <span class="comment">% OLD -- toggle graphics 'visible' field.</span>
+0035 <span class="comment">% if setting; visible = 'on'; else; visible = 'off'; end;</span>
+0036 <span class="comment">% for n = 1:length( objnames )</span>
+0037 <span class="comment">%     linker = getappdata( gca, objnames{n} );</span>
+0038 <span class="comment">%     if isfield( linker, 'vtx' ) &amp; isfield( linker, 'line_handle' ) &amp; isvalid( linker.line_handle )</span>
+0039 <span class="comment">%         vtx_visible = visible;</span>
+0040 <span class="comment">%         if strcmp( get( linker.line_handle, 'visible' ), 'off' ) vtx_visible = 'off'; end;</span>
+0041 <span class="comment">%         for i = 1:length( linker.vtx ) set( linker.vtx{i},'visible', vtx_visible);  end;</span>
+0042 <span class="comment">%     end;</span>
+0043 <span class="comment">% end</span></pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

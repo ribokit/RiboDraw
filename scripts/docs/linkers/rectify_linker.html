@@ -44,7 +44,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>	linker = draw_linker( linker )</li><li><a href="rectify_linker.html" class="code" title="function linker = rectify_linker( linker, overwrite );">rectify_linker</a>	linker = rectify_linker();</li></ul>
+<li><a href="draw_linker.html" class="code" title="function linker = draw_linker( linker, plot_settings )">draw_linker</a>	linker = draw_linker( linker )</li><li><a href="rectify_linker.html" class="code" title="function linker = rectify_linker( linker, overwrite );">rectify_linker</a>	linker = rectify_linker();</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 <li><a href="create_linker_with_draggable_vtx.html" class="code" title="function linker = create_linker_with_draggable_vtx( linker )">create_linker_with_draggable_vtx</a>	linker = create_linker_with_draggable_vtx( linker )</li><li><a href="rectify_linker.html" class="code" title="function linker = rectify_linker( linker, overwrite );">rectify_linker</a>	linker = rectify_linker();</li></ul>
@@ -131,13 +131,13 @@ This function is called by:
 0076         linker.relpos2(i,:) = get_relpos( linker.plot_pos(i+n1,:), helix2 );
 0077     <span class="keyword">end</span>
 0078     
-0079     linker = <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>( linker ); 
+0079     linker = <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker, plot_settings )">draw_linker</a>( linker ); 
 0080 
 0081     <span class="keyword">if</span> ~overwrite 
-0082         pause; linker = <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker )">draw_linker</a>( linker_save );
+0082         pause; linker = <a href="draw_linker.html" class="code" title="function linker = draw_linker( linker, plot_settings )">draw_linker</a>( linker_save );
 0083     <span class="keyword">end</span>
 0084 <span class="keyword">end</span>
 0085</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

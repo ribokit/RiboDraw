@@ -28,9 +28,13 @@
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> color = fade_color( color );
 
- make color whiter by 70%.
+ make color whiter 
 
- (C) R. Das, Stanford University, 2017</pre></div>
+ INPUTS
+    color = input_color
+    fade_extent = amount by which to fade (default is 70%).
+
+ (C) R. Das, Stanford University, 2017-2018</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
@@ -48,11 +52,15 @@ This function is called by:
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function color = fade_color( color, fade_extent );</a>
 0002 <span class="comment">% color = fade_color( color );</span>
 0003 <span class="comment">%</span>
-0004 <span class="comment">% make color whiter by 70%.</span>
+0004 <span class="comment">% make color whiter</span>
 0005 <span class="comment">%</span>
-0006 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
-0007 <span class="keyword">if</span> ~exist( <span class="string">'fade_extent'</span>, <span class="string">'var'</span>) fade_extent = 0.3; <span class="keyword">end</span>;
-0008 color = [1.0,1.0,1.0] - fade_extent * ( [1.0,1.0,1.0] - color );</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0006 <span class="comment">% INPUTS</span>
+0007 <span class="comment">%    color = input_color</span>
+0008 <span class="comment">%    fade_extent = amount by which to fade (default is 70%).</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) R. Das, Stanford University, 2017-2018</span>
+0011 <span class="keyword">if</span> ~exist( <span class="string">'fade_extent'</span>, <span class="string">'var'</span>) fade_extent = 0.7; <span class="keyword">end</span>;
+0012 color = fade_extent * [1.0,1.0,1.0] + ( 1 - fade_extent ) * color;</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

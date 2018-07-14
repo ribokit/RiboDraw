@@ -48,7 +48,9 @@ This function is called by:
 </ul>
 <!-- crossreference -->
 
-
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function save_show_domains = temporarily_hide_domains();</a></li></ul>
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function draw_helices( helices )</a>
@@ -75,13 +77,29 @@ This function is called by:
 0022     <span class="keyword">end</span>
 0023 <span class="keyword">end</span>
 0024 
-0025 <span class="keyword">for</span> n = 1:length( helices )
-0026     <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helices{n} );
-0027 <span class="keyword">end</span>
-0028 
-0029 axis off
-0030 <span class="comment">%axis equal</span>
-0031 set(gcf,<span class="string">'color'</span>,<span class="string">'white'</span>)</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0025 <span class="comment">% for speed, don't show domains until end.</span>
+0026 save_show_domains = <a href="#_sub1" class="code" title="subfunction save_show_domains = temporarily_hide_domains();">temporarily_hide_domains</a>();
+0027 
+0028 textprogressbar(<span class="string">'Drawing helices... '</span>);
+0029 <span class="keyword">for</span> n = 1:length( helices )
+0030     <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helices{n} );
+0031     textprogressbar( 100 * n/length(helices) );
+0032 <span class="keyword">end</span>
+0033 textprogressbar(<span class="string">' done'</span>);
+0034 axis off
+0035 
+0036 <span class="comment">%axis equal</span>
+0037 set(gcf,<span class="string">'color'</span>,<span class="string">'white'</span>)
+0038 <span class="keyword">if</span> save_show_domains; show_domains(1,0); <span class="keyword">end</span>;
+0039 
+0040 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0041 <a name="_sub1" href="#_subfunctions" class="code">function save_show_domains = temporarily_hide_domains();</a>
+0042 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0043 save_show_domains = plot_settings.show_domains; 
+0044 <span class="keyword">if</span> save_show_domains; 
+0045     plot_settings.show_domains = 0;
+0046     setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0047 <span class="keyword">end</span>;</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of setup_tertiary_contacts_from_linker_groups</title>
+  <meta name="keywords" content="setup_tertiary_contacts_from_linker_groups">
+  <meta name="description" content="setup_tertiary_contacts( linker_groups )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html tertiary_contacts -->
+<h1>setup_tertiary_contacts_from_linker_groups
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>setup_tertiary_contacts( linker_groups )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function tertiary_contact_tags = setup_tertiary_contacts_from_linker_groups( linker_groups ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> setup_tertiary_contacts( linker_groups )
+
+ Helper function for setting up tertiary contacts.
+
+ INPUTS:
+  linker_groups = cell of cells of linker tags that were grouped. 
+ 
+
+ (C) R. Das, Stanford University 2017-2018</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_linker_types_for_tertiary_contacts.html" class="code" title="function linker_types_for_tertiary_contacts = get_linker_types_for_tertiary_contacts();">get_linker_types_for_tertiary_contacts</a>	linker_types_for_tertiary_contacts = get_linker_types_for_tertiary_contacts();</li><li><a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff, linker_group )">setup_tertiary_contact</a>	setup_tertiary_contact( contact_name, res_tags1, res_tags2 [, template_linker, skip_move_stuff_to_back, print_stuff] )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="setup_tertiary_contacts.html" class="code" title="function tertiary_contact_tags = setup_interdomain_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )">setup_tertiary_contacts</a>	tertiary_contact_tags = setup_interdomain_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function [res_tags1,res_tags2] = get_res_tags( linker_group );</a></li><li><a href="#_sub2" class="code">function main_linker = find_shortest_possible_linker( linker_group, linker_types );</a></li><li><a href="#_sub3" class="code">function main_linker = look_for_previous_tertiary_contact( res_tags1, res_tags2 );</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function tertiary_contact_tags = setup_tertiary_contacts_from_linker_groups( linker_groups )</a>
+0002 <span class="comment">% setup_tertiary_contacts( linker_groups )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Helper function for setting up tertiary contacts.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% INPUTS:</span>
+0007 <span class="comment">%  linker_groups = cell of cells of linker tags that were grouped.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) R. Das, Stanford University 2017-2018</span>
+0011 
+0012 tertiary_contact_tags = {};
+0013 linker_types_for_tertiary_contacts = <a href="get_linker_types_for_tertiary_contacts.html" class="code" title="function linker_types_for_tertiary_contacts = get_linker_types_for_tertiary_contacts();">get_linker_types_for_tertiary_contacts</a>();
+0014 
+0015 <span class="comment">% let's try to set up a tertiary contact</span>
+0016 <span class="keyword">for</span> i = 1:length( linker_groups )
+0017     linker_group = linker_groups{i};
+0018 
+0019     <span class="comment">% need to assign a pair of interdomain connection residues.</span>
+0020     [res_tags1, res_tags2 ] = <a href="#_sub1" class="code" title="subfunction [res_tags1,res_tags2] = get_res_tags( linker_group );">get_res_tags</a>( linker_group );
+0021     main_linker = <a href="#_sub3" class="code" title="subfunction main_linker = look_for_previous_tertiary_contact( res_tags1, res_tags2 );">look_for_previous_tertiary_contact</a>( res_tags1, res_tags2 );
+0022     <span class="keyword">if</span> isempty( main_linker ) main_linker = <a href="#_sub2" class="code" title="subfunction main_linker = find_shortest_possible_linker( linker_group, linker_types );">find_shortest_possible_linker</a>( linker_group, linker_types_for_tertiary_contacts ); <span class="keyword">end</span>;
+0023             
+0024     <span class="comment">% get all residues involved in tertiary contact.</span>
+0025     residue1 = getappdata( gca, main_linker.residue1 );
+0026     residue2 = getappdata( gca, main_linker.residue2 );
+0027     res_tags1 = [main_linker.residue1, setdiff( unique( res_tags1 ), main_linker.residue1 ) ];
+0028     res_tags2 = [main_linker.residue2, setdiff( unique( res_tags2 ), main_linker.residue2 ) ];
+0029     tertiary_contact_tags{i} = <a href="setup_tertiary_contact.html" class="code" title="function tertiary_contact = setup_tertiary_contact( contact_name, res1_string, res2_string, template_linker, skip_move_stuff_to_back, print_stuff, linker_group )">setup_tertiary_contact</a>( <span class="string">''</span>, res_tags1, res_tags2, main_linker, 1, 1, linker_group );
+0030 <span class="keyword">end</span>
+0031 
+0032 hide_tertiary_noncanonical_pairs;
+0033 hide_ligand_linkers;
+0034 show_tertiary_contacts;
+0035 <span class="comment">%move_stuff_to_back; % already done in show_tertiary_contacts</span>
+0036 
+0037 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0038 <a name="_sub1" href="#_subfunctions" class="code">function [res_tags1,res_tags2] = get_res_tags( linker_group );</a>
+0039 res_tags1 = {};
+0040 res_tags2 = {};
+0041 <span class="keyword">for</span> j = 1:length( linker_group )
+0042     linker = linker_group{j};
+0043     res_tags1 = [res_tags1, linker.residue1 ];
+0044     res_tags2 = [res_tags2, linker.residue2 ];
+0045 <span class="keyword">end</span>
+0046         
+0047 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0048 <a name="_sub2" href="#_subfunctions" class="code">function main_linker = find_shortest_possible_linker( linker_group, linker_types );</a>
+0049 linker_lengths = [];
+0050 <span class="keyword">for</span> j = 1:length( linker_group )
+0051     linker = linker_group{j};
+0052     linker_length = 0;
+0053     <span class="keyword">if</span> isfield( linker, <span class="string">'plot_pos'</span> )
+0054         <span class="keyword">for</span> i = 1:size( linker.plot_pos, 1 )-1
+0055             linker_length = linker_length + norm( linker.plot_pos( i, : ) - linker.plot_pos( i+1, : ) );
+0056         <span class="keyword">end</span>
+0057     <span class="keyword">else</span>
+0058         res1 = getappdata( gca, linker.residue1 );
+0059         res2 = getappdata( gca, linker.residue2 );
+0060         linker_length = norm( res1.plot_pos - res2.plot_pos );
+0061     <span class="keyword">end</span>
+0062     linker_lengths(j,:) = [find(strcmp(linker.type, linker_types)), linker_length];
+0063 <span class="keyword">end</span>
+0064 [~, idx ] = sortrows( linker_lengths );
+0065 main_linker = linker_group{idx};
+0066 
+0067 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0068 <a name="_sub3" href="#_subfunctions" class="code">function main_linker = look_for_previous_tertiary_contact( res_tags1, res_tags2 );</a>
+0069 main_linker = [];
+0070 tags = get_tags( <span class="string">'TertiaryContact'</span> );
+0071 <span class="keyword">for</span> i = 1:length( tags )
+0072     tertiary_contact = getappdata( gca, tags{i} );
+0073     <span class="keyword">if</span> ( any(strcmp(tertiary_contact.associated_residues1{1},res_tags1 )) &amp; <span class="keyword">...</span>
+0074             any(strcmp(tertiary_contact.associated_residues2{1},res_tags2 )) )
+0075         fprintf( <span class="string">'Found template linker from tertiary contact %s\n'</span>,  tags{i} );
+0076         main_linker = getappdata( gca, tertiary_contact.interdomain_linker );
+0077         <span class="keyword">return</span>;
+0078     <span class="keyword">elseif</span> ( any(strcmp(tertiary_contact.associated_residues2{1},res_tags1 )) &amp; <span class="keyword">...</span>
+0079             any(strcmp(tertiary_contact.associated_residues1{1},res_tags2 ))   )
+0080         fprintf( <span class="string">'Found template linker from tertiary contact %s\n'</span>,  tags{i} );
+0081         main_linker = getappdata( gca, tertiary_contact.interdomain_linker );
+0082         res1 = main_linker.residue1;
+0083         res2 = main_linker.residue2;
+0084         main_linker.residue1 = res2;
+0085         main_linker.residue2 = res1;
+0086         <span class="keyword">return</span>;
+0087     <span class="keyword">end</span>
+0088 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

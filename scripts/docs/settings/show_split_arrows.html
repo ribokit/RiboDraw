@@ -71,14 +71,21 @@ This function is called by:
 0015 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
 0016 
 0017 <span class="keyword">if</span> ~exist( <span class="string">'setting'</span>,<span class="string">'var'</span>) setting = 1; <span class="keyword">end</span>;
-0018 <span class="keyword">if</span> ~exist( <span class="string">'domain_names'</span> ) domain_names = {}; <span class="keyword">end</span>;
-0019 <span class="keyword">if</span> ~exist( <span class="string">'linker'</span>,<span class="string">'var'</span> ) || isempty( linker ); linker = get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span> ); <span class="keyword">end</span>;
-0020 <span class="keyword">if</span> iscell( linker ); <span class="keyword">for</span> i = 1:length( linker ); <a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>( linker{i}, setting, domain_names ); <span class="keyword">end</span>; <span class="keyword">return</span>; <span class="keyword">end</span>;
-0021 <span class="keyword">if</span> ischar( linker ); linker = getappdata( gca, linker ); <span class="keyword">end</span>;
-0022 <span class="keyword">if</span> ~isempty( domain_names ) &gt; 0 &amp;&amp; isempty( get_interdomain_linkers( {linker.linker_tag}, domain_names ) ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0018 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0019 <span class="keyword">if</span> setting &amp; ~strcmp( plot_settings.image_representation, <span class="string">'image_boundary'</span> )
+0020     fprintf( <span class="string">'Click: &lt;a href=&quot;matlab: show_images_as_boundaries&quot;&gt;show_images_as boundaries&lt;/a&gt; to see split arrows. Then run again.\n'</span> ); <span class="keyword">return</span>;
+0021 <span class="keyword">end</span>
+0022 
 0023 
-0024 linker.show_split_arrows = setting;
-0025 draw_linker( linker );</pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0024 <span class="keyword">if</span> ~exist( <span class="string">'domain_names'</span> ) domain_names = {}; <span class="keyword">end</span>;
+0025 <span class="keyword">if</span> ~exist( <span class="string">'linker'</span>,<span class="string">'var'</span> ) || isempty( linker ); linker = get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span> ); <span class="keyword">end</span>;
+0026 <span class="keyword">if</span> iscell( linker ); <span class="keyword">for</span> i = 1:length( linker ); <a href="show_split_arrows.html" class="code" title="function show_split_arrows( linker, setting, domain_names )">show_split_arrows</a>( linker{i}, setting, domain_names ); <span class="keyword">end</span>; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0027 <span class="keyword">if</span> ischar( linker ); linker = getappdata( gca, linker ); <span class="keyword">end</span>;
+0028 <span class="keyword">if</span> ~isempty( domain_names ) &gt; 0 &amp;&amp; isempty( get_interdomain_linkers( {linker.linker_tag}, domain_names ) ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0029 
+0030 linker.show_split_arrows = setting;
+0031 draw_linker( linker );
+0032</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

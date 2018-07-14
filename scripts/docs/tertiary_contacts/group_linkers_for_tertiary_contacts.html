@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of group_linkers_for_tertiary_contacts</title>
+  <meta name="keywords" content="group_linkers_for_tertiary_contacts">
+  <meta name="description" content="linker_groups = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html tertiary_contacts -->
+<h1>group_linkers_for_tertiary_contacts
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>linker_groups = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [linker_groups, interdomain_linkers] = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> linker_groups = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )
+
+  Main function for cleaning up multidomain drawings at 
+   the scale of the ribosome.
+
+  Looks up noncanonical pairs (and other linkers) that are in different domains,
+   (as defined by the user in the domain_names input variable).
+
+  Hides those noncanonical pairs and instead shows intradomain connections and a single
+   interdomain connection with colors reflecting the domains. 
+
+  The information for each group is saved in a TertiaryContact object
+   well as domain1 and domain2 fields of linker objects
+
+ Input:
+  domain_names  = cell of strings with names of domains (previously must have been defined by user
+                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}
+  separate_out_ligands  = ligands/proteins are separate domains (default 1)
+  group_other_residues  = anything not in ligands or input domain_names are grouped into a single 'other' domain (default 1)
+
+ Output:
+  linker_groups = cell of cells of linker tags that were grouped. 
+
+
+ (C) R. Das, Stanford University 2017-2018</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_linker_types_for_tertiary_contacts.html" class="code" title="function linker_types_for_tertiary_contacts = get_linker_types_for_tertiary_contacts();">get_linker_types_for_tertiary_contacts</a>	linker_types_for_tertiary_contacts = get_linker_types_for_tertiary_contacts();</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="setup_tertiary_contacts.html" class="code" title="function tertiary_contact_tags = setup_interdomain_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )">setup_tertiary_contacts</a>	tertiary_contact_tags = setup_interdomain_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function [domain_residue_sets,domain_names] = get_domain_residue_sets( domain_names, separate_out_ligands, group_other_residues )</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [linker_groups, interdomain_linkers] = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )</a>
+0002 <span class="comment">% linker_groups = group_linkers_for_tertiary_contacts( domain_names, separate_out_ligands, group_other_residues )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Main function for cleaning up multidomain drawings at</span>
+0005 <span class="comment">%   the scale of the ribosome.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%  Looks up noncanonical pairs (and other linkers) that are in different domains,</span>
+0008 <span class="comment">%   (as defined by the user in the domain_names input variable).</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%  Hides those noncanonical pairs and instead shows intradomain connections and a single</span>
+0011 <span class="comment">%   interdomain connection with colors reflecting the domains.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">%  The information for each group is saved in a TertiaryContact object</span>
+0014 <span class="comment">%   well as domain1 and domain2 fields of linker objects</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% Input:</span>
+0017 <span class="comment">%  domain_names  = cell of strings with names of domains (previously must have been defined by user</span>
+0018 <span class="comment">%                  with SETUP_DOMAIN). Example: {'Peptidyl Transferase Center','Domain IV',...}</span>
+0019 <span class="comment">%  separate_out_ligands  = ligands/proteins are separate domains (default 1)</span>
+0020 <span class="comment">%  group_other_residues  = anything not in ligands or input domain_names are grouped into a single 'other' domain (default 1)</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">% Output:</span>
+0023 <span class="comment">%  linker_groups = cell of cells of linker tags that were grouped.</span>
+0024 <span class="comment">%</span>
+0025 <span class="comment">%</span>
+0026 <span class="comment">% (C) R. Das, Stanford University 2017-2018</span>
+0027 
+0028 linker_groups = {};
+0029 
+0030 <span class="comment">% get interdomain_linkers -- order of preference</span>
+0031 linker_types_for_tertiary_contacts = <a href="get_linker_types_for_tertiary_contacts.html" class="code" title="function linker_types_for_tertiary_contacts = get_linker_types_for_tertiary_contacts();">get_linker_types_for_tertiary_contacts</a>();
+0032 linkers = {};
+0033 <span class="keyword">for</span> i = 1:length( linker_types_for_tertiary_contacts )
+0034     linkers = [ linkers; get_tags( <span class="string">'Linker'</span>, linker_types_for_tertiary_contacts{i} ) ];
+0035 <span class="keyword">end</span>
+0036 
+0037 [domain_residue_sets, domain_names] = <a href="#_sub1" class="code" title="subfunction [domain_residue_sets,domain_names] = get_domain_residue_sets( domain_names, separate_out_ligands, group_other_residues )">get_domain_residue_sets</a>( domain_names, separate_out_ligands, group_other_residues );
+0038 
+0039 [interdomain_linkers, domain_assignments] = assign_linker_domains( linkers, domain_names, domain_residue_sets );
+0040 
+0041 linker_groups = group_linkers( interdomain_linkers, domain_assignments );
+0042 
+0043 
+0044 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0045 <a name="_sub1" href="#_subfunctions" class="code">function [domain_residue_sets,domain_names] = get_domain_residue_sets( domain_names, separate_out_ligands, group_other_residues )</a>
+0046 domain_residue_sets = {};
+0047 <span class="keyword">if</span> separate_out_ligands  <span class="comment">% add ligands as possible domains</span>
+0048     ligand_tags = get_ligand_tags();
+0049     domain_names = union( domain_names,ligand_tags );
+0050 <span class="keyword">end</span>
+0051 
+0052 <span class="keyword">for</span> i = 1:length( domain_names )
+0053     domain_residue_set  = get_res( domain_names{i} );
+0054     <span class="keyword">if</span> isempty( domain_residue_set ) fprintf( <span class="string">'Problem finding residues for %s\n'</span>, domain_names{i} ); <span class="keyword">return</span>;  <span class="keyword">end</span>;
+0055     domain_residue_sets{i} = domain_residue_set;
+0056     <span class="keyword">if</span> separate_out_ligands &amp;&amp; ~any(strcmp(ligand_tags, domain_names{i})) <span class="comment">% if this domain is not a ligand, get rid of any ligand residues</span>
+0057         domain_residue_sets{i} = setdiff( domain_residue_set, ligand_tags );
+0058     <span class="keyword">end</span>
+0059 <span class="keyword">end</span>
+0060 
+0061 <span class="keyword">if</span> group_other_residues
+0062     res_in_domains = {};
+0063     N = length( domain_residue_sets );
+0064     <span class="keyword">for</span> i = 1:N
+0065         res_in_domains = unique( [res_in_domains, domain_residue_sets{i}] );
+0066     <span class="keyword">end</span>    
+0067     <span class="comment">% collect any other residues in drawing into 'other' domain.</span>
+0068     domain_residue_sets{N+1} =  setdiff( get_res( <span class="string">'all'</span> ), res_in_domains );
+0069     domain_names{N+1}        = <span class="string">'other'</span>;
+0070 <span class="keyword">end</span>
+0071 
+0072 
+0073 
+0074</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

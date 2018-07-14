@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of show_artboards</title>
+  <meta name="keywords" content="show_artboards">
+  <meta name="description" content="set( gcf, 'color', [0.98 0.98 0.98 ] );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html gui -->
+<h1>show_artboards
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>set( gcf, 'color', [0.98 0.98 0.98 ] );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function show_artboards() </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">set( gcf, 'color', [0.98 0.98 0.98 ] );
+axis on
+box on
+set(gca,'xtick',[],'ytick',[]);</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="update_artboards.html" class="code" title="function update_artboards( ~ )">update_artboards</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function setup_artboard_line( tag, xdata, ydata, constraint );</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function show_artboards()</a>
+0002 
+0003 <span class="comment">%set( gcf, 'color', [0.98 0.98 0.98 ] );</span>
+0004 <span class="comment">%axis on</span>
+0005 <span class="comment">%box on</span>
+0006 <span class="comment">%set(gca,'xtick',[],'ytick',[]);</span>
+0007 set( gcf, <span class="string">'color'</span>, [1 1 1] );
+0008 axis image;
+0009 
+0010 
+0011 xlim = get(gca,<span class="string">'xlim'</span>);
+0012 ylim = get(gca,<span class="string">'ylim'</span>);
+0013 
+0014 nudge = 0;
+0015 <a href="#_sub1" class="code" title="subfunction setup_artboard_line( tag, xdata, ydata, constraint );">setup_artboard_line</a>( <span class="string">'artboard_topline'</span>,    xlim + [-nudge,nudge], ylim(1)*[1 1], <span class="string">'v'</span> );
+0016 <a href="#_sub1" class="code" title="subfunction setup_artboard_line( tag, xdata, ydata, constraint );">setup_artboard_line</a>( <span class="string">'artboard_bottomline'</span>, xlim + [-nudge,nudge], ylim(2)*[1 1], <span class="string">'v'</span> );
+0017 <a href="#_sub1" class="code" title="subfunction setup_artboard_line( tag, xdata, ydata, constraint );">setup_artboard_line</a>( <span class="string">'artboard_leftline'</span>,   xlim(1)*[1 1],     ylim + [-nudge,nudge],  <span class="string">'h'</span> );
+0018 <a href="#_sub1" class="code" title="subfunction setup_artboard_line( tag, xdata, ydata, constraint );">setup_artboard_line</a>( <span class="string">'artboard_rightline'</span>,  xlim(2)*[1 1],     ylim + [-nudge,nudge],  <span class="string">'h'</span> );
+0019 set(gca,<span class="string">'xlim'</span>,xlim);
+0020 set(gca,<span class="string">'ylim'</span>,ylim);
+0021 
+0022     
+0023 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0024 <a name="_sub1" href="#_subfunctions" class="code">function setup_artboard_line( tag, xdata, ydata, constraint );</a>
+0025 
+0026 <span class="keyword">if</span> isappdata( gca, tag )
+0027     set( getappdata( gca, tag), <span class="string">'visible'</span>,<span class="string">'on'</span> );
+0028 <span class="keyword">else</span>
+0029     h = plot( xdata, ydata, <span class="string">'color'</span>, [0.7 0.7 1],<span class="string">'linew'</span>,1,<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0030     draggable( h, constraint,[-inf inf],<span class="string">'endfcn'</span>, @<a href="update_artboards.html" class="code" title="function update_artboards( ~ )">update_artboards</a> ); <span class="comment">%@update_artboard_line);</span>
+0031     setappdata( h,<span class="string">'artboard_line_tag'</span>,tag);
+0032     setappdata( gca,tag,h);
+0033 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

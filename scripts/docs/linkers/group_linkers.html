@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of group_linkers</title>
+  <meta name="keywords" content="group_linkers">
+  <meta name="description" content="linker_groups = group_linkers( linkers )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html linkers -->
+<h1>group_linkers
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>linker_groups = group_linkers( linkers )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function linker_groups = group_linkers( linkers, domain_assignments ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> linker_groups = group_linkers( linkers )
+
+  Find clusters of linkers that are close in sequence and
+     interconnect the same domains.
+
+ Only groups two linkers that connect the same domains
+   (as defined by the user in the linker.domain1 and linker.domain2 input variables)
+  or that involve the same ligand.
+
+ Input:
+  linkers  = cell of linkers to group. 
+
+ Output:
+  linker_groups = cell of cells of linker tags that were grouped.  Residue1 and Residue2 will be
+             switched for each linker to match order of domains in
+             'parent' linker of linker_group.
+
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function match = check_sequence_close( residue, other_res )</a></li><li><a href="#_sub2" class="code">function match = check_graph_close( g, res_tags, res_tag1, res_tag2 );</a></li><li><a href="#_sub3" class="code">function match = check_distance_close( D, res_tags, res_tag1, res_tag2 );</a></li><li><a href="#_sub4" class="code">function linker_groups_filter = filter_groups_without_pairs( linker_groups );</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker_groups = group_linkers( linkers, domain_assignments )</a>
+0002 <span class="comment">% linker_groups = group_linkers( linkers )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Find clusters of linkers that are close in sequence and</span>
+0005 <span class="comment">%     interconnect the same domains.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% Only groups two linkers that connect the same domains</span>
+0008 <span class="comment">%   (as defined by the user in the linker.domain1 and linker.domain2 input variables)</span>
+0009 <span class="comment">%  or that involve the same ligand.</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% Input:</span>
+0012 <span class="comment">%  linkers  = cell of linkers to group.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% Output:</span>
+0015 <span class="comment">%  linker_groups = cell of cells of linker tags that were grouped.  Residue1 and Residue2 will be</span>
+0016 <span class="comment">%             switched for each linker to match order of domains in</span>
+0017 <span class="comment">%             'parent' linker of linker_group.</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% (C) R. Das, Stanford University</span>
+0021 
+0022 linker_groups = {};
+0023 
+0024 fprintf( <span class="string">'Grouping linkers...\n'</span> );
+0025 tic
+0026 <span class="comment">% now group by domain.</span>
+0027 linker_groups = {};
+0028 nbrs = [];
+0029 [g,res_tags] = get_graph_for_drawing( 1 );
+0030 D = distances(g);
+0031 <span class="keyword">for</span> i = 1:length( linkers )
+0032     linker_i = linkers{i};
+0033     domain_assignment_i = domain_assignments{i};
+0034     <span class="keyword">for</span> j = (i+1):length( linkers )
+0035         linker_j = linkers{j};
+0036         domain_assignment_j = domain_assignments{j};
+0037         <span class="comment">% look for match of domain and closeness of sequence</span>
+0038         <span class="keyword">if</span> ( strcmp( domain_assignment_i{1}, domain_assignment_j{1} ) &amp;&amp; <span class="keyword">...</span>
+0039              strcmp( domain_assignment_i{2}, domain_assignment_j{2}  ) &amp;&amp; <span class="keyword">...</span>
+0040              <a href="#_sub3" class="code" title="subfunction match = check_distance_close( D, res_tags, res_tag1, res_tag2 );">check_distance_close</a>( D, res_tags, linker_i.residue1, linker_j.residue1 ) &amp;&amp; <span class="keyword">...</span>
+0041              <a href="#_sub3" class="code" title="subfunction match = check_distance_close( D, res_tags, res_tag1, res_tag2 );">check_distance_close</a>( D, res_tags, linker_i.residue2, linker_j.residue2 ) )
+0042             nbrs = [nbrs; i,j];
+0043         <span class="keyword">elseif</span> (strcmp( domain_assignment_i{1}, domain_assignment_j{2} ) &amp;&amp; <span class="keyword">...</span>
+0044                 strcmp( domain_assignment_i{2}, domain_assignment_j{1}  ) &amp;&amp; <span class="keyword">...</span>
+0045                 <a href="#_sub3" class="code" title="subfunction match = check_distance_close( D, res_tags, res_tag1, res_tag2 );">check_distance_close</a>( D, res_tags, linker_i.residue1, linker_j.residue2 ) &amp;&amp; <span class="keyword">...</span>
+0046                 <a href="#_sub3" class="code" title="subfunction match = check_distance_close( D, res_tags, res_tag1, res_tag2 );">check_distance_close</a>( D, res_tags, linker_i.residue2, linker_j.residue1 ) )
+0047             nbrs = [nbrs; i,j];
+0048         <span class="keyword">end</span>
+0049     <span class="keyword">end</span>
+0050 <span class="keyword">end</span>
+0051 toc
+0052 
+0053 <span class="keyword">if</span> isempty( nbrs); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0054 g_linker = graph(nbrs(:,1),nbrs(:,2));
+0055 bins = conncomp( g_linker );
+0056 
+0057 <span class="keyword">for</span> n = 1:max(bins)
+0058     linker_group = {};
+0059     idx = find( bins == n );
+0060     <span class="keyword">for</span> i = idx;
+0061         <span class="comment">% need to reorder residues in linkers to match 'parent' of linker group.</span>
+0062         linker = linkers{i};
+0063         <span class="keyword">if</span> ~strcmp(domain_assignments{i}{1},domain_assignments{idx(1)}{1} )
+0064             assert( strcmp(domain_assignments{i}{1},domain_assignments{idx(1)}{2} ) );
+0065             assert( strcmp(domain_assignments{i}{2},domain_assignments{idx(1)}{1} ) );
+0066             res1 = linker.residue1;
+0067             res2 = linker.residue2;
+0068             linker.residue1 = res2;
+0069             linker.residue2 = res1;
+0070         <span class="keyword">end</span>
+0071         linker_group = [linker_group, linker ];
+0072     <span class="keyword">end</span>
+0073     linker_groups{i} = linker_group;
+0074 <span class="keyword">end</span>
+0075 
+0076 <span class="comment">% get rid of any linker groups that are all stacks...</span>
+0077 linker_groups = <a href="#_sub4" class="code" title="subfunction linker_groups_filter = filter_groups_without_pairs( linker_groups );">filter_groups_without_pairs</a>( linker_groups );
+0078 
+0079 <span class="comment">%</span>
+0080 <span class="comment">% % allows quick check by eye...</span>
+0081 <span class="comment">% for i = 1:length( linker_groups )</span>
+0082 <span class="comment">%     color = rand(3,1);</span>
+0083 <span class="comment">%     linker_group = linker_groups{i};</span>
+0084 <span class="comment">%     for j = 1:length( linker_group )</span>
+0085 <span class="comment">%         linker = linker_group{j};</span>
+0086 <span class="comment">%         if isfield( linker, 'line_handle' ) set( linker.line_handle, 'color', color ); end;</span>
+0087 <span class="comment">%     end</span>
+0088 <span class="comment">% end</span>
+0089 
+0090 
+0091 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0092 <span class="comment">% deprecated in favor of check_distance_close</span>
+0093 <a name="_sub1" href="#_subfunctions" class="code">function match = check_sequence_close( residue, other_res ) </a>
+0094 <span class="comment">% now look for closeness, based on all residues in parent helix.</span>
+0095 helix = getappdata( gca, other_res.helix_tag );
+0096 match = 0;
+0097 <span class="keyword">for</span> k = 1:length( helix.associated_residues )
+0098     other_helix_res = getappdata( gca, helix.associated_residues{k} );
+0099     <span class="keyword">if</span> strcmp( other_helix_res.chain, residue.chain ) &amp;&amp; <span class="keyword">...</span>
+0100             strcmp( other_helix_res.segid, residue.segid ) &amp;&amp; <span class="keyword">...</span>
+0101             abs( other_helix_res.resnum - residue.resnum ) &lt;= 5
+0102         match = 1; <span class="keyword">return</span>;
+0103     <span class="keyword">end</span>
+0104 <span class="keyword">end</span>
+0105 
+0106 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0107 <span class="comment">% deprecated in favor of check_distance_close</span>
+0108 <a name="_sub2" href="#_subfunctions" class="code">function match = check_graph_close( g, res_tags, res_tag1, res_tag2 );</a>
+0109 [P,d] = shortestpath(g,find(strcmp(res_tags,res_tag1)),find(strcmp(res_tags,res_tag2)));
+0110 match = ( d &lt;= 5 );
+0111 
+0112 
+0113 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0114 <a name="_sub3" href="#_subfunctions" class="code">function match = check_distance_close( D, res_tags, res_tag1, res_tag2 );</a>
+0115 d = D(find(strcmp(res_tags,res_tag1)),find(strcmp(res_tags,res_tag2)));
+0116 match = ( d &lt;= 5 );
+0117 
+0118 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0119 <a name="_sub4" href="#_subfunctions" class="code">function linker_groups_filter = filter_groups_without_pairs( linker_groups );</a>
+0120 linker_groups_filter = {};
+0121 <span class="keyword">for</span> i = 1:length( linker_groups )
+0122     linker_group = linker_groups{i};
+0123     ok = 0;
+0124     <span class="keyword">for</span> j = 1:length( linker_group )
+0125         linker = linker_group{j};
+0126         <span class="keyword">if</span> any(strcmp( linker.type, {<span class="string">'noncanonical_pair'</span>,<span class="string">'ligand'</span>,<span class="string">'long_range_stem_pair'</span>} ) )
+0127             ok = 1;
+0128             <span class="keyword">break</span>;
+0129         <span class="keyword">end</span>
+0130     <span class="keyword">end</span>
+0131     <span class="keyword">if</span> ok
+0132         linker_groups_filter = [ linker_groups_filter, {linker_group} ];
+0133     <span class="keyword">end</span>
+0134 <span class="keyword">end</span>
+0135 
+0136</pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

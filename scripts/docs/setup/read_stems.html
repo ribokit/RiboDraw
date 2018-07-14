@@ -95,11 +95,12 @@ This function is called by:
 0033             helix.name = cols{3};
 0034         <span class="keyword">else</span>
 0035             helix.name = <span class="string">''</span>;
-0036         <span class="keyword">end</span>
-0037         helices = [helices,helix];
-0038         helix.helix_tag = sprintf(<span class="string">'Helix_%s%s%d'</span>,helix.chain1(1),helix.segid1{1},helix.resnum1(1));
-0039     <span class="keyword">end</span>;
-0040 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Fri 24-Nov-2017 17:25:54 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0036             warning( <span class="string">'WARNING! WARNING! No stem name found for %s/%s in file %. You might want to add a third field with names like P1, P1b, P2, etc.'</span>,cols{1},cols{2},helix_file);
+0037         <span class="keyword">end</span>
+0038         helices = [helices,helix];
+0039         helix.helix_tag = sprintf(<span class="string">'Helix_%s%s%d'</span>,helix.chain1(1),helix.segid1{1},helix.resnum1(1));
+0040     <span class="keyword">end</span>;
+0041 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

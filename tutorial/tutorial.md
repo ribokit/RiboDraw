@@ -214,7 +214,7 @@ For RNAs that contain subdomains, it can often be easier to refine the RiboDraw 
 
 In this step, you'll learn how to slice and merge a subdomain of P4-P6 called P5abc.
 
-#### Step 4A
+#### Step 4A. Slice out P5abc
 Let's zoom back out (double click with magnifying glass icon, or type `set_artboards`).
 
 Then, let's slice out the P5abc subdomain
@@ -254,7 +254,7 @@ hide ev, not (chain A and resi 127-195)
 ![Pymol P5abc](images/step4B_pymol_screenshot_slicedrawing_justP5abc.png)
 
 
-#### Step 4B Refine P5abc layout
+#### Step 4B. Refine P5abc layout
 
 Now again edit the linkers, helices, and nucleotides until they look good to you – mostly horizontal and vertical lines, and with nucleotides similar to their arrangement in 3D:
 
@@ -266,7 +266,7 @@ If you want you can save this subdrawing:
 save_drawing( 'subdrawing_P5abc.mat' );
 ```
 
-#### Step 4C Re-install the subdomain into the global drawing
+#### Step 4C. Re-install the subdomain into the global drawing
 You can now move your nice P5abc drawing back into the full drawing of the P4-P6 RNA:
 
 ```Matlab
@@ -334,7 +334,7 @@ hide_linker_controls
 hide_helix_controls
 ```
 
-Then its a matter of setting up domains, and choosing colors. Conveniently, all the colors available in Pymol ("salmon", "teal", "marine", etc.) can be used in RiboDraw, as well as RGB values, as described in the [color_drawing](..//scripts/docs/color/color_drawing.html) documentation.
+Then its a matter of setting up domains, and choosing colors. Conveniently, all the colors available in Pymol ("salmon", "teal", "marine", etc.) can be used in RiboDraw, as well as RGB values, as described in the [color_drawing](..//scripts/color/color_drawing.m) documentation.
 
 Start by making the whole thing gray:
 
@@ -370,7 +370,7 @@ save_drawing( '1gidA_drawing.mat' );
 export_drawing( '1gidA_drawing.png' );
 ```
 
-*Tip:* You can also export to PDF, PS and (maybe) SVG by changing the extension. Check out documentation for [export_drawing](..//scripts/docs/drawing/export_drawing.html).
+*Tip:* You can also export to PDF, PS and (maybe) SVG by changing the extension. Check out documentation for [export_drawing](..//scripts/drawing/export_drawing.m).
 
 Here's my final `.png` result, after a few more tweaks:
  

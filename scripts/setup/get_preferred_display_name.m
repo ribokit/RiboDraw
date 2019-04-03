@@ -51,3 +51,18 @@ switch name
         output_name = 'm^3\psi';
 end
 
+% convert RAD[VirtualPhosphate] to A
+if strcmp( name, output_name ) && length(output_name) > 3 && output_name(4) == ':'
+    switch name(1:3)
+        case 'RAD'
+            output_name = 'A';
+        case 'RCY'
+            output_name = 'C';
+        case 'URA'
+            output_name = 'U';
+        case 'RGU'
+            output_name = 'G';
+    end
+end
+
+

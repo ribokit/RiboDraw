@@ -7,6 +7,7 @@ function res_tags = get_res_tags( residue_string, check_exists );
 % May be redundant with GET_RES().
 %
 % (C) R. Das, Stanford University.
+if ~exist( 'residue_string','var') res_tags = get_res(); return;end;
 if ~exist( 'check_exists','var') check_exists = 0; end;
 res_tags = {};
 if ischar( residue_string )

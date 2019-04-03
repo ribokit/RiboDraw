@@ -197,6 +197,7 @@ if isfield( residue, 'relpos' )
     if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
     residue = draw_tick( residue, plot_settings, R );
     if any(isfield( residue, {'image_boundary','image_radius'} )); residue = draw_image( residue, plot_settings ); end
+    if any(isfield( residue, {'undercircle_face_color','undercircle_ring_color'} )); residue = draw_undercircle( residue, plot_settings ); end
     setappdata( gca, res_tag, residue );
 end
 

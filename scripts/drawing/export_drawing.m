@@ -69,3 +69,5 @@ show_domain_controls( plot_settings.show_domain_controls );
 show_coax_controls( plot_settings.show_coax_controls );
 show_linker_controls( plot_settings.show_linker_controls );
 
+if system( 'which open' ) == 0; system( ['open ',filename] ); end;
+

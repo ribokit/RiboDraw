@@ -61,7 +61,8 @@ for n = 1:length( objnames )
     figure_residue = getappdata( gca, objnames{n} );
     if ~isfield( figure_residue, 'nucleotide' ) continue; end;
     residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','nucleotide',...
-        'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary','image_radius','label_relpos'} );
+        'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary','image_radius','label_relpos',...
+        'undercircle_face_color','undercircle_ring_color'} );
 
     % filter if we sliced residues. could just always do this, but
     % let's save time.

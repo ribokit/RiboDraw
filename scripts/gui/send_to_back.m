@@ -11,6 +11,8 @@ function send_to_back( h )
 % what we used to do. Extremely slow MATLAB function.
 % uistack( h, 'bottom' );
 
-setappdata( h, 'send_to_back', 1 );
+%setappdata( h, 'send_to_back', 1 );
+setappdata( h, 'layer_level', 3 );
+
 
 

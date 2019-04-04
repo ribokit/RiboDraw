@@ -16,6 +16,7 @@ function rgb_color = pymol_RGB( colorname )
 rgb_color = -1;
 if ~ischar( colorname )
     rgb_color = rgb( colorname );
+    return;
 end
 if ischar( colorname ) && colorname(1) == '#'
     rgb_color = hex2rgb(colorname); return;

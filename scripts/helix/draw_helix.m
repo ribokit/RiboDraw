@@ -282,14 +282,17 @@ if isfield(residue,'ligand_partners'); return; end;
 
 if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set later based on how helix is rotated.
 
+color = 'k';
+if isfield( plot_settings, 'line_color' ); color = plot_settings.line_color; end;
+
 if ~isfield( residue, 'tick_handle' ) | ~isvalid( residue.tick_handle )
-    residue.tick_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.
+    residue.tick_handle = plot( [0,0],[0,0],color,'linewidth',0.5,'clipping','off'); % dummy for now -- will get redrawn later.
     setappdata( gca, residue.res_tag, residue );
 end
 
 if ~isfield( residue, 'tick_label' ) | ~isvalid( residue.tick_label )
     residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', plot_settings.fontsize,...
-        'horizontalalign','center','verticalalign','middle','clipping','off' );
+        'horizontalalign','center','verticalalign','middle','clipping','off','color',color );
     setappdata( gca, residue.res_tag, residue );
 end
 

@@ -113,6 +113,7 @@ convert_nucleotide_to_name();
 convert_undercircle_field_names();
 convert_problem_helices_to_domains; % happens when helices get disconnected across multiple input domains.
 draw_helices( get_helices( loaddata ) );
+set_bg_color(); % based on plot_settings.bg_color
 move_stuff_to_back();
 
 %show_artboards();

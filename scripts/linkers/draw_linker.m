@@ -183,6 +183,9 @@ switch linker.type
         send_to_back( linker.line_handle );
 end
 
+if isfield( linker, 'line_handle' ) & isfield( plot_settings, 'line_color' )
+    set( linker.line_handle, 'color', plot_settings.line_color );
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function h = create_undercircle( bp_spacing );
@@ -260,6 +263,7 @@ set( h, 'ydata', ...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_arrow_style( linker, plot_settings )
 color = 'k';  %black is default
+if isfield( plot_settings, 'line_color' ); color = plot_settings.line_color; end;
 residue1 = getappdata(gca,linker.residue1);
 if ( isfield( plot_settings, 'color_arrows' ) & plot_settings.color_arrows & isfield( residue1, 'rgb_color' ) ); color = residue1.rgb_color; end
 set( linker.line_handle, 'color',color);

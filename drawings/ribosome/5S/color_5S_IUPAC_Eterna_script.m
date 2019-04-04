@@ -1,4 +1,4 @@
-fix_original_names( '../23S/rna_motif/4ybb_23S_5S_RPL.pdb.fasta' )
+fix_original_names( '../23S_5S/rna_motif/4ybb_23S_5S_RPL.pdb.fasta' )
 
 color_undercircles_by_residue_type;
 % > 10%

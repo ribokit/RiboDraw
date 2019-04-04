@@ -28,6 +28,9 @@ if isstruct( filename )
 else
     assert( ischar( filename ) )
     tic
+    if ~exist( filename,'file' ) & exist( [filename,'.mat'], 'file' )
+        filename = [filename, '.mat'];
+    end
     if length(filename) > 4 & strcmp( filename( end-3:end ), '.mat' )
         fprintf( 'Reading MATLAB workspace  %s\n', filename );
         drawing = load( filename, 'drawing' );

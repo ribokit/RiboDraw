@@ -14,6 +14,7 @@ function move_stuff_to_back()
 x = get( gca, 'Children' );
 tic
 fprintf( 'Moving graphic elements to back... could take a while.\n' );
+layer_level = zeros(1,length(x));
 for i = 1:length(x)
     if isappdata( x(i), 'layer_level' )
         layer_level(i) = getappdata(x(i),'layer_level');

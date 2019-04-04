@@ -32,7 +32,7 @@ if ( ~isfield( plot_settings, 'show_undercircles') || plot_settings.show_underci
             setappdata( residue.undercircle_handle2, 'layer_level', 0.9 ); % just above top_of_back (1) 
             setappdata( residue.undercircle_handle2, 'res_tag', residue.res_tag );
         end
-        [x,y] = get_undercircle_xy( 3.2 * plot_settings.bp_spacing/10 );
+        [x,y] = get_undercircle_xy( 3.5 * plot_settings.bp_spacing/10 );
         set( residue.undercircle_handle2, ...
             'XData', x + residue.plot_pos(:,1), ...
             'YData', y + residue.plot_pos(:,2) );

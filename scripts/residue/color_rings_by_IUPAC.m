@@ -31,9 +31,9 @@ for i = 1:length( res_tags )
     end;
     if all( ~strcmp( IUPAC_symbol, IUPAC_letters ) ); continue; end;
     rgb_color = IUPAC_Eterna_colors(IUPAC_symbol);
-    residue.undercircle_ring_color = hex2rgb(rgb_color );
+    residue.ring_color = hex2rgb(rgb_color );
     setappdata( gca, res_tags{i}, residue );
-    if isfield(residue,'undercircle_ring_color' ); draw_undercircle( residue, plot_settings ); end;
+    if isfield(residue,'ring_color' ); draw_fill_and_ring_circle( residue, plot_settings ); end;
 end
-move_stuff_to_back;
+show_ring_circles;
 

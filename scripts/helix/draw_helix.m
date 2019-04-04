@@ -180,6 +180,7 @@ if isfield( residue, 'relpos' )
 
     residue = draw_residue( residue );
     h = residue.handle;
+
     set( h, 'Position', pos );
     setappdata( residue.handle, 'res_tag', res_tag );
     residue = draw_tick( residue, plot_settings, R );

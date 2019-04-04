@@ -3,7 +3,7 @@ hide_tertiary_contacts
 hide_ligand_linkers
 
 color_drawing black
-color_undercircles_by_residue_type;
+color_fill_circles_by_residue_type;
 
 % > 10%
 IUPAC_5S_Eterna = 'UGYYUGRYGRCMAUAGMRHDDUGGWMCCACCYGAYYCCAUBCCGAACUCRGHAGUGAAACGNHDYWKCGCCGAUGRUAGUGUGGSGHYUCSCCAUGYGARAGUAGGDMAYYGYCARRYWU';

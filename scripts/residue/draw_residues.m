@@ -9,5 +9,5 @@ if ~exist( 'plot_settings','var' ) plot_settings = getappdata( gca, 'plot_settin
 res_tags = get_res();
 for i = 1:length( res_tags )
     residue = getappdata( gca, res_tags{i} );
-    draw_residue( residue, plot_settings );
+    residue = draw_residue( residue, plot_settings );
 end

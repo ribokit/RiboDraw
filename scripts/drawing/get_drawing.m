@@ -15,7 +15,7 @@ function savedata = get_drawing( slice_res );
 % (C) R. Das, Stanford University, 2017
 
 savedata = struct();
-savedata.version = '0.70';
+savedata.version = '0.701';
 residue_tags = get_residue_tags();
 helix_tags = get_helix_tags();
 linker_tags = get_linker_tags();
@@ -62,7 +62,7 @@ for n = 1:length( objnames )
     if ~isfield( figure_residue, 'name' ) continue; end;
     residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','name','original_name','non_standard_name'...
         'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary','image_radius','label_relpos',...
-        'undercircle_face_color','undercircle_ring_color'} );
+        'fill_color','ring_color'} );
 
     % filter if we sliced residues. could just always do this, but
     % let's save time.

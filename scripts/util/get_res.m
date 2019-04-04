@@ -66,8 +66,8 @@ else
                     obj_name = objnames{n};
                     break;
                 end
-                if isfield( obj, 'nucleotide' ) & ...
-                       strcmp( obj.nucleotide, selection )
+                if isfield( obj, 'name' ) & ...
+                       strcmp( obj.name, selection )
                     res_tags = { objnames{n} };
                     obj_name = objnames{n};
                     break;

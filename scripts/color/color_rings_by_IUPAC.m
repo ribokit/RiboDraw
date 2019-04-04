@@ -1,7 +1,7 @@
 function color_rings_by_IUPAC( residue_string, IUPAC_symbols )
 % color_rings_by_IUPAC( residue_string, IUPAC_symbols )
 %
-% Create rings around nucleotides and color by Anderson-Lee/Fisker/Wellington-Oguri Eterna colors.
+% Create rings around names and color by Anderson-Lee/Fisker/Wellington-Oguri Eterna colors.
 %
 % INPUTS
 %
@@ -32,7 +32,7 @@ for i = 1:length( res_tags )
     if ~isappdata( gca, res_tags{i} ); continue; end;
     residue = getappdata( gca, res_tags{i} );
     if length( IUPAC_symbols ) == 0; 
-        IUPAC_symbol = residue.nucleotide; 
+        IUPAC_symbol = residue.name; 
     else
         IUPAC_symbol = IUPAC_symbols(i);
     end;

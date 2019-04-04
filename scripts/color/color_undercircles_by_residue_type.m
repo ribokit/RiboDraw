@@ -9,7 +9,7 @@ res_tags = get_res();
 plot_settings = getappdata(gca,'plot_settings' );
 for i = 1:length( res_tags )
     residue = getappdata( gca, res_tags{i} );
-    switch residue.nucleotide
+    switch residue.name
         case 'A'
             residue.undercircle_face_color = hex2rgb('#FFE500');
         case 'C'

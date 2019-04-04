@@ -48,7 +48,8 @@ for i = 1:length(resnum)
     residue.resnum = res;
     residue.helix_tag = stems{n}.helix_tag;
     seqpos = intersect(strfind(chains,chain), find(resnum==res));
-    residue.nucleotide = upper(sequence(seqpos));
+    residue.name = upper(sequence(seqpos));
+    residue.original_name = sequence(seqpos);
     residue.res_tag = res_tag;
     residue.linkers = {};
     setappdata( gca, res_tag, residue );

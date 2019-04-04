@@ -124,7 +124,7 @@ switch linker.type
     case 'stem_pair'
         residue1 = getappdata( gca, linker.residue1 );
         residue2 = getappdata( gca, linker.residue2 );
-        bp = [residue1.nucleotide,residue2.nucleotide];
+        bp = [residue1.name,residue2.name];
         linker.line_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
         switch bp
             case {'AU','UA','GC','CG' } % could also show double lines for G-C. Not my preference.

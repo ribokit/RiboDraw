@@ -53,7 +53,7 @@ not_helix_res_tags = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
-    if ~isfield( residue, 'nucleotide' ) continue; end;
+    if ~isfield( residue, 'name' ) continue; end;
     if ~isfield( residue, 'relpos' ) 
         residue.relpos = set_default_relpos( residue, helix, plot_settings ); 
         setappdata( gca, res_tag, residue );
@@ -178,7 +178,7 @@ if isfield( residue, 'relpos' )
     if ~isfield( residue, 'handle' ) | ~isvalid( residue.handle )
         residue.handle = text( ...
             0, 0,...
-            residue.nucleotide,...
+            residue.name,...
             'fontsize', plot_settings.fontsize, ...
             'fontname','helvetica','horizontalalign','center','verticalalign','middle',...
             'clipping','off');
@@ -190,7 +190,7 @@ if isfield( residue, 'relpos' )
     if ( plot_settings.fontsize ~= get( residue.handle, 'fontsize' ) ) set( residue.handle, 'fontsize', plot_settings.fontsize ); end;
     h = residue.handle;
     set( h, 'Position', pos );
-    if ( length( residue.nucleotide ) > 1 ) set( h, 'fontsize', plot_settings.fontsize*4/5); end;
+    if ( length( residue.name ) > 1 ) set( h, 'fontsize', plot_settings.fontsize*4/5); end;
     setappdata( residue.handle, 'res_tag', res_tag );
     residue.res_tag = res_tag;
     residue.plot_pos = pos;

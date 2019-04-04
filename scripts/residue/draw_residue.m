@@ -24,7 +24,7 @@ end
 if ( plot_settings.fontsize ~= get( residue.handle, 'fontsize' ) ) set( residue.handle, 'fontsize', plot_settings.fontsize ); end;
 h = residue.handle;
 if ( length( residue.name ) > 1 ) set( h, 'fontsize', plot_settings.fontsize*4/5); end;
-if ( residue.name ~= h.String ) set( h, 'String', residue.name); end;
+if ( ~strcmp(residue.name, h.String) ) set( h, 'String', residue.name); end;
 if isfield( residue, 'rgb_color' ) set(h,'color',residue.rgb_color ); end;
 if any(isfield( residue, {'image_boundary','image_radius'} )); residue = draw_image( residue, plot_settings ); end
 if any(isfield( residue, {'undercircle_face_color','undercircle_ring_color'} )); residue = draw_undercircle( residue, plot_settings ); end

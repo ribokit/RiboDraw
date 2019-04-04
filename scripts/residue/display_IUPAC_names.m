@@ -31,4 +31,4 @@ for i = 1:length( res_tags )
     draw_residue( residue );
 end
 fprintf( 'Type \n\n display_nucleotide_names\n\nto restore original nucleotide names.\n' )
-
+move_stuff_to_back

@@ -21,6 +21,7 @@ helix_tags = get_helix_tags();
 linker_tags = get_linker_tags();
 selection_tags = get_selection_tags();
 tertiary_contact_tags = get_tertiary_contact_tags();
+motif_tags = get_motif_tags();
 
 if exist( 'slice_res', 'var' )
     slice_res_tags = get_res( slice_res );
@@ -36,6 +37,7 @@ savedata = save_helices(           savedata, helix_tags );
 savedata = save_linkers(           savedata, linker_tags );
 savedata = save_selections(        savedata, selection_tags );
 savedata = save_tertiary_contacts( savedata, tertiary_contact_tags );
+savedata = save_motifs( savedata, motif_tags );
 
 savedata.plot_settings   = getappdata( gca, 'plot_settings' );
 savedata.xlim            = get(gca, 'xlim' );
@@ -62,7 +64,7 @@ for n = 1:length( objnames )
     if ~isfield( figure_residue, 'name' ) continue; end;
     residue = copy_fields( figure_residue, {'resnum','chain','segid','res_tag','helix_tag','name','original_name','non_standard_name'...
         'stem_partner','tickrot','rgb_color','relpos','linkers','associated_selections','ligand_partners','image_boundary','image_radius','label_relpos',...
-        'fill_color','ring_color'} );
+        'fill_color','ring_color','associated_motifs'} );
 
     % filter if we sliced residues. could just always do this, but
     % let's save time.
@@ -96,7 +98,6 @@ for n = 1:length( objnames )
     savedata = setfield( savedata, objnames{n}, selection );
 end
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function savedata = save_tertiary_contacts( savedata, objnames )
 
@@ -105,6 +106,16 @@ for n = 1:length( objnames )
     figure_selection = getappdata( gca, objnames{n} );
     selection = copy_fields( figure_selection, {'associated_residues1','associated_residues2','name','tertiary_contact_tag',...
         'interdomain_linker','intradomain_linkers1','intradomain_linkers2','linkers'} );
+    savedata = setfield( savedata, objnames{n}, selection );
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function savedata = save_motifs( savedata, objnames )
+
+for n = 1:length( objnames )
+    assert( ~isempty( strfind( objnames{n}, 'Motif_' ) ) );
+    figure_selection = getappdata( gca, objnames{n} );
+    selection = copy_fields( figure_selection, {'motif_type','associated_residues','motif_tag'});
     savedata = setfield( savedata, objnames{n}, selection );
 end
 
@@ -149,6 +160,9 @@ tags = sort( get_tags( 'Selection_' ) );
 function tags = get_tertiary_contact_tags();
 tags = sort( get_tags( 'TertiaryContact_' ) );
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function tags = get_motif_tags();
+tags = sort( get_tags( 'Motif_' ) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    

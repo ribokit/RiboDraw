@@ -15,6 +15,7 @@ function initialize_drawing( tag )
 %                RNA.pdb.other_contacts.txt
 %                RNA.pdb.stems.txt
 %                RNA.pdb.ligands.txt    
+%                RNA.pdb.motifs.txt    
 %
 % (C) R. Das, Stanford University, 2017
 
@@ -24,7 +25,7 @@ base_stacks = read_base_stacks( [tag,'.stacks.txt'] ); % includes noncanonical p
 other_contacts = read_other_contacts( [tag,'.other_contacts.txt'] );
 stems = read_stems( [tag,'.stems.txt'] );
 ligands = read_ligands([tag,'.ligands.txt']);
-
+motifs = read_motifs( [tag, '.motifs.txt'] );
 clf; set(gca,'Position',[0 0 1 1]);
 hold on
 t = zeros( 1, length(sequence ) );
@@ -43,8 +44,8 @@ try_non_standard_names( sequence, resnum, chains, segid, non_standard_residues);
 
 %coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );
 %setup_coaxial_stacks( coaxial_stacks );
-
 setup_ligands( ligands );
+setup_motifs( motifs );
 
 draw_helices( stems );
 setup_zoom();

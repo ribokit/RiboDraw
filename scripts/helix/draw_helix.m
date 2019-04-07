@@ -84,15 +84,21 @@ helix = make_helix_label( helix, plot_settings, R );
 
 % Selections (if they exist)
 selections = {};
+motifs = {};
 for i = 1:length( helix.associated_residues )
     res_tag = helix.associated_residues{i};
     residue = getappdata( gca, res_tag );
     if isfield( residue, 'associated_selections' ) & length( residue.associated_selections ) > 0
         selections = [ selections, residue.associated_selections ];
     end    
+    if isfield( residue, 'associated_motifs' ) & length( residue.associated_motifs ) > 0
+        motifs = [ motifs, residue.associated_motifs ];
+    end    
 end
 selections = unique( selections );
 draw_selections( selections );
+motifs = unique( motifs );
+draw_motifs( motifs );
 
 % handles for helix editing
 % rectangle for dragging.

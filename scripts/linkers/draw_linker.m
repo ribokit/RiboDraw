@@ -34,7 +34,8 @@ end;
 toggle_types    = {'stack',      'other_contact',      'noncanonical_pair',      'stem_pair',      'long_range_stem_pair','ligand',             'tertcontact_intradomain','tertcontact_interdomain' };
 toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs',     'show_ligand_linkers','show_tertiary_contacts', 'show_tertiary_contacts'};
 for i = 1:length(toggle_types)
-    if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i}) 
+    if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i})
+        if isfield(linker, 'motif_tag' ) && isfield( plot_settings, 'show_motifs' ) && plot_settings.show_motifs; continue; end; % over-ride if show_motifs and linker is part of motif.
         if isfield(linker,'line_handle'); linker = delete_linker( linker, 0 ); end;
         return;
     end;
@@ -106,6 +107,7 @@ if isfield( linker, 'node1' ); update_symbol( linker.node1, end_pos1,v,1,plot_se
 if isfield( linker, 'node2' ); update_symbol( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*3 ); end; 
 if any(strcmp(linker.type, {'tertcontact_interdomain','tertcontact_intradomain'} )); linker = update_tertiary_contact( linker, plot_pos, plot_settings ); end;
 if strcmp( linker.type, 'ligand' ) update_ligand_linker( linker, plot_settings ); end;
+if isfield( linker, 'motif_tag' ) linker = update_motif_linker( linker, plot_settings ); end;
 
 % if there are vertex symbols at end points, re-draw them.
 if isfield( linker, 'vtx' )
@@ -351,7 +353,7 @@ for i = 1:length( residue1.linkers )
         end
     end
 end
-
+    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function linker = update_tertiary_contact( linker, plot_pos, plot_settings );
 if ~isfield( linker, 'tertiary_contact' ) linker
@@ -504,6 +506,7 @@ function setting = show_tertiary_noncanonical_pair( linker, plot_settings )
 % for show/hide interdomain_noncanonical_pairs
 setting = 1;
 if ~isfield( plot_settings, 'show_tertiary_noncanonical_pairs' ) return; end;
+if isfield(linker, 'motif_tag' ) && isfield( plot_settings, 'show_motifs' ) && plot_settings.show_motifs; return; end; % over-ride if show_motifs and linker is part of motif.
 if ~plot_settings.show_tertiary_noncanonical_pairs
     if isfield( linker, 'tertiary_contact' ) && length(linker.tertiary_contact) > 0
         setting = 0;
@@ -529,6 +532,27 @@ linecolor = rescolor1;
 if all( rescolor1 == 0 ); linecolor = rescolor2; end; 
 linecolor = fade_color( linecolor );
 
-
     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function linker = update_motif_linker( linker, plot_settings );
+assert( isfield( linker, 'motif_tag' ) );
+if ( ~isfield( plot_settings, 'show_motifs' ) || plot_settings.show_motifs == 0 );
+    if isfield( linker, 'motif_line_handle' )
+        delete( linker.motif_line_handle );
+        linker = rmfield( linker, 'motif_line_handle' );
+    end
+    return;
+end
+    
+if ~isfield( linker, 'motif_line_handle' )
+   linker.motif_line_handle = plot( [0,0],[0,0],'k','linewidth',0.5,'clipping','off' ); % dummy for now -- will get redrawn later.
+   [ rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels ] = get_rna_motif_info();
+   motif = gd( linker.motif_tag );
+   set( linker.motif_line_handle, 'color', pymol_RGB(rna_motif_colors( motif.motif_type )) );
+   setappdata( linker.motif_line_handle, 'layer_level', rna_motif_layer_levels( motif.motif_type ) );
+end
+set( linker.motif_line_handle, 'linewidth', 1.5*get_arrow_linewidth( plot_settings.fontsize ) );
+set( linker.motif_line_handle, 'xdata', get(linker.line_handle, 'xdata' ) );
+set( linker.motif_line_handle, 'ydata', get(linker.line_handle, 'ydata' ) );
+
 

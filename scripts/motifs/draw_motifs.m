@@ -40,6 +40,7 @@ if length( motif_residue_sets ) == 0; motif_residue_sets{1} = [1:length(motif.as
 num_motifs = length( motif_residue_sets );
 if ~isfield( plot_settings, 'show_motifs' ) || plot_settings.show_motifs == 0; num_motifs = 0; end; 
 motif = draw_highlight_box_handles( motif, num_motifs );
+motif = draw_linker_handle( motif, motif_residue_sets );
 
 for n = 1:num_motifs
     set( motif.highlight_box_handles{n}, 'facecolor', pymol_RGB( rna_motif_colors( motif.motif_type) ) );
@@ -73,6 +74,38 @@ motif.highlight_box_handles = motif.highlight_box_handles(1:num_handles);
 if length( original_handles ) ~= length( motif.highlight_box_handles )
     if ( num_handles == 0 && isfield( motif, 'highlight_box_handles') ) motif = rmfield( motif, 'highlight_box_handles' ); end;
     setappdata( gca, motif.motif_tag, motif );
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%
+function motif = draw_linker_handle( motif, motif_residue_sets );
+
+% if no rounded rectangles, no linkers either.
+if ~isfield( motif, 'highlight_box_handles' ) 
+    if isfield( motif, 'linker_tag' ); draw_linker( motif.linker_tag ); end; % will wipe it out
+    return; 
+end; 
+if length( motif_residue_sets ) < 2; return; end;
+assert( length( motif_residue_sets ) == 2 );
+tags = get_tags( 'Linker' );
+motif_residues{1} = motif.associated_residues( motif_residue_sets{1} );
+motif_residues{2} = motif.associated_residues( motif_residue_sets{2} );
+for i = 1:length( tags )
+    linker = gd( tags{i} );
+    if strcmp( linker.type, 'arrow' ) continue; end;
+    if ( ( any(strcmp( linker.residue1, motif_residues{1} ) ) && ...
+            any(strcmp( linker.residue2, motif_residues{2} ) ) ) || ...
+         ( any(strcmp( linker.residue1, motif_residues{2} ) ) && ...
+            any(strcmp( linker.residue2, motif_residues{1} ) ) ) )
+        motif.linker_tag = linker.linker_tag;
+        % fprintf( [motif.motif_tag, ' ', motif.linker_tag, '\n'] );
+        setappdata( gca, motif.motif_tag, motif );
+
+        linker.motif_tag = motif.motif_tag;
+        setappdata( gca, linker.linker_tag, linker );
+        draw_linker( linker );
+        break;
+    end
 end
     
 %%%%%%%%%%%%%%%%%%%%%

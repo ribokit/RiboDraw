@@ -69,8 +69,9 @@ for i = (num_handles+1):length(  motif.highlight_box_handles )
     if isvalid( h ) delete(h); end;
 end
 motif.highlight_box_handles = motif.highlight_box_handles(1:num_handles);
-
+    
 if length( original_handles ) ~= length( motif.highlight_box_handles )
+    if ( num_handles == 0 && isfield( motif, 'highlight_box_handles') ) motif = rmfield( motif, 'highlight_box_handles' ); end;
     setappdata( gca, motif.motif_tag, motif );
 end
     

@@ -38,7 +38,7 @@ function motif = draw_motif( motif, plot_settings, rna_motif_residue_sets, rna_m
 motif_residue_sets = rna_motif_residue_sets( motif.motif_type );
 if length( motif_residue_sets ) == 0; motif_residue_sets{1} = [1:length(motif.associated_residues)]; end;
 num_motifs = length( motif_residue_sets );
-
+if ~isfield( plot_settings, 'show_motifs' ) || plot_settings.show_motifs == 0; num_motifs = 0; end; 
 motif = draw_highlight_box_handles( motif, num_motifs );
 
 for n = 1:num_motifs
@@ -68,6 +68,8 @@ for i = (num_handles+1):length(  motif.highlight_box_handles )
     h = motif.highlight_box_handles{i};
     if isvalid( h ) delete(h); end;
 end
+motif.highlight_box_handles = motif.highlight_box_handles(1:num_handles);
+
 if length( original_handles ) ~= length( motif.highlight_box_handles )
     setappdata( gca, motif.motif_tag, motif );
 end

@@ -25,7 +25,7 @@ motif_tags = get_motif_tags();
 
 if exist( 'slice_res', 'var' )
     slice_res_tags = get_res( slice_res );
-    [residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
+    [residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, motif_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, motif_tags );    
     if ~ok; return; end;
 else
     slice_res_tags = {};
@@ -165,7 +165,7 @@ function tags = get_motif_tags();
 tags = sort( get_tags( 'Motif_' ) );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
+function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, new_motif_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, motif_tags );    
 fprintf( 'Filtering by slice_res\n' );
 tic
 ok = 1;
@@ -175,6 +175,7 @@ new_helix_tags   = {};
 new_linker_tags  = {}; 
 new_selection_tags = {};
 new_tertiary_contact_tags = {};
+new_motif_tags = {};
 
 % residues
 new_residue_tags = intersect( slice_res_tags, residue_tags );
@@ -240,6 +241,17 @@ for i = 1:length( tertiary_contact_tags )
         new_tertiary_contact_tags = [new_tertiary_contact_tags, tag ];
     end
 end
+
+
+% motifs
+for i = 1:length( motif_tags )
+    tag = motif_tags{i};
+    motif = getappdata( gca, tag );
+    motif_res_tags = unique(motif.associated_residues);
+    if length(intersect(motif_res_tags, slice_res_tags )) < length(motif_res_tags); continue; end;
+    new_motif_tags = [new_motif_tags, tag ];
+end
+
 toc
 
 

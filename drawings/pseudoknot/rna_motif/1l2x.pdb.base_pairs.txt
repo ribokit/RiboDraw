@@ -1,0 +1,13 @@
+A:4 A:17 W W C 
+A:12 A:26 W W C 
+A:5 A:16 W W C 
+A:11 A:27 W W C 
+A:7 A:14 W W C 
+A:6 A:15 W W C 
+A:10 A:28 W W C 
+A:3 A:18 W W C 
+A:14 A:25 S W C 
+A:8 A:12 W H T 
+A:7 A:24 S W T 
+A:4 A:20 S W T 
+A:15 A:23 S W C 

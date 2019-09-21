@@ -17,7 +17,7 @@ function coords = export_coordinates( filename, image_size );
 
 if nargin < 1; help( mfilename ); return; end;
 
-res_tags = get_tags('Residue');
+res_tags = get_res(); % get_tags('Residue');
 xl = get( gca,'xlim' );
 yl = get(gca,'ylim');
 if ~exist( 'image_size','var')

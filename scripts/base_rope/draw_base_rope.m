@@ -4,9 +4,19 @@ function draw_base_rope();
 % Draw a smooth 'rope' under all the bases.
 % Later, create separate ropes by chain.
 
-if ~isappdata( gca, 'BaseRope' );
-    setappdata( gca, 'BaseRope', struct()  );
+
+plot_settings = get_plot_settings();
+if ~isfield( plot_settings, 'show_base_rope' ) || ~plot_settings.show_base_rope; 
+    % should not be a base rope!
+    if isappdata( gca, 'BaseRope' );
+        base_rope = getappdata( gca, 'BaseRope' );
+        rmgraphics( base_rope, {'line_handle','line_handle2'} );
+        rmappdata( gca, 'BaseRope' );
+    end
+    return;
 end
+
+if ~isappdata( gca, 'BaseRope' ); setappdata( gca, 'BaseRope', struct()  ); end
 base_rope = getappdata( gca, 'BaseRope' );
 
 res_tags = get_res();

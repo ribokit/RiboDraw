@@ -13,6 +13,9 @@ for i = 1:length( res_tags )
     residue = getappdata( gca, res_tags{i} );
     if isfield( residue, 'plot_pos' )
         all_pos = [all_pos; residue.plot_pos ];
+        if isfield( 'residue', 'tick_label' ) && isfield( residue.tick_label, 'labelpos' )
+            all_pos = [all_pos; labelpos ];
+        end
     end
 end
 %
@@ -34,23 +37,23 @@ end
 
 tags = fields(getappdata(gca));
 for i = 1:length( tags )
-     obj = getappdata( gca, tags{i} );
-     if isfield( obj, 'label' ) 
-         if strcmp(get(obj.label,'visible'),'on')
-             label_pos =  get(obj.label,'position');
-             all_pos = [all_pos; label_pos(1:2)];
-         end
-     end
- end
+    obj = getappdata( gca, tags{i} );
+    if isfield( obj, 'label' )
+        if strcmp(get(obj.label,'visible'),'on')
+            label_pos =  get(obj.label,'position');
+            all_pos = [all_pos; label_pos(1:2)];
+        end
+    end
+end
 
 min_pos = min( all_pos );
 max_pos = max( all_pos );
 dims = (max_pos - min_pos);
 plot_settings = getappdata( gca, 'plot_settings' );
 fontsize_in_axis_units = plot_settings.fontsize / get_fontsize_over_axisunits();
-nudge_pos = max( dims*0.025, 2*fontsize_in_axis_units * [1 1]);
+nudge_pos = max( dims*0.025, 2.5*fontsize_in_axis_units * [1 1]);
 axes =  [min_pos - nudge_pos; min_pos + dims + nudge_pos ];
- 
+
 axis( reshape( axes, [1 4] ) );
 update_artboards();
 update_graphics_size();

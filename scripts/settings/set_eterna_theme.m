@@ -19,10 +19,12 @@ plot_settings.eterna_theme = 1;
 plot_settings.font_size = 12;
 plot_settings.show_arrows = 0;
 plot_settings.show_stem_pairs = 0;
+plot_settings.show_base_rope = 1;
 setappdata( gca, 'plot_settings', plot_settings );
 color_fill_circles_eterna;
 
 draw_helices(); % force redraw of everything, including base rope.
+move_stuff_to_back()
 
 fprintf( '\n Type set_default_theme() to restore the usual colors.\n' )
 set_artboards

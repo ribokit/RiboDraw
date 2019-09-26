@@ -29,7 +29,7 @@ for i = 1:length( res_tags )
 end
 
 N = size( coords, 1 );
-t = [1:0.1:N];
+t = [1:(1/5):N];
 interp_method = 'spline';
 x = interp1( 1:N, coords(:,1), t, interp_method );
 y = interp1( 1:N, coords(:,2), t, interp_method );

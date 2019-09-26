@@ -40,7 +40,7 @@ for i = 1:length( res_tags )
         if isfield( residue, 'rgb_color' )
             residue.original_rgb_color = residue.rgb_color;
             residue.fill_color = residue.rgb_color;
-            residue.rgb_color = 'k';
+            residue.rgb_color = [0,0,0];
         end
     end
     residue.ring_color = [0.7 0.7 0.7];

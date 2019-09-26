@@ -69,7 +69,7 @@ for n = 1:length( res_tags )
     % relevant for eterna mode:
     if isfield( residue, 'fill_color' )
         residue.fill_color = res_colors(n,:);
-        residue.rgb_color = 'k';
+        residue.rgb_color = [0,0,0];
     end
     if isfield( residue, 'handle' ) 
         set( residue.handle, 'color', residue.rgb_color );

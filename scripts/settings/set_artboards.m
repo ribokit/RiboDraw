@@ -1,12 +1,17 @@
-function set_artboards();
+function set_artboards( N );
 % set_artboards();
 %
 % Reset the axis limits of the figure based on the minimum and
 %  maximum position of the residues. (Plus an extra +/- 2.5% margin.)
 %
-% (C) R. Das, Stanford University, 2017
+% Inputs:
+%
+%   N = number of times to rerun [default 2]
+%
+% (C) R. Das, Stanford University, 2017-2019
 
 all_pos = [];
+if ~exist( 'N', 'var' ); N = 2; end
 
 res_tags = get_tags( 'Residue_' );
 for i = 1:length( res_tags )
@@ -57,3 +62,5 @@ axes =  [min_pos - nudge_pos; min_pos + dims + nudge_pos ];
 axis( reshape( axes, [1 4] ) );
 update_artboards();
 update_graphics_size();
+
+if ( N > 1 ); set_artboards( N - 1 ); end;

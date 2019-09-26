@@ -31,7 +31,7 @@ end
 axis image
 axis off
 set(gca,'ydir','reverse')
-set(gcf,'color',[0.1 0.1 0.25] );
+set(gcf,'color',[16,33,59]/255 );
 
 % print out an array that I can use for typescript. 
 % Make this a ribodraw function.

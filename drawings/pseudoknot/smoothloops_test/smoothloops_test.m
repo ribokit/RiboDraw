@@ -1,4 +1,4 @@
-load 1l2x_coords.mat % coords variable
+load ../1l2x_coords.mat % coords variable
 clf
 set(figure(2),'position',[   184   649   223   283 ]);
 set(gcf, 'PaperPositionMode','auto','color','white');

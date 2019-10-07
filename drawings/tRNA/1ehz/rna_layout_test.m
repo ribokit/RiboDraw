@@ -15,3 +15,7 @@ rna_layout( pairs, targetPairs, customLayout );
 subplot(2,2,3);
 pairs = secstruct_to_pairs( '((((((...((((........)))).(((((.......))))).....(((((.......))))).))))))....' );
 rna_layout( pairs, targetPairs, customLayout );
+
+subplot(2,2,4);
+pairs = secstruct_to_pairs( '.(((((...((((........)))).(((((.......))))).....(((((.......))))).))))).....' );
+rna_layout( pairs, targetPairs, customLayout );

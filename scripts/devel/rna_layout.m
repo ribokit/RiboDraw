@@ -29,6 +29,7 @@ plot( xy(:,1),xy(:,2),'o-');
 set(gca,'ydir','reverse');
 axis image
 plotTree( nodes, 1);
+axis off
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -412,8 +413,10 @@ end
 function plotTree( nodes, node_number );
 node = nodes{node_number};
 if isfield( node, 'indexA' )
-    text( node.xy(1), node.xy(2), num2str(node.nodenumber),'horizontalalign','center','verticalalign','middle'); hold on
-    plot( node.xy(1) + 10*[0,node.go(1)], node.xy(2)+10*[0,node.go(2)], 'r','linew',1.5 ); 
+    %text( node.xy(1), node.xy(2), num2str(node.nodenumber),'horizontalalign','center','verticalalign','middle');
+    hold on
+    plot( node.xy(1), node.xy(2),'r.');
+    plot( node.xy(1) + 10*[0,node.go(1)], node.xy(2)+10*[0,node.go(2)], 'r','linew',1.2 );
 end
 for i = 1:length(node.children)
     child = nodes{ node.children(i) }; hold on

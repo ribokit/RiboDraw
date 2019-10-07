@@ -22,10 +22,8 @@ displayTree( nodes, 1, 0 );
 function nodes = setupTree( pairs )
 
 bi_pairs = pairs;
-root = rna_tree_node(1);
-nodes = {root};
-rootnumber = root.nodenumber;
-
+nodes = {};
+[nodes,rootnumber] = create_rna_tree_node( nodes );
 jj = 1;
 while jj <= length( bi_pairs )
     if bi_pairs(jj) > 0;
@@ -34,60 +32,61 @@ while jj <= length( bi_pairs )
         jj = pairs( jj); % skip ahead
     else
         % unpaired
-        node = rna_tree_node( length(nodes) ); % hmmm need to save this somewhere?
-        node.isPair = false;
-        node.indexA = jj;
-        nodes = [ nodes, node ];
-        nodes{rootnumber}.children = [nodes{rootnumber}.children, length(nodes) ];
+        [nodes,nodenumber] = create_rna_tree_node( nodes ); % hmmm need to save this somewhere?
+        nodes{nodenumber}.isPair = false;
+        nodes{nodenumber}.indexA = jj;
+        nodes{rootnumber}.children = [nodes{rootnumber}.children, nodenumber ];
     end
     jj = jj + 1;
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function nodes = addNodesRecursive( nodes, bi_pairs, root, start_index, end_index );
+function nodes = addNodesRecursive( nodes, bi_pairs, rootnumber, start_index, end_index );
 %
 %
 %
 assert( start_index <= end_index );
-newnode = rna_tree_node( length(nodes) );
-nodes = [ nodes, newnode ];
-nodes{root}.children = [nodes{root}.children, length( nodes ) ];
-newnode_number = length( nodes );
+[nodes,newnodenumber] = create_rna_tree_node( nodes );
+
 if bi_pairs( start_index ) == end_index
     fprintf( 'Adding pair %d-%d\n',start_index, end_index );
-    newnode.isPair = true;
-    newnode.indexA = start_index;
-    newnode.indexB = end_index;
-    nodes{newnode_number} = newnode;
-    nodes = addNodesRecursive(nodes, bi_pairs, length(nodes), start_index + 1, end_index - 1);
+    nodes{newnodenumber}.isPair = true;
+    nodes{newnodenumber}.indexA = start_index;
+    nodes{newnodenumber}.indexB = end_index;
+    nodes = addNodesRecursive(nodes, bi_pairs,newnodenumber, start_index + 1, end_index - 1);
 else
     fprintf( 'Starting loop %d-%d\n', start_index, end_index );
     jj = start_index;
     while jj <= end_index
         if ( bi_pairs(jj) > 0 )
-            nodes = addNodesRecursive(nodes, bi_pairs, newnode_number, jj, bi_pairs(jj));
+            nodes = addNodesRecursive(nodes, bi_pairs, newnodenumber, jj, bi_pairs(jj));
             jj = bi_pairs(jj); % skip ahead
             fprintf( 'Skip ahead to %d\n',jj);
         else
-            newsubnode = rna_tree_node( length(nodes) );
-            newsubnode.isPair = false;
-            newsubnode.indexA = jj;
-            nodes = [ nodes, newsubnode ];
-            newnode.children = [ newnode.children, length(nodes) ];
+            [nodes,newsubnodenumber] = create_rna_tree_node( nodes );
+            nodes{newsubnodenumber}.isPair = false;
+            nodes{newsubnodenumber}.indexA = jj;
+            nodes{newnodenumber}.children = [ nodes{newnodenumber}.children, newsubnodenumber];
         end
         jj = jj + 1;
     end
     fprintf( 'Done with loop %d-%d\n', start_index, end_index );
 end
+nodes{rootnumber}.children = [nodes{rootnumber}.children, newnodenumber ];
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function node = rna_tree_node( nodenumber );
+function [nodes,nodenumber] = create_rna_tree_node( nodes );
 node = struct();
 node.children = [];
 node.isPair = false;
 node.indexA = 0;
 node.indexB = 0;
-node.nodenumber = nodenumber;
+
+nodes = [nodes, node];
+
+nodenumber = length( nodes );
+nodes{nodenumber}.nodenumber = nodenumber;
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function displayTree( nodes, node_number, level );

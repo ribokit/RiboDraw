@@ -255,37 +255,33 @@ end
 function nodes = drawTreeCustomLayout( nodes, root, parent, start, go, info );
 cross = [ -go(2), go(1) ];
 nodes{root}.xy = start;
-parent_xy = [0,0];
-parent_custom_xy = [0,0];
-parent_custom_go = [0,1];
-parent_custom_cross = [-1,0];
-parent_defined = 0;
-% 
-% // here and below 'parent_' is probably wrong prefix, since sometimes this coordinate system
-% // is taken from root. alternative name could be anchor_?
-% // and for display, could use display_. [parent_x --> display_parent_x]
-%     
+anchor_xy = [0,0];
+anchor_custom_xy = [0,0];
+anchor_custom_go = [0,1];
+anchor_custom_cross = [-1,0];
+anchor_defined = 0;
+
 customLayout = info.customLayout;
 if ( parent > 0 && nodes{parent}.isPair ) 
     parentnode = nodes{parent};
     % this is the case in junctions, where root is 'pseudonode' in middle of junction,
     %  and parent is the exterior pair (or the global root)
-    parent_xy = parentnode.xy;
+    anchor_xy = parentnode.xy;
     custom_coordA = customLayout( parentnode.indexA, : );
     custom_coordB = customLayout( parentnode.indexB, : );
-    parent_custom_xy = ( custom_coordA + custom_coordB ) / 2.0;
-    parent_custom_cross = ( custom_coordA - custom_coordB );
-    parent_custom_go = [ parent_custom_cross(2), -parent_custom_cross(1)];
-    parent_defined = 1;
+    anchor_custom_xy = ( custom_coordA + custom_coordB ) / 2.0;
+    anchor_custom_cross = ( custom_coordA - custom_coordB );
+    anchor_custom_go = [ anchor_custom_cross(2), -anchor_custom_cross(1)];
+    anchor_defined = 1;
 elseif ( root > 0 && nodes{root}.isPair ) 
     rootnode = nodes{root};
-    parent_xy = rootnode.xy;
+    anchor_xy = rootnode.xy;
     custom_coordA = customLayout( rootnode.indexA, : );
     custom_coordB = customLayout( rootnode.indexB, : );
-    parent_custom_xy = ( custom_coordA + custom_coordB ) / 2.0;
-    parent_custom_cross = ( custom_coordA - custom_coordB );
-    parent_custom_go = [ parent_custom_cross(2), -parent_custom_cross(1)];
-    parent_defined = 1;
+    anchor_custom_xy = ( custom_coordA + custom_coordB ) / 2.0;
+    anchor_custom_cross = ( custom_coordA - custom_coordB );
+    anchor_custom_go = [ anchor_custom_cross(2), -anchor_custom_cross(1)];
+    anchor_defined = 1;
 end
 
 for ii = 1:length( nodes{root}.children )
@@ -305,12 +301,12 @@ for ii = 1:length( nodes{root}.children )
     child_go = [0,0];
     plot_settings = get_plot_settings();
     child_xy = custom_coord * plot_settings.primarySpace;
-    if ( parent_defined )
-        dev = custom_coord - parent_custom_xy;
-        template_xy = dev * [parent_custom_cross', parent_custom_go' ]; % check dimensions!?
+    if ( anchor_defined )
+        dev = custom_coord - anchor_custom_xy;
+        template_xy = dev * [anchor_custom_cross', anchor_custom_go' ]; % check dimensions!?
         template_xy = template_xy * plot_settings.primarySpace;
         % go to Eterna RNALayout global frame.
-        child_xy = parent_xy + template_xy * [cross', go']; % check dimensions!?
+        child_xy = anchor_xy + template_xy * [cross', go']; % check dimensions!?
     end
     
     if ( child.isPair )
@@ -320,10 +316,11 @@ for ii = 1:length( nodes{root}.children )
         custom_go = [custom_cross(2), -custom_cross(1)];
         
         child_go = custom_go;
-        if (parent_defined) 
-            template_go = custom_go*[parent_custom_cross', parent_custom_go' ];
+        if (anchor_defined) 
+            template_go = custom_go*[anchor_custom_cross', anchor_custom_go' ];
             child_go    = template_go*[cross',go'];
         end
+               
     end
     child_go_len = norm( child_go );
     

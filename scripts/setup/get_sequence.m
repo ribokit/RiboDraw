@@ -1,11 +1,18 @@
 function [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( fasta_file )
 % [sequence,resnum,chains,segid, non_standard_residues] = get_sequence( fasta_file )
 %
+%   or if no fasta_file specified, get_sequence_from_drawing()
+%
 % read sequence from FASTA file ? and figure out chain/numbering from tags
 % like "A:4-89" in header. Allow sequence to include "Z[1MA]" to define 
 % non-standard residues, like in Rosetta.
 %
 % (C) R. Das, Stanford University, 2017
+
+if ~exist( 'fasta_file' )
+    sequence = get_sequence_from_drawing();
+    return;
+end
 
 fasta = fastaread( fasta_file );
 raw_sequence = fasta.Sequence;

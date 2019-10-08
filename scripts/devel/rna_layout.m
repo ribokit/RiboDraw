@@ -22,9 +22,9 @@ if ~exist( 'customLayout' ); customLayout = []; end
 nodes = setupTree( pairs );
 nodes = drawTree( nodes, customLayout, targetPairs );
 %displayTree( nodes, 1, 0 ); %sanity check
-xy = getCoords(nodes);
+XY = getCoords(nodes);
 
-plot( xy(:,1),xy(:,2),'o-');
+plot( XY(:,1),XY(:,2),'o-');
 set(gca,'ydir','reverse');
 axis image
 plotTree( nodes, 1);
@@ -34,14 +34,14 @@ axis off
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function nodes = setupTree( pairs )
 
-bi_pairs = pairs;
+biPairs = pairs;
 nodes = {};
 [nodes,rootnumber] = create_rna_tree_node( nodes );
 jj = 1;
-while jj <= length( bi_pairs )
-    if bi_pairs(jj) > 0;
+while jj <= length( biPairs )
+    if biPairs(jj) > 0;
         % paired
-        nodes = addNodesRecursive( nodes, bi_pairs, 1, jj, bi_pairs(jj) );
+        nodes = addNodesRecursive( nodes, biPairs, 1, jj, biPairs(jj) );
         jj = pairs( jj); % skip ahead
     else
         % unpaired
@@ -54,24 +54,24 @@ while jj <= length( bi_pairs )
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function nodes = addNodesRecursive( nodes, bi_pairs, rootnumber, start_index, end_index );
+function nodes = addNodesRecursive( nodes, biPairs, rootnumber, start_index, end_index );
 %
 %
 %
 assert( start_index <= end_index );
 [nodes,newnodenumber] = create_rna_tree_node( nodes );
 
-if bi_pairs( start_index ) == end_index
+if biPairs( start_index ) == end_index
     nodes{newnodenumber}.isPair = true;
     nodes{newnodenumber}.indexA = start_index;
     nodes{newnodenumber}.indexB = end_index;
-    nodes = addNodesRecursive(nodes, bi_pairs,newnodenumber, start_index + 1, end_index - 1);
+    nodes = addNodesRecursive(nodes, biPairs,newnodenumber, start_index + 1, end_index - 1);
 else
     jj = start_index;
     while jj <= end_index
-        if ( bi_pairs(jj) > 0 )
-            nodes = addNodesRecursive(nodes, bi_pairs, newnodenumber, jj, bi_pairs(jj));
-            jj = bi_pairs(jj); % skip ahead
+        if ( biPairs(jj) > 0 )
+            nodes = addNodesRecursive(nodes, biPairs, newnodenumber, jj, biPairs(jj));
+            jj = biPairs(jj); % skip ahead
         else
             [nodes,newsubnodenumber] = create_rna_tree_node( nodes );
             nodes{newsubnodenumber}.isPair = false;
@@ -90,9 +90,9 @@ node.children = [];
 node.isPair = false;
 node.indexA = 0;
 node.indexB = 0;
-node.xy = [0,0]; % position
+node.XY = [0,0]; % position
 node.go = [0,1]; % 'direction'
-node.flipsign = 1; % can change to -1 in customlayout
+node.flipSign = 1; % can change to -1 in customlayout
 nodes = [nodes, node];
 
 nodenumber = length( nodes );
@@ -109,8 +109,8 @@ info = struct();
 info.customLayout = customLayout;
 info.targetPairs = targetPairs;
 
-flipsign = 1;
-nodes = drawTreeRecursive( nodes, 1, 0, start, go, flipsign, info );
+flipSign = 1;
+nodes = drawTreeRecursive( nodes, 1, 0, start, go, flipSign, info );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function plot_settings = get_plot_settings();
@@ -152,7 +152,7 @@ end
 match = 1;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function nodes = drawTreeRecursive( nodes, root, parent, start, go, flipsign, info );
+function nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );
 %
 %  Note ordering:
 %
@@ -163,36 +163,36 @@ function nodes = drawTreeRecursive( nodes, root, parent, start, go, flipsign, in
 %   root   = node number of root for this section of the tree.
 %   parent = node number of *parent* of root.
 %   start = (x,y) that will likely be placed on root
-%   go    = (v_x, v_y) unit-vector pointing from root to current.
+%   go    = (vX, vY) unit-vector pointing from root to current.
 %   info  = grab bag of read-only information, here including customLayout &
 %                      targetPairs
 %
 %  OUTPUT
 %   nodes = updated nodes.
 %
-cross = [-go(2) go(1)] * flipsign;
+cross = [-go(2) go(1)] * flipSign;
 nodes{ root }.go = go;
-nodes{ root }.flipsign = flipsign;
+nodes{ root }.flipSign = flipSign;
 
 if (~isempty( info.customLayout ) && junctionMatchesTarget(nodes, root, parent, info) ) 
-    nodes = drawTreeCustomLayout( nodes, root, parent, start, go, flipsign, info );
+    nodes = drawTreeCustomLayout( nodes, root, parent, start, go, flipSign, info );
     return;
 end  
         
 plot_settings = get_plot_settings();
 if ( length(nodes{root}.children) == 1 )
-    nodes{root}.xy = start;
+    nodes{root}.XY = start;
     child = nodes{ nodes{root}.children(1) };
     if ( child.isPair ) 
         % stacked pair, I think. Keep chugging in the same direction.
-        nodes = drawTreeRecursive(nodes, nodes{root}.children(1), root, start + go * plot_settings.primarySpace, go, flipsign, info);
+        nodes = drawTreeRecursive(nodes, nodes{root}.children(1), root, start + go * plot_settings.primarySpace, go, flipSign, info);
     elseif ( child.isPair && child.indexA < 0 ) 
         % uh not sure what this is
         fprintf( 'Where are we?\n' ); exit(0);
-        nodes = drawTreeRecursive(nodes, nodes{root}.children(1), root, start, go, flipsign,  info);
+        nodes = drawTreeRecursive(nodes, nodes{root}.children(1), root, start, go, flipSign,  info);
     else
         % heading into a circular junction
-        nodes = drawTreeRecursive(nodes, nodes{root}.children(1), root, start + go * plot_settings.primarySpace, go, flipsign, info);
+        nodes = drawTreeRecursive(nodes, nodes{root}.children(1), root, start + go * plot_settings.primarySpace, go, flipSign, info);
     end
 elseif ( length(nodes{root}.children) > 1 ) 
     % need to draw a circle of elements
@@ -207,57 +207,57 @@ elseif ( length(nodes{root}.children) > 1 )
         %    oligo_displacement += 2 * this._primarySpace;
         %    }
     end
-    circle_length = ( length(nodes{root}.children) + 1 ) * plot_settings.primarySpace + (npairs + 1 ) * plot_settings.pairSpace;
-    circle_length = circle_length + oligo_displacement;
-    circle_radius = circle_length / (2 * pi );
-    length_walker = plot_settings.pairSpace / 2.0;
+    circleLength = ( length(nodes{root}.children) + 1 ) * plot_settings.primarySpace + (npairs + 1 ) * plot_settings.pairSpace;
+    circleLength = circleLength + oligo_displacement;
+    circleRadius = circleLength / (2 * pi );
+    lengthWalker = plot_settings.pairSpace / 2.0;
 
     if (parent == 0) 
-        nodes{root}.xy = go * circle_radius;
+        nodes{root}.XY = go * circleRadius;
     else
         % the root becomes the center of a circle. displaced from the parent.
-        nodes{root}.xy = nodes{parent}.xy + go * circle_radius;
+        nodes{root}.XY = nodes{parent}.XY + go * circleRadius;
     end
     for ii = 1 : length(nodes{root}.children)
-        length_walker = length_walker + plot_settings.primarySpace;
+        lengthWalker = lengthWalker + plot_settings.primarySpace;
 
         %                 if (this._exceptionIndices != null && (this._exceptionIndices.indexOf(rootnode.children[ii].indexA) >= 0 || this._exceptionIndices.indexOf(rootnode.children[ii].indexB) >= 0)) {
-        %                     length_walker += 2 * this._primarySpace;
+        %                     lengthWalker += 2 * this._primarySpace;
         %                 }
         
         if ( nodes{ nodes{root}.children(ii) }.isPair )
-            length_walker = length_walker + plot_settings.pairSpace/2.0;
+            lengthWalker = lengthWalker + plot_settings.pairSpace/2.0;
         end
         
 
-        rad_angle = length_walker/circle_length * 2 * pi - pi/2.0;
-        child_xy = nodes{root}.xy + cos( rad_angle) * cross * circle_radius + sin ( rad_angle ) * go * circle_radius;
+        radAngle = lengthWalker/circleLength * 2 * pi - pi/2.0;
+        childXY = nodes{root}.XY + cos( radAngle) * cross * circleRadius + sin ( radAngle ) * go * circleRadius;
         
-        child_go = child_xy - nodes{root}.xy;
-        child_go_len = norm( child_go );
+        childGo = childXY - nodes{root}.XY;
+        childGoLength = norm( childGo );
 
-        nodes = drawTreeRecursive( nodes, nodes{root}.children( ii ), root, child_xy, child_go/child_go_len, flipsign, info );
+        nodes = drawTreeRecursive( nodes, nodes{root}.children( ii ), root, childXY, childGo/childGoLength, flipSign, info );
         if nodes{ nodes{root}.children(ii) }.isPair
-            length_walker = length_walker + plot_settings.pairSpace/2.0;
+            lengthWalker = lengthWalker + plot_settings.pairSpace/2.0;
         end
     end
 else
-    nodes{root}.xy = start;
+    nodes{root}.XY = start;
 end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function nodes = drawTreeCustomLayout( nodes, root, parent, start, go, flipsign, info );
-cross = [ -go(2), go(1) ] * flipsign;
-nodes{root}.xy = start;
+function nodes = drawTreeCustomLayout( nodes, root, parent, start, go, flipSign, info );
+cross = [ -go(2), go(1) ] * flipSign;
+nodes{root}.XY = start;
 
 if length( nodes{root}.children ) == 0; return; end;
 
-anchor_xy = [0,0];
-anchor_custom_xy = [0,0];
-anchor_custom_cross = [-1,0];
-anchor_custom_go = [0,1];
-anchor_whichway = 1;
+anchorXY = [0,0];
+anchorCustomXY = [0,0];
+anchorCustomCross = [-1,0];
+anchorCustomGo = [0,1];
+anchorFlipSign = 1;
 
 customLayout = info.customLayout;
 anchornode = 0;
@@ -270,68 +270,68 @@ elseif ( root > 0 && nodes{root}.isPair )
     anchornode = nodes{root};
 end
 if isstruct(anchornode)     
-    anchor_xy = anchornode.xy;
-    custom_coordA = customLayout( anchornode.indexA, : );
-    custom_coordB = customLayout( anchornode.indexB, : );
-    anchor_custom_xy = ( custom_coordA + custom_coordB ) / 2.0;
-    anchor_flipsign = anchornode.flipsign;
-    anchor_custom_cross = ( custom_coordA - custom_coordB );    
-    anchor_custom_go = [ anchor_custom_cross(2), -anchor_custom_cross(1)];
-    custom_coord_next = customLayout( anchornode.indexA+1, : );
-    anchor_whichway = sign( (custom_coord_next - anchor_custom_xy) * anchor_custom_go' );
-    anchor_custom_go = anchor_custom_go * anchor_whichway;
+    anchorXY = anchornode.XY;
+    customCoordA = customLayout( anchornode.indexA, : );
+    customCoordB = customLayout( anchornode.indexB, : );
+    anchorCustomXY = ( customCoordA + customCoordB ) / 2.0;
+    anchorFlipSign = anchornode.flipSign;
+    anchorCustomCross = ( customCoordA - customCoordB );    
+    anchorCustomGo = [ anchorCustomCross(2), -anchorCustomCross(1)];
+    customCoordNext = customLayout( anchornode.indexA+1, : );
+    anchorFlipSign = sign( (customCoordNext - anchorCustomXY) * anchorCustomGo' );
+    anchorCustomGo = anchorCustomGo * anchorFlipSign;
 end
 
 for ii = 1:length( nodes{root}.children )
-    % read out where this point should be based on 'this._customLayout'. get coordinates in
-    % "local coordinate frame" set by parent pair in this._customLayout.
+    % read out where this point should be based on 'this.CustomLayout'. get coordinates in
+    % "local coordinate frame" set by parent pair in this.CustomLayout.
     % This would be a lot easier to read if we had a notion of an (x,y) pair, dot products, and cross products.
     rootnode = nodes{root};
     child = nodes{ nodes{root}.children(ii) };
-    custom_coord = info.customLayout(child.indexA,:);
+    customCoord = info.customLayout(child.indexA,:);
     if (child.isPair)
-        custom_coordA = info.customLayout(child.indexA,:);
-        custom_coordB = info.customLayout(child.indexB,:);
-        custom_coord = (custom_coordA + custom_coordB) / 2;
-        custom_cross = (custom_coordA - custom_coordB);
-        custom_go = [custom_cross(2), -custom_cross(1)];
-        custom_coord_next = info.customLayout(child.indexA+1,:);
-        child_whichway = sign( (custom_coord_next - custom_coord) * custom_go' );
-        custom_go = custom_go * child_whichway;
+        customCoordA = info.customLayout(child.indexA,:);
+        customCoordB = info.customLayout(child.indexB,:);
+        customCoord = (customCoordA + customCoordB) / 2;
+        customCross = (customCoordA - customCoordB);
+        customGo = [customCross(2), -customCross(1)];
+        customCoordNext = info.customLayout(child.indexA+1,:);
+        childFlipSign = sign( (customCoordNext - customCoord) * customGo' );
+        customGo = customGo * childFlipSign;
     end
     
-    child_xy = [0,0];
-    child_go = [0,0];
+    childXY = [0,0];
+    childGo = [0,0];
     plot_settings = get_plot_settings();
-    child_xy = custom_coord * plot_settings.primarySpace;
+    childXY = customCoord * plot_settings.primarySpace;
     if isstruct(anchornode) 
-        dev = custom_coord - anchor_custom_xy;
-        template_xy = dev * [anchor_custom_cross', anchor_custom_go' ]; % check dimensions!?
-        template_xy = template_xy * plot_settings.primarySpace;
+        dev = customCoord - anchorCustomXY;
+        templateXY = dev * [anchorCustomCross', anchorCustomGo' ]; % check dimensions!?
+        templateXY = templateXY * plot_settings.primarySpace;
         % go to Eterna RNALayout global frame.
-        child_xy = anchor_xy + template_xy * [cross', go']'; % check dimensions!?
+        childXY = anchorXY + templateXY * [cross', go']'; % check dimensions!?
     end
 
-    child_flipsign = flipsign;
+    childFlipSign = flipSign;
     if ( child.isPair )
-        child_flipsign = flipsign * child_whichway/anchor_whichway;        
-        child_go = custom_go;
+        childFlipSign = flipSign * childFlipSign/anchorFlipSign;  
+        childGo = customGo;
         if ( isstruct(anchornode) )
-            template_go = custom_go*[anchor_custom_cross', anchor_custom_go' ];
-            child_go    = template_go*[cross',go']';
+            templateGo = customGo*[anchorCustomCross', anchorCustomGo' ];
+            childGo    = templateGo*[cross',go']';
         end
     end
-    child_go_len = norm( child_go );
+    childGoLength = norm( childGo );
     
-    nodes = drawTreeRecursive(nodes, nodes{root}.children(ii), root, child_xy, child_go/child_go_len, child_flipsign, info );
+    nodes = drawTreeRecursive(nodes, nodes{root}.children(ii), root, childXY, childGo/childGoLength, childFlipSign, info );
 end
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function xy = getCoords(nodes);
-xy = [];
-xy = getCoordsRecursive( nodes, 1, xy );
+function XY = getCoords(nodes);
+XY = [];
+XY = getCoordsRecursive( nodes, 1, XY );
 % TODO -- implement 'empty structure' coords
 %         if (this._root != null) {
 %             this.getCoordsRecursive(this._root, xarray, yarray);
@@ -346,15 +346,15 @@ xy = getCoordsRecursive( nodes, 1, xy );
 %             } else {
 %                 // if longer, make the sequence form a circle instead
 %                 // FIXME: there's a bit of code duplication here, somewhat inelegant...
-%                 let circle_length: number = (xarray.length + 1) * this._primarySpace + this._pairSpace;
-%                 let circle_radius: number = circle_length / (2 * Math.PI);
-%                 let length_walker: number = this._pairSpace / 2.0;
-%                 let go_x: number = 0;
-%                 let go_y: number = 1;
-%                 let _root_x: number = go_x * circle_radius;
-%                 let _root_y: number = go_y * circle_radius;
-%                 let cross_x: number = -go_y;
-%                 let cross_y: number = go_x;
+%                 let circleLength: number = (xarray.length + 1) * this._primarySpace + this.Pairspace;
+%                 let circleRadius: number = circleLength / (2 * Math.PI);
+%                 let lengthWalker: number = this.Pairspace / 2.0;
+%                 let goX: number = 0;
+%                 let goY: number = 1;
+%                 let _rootX: number = goX * circleRadius;
+%                 let _rootY: number = goY * circleRadius;
+%                 let crossX: number = -goY;
+%                 let crossY: number = goX;
 %                 let oligo_displacement: number = 0;
 % 
 %                 for (let ii = 0; ii < xarray.length; ii++) {
@@ -362,35 +362,35 @@ xy = getCoordsRecursive( nodes, 1, xy );
 %                         oligo_displacement += 2 * this._primarySpace;
 %                     }
 %                 }
-%                 circle_length += oligo_displacement;
+%                 circleLength += oligo_displacement;
 % 
 %                 for (let ii = 0; ii < xarray.length; ii++) {
-%                     length_walker += this._primarySpace;
+%                     lengthWalker += this._primarySpace;
 %                     if (this._exceptionIndices != null && this._exceptionIndices.indexOf(ii) >= 0) {
-%                         length_walker += 2 * this._primarySpace;
+%                         lengthWalker += 2 * this._primarySpace;
 %                     }
 % 
-%                     let rad_angle: number = length_walker / circle_length * 2 * Math.PI - Math.PI / 2.0;
-%                     xarray[ii] = _root_x + Math.cos(rad_angle) * cross_x * circle_radius + Math.sin(rad_angle) * go_x * circle_radius;
-%                     yarray[ii] = _root_y + Math.cos(rad_angle) * cross_y * circle_radius + Math.sin(rad_angle) * go_y * circle_radius;
+%                     let radAngle: number = lengthWalker / circleLength * 2 * Math.PI - Math.PI / 2.0;
+%                     xarray[ii] = _rootX + Math.cos(radAngle) * crossX * circleRadius + Math.sin(radAngle) * goX * circleRadius;
+%                     yarray[ii] = _rootY + Math.cos(radAngle) * crossY * circleRadius + Math.sin(radAngle) * goY * circleRadius;
 %                 }
 %             }
 %         }
 %     }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function xy = getCoordsRecursive(nodes,root,xy);
+function XY = getCoordsRecursive(nodes,root,XY);
 rootnode = nodes{root};
 if rootnode.isPair
-    cross = [-rootnode.go(2),rootnode.go(1)] * rootnode.flipsign;
+    cross = [-rootnode.go(2),rootnode.go(1)] * rootnode.flipSign;
     plot_settings = get_plot_settings();
-    xy( rootnode.indexA, : ) = rootnode.xy + cross * plot_settings.pairSpace/2.0;
-    xy( rootnode.indexB, : ) = rootnode.xy - cross * plot_settings.pairSpace/2.0;
+    XY( rootnode.indexA, : ) = rootnode.XY + cross * plot_settings.pairSpace/2.0;
+    XY( rootnode.indexB, : ) = rootnode.XY - cross * plot_settings.pairSpace/2.0;
 elseif rootnode.indexA > 0
-    xy( rootnode.indexA, : ) = rootnode.xy;
+    XY( rootnode.indexA, : ) = rootnode.XY;
 end
 for ii = 1:length(rootnode.children)
-    xy = getCoordsRecursive( nodes, rootnode.children(ii), xy );
+    XY = getCoordsRecursive( nodes, rootnode.children(ii), XY );
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -399,7 +399,7 @@ function displayTree( nodes, node_number, level );
 node = nodes{node_number};
 if isfield( node, 'indexA' )
     for i = 1:level; fprintf(' '); end;
-    fprintf( '(%d) idx %d isPair %d   xy %f %f  go %f %f',node.nodenumber, node.indexA,node.isPair, node.xy,node.go );
+    fprintf( '(%d) idx %d isPair %d   XY %f %f  go %f %f',node.nodenumber, node.indexA,node.isPair, node.XY,node.go );
     fprintf( '\n' );
 end
 for i = 1:length(node.children)
@@ -411,14 +411,14 @@ end
 function plotTree( nodes, node_number );
 node = nodes{node_number};
 if isfield( node, 'indexA' )
-    text( node.xy(1), node.xy(2), num2str(node.nodenumber),'horizontalalign','center','verticalalign','middle');
+    text( node.XY(1), node.XY(2), num2str(node.nodenumber),'horizontalalign','center','verticalalign','middle');
     hold on
-    plot( node.xy(1), node.xy(2),'r.');
-    plot( node.xy(1) + 10*[0,node.go(1)], node.xy(2)+10*[0,node.go(2)], 'r','linew',1.2 );
+    plot( node.XY(1), node.XY(2),'r.');
+    plot( node.XY(1) + 10*[0,node.go(1)], node.XY(2)+10*[0,node.go(2)], 'r','linew',1.2 );
 end
 for i = 1:length(node.children)
     child = nodes{ node.children(i) }; hold on
-    plot( [node.xy(1),child.xy(1)], [node.xy(2),child.xy(2)], 'k-' );
+    plot( [node.XY(1),child.XY(1)], [node.XY(2),child.XY(2)], 'k-' );
     plotTree( nodes, node.children(i) )
 end
 

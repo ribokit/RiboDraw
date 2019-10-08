@@ -3,6 +3,7 @@ sequence =  'gcggauuuagcucaguugggagagcgccagacugaagaucuggagguccuguguucgauccacagaa
 pairs = secstruct_to_pairs( secstruct );
 
 clf
+set(gcf,'position',[ 139   249   744   706] );
 set(gcf, 'PaperPositionMode','auto','color','white');
 subplot(2,2,1);
 rna_layout( pairs );

@@ -23,7 +23,6 @@ nodes = setupTree( pairs );
 nodes = drawTree( nodes, customLayout, targetPairs );
 %displayTree( nodes, 1, 0 ); %sanity check
 xy = getCoords(nodes);
-%for i = 1:size(xy,1); fprintf( '%d: %f %f\n',i,xy(i,1),xy(i,2) ); end
 
 plot( xy(:,1),xy(:,2),'o-');
 set(gca,'ydir','reverse');
@@ -63,19 +62,16 @@ assert( start_index <= end_index );
 [nodes,newnodenumber] = create_rna_tree_node( nodes );
 
 if bi_pairs( start_index ) == end_index
-    % fprintf( 'Adding pair %d-%d\n',start_index, end_index );
     nodes{newnodenumber}.isPair = true;
     nodes{newnodenumber}.indexA = start_index;
     nodes{newnodenumber}.indexB = end_index;
     nodes = addNodesRecursive(nodes, bi_pairs,newnodenumber, start_index + 1, end_index - 1);
 else
-    % fprintf( 'Starting loop %d-%d\n', start_index, end_index );
     jj = start_index;
     while jj <= end_index
         if ( bi_pairs(jj) > 0 )
             nodes = addNodesRecursive(nodes, bi_pairs, newnodenumber, jj, bi_pairs(jj));
             jj = bi_pairs(jj); % skip ahead
-            % fprintf( 'Skip ahead to %d\n',jj);
         else
             [nodes,newsubnodenumber] = create_rna_tree_node( nodes );
             nodes{newsubnodenumber}.isPair = false;
@@ -84,7 +80,6 @@ else
         end
         jj = jj + 1;
     end
-    % fprintf( 'Done with loop %d-%d\n', start_index, end_index );
 end
 nodes{rootnumber}.children = [nodes{rootnumber}.children, newnodenumber ];
 
@@ -241,9 +236,6 @@ elseif ( length(nodes{root}.children) > 1 )
         child_go = child_xy - nodes{root}.xy;
         child_go_len = norm( child_go );
 
-        %fprintf( 'root %d isPair %d length_walker %f child idx %d child_go %f %f\n',...
-        %    nodes{root}.nodenumber,nodes{root}.isPair,length_walker, nodes{nodes{root}.children(ii)}.indexA, child_go/child_go_len );
-
         nodes = drawTreeRecursive( nodes, nodes{root}.children( ii ), root, child_xy, child_go/child_go_len, flipsign, info );
         if nodes{ nodes{root}.children(ii) }.isPair
             length_walker = length_walker + plot_settings.pairSpace/2.0;
@@ -285,10 +277,8 @@ if isstruct(anchornode)
     anchor_flipsign = anchornode.flipsign;
     anchor_custom_cross = ( custom_coordA - custom_coordB );    
     anchor_custom_go = [ anchor_custom_cross(2), -anchor_custom_cross(1)];
-    % actually here is where we can/should decide on the sign in the customLayout.
     custom_coord_next = customLayout( anchornode.indexA+1, : );
     anchor_whichway = sign( (custom_coord_next - anchor_custom_xy) * anchor_custom_go' );
-    %fprintf( 'anchor %d-%d whichway? %d\n', anchornode.indexA, anchornode.indexB, anchor_whichway );
     anchor_custom_go = anchor_custom_go * anchor_whichway;
 end
 
@@ -324,24 +314,12 @@ for ii = 1:length( nodes{root}.children )
 
     child_flipsign = flipsign;
     if ( child.isPair )
-        child_flipsign = flipsign * child_whichway/anchor_whichway;
-        fprintf( 'anchor whichway %d,  child %d-%d whichway %d.  flipsign %d  --> %d\n',...
-            anchor_whichway,...
-            child.indexA, child.indexB, child_whichway,...
-            flipsign,child_flipsign );
-        %child_flipsign = flipsign; % OVERRIDE
-        
+        child_flipsign = flipsign * child_whichway/anchor_whichway;        
         child_go = custom_go;
         if ( isstruct(anchornode) )
             template_go = custom_go*[anchor_custom_cross', anchor_custom_go' ];
             child_go    = template_go*[cross',go']';
         end
-        fprintf( 'cross: %f %f   go: %f %f\n', cross,go );
-        fprintf( 'custom_go: %f %f \n', custom_go );
-        if exist( 'template_go','var')
-            fprintf( 'template_go: %f (in cross dir) %f (in go dir) \n', template_go );
-        end
-        fprintf( 'child_go: %f %f\n\n', child_go );
     end
     child_go_len = norm( child_go );
     

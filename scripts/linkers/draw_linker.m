@@ -31,8 +31,8 @@ end;
 
 % the rendering in this function  ends up being rate limiting for
 % draw_helix -- early return (and delete the linker graphics!) if we don't have to make anything
-toggle_types    = {'stack',      'other_contact',      'noncanonical_pair',      'stem_pair',      'long_range_stem_pair','ligand',             'tertcontact_intradomain','tertcontact_interdomain' };
-toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs',     'show_ligand_linkers','show_tertiary_contacts', 'show_tertiary_contacts'};
+toggle_types    = {'stack',      'other_contact',      'noncanonical_pair',      'stem_pair',      'long_range_stem_pair','ligand',             'tertcontact_intradomain','tertcontact_interdomain', 'arrow' };
+toggle_settings = {'show_stacks','show_other_contacts','show_noncanonical_pairs','show_stem_pairs','show_stem_pairs',     'show_ligand_linkers','show_tertiary_contacts', 'show_tertiary_contacts',  'show_arrows'};
 for i = 1:length(toggle_types)
     if strcmp(linker.type,toggle_types{i}) && isfield( plot_settings, toggle_settings{i} ) && ~getfield(plot_settings,toggle_settings{i})
         if isfield(linker, 'motif_tag' ) && isfield( plot_settings, 'show_motifs' ) && plot_settings.show_motifs; continue; end; % over-ride if show_motifs and linker is part of motif.

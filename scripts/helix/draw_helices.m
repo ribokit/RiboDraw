@@ -34,8 +34,12 @@ textprogressbar(' done');
 axis off
 
 %axis equal
-set(gcf,'color','white')
+bg_color = 'white';
+plot_settings = get_plot_settings();
+if isfield( plot_settings, 'bg_color' ); bg_color = plot_settings.bg_color; end;
+set(gcf,'color',bg_color)
 if save_show_domains; show_domains(1,0); end;
+if isfield( plot_settings, 'show_base_rope' ) && plot_settings.show_base_rope; draw_base_rope(); end;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function save_show_domains = temporarily_hide_domains();

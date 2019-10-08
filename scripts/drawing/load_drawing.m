@@ -6,7 +6,7 @@ function loaddata = load_drawing( filename, keep_previous_drawing, keep_drawing_
 %
 % INPUTS:
 %   filename              = name of .json or .mat file with drawing
-%   keep_previous drawing = [Optional] import drawing but keep 
+%   keep_previous drawing = [Optional] import drawing but keep
 %                              residues, linkers, etc. not covered
 %                              by loaded drawing [default 0]
 %   keep_drawing_axes     = [Optional] keep axes (x,y dimensions,
@@ -51,10 +51,8 @@ if keep_previous_drawing;
     loaddata.windowposition = getappdata( gca, 'windowposition' );
     loaddata.data_aspect_ratio_mode = getappdata( gca, 'data_aspect_ratio_mode' );
 else
-    clf; 
+    clf;
     set(gca,'Position',[0 0 1 1]);
-    set(gca, 'xlim', loaddata.xlim );
-    set(gca, 'ylim', loaddata.ylim );
     set(gcf,'Position',loaddata.window_position)
     if isfield( loaddata, 'data_aspect_ratio_mode' )
         switch loaddata.data_aspect_ratio_mode
@@ -65,6 +63,9 @@ else
         end;
         %axis manual; % uh hope this works.
     end
+    set(gca, 'xlim', loaddata.xlim );
+    set(gca, 'ylim', loaddata.ylim );
+    
 end
 hold on;
 
@@ -77,7 +78,7 @@ datafields = fields( loaddata );
 for i = 1:length( datafields )
     datafield = datafields{i};
     datum = getfield( loaddata, datafield );
-
+    
     % copy over old handles to graphical objects like text, lines,
     % ticks, etc. -- redrawing them would take a long time!
     if isappdata( gca, datafield )
@@ -91,16 +92,16 @@ for i = 1:length( datafields )
                 end
                 % special case cleanup
                 if strcmp( field, 'linkers' ) & isfield( datum, field )
-                    datum.linkers = unique( [olddatum.linkers, datum.linkers ] ); 
+                    datum.linkers = unique( [olddatum.linkers, datum.linkers ] );
                 end
                 if strcmp( field, 'associated_selections' ) & isfield( datum, field )
-                    datum.associated_selections = unique( [olddatum.associated_selections, datum.associated_selections ] ); 
+                    datum.associated_selections = unique( [olddatum.associated_selections, datum.associated_selections ] );
                 end
             end
         end
         loaddata = setfield( loaddata, datafield, datum );
     end
-    setappdata( gca, datafield, datum );    
+    setappdata( gca, datafield, datum );
 end
 cleanup_associated_residues();
 loaddata = cleanup_segids( loaddata );
@@ -151,7 +152,7 @@ for i = 1:length( linker_tags )
     if ~any(strcmp(linker.residue1, slice_res_tags ) ) continue; end;
     if ~any(strcmp(linker.residue2, slice_res_tags ) ) continue; end;
     if isfield( linker, 'tertiary_contact' ) continue; end; % handle this case below.
-    if ~isfield( loaddata, tag ); 
+    if ~isfield( loaddata, tag );
         fprintf( 'Removing %s from old drawing as it is handled by imported drawing\n', tag );
         delete_linker( linker );
     end;
@@ -164,7 +165,7 @@ for i = 1:length( selection_tags )
     selection = getappdata( gca, tag );
     selection_res_tags = unique(selection.associated_residues);
     if length(intersect( selection_res_tags, slice_res_tags )) < length( selection_res_tags ) continue; end;
-    if ~isfield( loaddata, tag ); 
+    if ~isfield( loaddata, tag );
         fprintf( 'Removing %s from old drawing as it is handled by imported drawing\n', tag );
         delete_domain( tag );
     end;
@@ -175,7 +176,7 @@ tertiary_contact_tags = get_tags( 'TertiaryContact' );
 for i = 1:length( tertiary_contact_tags )
     tag = tertiary_contact_tags{i};
     tertiary_contact = getappdata( gca, tag );
-
+    
     contact_ok = 1;
     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues1);
     if length(intersect( tertiary_contact_res_tags, slice_res_tags )) < length( tertiary_contact_res_tags ); contact_ok = 0; end;

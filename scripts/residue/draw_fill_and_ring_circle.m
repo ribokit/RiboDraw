@@ -21,12 +21,17 @@ function residue = draw_circle( residue, setting_name, color_field_name, handle_
 if ( ~isfield( plot_settings, setting_name) || getfield( plot_settings, setting_name ) ); 
     if isfield( residue, color_field_name); 
         if( ~isfield( residue, handle_field_name ) | ~isvalid( getfield(residue,handle_field_name) ) )
-            h = create_fill_circle( plot_settings.bp_spacing );
+            h = create_fill_circle( plot_settings.spacing );
             residue = setfield( residue, handle_field_name, h );
             setappdata( h, 'layer_level', layer_level ); % just above top_of_back (1)
             setappdata( h, 'res_tag', residue.res_tag );
         end
-        [x,y] = get_fill_circle_xy( circle_size * plot_settings.bp_spacing/10 );
+        circle_radius = circle_size * 2* plot_settings.spacing/10;
+        if isfield( plot_settings, 'eterna_theme' ) && plot_settings.eterna_theme; 
+            circle_radius = circle_radius*0.6; 
+            if strcmp(handle_field_name,'ring_circle_handle'); circle_radius = circle_radius*0.9; end;
+        end;
+        [x,y] = get_fill_circle_xy( circle_radius );
         h = getfield( residue, handle_field_name );
         set( h, ...
             'XData', x + residue.plot_pos(:,1), ...
@@ -41,8 +46,8 @@ else
 end
    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function h = create_fill_circle( bp_spacing );
-[x,y] = get_fill_circle_xy( 10 * bp_spacing/2 );
+function h = create_fill_circle( spacing );
+[x,y] = get_fill_circle_xy( 10 * spacing );
 h = patch( x,y,'w','edgecolor','none','facecolor','w','linewidth',1);
 send_to_top_of_back( h );
 

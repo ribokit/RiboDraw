@@ -161,6 +161,7 @@ for i = 1:length( not_helix_res_tags )
     if ~isappdata(residue.handle,'user_movefcn'); draggable( residue.handle,'n',[-inf inf -inf inf],@move_snapgrid, 'endfcn', @redraw_res_and_helix ); end;
 end
 
+draw_base_rope();
 
 %%%%%%%%%%%%%%%%%%%%%
 % DO THIS AT THE END

@@ -19,20 +19,32 @@ end
 if ~isappdata( gca, 'BaseRope' ); setappdata( gca, 'BaseRope', struct()  ); end
 base_rope = getappdata( gca, 'BaseRope' );
 
-res_tags = get_res();
-coords = [];
-for i = 1:length( res_tags )
-    residue = getappdata( gca, res_tags{i} );
-    if isfield( residue, 'plot_pos' )
-        coords = [coords; residue.plot_pos ];
+res_tag_sets = get_RNA_chains();
+coords_sets = {};
+for j = 1:length( res_tag_sets )
+    res_tags = res_tag_sets{j};
+    coords = [];
+    for i = 1:length( res_tags )
+        residue = getappdata( gca, res_tags{i} );
+        if isfield( residue, 'plot_pos' )
+            coords = [coords; residue.plot_pos ];
+        end
     end
+    coords_sets{j} = coords;
 end
 
-N = size( coords, 1 );
-t = [1:(1/5):N];
-interp_method = 'spline';
-x = interp1( 1:N, coords(:,1), t, interp_method );
-y = interp1( 1:N, coords(:,2), t, interp_method );
+x = [];
+y = [];
+for j = 1:length( res_tag_sets )
+    coords = coords_sets{j};
+    N = size( coords, 1 );
+    t = [1:(1/5):N];
+    interp_method = 'spline';
+    % the NaN should put spaces between the chains.
+    x = [x, interp1( 1:N, coords(:,1), t, interp_method ),NaN];
+    y = [y, interp1( 1:N, coords(:,2), t, interp_method ),NaN];
+end
+
 
 if ~isfield( base_rope, 'line_handle' );
     base_rope.line_handle = plot( x, y, '-','linew',6,'color',[[1,1,1]*0.7, 0.3]);

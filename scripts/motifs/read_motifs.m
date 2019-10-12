@@ -14,8 +14,9 @@ function motifs = read_motifs( motif_file );
 %
 % (C) R. Das, Stanford University, 2019
 
-fid = fopen( motif_file );
 motifs = {};
+if ~exist( motif_file, 'file' ) return; end;
+fid = fopen( motif_file );
 while ~feof( fid )
     line = fgetl( fid );
     % UA_HANDLE A:53-54 A:58 A:61

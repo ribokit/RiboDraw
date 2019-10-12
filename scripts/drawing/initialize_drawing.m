@@ -26,6 +26,8 @@ other_contacts = read_other_contacts( [tag,'.other_contacts.txt'] );
 stems = read_stems( [tag,'.stems.txt'] );
 ligands = read_ligands([tag,'.ligands.txt']);
 motifs = read_motifs( [tag, '.motifs.txt'] );
+if length( base_pairs ) == 0 & length( stems ) > 0; base_pairs = get_base_pairs_from_stems( stems ); end
+
 clf; set(gca,'Position',[0 0 1 1]);
 hold on
 t = zeros( 1, length(sequence ) );

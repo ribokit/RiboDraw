@@ -28,8 +28,10 @@ function other_contacts = read_other_contacts( other_contacts_file )
 % 
 % (C) R. Das, Stanford University, 2017
 
-fid = fopen( other_contacts_file );
 other_contacts = {};
+if ~exist( other_contacts_file, 'file' ) return; end;
+fid = fopen( other_contacts_file );
+
 while ~feof( fid )
     line = fgetl( fid );
     % C:1347 C:1599 O2' N3 

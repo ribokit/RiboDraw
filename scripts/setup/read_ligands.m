@@ -25,8 +25,9 @@ function ligands = read_ligands( ligand_file );
 % 
 % (C) R. Das, Stanford University, 2017
 
-fid = fopen( ligand_file );
 ligands = {};
+if ~exist( ligand_file, 'file' ) return; end;
+fid = fopen( ligand_file );
 while ~feof( fid )
     line = fgetl( fid );
     % B     protein     R:6 R:8-9 R:11

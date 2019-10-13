@@ -25,7 +25,7 @@ Then add the `RiboDraw/scripts/` directory  to your MATLAB path using the comman
 You'll need Rosetta's `rna_motif` executable to extract information on sequence, secondary structure, noncanonical pairs, motifs, etc. Grab the latest release at [RosettaCommons](https://www.rosettacommons.org/software) and follow the installation instructions at [RosettaCommons](https://www.rosettacommons.org/docs/latest/build_documentation/Build-Documentation)
 
 ### Tutorial
-Follow the [**Tutorial**](tutorial/tutorial.md), which teached you how to make a nice layout of the P4-P6 domain of the *Tetrahymena* group I self-splicing intron:
+Follow the [**Tutorial**](tutorial/tutorial.md), which teaches you how to make a nice layout of the P4-P6 domain of the *Tetrahymena* group I self-splicing intron:
 
 ![1gidA RiboDraw drawing](tutorial/images/1gidA_drawing.png)
 

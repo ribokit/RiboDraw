@@ -1,7 +1,7 @@
 # RiboDraw
 Semiautomated layout of RNA tertiary structure diagrams
 
-_(C) Rhiju Das, Stanford University, 2017_
+_(C) Rhiju Das, Stanford University, 2017-2019_
 
 Please e-mail questions to `ribokit.info@gmail.com`
 

@@ -29,7 +29,11 @@ sf2 = image_size(2)/axis_size(2);
 
 fid = 0;
 if exist( 'filename','var' )
-    fid = fopen( filename,'w' );
+    if ischar( filename )
+        fid = fopen( filename,'w' );
+    else
+        res_tags = filename;
+    end
 end
 
 coords = [];

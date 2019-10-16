@@ -1,9 +1,13 @@
-function res_tag_sets = get_RNA_chains()
-%  res_tag_sets = get_RNA_chains()
+function [res_tag_sets,res_tags] = get_RNA_chains()
+%  [res_tag_sets, res_tags] = get_RNA_chains()
 %
 % Get set of sets of res_tags for each chain.
 % Remove chains that have single residues -- assuming those are ligands or
 % proteins.
+%
+% OUTPUT
+%  res_tag_sets = cell containing one cell of res_tags for each chain
+%  res_tags     = cell of all the RNA res_tags.
 %
 % (C) R. Das, Stanford University, 2019
 
@@ -28,9 +32,11 @@ if length( chain_set ) > 0
     chain_sets = [chain_sets, {chain_set} ];
 end
 
+res_tags = {};
 res_tag_sets = {};
 for n = 1:length(chain_sets)
     if length(chain_sets{n})>1
         res_tag_sets = [res_tag_sets, {chain_sets{n}} ];
+        res_tags = [res_tags, chain_sets{n}];
     end
 end

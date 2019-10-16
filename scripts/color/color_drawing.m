@@ -31,7 +31,7 @@ if ischar( color ) & strcmp(color,'rainbow')
     res_colors = pymol_rainbow( length(resnum) );
     
     % ... this other times
-    resnum( find( resnum == 0 ) ) == min( resnum( find( resnum > 0 ) ) ); %proteins have resnum 0 -- ignore them
+    resnum( find( resnum == 0 ) ) = min( resnum( find( resnum > 0 ) ) ); %proteins have resnum 0 -- ignore them
     all_resnum = [min(resnum):max(resnum)];
     all_res_colors = pymol_rainbow( length(all_resnum) );
     res_colors = all_res_colors( resnum - min(resnum) + 1, :);

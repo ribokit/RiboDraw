@@ -36,7 +36,7 @@ end
 
 % order helices by length, longest to shortest
 [~,idx] = sort( helix_map(:,3) );
-idx = fliplr( idx );
+idx = fliplr( idx' );
 
 % "layers" are helices that can be connected by (), then by [], then by {},
 % then by aa, ...

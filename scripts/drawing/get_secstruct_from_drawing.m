@@ -21,4 +21,4 @@ for n = 1:length( helix_tags );
     end
 end
 
-secstruct = convert_bps_to_structure( bps, length(res_tags) );
+secstruct = ribodraw_convert_bps_to_structure( bps, length(res_tags) );

@@ -23,12 +23,16 @@ nodes = setupTree( pairs );
 nodes = drawTree( nodes, customLayout, targetPairs );
 %displayTree( nodes, 1, 0 ); %sanity check
 XY = getCoords(nodes);
-
-plot( XY(:,1),XY(:,2),'o-');
+plotCoords( XY );
 set(gca,'ydir','reverse');
 axis image
 plotTree( nodes, 1);
 axis off
+
+scoreNodes = generateScoreNodes( nodes );
+celldisp( scoreNodes )
+fillScoreNodes( scoreNodes, XY );
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -257,7 +261,7 @@ anchorXY = [0,0];
 anchorCustomXY = [0,0];
 anchorCustomCross = [-1,0];
 anchorCustomGo = [0,1];
-anchorFlipSign = 1;
+anchorCustomFlipSign = 1;
 
 customLayout = info.customLayout;
 anchornode = 0;
@@ -278,8 +282,8 @@ if isstruct(anchornode)
     anchorCustomCross = ( customCoordA - customCoordB );    
     anchorCustomGo = [ anchorCustomCross(2), -anchorCustomCross(1)];
     customCoordNext = customLayout( anchornode.indexA+1, : );
-    anchorFlipSign = sign( (customCoordNext - anchorCustomXY) * anchorCustomGo' );
-    anchorCustomGo = anchorCustomGo * anchorFlipSign;
+    anchorCustomFlipSign = sign( (customCoordNext - anchorCustomXY) * anchorCustomGo' );
+    anchorCustomGo = anchorCustomGo * anchorCustomFlipSign;
 end
 
 for ii = 1:length( nodes{root}.children )
@@ -296,8 +300,8 @@ for ii = 1:length( nodes{root}.children )
         customCross = (customCoordA - customCoordB);
         customGo = [customCross(2), -customCross(1)];
         customCoordNext = info.customLayout(child.indexA+1,:);
-        childFlipSign = sign( (customCoordNext - customCoord) * customGo' );
-        customGo = customGo * childFlipSign;
+        childCustomFlipSign = sign( (customCoordNext - customCoord) * customGo' );
+        customGo = customGo * childCustomFlipSign;
     end
     
     childXY = [0,0];
@@ -306,15 +310,15 @@ for ii = 1:length( nodes{root}.children )
     childXY = customCoord * plot_settings.primarySpace;
     if isstruct(anchornode) 
         dev = customCoord - anchorCustomXY;
-        templateXY = dev * [anchorCustomCross', anchorCustomGo' ]; % check dimensions!?
+        templateXY = dev * [anchorCustomCross', anchorCustomGo' ]; 
         templateXY = templateXY * plot_settings.primarySpace;
         % go to Eterna RNALayout global frame.
-        childXY = anchorXY + templateXY * [cross', go']'; % check dimensions!?
+        childXY = anchorXY + templateXY * [cross', go']'; 
     end
 
     childFlipSign = flipSign;
     if ( child.isPair )
-        childFlipSign = flipSign * childFlipSign/anchorFlipSign;  
+        childFlipSign = flipSign * childCustomFlipSign/anchorCustomFlipSign;  
         childGo = customGo;
         if ( isstruct(anchornode) )
             templateGo = customGo*[anchorCustomCross', anchorCustomGo' ];
@@ -408,10 +412,18 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function plotCoords( XY )
+plot( XY(:,1),XY(:,2),'o-');
+hold on
+for i = 1:size( XY, 1 )
+    text( XY(i,1), XY(i,2), num2str(i),'horizontalalign','center','verticalalign','middle' );
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function plotTree( nodes, node_number );
 node = nodes{node_number};
 if isfield( node, 'indexA' )
-    text( node.XY(1), node.XY(2), num2str(node.nodenumber),'horizontalalign','center','verticalalign','middle');
+    %text( node.XY(1), node.XY(2), num2str(node.nodenumber),'horizontalalign','center','verticalalign','middle');
     hold on
     plot( node.XY(1), node.XY(2),'r.');
     plot( node.XY(1) + 10*[0,node.go(1)], node.XY(2)+10*[0,node.go(2)], 'r','linew',1.2 );
@@ -420,5 +432,78 @@ for i = 1:length(node.children)
     child = nodes{ node.children(i) }; hold on
     plot( [node.XY(1),child.XY(1)], [node.XY(2),child.XY(2)], 'k-' );
     plotTree( nodes, node.children(i) )
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function scoreNodes = generateScoreNodes( rnaTreeNodes );
+
+rootCoords = [];
+scoreNodes = {};
+scoreNodes = generateScoreNodesRecursive( rnaTreeNodes, 1, rootCoords, scoreNodes);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [nodes,coords] = generateScoreNodesRecursive(rnaTreeNodes, rootnumber, coords, nodes )
+if (rootnumber == 0)  return; end;
+root = rnaTreeNodes{rootnumber};
+if ~any(isnan( coords ))
+    if (root.isPair)
+        coords = [coords, root.indexA];
+        coords = [coords, root.indexB];
+    elseif (root.indexA > 0)
+        coords = [coords, root.indexA];
+        return;
+    end
+end
+
+childCoords = [];
+    
+if ( root.isPair )
+    assert( length(root.children) <= 1 );
+    if (length(root.children) ~= 0)
+        child = rnaTreeNodes{root.children(1)};
+        if ( child.isPair )
+            childCoords = [ root.indexA, root.indexB, child.indexB, child.indexA ];
+            [nodes,newnodenumber] = create_score_node( nodes );
+            nodes{ newnodenumber }.type = 'STACK';
+            nodes{ newnodenumber }.coords = childCoords;
+            [nodes,~] = generateScoreNodesRecursive(rnaTreeNodes, root.children(1), nan, nodes );
+        else
+            childCoords = [ root.indexB, root.indexA];
+            [nodes,childCoords] = generateScoreNodesRecursive(rnaTreeNodes, root.children(1), childCoords, nodes );
+        end
+    end
+else
+    for childnumber = root.children
+        [nodes,coords] = generateScoreNodesRecursive( rnaTreeNodes, childnumber, coords, nodes );
+    end
+    if ~any(isnan( coords ))
+        [nodes,newnodenumber] = create_score_node( nodes );
+        nodes{newnodenumber}.type = 'LOOP';
+        nodes{newnodenumber}.coords = coords;
+    end
+end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [nodes,nodenumber] = create_score_node( nodes );
+
+node = struct();
+node.type = '';
+node.coords = [];
+nodes = [nodes, node];
+
+nodenumber = length( nodes );
+nodes{nodenumber}.nodenumber = nodenumber;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function fillScoreNodes( scoreNodes, XY );
+hold on
+for n = 1:length( scoreNodes )
+    scoreNode = scoreNodes{n};
+    XData = XY(scoreNode.coords, 1 );
+    YData = XY(scoreNode.coords, 2 );
+    h = patch( XData, YData, 'k', 'FaceAlpha',0.1 );
 end
 

@@ -35,8 +35,9 @@ end
 
 x = [];
 y = [];
-for j = 1:length( res_tag_sets )
+for j = 1:length( coords_sets )
     coords = coords_sets{j};
+    if length( coords ) == 0; continue; end;
     N = size( coords, 1 );
     t = [1:(1/5):N];
     interp_method = 'spline';
@@ -45,6 +46,7 @@ for j = 1:length( res_tag_sets )
     y = [y, interp1( 1:N, coords(:,2), t, interp_method ),NaN];
 end
 
+if length( x ) == 0; return; end;
 
 if ~isfield( base_rope, 'line_handle' );
     base_rope.line_handle = plot( x, y, '-','linew',6,'color',[[1,1,1]*0.7, 0.3]);

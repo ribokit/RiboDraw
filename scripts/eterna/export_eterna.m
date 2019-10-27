@@ -1,12 +1,14 @@
-function export_eterna_custom_layout()
+function export_eterna_custom_layout( selection )
 % export_eterna_custom_layout()
+% export_eterna_custom_layout( selection )
 %
 % print out an array that can be used in JSON objectives for Eterna puzzles
 %
 % (C) R. Das, Stanford University 2019
 
+if ~exist( 'selection' ) selection = 'all'; end;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-[secstruct,res_tags] = get_secstruct_from_drawing();
+[secstruct,res_tags] = get_secstruct_from_drawing(selection);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 sequence = get_sequence_from_res_tags( res_tags );
@@ -30,6 +32,7 @@ for i = 1:N
         fprintf( '[%.3f,%.3f]', coords(i,1)/spacing, coords(i,2)/spacing );
     end
     if ( i < N ) fprintf( ', '); end;
+    if ( mod(i,200) == 0 ) fprintf( '\n' ); end;
 end
 fprintf( ']\n\n' );
 

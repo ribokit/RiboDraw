@@ -40,7 +40,7 @@ for j = 1:length( coords_sets )
     if length( coords ) == 0; continue; end;
     N = size( coords, 1 );
     t = [1:(1/5):N];
-    interp_method = 'spline';
+    interp_method = 'pchip';
     % the NaN should put spaces between the chains.
     x = [x, interp1( 1:N, coords(:,1), t, interp_method ),NaN];
     y = [y, interp1( 1:N, coords(:,2), t, interp_method ),NaN];
@@ -57,10 +57,9 @@ if ~isfield( base_rope, 'line_handle2' );
     setappdata( base_rope.line_handle2, 'layer_level', 3 )
 end
 
-set( base_rope.line_handle, 'xdata', x );
-set( base_rope.line_handle, 'ydata', y );
-set( base_rope.line_handle2, 'xdata', x );
-set( base_rope.line_handle2, 'ydata', y );
+plot_setting = get_plot_settings();
+set( base_rope.line_handle, 'xdata', x, 'ydata', y, 'linew', 0.5*plot_settings.fontsize );
+set( base_rope.line_handle2, 'xdata', x, 'ydata', y, 'linew', 0.5*plot_settings.fontsize*2/3 );
 
 setappdata( gca, 'BaseRope', base_rope );
 

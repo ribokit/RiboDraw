@@ -7,8 +7,8 @@ res_tags = {};
 for j = 1:N
     linker_tag = sprintf('Linker_%s%s%d_%s%s%d_stem_pair', helix.chain1(j), helix.segid1{j}, helix.resnum1(j),...
         helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1) );
-    res_tags = [res_tags, {sprintf('Residue_%s%s%d',helix.chain1(j), helix.segid1{j}, helix.resnum1(j))} ];
-    res_tags = [res_tags, {sprintf('Residue_%s%s%d', helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1))} ];
+%     res_tags = [res_tags, {sprintf('Residue_%s%s%d',helix.chain1(j), helix.segid1{j}, helix.resnum1(j))} ];
+%     res_tags = [res_tags, {sprintf('Residue_%s%s%d', helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1))} ];
     if isappdata( gca, linker_tag )
         linker = getappdata( gca, linker_tag );
         linker.type = 'long_range_stem_pair';
@@ -42,10 +42,13 @@ for n = 1:length( stems )
     stem_chain2(n) = stems{n}.chain2(1);
     stem_segid2(n) = stems{n}.segid2(1);
 end
+
+res_tags = get_res();
 helix_tags_to_redraw = {};
 for i = 1:length(res_tags)
     res_tag = res_tags{i};
     residue = getappdata( gca, res_tag );
+    if ~strcmp( residue.helix_tag, helix_tag ); continue; end;
     dists1 = Inf * ones( 1, length( stems ) );
     dists2 = Inf * ones( 1, length( stems ) );
     chain = residue.chain;

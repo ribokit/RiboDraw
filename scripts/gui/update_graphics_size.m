@@ -23,3 +23,4 @@ end;
 % change font size accordingly
 set_fontsize( fontsize );
 set_linker_width( fontsize );
+draw_base_rope();

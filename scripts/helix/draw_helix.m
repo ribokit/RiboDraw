@@ -241,7 +241,12 @@ label_pos = helix.center + helix.label_relpos * R;
 set( h, 'String', helix.name );
 set( h, 'position', label_pos );
 set( h, 'fontsize', plot_settings.fontsize*1.5 );
-if isfield( helix, 'rgb_color' ) set( h, 'color', helix.rgb_color ); end;
+
+color = 'k';
+if isfield( plot_settings, 'line_color' ); color = plot_settings.line_color; end;
+if isfield( helix, 'rgb_color' ) color = helix.rgb_color; end;
+set( h, 'color', color );
+
 v = [0,sign(helix.label_relpos(2))]*R;
 set_text_alignment( h, v );
 if isfield( helix, 'label_visible' )

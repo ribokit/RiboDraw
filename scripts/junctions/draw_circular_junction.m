@@ -55,6 +55,7 @@ lengthWalker = plot_settings.bp_spacing / 2.0;
 
 circle_center = start_xy + go * circleRadius;
 residues = {};
+grid_spacing = plot_settings.spacing/4;
 for ii = 1 : length(junction_res_tags)
     lengthWalker = lengthWalker + plot_settings.spacing;
     
@@ -66,7 +67,7 @@ for ii = 1 : length(junction_res_tags)
     childXY = circle_center + cos( radAngle ) * cross * circleRadius + sin ( radAngle ) * go * circleRadius;
     
     residue = getappdata( gca, junction_res_tags{ii} );
-    residue.plot_pos = childXY;
+    residue.plot_pos = round(childXY/grid_spacing)*grid_spacing; % snap to grid!
     residues{ii} = residue;
 end
 

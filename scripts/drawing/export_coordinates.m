@@ -24,7 +24,7 @@ if ~exist( 'image_size','var')
     image_size = [ xl(2)-xl(1), yl(2) - yl(1) ];
 end
 axis_size = [ xl(2)-xl(1), yl(2) - yl(1) ];
-sf1 = image_size(1)/axis_size(1);
+sf1 = image_size(1)/axis_size(1)
 sf2 = image_size(2)/axis_size(2);
 
 fid = 0;

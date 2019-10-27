@@ -14,7 +14,7 @@ if ~exist( 'selection' ) selection = 'all'; end;
 sequence = get_sequence_from_res_tags( res_tags );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-coords = export_coordinates( res_tags );
+coords = get_coordinates_for_eterna( res_tags );
 lockstring = ''; for i = 1:length(res_tags); lockstring = [lockstring,'o']; end; 
 
 [sequence, secstruct, coords] = add_connectors_across_chainbreaks( sequence, secstruct, coords, res_tags );
@@ -23,13 +23,13 @@ lockstring = ''; for i = 1:length(res_tags); lockstring = [lockstring,'o']; end;
 fprintf( '\nCopy this secstruct into puzzle maker:\n\n %s\n\n', strrep(strrep(secstruct,']','.'),'[','.') );
 fprintf( '\nCopy this sequence into puzzle maker:\n\n %s\n\n', sequence );
 fprintf( '\nAfter saving puzzle maker puzzle, edit puzzle via admin.\nPaste following into Puzzle-objective JSON:\n\n, "custom-layout":[' );
-spacing = 3; % later pull this from plot_settings.spacing !
+plot_settings = get_plot_settings();
 N = size( coords, 1 );
 for i = 1:N
     if any(isnan( coords(i,:) )  )
         fprintf( '[null,null]' );
-    else
-        fprintf( '[%.3f,%.3f]', coords(i,1)/spacing, coords(i,2)/spacing );
+    else        
+        fprintf( '[%d,%d]', coords(i,1), coords(i,2) );
     end
     if ( i < N ) fprintf( ', '); end;
     if ( mod(i,200) == 0 ) fprintf( '\n' ); end;
@@ -77,4 +77,25 @@ end
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function  coords = get_coordinates_for_eterna( res_tags )
+coords = [];
+for i = 1:length( res_tags )
+    res = getappdata( gca, res_tags{i} );
+    % reverse MATLAB's y-axis since every other program does that.
+    coords(i,:) = [ res.plot_pos(1), -res.plot_pos(2) ];
+end
+plot_settings = get_plot_settings();
+coords = coords * (4 / plot_settings.spacing);  % grid spacing.
 
+% center coordinates. Eterna will re-center.
+coords = coords - round(mean( coords ));
+
+
+N = size( coords, 1 );
+for i = 1:N
+    if ( abs( coords(i,1) - round(coords(i,1) ) > 0.001 ) || ...
+            abs( coords(i,2) - round(coords(i,2) ) > 0.001 ) )
+        fprintf( 'Warning! coords at %s  (index %d) will be rounded:   %f %f\n',res_tags{i}, i, coords(i,:) );
+    end
+end

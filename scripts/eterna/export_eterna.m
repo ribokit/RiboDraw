@@ -1,6 +1,6 @@
-function export_eterna_custom_layout( selection )
-% export_eterna_custom_layout()
-% export_eterna_custom_layout( selection )
+function export_eterna( selection )
+% export_eterna()
+% export_eterna( selection )
 %
 % print out an array that can be used in JSON objectives for Eterna puzzles
 %

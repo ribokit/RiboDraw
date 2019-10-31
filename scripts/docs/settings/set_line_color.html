@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set_line_color</title>
+  <meta name="keywords" content="set_line_color">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html settings -->
+<h1>set_line_color
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function set_line_color( color ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">
+ update colors of all lines in linkers, ticks, and tick labels
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_plot_settings.html" class="code" title="function plot_settings = get_plot_settings();">get_plot_settings</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="set_default_theme.html" class="code" title="function set_default_theme();">set_default_theme</a>	</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_line_color( color );</a>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% update colors of all lines in linkers, ticks, and tick labels</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0006 
+0007 plot_settings = <a href="get_plot_settings.html" class="code" title="function plot_settings = get_plot_settings();">get_plot_settings</a>();
+0008 plot_settings.line_color = color;
+0009 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0010 
+0011 linker_tags = get_tags( <span class="string">'Linker_'</span> );
+0012 <span class="keyword">for</span> i = 1:length( linker_tags );
+0013     linker = getappdata( gca, linker_tags{i} );
+0014     <span class="keyword">if</span> ~isfield( linker, <span class="string">'line_handle'</span> ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0015     set( linker.line_handle, <span class="string">'color'</span>, color );
+0016 <span class="keyword">end</span>
+0017 
+0018 res_tags = get_res_tags();
+0019 <span class="keyword">for</span> i = 1:length( res_tags );
+0020     residue = getappdata( gca, res_tags{i} );
+0021     <span class="keyword">if</span> isfield( residue, <span class="string">'tick_handle'</span> )
+0022         set( residue.tick_handle, <span class="string">'color'</span>, color );
+0023     <span class="keyword">end</span>
+0024     <span class="keyword">if</span> isfield( residue, <span class="string">'tick_label'</span> )
+0025         set( residue.tick_label, <span class="string">'color'</span>, color );
+0026     <span class="keyword">end</span>
+0027 <span class="keyword">end</span>
+0028</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -59,7 +59,7 @@ This function is called by:
 0009 <span class="comment">% (C) R. Das, Stanford University.</span>
 0010 
 0011 arrow_linewidth = get_arrow_linewidth( fontsize );
-0012         
+0012 
 0013 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
 0014 <span class="comment">% Actually go and fix up lines</span>
 0015 tags = get_tags( <span class="string">'Linker_'</span>,<span class="string">'arrow'</span>);
@@ -68,7 +68,15 @@ This function is called by:
 0018     <span class="keyword">if</span> isfield( linker, <span class="string">'line_handle'</span> ) &amp;&amp; isvalid( linker.line_handle )
 0019         set( linker.line_handle, <span class="string">'linewidth'</span>, arrow_linewidth );
 0020     <span class="keyword">end</span>
-0021 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0021 <span class="keyword">end</span>
+0022 
+0023 tags = get_tags( <span class="string">'Linker_'</span>);
+0024 <span class="keyword">for</span> i = 1:length( tags );
+0025     linker = getappdata( gca, tags{i} );
+0026     <span class="keyword">if</span> isfield( linker, <span class="string">'motif_line_handle'</span> ) &amp;&amp; isvalid( linker.motif_line_handle )        
+0027         set( linker.motif_line_handle, <span class="string">'linewidth'</span>, 1.5*arrow_linewidth );
+0028     <span class="keyword">end</span>
+0029 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

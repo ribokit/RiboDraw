@@ -27,13 +27,13 @@
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> [ res_tags, obj_name ] = get_res( selection )
-  figure out which object in drawing (gca) corresponds to selection.
+  get tags for residues sorted by residue and chain.
 
  INPUT
  selection = string with name of selection (domain,residue,whatever)
 
  OUTPUTS
- res_tags  = all residues associated with selection
+ res_tags  = all residues associated with selection, SORTED by res chain!
  obj_name  = object name with that selection 
 
  (C) R. Das, Stanford University</pre></div>
@@ -45,7 +45,7 @@ This function calls:
 <li><a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>	[ res_tags, obj_name ] = get_res( selection )</li><li><a href="get_resnum_from_tag.html" class="code" title="function [resnum,chains,segid,ok] = get_resnum_from_tag( tag )">get_resnum_from_tag</a>	[resnum,chains,segid,ok] = get_resnum_from_tag( tag )</li><li><a href="get_tags.html" class="code" title="function tags = get_tags( headstring, tailstring, objnames )">get_tags</a>	tags = get_tags( headstring )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>	[ res_tags, obj_name ] = get_res( selection )</li></ul>
+<li><a href="get_RNA_chains.html" class="code" title="function [res_tag_sets,res_tags] = get_RNA_chains( selection )">get_RNA_chains</a>	[res_tag_sets, res_tags] = get_RNA_chains()</li><li><a href="get_res.html" class="code" title="function [ res_tags, obj_name ] = get_res( selection )">get_res</a>	[ res_tags, obj_name ] = get_res( selection )</li></ul>
 <!-- crossreference -->
 
 
@@ -53,13 +53,13 @@ This function is called by:
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [ res_tags, obj_name ] = get_res( selection )</a>
 0002 <span class="comment">% [ res_tags, obj_name ] = get_res( selection )</span>
-0003 <span class="comment">%  figure out which object in drawing (gca) corresponds to selection.</span>
+0003 <span class="comment">%  get tags for residues sorted by residue and chain.</span>
 0004 <span class="comment">%</span>
 0005 <span class="comment">% INPUT</span>
 0006 <span class="comment">% selection = string with name of selection (domain,residue,whatever)</span>
 0007 <span class="comment">%</span>
 0008 <span class="comment">% OUTPUTS</span>
-0009 <span class="comment">% res_tags  = all residues associated with selection</span>
+0009 <span class="comment">% res_tags  = all residues associated with selection, SORTED by res chain!</span>
 0010 <span class="comment">% obj_name  = object name with that selection</span>
 0011 <span class="comment">%</span>
 0012 <span class="comment">% (C) R. Das, Stanford University</span>
@@ -119,8 +119,8 @@ This function is called by:
 0066                     obj_name = objnames{n};
 0067                     <span class="keyword">break</span>;
 0068                 <span class="keyword">end</span>
-0069                 <span class="keyword">if</span> isfield( obj, <span class="string">'nucleotide'</span> ) &amp; <span class="keyword">...</span>
-0070                        strcmp( obj.nucleotide, selection )
+0069                 <span class="keyword">if</span> isfield( obj, <span class="string">'name'</span> ) &amp; <span class="keyword">...</span>
+0070                        strcmp( obj.name, selection )
 0071                     res_tags = { objnames{n} };
 0072                     obj_name = objnames{n};
 0073                     <span class="keyword">break</span>;
@@ -144,6 +144,6 @@ This function is called by:
 0091 <span class="keyword">end</span>
 0092 [~,idx] = sort( reschain );
 0093 res_tags = res_tags( idx );</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

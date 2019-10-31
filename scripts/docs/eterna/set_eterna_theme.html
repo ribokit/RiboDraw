@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set_eterna_theme</title>
+  <meta name="keywords" content="set_eterna_theme">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html eterna -->
+<h1>set_eterna_theme
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function set_eterna_theme(); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">
+ visualize how ribodraw might look like if it
+  is displayed in Eterna.
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function create_eterna_fill_and_ring_circles();</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_eterna_theme();</a>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% visualize how ribodraw might look like if it</span>
+0004 <span class="comment">%  is displayed in Eterna.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0007 
+0008 set_bg_color( [16,33,59]/255 );
+0009 set_line_color( <span class="string">'white'</span> );
+0010 set_symbol_color( <span class="string">'white'</span> );
+0011 
+0012 plot_settings = get_plot_settings();
+0013 plot_settings.bp_spacing = plot_settings.spacing;
+0014 plot_settings.eterna_theme = 1;
+0015 plot_settings.font_size = 12;
+0016 plot_settings.show_arrows = 0;
+0017 plot_settings.show_stem_pairs = 0;
+0018 plot_settings.show_base_rope = 1;
+0019 setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0020 
+0021 <a href="#_sub1" class="code" title="subfunction create_eterna_fill_and_ring_circles();">create_eterna_fill_and_ring_circles</a>();
+0022 show_fill_and_ring_circles;
+0023 color_drawing eterna;
+0024 
+0025 draw_helices(); <span class="comment">% force redraw of everything, including base rope.</span>
+0026 move_stuff_to_back();
+0027 fprintf( <span class="string">'\n Type set_default_theme() to restore the usual colors.\n'</span> )
+0028 set_artboards;
+0029 
+0030 
+0031 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0032 <a name="_sub1" href="#_subfunctions" class="code">function create_eterna_fill_and_ring_circles();</a>
+0033 <span class="comment">% make gray rings, and transfer any rgb_colors for text to fill colors instead.</span>
+0034 <span class="comment">% save original rgb_colors in residue.original_rgb_color;</span>
+0035 res_tags = get_res();
+0036 plot_settings = getappdata(gca,<span class="string">'plot_settings'</span> );
+0037 <span class="keyword">for</span> i = 1:length( res_tags )
+0038     residue = getappdata( gca, res_tags{i} );
+0039     <span class="keyword">if</span> ~isfield( residue, <span class="string">'fill_color'</span> )
+0040         <span class="keyword">if</span> isfield( residue, <span class="string">'rgb_color'</span> )
+0041             residue.original_rgb_color = residue.rgb_color;
+0042             residue.fill_color = residue.rgb_color;
+0043             residue.rgb_color = [0,0,0];
+0044         <span class="keyword">end</span>
+0045     <span class="keyword">end</span>
+0046     residue.ring_color = [0.7 0.7 0.7];
+0047     setappdata( gca, res_tags{i}, residue );
+0048 <span class="keyword">end</span>
+0049</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

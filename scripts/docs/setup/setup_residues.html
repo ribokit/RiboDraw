@@ -106,16 +106,17 @@ This function is called by:
 0048     residue.resnum = res;
 0049     residue.helix_tag = stems{n}.helix_tag;
 0050     seqpos = intersect(strfind(chains,chain), find(resnum==res));
-0051     residue.nucleotide = upper(sequence(seqpos));
-0052     residue.res_tag = res_tag;
-0053     residue.linkers = {};
-0054     setappdata( gca, res_tag, residue );
-0055 <span class="keyword">end</span>
-0056 
-0057 <span class="keyword">for</span> n = 1:length( stems )
-0058     setappdata( gca, stems{n}.helix_tag, stems{n} );
-0059 <span class="keyword">end</span>
-0060</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0051     residue.name = upper(sequence(seqpos));
+0052     residue.original_name = sequence(seqpos);
+0053     residue.res_tag = res_tag;
+0054     residue.linkers = {};
+0055     setappdata( gca, res_tag, residue );
+0056 <span class="keyword">end</span>
+0057 
+0058 <span class="keyword">for</span> n = 1:length( stems )
+0059     setappdata( gca, stems{n}.helix_tag, stems{n} );
+0060 <span class="keyword">end</span>
+0061</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

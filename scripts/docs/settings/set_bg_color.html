@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of set_bg_color</title>
+  <meta name="keywords" content="set_bg_color">
+  <meta name="description" content="set_bg_color( color )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html settings -->
+<h1>set_bg_color
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>set_bg_color( color )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function set_bg_color( color ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> set_bg_color( color )
+
+ set background color. 
+
+ INPUT
+  color = [optional] text color like 'white' or RGB value like [1,1,1]
+           if not specified, check plot_settings.bg_color. if that is not
+           specified use [1,1,1] (white).
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="set_bg_color.html" class="code" title="function set_bg_color( color );">set_bg_color</a>	set_bg_color( color )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="set_bg_color.html" class="code" title="function set_bg_color( color );">set_bg_color</a>	set_bg_color( color )</li><li><a href="set_default_theme.html" class="code" title="function set_default_theme();">set_default_theme</a>	</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_bg_color( color );</a>
+0002 <span class="comment">% set_bg_color( color )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% set background color.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% INPUT</span>
+0007 <span class="comment">%  color = [optional] text color like 'white' or RGB value like [1,1,1]</span>
+0008 <span class="comment">%           if not specified, check plot_settings.bg_color. if that is not</span>
+0009 <span class="comment">%           specified use [1,1,1] (white).</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0012 
+0013 <span class="keyword">if</span> exist( <span class="string">'color'</span>, <span class="string">'var'</span> )
+0014     plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0015     plot_settings.bg_color = pymol_RGB( color );
+0016     setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0017 <span class="keyword">end</span>
+0018 
+0019 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0020 <span class="keyword">if</span> ~isfield( plot_settings, <span class="string">'bg_color'</span> ); <a href="set_bg_color.html" class="code" title="function set_bg_color( color );">set_bg_color</a>( [1,1,1] ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0021 set(gcf,<span class="string">'color'</span>,plot_settings.bg_color)
+0022</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

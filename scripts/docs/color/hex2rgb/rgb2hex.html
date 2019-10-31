@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of rgb2hex</title>
+  <meta name="keywords" content="rgb2hex">
+  <meta name="description" content="rgb2hex converts rgb color values to hex color format.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- ../menu.html color --><!-- menu.html hex2rgb -->
+<h1>rgb2hex
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>rgb2hex converts rgb color values to hex color format.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [ hex ] = rgb2hex(rgb) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> rgb2hex converts rgb color values to hex color format. 
+ 
+ This function assumes rgb values are in [r g b] format on the 0 to 1
+ scale.  If, however, any value r, g, or b exceed 1, the function assumes
+ [r g b] are scaled between 0 and 255. 
+ 
+ * * * * * * * * * * * * * * * * * * * * 
+ SYNTAX:
+ hex = rgb2hex(rgb) returns the hexadecimal color value of the n x 3 rgb
+                    values. rgb can be an array. 
+ 
+ * * * * * * * * * * * * * * * * * * * * 
+ EXAMPLES: 
+ 
+ myhexvalue = rgb2hex([0 1 0])
+    = #00FF00
+ 
+ myhexvalue = rgb2hex([0 255 0])
+    = #00FF00
+ 
+ myrgbvalues = [.2 .3 .4;
+                .5 .6 .7; 
+                .8 .6 .2;
+                .2 .2 .9];
+ myhexvalues = rgb2hex(myrgbvalues) 
+    = #334D66
+      #8099B3
+      #CC9933
+      #3333E6
+ 
+ * * * * * * * * * * * * * * * * * * * * 
+ Chad A. Greene, April 2014
+ 
+ Updated August 2014: Functionality remains exactly the same, but it's a
+ little more efficient and more robust. Thanks to Stephen Cobeldick for
+ his suggestions. 
+ 
+ * * * * * * * * * * * * * * * * * * * * 
+ See also <a href="hex2rgb.html" class="code" title="function [ rgb ] = hex2rgb(hex,range)">hex2rgb</a>, dec2hex, hex2num, and ColorSpec.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [ hex ] = rgb2hex(rgb)</a>
+0002 <span class="comment">% rgb2hex converts rgb color values to hex color format.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% This function assumes rgb values are in [r g b] format on the 0 to 1</span>
+0005 <span class="comment">% scale.  If, however, any value r, g, or b exceed 1, the function assumes</span>
+0006 <span class="comment">% [r g b] are scaled between 0 and 255.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% * * * * * * * * * * * * * * * * * * * *</span>
+0009 <span class="comment">% SYNTAX:</span>
+0010 <span class="comment">% hex = rgb2hex(rgb) returns the hexadecimal color value of the n x 3 rgb</span>
+0011 <span class="comment">%                    values. rgb can be an array.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% * * * * * * * * * * * * * * * * * * * *</span>
+0014 <span class="comment">% EXAMPLES:</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% myhexvalue = rgb2hex([0 1 0])</span>
+0017 <span class="comment">%    = #00FF00</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">% myhexvalue = rgb2hex([0 255 0])</span>
+0020 <span class="comment">%    = #00FF00</span>
+0021 <span class="comment">%</span>
+0022 <span class="comment">% myrgbvalues = [.2 .3 .4;</span>
+0023 <span class="comment">%                .5 .6 .7;</span>
+0024 <span class="comment">%                .8 .6 .2;</span>
+0025 <span class="comment">%                .2 .2 .9];</span>
+0026 <span class="comment">% myhexvalues = rgb2hex(myrgbvalues)</span>
+0027 <span class="comment">%    = #334D66</span>
+0028 <span class="comment">%      #8099B3</span>
+0029 <span class="comment">%      #CC9933</span>
+0030 <span class="comment">%      #3333E6</span>
+0031 <span class="comment">%</span>
+0032 <span class="comment">% * * * * * * * * * * * * * * * * * * * *</span>
+0033 <span class="comment">% Chad A. Greene, April 2014</span>
+0034 <span class="comment">%</span>
+0035 <span class="comment">% Updated August 2014: Functionality remains exactly the same, but it's a</span>
+0036 <span class="comment">% little more efficient and more robust. Thanks to Stephen Cobeldick for</span>
+0037 <span class="comment">% his suggestions.</span>
+0038 <span class="comment">%</span>
+0039 <span class="comment">% * * * * * * * * * * * * * * * * * * * *</span>
+0040 <span class="comment">% See also hex2rgb, dec2hex, hex2num, and ColorSpec.</span>
+0041 
+0042 <span class="comment">%% Check inputs:</span>
+0043 
+0044 assert(nargin==1,<span class="string">'This function requires an RGB input.'</span>) 
+0045 assert(isnumeric(rgb)==1,<span class="string">'Function input must be numeric.'</span>) 
+0046 
+0047 sizergb = size(rgb); 
+0048 assert(sizergb(2)==3,<span class="string">'rgb value must have three components in the form [r g b].'</span>)
+0049 assert(max(rgb(:))&lt;=255&amp; min(rgb(:))&gt;=0,<span class="string">'rgb values must be on a scale of 0 to 1 or 0 to 255'</span>)
+0050 
+0051 <span class="comment">%% If no value in RGB exceeds unity, scale from 0 to 255:</span>
+0052 <span class="keyword">if</span> max(rgb(:))&lt;=1
+0053     rgb = round(rgb*255); 
+0054 <span class="keyword">else</span>
+0055     rgb = round(rgb); 
+0056 <span class="keyword">end</span>
+0057 
+0058 <span class="comment">%% Convert (Thanks to Stephen Cobeldick for this clever, efficient solution):</span>
+0059 
+0060 hex(:,2:7) = reshape(sprintf(<span class="string">'%02X'</span>,rgb.'),6,[]).'; 
+0061 hex(:,1) = <span class="string">'#'</span>;
+0062 
+0063 
+0064 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

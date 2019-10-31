@@ -42,6 +42,7 @@
                 RNA.pdb.other_contacts.txt
                 RNA.pdb.stems.txt
                 RNA.pdb.ligands.txt    
+                RNA.pdb.motifs.txt    
 
  (C) R. Das, Stanford University, 2017</pre></div>
 
@@ -75,42 +76,45 @@ This function is called by:
 0015 <span class="comment">%                RNA.pdb.other_contacts.txt</span>
 0016 <span class="comment">%                RNA.pdb.stems.txt</span>
 0017 <span class="comment">%                RNA.pdb.ligands.txt</span>
-0018 <span class="comment">%</span>
-0019 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
-0020 
-0021 [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( [tag,<span class="string">'.fasta'</span>]);
-0022 base_pairs = read_base_pairs( [tag,<span class="string">'.base_pairs.txt'</span>] ); <span class="comment">% includes noncanonical pairs.</span>
-0023 base_stacks = read_base_stacks( [tag,<span class="string">'.stacks.txt'</span>] ); <span class="comment">% includes noncanonical pairs.</span>
-0024 other_contacts = read_other_contacts( [tag,<span class="string">'.other_contacts.txt'</span>] );
-0025 stems = read_stems( [tag,<span class="string">'.stems.txt'</span>] );
-0026 ligands = read_ligands([tag,<span class="string">'.ligands.txt'</span>]);
-0027 
-0028 clf; set(gca,<span class="string">'Position'</span>,[0 0 1 1]);
-0029 hold on
-0030 t = zeros( 1, length(sequence ) );
-0031 axis( [0 200 0 200] );
-0032 
-0033 setappdata( gca, <span class="string">'plot_settings'</span>, default_plot_settings );
-0034 
-0035 stems = set_default_stem_positions( stems ); <span class="comment">% helix_center setup  could happen *inside* draw_helix or draw_helices</span>
-0036 stems = setup_residues(  stems, sequence, resnum, chains, segid ); <span class="comment">%  helix_tag setup could happen inside draw_helices</span>
-0037 setup_stem_partner( stems ); <span class="comment">% could happen inside draw_helices? need some kind of boolean</span>
-0038 setup_arrow_linkers(resnum, chains, segid);
-0039 setup_base_pair_linkers( base_pairs );
-0040 setup_base_stack_linkers( base_stacks );
-0041 setup_other_contact_linkers( other_contacts );
-0042 try_non_standard_names( sequence, resnum, chains, segid, non_standard_residues);
-0043 
-0044 <span class="comment">%coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );</span>
-0045 <span class="comment">%setup_coaxial_stacks( coaxial_stacks );</span>
+0018 <span class="comment">%                RNA.pdb.motifs.txt</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0021 
+0022 [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( [tag,<span class="string">'.fasta'</span>]);
+0023 base_pairs = read_base_pairs( [tag,<span class="string">'.base_pairs.txt'</span>] ); <span class="comment">% includes noncanonical pairs.</span>
+0024 base_stacks = read_base_stacks( [tag,<span class="string">'.stacks.txt'</span>] ); <span class="comment">% includes noncanonical pairs.</span>
+0025 other_contacts = read_other_contacts( [tag,<span class="string">'.other_contacts.txt'</span>] );
+0026 stems = read_stems( [tag,<span class="string">'.stems.txt'</span>] );
+0027 ligands = read_ligands([tag,<span class="string">'.ligands.txt'</span>]);
+0028 motifs = read_motifs( [tag, <span class="string">'.motifs.txt'</span>] );
+0029 <span class="keyword">if</span> length( base_pairs ) == 0 &amp; length( stems ) &gt; 0; base_pairs = get_base_pairs_from_stems( stems ); <span class="keyword">end</span>
+0030 
+0031 clf; set(gca,<span class="string">'Position'</span>,[0 0 1 1]);
+0032 hold on
+0033 t = zeros( 1, length(sequence ) );
+0034 axis( [0 200 0 200] );
+0035 
+0036 setappdata( gca, <span class="string">'plot_settings'</span>, default_plot_settings );
+0037 
+0038 stems = set_default_stem_positions( stems ); <span class="comment">% helix_center setup  could happen *inside* draw_helix or draw_helices</span>
+0039 stems = setup_residues(  stems, sequence, resnum, chains, segid ); <span class="comment">%  helix_tag setup could happen inside draw_helices</span>
+0040 setup_stem_partner( stems ); <span class="comment">% could happen inside draw_helices? need some kind of boolean</span>
+0041 setup_arrow_linkers(resnum, chains, segid);
+0042 setup_base_pair_linkers( base_pairs );
+0043 setup_base_stack_linkers( base_stacks );
+0044 setup_other_contact_linkers( other_contacts );
+0045 try_non_standard_names( sequence, resnum, chains, segid, non_standard_residues);
 0046 
-0047 setup_ligands( ligands );
-0048 
-0049 draw_helices( stems );
-0050 setup_zoom();
+0047 <span class="comment">%coaxial_stacks = get_coaxial_stacks( base_pairs, base_stacks, stems );</span>
+0048 <span class="comment">%setup_coaxial_stacks( coaxial_stacks );</span>
+0049 setup_ligands( ligands );
+0050 setup_motifs( motifs );
 0051 
-0052 set_nice_axes();
-0053 update_graphics_size();</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0052 draw_helices( stems );
+0053 setup_zoom();
+0054 
+0055 set_nice_axes();
+0056 update_graphics_size();</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

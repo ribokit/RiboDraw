@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of hex2rgb</title>
+  <meta name="keywords" content="hex2rgb">
+  <meta name="description" content="hex2rgb converts hex color values to rgb arrays on the range 0 to 1.">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- ../menu.html color --><!-- menu.html hex2rgb -->
+<h1>hex2rgb
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>hex2rgb converts hex color values to rgb arrays on the range 0 to 1.</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function [ rgb ] = hex2rgb(hex,range) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> hex2rgb converts hex color values to rgb arrays on the range 0 to 1. 
+ 
+ 
+ * * * * * * * * * * * * * * * * * * * * 
+ SYNTAX:
+ rgb = hex2rgb(hex) returns rgb color values in an n x 3 array. Values are
+                    scaled from 0 to 1 by default. 
+                    
+ rgb = hex2rgb(hex,256) returns RGB values scaled from 0 to 255. 
+ 
+ 
+ * * * * * * * * * * * * * * * * * * * * 
+ EXAMPLES: 
+ 
+ myrgbvalue = hex2rgb('#334D66')
+    = 0.2000    0.3020    0.4000
+ 
+ 
+ myrgbvalue = hex2rgb('334D66')  % &lt;-the # sign is optional 
+    = 0.2000    0.3020    0.4000
+ 
+
+ myRGBvalue = hex2rgb('#334D66',256)
+    = 51    77   102
+ 
+ 
+ myhexvalues = ['#334D66';'#8099B3';'#CC9933';'#3333E6'];
+ myrgbvalues = hex2rgb(myhexvalues)
+    =   0.2000    0.3020    0.4000
+        0.5020    0.6000    0.7020
+        0.8000    0.6000    0.2000
+        0.2000    0.2000    0.9020
+ 
+ 
+ myhexvalues = ['#334D66';'#8099B3';'#CC9933';'#3333E6'];
+ myRGBvalues = hex2rgb(myhexvalues,256)
+    =   51    77   102
+       128   153   179
+       204   153    51
+        51    51   230
+ 
+ HexValsAsACharacterArray = {'#334D66';'#8099B3';'#CC9933';'#3333E6'}; 
+ rgbvals = hex2rgb(HexValsAsACharacterArray)
+ 
+ * * * * * * * * * * * * * * * * * * * * 
+ Chad A. Greene, April 2014
+
+ Updated August 2014: Functionality remains exactly the same, but it's a
+ little more efficient and more robust. Thanks to Stephen Cobeldick for
+ the improvement tips. In this update, the documentation now shows that
+ the range may be set to 256. This is more intuitive than the previous
+ style, which scaled values from 0 to 255 with range set to 255.  Now you
+ can enter 256 or 255 for the range, and the answer will be the same--rgb
+ values scaled from 0 to 255. Function now also accepts character arrays
+ as input. 
+ 
+ * * * * * * * * * * * * * * * * * * * * 
+ See also <a href="rgb2hex.html" class="code" title="function [ hex ] = rgb2hex(rgb)">rgb2hex</a>, dec2hex, hex2num, and ColorSpec.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [ rgb ] = hex2rgb(hex,range)</a>
+0002 <span class="comment">% hex2rgb converts hex color values to rgb arrays on the range 0 to 1.</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% * * * * * * * * * * * * * * * * * * * *</span>
+0006 <span class="comment">% SYNTAX:</span>
+0007 <span class="comment">% rgb = hex2rgb(hex) returns rgb color values in an n x 3 array. Values are</span>
+0008 <span class="comment">%                    scaled from 0 to 1 by default.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% rgb = hex2rgb(hex,256) returns RGB values scaled from 0 to 255.</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% * * * * * * * * * * * * * * * * * * * *</span>
+0014 <span class="comment">% EXAMPLES:</span>
+0015 <span class="comment">%</span>
+0016 <span class="comment">% myrgbvalue = hex2rgb('#334D66')</span>
+0017 <span class="comment">%    = 0.2000    0.3020    0.4000</span>
+0018 <span class="comment">%</span>
+0019 <span class="comment">%</span>
+0020 <span class="comment">% myrgbvalue = hex2rgb('334D66')  % &lt;-the # sign is optional</span>
+0021 <span class="comment">%    = 0.2000    0.3020    0.4000</span>
+0022 <span class="comment">%</span>
+0023 <span class="comment">%</span>
+0024 <span class="comment">% myRGBvalue = hex2rgb('#334D66',256)</span>
+0025 <span class="comment">%    = 51    77   102</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">%</span>
+0028 <span class="comment">% myhexvalues = ['#334D66';'#8099B3';'#CC9933';'#3333E6'];</span>
+0029 <span class="comment">% myrgbvalues = hex2rgb(myhexvalues)</span>
+0030 <span class="comment">%    =   0.2000    0.3020    0.4000</span>
+0031 <span class="comment">%        0.5020    0.6000    0.7020</span>
+0032 <span class="comment">%        0.8000    0.6000    0.2000</span>
+0033 <span class="comment">%        0.2000    0.2000    0.9020</span>
+0034 <span class="comment">%</span>
+0035 <span class="comment">%</span>
+0036 <span class="comment">% myhexvalues = ['#334D66';'#8099B3';'#CC9933';'#3333E6'];</span>
+0037 <span class="comment">% myRGBvalues = hex2rgb(myhexvalues,256)</span>
+0038 <span class="comment">%    =   51    77   102</span>
+0039 <span class="comment">%       128   153   179</span>
+0040 <span class="comment">%       204   153    51</span>
+0041 <span class="comment">%        51    51   230</span>
+0042 <span class="comment">%</span>
+0043 <span class="comment">% HexValsAsACharacterArray = {'#334D66';'#8099B3';'#CC9933';'#3333E6'};</span>
+0044 <span class="comment">% rgbvals = hex2rgb(HexValsAsACharacterArray)</span>
+0045 <span class="comment">%</span>
+0046 <span class="comment">% * * * * * * * * * * * * * * * * * * * *</span>
+0047 <span class="comment">% Chad A. Greene, April 2014</span>
+0048 <span class="comment">%</span>
+0049 <span class="comment">% Updated August 2014: Functionality remains exactly the same, but it's a</span>
+0050 <span class="comment">% little more efficient and more robust. Thanks to Stephen Cobeldick for</span>
+0051 <span class="comment">% the improvement tips. In this update, the documentation now shows that</span>
+0052 <span class="comment">% the range may be set to 256. This is more intuitive than the previous</span>
+0053 <span class="comment">% style, which scaled values from 0 to 255 with range set to 255.  Now you</span>
+0054 <span class="comment">% can enter 256 or 255 for the range, and the answer will be the same--rgb</span>
+0055 <span class="comment">% values scaled from 0 to 255. Function now also accepts character arrays</span>
+0056 <span class="comment">% as input.</span>
+0057 <span class="comment">%</span>
+0058 <span class="comment">% * * * * * * * * * * * * * * * * * * * *</span>
+0059 <span class="comment">% See also rgb2hex, dec2hex, hex2num, and ColorSpec.</span>
+0060 <span class="comment">%</span>
+0061 
+0062 <span class="comment">%% Input checks:</span>
+0063 
+0064 assert(nargin&gt;0&amp;nargin&lt;3,<span class="string">'hex2rgb function must have one or two inputs.'</span>) 
+0065 
+0066 <span class="keyword">if</span> nargin==2
+0067     assert(isscalar(range)==1,<span class="string">'Range must be a scalar, either &quot;1&quot; to scale from 0 to 1 or &quot;256&quot; to scale from 0 to 255.'</span>)
+0068 <span class="keyword">end</span>
+0069 
+0070 <span class="comment">%% Tweak inputs if necessary:</span>
+0071 
+0072 <span class="keyword">if</span> iscell(hex)
+0073     assert(isvector(hex)==1,<span class="string">'Unexpected dimensions of input hex values.'</span>)
+0074     
+0075     <span class="comment">% In case cell array elements are separated by a comma instead of a</span>
+0076     <span class="comment">% semicolon, reshape hex:</span>
+0077     <span class="keyword">if</span> isrow(hex)
+0078         hex = hex'; 
+0079     <span class="keyword">end</span>
+0080     
+0081     <span class="comment">% If input is cell, convert to matrix:</span>
+0082     hex = cell2mat(hex);
+0083 <span class="keyword">end</span>
+0084 
+0085 <span class="keyword">if</span> strcmpi(hex(1,1),<span class="string">'#'</span>)
+0086     hex(:,1) = [];
+0087 <span class="keyword">end</span>
+0088 
+0089 <span class="keyword">if</span> nargin == 1
+0090     range = 1; 
+0091 <span class="keyword">end</span>
+0092 
+0093 <span class="comment">%% Convert from hex to rgb:</span>
+0094 
+0095 <span class="keyword">switch</span> range
+0096     <span class="keyword">case</span> 1
+0097         rgb = reshape(sscanf(hex.',<span class="string">'%2x'</span>),3,[]).'/255;
+0098 
+0099     <span class="keyword">case</span> {255,256}
+0100         rgb = reshape(sscanf(hex.',<span class="string">'%2x'</span>),3,[]).';
+0101     
+0102     <span class="keyword">otherwise</span>
+0103         error(<span class="string">'Range must be either &quot;1&quot; to scale from 0 to 1 or &quot;256&quot; to scale from 0 to 255.'</span>)
+0104 <span class="keyword">end</span>
+0105 
+0106 <span class="keyword">end</span>
+0107</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

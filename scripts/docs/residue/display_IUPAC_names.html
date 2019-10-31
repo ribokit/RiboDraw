@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of display_IUPAC_names</title>
+  <meta name="keywords" content="display_IUPAC_names">
+  <meta name="description" content="display_IUPAC_names( residue_string, IUPAC_symbols )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html residue -->
+<h1>display_IUPAC_names
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>display_IUPAC_names( residue_string, IUPAC_symbols )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function display_IUPAC_names( residue_string, IUPAC_symbols ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> display_IUPAC_names( residue_string, IUPAC_symbols )
+
+ Create rings around names and color by Anderson-Lee/Fisker/Wellington-Oguri Eterna colors.
+
+ INPUTS
+
+  residue_string = format specifying chain[:segid]:res1-res2 like  'A:1-4' or 'C:RA:1-119'
+  IUPAC_symbols  = ABCDGHUVSWRYKMNX symbols for each residue -- length of string must match
+                      residue_string
+
+ May be redundant with GET_RES().
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="draw_residue.html" class="code" title="function     residue = draw_residue( residue, plot_settings );">draw_residue</a>	residue = draw_residue( residue );</li><li><a href="get_IUPAC_info.html" class="code" title="function [IUPAC_letters, allowed_letters, IUPAC_Eterna_colors ] = get_IUPAC_info()">get_IUPAC_info</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function display_IUPAC_names( residue_string, IUPAC_symbols )</a>
+0002 <span class="comment">% display_IUPAC_names( residue_string, IUPAC_symbols )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Create rings around names and color by Anderson-Lee/Fisker/Wellington-Oguri Eterna colors.</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% INPUTS</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%  residue_string = format specifying chain[:segid]:res1-res2 like  'A:1-4' or 'C:RA:1-119'</span>
+0009 <span class="comment">%  IUPAC_symbols  = ABCDGHUVSWRYKMNX symbols for each residue -- length of string must match</span>
+0010 <span class="comment">%                      residue_string</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% May be redundant with GET_RES().</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0015 
+0016 
+0017 res_tags = get_res_tags( residue_string );
+0018 <span class="keyword">if</span>  length( res_tags ) ~= length( IUPAC_symbols ) 
+0019     fprintf( <span class="string">'\nProblem! Number of residues found for residue_string %s is %d, but does not match length of IUPAC_symbols, %d\n'</span>, residue_string,length(res_tags),length(IUPAC_symbols))
+0020     <span class="keyword">return</span>;
+0021 <span class="keyword">end</span>
+0022 plot_settings = getappdata(gca,<span class="string">'plot_settings'</span> );
+0023 [IUPAC_letters, allowed_letters, IUPAC_Eterna_colors ] = <a href="get_IUPAC_info.html" class="code" title="function [IUPAC_letters, allowed_letters, IUPAC_Eterna_colors ] = get_IUPAC_info()">get_IUPAC_info</a>();
+0024 <span class="keyword">for</span> i = 1:length( res_tags )
+0025     <span class="keyword">if</span> ~isappdata( gca, res_tags{i} ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0026     residue = getappdata( gca, res_tags{i} );
+0027     IUPAC_symbol = IUPAC_symbols(i);
+0028     <span class="keyword">if</span> all( ~strcmp( IUPAC_symbol, IUPAC_letters ) ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0029     residue.name = IUPAC_symbol;
+0030     setappdata( gca, res_tags{i}, residue );
+0031     <a href="draw_residue.html" class="code" title="function     residue = draw_residue( residue, plot_settings );">draw_residue</a>( residue );
+0032 <span class="keyword">end</span>
+0033 fprintf( <span class="string">'Type \n\n display_nucleotide_names\n\nto restore original nucleotide names.\n'</span> )
+0034 move_stuff_to_back</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

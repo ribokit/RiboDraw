@@ -53,7 +53,7 @@ This function is called by:
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="#_sub1" class="code">function new_obj = copy_fields( obj, tags )</a></li><li><a href="#_sub2" class="code">function savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags, slice_res_tags )</a></li><li><a href="#_sub3" class="code">function savedata = save_helices( savedata, objnames )</a></li><li><a href="#_sub4" class="code">function savedata = save_selections( savedata, objnames )</a></li><li><a href="#_sub5" class="code">function savedata = save_tertiary_contacts( savedata, objnames )</a></li><li><a href="#_sub6" class="code">function savedata = save_linkers( savedata, objnames )</a></li><li><a href="#_sub7" class="code">function tags = get_residue_tags();</a></li><li><a href="#_sub8" class="code">function tags = get_helix_tags();</a></li><li><a href="#_sub9" class="code">function tags = get_linker_tags();</a></li><li><a href="#_sub10" class="code">function tags = get_selection_tags();</a></li><li><a href="#_sub11" class="code">function tags = get_tertiary_contact_tags();</a></li><li><a href="#_sub12" class="code">function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );</a></li></ul>
+<li><a href="#_sub1" class="code">function new_obj = copy_fields( obj, tags )</a></li><li><a href="#_sub2" class="code">function savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags, slice_res_tags )</a></li><li><a href="#_sub3" class="code">function savedata = save_helices( savedata, objnames )</a></li><li><a href="#_sub4" class="code">function savedata = save_selections( savedata, objnames )</a></li><li><a href="#_sub5" class="code">function savedata = save_tertiary_contacts( savedata, objnames )</a></li><li><a href="#_sub6" class="code">function savedata = save_motifs( savedata, objnames )</a></li><li><a href="#_sub7" class="code">function savedata = save_linkers( savedata, objnames )</a></li><li><a href="#_sub8" class="code">function tags = get_residue_tags();</a></li><li><a href="#_sub9" class="code">function tags = get_helix_tags();</a></li><li><a href="#_sub10" class="code">function tags = get_linker_tags();</a></li><li><a href="#_sub11" class="code">function tags = get_selection_tags();</a></li><li><a href="#_sub12" class="code">function tags = get_tertiary_contact_tags();</a></li><li><a href="#_sub13" class="code">function tags = get_motif_tags();</a></li><li><a href="#_sub14" class="code">function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, new_motif_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, motif_tags );</a></li></ul>
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function savedata = get_drawing( slice_res );</a>
@@ -73,220 +73,247 @@ This function is called by:
 0015 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
 0016 
 0017 savedata = struct();
-0018 savedata.version = <span class="string">'0.69'</span>;
-0019 residue_tags = <a href="#_sub7" class="code" title="subfunction tags = get_residue_tags();">get_residue_tags</a>();
-0020 helix_tags = <a href="#_sub8" class="code" title="subfunction tags = get_helix_tags();">get_helix_tags</a>();
-0021 linker_tags = <a href="#_sub9" class="code" title="subfunction tags = get_linker_tags();">get_linker_tags</a>();
-0022 selection_tags = <a href="#_sub10" class="code" title="subfunction tags = get_selection_tags();">get_selection_tags</a>();
-0023 tertiary_contact_tags = <a href="#_sub11" class="code" title="subfunction tags = get_tertiary_contact_tags();">get_tertiary_contact_tags</a>();
-0024 
-0025 <span class="keyword">if</span> exist( <span class="string">'slice_res'</span>, <span class="string">'var'</span> )
-0026     slice_res_tags = get_res( slice_res );
-0027     [residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, slice_res_tags, ok ] = <a href="#_sub12" class="code" title="subfunction [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );">filter_by_res_tags</a>( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    
-0028     <span class="keyword">if</span> ~ok; <span class="keyword">return</span>; <span class="keyword">end</span>;
-0029 <span class="keyword">else</span>
-0030     slice_res_tags = {};
-0031 <span class="keyword">end</span>
-0032 
-0033 <span class="comment">% try to save in this order -- will help with rendering elements later.</span>
-0034 savedata = <a href="#_sub2" class="code" title="subfunction savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags, slice_res_tags )">save_residues</a>(          savedata, residue_tags, linker_tags, selection_tags, slice_res_tags );
-0035 savedata = <a href="#_sub3" class="code" title="subfunction savedata = save_helices( savedata, objnames )">save_helices</a>(           savedata, helix_tags );
-0036 savedata = <a href="#_sub6" class="code" title="subfunction savedata = save_linkers( savedata, objnames )">save_linkers</a>(           savedata, linker_tags );
-0037 savedata = <a href="#_sub4" class="code" title="subfunction savedata = save_selections( savedata, objnames )">save_selections</a>(        savedata, selection_tags );
-0038 savedata = <a href="#_sub5" class="code" title="subfunction savedata = save_tertiary_contacts( savedata, objnames )">save_tertiary_contacts</a>( savedata, tertiary_contact_tags );
-0039 
-0040 savedata.plot_settings   = getappdata( gca, <span class="string">'plot_settings'</span> );
-0041 savedata.xlim            = get(gca, <span class="string">'xlim'</span> );
-0042 savedata.ylim            = get(gca, <span class="string">'ylim'</span> );
-0043 savedata.data_aspect_ratio_mode = get(gca, <span class="string">'DataAspectRatioMode'</span> );
-0044 savedata.window_position = get(gcf, <span class="string">'Position'</span> );
-0045 
-0046 
-0047 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0048 <a name="_sub1" href="#_subfunctions" class="code">function new_obj = copy_fields( obj, tags )</a>
-0049 new_obj = struct();
-0050 <span class="keyword">for</span> i = find( isfield( obj, tags ) );
-0051      tag = tags{i};
-0052      new_obj = setfield( new_obj, tag, getfield( obj, tag ) );
-0053 <span class="keyword">end</span>
-0054 
-0055 
-0056 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0057 <a name="_sub2" href="#_subfunctions" class="code">function savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags, slice_res_tags )</a>
-0058 
-0059 <span class="keyword">for</span> n = 1:length( objnames )
-0060     assert( ~isempty( strfind( objnames{n}, <span class="string">'Residue_'</span> ) ) );
-0061     figure_residue = getappdata( gca, objnames{n} );
-0062     <span class="keyword">if</span> ~isfield( figure_residue, <span class="string">'nucleotide'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0063     residue = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_residue, {<span class="string">'resnum'</span>,<span class="string">'chain'</span>,<span class="string">'segid'</span>,<span class="string">'res_tag'</span>,<span class="string">'helix_tag'</span>,<span class="string">'nucleotide'</span>,<span class="keyword">...</span>
-0064         <span class="string">'stem_partner'</span>,<span class="string">'tickrot'</span>,<span class="string">'rgb_color'</span>,<span class="string">'relpos'</span>,<span class="string">'linkers'</span>,<span class="string">'associated_selections'</span>,<span class="string">'ligand_partners'</span>,<span class="string">'image_boundary'</span>,<span class="string">'image_radius'</span>,<span class="string">'label_relpos'</span>} );
-0065 
-0066     <span class="comment">% filter if we sliced residues. could just always do this, but</span>
-0067     <span class="comment">% let's save time.</span>
-0068     <span class="keyword">if</span> ~isempty( slice_res_tags )
-0069         residue.linkers = intersect( residue.linkers, filter_linker_tags);
-0070         <span class="keyword">if</span> isfield( residue, <span class="string">'associated_selections'</span> ) residue.associated_selections = intersect( residue.associated_selections, filter_selection_tags); <span class="keyword">end</span>;
-0071     <span class="keyword">end</span>
-0072     savedata = setfield( savedata, objnames{n}, residue );
-0073 <span class="keyword">end</span>
-0074 
-0075 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0076 <a name="_sub3" href="#_subfunctions" class="code">function savedata = save_helices( savedata, objnames )</a>
+0018 savedata.version = <span class="string">'0.701'</span>;
+0019 residue_tags = <a href="#_sub8" class="code" title="subfunction tags = get_residue_tags();">get_residue_tags</a>();
+0020 helix_tags = <a href="#_sub9" class="code" title="subfunction tags = get_helix_tags();">get_helix_tags</a>();
+0021 linker_tags = <a href="#_sub10" class="code" title="subfunction tags = get_linker_tags();">get_linker_tags</a>();
+0022 selection_tags = <a href="#_sub11" class="code" title="subfunction tags = get_selection_tags();">get_selection_tags</a>();
+0023 tertiary_contact_tags = <a href="#_sub12" class="code" title="subfunction tags = get_tertiary_contact_tags();">get_tertiary_contact_tags</a>();
+0024 motif_tags = <a href="#_sub13" class="code" title="subfunction tags = get_motif_tags();">get_motif_tags</a>();
+0025 
+0026 <span class="keyword">if</span> exist( <span class="string">'slice_res'</span>, <span class="string">'var'</span> )
+0027     slice_res_tags = get_res( slice_res );
+0028     [residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, motif_tags, slice_res_tags, ok ] = <a href="#_sub14" class="code" title="subfunction [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, new_motif_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, motif_tags );">filter_by_res_tags</a>( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, motif_tags );    
+0029     <span class="keyword">if</span> ~ok; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0030 <span class="keyword">else</span>
+0031     slice_res_tags = {};
+0032 <span class="keyword">end</span>
+0033 
+0034 <span class="comment">% try to save in this order -- will help with rendering elements later.</span>
+0035 savedata = <a href="#_sub2" class="code" title="subfunction savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags, slice_res_tags )">save_residues</a>(          savedata, residue_tags, linker_tags, selection_tags, slice_res_tags );
+0036 savedata = <a href="#_sub3" class="code" title="subfunction savedata = save_helices( savedata, objnames )">save_helices</a>(           savedata, helix_tags );
+0037 savedata = <a href="#_sub7" class="code" title="subfunction savedata = save_linkers( savedata, objnames )">save_linkers</a>(           savedata, linker_tags );
+0038 savedata = <a href="#_sub4" class="code" title="subfunction savedata = save_selections( savedata, objnames )">save_selections</a>(        savedata, selection_tags );
+0039 savedata = <a href="#_sub5" class="code" title="subfunction savedata = save_tertiary_contacts( savedata, objnames )">save_tertiary_contacts</a>( savedata, tertiary_contact_tags );
+0040 savedata = <a href="#_sub6" class="code" title="subfunction savedata = save_motifs( savedata, objnames )">save_motifs</a>( savedata, motif_tags );
+0041 
+0042 savedata.plot_settings   = getappdata( gca, <span class="string">'plot_settings'</span> );
+0043 savedata.xlim            = get(gca, <span class="string">'xlim'</span> );
+0044 savedata.ylim            = get(gca, <span class="string">'ylim'</span> );
+0045 savedata.data_aspect_ratio_mode = get(gca, <span class="string">'DataAspectRatioMode'</span> );
+0046 savedata.window_position = get(gcf, <span class="string">'Position'</span> );
+0047 
+0048 
+0049 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0050 <a name="_sub1" href="#_subfunctions" class="code">function new_obj = copy_fields( obj, tags )</a>
+0051 new_obj = struct();
+0052 <span class="keyword">for</span> i = find( isfield( obj, tags ) );
+0053      tag = tags{i};
+0054      new_obj = setfield( new_obj, tag, getfield( obj, tag ) );
+0055 <span class="keyword">end</span>
+0056 
+0057 
+0058 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0059 <a name="_sub2" href="#_subfunctions" class="code">function savedata = save_residues( savedata, objnames, filter_linker_tags, filter_selection_tags, slice_res_tags )</a>
+0060 
+0061 <span class="keyword">for</span> n = 1:length( objnames )
+0062     assert( ~isempty( strfind( objnames{n}, <span class="string">'Residue_'</span> ) ) );
+0063     figure_residue = getappdata( gca, objnames{n} );
+0064     <span class="keyword">if</span> ~isfield( figure_residue, <span class="string">'name'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0065     residue = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_residue, {<span class="string">'resnum'</span>,<span class="string">'chain'</span>,<span class="string">'segid'</span>,<span class="string">'res_tag'</span>,<span class="string">'helix_tag'</span>,<span class="string">'name'</span>,<span class="string">'original_name'</span>,<span class="string">'non_standard_name'</span><span class="keyword">...</span>
+0066         <span class="string">'stem_partner'</span>,<span class="string">'tickrot'</span>,<span class="string">'rgb_color'</span>,<span class="string">'relpos'</span>,<span class="string">'linkers'</span>,<span class="string">'associated_selections'</span>,<span class="string">'ligand_partners'</span>,<span class="string">'image_boundary'</span>,<span class="string">'image_radius'</span>,<span class="string">'label_relpos'</span>,<span class="keyword">...</span>
+0067         <span class="string">'fill_color'</span>,<span class="string">'ring_color'</span>,<span class="string">'associated_motifs'</span>} );
+0068 
+0069     <span class="comment">% filter if we sliced residues. could just always do this, but</span>
+0070     <span class="comment">% let's save time.</span>
+0071     <span class="keyword">if</span> ~isempty( slice_res_tags )
+0072         residue.linkers = intersect( residue.linkers, filter_linker_tags);
+0073         <span class="keyword">if</span> isfield( residue, <span class="string">'associated_selections'</span> ) residue.associated_selections = intersect( residue.associated_selections, filter_selection_tags); <span class="keyword">end</span>;
+0074     <span class="keyword">end</span>
+0075     savedata = setfield( savedata, objnames{n}, residue );
+0076 <span class="keyword">end</span>
 0077 
-0078 <span class="keyword">for</span> n = 1:length( objnames )
-0079     assert( ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) ) );
-0080     figure_helix = getappdata( gca, objnames{n} );
-0081     helix = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_helix, {<span class="string">'resnum1'</span>,<span class="string">'chain1'</span>,<span class="string">'segid1'</span>,<span class="string">'resnum2'</span>,<span class="string">'chain2'</span>,<span class="string">'segid2'</span>,<span class="string">'name'</span>,<span class="keyword">...</span>
-0082         <span class="string">'center'</span>,<span class="string">'rotation'</span>,<span class="string">'parity'</span>,<span class="string">'label_relpos'</span>,<span class="string">'helix_tag'</span>,<span class="string">'associated_residues'</span>,<span class="string">'rgb_color'</span>,<span class="string">'label_visible'</span>} );
-0083     savedata = setfield( savedata, objnames{n}, helix );
-0084 <span class="keyword">end</span>
-0085 
-0086 
-0087 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0088 <a name="_sub4" href="#_subfunctions" class="code">function savedata = save_selections( savedata, objnames )</a>
+0078 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0079 <a name="_sub3" href="#_subfunctions" class="code">function savedata = save_helices( savedata, objnames )</a>
+0080 
+0081 <span class="keyword">for</span> n = 1:length( objnames )
+0082     assert( ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) ) );
+0083     figure_helix = getappdata( gca, objnames{n} );
+0084     helix = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_helix, {<span class="string">'resnum1'</span>,<span class="string">'chain1'</span>,<span class="string">'segid1'</span>,<span class="string">'resnum2'</span>,<span class="string">'chain2'</span>,<span class="string">'segid2'</span>,<span class="string">'name'</span>,<span class="keyword">...</span>
+0085         <span class="string">'center'</span>,<span class="string">'rotation'</span>,<span class="string">'parity'</span>,<span class="string">'label_relpos'</span>,<span class="string">'helix_tag'</span>,<span class="string">'associated_residues'</span>,<span class="string">'rgb_color'</span>,<span class="string">'label_visible'</span>} );
+0086     savedata = setfield( savedata, objnames{n}, helix );
+0087 <span class="keyword">end</span>
+0088 
 0089 
-0090 <span class="keyword">for</span> n = 1:length( objnames )
-0091     assert( ~isempty( strfind( objnames{n}, <span class="string">'Selection_'</span> ) ) );
-0092     figure_selection = getappdata( gca, objnames{n} );
-0093     selection = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_selection, {<span class="string">'associated_residues'</span>,<span class="string">'associated_helices'</span>,<span class="string">'selection_tag'</span>,<span class="string">'type'</span>,<span class="string">'coax_pairs'</span>,<span class="string">'name'</span>,<span class="keyword">...</span>
-0094         <span class="string">'label_relpos'</span>,<span class="string">'rgb_color'</span>,<span class="string">'label_visible'</span>,<span class="string">'helix_group'</span>} );
-0095     savedata = setfield( savedata, objnames{n}, selection );
-0096 <span class="keyword">end</span>
-0097 
-0098 
-0099 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0100 <a name="_sub5" href="#_subfunctions" class="code">function savedata = save_tertiary_contacts( savedata, objnames )</a>
-0101 
-0102 <span class="keyword">for</span> n = 1:length( objnames )
-0103     assert( ~isempty( strfind( objnames{n}, <span class="string">'TertiaryContact_'</span> ) ) );
-0104     figure_selection = getappdata( gca, objnames{n} );
-0105     selection = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_selection, {<span class="string">'associated_residues1'</span>,<span class="string">'associated_residues2'</span>,<span class="string">'name'</span>,<span class="string">'tertiary_contact_tag'</span>,<span class="keyword">...</span>
-0106         <span class="string">'interdomain_linker'</span>,<span class="string">'intradomain_linkers1'</span>,<span class="string">'intradomain_linkers2'</span>,<span class="string">'linkers'</span>} );
-0107     savedata = setfield( savedata, objnames{n}, selection );
-0108 <span class="keyword">end</span>
-0109 
-0110 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0111 <a name="_sub6" href="#_subfunctions" class="code">function savedata = save_linkers( savedata, objnames )</a>
-0112     
-0113 <span class="keyword">for</span> n = 1:length( objnames )
-0114     assert( ~isempty( strfind( objnames{n}, <span class="string">'Linker_'</span> ) ) );
-0115     figure_linker = getappdata( gca, objnames{n} );
-0116     linker = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_linker, {<span class="string">'residue1'</span>,<span class="string">'residue2'</span>,<span class="string">'type'</span>,<span class="string">'linker_tag'</span>,<span class="string">'relpos1'</span>,<span class="keyword">...</span>
-0117         <span class="string">'relpos2'</span>,<span class="string">'edge1'</span>,<span class="string">'edge2'</span>,<span class="string">'LW_orientation'</span>,<span class="string">'tertiary_contact'</span>,<span class="string">'show_split_arrows'</span>,<span class="string">'outarrow_label_relpos1'</span>,<span class="string">'outarrow_label_relpos2'</span>} );
-0118     savedata = setfield( savedata, objnames{n}, linker );
-0119 <span class="keyword">end</span>
-0120 
-0121 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0122 <a name="_sub7" href="#_subfunctions" class="code">function tags = get_residue_tags();</a>
-0123 tags = sort( get_tags( <span class="string">'Residue_'</span> ) );
-0124 
-0125 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0126 <a name="_sub8" href="#_subfunctions" class="code">function tags = get_helix_tags();</a>
-0127 tags = sort( get_tags( <span class="string">'Helix_'</span> ) );
-0128 
-0129 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0130 <a name="_sub9" href="#_subfunctions" class="code">function tags = get_linker_tags();</a>
-0131 linker_tags = get_tags( <span class="string">'Linker_'</span>);
-0132 arrow_tags               = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'arrow'</span>, linker_tags ) );
-0133 stem_pair_tags           = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'stem_pair'</span>, linker_tags ) );
-0134 noncanonical_tags        = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'noncanonical_pair'</span>, linker_tags ) );
-0135 stack_tags               = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'stack'</span>, linker_tags ) );
-0136 other_contact_tags       = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'other_contact'</span>, linker_tags )  );
-0137 ligand_tags              = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'ligand'</span>, linker_tags ) );
-0138 tertcontact_interdomain_tags = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'tertcontact_interdomain'</span>, linker_tags ) );
-0139 tertcontact_intradomain_tags = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'tertcontact_intradomain'</span>, linker_tags ) );
-0140 tags = [arrow_tags; stem_pair_tags; noncanonical_tags; stack_tags; other_contact_tags; ligand_tags; <span class="keyword">...</span>
-0141     tertcontact_interdomain_tags; tertcontact_intradomain_tags ];
-0142 
-0143 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0144 <a name="_sub10" href="#_subfunctions" class="code">function tags = get_selection_tags();</a>
-0145 tags = sort( get_tags( <span class="string">'Selection_'</span> ) );
-0146 
-0147 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0148 <a name="_sub11" href="#_subfunctions" class="code">function tags = get_tertiary_contact_tags();</a>
-0149 tags = sort( get_tags( <span class="string">'TertiaryContact_'</span> ) );
-0150 
-0151 
-0152 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0153 <a name="_sub12" href="#_subfunctions" class="code">function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags );    </a>
-0154 fprintf( <span class="string">'Filtering by slice_res\n'</span> );
-0155 tic
-0156 ok = 1;
-0157 
-0158 new_residue_tags = {};
-0159 new_helix_tags   = {};
-0160 new_linker_tags  = {}; 
-0161 new_selection_tags = {};
-0162 new_tertiary_contact_tags = {};
-0163 
-0164 <span class="comment">% residues</span>
-0165 new_residue_tags = intersect( slice_res_tags, residue_tags );
-0166 <span class="keyword">if</span> isempty( new_residue_tags ) 
-0167     fprintf( <span class="string">'Could not find desired res_tags\n'</span> );
-0168     ok = 0; <span class="keyword">return</span>;
-0169 <span class="keyword">end</span>
-0170 
-0171 <span class="comment">% helices</span>
-0172 <span class="keyword">for</span> i = 1:length( helix_tags )
-0173     tag = helix_tags{i};
-0174     helix = getappdata( gca, tag );
-0175     intersect_tags = intersect( helix.associated_residues, slice_res_tags );
-0176     <span class="keyword">if</span> length( intersect_tags ) == 0; 
-0177         <span class="comment">% helix could be cleanly outside target res</span>
-0178         <span class="keyword">continue</span>;
-0179     <span class="keyword">elseif</span>  length( intersect_tags ) &lt; length( helix.associated_residues )
-0180         fprintf( <span class="string">'Warning! slice_res only catches part of helix %s. Will include the rest of that helix too\n'</span>, tag);
-0181         new_helix_tags = [new_helix_tags, tag ];
-0182         new_residue_tags = unique( [ new_residue_tags; helix.associated_residues' ] );
-0183     <span class="keyword">else</span>
-0184         new_helix_tags = [new_helix_tags, tag ];
-0185     <span class="keyword">end</span>
-0186 <span class="keyword">end</span>
-0187 
-0188 <span class="comment">% NEW -- let's actually update slice_res to include those extra helices</span>
-0189 <span class="comment">% that are brought in.</span>
-0190 slice_res_tags = new_residue_tags;
-0191 
-0192 <span class="comment">% linkers</span>
-0193 <span class="keyword">for</span> i = 1:length( linker_tags )
-0194     tag = linker_tags{i};
-0195     linker = getappdata( gca, tag );
-0196     <span class="keyword">if</span> ~any(strcmp(linker.residue1, slice_res_tags ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0197     <span class="keyword">if</span> ~any(strcmp(linker.residue2, slice_res_tags ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0198     new_linker_tags = [new_linker_tags, tag ];
-0199 <span class="keyword">end</span>
-0200 
-0201 <span class="comment">% selections</span>
-0202 <span class="keyword">for</span> i = 1:length( selection_tags )
-0203     tag = selection_tags{i};
-0204     selection = getappdata( gca, tag );
-0205     selection_res_tags = unique(selection.associated_residues);
-0206     <span class="keyword">if</span> length(intersect( selection_res_tags, slice_res_tags )) &lt; length( selection_res_tags ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0207     new_selection_tags = [new_selection_tags, tag ];
-0208 <span class="keyword">end</span>
-0209 
-0210 <span class="comment">% tertiary_contact_residues</span>
-0211 <span class="keyword">for</span> i = 1:length( tertiary_contact_tags )
-0212     tag = tertiary_contact_tags{i};
-0213     tertiary_contact = getappdata( gca, tag );
-0214     
-0215     contact_ok = 1;
-0216     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues1);
-0217     <span class="keyword">if</span> length(intersect( tertiary_contact_res_tags, slice_res_tags )) &lt; length( tertiary_contact_res_tags ); contact_ok = 0; <span class="keyword">end</span>;
-0218     
-0219     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues2);
-0220     <span class="keyword">if</span> length(intersect( tertiary_contact_res_tags, slice_res_tags )) &lt; length( tertiary_contact_res_tags ); contact_ok = 0; <span class="keyword">end</span>;
-0221 
-0222     <span class="keyword">if</span> ( ~contact_ok )
-0223         new_linker_tags = setdiff( new_linker_tags, [{tertiary_contact.interdomain_linker}, tertiary_contact.intradomain_linkers1, tertiary_contact.intradomain_linkers2 ] );
-0224     <span class="keyword">else</span>
-0225         new_tertiary_contact_tags = [new_tertiary_contact_tags, tag ];
-0226     <span class="keyword">end</span>
-0227 <span class="keyword">end</span>
-0228 toc
-0229 
-0230 
-0231</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0090 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0091 <a name="_sub4" href="#_subfunctions" class="code">function savedata = save_selections( savedata, objnames )</a>
+0092 
+0093 <span class="keyword">for</span> n = 1:length( objnames )
+0094     assert( ~isempty( strfind( objnames{n}, <span class="string">'Selection_'</span> ) ) );
+0095     figure_selection = getappdata( gca, objnames{n} );
+0096     selection = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_selection, {<span class="string">'associated_residues'</span>,<span class="string">'associated_helices'</span>,<span class="string">'selection_tag'</span>,<span class="string">'type'</span>,<span class="string">'coax_pairs'</span>,<span class="string">'name'</span>,<span class="keyword">...</span>
+0097         <span class="string">'label_relpos'</span>,<span class="string">'rgb_color'</span>,<span class="string">'label_visible'</span>,<span class="string">'helix_group'</span>} );
+0098     savedata = setfield( savedata, objnames{n}, selection );
+0099 <span class="keyword">end</span>
+0100 
+0101 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0102 <a name="_sub5" href="#_subfunctions" class="code">function savedata = save_tertiary_contacts( savedata, objnames )</a>
+0103 
+0104 <span class="keyword">for</span> n = 1:length( objnames )
+0105     assert( ~isempty( strfind( objnames{n}, <span class="string">'TertiaryContact_'</span> ) ) );
+0106     figure_selection = getappdata( gca, objnames{n} );
+0107     selection = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_selection, {<span class="string">'associated_residues1'</span>,<span class="string">'associated_residues2'</span>,<span class="string">'name'</span>,<span class="string">'tertiary_contact_tag'</span>,<span class="keyword">...</span>
+0108         <span class="string">'interdomain_linker'</span>,<span class="string">'intradomain_linkers1'</span>,<span class="string">'intradomain_linkers2'</span>,<span class="string">'linkers'</span>} );
+0109     savedata = setfield( savedata, objnames{n}, selection );
+0110 <span class="keyword">end</span>
+0111 
+0112 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0113 <a name="_sub6" href="#_subfunctions" class="code">function savedata = save_motifs( savedata, objnames )</a>
+0114 
+0115 <span class="keyword">for</span> n = 1:length( objnames )
+0116     assert( ~isempty( strfind( objnames{n}, <span class="string">'Motif_'</span> ) ) );
+0117     figure_selection = getappdata( gca, objnames{n} );
+0118     selection = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_selection, {<span class="string">'motif_type'</span>,<span class="string">'associated_residues'</span>,<span class="string">'motif_tag'</span>});
+0119     savedata = setfield( savedata, objnames{n}, selection );
+0120 <span class="keyword">end</span>
+0121 
+0122 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0123 <a name="_sub7" href="#_subfunctions" class="code">function savedata = save_linkers( savedata, objnames )</a>
+0124     
+0125 <span class="keyword">for</span> n = 1:length( objnames )
+0126     assert( ~isempty( strfind( objnames{n}, <span class="string">'Linker_'</span> ) ) );
+0127     figure_linker = getappdata( gca, objnames{n} );
+0128     linker = <a href="#_sub1" class="code" title="subfunction new_obj = copy_fields( obj, tags )">copy_fields</a>( figure_linker, {<span class="string">'residue1'</span>,<span class="string">'residue2'</span>,<span class="string">'type'</span>,<span class="string">'linker_tag'</span>,<span class="string">'relpos1'</span>,<span class="keyword">...</span>
+0129         <span class="string">'relpos2'</span>,<span class="string">'edge1'</span>,<span class="string">'edge2'</span>,<span class="string">'LW_orientation'</span>,<span class="string">'tertiary_contact'</span>,<span class="string">'show_split_arrows'</span>,<span class="string">'outarrow_label_relpos1'</span>,<span class="string">'outarrow_label_relpos2'</span>} );
+0130     savedata = setfield( savedata, objnames{n}, linker );
+0131 <span class="keyword">end</span>
+0132 
+0133 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0134 <a name="_sub8" href="#_subfunctions" class="code">function tags = get_residue_tags();</a>
+0135 tags = sort( get_tags( <span class="string">'Residue_'</span> ) );
+0136 
+0137 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0138 <a name="_sub9" href="#_subfunctions" class="code">function tags = get_helix_tags();</a>
+0139 tags = sort( get_tags( <span class="string">'Helix_'</span> ) );
+0140 
+0141 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0142 <a name="_sub10" href="#_subfunctions" class="code">function tags = get_linker_tags();</a>
+0143 linker_tags = get_tags( <span class="string">'Linker_'</span>);
+0144 arrow_tags               = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'arrow'</span>, linker_tags ) );
+0145 stem_pair_tags           = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'stem_pair'</span>, linker_tags ) );
+0146 noncanonical_tags        = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'noncanonical_pair'</span>, linker_tags ) );
+0147 stack_tags               = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'stack'</span>, linker_tags ) );
+0148 other_contact_tags       = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'other_contact'</span>, linker_tags )  );
+0149 ligand_tags              = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'ligand'</span>, linker_tags ) );
+0150 tertcontact_interdomain_tags = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'tertcontact_interdomain'</span>, linker_tags ) );
+0151 tertcontact_intradomain_tags = sort( get_tags( <span class="string">'Linker_'</span>, <span class="string">'tertcontact_intradomain'</span>, linker_tags ) );
+0152 tags = [arrow_tags; stem_pair_tags; noncanonical_tags; stack_tags; other_contact_tags; ligand_tags; <span class="keyword">...</span>
+0153     tertcontact_interdomain_tags; tertcontact_intradomain_tags ];
+0154 
+0155 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0156 <a name="_sub11" href="#_subfunctions" class="code">function tags = get_selection_tags();</a>
+0157 tags = sort( get_tags( <span class="string">'Selection_'</span> ) );
+0158 
+0159 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0160 <a name="_sub12" href="#_subfunctions" class="code">function tags = get_tertiary_contact_tags();</a>
+0161 tags = sort( get_tags( <span class="string">'TertiaryContact_'</span> ) );
+0162 
+0163 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0164 <a name="_sub13" href="#_subfunctions" class="code">function tags = get_motif_tags();</a>
+0165 tags = sort( get_tags( <span class="string">'Motif_'</span> ) );
+0166 
+0167 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0168 <a name="_sub14" href="#_subfunctions" class="code">function [new_residue_tags, new_helix_tags, new_linker_tags, new_selection_tags, new_tertiary_contact_tags, new_motif_tags, slice_res_tags, ok ] = filter_by_res_tags( slice_res_tags, residue_tags, helix_tags, linker_tags, selection_tags, tertiary_contact_tags, motif_tags );    </a>
+0169 fprintf( <span class="string">'Filtering by slice_res\n'</span> );
+0170 tic
+0171 ok = 1;
+0172 
+0173 new_residue_tags = {};
+0174 new_helix_tags   = {};
+0175 new_linker_tags  = {}; 
+0176 new_selection_tags = {};
+0177 new_tertiary_contact_tags = {};
+0178 new_motif_tags = {};
+0179 
+0180 <span class="comment">% residues</span>
+0181 new_residue_tags = intersect( slice_res_tags, residue_tags );
+0182 <span class="keyword">if</span> isempty( new_residue_tags ) 
+0183     fprintf( <span class="string">'Could not find desired res_tags\n'</span> );
+0184     ok = 0; <span class="keyword">return</span>;
+0185 <span class="keyword">end</span>
+0186 
+0187 <span class="comment">% helices</span>
+0188 <span class="keyword">for</span> i = 1:length( helix_tags )
+0189     tag = helix_tags{i};
+0190     helix = getappdata( gca, tag );
+0191     intersect_tags = intersect( helix.associated_residues, slice_res_tags );
+0192     <span class="keyword">if</span> length( intersect_tags ) == 0; 
+0193         <span class="comment">% helix could be cleanly outside target res</span>
+0194         <span class="keyword">continue</span>;
+0195     <span class="keyword">elseif</span>  length( intersect_tags ) &lt; length( helix.associated_residues )
+0196         fprintf( <span class="string">'Warning! slice_res only catches part of helix %s. Will include the rest of that helix too\n'</span>, tag);
+0197         new_helix_tags = [new_helix_tags, tag ];
+0198         new_residue_tags = unique( [ new_residue_tags; helix.associated_residues' ] );
+0199     <span class="keyword">else</span>
+0200         new_helix_tags = [new_helix_tags, tag ];
+0201     <span class="keyword">end</span>
+0202 <span class="keyword">end</span>
+0203 
+0204 <span class="comment">% NEW -- let's actually update slice_res to include those extra helices</span>
+0205 <span class="comment">% that are brought in.</span>
+0206 slice_res_tags = new_residue_tags;
+0207 
+0208 <span class="comment">% linkers</span>
+0209 <span class="keyword">for</span> i = 1:length( linker_tags )
+0210     tag = linker_tags{i};
+0211     linker = getappdata( gca, tag );
+0212     <span class="keyword">if</span> ~any(strcmp(linker.residue1, slice_res_tags ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0213     <span class="keyword">if</span> ~any(strcmp(linker.residue2, slice_res_tags ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0214     new_linker_tags = [new_linker_tags, tag ];
+0215 <span class="keyword">end</span>
+0216 
+0217 <span class="comment">% selections</span>
+0218 <span class="keyword">for</span> i = 1:length( selection_tags )
+0219     tag = selection_tags{i};
+0220     selection = getappdata( gca, tag );
+0221     selection_res_tags = unique(selection.associated_residues);
+0222     <span class="keyword">if</span> length(intersect( selection_res_tags, slice_res_tags )) &lt; length( selection_res_tags ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0223     new_selection_tags = [new_selection_tags, tag ];
+0224 <span class="keyword">end</span>
+0225 
+0226 <span class="comment">% tertiary_contact_residues</span>
+0227 <span class="keyword">for</span> i = 1:length( tertiary_contact_tags )
+0228     tag = tertiary_contact_tags{i};
+0229     tertiary_contact = getappdata( gca, tag );
+0230     
+0231     contact_ok = 1;
+0232     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues1);
+0233     <span class="keyword">if</span> length(intersect( tertiary_contact_res_tags, slice_res_tags )) &lt; length( tertiary_contact_res_tags ); contact_ok = 0; <span class="keyword">end</span>;
+0234     
+0235     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues2);
+0236     <span class="keyword">if</span> length(intersect( tertiary_contact_res_tags, slice_res_tags )) &lt; length( tertiary_contact_res_tags ); contact_ok = 0; <span class="keyword">end</span>;
+0237 
+0238     <span class="keyword">if</span> ( ~contact_ok )
+0239         new_linker_tags = setdiff( new_linker_tags, [{tertiary_contact.interdomain_linker}, tertiary_contact.intradomain_linkers1, tertiary_contact.intradomain_linkers2 ] );
+0240     <span class="keyword">else</span>
+0241         new_tertiary_contact_tags = [new_tertiary_contact_tags, tag ];
+0242     <span class="keyword">end</span>
+0243 <span class="keyword">end</span>
+0244 
+0245 
+0246 <span class="comment">% motifs</span>
+0247 <span class="keyword">for</span> i = 1:length( motif_tags )
+0248     tag = motif_tags{i};
+0249     motif = getappdata( gca, tag );
+0250     motif_res_tags = unique(motif.associated_residues);
+0251     <span class="keyword">if</span> length(intersect(motif_res_tags, slice_res_tags )) &lt; length(motif_res_tags); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0252     new_motif_tags = [new_motif_tags, tag ];
+0253 <span class="keyword">end</span>
+0254 
+0255 toc
+0256 
+0257 
+0258</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

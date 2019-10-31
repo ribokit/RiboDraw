@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_rna_motif_info</title>
+  <meta name="keywords" content="get_rna_motif_info">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html motifs -->
+<h1>get_rna_motif_info
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [ rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels ] = get_rna_motif_info(); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">
+ Information used to display motifs -- matches conventions used in Rosetta
+    core/src/RNA/RNA_Motif.cc and core/score/RNA/RNA_Motif.hh
+
+ OUTPUTS
+
+  rna_motif_residue_sets = what chunks of residues should fall into
+                             blocks for rounded rectangles
+  rna_motif_colors       = highlight color for rounded rectangle
+
+ (C) R. Das, Stanford University, 2019.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="draw_motifs.html" class="code" title="function draw_motifs( motifs );">draw_motifs</a>	draw_motifs( motifs );</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [ rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels ] = get_rna_motif_info();</a>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% Information used to display motifs -- matches conventions used in Rosetta</span>
+0004 <span class="comment">%    core/src/RNA/RNA_Motif.cc and core/score/RNA/RNA_Motif.hh</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% OUTPUTS</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">%  rna_motif_residue_sets = what chunks of residues should fall into</span>
+0009 <span class="comment">%                             blocks for rounded rectangles</span>
+0010 <span class="comment">%  rna_motif_colors       = highlight color for rounded rectangle</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">% (C) R. Das, Stanford University, 2019.</span>
+0013 
+0014 
+0015 rna_motif_residue_sets = containers.Map( <span class="keyword">...</span>
+0016 {   <span class="string">'U_TURN'</span>, <span class="string">'UA_HANDLE'</span>, <span class="string">'T_LOOP'</span>, <span class="string">'INTERCALATED_T_LOOP'</span>, <span class="string">'LOOP_E_SUBMOTIF'</span>, <span class="string">'BULGED_G'</span>, <span class="string">'GNRA_TETRALOOP'</span>, <span class="string">'STRICT_WC_STACKED_PAIR'</span>, <span class="string">'WC_STACKED_PAIR'</span>,  <span class="string">'A_MINOR'</span>, <span class="string">'PLATFORM'</span>, <span class="string">'TL_RECEPTOR'</span>, <span class="string">'TETRALOOP_TL_RECEPTOR'</span>, <span class="string">'Z_TURN'</span>, <span class="string">'TANDEM_GA_SHEARED'</span>, <span class="string">'TANDEM_GA_WATSON_CRICK'</span>, <span class="string">'GA_MINOR'</span>, <span class="string">'DOUBLE_T_LOOP'</span>},<span class="keyword">...</span>
+0017 {        {},          {},        {},           {[1:7],[8]},                {},         {},               {},                       {},                {},{[1],[2:3]},         {},            {},                      {},       {},                  {},                       {},         {},              {}} );
+0018 
+0019 
+0020 rna_motif_colors = containers.Map( <span class="keyword">...</span>
+0021 {   <span class="string">'U_TURN'</span>, <span class="string">'UA_HANDLE'</span>, <span class="string">'T_LOOP'</span>, <span class="string">'INTERCALATED_T_LOOP'</span>, <span class="string">'LOOP_E_SUBMOTIF'</span>, <span class="string">'BULGED_G'</span>, <span class="string">'GNRA_TETRALOOP'</span>, <span class="string">'STRICT_WC_STACKED_PAIR'</span>, <span class="string">'WC_STACKED_PAIR'</span>, <span class="string">'A_MINOR'</span>, <span class="string">'PLATFORM'</span>, <span class="string">'TL_RECEPTOR'</span>, <span class="string">'TETRALOOP_TL_RECEPTOR'</span>, <span class="string">'Z_TURN'</span>, <span class="string">'TANDEM_GA_SHEARED'</span>, <span class="string">'TANDEM_GA_WATSON_CRICK'</span>, <span class="string">'GA_MINOR'</span>, <span class="string">'DOUBLE_T_LOOP'</span>},<span class="keyword">...</span>
+0022 {<span class="string">'lightblue'</span>,  <span class="string">'marine'</span>,  <span class="string">'tv_blue'</span>,            <span class="string">'deepblue'</span>,          <span class="string">'salmon'</span>,      <span class="string">'red'</span>,           <span class="string">'ruby'</span>,                 <span class="string">'gray20'</span>,          <span class="string">'gray50'</span>,    <span class="string">'gold'</span>,     <span class="string">'sand'</span>,       <span class="string">'limon'</span>,                <span class="string">'orange'</span>,  <span class="string">'violet'</span>,             <span class="string">'lime'</span>,                   <span class="string">'lime'</span>,    <span class="string">'purple'</span>,       <span class="string">'forest'</span>} );
+0023 
+0024 <span class="comment">% which motifs should be displayed above (lower numbers) than others (higher numbers)</span>
+0025 <span class="comment">% to make sure all the colors show up</span>
+0026 <span class="comment">% as 'nested' rounded rectangles:</span>
+0027 rna_motif_layer_levels = containers.Map( <span class="keyword">...</span>
+0028     { <span class="string">'U_TURN'</span>, <span class="string">'UA_HANDLE'</span>, <span class="string">'T_LOOP'</span>, <span class="string">'INTERCALATED_T_LOOP'</span>, <span class="string">'LOOP_E_SUBMOTIF'</span>, <span class="string">'BULGED_G'</span>, <span class="string">'GNRA_TETRALOOP'</span>, <span class="string">'STRICT_WC_STACKED_PAIR'</span>, <span class="string">'WC_STACKED_PAIR'</span>,  <span class="string">'A_MINOR'</span>, <span class="string">'PLATFORM'</span>, <span class="string">'TL_RECEPTOR'</span>, <span class="string">'TETRALOOP_TL_RECEPTOR'</span>, <span class="string">'Z_TURN'</span>, <span class="string">'TANDEM_GA_SHEARED'</span>, <span class="string">'TANDEM_GA_WATSON_CRICK'</span>, <span class="string">'GA_MINOR'</span>, <span class="string">'DOUBLE_T_LOOP'</span>},<span class="keyword">...</span>
+0029     {       3.1,          3.1,   3.2,                   3.3,                3.1,        3.1,             3.2,                         4,                 4,        3.0,        3.1,           3.2,                    3.3,       3.1,                 3.1,                      3.1,        3.1,             3.3} );
+0030 
+0031</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

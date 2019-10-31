@@ -1,0 +1,572 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of rna_layout</title>
+  <meta name="keywords" content="rna_layout">
+  <meta name="description" content="coords = rna_layout( pairs )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html eterna -->
+<h1>rna_layout
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>coords = rna_layout( pairs )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function coords = rna_layout( pairs,  targetPairs, customLayout ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> coords = rna_layout( pairs )
+
+ Port of EternaJS RNALayout.ts
+ Intended to be basis of eterna-like layout code for ribodraw, and
+  also a fast sandbox for testing clockwise/counterclockwise drawing.
+
+ TODO: oligo rendering not implemented yet.
+
+ INPUT
+   pairs = Array with length of sequence, giving zero if position is
+             unpaired and parter number if paired.
+
+   unlike EternaJS assume that pairs array is already
+     symmetrized
+
+ (c) R. Das, Stanford University, 2019.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function nodes = setupTree( pairs )</a></li><li><a href="#_sub2" class="code">function nodes = addNodesRecursive( nodes, biPairs, rootnumber, start_index, end_index );</a></li><li><a href="#_sub3" class="code">function [nodes,nodenumber] = create_rna_tree_node( nodes );</a></li><li><a href="#_sub4" class="code">function nodes = drawTree( nodes, customLayout, targetPairs );</a></li><li><a href="#_sub5" class="code">function plot_settings = get_plot_settings();</a></li><li><a href="#_sub6" class="code">function match = junctionMatchesTarget(nodes, root, parent, info)</a></li><li><a href="#_sub7" class="code">function nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );</a></li><li><a href="#_sub8" class="code">function nodes = drawTreeCustomLayout( nodes, root, parent, start, go, flipSign, info );</a></li><li><a href="#_sub9" class="code">function XY = getCoords(nodes);</a></li><li><a href="#_sub10" class="code">function XY = getCoordsRecursive(nodes,root,XY);</a></li><li><a href="#_sub11" class="code">function displayTree( nodes, node_number, level );</a></li><li><a href="#_sub12" class="code">function plotCoords( XY )</a></li><li><a href="#_sub13" class="code">function plotTree( nodes, node_number );</a></li><li><a href="#_sub14" class="code">function scoreNodes = generateScoreNodes( rnaTreeNodes );</a></li><li><a href="#_sub15" class="code">function [nodes,coords] = generateScoreNodesRecursive(rnaTreeNodes, rootnumber, coords, nodes )</a></li><li><a href="#_sub16" class="code">function [nodes,nodenumber] = create_score_node( nodes );</a></li><li><a href="#_sub17" class="code">function fillScoreNodes( scoreNodes, XY );</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function coords = rna_layout( pairs,  targetPairs, customLayout )</a>
+0002 <span class="comment">% coords = rna_layout( pairs )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Port of EternaJS RNALayout.ts</span>
+0005 <span class="comment">% Intended to be basis of eterna-like layout code for ribodraw, and</span>
+0006 <span class="comment">%  also a fast sandbox for testing clockwise/counterclockwise drawing.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% TODO: oligo rendering not implemented yet.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% INPUT</span>
+0011 <span class="comment">%   pairs = Array with length of sequence, giving zero if position is</span>
+0012 <span class="comment">%             unpaired and parter number if paired.</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">%   unlike EternaJS assume that pairs array is already</span>
+0015 <span class="comment">%     symmetrized</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% (c) R. Das, Stanford University, 2019.</span>
+0018 
+0019 <span class="keyword">if</span> ~exist( <span class="string">'targetPairs'</span> ); targetPairs = []; <span class="keyword">end</span>
+0020 <span class="keyword">if</span> ~exist( <span class="string">'customLayout'</span> ); customLayout = []; <span class="keyword">end</span>
+0021 
+0022 nodes = <a href="#_sub1" class="code" title="subfunction nodes = setupTree( pairs )">setupTree</a>( pairs );
+0023 nodes = <a href="#_sub4" class="code" title="subfunction nodes = drawTree( nodes, customLayout, targetPairs );">drawTree</a>( nodes, customLayout, targetPairs );
+0024 <span class="comment">%displayTree( nodes, 1, 0 ); %sanity check</span>
+0025 XY = <a href="#_sub9" class="code" title="subfunction XY = getCoords(nodes);">getCoords</a>(nodes);
+0026 <a href="#_sub12" class="code" title="subfunction plotCoords( XY )">plotCoords</a>( XY );
+0027 set(gca,<span class="string">'ydir'</span>,<span class="string">'reverse'</span>);
+0028 axis image
+0029 <a href="#_sub13" class="code" title="subfunction plotTree( nodes, node_number );">plotTree</a>( nodes, 1);
+0030 axis off
+0031 
+0032 scoreNodes = <a href="#_sub14" class="code" title="subfunction scoreNodes = generateScoreNodes( rnaTreeNodes );">generateScoreNodes</a>( nodes );
+0033 celldisp( scoreNodes )
+0034 <a href="#_sub17" class="code" title="subfunction fillScoreNodes( scoreNodes, XY );">fillScoreNodes</a>( scoreNodes, XY );
+0035 
+0036 
+0037 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0038 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0039 <a name="_sub1" href="#_subfunctions" class="code">function nodes = setupTree( pairs )</a>
+0040 
+0041 biPairs = pairs;
+0042 nodes = {};
+0043 [nodes,rootnumber] = <a href="#_sub3" class="code" title="subfunction [nodes,nodenumber] = create_rna_tree_node( nodes );">create_rna_tree_node</a>( nodes );
+0044 jj = 1;
+0045 <span class="keyword">while</span> jj &lt;= length( biPairs )
+0046     <span class="keyword">if</span> biPairs(jj) &gt; 0;
+0047         <span class="comment">% paired</span>
+0048         nodes = <a href="#_sub2" class="code" title="subfunction nodes = addNodesRecursive( nodes, biPairs, rootnumber, start_index, end_index );">addNodesRecursive</a>( nodes, biPairs, 1, jj, biPairs(jj) );
+0049         jj = pairs( jj); <span class="comment">% skip ahead</span>
+0050     <span class="keyword">else</span>
+0051         <span class="comment">% unpaired</span>
+0052         [nodes,nodenumber] = <a href="#_sub3" class="code" title="subfunction [nodes,nodenumber] = create_rna_tree_node( nodes );">create_rna_tree_node</a>( nodes ); <span class="comment">% hmmm need to save this somewhere?</span>
+0053         nodes{nodenumber}.isPair = false;
+0054         nodes{nodenumber}.indexA = jj;
+0055         nodes{rootnumber}.children = [nodes{rootnumber}.children, nodenumber ];
+0056     <span class="keyword">end</span>
+0057     jj = jj + 1;
+0058 <span class="keyword">end</span>
+0059 
+0060 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0061 <a name="_sub2" href="#_subfunctions" class="code">function nodes = addNodesRecursive( nodes, biPairs, rootnumber, start_index, end_index );</a>
+0062 <span class="comment">%</span>
+0063 <span class="comment">%</span>
+0064 <span class="comment">%</span>
+0065 assert( start_index &lt;= end_index );
+0066 [nodes,newnodenumber] = <a href="#_sub3" class="code" title="subfunction [nodes,nodenumber] = create_rna_tree_node( nodes );">create_rna_tree_node</a>( nodes );
+0067 
+0068 <span class="keyword">if</span> biPairs( start_index ) == end_index
+0069     nodes{newnodenumber}.isPair = true;
+0070     nodes{newnodenumber}.indexA = start_index;
+0071     nodes{newnodenumber}.indexB = end_index;
+0072     nodes = <a href="#_sub2" class="code" title="subfunction nodes = addNodesRecursive( nodes, biPairs, rootnumber, start_index, end_index );">addNodesRecursive</a>(nodes, biPairs,newnodenumber, start_index + 1, end_index - 1);
+0073 <span class="keyword">else</span>
+0074     jj = start_index;
+0075     <span class="keyword">while</span> jj &lt;= end_index
+0076         <span class="keyword">if</span> ( biPairs(jj) &gt; 0 )
+0077             nodes = <a href="#_sub2" class="code" title="subfunction nodes = addNodesRecursive( nodes, biPairs, rootnumber, start_index, end_index );">addNodesRecursive</a>(nodes, biPairs, newnodenumber, jj, biPairs(jj));
+0078             jj = biPairs(jj); <span class="comment">% skip ahead</span>
+0079         <span class="keyword">else</span>
+0080             [nodes,newsubnodenumber] = <a href="#_sub3" class="code" title="subfunction [nodes,nodenumber] = create_rna_tree_node( nodes );">create_rna_tree_node</a>( nodes );
+0081             nodes{newsubnodenumber}.isPair = false;
+0082             nodes{newsubnodenumber}.indexA = jj;
+0083             nodes{newnodenumber}.children = [ nodes{newnodenumber}.children, newsubnodenumber];
+0084         <span class="keyword">end</span>
+0085         jj = jj + 1;
+0086     <span class="keyword">end</span>
+0087 <span class="keyword">end</span>
+0088 nodes{rootnumber}.children = [nodes{rootnumber}.children, newnodenumber ];
+0089 
+0090 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0091 <a name="_sub3" href="#_subfunctions" class="code">function [nodes,nodenumber] = create_rna_tree_node( nodes );</a>
+0092 node = struct();
+0093 node.children = [];
+0094 node.isPair = false;
+0095 node.indexA = 0;
+0096 node.indexB = 0;
+0097 node.XY = [0,0]; <span class="comment">% position</span>
+0098 node.go = [0,1]; <span class="comment">% 'direction'</span>
+0099 node.flipSign = 1; <span class="comment">% can change to -1 in customlayout</span>
+0100 nodes = [nodes, node];
+0101 
+0102 nodenumber = length( nodes );
+0103 nodes{nodenumber}.nodenumber = nodenumber;
+0104 
+0105 
+0106 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0107 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0108 <a name="_sub4" href="#_subfunctions" class="code">function nodes = drawTree( nodes, customLayout, targetPairs );</a>
+0109 start = [0,0];
+0110 go = [0,1];
+0111 
+0112 info = struct();
+0113 info.customLayout = customLayout;
+0114 info.targetPairs = targetPairs;
+0115 
+0116 flipSign = 1;
+0117 nodes = <a href="#_sub7" class="code" title="subfunction nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );">drawTreeRecursive</a>( nodes, 1, 0, start, go, flipSign, info );
+0118 
+0119 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0120 <a name="_sub5" href="#_subfunctions" class="code">function plot_settings = get_plot_settings();</a>
+0121 plot_settings = struct();
+0122 plot_settings.primarySpace = 30;
+0123 plot_settings.pairSpace = 30;
+0124 
+0125 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0126 <a name="_sub6" href="#_subfunctions" class="code">function match = junctionMatchesTarget(nodes, root, parent, info)</a>
+0127 match = 0;
+0128 <span class="keyword">if</span> isempty( info.targetPairs ); <span class="keyword">return</span>; <span class="keyword">end</span>
+0129     
+0130 <span class="keyword">if</span> ( parent &gt; 0 &amp;&amp; nodes{ parent }.isPair )
+0131     <span class="comment">% check closing pair for junction</span>
+0132     <span class="keyword">if</span> ( info.targetPairs( nodes{ parent }.indexA ) ~= nodes{ parent }.indexB ) 
+0133         <span class="keyword">return</span>;
+0134     <span class="keyword">end</span>
+0135 <span class="keyword">end</span>
+0136 
+0137 rootnode = nodes{root};
+0138 <span class="keyword">if</span> ( length( rootnode.children ) == 1 &amp;&amp; nodes{ rootnode.children(1) }.indexA == 0 ) <span class="keyword">return</span>; <span class="keyword">end</span>
+0139 
+0140 <span class="keyword">for</span> ii = 1:length( rootnode.children )
+0141     child = nodes{ rootnode.children(ii) };
+0142     <span class="keyword">if</span> ( child.isPair )                  
+0143         <span class="comment">%all other pairs of junction paired in target structure?</span>
+0144         <span class="keyword">if</span> ( info.targetPairs( child.indexA ) ~= child.indexB )
+0145             <span class="keyword">return</span>;
+0146         <span class="keyword">end</span>
+0147     <span class="keyword">else</span>
+0148         
+0149         <span class="comment">% all unpaired bases of junction also unpaired in target structure?</span>
+0150         <span class="keyword">if</span> ( info.targetPairs( child.indexA )  &gt; 0 )
+0151             <span class="keyword">return</span>;
+0152         <span class="keyword">end</span>
+0153     <span class="keyword">end</span>
+0154 <span class="keyword">end</span>
+0155         
+0156 match = 1;
+0157 
+0158 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0159 <a name="_sub7" href="#_subfunctions" class="code">function nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );</a>
+0160 <span class="comment">%</span>
+0161 <span class="comment">%  Note ordering:</span>
+0162 <span class="comment">%</span>
+0163 <span class="comment">%     parent --&gt; root --&gt; current</span>
+0164 <span class="comment">%</span>
+0165 <span class="comment">%  INPUT</span>
+0166 <span class="comment">%   nodes = 'global' information holding tree-like structure over drawing, coordinates of each node.</span>
+0167 <span class="comment">%   root   = node number of root for this section of the tree.</span>
+0168 <span class="comment">%   parent = node number of *parent* of root.</span>
+0169 <span class="comment">%   start = (x,y) that will likely be placed on root</span>
+0170 <span class="comment">%   go    = (vX, vY) unit-vector pointing from root to current.</span>
+0171 <span class="comment">%   info  = grab bag of read-only information, here including customLayout &amp;</span>
+0172 <span class="comment">%                      targetPairs</span>
+0173 <span class="comment">%</span>
+0174 <span class="comment">%  OUTPUT</span>
+0175 <span class="comment">%   nodes = updated nodes.</span>
+0176 <span class="comment">%</span>
+0177 cross = [-go(2) go(1)] * flipSign;
+0178 nodes{ root }.go = go;
+0179 nodes{ root }.flipSign = flipSign;
+0180 
+0181 <span class="keyword">if</span> (~isempty( info.customLayout ) &amp;&amp; <a href="#_sub6" class="code" title="subfunction match = junctionMatchesTarget(nodes, root, parent, info)">junctionMatchesTarget</a>(nodes, root, parent, info) ) 
+0182     nodes = <a href="#_sub8" class="code" title="subfunction nodes = drawTreeCustomLayout( nodes, root, parent, start, go, flipSign, info );">drawTreeCustomLayout</a>( nodes, root, parent, start, go, flipSign, info );
+0183     <span class="keyword">return</span>;
+0184 <span class="keyword">end</span>  
+0185         
+0186 plot_settings = <a href="#_sub5" class="code" title="subfunction plot_settings = get_plot_settings();">get_plot_settings</a>();
+0187 <span class="keyword">if</span> ( length(nodes{root}.children) == 1 )
+0188     nodes{root}.XY = start;
+0189     child = nodes{ nodes{root}.children(1) };
+0190     <span class="keyword">if</span> ( child.isPair ) 
+0191         <span class="comment">% stacked pair, I think. Keep chugging in the same direction.</span>
+0192         nodes = <a href="#_sub7" class="code" title="subfunction nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );">drawTreeRecursive</a>(nodes, nodes{root}.children(1), root, start + go * plot_settings.primarySpace, go, flipSign, info);
+0193     <span class="keyword">elseif</span> ( child.isPair &amp;&amp; child.indexA &lt; 0 ) 
+0194         <span class="comment">% uh not sure what this is</span>
+0195         fprintf( <span class="string">'Where are we?\n'</span> ); exit(0);
+0196         nodes = <a href="#_sub7" class="code" title="subfunction nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );">drawTreeRecursive</a>(nodes, nodes{root}.children(1), root, start, go, flipSign,  info);
+0197     <span class="keyword">else</span>
+0198         <span class="comment">% heading into a circular junction</span>
+0199         nodes = <a href="#_sub7" class="code" title="subfunction nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );">drawTreeRecursive</a>(nodes, nodes{root}.children(1), root, start + go * plot_settings.primarySpace, go, flipSign, info);
+0200     <span class="keyword">end</span>
+0201 <span class="keyword">elseif</span> ( length(nodes{root}.children) &gt; 1 ) 
+0202     <span class="comment">% need to draw a circle of elements</span>
+0203     npairs = 0;
+0204     oligo_displacement = 0;
+0205     <span class="keyword">for</span> ii = 1:length(nodes{root}.children)
+0206         <span class="keyword">if</span> nodes{ nodes{root}.children(ii) }.isPair 
+0207             npairs = npairs + 1;
+0208         <span class="keyword">end</span>
+0209         <span class="comment">% TODO: implement to check oligo rendering!</span>
+0210         <span class="comment">%if (this._exceptionIndices != null &amp;&amp; (this._exceptionIndices.indexOf(rootnode.children[ii].indexA) &gt;= 0 || this._exceptionIndices.indexOf(rootnode.children[ii].indexB) &gt;= 0)) {</span>
+0211         <span class="comment">%    oligo_displacement += 2 * this._primarySpace;</span>
+0212         <span class="comment">%    }</span>
+0213     <span class="keyword">end</span>
+0214     circleLength = ( length(nodes{root}.children) + 1 ) * plot_settings.primarySpace + (npairs + 1 ) * plot_settings.pairSpace;
+0215     circleLength = circleLength + oligo_displacement;
+0216     circleRadius = circleLength / (2 * pi );
+0217     lengthWalker = plot_settings.pairSpace / 2.0;
+0218 
+0219     <span class="keyword">if</span> (parent == 0) 
+0220         nodes{root}.XY = go * circleRadius;
+0221     <span class="keyword">else</span>
+0222         <span class="comment">% the root becomes the center of a circle. displaced from the parent.</span>
+0223         nodes{root}.XY = nodes{parent}.XY + go * circleRadius;
+0224     <span class="keyword">end</span>
+0225     <span class="keyword">for</span> ii = 1 : length(nodes{root}.children)
+0226         lengthWalker = lengthWalker + plot_settings.primarySpace;
+0227 
+0228         <span class="comment">%                 if (this._exceptionIndices != null &amp;&amp; (this._exceptionIndices.indexOf(rootnode.children[ii].indexA) &gt;= 0 || this._exceptionIndices.indexOf(rootnode.children[ii].indexB) &gt;= 0)) {</span>
+0229         <span class="comment">%                     lengthWalker += 2 * this._primarySpace;</span>
+0230         <span class="comment">%                 }</span>
+0231         
+0232         <span class="keyword">if</span> ( nodes{ nodes{root}.children(ii) }.isPair )
+0233             lengthWalker = lengthWalker + plot_settings.pairSpace/2.0;
+0234         <span class="keyword">end</span>
+0235         
+0236 
+0237         radAngle = lengthWalker/circleLength * 2 * pi - pi/2.0;
+0238         childXY = nodes{root}.XY + cos( radAngle) * cross * circleRadius + sin ( radAngle ) * go * circleRadius;
+0239         
+0240         childGo = childXY - nodes{root}.XY;
+0241         childGoLength = norm( childGo );
+0242 
+0243         nodes = <a href="#_sub7" class="code" title="subfunction nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );">drawTreeRecursive</a>( nodes, nodes{root}.children( ii ), root, childXY, childGo/childGoLength, flipSign, info );
+0244         <span class="keyword">if</span> nodes{ nodes{root}.children(ii) }.isPair
+0245             lengthWalker = lengthWalker + plot_settings.pairSpace/2.0;
+0246         <span class="keyword">end</span>
+0247     <span class="keyword">end</span>
+0248 <span class="keyword">else</span>
+0249     nodes{root}.XY = start;
+0250 <span class="keyword">end</span>
+0251 
+0252 
+0253 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0254 <a name="_sub8" href="#_subfunctions" class="code">function nodes = drawTreeCustomLayout( nodes, root, parent, start, go, flipSign, info );</a>
+0255 cross = [ -go(2), go(1) ] * flipSign;
+0256 nodes{root}.XY = start;
+0257 
+0258 <span class="keyword">if</span> length( nodes{root}.children ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0259 
+0260 anchorXY = [0,0];
+0261 anchorCustomXY = [0,0];
+0262 anchorCustomCross = [-1,0];
+0263 anchorCustomGo = [0,1];
+0264 anchorCustomFlipSign = 1;
+0265 
+0266 customLayout = info.customLayout;
+0267 anchornode = 0;
+0268 <span class="keyword">if</span> ( parent &gt; 0 &amp;&amp; nodes{parent}.isPair )     
+0269     <span class="comment">% this is the case in junctions, where root is 'pseudonode' in middle of junction,</span>
+0270     <span class="comment">%  and parent is the exterior pair (or the global root)</span>
+0271     anchornode = nodes{parent};
+0272 <span class="keyword">elseif</span> ( root &gt; 0 &amp;&amp; nodes{root}.isPair ) 
+0273     <span class="comment">% this is the case in stacked pairs</span>
+0274     anchornode = nodes{root};
+0275 <span class="keyword">end</span>
+0276 <span class="keyword">if</span> isstruct(anchornode)     
+0277     anchorXY = anchornode.XY;
+0278     customCoordA = customLayout( anchornode.indexA, : );
+0279     customCoordB = customLayout( anchornode.indexB, : );
+0280     anchorCustomXY = ( customCoordA + customCoordB ) / 2.0;
+0281     anchorFlipSign = anchornode.flipSign;
+0282     anchorCustomCross = ( customCoordA - customCoordB );    
+0283     anchorCustomGo = [ anchorCustomCross(2), -anchorCustomCross(1)];
+0284     customCoordNext = customLayout( anchornode.indexA+1, : );
+0285     anchorCustomFlipSign = sign( (customCoordNext - anchorCustomXY) * anchorCustomGo' );
+0286     anchorCustomGo = anchorCustomGo * anchorCustomFlipSign;
+0287 <span class="keyword">end</span>
+0288 
+0289 <span class="keyword">for</span> ii = 1:length( nodes{root}.children )
+0290     <span class="comment">% read out where this point should be based on 'this.CustomLayout'. get coordinates in</span>
+0291     <span class="comment">% &quot;local coordinate frame&quot; set by parent pair in this.CustomLayout.</span>
+0292     <span class="comment">% This would be a lot easier to read if we had a notion of an (x,y) pair, dot products, and cross products.</span>
+0293     rootnode = nodes{root};
+0294     child = nodes{ nodes{root}.children(ii) };
+0295     customCoord = info.customLayout(child.indexA,:);
+0296     <span class="keyword">if</span> (child.isPair)
+0297         customCoordA = info.customLayout(child.indexA,:);
+0298         customCoordB = info.customLayout(child.indexB,:);
+0299         customCoord = (customCoordA + customCoordB) / 2;
+0300         customCross = (customCoordA - customCoordB);
+0301         customGo = [customCross(2), -customCross(1)];
+0302         customCoordNext = info.customLayout(child.indexA+1,:);
+0303         childCustomFlipSign = sign( (customCoordNext - customCoord) * customGo' );
+0304         customGo = customGo * childCustomFlipSign;
+0305     <span class="keyword">end</span>
+0306     
+0307     childXY = [0,0];
+0308     childGo = [0,0];
+0309     plot_settings = <a href="#_sub5" class="code" title="subfunction plot_settings = get_plot_settings();">get_plot_settings</a>();
+0310     childXY = customCoord * plot_settings.primarySpace;
+0311     <span class="keyword">if</span> isstruct(anchornode) 
+0312         dev = customCoord - anchorCustomXY;
+0313         templateXY = dev * [anchorCustomCross', anchorCustomGo' ]; 
+0314         templateXY = templateXY * plot_settings.primarySpace;
+0315         <span class="comment">% go to Eterna RNALayout global frame.</span>
+0316         childXY = anchorXY + templateXY * [cross', go']'; 
+0317     <span class="keyword">end</span>
+0318 
+0319     childFlipSign = flipSign;
+0320     <span class="keyword">if</span> ( child.isPair )
+0321         childFlipSign = flipSign * childCustomFlipSign/anchorCustomFlipSign;  
+0322         childGo = customGo;
+0323         <span class="keyword">if</span> ( isstruct(anchornode) )
+0324             templateGo = customGo*[anchorCustomCross', anchorCustomGo' ];
+0325             childGo    = templateGo*[cross',go']';
+0326         <span class="keyword">end</span>
+0327     <span class="keyword">end</span>
+0328     childGoLength = norm( childGo );
+0329     
+0330     nodes = <a href="#_sub7" class="code" title="subfunction nodes = drawTreeRecursive( nodes, root, parent, start, go, flipSign, info );">drawTreeRecursive</a>(nodes, nodes{root}.children(ii), root, childXY, childGo/childGoLength, childFlipSign, info );
+0331 <span class="keyword">end</span>
+0332 
+0333 
+0334 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0335 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0336 <a name="_sub9" href="#_subfunctions" class="code">function XY = getCoords(nodes);</a>
+0337 XY = [];
+0338 XY = <a href="#_sub10" class="code" title="subfunction XY = getCoordsRecursive(nodes,root,XY);">getCoordsRecursive</a>( nodes, 1, XY );
+0339 <span class="comment">% TODO -- implement 'empty structure' coords</span>
+0340 <span class="comment">%         if (this._root != null) {</span>
+0341 <span class="comment">%             this.getCoordsRecursive(this._root, xarray, yarray);</span>
+0342 <span class="comment">%         } else {</span>
+0343 <span class="comment">%             // there is no structure (no pairs)</span>
+0344 <span class="comment">%             if (xarray.length &lt; 3) {</span>
+0345 <span class="comment">%                 // really short, just place them in a vertical line</span>
+0346 <span class="comment">%                 for (let ii = 0; ii &lt; xarray.length; ii++) {</span>
+0347 <span class="comment">%                     xarray[ii] = 0;</span>
+0348 <span class="comment">%                     yarray[ii] = ii * this._primarySpace;</span>
+0349 <span class="comment">%                 }</span>
+0350 <span class="comment">%             } else {</span>
+0351 <span class="comment">%                 // if longer, make the sequence form a circle instead</span>
+0352 <span class="comment">%                 // FIXME: there's a bit of code duplication here, somewhat inelegant...</span>
+0353 <span class="comment">%                 let circleLength: number = (xarray.length + 1) * this._primarySpace + this.Pairspace;</span>
+0354 <span class="comment">%                 let circleRadius: number = circleLength / (2 * Math.PI);</span>
+0355 <span class="comment">%                 let lengthWalker: number = this.Pairspace / 2.0;</span>
+0356 <span class="comment">%                 let goX: number = 0;</span>
+0357 <span class="comment">%                 let goY: number = 1;</span>
+0358 <span class="comment">%                 let _rootX: number = goX * circleRadius;</span>
+0359 <span class="comment">%                 let _rootY: number = goY * circleRadius;</span>
+0360 <span class="comment">%                 let crossX: number = -goY;</span>
+0361 <span class="comment">%                 let crossY: number = goX;</span>
+0362 <span class="comment">%                 let oligo_displacement: number = 0;</span>
+0363 <span class="comment">%</span>
+0364 <span class="comment">%                 for (let ii = 0; ii &lt; xarray.length; ii++) {</span>
+0365 <span class="comment">%                     if (this._exceptionIndices != null &amp;&amp; this._exceptionIndices.indexOf(ii) &gt;= 0) {</span>
+0366 <span class="comment">%                         oligo_displacement += 2 * this._primarySpace;</span>
+0367 <span class="comment">%                     }</span>
+0368 <span class="comment">%                 }</span>
+0369 <span class="comment">%                 circleLength += oligo_displacement;</span>
+0370 <span class="comment">%</span>
+0371 <span class="comment">%                 for (let ii = 0; ii &lt; xarray.length; ii++) {</span>
+0372 <span class="comment">%                     lengthWalker += this._primarySpace;</span>
+0373 <span class="comment">%                     if (this._exceptionIndices != null &amp;&amp; this._exceptionIndices.indexOf(ii) &gt;= 0) {</span>
+0374 <span class="comment">%                         lengthWalker += 2 * this._primarySpace;</span>
+0375 <span class="comment">%                     }</span>
+0376 <span class="comment">%</span>
+0377 <span class="comment">%                     let radAngle: number = lengthWalker / circleLength * 2 * Math.PI - Math.PI / 2.0;</span>
+0378 <span class="comment">%                     xarray[ii] = _rootX + Math.cos(radAngle) * crossX * circleRadius + Math.sin(radAngle) * goX * circleRadius;</span>
+0379 <span class="comment">%                     yarray[ii] = _rootY + Math.cos(radAngle) * crossY * circleRadius + Math.sin(radAngle) * goY * circleRadius;</span>
+0380 <span class="comment">%                 }</span>
+0381 <span class="comment">%             }</span>
+0382 <span class="comment">%         }</span>
+0383 <span class="comment">%     }</span>
+0384 
+0385 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0386 <a name="_sub10" href="#_subfunctions" class="code">function XY = getCoordsRecursive(nodes,root,XY);</a>
+0387 rootnode = nodes{root};
+0388 <span class="keyword">if</span> rootnode.isPair
+0389     cross = [-rootnode.go(2),rootnode.go(1)] * rootnode.flipSign;
+0390     plot_settings = <a href="#_sub5" class="code" title="subfunction plot_settings = get_plot_settings();">get_plot_settings</a>();
+0391     XY( rootnode.indexA, : ) = rootnode.XY + cross * plot_settings.pairSpace/2.0;
+0392     XY( rootnode.indexB, : ) = rootnode.XY - cross * plot_settings.pairSpace/2.0;
+0393 <span class="keyword">elseif</span> rootnode.indexA &gt; 0
+0394     XY( rootnode.indexA, : ) = rootnode.XY;
+0395 <span class="keyword">end</span>
+0396 <span class="keyword">for</span> ii = 1:length(rootnode.children)
+0397     XY = <a href="#_sub10" class="code" title="subfunction XY = getCoordsRecursive(nodes,root,XY);">getCoordsRecursive</a>( nodes, rootnode.children(ii), XY );
+0398 <span class="keyword">end</span>
+0399 
+0400 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0401 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0402 <a name="_sub11" href="#_subfunctions" class="code">function displayTree( nodes, node_number, level );</a>
+0403 node = nodes{node_number};
+0404 <span class="keyword">if</span> isfield( node, <span class="string">'indexA'</span> )
+0405     <span class="keyword">for</span> i = 1:level; fprintf(<span class="string">' '</span>); <span class="keyword">end</span>;
+0406     fprintf( <span class="string">'(%d) idx %d isPair %d   XY %f %f  go %f %f'</span>,node.nodenumber, node.indexA,node.isPair, node.XY,node.go );
+0407     fprintf( <span class="string">'\n'</span> );
+0408 <span class="keyword">end</span>
+0409 <span class="keyword">for</span> i = 1:length(node.children)
+0410     <a href="#_sub11" class="code" title="subfunction displayTree( nodes, node_number, level );">displayTree</a>( nodes, node.children(i), level + 1 )
+0411 <span class="keyword">end</span>
+0412 
+0413 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0414 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0415 <a name="_sub12" href="#_subfunctions" class="code">function plotCoords( XY )</a>
+0416 plot( XY(:,1),XY(:,2),<span class="string">'o-'</span>);
+0417 hold on
+0418 <span class="keyword">for</span> i = 1:size( XY, 1 )
+0419     text( XY(i,1), XY(i,2), num2str(i),<span class="string">'horizontalalign'</span>,<span class="string">'center'</span>,<span class="string">'verticalalign'</span>,<span class="string">'middle'</span> );
+0420 <span class="keyword">end</span>
+0421 
+0422 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0423 <a name="_sub13" href="#_subfunctions" class="code">function plotTree( nodes, node_number );</a>
+0424 node = nodes{node_number};
+0425 <span class="keyword">if</span> isfield( node, <span class="string">'indexA'</span> )
+0426     <span class="comment">%text( node.XY(1), node.XY(2), num2str(node.nodenumber),'horizontalalign','center','verticalalign','middle');</span>
+0427     hold on
+0428     plot( node.XY(1), node.XY(2),<span class="string">'r.'</span>);
+0429     plot( node.XY(1) + 10*[0,node.go(1)], node.XY(2)+10*[0,node.go(2)], <span class="string">'r'</span>,<span class="string">'linew'</span>,1.2 );
+0430 <span class="keyword">end</span>
+0431 <span class="keyword">for</span> i = 1:length(node.children)
+0432     child = nodes{ node.children(i) }; hold on
+0433     plot( [node.XY(1),child.XY(1)], [node.XY(2),child.XY(2)], <span class="string">'k-'</span> );
+0434     <a href="#_sub13" class="code" title="subfunction plotTree( nodes, node_number );">plotTree</a>( nodes, node.children(i) )
+0435 <span class="keyword">end</span>
+0436 
+0437 
+0438 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0439 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0440 <a name="_sub14" href="#_subfunctions" class="code">function scoreNodes = generateScoreNodes( rnaTreeNodes );</a>
+0441 
+0442 rootCoords = [];
+0443 scoreNodes = {};
+0444 scoreNodes = <a href="#_sub15" class="code" title="subfunction [nodes,coords] = generateScoreNodesRecursive(rnaTreeNodes, rootnumber, coords, nodes )">generateScoreNodesRecursive</a>( rnaTreeNodes, 1, rootCoords, scoreNodes);
+0445 
+0446 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0447 <a name="_sub15" href="#_subfunctions" class="code">function [nodes,coords] = generateScoreNodesRecursive(rnaTreeNodes, rootnumber, coords, nodes )</a>
+0448 <span class="keyword">if</span> (rootnumber == 0)  <span class="keyword">return</span>; <span class="keyword">end</span>;
+0449 root = rnaTreeNodes{rootnumber};
+0450 <span class="keyword">if</span> ~any(isnan( coords ))
+0451     <span class="keyword">if</span> (root.isPair)
+0452         coords = [coords, root.indexA];
+0453         coords = [coords, root.indexB];
+0454     <span class="keyword">elseif</span> (root.indexA &gt; 0)
+0455         coords = [coords, root.indexA];
+0456         <span class="keyword">return</span>;
+0457     <span class="keyword">end</span>
+0458 <span class="keyword">end</span>
+0459 
+0460 childCoords = [];
+0461     
+0462 <span class="keyword">if</span> ( root.isPair )
+0463     assert( length(root.children) &lt;= 1 );
+0464     <span class="keyword">if</span> (length(root.children) ~= 0)
+0465         child = rnaTreeNodes{root.children(1)};
+0466         <span class="keyword">if</span> ( child.isPair )
+0467             childCoords = [ root.indexA, root.indexB, child.indexB, child.indexA ];
+0468             [nodes,newnodenumber] = <a href="#_sub16" class="code" title="subfunction [nodes,nodenumber] = create_score_node( nodes );">create_score_node</a>( nodes );
+0469             nodes{ newnodenumber }.type = <span class="string">'STACK'</span>;
+0470             nodes{ newnodenumber }.coords = childCoords;
+0471             [nodes,~] = <a href="#_sub15" class="code" title="subfunction [nodes,coords] = generateScoreNodesRecursive(rnaTreeNodes, rootnumber, coords, nodes )">generateScoreNodesRecursive</a>(rnaTreeNodes, root.children(1), nan, nodes );
+0472         <span class="keyword">else</span>
+0473             childCoords = [ root.indexB, root.indexA];
+0474             [nodes,childCoords] = <a href="#_sub15" class="code" title="subfunction [nodes,coords] = generateScoreNodesRecursive(rnaTreeNodes, rootnumber, coords, nodes )">generateScoreNodesRecursive</a>(rnaTreeNodes, root.children(1), childCoords, nodes );
+0475         <span class="keyword">end</span>
+0476     <span class="keyword">end</span>
+0477 <span class="keyword">else</span>
+0478     <span class="keyword">for</span> childnumber = root.children
+0479         [nodes,coords] = <a href="#_sub15" class="code" title="subfunction [nodes,coords] = generateScoreNodesRecursive(rnaTreeNodes, rootnumber, coords, nodes )">generateScoreNodesRecursive</a>( rnaTreeNodes, childnumber, coords, nodes );
+0480     <span class="keyword">end</span>
+0481     <span class="keyword">if</span> ~any(isnan( coords ))
+0482         [nodes,newnodenumber] = <a href="#_sub16" class="code" title="subfunction [nodes,nodenumber] = create_score_node( nodes );">create_score_node</a>( nodes );
+0483         nodes{newnodenumber}.type = <span class="string">'LOOP'</span>;
+0484         nodes{newnodenumber}.coords = coords;
+0485     <span class="keyword">end</span>
+0486 <span class="keyword">end</span>
+0487 
+0488 
+0489 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0490 <a name="_sub16" href="#_subfunctions" class="code">function [nodes,nodenumber] = create_score_node( nodes );</a>
+0491 
+0492 node = struct();
+0493 node.type = <span class="string">''</span>;
+0494 node.coords = [];
+0495 nodes = [nodes, node];
+0496 
+0497 nodenumber = length( nodes );
+0498 nodes{nodenumber}.nodenumber = nodenumber;
+0499 
+0500 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0501 <a name="_sub17" href="#_subfunctions" class="code">function fillScoreNodes( scoreNodes, XY );</a>
+0502 hold on
+0503 <span class="keyword">for</span> n = 1:length( scoreNodes )
+0504     scoreNode = scoreNodes{n};
+0505     XData = XY(scoreNode.coords, 1 );
+0506     YData = XY(scoreNode.coords, 2 );
+0507     h = patch( XData, YData, <span class="string">'k'</span>, <span class="string">'FaceAlpha'</span>,0.1 );
+0508 <span class="keyword">end</span>
+0509</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

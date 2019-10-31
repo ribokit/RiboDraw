@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of convert_helix_to_long_range_stem_pairs</title>
+  <meta name="keywords" content="convert_helix_to_long_range_stem_pairs">
+  <meta name="description" content="convert_helix_to_long_range_stem_pair( helix_tag )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html helix -->
+<h1>convert_helix_to_long_range_stem_pairs
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>convert_helix_to_long_range_stem_pair( helix_tag )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function convert_helix_to_long_range_stem_pair( helix_tag ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> convert_helix_to_long_range_stem_pair( helix_tag )</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="update_residue_after_helix_reassignment.html" class="code" title="function update_residue_after_helix_reassignment( residue )">update_residue_after_helix_reassignment</a>	update_residue_after_helix_reassignment( residue )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function convert_helix_to_long_range_stem_pair( helix_tag )</a>
+0002 <span class="comment">% convert_helix_to_long_range_stem_pair( helix_tag )</span>
+0003 
+0004 helix = getappdata( gca, helix_tag );
+0005 N = length( helix.resnum1 );
+0006 res_tags = {};
+0007 <span class="keyword">for</span> j = 1:N
+0008     linker_tag = sprintf(<span class="string">'Linker_%s%s%d_%s%s%d_stem_pair'</span>, helix.chain1(j), helix.segid1{j}, helix.resnum1(j),<span class="keyword">...</span>
+0009         helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1) );
+0010 <span class="comment">%     res_tags = [res_tags, {sprintf('Residue_%s%s%d',helix.chain1(j), helix.segid1{j}, helix.resnum1(j))} ];</span>
+0011 <span class="comment">%     res_tags = [res_tags, {sprintf('Residue_%s%s%d', helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1))} ];</span>
+0012     <span class="keyword">if</span> isappdata( gca, linker_tag )
+0013         linker = getappdata( gca, linker_tag );
+0014         linker.type = <span class="string">'long_range_stem_pair'</span>;
+0015         linker.edge1 = <span class="string">'W'</span>;
+0016         linker.edge2 = <span class="string">'W'</span>;
+0017         linker.LW_orientation = <span class="string">'C'</span>;
+0018         <span class="keyword">if</span> isfield( linker, <span class="string">'line_handle'</span> ) delete( linker.line_handle ); rmfield( linker, <span class="string">'line_handle'</span> ); <span class="keyword">end</span>;
+0019         <span class="keyword">if</span> isfield( linker, <span class="string">'symbol'</span> ) delete( linker.symbol ); rmfield( linker, <span class="string">'symbol'</span> ); <span class="keyword">end</span>;
+0020         linker_tag = strrep( linker_tag, <span class="string">'stem_pair'</span>,<span class="string">'long_range_stem_pair'</span> );
+0021         <span class="keyword">if</span> ~isappdata( gca, linker_tag )
+0022             setappdata( gca, linker_tag, linker );
+0023         <span class="keyword">end</span>
+0024         draw_linker( linker_tag );
+0025     <span class="keyword">end</span>
+0026 <span class="keyword">end</span>
+0027 
+0028 <span class="comment">% need to also track the residues and assign to closest helix.</span>
+0029 helix_tags = get_tags( <span class="string">'Helix'</span> );
+0030 helix_tags = setdiff( helix_tags, helix_tag );
+0031 stems = {};
+0032 <span class="keyword">for</span> n = 1:length( helix_tags )
+0033     stems{n} = getappdata(gca,helix_tags{n});
+0034 <span class="keyword">end</span>
+0035 <span class="keyword">for</span> n = 1:length( stems )
+0036     stem_start1(n) = stems{n}.resnum1(1);
+0037     stem_stop1 (n) = stems{n}.resnum1(end);
+0038     stem_chain1(n) = stems{n}.chain1(1);
+0039     stem_segid1(n) = stems{n}.segid1(1);
+0040     stem_start2(n) = stems{n}.resnum2(1);
+0041     stem_stop2 (n) = stems{n}.resnum2(end);
+0042     stem_chain2(n) = stems{n}.chain2(1);
+0043     stem_segid2(n) = stems{n}.segid2(1);
+0044 <span class="keyword">end</span>
+0045 
+0046 res_tags = get_res();
+0047 helix_tags_to_redraw = {};
+0048 <span class="keyword">for</span> i = 1:length(res_tags)
+0049     res_tag = res_tags{i};
+0050     residue = getappdata( gca, res_tag );
+0051     <span class="keyword">if</span> ~strcmp( residue.helix_tag, helix_tag ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0052     dists1 = Inf * ones( 1, length( stems ) );
+0053     dists2 = Inf * ones( 1, length( stems ) );
+0054     chain = residue.chain;
+0055     segid = residue.segid;
+0056     res = residue.resnum;
+0057     m = strfind( stem_chain1, chain );
+0058     dists1(m) = min( abs( stem_start1(m) - res ), abs( abs(stem_stop1(m) - res) ) ); 
+0059     m = strfind( stem_chain2, chain );
+0060     dists2(m) = min( abs( stem_start2(m) - res ), abs( abs(stem_stop2(m) - res) ) ); 
+0061     dists = min( dists1, dists2 );
+0062     [~,n] = min( dists );
+0063     stems{n}.associated_residues = unique( [ stems{n}.associated_residues, {res_tag} ] );
+0064     setappdata( gca, stems{n}.helix_tag, stems{n} );
+0065 
+0066     residue.helix_tag = stems{n}.helix_tag;
+0067     setappdata( gca, res_tag, residue );
+0068 
+0069     <a href="update_residue_after_helix_reassignment.html" class="code" title="function update_residue_after_helix_reassignment( residue )">update_residue_after_helix_reassignment</a>( residue );
+0070 <span class="keyword">end</span>
+0071 
+0072 rmgraphics( helix, {<span class="string">'label'</span>,<span class="string">'rectangle'</span>,<span class="string">'reflect_line1'</span>,<span class="string">'reflect_line2'</span>,<span class="string">'click_center'</span>});
+0073 rmappdata( gca, helix_tag )</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -76,17 +76,16 @@ This function is called by:
 0021 
 0022 <span class="keyword">if</span> isfield( ligand, <span class="string">'image_handle'</span> ) delete( ligand.image_handle ); <span class="keyword">end</span>;
 0023 <span class="keyword">if</span> exist( <span class="string">'new_name'</span>, <span class="string">'var'</span> ) &amp;&amp; length( new_name ) &gt; 0
-0024     <span class="comment">% uh probably should change the name of the nucleotide field to 'name'</span>
-0025     ligand.nucleotide = new_name;
-0026     <span class="keyword">if</span> isfield( ligand, <span class="string">'handle'</span> )  set( ligand.handle, <span class="string">'String'</span>, ligand.nucleotide ); <span class="keyword">end</span>;
-0027 <span class="keyword">end</span>
-0028 ligand.image_boundary = boundary;
-0029 ligand = <a href="draw_image.html" class="code" title="function ligand = draw_image( ligand, plot_settings )">draw_image</a>( ligand );
-0030 setappdata( gca, ligand.res_tag, ligand );
-0031 fprintf( <span class="string">'Setup image %s for %s.\n'</span>, image_file, ligand.res_tag );
-0032 <span class="keyword">if</span> ~exist( <span class="string">'skip_move_stuff_to_back'</span>, <span class="string">'var'</span> )
-0033     move_stuff_to_back();
-0034 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0024     ligand.name = new_name;
+0025     <span class="keyword">if</span> isfield( ligand, <span class="string">'handle'</span> )  set( ligand.handle, <span class="string">'String'</span>, ligand.name ); <span class="keyword">end</span>;
+0026 <span class="keyword">end</span>
+0027 ligand.image_boundary = boundary;
+0028 ligand = <a href="draw_image.html" class="code" title="function ligand = draw_image( ligand, plot_settings )">draw_image</a>( ligand );
+0029 setappdata( gca, ligand.res_tag, ligand );
+0030 fprintf( <span class="string">'Setup image %s for %s.\n'</span>, image_file, ligand.res_tag );
+0031 <span class="keyword">if</span> ~exist( <span class="string">'skip_move_stuff_to_back'</span>, <span class="string">'var'</span> )
+0032     move_stuff_to_back();
+0033 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

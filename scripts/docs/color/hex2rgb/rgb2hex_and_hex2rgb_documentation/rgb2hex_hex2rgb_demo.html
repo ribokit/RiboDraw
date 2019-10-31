@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of rgb2hex_hex2rgb_demo</title>
+  <meta name="keywords" content="rgb2hex_hex2rgb_demo">
+  <meta name="description" content="% |rgb2hex| and |hex2rgb|">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- ../../menu.html color --><!-- ../menu.html hex2rgb --><!-- menu.html rgb2hex_and_hex2rgb_documentation -->
+<h1>rgb2hex_hex2rgb_demo
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>% |rgb2hex| and |hex2rgb|</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">% |rgb2hex| and |hex2rgb|
+ These functions convert RGB color triplets to hexadecimal format, or
+ hexadecimal format to RGB color triplets.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%% |rgb2hex| and |hex2rgb|</span>
+0002 <span class="comment">% These functions convert RGB color triplets to hexadecimal format, or</span>
+0003 <span class="comment">% hexadecimal format to RGB color triplets.</span>
+0004 
+0005 <span class="comment">%% Syntax</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%  rgb2hex(rgb)</span>
+0008 <span class="comment">%  hex2rgb(hex)</span>
+0009 <span class="comment">%  hex2rgb(hex,range)</span>
+0010 
+0011 <span class="comment">%% Description</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% |rgb2hex(rgb)| converts RGB color triplets to hexadecimal format. If no</span>
+0014 <span class="comment">% value in the |rgb| matrix exceeds unity, values are assumed to be scaled</span>
+0015 <span class="comment">% from 0 to 1.  If any value in |rgb| exceeds unity, values are assumed to</span>
+0016 <span class="comment">% be scaled from 0 to 255.</span>
+0017 <span class="comment">%</span>
+0018 <span class="comment">% |hex2rgb(hex)| converts hexadecimal to rgb color triplets scale from 0 to</span>
+0019 <span class="comment">% 1.</span>
+0020 <span class="comment">%</span>
+0021 <span class="comment">% |hex2rgb(hex,range)| specifies a range as 1 or 256 for scaling output RGB values.</span>
+0022 <span class="comment">% A previous version of this function required a range of 255 when scaling from 0 to 255,</span>
+0023 <span class="comment">% but letting range equal 256 may be more intuitive, so either input will work now.</span>
+0024 <span class="comment">% Whether you enter a range of 255 or 256, RGB values will be scaled from 0 to 255.</span>
+0025 <span class="comment">% Default range is 1 to Matlab syntax, meaning values are scaled from 0 to 1.</span>
+0026 
+0027 <span class="comment">%% Examples of |rgb2hex|</span>
+0028 <span class="comment">% What is the hexadecimal value of pure green?</span>
+0029 
+0030 greenHex = rgb2hex([0 1 0])
+0031 
+0032 <span class="comment">%%</span>
+0033 <span class="comment">% What if the rgb values are scaled from 0 to 255?</span>
+0034 
+0035 greenHexIsStill = rgb2hex([0 255 0])
+0036 
+0037 <span class="comment">%%</span>
+0038 <span class="comment">% This function works for multiple entries too:</span>
+0039 
+0040 myrgbvalues = [.2 .3 .4;
+0041                .5 .6 .7; 
+0042                .8 .6 .2;
+0043                .2 .2 .9];
+0044 myhexvalues = rgb2hex(myrgbvalues) 
+0045 
+0046 <span class="comment">%%</span>
+0047 <span class="comment">% Or similarly,</span>
+0048 
+0049 rgb2hex(jet(5))
+0050 
+0051 <span class="comment">%% Examples of |hex2rgb|</span>
+0052 <span class="comment">% Say &lt;http://tools.medialab.sciences-po.fr/iwanthue/completion.php some</span>
+0053 <span class="comment">% online color program&gt; gives you some hex value that you'd like to use in</span>
+0054 <span class="comment">% your next Matlab plot. The number |'#334D66'| is something that Matlab</span>
+0055 <span class="comment">% can understand, so we use |hex2rgb|:</span>
+0056 
+0057 hex2rgb(<span class="string">'#334D66'</span>)
+0058 
+0059 <span class="comment">%%</span>
+0060 <span class="comment">% The |hex2rgb| function may also be used inside a |plot| command:</span>
+0061 
+0062 plot(1:10,(1:10).^2,<span class="string">'color'</span>,hex2rgb(<span class="string">'#334D66'</span>),<span class="string">'linewidth'</span>,5)
+0063 
+0064 <span class="comment">%%</span>
+0065 <span class="comment">% The pound sign is optional:</span>
+0066 
+0067 myrgbvalue = hex2rgb(<span class="string">'334D66'</span>) 
+0068 
+0069 <span class="comment">%%</span>
+0070 <span class="comment">% Values may be scaled from 0 to 255:</span>
+0071 
+0072 myRGBvalue = hex2rgb(<span class="string">'#334D66'</span>,256)
+0073 
+0074 <span class="comment">%%</span>
+0075 <span class="comment">% Input hex values can be in a matrix:</span>
+0076 
+0077 myhexvalues = [<span class="string">'#334D66'</span>;<span class="string">'#8099B3'</span>;<span class="string">'#CC9933'</span>;<span class="string">'#3333E6'</span>];
+0078 myrgbvalues = hex2rgb(myhexvalues)
+0079 
+0080 <span class="comment">%%</span>
+0081 <span class="comment">% Input hex values may also be in a character array:</span>
+0082 
+0083 HexValsAsACharacterArray = {<span class="string">'#334D66'</span>;<span class="string">'#8099B3'</span>;<span class="string">'#CC9933'</span>;<span class="string">'#3333E6'</span>}; 
+0084 rgbvals = hex2rgb(HexValsAsACharacterArray)
+0085 
+0086 <span class="comment">%%</span>
+0087 <span class="comment">% Character arrays can be useful when plotting and labelling:</span>
+0088 
+0089 x = 1:4; 
+0090 y = -x; 
+0091 scatter(x,y,1e3,rgbvals,<span class="string">'filled'</span>)
+0092 axis([0 5 -5 0])
+0093 text(x,y,HexValsAsACharacterArray,<span class="string">'horizontalalignment'</span>,<span class="string">'center'</span>)
+0094 
+0095 <span class="comment">%% Author Info</span>
+0096 <span class="comment">% These functions were written by Chad A. Greene of the University of Texas</span>
+0097 <span class="comment">% at Austin's Institute for Geophysics</span>
+0098 <span class="comment">% (&lt;http://www.ig.utexas.edu/research/cryosphere/ UTIG&gt;) in April of 2014.</span>
+0099 <span class="comment">% On advice from</span>
+0100 <span class="comment">% &lt;http://www.mathworks.com/matlabcentral/fileexchange/authors/186085</span>
+0101 <span class="comment">% Stephen Cobeldick&gt;, some changes were made in August 2014.  Functionality</span>
+0102 <span class="comment">% has not changed with these updates, but the functions are now faster and</span>
+0103 <span class="comment">% more robust. Thanks Stephen.</span></pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

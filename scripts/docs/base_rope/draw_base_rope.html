@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draw_base_rope</title>
+  <meta name="keywords" content="draw_base_rope">
+  <meta name="description" content="draw_base_rope();">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html base_rope -->
+<h1>draw_base_rope
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>draw_base_rope();</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function draw_base_rope(); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> draw_base_rope();
+
+ Draw a smooth 'rope' under all the bases.
+ Later, create separate ropes by chain.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function draw_base_rope();</a>
+0002 <span class="comment">% draw_base_rope();</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Draw a smooth 'rope' under all the bases.</span>
+0005 <span class="comment">% Later, create separate ropes by chain.</span>
+0006 
+0007 
+0008 plot_settings = get_plot_settings();
+0009 <span class="keyword">if</span> ~isfield( plot_settings, <span class="string">'show_base_rope'</span> ) || ~plot_settings.show_base_rope; 
+0010     <span class="comment">% should not be a base rope!</span>
+0011     <span class="keyword">if</span> isappdata( gca, <span class="string">'BaseRope'</span> );
+0012         base_rope = getappdata( gca, <span class="string">'BaseRope'</span> );
+0013         rmgraphics( base_rope, {<span class="string">'line_handle'</span>,<span class="string">'line_handle2'</span>} );
+0014         rmappdata( gca, <span class="string">'BaseRope'</span> );
+0015     <span class="keyword">end</span>
+0016     <span class="keyword">return</span>;
+0017 <span class="keyword">end</span>
+0018 
+0019 <span class="keyword">if</span> ~isappdata( gca, <span class="string">'BaseRope'</span> ); setappdata( gca, <span class="string">'BaseRope'</span>, struct()  ); <span class="keyword">end</span>
+0020 base_rope = getappdata( gca, <span class="string">'BaseRope'</span> );
+0021 
+0022 res_tag_sets = get_RNA_chains();
+0023 coords_sets = {};
+0024 <span class="keyword">for</span> j = 1:length( res_tag_sets )
+0025     res_tags = res_tag_sets{j};
+0026     coords = [];
+0027     <span class="keyword">for</span> i = 1:length( res_tags )
+0028         residue = getappdata( gca, res_tags{i} );
+0029         <span class="keyword">if</span> isfield( residue, <span class="string">'plot_pos'</span> )
+0030             coords = [coords; residue.plot_pos ];
+0031         <span class="keyword">end</span>
+0032     <span class="keyword">end</span>
+0033     coords_sets{j} = coords;
+0034 <span class="keyword">end</span>
+0035 
+0036 x = [];
+0037 y = [];
+0038 <span class="keyword">for</span> j = 1:length( coords_sets )
+0039     coords = coords_sets{j};
+0040     <span class="keyword">if</span> length( coords ) == 0; <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0041     N = size( coords, 1 );
+0042     t = [1:(1/5):N];
+0043     interp_method = <span class="string">'pchip'</span>;
+0044     <span class="comment">% the NaN should put spaces between the chains.</span>
+0045     x = [x, interp1( 1:N, coords(:,1), t, interp_method ),NaN];
+0046     y = [y, interp1( 1:N, coords(:,2), t, interp_method ),NaN];
+0047 <span class="keyword">end</span>
+0048 
+0049 <span class="keyword">if</span> length( x ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0050 
+0051 <span class="keyword">if</span> ~isfield( base_rope, <span class="string">'line_handle'</span> );
+0052     base_rope.line_handle = plot( x, y, <span class="string">'-'</span>,<span class="string">'linew'</span>,6,<span class="string">'color'</span>,[[1,1,1]*0.7, 0.3]);
+0053     setappdata(  base_rope.line_handle, <span class="string">'layer_level'</span>, 3 )
+0054 <span class="keyword">end</span>
+0055 <span class="keyword">if</span> ~isfield( base_rope, <span class="string">'line_handle2'</span> );
+0056     base_rope.line_handle2 = plot( x, y, <span class="string">'-'</span>,<span class="string">'linew'</span>,4,<span class="string">'color'</span>,[[1,1,1]*0.9, 0.3]);
+0057     setappdata( base_rope.line_handle2, <span class="string">'layer_level'</span>, 3 )
+0058 <span class="keyword">end</span>
+0059 
+0060 plot_setting = get_plot_settings();
+0061 set( base_rope.line_handle, <span class="string">'xdata'</span>, x, <span class="string">'ydata'</span>, y, <span class="string">'linew'</span>, 0.5*plot_settings.fontsize );
+0062 set( base_rope.line_handle2, <span class="string">'xdata'</span>, x, <span class="string">'ydata'</span>, y, <span class="string">'linew'</span>, 0.5*plot_settings.fontsize*2/3 );
+0063 
+0064 setappdata( gca, <span class="string">'BaseRope'</span>, base_rope );
+0065</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

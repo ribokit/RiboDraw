@@ -23,10 +23,11 @@
 <div class="box"><strong>[minpos,maxpos] = get_minpos_maxpos( selection );</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="box"><strong>function [minpos,maxpos] = get_minpos_maxpos( selection ); </strong></div>
+<div class="box"><strong>function [minpos,maxpos] = get_minpos_maxpos( associated_residues ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> [minpos,maxpos] = get_minpos_maxpos( selection );  
+ [minpos,maxpos] = get_minpos_maxpos( associated_residues );  
 
  helper function that gets corners that define bounding box of selection.
 
@@ -45,22 +46,29 @@ This function is called by:
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [minpos,maxpos] = get_minpos_maxpos( selection );  </a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [minpos,maxpos] = get_minpos_maxpos( associated_residues );  </a>
 0002 <span class="comment">% [minpos,maxpos] = get_minpos_maxpos( selection );</span>
-0003 <span class="comment">%</span>
-0004 <span class="comment">% helper function that gets corners that define bounding box of selection.</span>
-0005 <span class="comment">%</span>
-0006 <span class="comment">% (C) R. Das, Stanford University</span>
-0007 
-0008 dom_pos = [];
-0009 <span class="keyword">for</span> j = 1:length( selection.associated_residues )
-0010     residue = getappdata( gca, selection.associated_residues{j} );
-0011     <span class="keyword">if</span> isfield( residue, <span class="string">'plot_pos'</span> );
-0012         dom_pos = [ dom_pos; residue.plot_pos ];
-0013     <span class="keyword">end</span>
-0014 <span class="keyword">end</span>
-0015 minpos = min( dom_pos, [], 1 );
-0016 maxpos = max( dom_pos, [], 1 );</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0003 <span class="comment">% [minpos,maxpos] = get_minpos_maxpos( associated_residues );</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% helper function that gets corners that define bounding box of selection.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University</span>
+0008 
+0009 <span class="keyword">if</span> isstruct( associated_residues ) 
+0010     selection = associated_residues;
+0011     assert( isfield( selection, <span class="string">'associated_residues'</span> ) );
+0012     associated_residues = selection.associated_residues; 
+0013 <span class="keyword">end</span>;
+0014 
+0015 dom_pos = [];
+0016 <span class="keyword">for</span> j = 1:length( associated_residues )
+0017     residue = getappdata( gca, associated_residues{j} );
+0018     <span class="keyword">if</span> isfield( residue, <span class="string">'plot_pos'</span> );
+0019         dom_pos = [ dom_pos; residue.plot_pos ];
+0020     <span class="keyword">end</span>
+0021 <span class="keyword">end</span>
+0022 minpos = min( dom_pos, [], 1 );
+0023 maxpos = max( dom_pos, [], 1 );</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -102,21 +102,22 @@ This function is called by:
 0030 <span class="comment">%</span>
 0031 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
 0032 
-0033 fid = fopen( base_stacks_file );
-0034 base_stacks = {};
-0035 <span class="keyword">while</span> ~feof( fid )
-0036     line = fgetl( fid );
-0037     <span class="comment">% C:1347 C:1599 W W C</span>
-0038     cols = strsplit( line, <span class="string">' '</span> );
-0039     <span class="keyword">if</span> length( cols ) &gt;= 4       
-0040         [base_stack.resnum1,base_stack.chain1,base_stack.segid1] = get_one_resnum_from_tag( cols{1} );
-0041         [base_stack.resnum2,base_stack.chain2,base_stack.segid2] = get_one_resnum_from_tag( cols{2} );
-0042         base_stack.side = cols{3};
-0043         base_stack.orientation = cols{4};
-0044         base_stacks = [base_stacks, base_stack];
-0045     <span class="keyword">end</span>;
-0046 <span class="keyword">end</span>
-0047</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0033 base_stacks = {};
+0034 <span class="keyword">if</span> ~exist( base_stacks_file, <span class="string">'file'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0035 fid = fopen( base_stacks_file );
+0036 <span class="keyword">while</span> ~feof( fid )
+0037     line = fgetl( fid );
+0038     <span class="comment">% C:1347 C:1599 W W C</span>
+0039     cols = strsplit( line, <span class="string">' '</span> );
+0040     <span class="keyword">if</span> length( cols ) &gt;= 4       
+0041         [base_stack.resnum1,base_stack.chain1,base_stack.segid1] = get_one_resnum_from_tag( cols{1} );
+0042         [base_stack.resnum2,base_stack.chain2,base_stack.segid2] = get_one_resnum_from_tag( cols{2} );
+0043         base_stack.side = cols{3};
+0044         base_stack.orientation = cols{4};
+0045         base_stacks = [base_stacks, base_stack];
+0046     <span class="keyword">end</span>;
+0047 <span class="keyword">end</span>
+0048</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

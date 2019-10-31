@@ -28,7 +28,7 @@
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> relpos = get_relpos( plot_pos, helix )
 
- Helper function for redrawing labels and nucleotides relative to helix
+ Helper function for redrawing labels and names relative to helix
 
  Input:
   plot_pos = Plot position (x,y) of element on drawing.
@@ -46,7 +46,7 @@ This function calls:
 <li><a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>	R = get_helix_rotation_matrix( helix )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="redraw_res_and_helix.html" class="code" title="function redraw_res_and_helix( h )">redraw_res_and_helix</a>	redraw_res_and_helix( h )</li><li><a href="redraw_residues.html" class="code" title="function redraw_residues( residues )">redraw_residues</a>	redraw_residues( residues )</li></ul>
+<li><a href="redraw_res_and_helix.html" class="code" title="function redraw_res_and_helix( h )">redraw_res_and_helix</a>	redraw_res_and_helix( h )</li><li><a href="redraw_residues.html" class="code" title="function redraw_residues( residues )">redraw_residues</a>	redraw_residues( residues )</li><li><a href="update_residue_after_helix_reassignment.html" class="code" title="function update_residue_after_helix_reassignment( residue )">update_residue_after_helix_reassignment</a>	update_residue_after_helix_reassignment( residue )</li></ul>
 <!-- crossreference -->
 
 
@@ -55,7 +55,7 @@ This function is called by:
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function relpos = get_relpos( plot_pos, helix )</a>
 0002 <span class="comment">% relpos = get_relpos( plot_pos, helix )</span>
 0003 <span class="comment">%</span>
-0004 <span class="comment">% Helper function for redrawing labels and nucleotides relative to helix</span>
+0004 <span class="comment">% Helper function for redrawing labels and names relative to helix</span>
 0005 <span class="comment">%</span>
 0006 <span class="comment">% Input:</span>
 0007 <span class="comment">%  plot_pos = Plot position (x,y) of element on drawing.</span>
@@ -68,6 +68,6 @@ This function is called by:
 0014 
 0015 R = <a href="get_helix_rotation_matrix.html" class="code" title="function R = get_helix_rotation_matrix( helix )">get_helix_rotation_matrix</a>( helix );
 0016 relpos = (plot_pos - repmat(helix.center,size(plot_pos,1),1))*R';</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

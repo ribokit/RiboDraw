@@ -82,43 +82,71 @@ This function is called by:
 0026         residue = getappdata( gca, res_tags{i} );
 0027         resnum(i) = residue.resnum;
 0028     <span class="keyword">end</span>
-0029     
-0030    
-0031     <span class="comment">% pymol seems to use this sometimes</span>
-0032     res_colors = <a href="pymol_rainbow.html" class="code" title="function colors = pymol_rainbow( ncolors )">pymol_rainbow</a>( length(resnum) );
-0033    
-0034     <span class="comment">% ... this other times</span>
+0029    
+0030     <span class="comment">% pymol seems to use this sometimes</span>
+0031     res_colors = <a href="pymol_rainbow.html" class="code" title="function colors = pymol_rainbow( ncolors )">pymol_rainbow</a>( length(resnum) );
+0032     
+0033     <span class="comment">% ... this other times</span>
+0034     resnum( find( resnum == 0 ) ) = min( resnum( find( resnum &gt; 0 ) ) ); <span class="comment">%proteins have resnum 0 -- ignore them</span>
 0035     all_resnum = [min(resnum):max(resnum)];
 0036     all_res_colors = <a href="pymol_rainbow.html" class="code" title="function colors = pymol_rainbow( ncolors )">pymol_rainbow</a>( length(all_resnum) );
 0037     res_colors = all_res_colors( resnum - min(resnum) + 1, :);
 0038 
 0039     label_color = [0,0,0];
-0040 <span class="keyword">else</span>
-0041     rgb_color = <a href="pymol_RGB.html" class="code" title="function rgb_color = pymol_RGB( colorname )">pymol_RGB</a>( color );
-0042     res_colors = repmat( rgb_color, nres, 1);
-0043     label_color = rgb_color;
-0044 <span class="keyword">end</span>
-0045 
-0046 linkers = {};
-0047 <span class="keyword">for</span> n = 1:length( res_tags )
-0048     res_tag = res_tags{n};
-0049     residue = getappdata( gca, res_tag );
-0050     residue.rgb_color = res_colors(n,:);
-0051     <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> ) set( residue.handle, <span class="string">'color'</span>, residue.rgb_color ); <span class="keyword">end</span>;
-0052     <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> ) draw_image( residue ); <span class="keyword">end</span>;
-0053     linkers = [ linkers, residue.linkers ];
-0054     setappdata( gca, res_tag, residue);
-0055     <span class="comment">%draw_helix( residue.helix_tag );</span>
-0056 <span class="keyword">end</span>
-0057 draw_linker( unique( linkers ) );
-0058 
-0059 <span class="keyword">if</span> length( obj_name ) &gt; 0
-0060     obj = getappdata( gca, obj_name );
-0061     obj.rgb_color = label_color;
-0062     <span class="keyword">if</span> isfield( obj, <span class="string">'label'</span> ); set( obj.label, <span class="string">'color'</span>, label_color );    <span class="keyword">end</span>
-0063     setappdata( gca, obj_name, obj );
-0064 <span class="keyword">end</span>
-0065</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0040 <span class="keyword">elseif</span> ischar( color ) &amp; strcmp(color,<span class="string">'eterna'</span> )
+0041     <span class="keyword">for</span> i = 1:length( res_tags ); 
+0042         <span class="comment">% These colors were taken using Mac OS Digital Color Meter off</span>
+0043         <span class="comment">%  bitmaps actually used in Eterna low-graphics mode.</span>
+0044         residue = getappdata( gca, res_tags{i} );
+0045         <span class="keyword">switch</span> residue.name
+0046             <span class="keyword">case</span> <span class="string">'A'</span>
+0047                 res_colors(i,:) = [244,194,92]/255;
+0048             <span class="keyword">case</span> <span class="string">'C'</span>
+0049                 res_colors(i,:) = [69,129,71]/255;
+0050             <span class="keyword">case</span> <span class="string">'G'</span>
+0051                 res_colors(i,:) = [160,44,40]/255;
+0052             <span class="keyword">case</span> <span class="string">'U'</span>
+0053                 res_colors(i,:) = [53,119,175]/255;
+0054             <span class="keyword">otherwise</span>
+0055                 res_colors(i,:) = [0.7 0.7 0.7];
+0056         <span class="keyword">end</span>
+0057     <span class="keyword">end</span>
+0058 <span class="keyword">else</span>
+0059     rgb_color = <a href="pymol_RGB.html" class="code" title="function rgb_color = pymol_RGB( colorname )">pymol_RGB</a>( color );
+0060     res_colors = repmat( rgb_color, nres, 1);
+0061     label_color = rgb_color;
+0062 <span class="keyword">end</span>
+0063 
+0064 linkers = {};
+0065 <span class="keyword">for</span> n = 1:length( res_tags )
+0066     res_tag = res_tags{n};
+0067     residue = getappdata( gca, res_tag );
+0068     residue.rgb_color = res_colors(n,:);
+0069     <span class="comment">% relevant for eterna mode:</span>
+0070     <span class="keyword">if</span> isfield( residue, <span class="string">'fill_color'</span> )
+0071         residue.fill_color = res_colors(n,:);
+0072         residue.rgb_color = [0,0,0];
+0073     <span class="keyword">end</span>
+0074     <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> ) 
+0075         set( residue.handle, <span class="string">'color'</span>, residue.rgb_color );
+0076     <span class="keyword">end</span>
+0077     <span class="keyword">if</span> isfield( residue, <span class="string">'fill_circle_handle'</span> )
+0078         set( residue.fill_circle_handle, <span class="string">'facecolor'</span>, residue.fill_color );
+0079     <span class="keyword">end</span>
+0080     <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> ) draw_image( residue ); <span class="keyword">end</span>;
+0081     linkers = [ linkers, residue.linkers ];
+0082     setappdata( gca, res_tag, residue);
+0083     <span class="comment">%draw_helix( residue.helix_tag );</span>
+0084 <span class="keyword">end</span>
+0085 draw_linker( unique( linkers ) );
+0086 
+0087 <span class="keyword">if</span> length( obj_name ) &gt; 0
+0088     obj = getappdata( gca, obj_name );
+0089     obj.rgb_color = label_color;
+0090     <span class="keyword">if</span> isfield( obj, <span class="string">'label'</span> ); set( obj.label, <span class="string">'color'</span>, label_color );    <span class="keyword">end</span>
+0091     setappdata( gca, obj_name, obj );
+0092 <span class="keyword">end</span>
+0093</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

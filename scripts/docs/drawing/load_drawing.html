@@ -33,7 +33,7 @@
 
  INPUTS:
    filename              = name of .json or .mat file with drawing
-   keep_previous drawing = [Optional] import drawing but keep 
+   keep_previous drawing = [Optional] import drawing but keep
                               residues, linkers, etc. not covered
                               by loaded drawing [default 0]
    keep_drawing_axes     = [Optional] keep axes (x,y dimensions,
@@ -93,160 +93,167 @@ This function is called by:
 0028 <span class="keyword">else</span>
 0029     assert( ischar( filename ) )
 0030     tic
-0031     <span class="keyword">if</span> length(filename) &gt; 4 &amp; strcmp( filename( end-3:end ), <span class="string">'.mat'</span> )
-0032         fprintf( <span class="string">'Reading MATLAB workspace  %s\n'</span>, filename );
-0033         drawing = load( filename, <span class="string">'drawing'</span> );
-0034         loaddata = drawing.drawing;
-0035     <span class="keyword">else</span>
-0036         fprintf( <span class="string">'Reading JSON: %s\n'</span>,filename );
-0037         loaddata = loadjson( filename );
-0038         loaddata = cleanup_json( loaddata );
-0039     <span class="keyword">end</span>
-0040     toc
-0041 <span class="keyword">end</span>
-0042 
-0043 tic
-0044 <span class="keyword">if</span> keep_previous_drawing;
-0045     loaddata.plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0046     loaddata.xlim = getappdata( gca, <span class="string">'xlim'</span> );
-0047     loaddata.ylim = getappdata( gca, <span class="string">'ylim'</span> );
-0048     loaddata.windowposition = getappdata( gca, <span class="string">'windowposition'</span> );
-0049     loaddata.data_aspect_ratio_mode = getappdata( gca, <span class="string">'data_aspect_ratio_mode'</span> );
-0050 <span class="keyword">else</span>
-0051     clf; 
-0052     set(gca,<span class="string">'Position'</span>,[0 0 1 1]);
-0053     set(gca, <span class="string">'xlim'</span>, loaddata.xlim );
-0054     set(gca, <span class="string">'ylim'</span>, loaddata.ylim );
-0055     set(gcf,<span class="string">'Position'</span>,loaddata.window_position)
-0056     <span class="keyword">if</span> isfield( loaddata, <span class="string">'data_aspect_ratio_mode'</span> )
-0057         <span class="keyword">switch</span> loaddata.data_aspect_ratio_mode
-0058             <span class="keyword">case</span> <span class="string">'manual'</span>
-0059                 axis image;
-0060             <span class="keyword">case</span> <span class="string">'auto'</span>
-0061                 axis normal;
-0062         <span class="keyword">end</span>;
-0063         <span class="comment">%axis manual; % uh hope this works.</span>
-0064     <span class="keyword">end</span>
-0065 <span class="keyword">end</span>
-0066 hold on;
-0067 
-0068 <span class="comment">% cleanup of old data that might have been deleted in new drawing.</span>
-0069 <span class="keyword">if</span> keep_previous_drawing; <a href="#_sub2" class="code" title="subfunction remove_old_linkers_and_tertiary_contacts_handled_by_loaddata( loaddata )">remove_old_linkers_and_tertiary_contacts_handled_by_loaddata</a>( loaddata ); <span class="keyword">end</span>;
-0070 
-0071 <span class="comment">% Should install sequence, Residue, Helix objects, etc. into gca ('global</span>
-0072 <span class="comment">% data' for these axes);</span>
-0073 datafields = fields( loaddata );
-0074 <span class="keyword">for</span> i = 1:length( datafields )
-0075     datafield = datafields{i};
-0076     datum = getfield( loaddata, datafield );
-0077 
-0078     <span class="comment">% copy over old handles to graphical objects like text, lines,</span>
-0079     <span class="comment">% ticks, etc. -- redrawing them would take a long time!</span>
-0080     <span class="keyword">if</span> isappdata( gca, datafield )
-0081         olddatum = getappdata( gca, datafield );
-0082         <span class="keyword">if</span> isstruct( olddatum )
-0083             oldfields = fields( olddatum );
-0084             <span class="keyword">for</span> i = 1:length( oldfields )
-0085                 field = oldfields{i};
-0086                 <span class="keyword">if</span> ~isfield( datum, field )
-0087                     datum = setfield( datum, field, getfield(olddatum,field) );
-0088                 <span class="keyword">end</span>
-0089                 <span class="comment">% special case cleanup</span>
-0090                 <span class="keyword">if</span> strcmp( field, <span class="string">'linkers'</span> ) &amp; isfield( datum, field )
-0091                     datum.linkers = unique( [olddatum.linkers, datum.linkers ] ); 
+0031     <span class="keyword">if</span> ~exist( filename,<span class="string">'file'</span> ) &amp; exist( [filename,<span class="string">'.mat'</span>], <span class="string">'file'</span> )
+0032         filename = [filename, <span class="string">'.mat'</span>];
+0033     <span class="keyword">end</span>
+0034     <span class="keyword">if</span> length(filename) &gt; 4 &amp; strcmp( filename( end-3:end ), <span class="string">'.mat'</span> )
+0035         fprintf( <span class="string">'Reading MATLAB workspace  %s\n'</span>, filename );
+0036         drawing = load( filename, <span class="string">'drawing'</span> );
+0037         loaddata = drawing.drawing;
+0038     <span class="keyword">else</span>
+0039         fprintf( <span class="string">'Reading JSON: %s\n'</span>,filename );
+0040         loaddata = loadjson( filename );
+0041         loaddata = cleanup_json( loaddata );
+0042     <span class="keyword">end</span>
+0043     toc
+0044 <span class="keyword">end</span>
+0045 
+0046 tic
+0047 <span class="keyword">if</span> keep_previous_drawing;
+0048     loaddata.plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0049     loaddata.xlim = getappdata( gca, <span class="string">'xlim'</span> );
+0050     loaddata.ylim = getappdata( gca, <span class="string">'ylim'</span> );
+0051     loaddata.windowposition = getappdata( gca, <span class="string">'windowposition'</span> );
+0052     loaddata.data_aspect_ratio_mode = getappdata( gca, <span class="string">'data_aspect_ratio_mode'</span> );
+0053 <span class="keyword">else</span>
+0054     clf;
+0055     set(gca,<span class="string">'Position'</span>,[0 0 1 1]);
+0056     set(gcf,<span class="string">'Position'</span>,loaddata.window_position)
+0057     <span class="keyword">if</span> isfield( loaddata, <span class="string">'data_aspect_ratio_mode'</span> )
+0058         <span class="keyword">switch</span> loaddata.data_aspect_ratio_mode
+0059             <span class="keyword">case</span> <span class="string">'manual'</span>
+0060                 axis image;
+0061             <span class="keyword">case</span> <span class="string">'auto'</span>
+0062                 axis normal;
+0063         <span class="keyword">end</span>;
+0064         <span class="comment">%axis manual; % uh hope this works.</span>
+0065     <span class="keyword">end</span>
+0066     set(gca, <span class="string">'xlim'</span>, loaddata.xlim );
+0067     set(gca, <span class="string">'ylim'</span>, loaddata.ylim );
+0068     
+0069 <span class="keyword">end</span>
+0070 hold on;
+0071 
+0072 <span class="comment">% cleanup of old data that might have been deleted in new drawing.</span>
+0073 <span class="keyword">if</span> keep_previous_drawing; <a href="#_sub2" class="code" title="subfunction remove_old_linkers_and_tertiary_contacts_handled_by_loaddata( loaddata )">remove_old_linkers_and_tertiary_contacts_handled_by_loaddata</a>( loaddata ); <span class="keyword">end</span>;
+0074 
+0075 <span class="comment">% Should install sequence, Residue, Helix objects, etc. into gca ('global</span>
+0076 <span class="comment">% data' for these axes);</span>
+0077 datafields = fields( loaddata );
+0078 <span class="keyword">for</span> i = 1:length( datafields )
+0079     datafield = datafields{i};
+0080     datum = getfield( loaddata, datafield );
+0081     
+0082     <span class="comment">% copy over old handles to graphical objects like text, lines,</span>
+0083     <span class="comment">% ticks, etc. -- redrawing them would take a long time!</span>
+0084     <span class="keyword">if</span> isappdata( gca, datafield )
+0085         olddatum = getappdata( gca, datafield );
+0086         <span class="keyword">if</span> isstruct( olddatum )
+0087             oldfields = fields( olddatum );
+0088             <span class="keyword">for</span> i = 1:length( oldfields )
+0089                 field = oldfields{i};
+0090                 <span class="keyword">if</span> ~isfield( datum, field )
+0091                     datum = setfield( datum, field, getfield(olddatum,field) );
 0092                 <span class="keyword">end</span>
-0093                 <span class="keyword">if</span> strcmp( field, <span class="string">'associated_selections'</span> ) &amp; isfield( datum, field )
-0094                     datum.associated_selections = unique( [olddatum.associated_selections, datum.associated_selections ] ); 
-0095                 <span class="keyword">end</span>
-0096             <span class="keyword">end</span>
-0097         <span class="keyword">end</span>
-0098         loaddata = setfield( loaddata, datafield, datum );
-0099     <span class="keyword">end</span>
-0100     setappdata( gca, datafield, datum );    
-0101 <span class="keyword">end</span>
-0102 cleanup_associated_residues();
-0103 loaddata = cleanup_segids( loaddata );
-0104 cleanup_stray_linkers();
-0105 cleanup_stack_linkers();
-0106 cleanup_domains();
-0107 convert_images_from_legacy();
-0108 cleanup_plot_settings();
-0109 convert_problem_helices_to_domains; <span class="comment">% happens when helices get disconnected across multiple input domains.</span>
-0110 draw_helices( <a href="#_sub1" class="code" title="subfunction helices = get_helices( loaddata )">get_helices</a>( loaddata ) );
-0111 move_stuff_to_back();
-0112 
-0113 <span class="comment">%show_artboards();</span>
-0114 set_fontsize( loaddata.plot_settings.fontsize );
-0115 setup_zoom();
-0116 setup_pan();
-0117 axis manual; <span class="comment">% after plots, axis image/normal -- this keeps axes from going nuts when dragging.</span>
-0118 toc
+0093                 <span class="comment">% special case cleanup</span>
+0094                 <span class="keyword">if</span> strcmp( field, <span class="string">'linkers'</span> ) &amp; isfield( datum, field )
+0095                     datum.linkers = unique( [olddatum.linkers, datum.linkers ] );
+0096                 <span class="keyword">end</span>
+0097                 <span class="keyword">if</span> strcmp( field, <span class="string">'associated_selections'</span> ) &amp; isfield( datum, field )
+0098                     datum.associated_selections = unique( [olddatum.associated_selections, datum.associated_selections ] );
+0099                 <span class="keyword">end</span>
+0100             <span class="keyword">end</span>
+0101         <span class="keyword">end</span>
+0102         loaddata = setfield( loaddata, datafield, datum );
+0103     <span class="keyword">end</span>
+0104     setappdata( gca, datafield, datum );
+0105 <span class="keyword">end</span>
+0106 cleanup_associated_residues();
+0107 loaddata = cleanup_segids( loaddata );
+0108 cleanup_stray_linkers();
+0109 cleanup_stack_linkers();
+0110 cleanup_domains();
+0111 convert_images_from_legacy();
+0112 cleanup_plot_settings();
+0113 convert_nucleotide_to_name();
+0114 convert_undercircle_field_names();
+0115 convert_problem_helices_to_domains; <span class="comment">% happens when helices get disconnected across multiple input domains.</span>
+0116 draw_helices( <a href="#_sub1" class="code" title="subfunction helices = get_helices( loaddata )">get_helices</a>( loaddata ) );
+0117 set_bg_color(); <span class="comment">% based on plot_settings.bg_color</span>
+0118 move_stuff_to_back();
 0119 
-0120 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0121 <a name="_sub1" href="#_subfunctions" class="code">function helices = get_helices( loaddata )</a>
-0122 helices = {};
-0123 objnames = fields( loaddata );
-0124 <span class="keyword">for</span> n = 1:length( objnames )
-0125     <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
-0126         helices = [helices,getfield(loaddata,objnames{n})];
-0127     <span class="keyword">end</span>
-0128 <span class="keyword">end</span>
-0129 
-0130 
-0131 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0132 <a name="_sub2" href="#_subfunctions" class="code">function remove_old_linkers_and_tertiary_contacts_handled_by_loaddata( loaddata )</a>
-0133 <span class="comment">% copies code from get_drawing.</span>
-0134 
-0135 <span class="comment">% which residues are being handled by imported drawing (loaddata)?</span>
-0136 slice_res_tags = get_tags( <span class="string">'Residue_'</span>,<span class="string">''</span>,fields(loaddata) );
+0120 <span class="comment">%show_artboards();</span>
+0121 set_fontsize( loaddata.plot_settings.fontsize );
+0122 setup_zoom();
+0123 setup_pan();
+0124 axis manual; <span class="comment">% after plots, axis image/normal -- this keeps axes from going nuts when dragging.</span>
+0125 toc
+0126 
+0127 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0128 <a name="_sub1" href="#_subfunctions" class="code">function helices = get_helices( loaddata )</a>
+0129 helices = {};
+0130 objnames = fields( loaddata );
+0131 <span class="keyword">for</span> n = 1:length( objnames )
+0132     <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
+0133         helices = [helices,getfield(loaddata,objnames{n})];
+0134     <span class="keyword">end</span>
+0135 <span class="keyword">end</span>
+0136 
 0137 
-0138 <span class="comment">% are any elements of old drawing handled by imported drawing  but are now</span>
-0139 <span class="comment">% gone from imported drawing?</span>
-0140 <span class="comment">% linkers</span>
-0141 linker_tags = get_tags( <span class="string">'Linker'</span> );
-0142 <span class="keyword">for</span> i = 1:length( linker_tags )
-0143     tag = linker_tags{i};
-0144     linker = getappdata( gca, tag );
-0145     <span class="keyword">if</span> ~any(strcmp(linker.residue1, slice_res_tags ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0146     <span class="keyword">if</span> ~any(strcmp(linker.residue2, slice_res_tags ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0147     <span class="keyword">if</span> isfield( linker, <span class="string">'tertiary_contact'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% handle this case below.</span>
-0148     <span class="keyword">if</span> ~isfield( loaddata, tag ); 
-0149         fprintf( <span class="string">'Removing %s from old drawing as it is handled by imported drawing\n'</span>, tag );
-0150         delete_linker( linker );
-0151     <span class="keyword">end</span>;
-0152 <span class="keyword">end</span>
-0153 
-0154 <span class="comment">% selections</span>
-0155 selection_tags = get_tags( <span class="string">'Selection'</span>, <span class="string">'domain'</span> );
-0156 <span class="keyword">for</span> i = 1:length( selection_tags )
-0157     tag = selection_tags{i};
-0158     selection = getappdata( gca, tag );
-0159     selection_res_tags = unique(selection.associated_residues);
-0160     <span class="keyword">if</span> length(intersect( selection_res_tags, slice_res_tags )) &lt; length( selection_res_tags ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0161     <span class="keyword">if</span> ~isfield( loaddata, tag ); 
-0162         fprintf( <span class="string">'Removing %s from old drawing as it is handled by imported drawing\n'</span>, tag );
-0163         delete_domain( tag );
-0164     <span class="keyword">end</span>;
-0165 <span class="keyword">end</span>
-0166 
-0167 <span class="comment">% tertiary_contact_residues</span>
-0168 tertiary_contact_tags = get_tags( <span class="string">'TertiaryContact'</span> );
-0169 <span class="keyword">for</span> i = 1:length( tertiary_contact_tags )
-0170     tag = tertiary_contact_tags{i};
-0171     tertiary_contact = getappdata( gca, tag );
-0172 
-0173     contact_ok = 1;
-0174     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues1);
-0175     <span class="keyword">if</span> length(intersect( tertiary_contact_res_tags, slice_res_tags )) &lt; length( tertiary_contact_res_tags ); contact_ok = 0; <span class="keyword">end</span>;
-0176     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues2);
-0177     <span class="keyword">if</span> length(intersect( tertiary_contact_res_tags, slice_res_tags )) &lt; length( tertiary_contact_res_tags ); contact_ok = 0; <span class="keyword">end</span>;
-0178     <span class="keyword">if</span> ( ~contact_ok ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0179     <span class="keyword">if</span> ~isfield( loaddata, tag );
-0180         fprintf( <span class="string">'Removing %s from old drawing as it is handled by imported drawing\n'</span>, tag );
-0181         delete_tertiary_contact( tag );
-0182     <span class="keyword">end</span>;
-0183 <span class="keyword">end</span>
-0184</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0138 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0139 <a name="_sub2" href="#_subfunctions" class="code">function remove_old_linkers_and_tertiary_contacts_handled_by_loaddata( loaddata )</a>
+0140 <span class="comment">% copies code from get_drawing.</span>
+0141 
+0142 <span class="comment">% which residues are being handled by imported drawing (loaddata)?</span>
+0143 slice_res_tags = get_tags( <span class="string">'Residue_'</span>,<span class="string">''</span>,fields(loaddata) );
+0144 
+0145 <span class="comment">% are any elements of old drawing handled by imported drawing  but are now</span>
+0146 <span class="comment">% gone from imported drawing?</span>
+0147 <span class="comment">% linkers</span>
+0148 linker_tags = get_tags( <span class="string">'Linker'</span> );
+0149 <span class="keyword">for</span> i = 1:length( linker_tags )
+0150     tag = linker_tags{i};
+0151     linker = getappdata( gca, tag );
+0152     <span class="keyword">if</span> ~any(strcmp(linker.residue1, slice_res_tags ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0153     <span class="keyword">if</span> ~any(strcmp(linker.residue2, slice_res_tags ) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0154     <span class="keyword">if</span> isfield( linker, <span class="string">'tertiary_contact'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% handle this case below.</span>
+0155     <span class="keyword">if</span> ~isfield( loaddata, tag );
+0156         fprintf( <span class="string">'Removing %s from old drawing as it is handled by imported drawing\n'</span>, tag );
+0157         delete_linker( linker );
+0158     <span class="keyword">end</span>;
+0159 <span class="keyword">end</span>
+0160 
+0161 <span class="comment">% selections</span>
+0162 selection_tags = get_tags( <span class="string">'Selection'</span>, <span class="string">'domain'</span> );
+0163 <span class="keyword">for</span> i = 1:length( selection_tags )
+0164     tag = selection_tags{i};
+0165     selection = getappdata( gca, tag );
+0166     selection_res_tags = unique(selection.associated_residues);
+0167     <span class="keyword">if</span> length(intersect( selection_res_tags, slice_res_tags )) &lt; length( selection_res_tags ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0168     <span class="keyword">if</span> ~isfield( loaddata, tag );
+0169         fprintf( <span class="string">'Removing %s from old drawing as it is handled by imported drawing\n'</span>, tag );
+0170         delete_domain( tag );
+0171     <span class="keyword">end</span>;
+0172 <span class="keyword">end</span>
+0173 
+0174 <span class="comment">% tertiary_contact_residues</span>
+0175 tertiary_contact_tags = get_tags( <span class="string">'TertiaryContact'</span> );
+0176 <span class="keyword">for</span> i = 1:length( tertiary_contact_tags )
+0177     tag = tertiary_contact_tags{i};
+0178     tertiary_contact = getappdata( gca, tag );
+0179     
+0180     contact_ok = 1;
+0181     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues1);
+0182     <span class="keyword">if</span> length(intersect( tertiary_contact_res_tags, slice_res_tags )) &lt; length( tertiary_contact_res_tags ); contact_ok = 0; <span class="keyword">end</span>;
+0183     tertiary_contact_res_tags = unique(tertiary_contact.associated_residues2);
+0184     <span class="keyword">if</span> length(intersect( tertiary_contact_res_tags, slice_res_tags )) &lt; length( tertiary_contact_res_tags ); contact_ok = 0; <span class="keyword">end</span>;
+0185     <span class="keyword">if</span> ( ~contact_ok ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0186     <span class="keyword">if</span> ~isfield( loaddata, tag );
+0187         fprintf( <span class="string">'Removing %s from old drawing as it is handled by imported drawing\n'</span>, tag );
+0188         delete_tertiary_contact( tag );
+0189     <span class="keyword">end</span>;
+0190 <span class="keyword">end</span>
+0191</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -57,19 +57,20 @@ This function is called by:
 0007 <span class="comment">% May be redundant with GET_RES().</span>
 0008 <span class="comment">%</span>
 0009 <span class="comment">% (C) R. Das, Stanford University.</span>
-0010 <span class="keyword">if</span> ~exist( <span class="string">'check_exists'</span>,<span class="string">'var'</span>) check_exists = 0; <span class="keyword">end</span>;
-0011 res_tags = {};
-0012 <span class="keyword">if</span> ischar( residue_string )
-0013     [resnum, chains, segid, ok ] = get_resnum_from_tag( residue_string );
-0014     <span class="keyword">if</span> ~ok;  fprintf( <span class="string">'unrecognized tag: %s. Should be of form A:1-4 C:50-67\n'</span>, residue_string ); <span class="keyword">end</span>
-0015     <span class="keyword">for</span> i = 1:length( resnum )
-0016         res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, chains(i),segid{i},resnum(i) );
-0017         <span class="keyword">if</span> ( check_exists &amp; ~isappdata( gca, res_tag) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0018         res_tags = [res_tags, res_tag ];
-0019     <span class="keyword">end</span>
-0020 <span class="keyword">elseif</span> iscell( residue_string )
-0021     res_tags = residue_string;
-0022 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0010 <span class="keyword">if</span> ~exist( <span class="string">'residue_string'</span>,<span class="string">'var'</span>) res_tags = get_res(); <span class="keyword">return</span>;<span class="keyword">end</span>;
+0011 <span class="keyword">if</span> ~exist( <span class="string">'check_exists'</span>,<span class="string">'var'</span>) check_exists = 0; <span class="keyword">end</span>;
+0012 res_tags = {};
+0013 <span class="keyword">if</span> ischar( residue_string )
+0014     [resnum, chains, segid, ok ] = get_resnum_from_tag( residue_string );
+0015     <span class="keyword">if</span> ~ok;  fprintf( <span class="string">'unrecognized tag: %s. Should be of form A:1-4 C:50-67\n'</span>, residue_string ); <span class="keyword">end</span>
+0016     <span class="keyword">for</span> i = 1:length( resnum )
+0017         res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, chains(i),segid{i},resnum(i) );
+0018         <span class="keyword">if</span> ( check_exists &amp; ~isappdata( gca, res_tag) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0019         res_tags = [res_tags, res_tag ];
+0020     <span class="keyword">end</span>
+0021 <span class="keyword">elseif</span> iscell( residue_string )
+0022     res_tags = residue_string;
+0023 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

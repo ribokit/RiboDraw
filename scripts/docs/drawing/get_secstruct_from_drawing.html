@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_secstruct_from_drawing</title>
+  <meta name="keywords" content="get_secstruct_from_drawing">
+  <meta name="description" content="[secstruct,res_tags] = get_secstruct_from_drawing()">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html drawing -->
+<h1>get_secstruct_from_drawing
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>[secstruct,res_tags] = get_secstruct_from_drawing()</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [secstruct,res_tags] = get_secstruct_from_drawing( selection ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> [secstruct,res_tags] = get_secstruct_from_drawing()
+ [secstruct,res_tags] = get_secstruct_from_drawing( selection )
+ 
+  Output secstruct using dot-parentheses notation.
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [secstruct,res_tags] = get_secstruct_from_drawing( selection )</a>
+0002 <span class="comment">% [secstruct,res_tags] = get_secstruct_from_drawing()</span>
+0003 <span class="comment">% [secstruct,res_tags] = get_secstruct_from_drawing( selection )</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">%  Output secstruct using dot-parentheses notation.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0008 
+0009 <span class="keyword">if</span> ~exist( <span class="string">'selection'</span> ) selection = <span class="string">'all'</span>; <span class="keyword">end</span>;
+0010 [~,res_tags] = get_RNA_chains( selection );
+0011 
+0012 helix_tags = get_tags( <span class="string">'Helix'</span> );
+0013 bps = [];
+0014 <span class="keyword">for</span> n = 1:length( helix_tags );
+0015     helix = getappdata( gca, helix_tags{n} );
+0016     N = length( helix.resnum1 );
+0017     <span class="keyword">for</span> j = 1:N
+0018         res_tag1 = sprintf(<span class="string">'Residue_%s%s%d'</span>,helix.chain1(j), helix.segid1{j}, helix.resnum1(j));
+0019         res_tag2 = sprintf(<span class="string">'Residue_%s%s%d'</span>, helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1));
+0020         m = find( strcmp( res_tags, res_tag1 ) );
+0021         n = find( strcmp( res_tags, res_tag2 ) );
+0022         <span class="keyword">if</span> isempty( m ); <span class="keyword">continue</span>;<span class="keyword">end</span>;
+0023         <span class="keyword">if</span> isempty( n ); <span class="keyword">continue</span>;<span class="keyword">end</span>;
+0024         bps = [bps; m, n];
+0025     <span class="keyword">end</span>
+0026 <span class="keyword">end</span>
+0027 
+0028 secstruct = ribodraw_convert_bps_to_structure( bps, length(res_tags) );</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

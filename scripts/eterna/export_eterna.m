@@ -41,6 +41,17 @@ fprintf( ']\n\n' );
 fprintf( '\nIn puzzle editor, copy this lock-string into locks:\n\n %s\n\n', lockstring );
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+pseudoknot_idx = strfind(secstruct,'[');
+if ~isempty(pseudoknot_idx )
+    fprintf( '\nWARNING! WARNING! Found a pseudoknot! Will be ignored in secstruct!!\n' )
+    helix_tag = strrep(res_tags{ pseudoknot_idx(1) },'Residue_','Helix_');
+    if isappdata( gca, helix_tag )
+        fprintf( '\nConsider converting pseudknot to a long range stem with the command:\n\n' );
+        fprintf( ' convert_helix_to_long_range_stem_pairs( \''%s\'');\n\n', helix_tag );
+    end
+end
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [sequence_out, secstruct_out, coords_out] = add_connectors_across_chainbreaks( sequence, secstruct, coords, res_tags );

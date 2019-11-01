@@ -40,7 +40,7 @@ available in this [drawing](drawings/P4P6/1gidA_drawing_eterna.mat), and how thi
 
 ## Documentation
 ### Documentation
-Documentation of all MATLAB source code is compiled into HTML format at [docs](scripts/docs/index.html)
+Documentation of all MATLAB source code is compiled into HTML format at [docs](scripts/docs/menu.html). It doesn't directly display in GitHub (yet), but if you open this README.md on your local machine, double click on [scripts/docs/menu.html](scripts/docs/menu.html)
 
 ### Format
 The core format for RiboDraw 'drawing' files was originally JSON-like to allow for eventual reading and writing with versions of RiboDraw in other languages or other kinds of software, but MATLAB's tools to read/write JSON are currently very slow. The fields are described [here](drawing_format.md). The format can therefore also be saved to `.mat` MATLAB workspace files, which are very fast to read/write. Drawings can be exported to `.png`, `.jpg`, `.ps`, and `.pdf` format for manipulation with other software.
@@ -49,5 +49,5 @@ The core format for RiboDraw 'drawing' files was originally JSON-like to allow f
 ## For developers
 * *Ribodraw is Open Source*. Want to improve RiboKit's MATLAB interface? Port to JavaScript? Check out our [Issues page](https://github.com/ribokit/RiboDraw/issues) on GitHub. Feel free to fork and make pull requests. 
 * *Running unit tests* Go to `RiboDraw/unittests` and type `runtests`. Add your own tests to [RiboDrawTest.m](unittests/RiboDrawTest.m)
-* *Its easy to generate HTML docs* We are currently using M2HTML to quickly generate docs for MATLAB scripts. Download it [here](https://www.artefact.tk/software/matlab/m2html/), and run the
+* *Its easy to generate HTML docs* We are currently using M2HTML to quickly generate docs for MATLAB scripts. . Download it [here](https://www.artefact.tk/software/matlab/m2html/), and run the
 `generate_ribodraw_docs` command in MATLAB to update docs.

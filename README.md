@@ -36,7 +36,7 @@ It is also possible to use RiboDraw to generate `customLayout`'s for Eterna puzz
 
 ![1gidA RiboDraw eterna theme](drawings/P4P6/P4P6_ribodraw_eterna_theme.png)
 
-available in this [drawing](drawings/P4P6/1gidA_drawing_eterna.mat), and how this looks inside Eterna at the [Eterna P4-P6 development puzzle](http://eternadev.org/game/puzzle/9386179/). Special information on using Ribodraw to prepare Eterna puzzles is available at [eterna_tutorial.md](eterna/eterna_tutorial.md).
+available in this [drawing](drawings/P4P6/1gidA_drawing_eterna.mat), and how this looks inside Eterna at the [Eterna P4-P6 development puzzle](http://eternadev.org/game/puzzle/9386179/). Special information on using Ribodraw to prepare Eterna puzzles is available at [eterna_tutorial.md](tutorial/eterna/eterna_tutorial.md).
 
 ## Documentation
 ### Documentation

@@ -1,4 +1,4 @@
-function export_eterna( selection )
+function coords = export_eterna( selection );
 % export_eterna()
 % export_eterna( selection )
 %

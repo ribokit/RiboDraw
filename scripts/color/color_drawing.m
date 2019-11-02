@@ -42,18 +42,7 @@ elseif ischar( color ) & strcmp(color,'eterna' )
         % These colors were taken using Mac OS Digital Color Meter off
         %  bitmaps actually used in Eterna low-graphics mode.
         residue = getappdata( gca, res_tags{i} );
-        switch residue.name
-            case 'A'
-                res_colors(i,:) = [244,194,92]/255;
-            case 'C'
-                res_colors(i,:) = [69,129,71]/255;
-            case 'G'
-                res_colors(i,:) = [160,44,40]/255;
-            case 'U'
-                res_colors(i,:) = [53,119,175]/255;
-            otherwise
-                res_colors(i,:) = [0.7 0.7 0.7];
-        end
+        res_colors(i,:) = get_eterna_color( residue.name );
     end
 else
     rgb_color = pymol_RGB( color );

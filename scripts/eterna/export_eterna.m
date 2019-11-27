@@ -1,7 +1,7 @@
-function export_eterna( selection, full_sequence, full_secstruct, full_locks, full_IUPAC, full_structure_constrained_bases );
+function export_eterna( selection, full_sequence, full_secstruct, full_locks, full_IUPAC, full_structure_constrained_bases, export_full );
 % export_eterna()
 % export_eterna( selection )
-% export_eterna( selection, full_sequence, full_secstruct, full_locks, full_IUPAC, full_structure_constrained_bases )
+% export_eterna( selection, full_sequence, full_secstruct, full_locks, full_IUPAC, full_structure_constrained_bases, export_full )
 %
 % Print out info that can be pasted into DRUPAL edit mode of Eterna puzzles
 % Updated to enable sub-puzzles of ribosome with custom-layout, lock
@@ -18,10 +18,12 @@ function export_eterna( selection, full_sequence, full_secstruct, full_locks, fu
 %  full_IUPAC     = IUPAC string of full-length RNA
 %  full_structure_constrained_bases = array of indices of first,last of segments of 
 %                     'do care' bases (must be even in  length)
+%  export_full    = fill in missing residues with full sequence,secstruct [default: 0]
 %
 % (C) R. Das, Stanford University 2019
 
 if ~exist( 'selection' ) | isempty( selection ); selection = 'all'; end;
+if ~exist( 'export_full', 'var') export_full = 0; end; 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 [secstruct,res_tags] = get_secstruct_from_drawing(selection);
 
@@ -30,17 +32,23 @@ if ~exist( 'selection' ) | isempty( selection ); selection = 'all'; end;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 coords = get_coordinates_for_eterna( res_tags );
-locks = repmat('o',1,length(res_tags) );
-IUPAC = repmat('N',1,length(res_tags) );
-do_care = [1:length(res_tags)];
-
 if exist( 'full_sequence','var' ); check_sequence( sequence, resnum, full_sequence ); end;
 if exist( 'full_secstruct','var' ); check_sequence( secstruct, resnum, full_secstruct); end;
-if exist( 'full_locks','var' ) locks = full_locks( resnum ); end;
-if exist( 'full_locks','var' ) IUPAC = full_IUPAC( resnum ); end;
-if exist( 'full_structure_constrained_bases','var') do_care = get_do_care(full_structure_constrained_bases,length(full_sequence)); end;
 
-[sequence, secstruct, coords, resnum, locks, IUPAC, do_care] = add_connectors_across_chainbreaks( sequence, secstruct, coords, resnum, locks, IUPAC, do_care, res_tags );
+if ( export_full )
+    [sequence, secstruct, coords, resnum, locks, IUPAC, do_care] = fill_out_from_full( sequence, secstruct, coords, resnum, full_sequence, full_secstruct, full_locks, full_IUPAC, full_structure_constrained_bases  );
+    ribodraw_make_tag_with_dashes(resnum)
+else
+    locks = repmat('o',1,length(res_tags) );
+    IUPAC = repmat('N',1,length(res_tags) );
+    do_care = [1:length(res_tags)];
+    
+    if exist( 'full_locks','var' ) locks = full_locks( resnum ); end;
+    if exist( 'full_IUPAC','var' ) IUPAC = full_IUPAC( resnum ); end;
+    if exist( 'full_structure_constrained_bases','var') do_care = get_do_care(full_structure_constrained_bases,length(full_sequence)); end;
+    
+    [sequence, secstruct, coords, resnum, locks, IUPAC, do_care] = add_connectors_across_chainbreaks( sequence, secstruct, coords, resnum, locks, IUPAC, do_care, res_tags );
+end
 
 %fprintf( '\nCopy this secstruct into puzzle maker:\n\n %s\n\n', secstruct );
 fprintf( '\nCopy this secstruct into puzzle maker:\n\n %s\n\n', strrep(strrep(secstruct,']','.'),'[','.') );
@@ -63,7 +71,7 @@ for i = 1:N
     if any(isnan( coords(i,:) )  )
         fprintf( '[null,null]' );
     else
-        fprintf( '[%d,%d]', coords(i,1), coords(i,2) );
+        fprintf( '[%d,%d]', round(coords(i,1)), round(coords(i,2)) );
     end
     if ( i < N ) fprintf( ','); end;
     if ( mod(i,200) == 0 ) fprintf( '\n' ); end;
@@ -95,7 +103,7 @@ secstruct_spacer = '....';
 coords_spacer = ones(4,2)*NaN;
 resnum_spacer = ones(4,1)*NaN;
 locks_spacer = 'oooo';
-IUPAC_spacer = 'NNNN';
+IUPAC_spacer = 'AAAA';
 do_care_spacer = ones(4,1);
 
 sequence_out = '';
@@ -170,23 +178,10 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function check_sequence( sequence, resnum, full_sequence );
 for i = 1:length(resnum);
-    if( full_sequence(resnum) ~= sequence( i ) );
-        fprintf( 'Warning! Sequence mismatch at resnum %d. Ribodraw: %s. Full_sequence: %s\n',resnum,sequence(i),full_sequence(resnum));
+    if( full_sequence(resnum(i)) ~= sequence( i ) );
+        fprintf( 'Warning! Sequence mismatch at resnum %d: Ribodraw: %s Full_sequence: %s\n',resnum(i),sequence(i),full_sequence(resnum(i)));
     end
 end
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% function x_out = slice_array(x,resnum);
-% x_out = [];
-% for i = x;
-%     n = find( i == resnum );
-%     if ~isempty( n )
-%         x_out = [ x_out, n ];
-%     end
-% end
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function do_care = get_do_care( x, N);
@@ -196,7 +191,6 @@ do_care = zeros(1,N );
 for i = 1:length(x)/2
     do_care( [x(2*i-1):x(2*i)] ) = 1;
 end
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function  structure_constrained_bases = get_structure_constrained_bases( do_care );
@@ -213,3 +207,22 @@ end
 if ~isempty( do_care_idx_range )
     structure_constrained_bases = [structure_constrained_bases, min(do_care_idx_range), max( do_care_idx_range) ];
 end
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [sequence, secstruct, coords, resnum, locks, IUPAC, do_care] = fill_out_from_full( sequence_in, secstruct_in, coords_in, resnum, full_sequence, full_secstruct, full_locks, full_IUPAC, full_structure_constrained_bases  );
+sequence = full_sequence;
+sequence( resnum ) = sequence_in;
+
+secstruct = full_secstruct;
+secstruct( resnum ) = secstruct_in;
+
+coords = NaN * ones(length(full_sequence), 2);
+coords(resnum,:) = coords_in;
+
+locks = full_locks;
+IUPAC = full_IUPAC;
+do_care = get_do_care( full_structure_constrained_bases, length(full_sequence) );
+
+resnum = [1:length(full_sequence)];
+

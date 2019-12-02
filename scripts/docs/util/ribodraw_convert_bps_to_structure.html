@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of ribodraw_convert_bps_to_structure</title>
+  <meta name="keywords" content="ribodraw_convert_bps_to_structure">
+  <meta name="description" content="structure = convert_bps_to_structure( bps, nres )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html util -->
+<h1>ribodraw_convert_bps_to_structure
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>structure = convert_bps_to_structure( bps, nres )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function structure = convert_bps_to_structure( bps, nres ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> structure = convert_bps_to_structure( bps, nres )
+
+  Note: wraps around load_ct_file()
+
+ INPUTS
+  bps  = [REQUIRED] list of base pairs (i,j) (Nbp X 2 matrix )
+  nres = [REQUIRED] total number of residues
+
+  (C) R. Das, Stanford University, 2009-2015, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function ok = not_pseudoknotted( helix_layer, test_helix )</a></li><li><a href="#_sub2" class="code">function str_return = pk_bracket_substitute(str_input, helix_layer_sub, left_delim, right_delim)</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function structure = convert_bps_to_structure( bps, nres )</a>
+0002 <span class="comment">% structure = convert_bps_to_structure( bps, nres )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Note: wraps around load_ct_file()</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% INPUTS</span>
+0007 <span class="comment">%  bps  = [REQUIRED] list of base pairs (i,j) (Nbp X 2 matrix )</span>
+0008 <span class="comment">%  nres = [REQUIRED] total number of residues</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">%  (C) R. Das, Stanford University, 2009-2015, 2017</span>
+0011 
+0012 <span class="keyword">if</span> ( nargin &lt; 2 ) help( mfilename ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0013 <span class="keyword">if</span> length( bps ) &gt; 0 &amp; size( bps, 2 ) ~= 2
+0014     fprintf( <span class="string">'bps must be Nbps x 2 array\n'</span> );
+0015     <span class="keyword">return</span>;
+0016 <span class="keyword">end</span>
+0017 
+0018 <span class="comment">% initialize structure with '.'</span>
+0019 structure = <span class="string">''</span>;
+0020 <span class="keyword">for</span> i = 1:nres; structure = [structure,<span class="string">'.'</span>]; <span class="keyword">end</span>;
+0021 left_delim  = <span class="string">'([{abcdefghijklmnopqrstuvwxyz'</span>;
+0022 right_delim = <span class="string">')]}abcdefghijklmnopqrstuvwxyz'</span>;
+0023 
+0024 <span class="keyword">if</span> length( bps ) == 0; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0025 
+0026 <span class="comment">% break up into helices (stems)</span>
+0027 stems = parse_stems_from_bps( bps );
+0028 
+0029 <span class="comment">% convert into helix_map format (this is historical):</span>
+0030 <span class="comment">% Looks like partner i of first base pair, partner j of first base pair,</span>
+0031 <span class="comment">% length of helix</span>
+0032 helix_map = [];
+0033 <span class="keyword">for</span> i = 1:length(stems)
+0034     helix_map = [helix_map; stems{i}(1,1), stems{i}(1,2), size( stems{i}, 1 ) ];
+0035 <span class="keyword">end</span>
+0036 
+0037 <span class="comment">% order helices by length, longest to shortest</span>
+0038 [~,idx] = sort( helix_map(:,3) );
+0039 idx = fliplr( idx' );
+0040 
+0041 <span class="comment">% &quot;layers&quot; are helices that can be connected by (), then by [], then by {},</span>
+0042 <span class="comment">% then by aa, ...</span>
+0043 helix_layers = {};
+0044 <span class="keyword">for</span> n = 1:length( idx )
+0045     i = idx( n );
+0046     found_layer = 0;
+0047     test_helix = helix_map(i,:);
+0048     <span class="keyword">for</span> j = 1:min(3,length(helix_layers))
+0049         <span class="keyword">if</span> ( <a href="#_sub1" class="code" title="subfunction ok = not_pseudoknotted( helix_layer, test_helix )">not_pseudoknotted</a>( helix_layers{j}, test_helix ) )
+0050             helix_layers{j} = [ helix_layers{j}; test_helix ];
+0051             found_layer = 1; <span class="keyword">break</span>;
+0052         <span class="keyword">end</span>
+0053     <span class="keyword">end</span>
+0054     <span class="keyword">if</span> ( ~found_layer ) <span class="comment">% new layer</span>
+0055         helix_layers = [helix_layers, helix_map(i,:) ];
+0056     <span class="keyword">end</span>
+0057 <span class="keyword">end</span>
+0058 
+0059 <span class="comment">% reorder so that helix layers with the most base pairs are first.</span>
+0060 <span class="keyword">for</span> j = 1:length( helix_layers )
+0061     num_bps(j) = sum( helix_layers{j}(:,3) );
+0062 <span class="keyword">end</span>
+0063 [~,sorted_idx] = sort( num_bps );
+0064 helix_layers = helix_layers( sorted_idx(end:-1:1) );
+0065 
+0066 <span class="comment">% ready to create output string in dot-parens notation!</span>
+0067 <span class="keyword">for</span> j = 1:length( helix_layers )
+0068     helix_layer = helix_layers{j};
+0069     <span class="keyword">for</span> i = 1:size( helix_layer, 1 )
+0070         structure = <a href="#_sub2" class="code" title="subfunction str_return = pk_bracket_substitute(str_input, helix_layer_sub, left_delim, right_delim)">pk_bracket_substitute</a>(structure, helix_layer(i,:), left_delim(j), right_delim(j) );
+0071     <span class="keyword">end</span>
+0072 <span class="keyword">end</span>
+0073 
+0074 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0075 <a name="_sub1" href="#_subfunctions" class="code">function ok = not_pseudoknotted( helix_layer, test_helix )</a>
+0076 
+0077 ok = 1;
+0078 <span class="keyword">for</span> i = 1:size( helix_layer, 1 )
+0079     <span class="comment">% &quot;crossing&quot; base pairs</span>
+0080     <span class="keyword">if</span> ( helix_layer(i,1) &lt; test_helix(1) &amp; <span class="keyword">...</span>
+0081          helix_layer(i,2) &lt; test_helix(2) &amp; <span class="keyword">...</span>
+0082          helix_layer(i,2) &gt; test_helix(1) ) <span class="keyword">...</span>
+0083          | (helix_layer(i,1) &gt; test_helix(1) &amp; <span class="keyword">...</span>
+0084             helix_layer(i,2) &gt; test_helix(2) &amp; <span class="keyword">...</span>
+0085             test_helix(2) &gt; helix_layer(i,1) )
+0086         ok = 0;
+0087         <span class="keyword">return</span>;
+0088     <span class="keyword">end</span>;
+0089 <span class="keyword">end</span>;
+0090 
+0091 <span class="keyword">return</span>;
+0092 
+0093 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0094 <a name="_sub2" href="#_subfunctions" class="code">function str_return = pk_bracket_substitute(str_input, helix_layer_sub, left_delim, right_delim)</a>
+0095 str_return = [<span class="keyword">...</span>
+0096     str_input(1:(helix_layer_sub(1)-1)), <span class="keyword">...</span>
+0097     repmat(left_delim,1,helix_layer_sub(3)), <span class="keyword">...</span>
+0098     str_input((helix_layer_sub(1)+helix_layer_sub(3)):(helix_layer_sub(2)-helix_layer_sub(3))),<span class="keyword">...</span>
+0099     repmat(right_delim,1,helix_layer_sub(3)), <span class="keyword">...</span>
+0100     str_input((helix_layer_sub(2)+1):end)];
+0101 
+0102 
+0103 
+0104</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -1,7 +1,7 @@
 function set_boldface( setting )
 % set_boldface( setting )
 %
-% Set nucleotide labels to be boldface or not, depending on setting.
+% Set name labels to be boldface or not, depending on setting.
 %
 % (C) R. Das, Stanford University, 2017
 

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of read_motifs</title>
+  <meta name="keywords" content="read_motifs">
+  <meta name="description" content="motifs = read_motifs( motif_file );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html motifs -->
+<h1>read_motifs
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>motifs = read_motifs( motif_file );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function motifs = read_motifs( motif_file ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">  motifs = read_motifs( motif_file );
+
+ read text file with Rosetta rna_motif output format. Lines are like:
+
+ U_TURN A:33-35
+ U_TURN A:55-57
+ UA_HANDLE A:53-54 A:58 A:61
+ T_LOOP A:53-58 A:61
+ INTERCALATED_T_LOOP A:53-58 A:61 A:18
+
+  INPUT
+   motifs_file = text file with Rosetta rna_motif output.
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="setup_motifs.html" class="code" title="function setup_motifs( motifs )">setup_motifs</a>	setup_motifs( motifs )</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function motifs = read_motifs( motif_file );</a>
+0002 <span class="comment">%  motifs = read_motifs( motif_file );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% read text file with Rosetta rna_motif output format. Lines are like:</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% U_TURN A:33-35</span>
+0007 <span class="comment">% U_TURN A:55-57</span>
+0008 <span class="comment">% UA_HANDLE A:53-54 A:58 A:61</span>
+0009 <span class="comment">% T_LOOP A:53-58 A:61</span>
+0010 <span class="comment">% INTERCALATED_T_LOOP A:53-58 A:61 A:18</span>
+0011 <span class="comment">%</span>
+0012 <span class="comment">%  INPUT</span>
+0013 <span class="comment">%   motifs_file = text file with Rosetta rna_motif output.</span>
+0014 <span class="comment">%</span>
+0015 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0016 
+0017 motifs = {};
+0018 <span class="keyword">if</span> ~exist( motif_file, <span class="string">'file'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0019 fid = fopen( motif_file );
+0020 <span class="keyword">while</span> ~feof( fid )
+0021     line = fgetl( fid );
+0022     <span class="comment">% UA_HANDLE A:53-54 A:58 A:61</span>
+0023     <span class="keyword">if</span> line == -1 ; <span class="keyword">break</span> ; <span class="keyword">end</span>
+0024     cols = strsplit( line, <span class="string">' '</span> );
+0025     <span class="keyword">if</span> length( cols ) &gt;= 2 
+0026         clear motif
+0027 
+0028         motif.motif_type = cols{1};
+0029         [resnum,chains,segid] = get_resnum_from_tag( strjoin(cols(2:end)) );
+0030         motif.associated_residues = {};
+0031         <span class="keyword">for</span> i = 1:length( resnum )
+0032             motif.associated_residues = [ motif.associated_residues, sprintf( <span class="string">'Residue_%s%s%d'</span>,  chains(i), segid{i}, resnum(i) ) ];            
+0033         <span class="keyword">end</span>
+0034         assert( length( motif.associated_residues ) &gt; 1 );
+0035         motif.motif_tag = sprintf( <span class="string">'Motif_%s_%s'</span>, motif.motif_type, strrep(motif.associated_residues{1},<span class="string">'Residue_'</span>,<span class="string">''</span>) );
+0036         motifs = [motifs,motif];
+0037     <span class="keyword">end</span>;
+0038 <span class="keyword">end</span>
+0039 
+0040 
+0041 
+0042</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

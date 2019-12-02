@@ -10,6 +10,6 @@ ligand_color = fade_color([0 0 0]);
 if isfield( ligand, 'rgb_color')
     ligand_color = fade_color(ligand.rgb_color);
 end
-set( ligand.image_handle , 'facecolor', fade_color(ligand_color) );
-set( ligand.image_handle2, 'facecolor', ligand_color );
+set( ligand.image_handle , 'facecolor', [fade_color(ligand_color),0.2] );
+set( ligand.image_handle2, 'facecolor', [ligand_color,0.2] );
 

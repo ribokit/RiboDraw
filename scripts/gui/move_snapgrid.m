@@ -6,8 +6,8 @@ function move_snapgrid(h)
 %
 %      lines/symbol (like linker vertices), 
 %      rectangle    (like the draggable bounding boxes of helices, domains)
-%      text         (like nucleotides & domain labels), 
-%      patch        (like silhouettes of nucleotides)
+%      text         (like names & domain labels), 
+%      patch        (like silhouettes of ligands/proteins)
 %
 % Shows & updates crosshairs too.
 %

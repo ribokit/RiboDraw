@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_IUPAC_info</title>
+  <meta name="keywords" content="get_IUPAC_info">
+  <meta name="description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html residue -->
+<h1>get_IUPAC_info
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong></strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function [IUPAC_letters, allowed_letters, IUPAC_Eterna_colors ] = get_IUPAC_info() </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment">
+ Information used to display Anderson-Lee/Fisker/Wellington-Oguri Eterna IUPAC symbols.
+
+ OUTPUTS
+
+  IUPAC_letters = cell of ABCDGHUVSWRYKMNX symbols
+  allowed_letters = map from IUPAC symbol to string of ACGU that are
+                      allowed. E.g., allowed_letters('R') = 'AG'.
+  IUPAC_Eterna_colors = map from IUPAC symbol to RGB value as hex code.
+                         E.g., IUPAC_Eterna_colors( 'A' ) = '#f0d000'
+                             (Eterna yellow).
+
+ (C) R. Das, Stanford University, 2019.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="color_rings_by_IUPAC.html" class="code" title="function color_rings_by_IUPAC( residue_string, IUPAC_symbols )">color_rings_by_IUPAC</a>	color_rings_by_IUPAC( residue_string, IUPAC_symbols )</li><li><a href="display_IUPAC_names.html" class="code" title="function display_IUPAC_names( residue_string, IUPAC_symbols )">display_IUPAC_names</a>	display_IUPAC_names( residue_string, IUPAC_symbols )</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [IUPAC_letters, allowed_letters, IUPAC_Eterna_colors ] = get_IUPAC_info()</a>
+0002 <span class="comment">%</span>
+0003 <span class="comment">% Information used to display Anderson-Lee/Fisker/Wellington-Oguri Eterna IUPAC symbols.</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% OUTPUTS</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%  IUPAC_letters = cell of ABCDGHUVSWRYKMNX symbols</span>
+0008 <span class="comment">%  allowed_letters = map from IUPAC symbol to string of ACGU that are</span>
+0009 <span class="comment">%                      allowed. E.g., allowed_letters('R') = 'AG'.</span>
+0010 <span class="comment">%  IUPAC_Eterna_colors = map from IUPAC symbol to RGB value as hex code.</span>
+0011 <span class="comment">%                         E.g., IUPAC_Eterna_colors( 'A' ) = '#f0d000'</span>
+0012 <span class="comment">%                             (Eterna yellow).</span>
+0013 <span class="comment">%</span>
+0014 <span class="comment">% (C) R. Das, Stanford University, 2019.</span>
+0015 
+0016 IUPAC_letters = {<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'U'</span>, <span class="string">'V'</span>, <span class="string">'S'</span>, <span class="string">'W'</span>, <span class="string">'R'</span>, <span class="string">'Y'</span>, <span class="string">'K'</span>, <span class="string">'M'</span>, <span class="string">'N'</span>, <span class="string">'X'</span>};
+0017 IUPAC_Eterna_colors = containers.Map( <span class="keyword">...</span>
+0018 {<span class="string">'A'</span>,      <span class="string">'B'</span>,      <span class="string">'C'</span>,      <span class="string">'D'</span>,      <span class="string">'G'</span>,      <span class="string">'H'</span>,      <span class="string">'U'</span>,      <span class="string">'V'</span>,      <span class="string">'S'</span>,      <span class="string">'W'</span>,      <span class="string">'R'</span>,      <span class="string">'Y'</span>,      <span class="string">'K'</span>,      <span class="string">'M'</span>,      <span class="string">'N'</span>,      <span class="string">'X'</span>},<span class="keyword">...</span>
+0019 {<span class="string">'#f0d000'</span>,<span class="string">'#504060'</span>,<span class="string">'#00a000'</span>,<span class="string">'#502050'</span>,<span class="string">'#a00000'</span>,<span class="string">'#206060'</span>,<span class="string">'#3080d0'</span>,<span class="string">'#808000'</span>,<span class="string">'#c09000'</span>,<span class="string">'#555555'</span>,<span class="string">'#ffa000'</span>,<span class="string">'#00c0c0'</span>,<span class="string">'#800080'</span>,<span class="string">'#a0d000'</span>,<span class="string">'#d0d0d0'</span>,<span class="string">'#ff0000'</span>} );
+0020 allowed_letters = containers.Map( <span class="keyword">...</span>
+0021     {<span class="string">'A'</span>,  <span class="string">'B'</span>,<span class="string">'C'</span>,  <span class="string">'D'</span>,<span class="string">'G'</span>,  <span class="string">'H'</span>,<span class="string">'U'</span>,  <span class="string">'V'</span>, <span class="string">'S'</span>, <span class="string">'W'</span>, <span class="string">'R'</span>, <span class="string">'Y'</span>, <span class="string">'K'</span>, <span class="string">'M'</span>,   <span class="string">'N'</span>, <span class="string">'X'</span>},<span class="keyword">...</span>
+0022     {<span class="string">'A'</span>,<span class="string">'CGU'</span>,<span class="string">'C'</span>,<span class="string">'AGU'</span>,<span class="string">'G'</span>,<span class="string">'ACU'</span>,<span class="string">'U'</span>,<span class="string">'ACG'</span>,<span class="string">'CG'</span>,<span class="string">'AU'</span>,<span class="string">'AG'</span>,<span class="string">'CU'</span>,<span class="string">'GU'</span>,<span class="string">'AC'</span>,<span class="string">'ACGU'</span>,<span class="string">''</span>} );</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

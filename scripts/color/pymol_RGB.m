@@ -16,7 +16,12 @@ function rgb_color = pymol_RGB( colorname )
 rgb_color = -1;
 if ~ischar( colorname )
     rgb_color = rgb( colorname );
+    return;
 end
+if ischar( colorname ) && colorname(1) == '#'
+    rgb_color = hex2rgb(colorname); return;
+end
+
 switch colorname
     case 'aquamarine'
         rgb_color = [0.5, 1.0, 1.0];%

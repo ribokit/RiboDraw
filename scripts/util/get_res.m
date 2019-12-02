@@ -1,12 +1,12 @@
 function [ res_tags, obj_name ] = get_res( selection )
 % [ res_tags, obj_name ] = get_res( selection )
-%  figure out which object in drawing (gca) corresponds to selection.
+%  get tags for residues sorted by residue and chain.
 %
 % INPUT
 % selection = string with name of selection (domain,residue,whatever)
 %
 % OUTPUTS
-% res_tags  = all residues associated with selection
+% res_tags  = all residues associated with selection, SORTED by res chain!
 % obj_name  = object name with that selection 
 %
 % (C) R. Das, Stanford University
@@ -66,8 +66,8 @@ else
                     obj_name = objnames{n};
                     break;
                 end
-                if isfield( obj, 'nucleotide' ) & ...
-                       strcmp( obj.nucleotide, selection )
+                if isfield( obj, 'name' ) & ...
+                       strcmp( obj.name, selection )
                     res_tags = { objnames{n} };
                     obj_name = objnames{n};
                     break;

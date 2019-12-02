@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of export_eterna</title>
+  <meta name="keywords" content="export_eterna">
+  <meta name="description" content="export_eterna()">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html eterna -->
+<h1>export_eterna
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>export_eterna()</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function export_eterna( selection ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> export_eterna()
+ export_eterna( selection )
+
+ print out an array that can be used in JSON objectives for Eterna puzzles
+
+ (C) R. Das, Stanford University 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function [sequence_out, secstruct_out, coords_out] = add_connectors_across_chainbreaks( sequence, secstruct, coords, res_tags );</a></li><li><a href="#_sub2" class="code">function  coords = get_coordinates_for_eterna( res_tags )</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function export_eterna( selection )</a>
+0002 <span class="comment">% export_eterna()</span>
+0003 <span class="comment">% export_eterna( selection )</span>
+0004 <span class="comment">%</span>
+0005 <span class="comment">% print out an array that can be used in JSON objectives for Eterna puzzles</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% (C) R. Das, Stanford University 2019</span>
+0008 
+0009 <span class="keyword">if</span> ~exist( <span class="string">'selection'</span> ) selection = <span class="string">'all'</span>; <span class="keyword">end</span>;
+0010 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0011 [secstruct,res_tags] = get_secstruct_from_drawing(selection);
+0012 
+0013 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0014 sequence = get_sequence_from_res_tags( res_tags );
+0015 
+0016 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0017 coords = <a href="#_sub2" class="code" title="subfunction  coords = get_coordinates_for_eterna( res_tags )">get_coordinates_for_eterna</a>( res_tags );
+0018 lockstring = <span class="string">''</span>; <span class="keyword">for</span> i = 1:length(res_tags); lockstring = [lockstring,<span class="string">'o'</span>]; <span class="keyword">end</span>; 
+0019 
+0020 [sequence, secstruct, coords] = <a href="#_sub1" class="code" title="subfunction [sequence_out, secstruct_out, coords_out] = add_connectors_across_chainbreaks( sequence, secstruct, coords, res_tags );">add_connectors_across_chainbreaks</a>( sequence, secstruct, coords, res_tags );
+0021 
+0022 <span class="comment">%fprintf( '\nCopy this secstruct into puzzle maker:\n\n %s\n\n', secstruct );</span>
+0023 fprintf( <span class="string">'\nCopy this secstruct into puzzle maker:\n\n %s\n\n'</span>, strrep(strrep(secstruct,<span class="string">']'</span>,<span class="string">'.'</span>),<span class="string">'['</span>,<span class="string">'.'</span>) );
+0024 fprintf( <span class="string">'\nCopy this sequence into puzzle maker:\n\n %s\n\n'</span>, sequence );
+0025 fprintf( <span class="string">'\nAfter saving puzzle maker puzzle, edit puzzle via admin.\nPaste following into Puzzle-objective JSON:\n\n, &quot;custom-layout&quot;:['</span> );
+0026 plot_settings = get_plot_settings();
+0027 N = size( coords, 1 );
+0028 <span class="keyword">for</span> i = 1:N
+0029     <span class="keyword">if</span> any(isnan( coords(i,:) )  )
+0030         fprintf( <span class="string">'[null,null]'</span> );
+0031     <span class="keyword">else</span>        
+0032         fprintf( <span class="string">'[%d,%d]'</span>, coords(i,1), coords(i,2) );
+0033     <span class="keyword">end</span>
+0034     <span class="keyword">if</span> ( i &lt; N ) fprintf( <span class="string">', '</span>); <span class="keyword">end</span>;
+0035     <span class="keyword">if</span> ( mod(i,200) == 0 ) fprintf( <span class="string">'\n'</span> ); <span class="keyword">end</span>;
+0036 <span class="keyword">end</span>
+0037 fprintf( <span class="string">']\n\n'</span> );
+0038 
+0039 
+0040 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0041 fprintf( <span class="string">'\nIn puzzle editor, copy this lock-string into locks:\n\n %s\n\n'</span>, lockstring );
+0042 
+0043 
+0044 
+0045 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0046 <a name="_sub1" href="#_subfunctions" class="code">function [sequence_out, secstruct_out, coords_out] = add_connectors_across_chainbreaks( sequence, secstruct, coords, res_tags );</a>
+0047 sequence_spacer = <span class="string">'AAAA'</span>;
+0048 secstruct_spacer = <span class="string">'....'</span>;
+0049 coords_spacer = ones(4,2)*NaN;
+0050 
+0051 sequence_out = <span class="string">''</span>;
+0052 secstruct_out = <span class="string">''</span>;
+0053 coords_out = [];
+0054 <span class="keyword">for</span> i = 1:length( res_tags )
+0055     residue = getappdata( gca, res_tags{i} );
+0056     <span class="keyword">if</span> ( i &gt; 1 )
+0057         <span class="keyword">if</span> ( prev_chain ~= residue.chain ) | ( prev_segid ~= residue.segid ) | <span class="keyword">...</span>
+0058                 ( prev_resnum ~= residue.resnum-1 )
+0059             <span class="keyword">if</span> secstruct(i-1) == <span class="string">'('</span> &amp;&amp; secstruct(i) == <span class="string">')'</span>
+0060                 fprintf( <span class="string">'Adding spacer %s between %s and %s\n'</span>, sequence_spacer, prev_res_tag, res_tags{i} );
+0061                 sequence_out  = [ sequence_out , sequence_spacer ];
+0062                 secstruct_out = [ secstruct_out, secstruct_spacer ];
+0063                 coords_out = [ coords_out; coords_spacer ];
+0064             <span class="keyword">else</span>
+0065                 fprintf( <span class="string">'Adjoining %s and %s\n'</span>, prev_res_tag, res_tags{i} );
+0066             <span class="keyword">end</span>
+0067         <span class="keyword">end</span>
+0068     <span class="keyword">end</span>
+0069     sequence_out = [sequence_out, sequence(i) ];
+0070     secstruct_out = [secstruct_out, secstruct(i) ];
+0071     coords_out = [coords_out; coords(i,:) ];
+0072     prev_chain = residue.chain;
+0073     prev_segid = residue.segid;
+0074     prev_resnum = residue.resnum;
+0075     prev_res_tag = res_tags{i};
+0076 <span class="keyword">end</span>
+0077 
+0078 
+0079 
+0080 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0081 <a name="_sub2" href="#_subfunctions" class="code">function  coords = get_coordinates_for_eterna( res_tags )</a>
+0082 coords = [];
+0083 <span class="keyword">for</span> i = 1:length( res_tags )
+0084     res = getappdata( gca, res_tags{i} );
+0085     <span class="comment">% reverse MATLAB's y-axis since every other program does that.</span>
+0086     coords(i,:) = [ res.plot_pos(1), -res.plot_pos(2) ];
+0087 <span class="keyword">end</span>
+0088 plot_settings = get_plot_settings();
+0089 coords = coords * (4 / plot_settings.spacing);  <span class="comment">% grid spacing.</span>
+0090 
+0091 <span class="comment">% center coordinates. Eterna will re-center.</span>
+0092 coords = coords - round(mean( coords ));
+0093 
+0094 
+0095 N = size( coords, 1 );
+0096 <span class="keyword">for</span> i = 1:N
+0097     <span class="keyword">if</span> ( abs( coords(i,1) - round(coords(i,1) ) &gt; 0.001 ) || <span class="keyword">...</span>
+0098             abs( coords(i,2) - round(coords(i,2) ) &gt; 0.001 ) )
+0099         fprintf( <span class="string">'Warning! coords at %s  (index %d) will be rounded:   %f %f\n'</span>,res_tags{i}, i, coords(i,:) );
+0100     <span class="keyword">end</span>
+0101 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

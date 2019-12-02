@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_base_pairs_from_stems</title>
+  <meta name="keywords" content="get_base_pairs_from_stems">
+  <meta name="description" content="base_pairs = get_base_pairs_from_stems( stems )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html setup -->
+<h1>get_base_pairs_from_stems
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>base_pairs = get_base_pairs_from_stems( stems )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function base_pairs = get_base_pairs_from_stems( stems ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> base_pairs = get_base_pairs_from_stems( stems )
+
+  Infer base pairs (only Watson-Crick pairs) from stems
+
+ See also: SETUP_BASE_PAIRS
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function base_pairs = get_base_pairs_from_stems( stems )</a>
+0002 <span class="comment">% base_pairs = get_base_pairs_from_stems( stems )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Infer base pairs (only Watson-Crick pairs) from stems</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% See also: SETUP_BASE_PAIRS</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0009 base_pairs = {};
+0010 <span class="keyword">for</span> n = 1:length( stems )
+0011     stem = stems{n};
+0012     N = length( stem.resnum1 );
+0013     <span class="keyword">for</span> k = 1:N
+0014         base_pair = struct();
+0015         base_pair.resnum1 = stem.resnum1(k);
+0016         base_pair.chain1 = stem.chain1(k);
+0017         base_pair.segid1 = stem.segid1{k};
+0018         base_pair.resnum2 = stem.resnum2(N-k+1);
+0019         base_pair.chain2 = stem.chain2(N-k+1);
+0020         base_pair.segid2 = stem.segid2{N-k+1};
+0021         base_pair.edge1 = <span class="string">'W'</span>;
+0022         base_pair.edge2 = <span class="string">'W'</span>;
+0023         base_pair.LW_orientation = <span class="string">'C'</span>;
+0024         base_pairs = [ base_pairs, {base_pair} ];
+0025     <span class="keyword">end</span>
+0026 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

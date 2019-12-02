@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of get_preferred_single_letter_name</title>
+  <meta name="keywords" content="get_preferred_single_letter_name">
+  <meta name="description" content="nt = get_preferred_single_letter_name( name )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html setup -->
+<h1>get_preferred_single_letter_name
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>nt = get_preferred_single_letter_name( name )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function nt = get_preferred_single_letter_name( name ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> nt = get_preferred_single_letter_name( name )
+
+ INPUT
+  name = name in FASTA file, e.g., 2MA or D.
+
+ OUTPUT
+  nt = display name for nucleotide, e.g., A.
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function nt = get_preferred_single_letter_name( name )</a>
+0002 <span class="comment">% nt = get_preferred_single_letter_name( name )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% INPUT</span>
+0005 <span class="comment">%  name = name in FASTA file, e.g., 2MA or D.</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">% OUTPUT</span>
+0008 <span class="comment">%  nt = display name for nucleotide, e.g., A.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0011 nt = name;
+0012 <span class="keyword">switch</span> name
+0013     <span class="keyword">case</span> <span class="string">'D'</span>
+0014         nt = <span class="string">'U'</span>;
+0015     <span class="keyword">case</span> <span class="string">'\psi'</span>
+0016         nt = <span class="string">'U'</span>;
+0017     <span class="keyword">case</span> <span class="string">'yW'</span>
+0018         nt = <span class="string">'G'</span>;
+0019     <span class="keyword">case</span> <span class="string">'m^3\psi'</span>
+0020         nt = <span class="string">'U'</span>;
+0021 <span class="keyword">end</span>
+0022 
+0023 nts = <span class="string">'ACGU'</span>;
+0024 <span class="comment">% Look for A,C,G, U in name, e.g., 'Am' --&gt; 'A'</span>
+0025 <span class="keyword">if</span> length( nt ) &gt; 1
+0026     <span class="keyword">for</span> i = 1:length(nts)
+0027         <span class="keyword">if</span> ~isempty( strfind( nt, nts(i) ) )
+0028             nt = nts(i);
+0029             <span class="keyword">break</span>
+0030         <span class="keyword">end</span>
+0031     <span class="keyword">end</span>
+0032 <span class="keyword">end</span>
+0033 
+0034 <span class="keyword">for</span> i = 1:length(nts)
+0035     <span class="keyword">if</span> strcmp( nt, nts(i) )
+0036         <span class="keyword">return</span>;
+0037     <span class="keyword">end</span>
+0038 <span class="keyword">end</span>
+0039 
+0040 fprintf( <span class="string">'Could not recognize %s, replacing with X\n'</span>, nt );
+0041 nt = <span class="string">'X'</span>;
+0042 
+0043 
+0044 
+0045 
+0046</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

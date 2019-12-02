@@ -63,7 +63,7 @@ This function is called by:
 0013     ligand = ligands{i};
 0014     ligand.resnum = 0; <span class="comment">% fitting ligand into 'residue' framework.</span>
 0015     ligand.res_tag = sprintf( <span class="string">'Residue_%s%s%d'</span>, ligand.chain,ligand.segid,ligand.resnum);
-0016     ligand.nucleotide = [ligand.name,<span class="string">' '</span>,ligand.chain,ligand.segid];
+0016     ligand.name = [ligand.original_name,<span class="string">' '</span>,ligand.chain,ligand.segid];
 0017 
 0018     <span class="comment">% get this ligand into global data (gca)</span>
 0019     <span class="keyword">if</span> ~isappdata( gca, ligand.res_tag ) setappdata( gca, ligand.res_tag, ligand ); <span class="keyword">end</span>
@@ -124,6 +124,6 @@ This function is called by:
 0074 <span class="keyword">end</span>
 0075 draw_helices( unique( helices ) );
 0076 move_stuff_to_back(); <span class="comment">% move linkers to back.</span></pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

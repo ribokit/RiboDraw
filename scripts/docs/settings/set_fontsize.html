@@ -28,7 +28,7 @@
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> set_fontsize( fontsize )
 
- Set fontsize for nucleotides, and also rescale all other
+ Set fontsize for names, and also rescale all other
    text labels in figure based on hard-wired proportions.
  
  (C) R. Das, Stanford University, 2017</pre></div>
@@ -49,7 +49,7 @@ This function is called by:
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_fontsize( fontsize )</a>
 0002 <span class="comment">% set_fontsize( fontsize )</span>
 0003 <span class="comment">%</span>
-0004 <span class="comment">% Set fontsize for nucleotides, and also rescale all other</span>
+0004 <span class="comment">% Set fontsize for names, and also rescale all other</span>
 0005 <span class="comment">%   text labels in figure based on hard-wired proportions.</span>
 0006 <span class="comment">%</span>
 0007 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
@@ -65,7 +65,7 @@ This function is called by:
 0017     residue = getappdata( gca, residue_tags{i} );
 0018     <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> )
 0019         set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize );
-0020         <span class="keyword">if</span> ( length( residue.nucleotide ) &gt; 1 ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*4/5); <span class="keyword">end</span>;
+0020         <span class="keyword">if</span> ( length( residue.name ) &gt; 1 ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*4/5); <span class="keyword">end</span>;
 0021         <span class="keyword">if</span> isfield( residue, <span class="string">'image_boundary'</span> ) 
 0022             set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize*1.5  ); 
 0023              <span class="keyword">if</span> isfield( residue, <span class="string">'label'</span> ) set( residue.label, <span class="string">'fontsize'</span>, plot_settings.fontsize*14/10  ); <span class="keyword">end</span>;
@@ -93,6 +93,6 @@ This function is called by:
 0045 
 0046 linker_tags = [get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span>); get_tags( <span class="string">'Linker'</span>,<span class="string">'intradomain'</span>)];
 0047 draw_linker( linker_tags );</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

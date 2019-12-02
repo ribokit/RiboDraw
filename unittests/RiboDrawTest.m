@@ -28,3 +28,25 @@ show_noncanonical_pairs;
 nc_pair = getappdata(gca,nc_pairs{1});
 assert( isfield( nc_pair, 'line_handle') );
 assert( strcmp(get(nc_pair.line_handle,'visible'),'on') );
+
+
+%% show motifs/hide motifs
+assert( isappdata( gca, 'Motif_U_TURN_A33' ) )
+motif = gd( 'Motif_U_TURN_A33' );
+assert( ~isfield( motif, 'highlight_box_handles' ) );
+
+show_motifs
+motif = gd( 'Motif_U_TURN_A33' );
+assert( isfield(  motif, 'highlight_box_handles' ) )
+assert( length( motif.highlight_box_handles ) == 1 );
+
+motif = gd( 'Motif_INTERCALATED_T_LOOP_A53' );
+assert( isfield(  motif, 'highlight_box_handles' ) )
+assert( length( motif.highlight_box_handles ) == 2 );
+
+hide_motifs
+motif = gd( 'Motif_U_TURN_A33' );
+assert( ~isfield(  motif, 'highlight_box_handles' ) )
+motif = gd( 'Motif_INTERCALATED_T_LOOP_A53' );
+assert( ~isfield(  motif, 'highlight_box_handles' ) )
+

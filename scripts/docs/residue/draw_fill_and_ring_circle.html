@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draw_fill_and_ring_circle</title>
+  <meta name="keywords" content="draw_fill_and_ring_circle">
+  <meta name="description" content="residue = draw_fill_and_ring_circle( residue, plot_settings )">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html residue -->
+<h1>draw_fill_and_ring_circle
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>residue = draw_fill_and_ring_circle( residue, plot_settings )</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function residue = draw_fill_and_ring_circle( residue, plot_settings ) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> residue = draw_fill_and_ring_circle( residue, plot_settings )
+ 
+ Draw a circle under the residue 
+
+ Note: this function does not move the circle to the back of the
+  drawing -- that needs to be handled by a call to MOVE_STUFF_TO_BACK later.
+ 
+ (C) Rhiju Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="color_rings_by_IUPAC.html" class="code" title="function color_rings_by_IUPAC( residue_string, IUPAC_symbols )">color_rings_by_IUPAC</a>	color_rings_by_IUPAC( residue_string, IUPAC_symbols )</li><li><a href="draw_residue.html" class="code" title="function     residue = draw_residue( residue, plot_settings );">draw_residue</a>	residue = draw_residue( residue );</li></ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function residue = draw_circle( residue, setting_name, color_field_name, handle_field_name, circle_size, plot_settings, layer_level );</a></li><li><a href="#_sub2" class="code">function h = create_fill_circle( spacing );</a></li><li><a href="#_sub3" class="code">function [x,y] = get_fill_circle_xy( r );</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function residue = draw_fill_and_ring_circle( residue, plot_settings )</a>
+0002 <span class="comment">% residue = draw_fill_and_ring_circle( residue, plot_settings )</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Draw a circle under the residue</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% Note: this function does not move the circle to the back of the</span>
+0007 <span class="comment">%  drawing -- that needs to be handled by a call to MOVE_STUFF_TO_BACK later.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">% (C) Rhiju Das, Stanford University, 2019</span>
+0010 
+0011 assert( isfield( residue, <span class="string">'fill_color'</span>) || isfield( residue, <span class="string">'ring_color'</span>) );
+0012 <span class="keyword">if</span> ~exist( <span class="string">'plot_settings'</span>, <span class="string">'var'</span> ) plot_settings = getappdata(gca, <span class="string">'plot_settings'</span> ); <span class="keyword">end</span>;
+0013 
+0014 residue = <a href="#_sub1" class="code" title="subfunction residue = draw_circle( residue, setting_name, color_field_name, handle_field_name, circle_size, plot_settings, layer_level );">draw_circle</a>( residue, <span class="string">'show_fill_circles'</span>, <span class="string">'fill_color'</span>,<span class="string">'fill_circle_handle'</span>, 2.3, plot_settings, 0.8 );
+0015 residue = <a href="#_sub1" class="code" title="subfunction residue = draw_circle( residue, setting_name, color_field_name, handle_field_name, circle_size, plot_settings, layer_level );">draw_circle</a>( residue, <span class="string">'show_ring_circles'</span>, <span class="string">'ring_color'</span>,<span class="string">'ring_circle_handle'</span>, 3.5, plot_settings, 0.9 );
+0016 
+0017 
+0018 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0019 <a name="_sub1" href="#_subfunctions" class="code">function residue = draw_circle( residue, setting_name, color_field_name, handle_field_name, circle_size, plot_settings, layer_level );</a>
+0020 
+0021 <span class="keyword">if</span> ( ~isfield( plot_settings, setting_name) || getfield( plot_settings, setting_name ) ); 
+0022     <span class="keyword">if</span> isfield( residue, color_field_name); 
+0023         <span class="keyword">if</span>( ~isfield( residue, handle_field_name ) | ~isvalid( getfield(residue,handle_field_name) ) )
+0024             h = <a href="#_sub2" class="code" title="subfunction h = create_fill_circle( spacing );">create_fill_circle</a>( plot_settings.spacing );
+0025             residue = setfield( residue, handle_field_name, h );
+0026             setappdata( h, <span class="string">'layer_level'</span>, layer_level ); <span class="comment">% just above top_of_back (1)</span>
+0027             setappdata( h, <span class="string">'res_tag'</span>, residue.res_tag );
+0028         <span class="keyword">end</span>
+0029         circle_radius = circle_size * 2* plot_settings.spacing/10;
+0030         <span class="keyword">if</span> isfield( plot_settings, <span class="string">'eterna_theme'</span> ) &amp;&amp; plot_settings.eterna_theme; 
+0031             circle_radius = circle_radius*0.6; 
+0032             <span class="keyword">if</span> strcmp(handle_field_name,<span class="string">'ring_circle_handle'</span>); circle_radius = circle_radius*0.9; <span class="keyword">end</span>;
+0033         <span class="keyword">end</span>;
+0034         [x,y] = <a href="#_sub3" class="code" title="subfunction [x,y] = get_fill_circle_xy( r );">get_fill_circle_xy</a>( circle_radius );
+0035         h = getfield( residue, handle_field_name );
+0036         set( h, <span class="keyword">...</span>
+0037             <span class="string">'XData'</span>, x + residue.plot_pos(:,1), <span class="keyword">...</span>
+0038             <span class="string">'YData'</span>, y + residue.plot_pos(:,2) );
+0039         set( h, <span class="string">'facecolor'</span>, getfield(residue, color_field_name ) );
+0040         set( h, <span class="string">'edgecolor'</span>, <span class="string">'none'</span>);
+0041     <span class="keyword">end</span>
+0042 <span class="keyword">else</span>
+0043     <span class="keyword">if</span> isfield( residue, handle_field_name );
+0044         residue = rmgraphics( residue, {handle_field_name} );
+0045     <span class="keyword">end</span>
+0046 <span class="keyword">end</span>
+0047    
+0048 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0049 <a name="_sub2" href="#_subfunctions" class="code">function h = create_fill_circle( spacing );</a>
+0050 [x,y] = <a href="#_sub3" class="code" title="subfunction [x,y] = get_fill_circle_xy( r );">get_fill_circle_xy</a>( 10 * spacing );
+0051 h = patch( x,y,<span class="string">'w'</span>,<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'facecolor'</span>,<span class="string">'w'</span>,<span class="string">'linewidth'</span>,1);
+0052 send_to_top_of_back( h );
+0053 
+0054 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0055 <a name="_sub3" href="#_subfunctions" class="code">function [x,y] = get_fill_circle_xy( r );</a>
+0056 t = linspace(0, 2*pi);
+0057 x = r*cos(t);
+0058 y = r*sin(t);
+0059 
+0060</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

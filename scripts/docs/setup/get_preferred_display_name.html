@@ -102,7 +102,22 @@ This function is called by:
 0050     <span class="keyword">case</span> <span class="string">'3TD'</span>
 0051         output_name = <span class="string">'m^3\psi'</span>;
 0052 <span class="keyword">end</span>
-0053</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0053 
+0054 <span class="comment">% convert RAD[VirtualPhosphate] to A</span>
+0055 <span class="keyword">if</span> strcmp( name, output_name ) &amp;&amp; length(output_name) &gt; 3 &amp;&amp; output_name(4) == <span class="string">':'</span>
+0056     <span class="keyword">switch</span> name(1:3)
+0057         <span class="keyword">case</span> <span class="string">'RAD'</span>
+0058             output_name = <span class="string">'A'</span>;
+0059         <span class="keyword">case</span> <span class="string">'RCY'</span>
+0060             output_name = <span class="string">'C'</span>;
+0061         <span class="keyword">case</span> <span class="string">'URA'</span>
+0062             output_name = <span class="string">'U'</span>;
+0063         <span class="keyword">case</span> <span class="string">'RGU'</span>
+0064             output_name = <span class="string">'G'</span>;
+0065     <span class="keyword">end</span>
+0066 <span class="keyword">end</span>
+0067 
+0068</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

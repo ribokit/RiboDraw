@@ -1,7 +1,7 @@
 function relpos = get_relpos( plot_pos, helix )
 % relpos = get_relpos( plot_pos, helix )
 %
-% Helper function for redrawing labels and nucleotides relative to helix
+% Helper function for redrawing labels and names relative to helix
 %
 % Input:
 %  plot_pos = Plot position (x,y) of element on drawing.

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of find_apical_loops</title>
+  <meta name="keywords" content="find_apical_loops">
+  <meta name="description" content="find_apical_loops()">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html junctions -->
+<h1>find_apical_loops
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>find_apical_loops()</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function apical_loops = find_apical_loops() </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> find_apical_loops()
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="draw_circular_junction.html" class="code" title="function draw_circular_junction( junction_res_tags );">draw_circular_junction</a>	draw_circular_junction( junction_res_tags );</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function apical_loops = find_apical_loops()</a>
+0002 <span class="comment">% find_apical_loops()</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0005 
+0006 helix_tags = get_tags( <span class="string">'Helix'</span> );
+0007 
+0008 res_tags_in_helices = {};
+0009 <span class="keyword">for</span> i = 1:length( helix_tags )
+0010     helix = getappdata( gca, helix_tags{i} );
+0011     N = length( helix.resnum1 );
+0012     <span class="keyword">for</span> j = 1:N
+0013         res_tag1 = sprintf(<span class="string">'Residue_%s%s%d'</span>,helix.chain1(j), helix.segid1{j}, helix.resnum1(j));
+0014         res_tag2 = sprintf(<span class="string">'Residue_%s%s%d'</span>, helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1));
+0015         res_tags_in_helices = [ res_tags_in_helices, {res_tag1,res_tag2} ];
+0016     <span class="keyword">end</span>
+0017 <span class="keyword">end</span>
+0018     
+0019 apical_loops = {};
+0020 <span class="keyword">for</span> i = 1:length( helix_tags )
+0021     helix = getappdata( gca, helix_tags{i} );
+0022     N = length( helix.resnum1 );
+0023     <span class="keyword">if</span> ~strcmp( helix.chain1(N), helix.chain2(1) ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0024     <span class="keyword">if</span> ~strcmp( helix.segid1{N}, helix.segid2{1} ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0025     chain = helix.chain1(N);
+0026     segid = helix.segid1{N};
+0027     ok = 1;
+0028     apical_loop = {};
+0029     <span class="keyword">for</span> resnum = helix.resnum1(N)+1 : helix.resnum2(1)-1
+0030         res_tag = sprintf(<span class="string">'Residue_%s%s%d'</span>, chain, segid, resnum);
+0031         <span class="keyword">if</span> ~isappdata( gca, res_tag )
+0032             <span class="comment">% chainbreak or something.</span>
+0033             ok = 0; 
+0034             <span class="keyword">break</span>;
+0035         <span class="keyword">end</span>
+0036         <span class="keyword">if</span> ~isempty( find( strcmp( res_tags_in_helices, res_tag ) ) ) 
+0037             <span class="comment">% this is residue is paired. game over.</span>
+0038             ok = 0;
+0039             <span class="keyword">break</span>; 
+0040         <span class="keyword">end</span>
+0041         apical_loop = [ apical_loop, {res_tag} ];
+0042     <span class="keyword">end</span>
+0043     <span class="keyword">if</span> ~ok; <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0044     apical_loops = [ apical_loops, {apical_loop} ];
+0045 <span class="keyword">end</span>
+0046</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

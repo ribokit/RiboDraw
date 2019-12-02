@@ -16,9 +16,11 @@ if ~exist( 'fontsize', 'var' )
     if isempty( plot_settings ) return; end;
 
     fontsize = plot_settings.spacing * scalefactor(1);
+    if isfield( plot_settings, 'eterna_theme' ) && plot_settings.eterna_theme; fontsize = fontsize*0.55; end;
     fontsize = max(fontsize,6);
 end;
 
 % change font size accordingly
 set_fontsize( fontsize );
 set_linker_width( fontsize );
+draw_base_rope();

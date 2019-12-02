@@ -89,17 +89,21 @@ This function is called by:
 0034 axis off
 0035 
 0036 <span class="comment">%axis equal</span>
-0037 set(gcf,<span class="string">'color'</span>,<span class="string">'white'</span>)
-0038 <span class="keyword">if</span> save_show_domains; show_domains(1,0); <span class="keyword">end</span>;
-0039 
-0040 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0041 <a name="_sub1" href="#_subfunctions" class="code">function save_show_domains = temporarily_hide_domains();</a>
-0042 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0043 save_show_domains = plot_settings.show_domains; 
-0044 <span class="keyword">if</span> save_show_domains; 
-0045     plot_settings.show_domains = 0;
-0046     setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
-0047 <span class="keyword">end</span>;</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0037 bg_color = <span class="string">'white'</span>;
+0038 plot_settings = get_plot_settings();
+0039 <span class="keyword">if</span> isfield( plot_settings, <span class="string">'bg_color'</span> ); bg_color = plot_settings.bg_color; <span class="keyword">end</span>;
+0040 set(gcf,<span class="string">'color'</span>,bg_color)
+0041 <span class="keyword">if</span> save_show_domains; show_domains(1,0); <span class="keyword">end</span>;
+0042 <span class="keyword">if</span> isfield( plot_settings, <span class="string">'show_base_rope'</span> ) &amp;&amp; plot_settings.show_base_rope; draw_base_rope(); <span class="keyword">end</span>;
+0043 
+0044 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0045 <a name="_sub1" href="#_subfunctions" class="code">function save_show_domains = temporarily_hide_domains();</a>
+0046 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0047 save_show_domains = plot_settings.show_domains; 
+0048 <span class="keyword">if</span> save_show_domains; 
+0049     plot_settings.show_domains = 0;
+0050     setappdata( gca, <span class="string">'plot_settings'</span>, plot_settings );
+0051 <span class="keyword">end</span>;</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

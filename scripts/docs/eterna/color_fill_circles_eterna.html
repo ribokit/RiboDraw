@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of color_fill_circles_eterna</title>
+  <meta name="keywords" content="color_fill_circles_eterna">
+  <meta name="description" content="color_undercircles_by_residue_type()">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html eterna -->
+<h1>color_fill_circles_eterna
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>color_undercircles_by_residue_type()</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function color_fill_circles_eterna() </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> color_undercircles_by_residue_type()
+
+ Create undercircles under A,C,G,U and color by eterna colors
+ These colors were taken using Mac OS Digital Color Meter off
+   bitmaps actually used in Eterna low-graphics mode.
+
+ (C) R. Das, Stanford University, 2019</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function color_fill_circles_eterna()</a>
+0002 <span class="comment">% color_undercircles_by_residue_type()</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">% Create undercircles under A,C,G,U and color by eterna colors</span>
+0005 <span class="comment">% These colors were taken using Mac OS Digital Color Meter off</span>
+0006 <span class="comment">%   bitmaps actually used in Eterna low-graphics mode.</span>
+0007 <span class="comment">%</span>
+0008 <span class="comment">% (C) R. Das, Stanford University, 2019</span>
+0009 
+0010 res_tags = get_res();
+0011 plot_settings = getappdata(gca,<span class="string">'plot_settings'</span> );
+0012 <span class="keyword">for</span> i = 1:length( res_tags )
+0013     residue = getappdata( gca, res_tags{i} );
+0014     <span class="keyword">switch</span> residue.name
+0015         <span class="keyword">case</span> <span class="string">'A'</span>
+0016             residue.fill_color = [244,194,92]/255; 
+0017         <span class="keyword">case</span> <span class="string">'C'</span>
+0018             residue.fill_color = [69,129,71]/255;
+0019         <span class="keyword">case</span> <span class="string">'G'</span>
+0020             residue.fill_color = [160,44,40]/255;
+0021         <span class="keyword">case</span> <span class="string">'U'</span>
+0022             residue.fill_color = [53,119,175]/255;
+0023     <span class="keyword">end</span>            
+0024     residue.ring_color = [0.7 0.7 0.7];
+0025     setappdata( gca, res_tags{i}, residue );
+0026     <span class="keyword">if</span> isfield(residue,<span class="string">'fill_color'</span> ); draw_fill_and_ring_circle( residue, plot_settings ); <span class="keyword">end</span>;
+0027 <span class="keyword">end</span>
+0028 show_fill_and_ring_circles();</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

@@ -7,8 +7,8 @@ fontsize = plot_settings.fontsize;
 theta = residue.tickrot;
 v = [cos(theta*pi/180), sin(theta*pi/180)]*R;
 nudge  =  bp_spacing/3;
-if length( residue.nucleotide ) >= 3 && mod(theta,180) == 90
-    nudge = nudge + ( length( residue.nucleotide ) - 2 ) * bp_spacing/10;
+if length( residue.name ) >= 3 && mod(theta,180) == 90
+    nudge = nudge + ( length( residue.name ) - 2 ) * bp_spacing/10;
 end
 nudge2 =  nudge + bp_spacing/3;
 tickpos1 = residue.plot_pos + v*nudge;

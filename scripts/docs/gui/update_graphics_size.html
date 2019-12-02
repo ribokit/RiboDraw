@@ -65,12 +65,14 @@ This function is called by:
 0016     <span class="keyword">if</span> isempty( plot_settings ) <span class="keyword">return</span>; <span class="keyword">end</span>;
 0017 
 0018     fontsize = plot_settings.spacing * scalefactor(1);
-0019     fontsize = max(fontsize,6);
-0020 <span class="keyword">end</span>;
-0021 
-0022 <span class="comment">% change font size accordingly</span>
-0023 set_fontsize( fontsize );
-0024 set_linker_width( fontsize );</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0019     <span class="keyword">if</span> isfield( plot_settings, <span class="string">'eterna_theme'</span> ) &amp;&amp; plot_settings.eterna_theme; fontsize = fontsize*0.55; <span class="keyword">end</span>;
+0020     fontsize = max(fontsize,6);
+0021 <span class="keyword">end</span>;
+0022 
+0023 <span class="comment">% change font size accordingly</span>
+0024 set_fontsize( fontsize );
+0025 set_linker_width( fontsize );
+0026 draw_base_rope();</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

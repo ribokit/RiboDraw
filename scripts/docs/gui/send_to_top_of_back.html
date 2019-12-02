@@ -44,7 +44,7 @@ This function calls:
 </ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="move_stuff_to_back.html" class="code" title="function move_stuff_to_back()">move_stuff_to_back</a>	move_stuff_to_back()</li></ul>
+</ul>
 <!-- crossreference -->
 
 
@@ -65,13 +65,11 @@ This function is called by:
 0013 <span class="comment">% what we used to do. Extremely slow MATLAB function.</span>
 0014 <span class="comment">%uistack( h, 'bottom' );</span>
 0015 
-0016 setappdata( h, <span class="string">'send_to_top_of_back'</span>, 1 );
-0017 <span class="keyword">if</span> isappdata( h, <span class="string">'send_to_back'</span> )
-0018     rmappdata(h,<span class="string">'send_to_back'</span> );
-0019 <span class="keyword">end</span>
-0020 
-0021 
-0022</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0016 <span class="comment">%setappdata( h, 'send_to_back', 1 );</span>
+0017 setappdata( h, <span class="string">'layer_level'</span>, 1 );
+0018 
+0019 
+0020</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

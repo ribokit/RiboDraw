@@ -66,7 +66,7 @@ name = '';
 rgb = [0,0,0];
 if isfield( residue, 'ligand_partners' );
     if isfield( residue, 'rgb_color' ) rgb = residue.rgb_color; end;
-    name = residue.nucleotide;
+    name = residue.name;
     return;
 elseif isfield( residue, 'helix_tag' )
     helix = getappdata( gca, residue.helix_tag );

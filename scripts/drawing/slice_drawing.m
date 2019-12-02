@@ -22,3 +22,4 @@ figure()
 load_drawing( subdrawing, 0, 1 );
 setappdata( gca, 'parent_figure_number', parent_figure_number );
 
+update_graphics_size() % fix font and line sizes.

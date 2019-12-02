@@ -21,9 +21,8 @@ boundary = boundary/30;
 
 if isfield( ligand, 'image_handle' ) delete( ligand.image_handle ); end;
 if exist( 'new_name', 'var' ) && length( new_name ) > 0
-    % uh probably should change the name of the nucleotide field to 'name'
-    ligand.nucleotide = new_name;
-    if isfield( ligand, 'handle' )  set( ligand.handle, 'String', ligand.nucleotide ); end;
+    ligand.name = new_name;
+    if isfield( ligand, 'handle' )  set( ligand.handle, 'String', ligand.name ); end;
 end
 ligand.image_boundary = boundary;
 ligand = draw_image( ligand );

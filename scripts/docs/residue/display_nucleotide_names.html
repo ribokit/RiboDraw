@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of display_nucleotide_names</title>
+  <meta name="keywords" content="display_nucleotide_names">
+  <meta name="description" content="update_non_standard_names();">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html residue -->
+<h1>display_nucleotide_names
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>update_non_standard_names();</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function update_non_standard_names(); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> update_non_standard_names();
+ Go through all residues and see if we can find a better
+  name based on e.g., a 3-letter code given as 'name'
+
+ (C) R. Das, Stanford University</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function update_non_standard_names();</a>
+0002 <span class="comment">% update_non_standard_names();</span>
+0003 <span class="comment">% Go through all residues and see if we can find a better</span>
+0004 <span class="comment">%  name based on e.g., a 3-letter code given as 'name'</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% (C) R. Das, Stanford University</span>
+0007 
+0008 res_tags = get_tags( <span class="string">'Residue'</span> );
+0009 <span class="keyword">for</span> i = 1:length(res_tags)
+0010     residue = getappdata( gca, res_tags{i} );
+0011     name = get_preferred_display_name( upper(residue.original_name) );
+0012     <span class="keyword">if</span> ~strcmp( <span class="string">'name'</span>, <span class="string">'X'</span> ) &amp; ~strcmp( name, residue.name )
+0013         fprintf( <span class="string">'Converting %s to %s\n'</span>, residue.name, name );
+0014         residue.name = name;
+0015         <span class="keyword">if</span> isfield( residue, <span class="string">'handle'</span> ) 
+0016             set( residue.handle, <span class="string">'string'</span>, name );
+0017         <span class="keyword">end</span>
+0018         setappdata( gca, res_tags{i}, residue );
+0019     <span class="keyword">end</span>
+0020 <span class="keyword">end</span>
+0021</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

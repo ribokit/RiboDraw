@@ -54,7 +54,7 @@ This function is called by:
 
 <h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="#_sub1" class="code">function linker = draw_default_linker( linker );</a></li><li><a href="#_sub2" class="code">function h = create_undercircle( bp_spacing );</a></li><li><a href="#_sub3" class="code">function too_short = linker_is_too_short_for_display( linker, plot_settings )</a></li><li><a href="#_sub4" class="code">function linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );</a></li><li><a href="#_sub5" class="code">function update_arrow( h, ctr, v, spacing, add_stem );</a></li><li><a href="#_sub6" class="code">function linker = update_arrow_style( linker, plot_settings )</a></li><li><a href="#_sub7" class="code">function linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings );</a></li><li><a href="#_sub8" class="code">function pos1 = nudge_pos( pos1, pos2, bp_spacing );</a></li><li><a href="#_sub9" class="code">function update_symbol( h, pos, v, which_symbol, bp_spacing );</a></li><li><a href="#_sub10" class="code">function base_paired = check_for_base_pair( res_tag1, res_tag2 )</a></li><li><a href="#_sub11" class="code">function linker = update_tertiary_contact( linker, plot_pos, plot_settings );</a></li><li><a href="#_sub12" class="code">function linker = update_tertiary_arrow_label( linker, arrow_label, default_plot_pos, arrow_visible, plot_settings );</a></li><li><a href="#_sub13" class="code">function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )</a></li><li><a href="#_sub14" class="code">function  arrow_visible = check_first_linker_outarrow( linker, residue, arrow_visible );</a></li><li><a href="#_sub15" class="code">function setting = show_tertiary_noncanonical_pair( linker, plot_settings )</a></li><li><a href="#_sub16" class="code">function update_ligand_linker( linker, plot_settings );</a></li><li><a href="#_sub17" class="code">function linecolor = get_single_color_for_ligand_linker( residue1, residue2 );</a></li></ul>
+<li><a href="#_sub1" class="code">function linker = draw_default_linker( linker );</a></li><li><a href="#_sub2" class="code">function h = create_undercircle( bp_spacing );</a></li><li><a href="#_sub3" class="code">function too_short = linker_is_too_short_for_display( linker, plot_settings )</a></li><li><a href="#_sub4" class="code">function linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );</a></li><li><a href="#_sub5" class="code">function update_arrow( h, ctr, v, spacing, add_stem );</a></li><li><a href="#_sub6" class="code">function linker = update_arrow_style( linker, plot_settings )</a></li><li><a href="#_sub7" class="code">function linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings );</a></li><li><a href="#_sub8" class="code">function pos1 = nudge_pos( pos1, pos2, bp_spacing );</a></li><li><a href="#_sub9" class="code">function update_symbol( h, pos, v, which_symbol, bp_spacing );</a></li><li><a href="#_sub10" class="code">function base_paired = check_for_base_pair( res_tag1, res_tag2 )</a></li><li><a href="#_sub11" class="code">function linker = update_tertiary_contact( linker, plot_pos, plot_settings );</a></li><li><a href="#_sub12" class="code">function linker = update_tertiary_arrow_label( linker, arrow_label, default_plot_pos, arrow_visible, plot_settings );</a></li><li><a href="#_sub13" class="code">function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )</a></li><li><a href="#_sub14" class="code">function  arrow_visible = check_first_linker_outarrow( linker, residue, arrow_visible );</a></li><li><a href="#_sub15" class="code">function setting = show_tertiary_noncanonical_pair( linker, plot_settings )</a></li><li><a href="#_sub16" class="code">function update_ligand_linker( linker, plot_settings );</a></li><li><a href="#_sub17" class="code">function linecolor = get_single_color_for_ligand_linker( residue1, residue2 );</a></li><li><a href="#_sub18" class="code">function linker = update_motif_linker( linker, plot_settings );</a></li></ul>
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function linker = draw_linker( linker, plot_settings )</a>
@@ -90,503 +90,531 @@ This function is called by:
 0031 
 0032 <span class="comment">% the rendering in this function  ends up being rate limiting for</span>
 0033 <span class="comment">% draw_helix -- early return (and delete the linker graphics!) if we don't have to make anything</span>
-0034 toggle_types    = {<span class="string">'stack'</span>,      <span class="string">'other_contact'</span>,      <span class="string">'noncanonical_pair'</span>,      <span class="string">'stem_pair'</span>,      <span class="string">'long_range_stem_pair'</span>,<span class="string">'ligand'</span>,             <span class="string">'tertcontact_intradomain'</span>,<span class="string">'tertcontact_interdomain'</span> };
-0035 toggle_settings = {<span class="string">'show_stacks'</span>,<span class="string">'show_other_contacts'</span>,<span class="string">'show_noncanonical_pairs'</span>,<span class="string">'show_stem_pairs'</span>,<span class="string">'show_stem_pairs'</span>,     <span class="string">'show_ligand_linkers'</span>,<span class="string">'show_tertiary_contacts'</span>, <span class="string">'show_tertiary_contacts'</span>};
+0034 toggle_types    = {<span class="string">'stack'</span>,      <span class="string">'other_contact'</span>,      <span class="string">'noncanonical_pair'</span>,      <span class="string">'stem_pair'</span>,      <span class="string">'long_range_stem_pair'</span>,<span class="string">'ligand'</span>,             <span class="string">'tertcontact_intradomain'</span>,<span class="string">'tertcontact_interdomain'</span>, <span class="string">'arrow'</span> };
+0035 toggle_settings = {<span class="string">'show_stacks'</span>,<span class="string">'show_other_contacts'</span>,<span class="string">'show_noncanonical_pairs'</span>,<span class="string">'show_stem_pairs'</span>,<span class="string">'show_stem_pairs'</span>,     <span class="string">'show_ligand_linkers'</span>,<span class="string">'show_tertiary_contacts'</span>, <span class="string">'show_tertiary_contacts'</span>,  <span class="string">'show_arrows'</span>};
 0036 <span class="keyword">for</span> i = 1:length(toggle_types)
-0037     <span class="keyword">if</span> strcmp(linker.type,toggle_types{i}) &amp;&amp; isfield( plot_settings, toggle_settings{i} ) &amp;&amp; ~getfield(plot_settings,toggle_settings{i}) 
-0038         <span class="keyword">if</span> isfield(linker,<span class="string">'line_handle'</span>); linker = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker, 0 ); <span class="keyword">end</span>;
-0039         <span class="keyword">return</span>;
-0040     <span class="keyword">end</span>;
-0041 <span class="keyword">end</span>
-0042 <span class="keyword">if</span> <a href="#_sub3" class="code" title="subfunction too_short = linker_is_too_short_for_display( linker, plot_settings )">linker_is_too_short_for_display</a>( linker, plot_settings ); linker = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker, 0 );  <span class="keyword">return</span>; <span class="keyword">end</span>;
-0043 <span class="keyword">if</span> ( strcmp( linker.type, <span class="string">'arrow'</span> ) &amp;&amp; <a href="#_sub10" class="code" title="subfunction base_paired = check_for_base_pair( res_tag1, res_tag2 )">check_for_base_pair</a>( linker.residue1, linker.residue2 ) ); linker = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker, 0 ); <span class="keyword">return</span>; <span class="keyword">end</span>;
-0044 <span class="keyword">if</span> strcmp(linker.type, {<span class="string">'noncanonical_pair'</span>} ) &amp;&amp; ~<a href="#_sub15" class="code" title="subfunction setting = show_tertiary_noncanonical_pair( linker, plot_settings )">show_tertiary_noncanonical_pair</a>( linker, plot_settings ); linker = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker, 0 ); <span class="keyword">return</span>; <span class="keyword">end</span>;
-0045 
-0046 <span class="comment">% linker starts at res1 and ends at res2</span>
-0047 linker = <a href="#_sub4" class="code" title="subfunction linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );">set_linker_endpos</a>( linker, linker.residue1, <span class="string">'relpos1'</span>,  1 );
-0048 linker = <a href="#_sub4" class="code" title="subfunction linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );">set_linker_endpos</a>( linker, linker.residue2, <span class="string">'relpos2'</span>, -1 );
-0049 <span class="comment">% figure out positions in figure frame, based on each residue's</span>
-0050 <span class="comment">% helix frame:</span>
-0051 plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
-0052 plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
-0053 plot_pos = [plot_pos1; plot_pos2 ];
-0054 end_pos1 = plot_pos1(1,:);
-0055 end_pos2 = plot_pos2(<span class="keyword">end</span>,:);
-0056 
-0057 linker = <a href="#_sub1" class="code" title="subfunction linker = draw_default_linker( linker );">draw_default_linker</a>( linker );
-0058     
-0059 <span class="comment">% nudge beginning and end of linker away from residue.</span>
-0060 nudge_spacing = plot_settings.bp_spacing;
-0061 <span class="keyword">if</span> isfield( getappdata( gca, linker.residue1 ), <span class="string">'ligand_partners'</span> ); nudge_spacing = nudge_spacing * 2; <span class="keyword">end</span>;
-0062 plot_pos1(1,:)   = <a href="#_sub8" class="code" title="subfunction pos1 = nudge_pos( pos1, pos2, bp_spacing );">nudge_pos</a>( plot_pos(1,:),   plot_pos(2,:),     nudge_spacing );
-0063 plot_pos2(<span class="keyword">end</span>,:) = <a href="#_sub8" class="code" title="subfunction pos1 = nudge_pos( pos1, pos2, bp_spacing );">nudge_pos</a>( plot_pos(<span class="keyword">end</span>,:), plot_pos(end-1,:), nudge_spacing );
-0064 plot_pos(1,:)   = plot_pos1(1,:);
-0065 plot_pos(<span class="keyword">end</span>,:) = plot_pos2(<span class="keyword">end</span>,:);
-0066 linker.plot_pos = plot_pos;
-0067 
-0068 <span class="comment">% replot the line</span>
-0069 <span class="keyword">if</span> ~isfield( linker, <span class="string">'line_handle'</span> ) ; <span class="keyword">return</span> ; <span class="keyword">end</span>
-0070 set( linker.line_handle, <span class="string">'xdata'</span>, plot_pos(:,1), <span class="string">'ydata'</span>, plot_pos(:,2) );
-0071 
-0072 <span class="comment">% draw (draggable) vertices if they don't exist yet.</span>
-0073 <span class="keyword">if</span> isfield( linker, <span class="string">'plot_pos'</span> ) 
-0074     <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> ) 
-0075         linker_vtx_ok = plot_settings.show_linker_controls;
-0076         <span class="keyword">for</span> i = 1:length( linker.vtx ); <span class="keyword">if</span> ~isvalid( linker.vtx{i} ); linker_vtx_ok = 0; <span class="keyword">break</span>; <span class="keyword">end</span>; <span class="keyword">end</span>;
-0077         <span class="keyword">if</span> size(linker.plot_pos,1) ~= length( linker.vtx ) linker_vtx_ok = 0; <span class="keyword">end</span>;
-0078         <span class="keyword">if</span> ~linker_vtx_ok
-0079             <span class="keyword">for</span> i = 1:length( linker.vtx ); delete( linker.vtx{i} );  <span class="keyword">end</span>;
-0080             linker = rmfield( linker, <span class="string">'vtx'</span> );
-0081         <span class="keyword">end</span>
-0082     <span class="keyword">end</span>
-0083     <span class="keyword">if</span> ( ~isfield( linker, <span class="string">'vtx'</span> ) &amp;&amp; ~strcmp( linker.type, <span class="string">'stem_pair'</span> ) &amp;&amp; plot_settings.show_linker_controls  )                
-0084         linker = <a href="create_linker_with_draggable_vtx.html" class="code" title="function linker = create_linker_with_draggable_vtx( linker )">create_linker_with_draggable_vtx</a>( linker );
-0085     <span class="keyword">end</span>  
-0086     <span class="keyword">if</span> (isfield( linker, <span class="string">'vtx'</span> ) )
-0087         <span class="keyword">for</span> i = 1:size( linker.plot_pos, 1 )
-0088             set( linker.vtx{i}, <span class="string">'xdata'</span>, linker.plot_pos(i,1), <span class="string">'ydata'</span>, linker.plot_pos(i,2) );
-0089         <span class="keyword">end</span>
-0090     <span class="keyword">end</span>
-0091 <span class="keyword">end</span>
-0092 
-0093 <span class="comment">% place symbols on central segment</span>
-0094 pos1 = plot_pos1( <span class="keyword">end</span>, : );
-0095 pos2 = plot_pos2(   1, : );
-0096 ctr = (pos1+pos2)/2; <span class="comment">% center of connecting line</span>
-0097 v = pos2 - pos1; v = v/norm(v); <span class="comment">% unit vector from res1 to res2</span>
-0098 num_pos1 = size(plot_pos1,1);
-0099 <span class="keyword">if</span> isfield(linker,<span class="string">'arrow'</span>); linker = <a href="#_sub6" class="code" title="subfunction linker = update_arrow_style( linker, plot_settings )">update_arrow_style</a>( linker, plot_settings ); <span class="keyword">end</span>;
-0100 <span class="keyword">if</span> isfield(linker,<span class="string">'arrow'</span>); <a href="#_sub5" class="code" title="subfunction update_arrow( h, ctr, v, spacing, add_stem );">update_arrow</a>( linker.arrow, ctr, v, plot_settings.spacing ); <span class="keyword">end</span>;
-0101 <span class="keyword">if</span> isfield(linker,<span class="string">'arrow'</span>) &amp; isfield(plot_settings,<span class="string">'show_extra_arrows'</span>); linker = <a href="#_sub7" class="code" title="subfunction linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings );">update_extra_arrows</a>( linker, plot_pos, num_pos1, plot_settings ); <span class="keyword">end</span>;
-0102 <span class="keyword">if</span> isfield(linker,<span class="string">'symbol'</span>);  <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  <span class="keyword">end</span>
-0103 <span class="keyword">if</span> isfield(linker,<span class="string">'symbol1'</span>); <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  <span class="keyword">end</span>;
-0104 <span class="keyword">if</span> isfield(linker,<span class="string">'symbol2'</span>); <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  <span class="keyword">end</span>
-0105 <span class="keyword">if</span> isfield( linker, <span class="string">'node1'</span> ); <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*3 ); <span class="keyword">end</span>; 
-0106 <span class="keyword">if</span> isfield( linker, <span class="string">'node2'</span> ); <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*3 ); <span class="keyword">end</span>; 
-0107 <span class="keyword">if</span> any(strcmp(linker.type, {<span class="string">'tertcontact_interdomain'</span>,<span class="string">'tertcontact_intradomain'</span>} )); linker = <a href="#_sub11" class="code" title="subfunction linker = update_tertiary_contact( linker, plot_pos, plot_settings );">update_tertiary_contact</a>( linker, plot_pos, plot_settings ); <span class="keyword">end</span>;
-0108 <span class="keyword">if</span> strcmp( linker.type, <span class="string">'ligand'</span> ) <a href="#_sub16" class="code" title="subfunction update_ligand_linker( linker, plot_settings );">update_ligand_linker</a>( linker, plot_settings ); <span class="keyword">end</span>;
-0109 
-0110 <span class="comment">% if there are vertex symbols at end points, re-draw them.</span>
-0111 <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
-0112     set( linker.vtx{1}  , <span class="string">'XData'</span>, plot_pos(1,1)  , <span class="string">'YData'</span>, plot_pos(1,2) );
-0113     set( linker.vtx{end}, <span class="string">'XData'</span>, plot_pos(<span class="keyword">end</span>,1), <span class="string">'YData'</span>, plot_pos(<span class="keyword">end</span>,2) );
-0114 <span class="keyword">end</span>
-0115 
-0116 setappdata( gca, linker.linker_tag, linker );
+0037     <span class="keyword">if</span> strcmp(linker.type,toggle_types{i}) &amp;&amp; isfield( plot_settings, toggle_settings{i} ) &amp;&amp; ~getfield(plot_settings,toggle_settings{i})
+0038         <span class="keyword">if</span> isfield(linker, <span class="string">'motif_tag'</span> ) &amp;&amp; isfield( plot_settings, <span class="string">'show_motifs'</span> ) &amp;&amp; plot_settings.show_motifs; <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% over-ride if show_motifs and linker is part of motif.</span>
+0039         <span class="keyword">if</span> isfield(linker,<span class="string">'line_handle'</span>); linker = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker, 0 ); <span class="keyword">end</span>;
+0040         <span class="keyword">return</span>;
+0041     <span class="keyword">end</span>;
+0042 <span class="keyword">end</span>
+0043 <span class="keyword">if</span> <a href="#_sub3" class="code" title="subfunction too_short = linker_is_too_short_for_display( linker, plot_settings )">linker_is_too_short_for_display</a>( linker, plot_settings ); linker = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker, 0 );  <span class="keyword">return</span>; <span class="keyword">end</span>;
+0044 <span class="keyword">if</span> ( strcmp( linker.type, <span class="string">'arrow'</span> ) &amp;&amp; <a href="#_sub10" class="code" title="subfunction base_paired = check_for_base_pair( res_tag1, res_tag2 )">check_for_base_pair</a>( linker.residue1, linker.residue2 ) ); linker = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker, 0 ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0045 <span class="keyword">if</span> strcmp(linker.type, {<span class="string">'noncanonical_pair'</span>} ) &amp;&amp; ~<a href="#_sub15" class="code" title="subfunction setting = show_tertiary_noncanonical_pair( linker, plot_settings )">show_tertiary_noncanonical_pair</a>( linker, plot_settings ); linker = <a href="delete_linker.html" class="code" title="function linker = delete_linker( linker, remove_linker );">delete_linker</a>( linker, 0 ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0046 
+0047 <span class="comment">% linker starts at res1 and ends at res2</span>
+0048 linker = <a href="#_sub4" class="code" title="subfunction linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );">set_linker_endpos</a>( linker, linker.residue1, <span class="string">'relpos1'</span>,  1 );
+0049 linker = <a href="#_sub4" class="code" title="subfunction linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );">set_linker_endpos</a>( linker, linker.residue2, <span class="string">'relpos2'</span>, -1 );
+0050 <span class="comment">% figure out positions in figure frame, based on each residue's</span>
+0051 <span class="comment">% helix frame:</span>
+0052 plot_pos1 = get_plot_pos( linker.residue1, linker.relpos1 );
+0053 plot_pos2 = get_plot_pos( linker.residue2, linker.relpos2 );
+0054 plot_pos = [plot_pos1; plot_pos2 ];
+0055 end_pos1 = plot_pos1(1,:);
+0056 end_pos2 = plot_pos2(<span class="keyword">end</span>,:);
+0057 
+0058 linker = <a href="#_sub1" class="code" title="subfunction linker = draw_default_linker( linker );">draw_default_linker</a>( linker );
+0059     
+0060 <span class="comment">% nudge beginning and end of linker away from residue.</span>
+0061 nudge_spacing = plot_settings.bp_spacing;
+0062 <span class="keyword">if</span> isfield( getappdata( gca, linker.residue1 ), <span class="string">'ligand_partners'</span> ); nudge_spacing = nudge_spacing * 2; <span class="keyword">end</span>;
+0063 plot_pos1(1,:)   = <a href="#_sub8" class="code" title="subfunction pos1 = nudge_pos( pos1, pos2, bp_spacing );">nudge_pos</a>( plot_pos(1,:),   plot_pos(2,:),     nudge_spacing );
+0064 plot_pos2(<span class="keyword">end</span>,:) = <a href="#_sub8" class="code" title="subfunction pos1 = nudge_pos( pos1, pos2, bp_spacing );">nudge_pos</a>( plot_pos(<span class="keyword">end</span>,:), plot_pos(end-1,:), nudge_spacing );
+0065 plot_pos(1,:)   = plot_pos1(1,:);
+0066 plot_pos(<span class="keyword">end</span>,:) = plot_pos2(<span class="keyword">end</span>,:);
+0067 linker.plot_pos = plot_pos;
+0068 
+0069 <span class="comment">% replot the line</span>
+0070 <span class="keyword">if</span> ~isfield( linker, <span class="string">'line_handle'</span> ) ; <span class="keyword">return</span> ; <span class="keyword">end</span>
+0071 set( linker.line_handle, <span class="string">'xdata'</span>, plot_pos(:,1), <span class="string">'ydata'</span>, plot_pos(:,2) );
+0072 
+0073 <span class="comment">% draw (draggable) vertices if they don't exist yet.</span>
+0074 <span class="keyword">if</span> isfield( linker, <span class="string">'plot_pos'</span> ) 
+0075     <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> ) 
+0076         linker_vtx_ok = plot_settings.show_linker_controls;
+0077         <span class="keyword">for</span> i = 1:length( linker.vtx ); <span class="keyword">if</span> ~isvalid( linker.vtx{i} ); linker_vtx_ok = 0; <span class="keyword">break</span>; <span class="keyword">end</span>; <span class="keyword">end</span>;
+0078         <span class="keyword">if</span> size(linker.plot_pos,1) ~= length( linker.vtx ) linker_vtx_ok = 0; <span class="keyword">end</span>;
+0079         <span class="keyword">if</span> ~linker_vtx_ok
+0080             <span class="keyword">for</span> i = 1:length( linker.vtx ); delete( linker.vtx{i} );  <span class="keyword">end</span>;
+0081             linker = rmfield( linker, <span class="string">'vtx'</span> );
+0082         <span class="keyword">end</span>
+0083     <span class="keyword">end</span>
+0084     <span class="keyword">if</span> ( ~isfield( linker, <span class="string">'vtx'</span> ) &amp;&amp; ~strcmp( linker.type, <span class="string">'stem_pair'</span> ) &amp;&amp; plot_settings.show_linker_controls  )                
+0085         linker = <a href="create_linker_with_draggable_vtx.html" class="code" title="function linker = create_linker_with_draggable_vtx( linker )">create_linker_with_draggable_vtx</a>( linker );
+0086     <span class="keyword">end</span>  
+0087     <span class="keyword">if</span> (isfield( linker, <span class="string">'vtx'</span> ) )
+0088         <span class="keyword">for</span> i = 1:size( linker.plot_pos, 1 )
+0089             set( linker.vtx{i}, <span class="string">'xdata'</span>, linker.plot_pos(i,1), <span class="string">'ydata'</span>, linker.plot_pos(i,2) );
+0090         <span class="keyword">end</span>
+0091     <span class="keyword">end</span>
+0092 <span class="keyword">end</span>
+0093 
+0094 <span class="comment">% place symbols on central segment</span>
+0095 pos1 = plot_pos1( <span class="keyword">end</span>, : );
+0096 pos2 = plot_pos2(   1, : );
+0097 ctr = (pos1+pos2)/2; <span class="comment">% center of connecting line</span>
+0098 v = pos2 - pos1; v = v/norm(v); <span class="comment">% unit vector from res1 to res2</span>
+0099 num_pos1 = size(plot_pos1,1);
+0100 <span class="keyword">if</span> isfield(linker,<span class="string">'arrow'</span>); linker = <a href="#_sub6" class="code" title="subfunction linker = update_arrow_style( linker, plot_settings )">update_arrow_style</a>( linker, plot_settings ); <span class="keyword">end</span>;
+0101 <span class="keyword">if</span> isfield(linker,<span class="string">'arrow'</span>); <a href="#_sub5" class="code" title="subfunction update_arrow( h, ctr, v, spacing, add_stem );">update_arrow</a>( linker.arrow, ctr, v, plot_settings.spacing ); <span class="keyword">end</span>;
+0102 <span class="keyword">if</span> isfield(linker,<span class="string">'arrow'</span>) &amp; isfield(plot_settings,<span class="string">'show_extra_arrows'</span>); linker = <a href="#_sub7" class="code" title="subfunction linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings );">update_extra_arrows</a>( linker, plot_pos, num_pos1, plot_settings ); <span class="keyword">end</span>;
+0103 <span class="keyword">if</span> isfield(linker,<span class="string">'symbol'</span>);  <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.symbol, ctr, v, 2, plot_settings.bp_spacing );  <span class="keyword">end</span>
+0104 <span class="keyword">if</span> isfield(linker,<span class="string">'symbol1'</span>); <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.symbol1, ctr - (1.3*plot_settings.bp_spacing/10)*v, v, 1, plot_settings.bp_spacing );  <span class="keyword">end</span>;
+0105 <span class="keyword">if</span> isfield(linker,<span class="string">'symbol2'</span>); <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.symbol2, ctr + (1.3*plot_settings.bp_spacing/10)*v, v, 2, plot_settings.bp_spacing );  <span class="keyword">end</span>
+0106 <span class="keyword">if</span> isfield( linker, <span class="string">'node1'</span> ); <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.node1, end_pos1,v,1,plot_settings.bp_spacing*3 ); <span class="keyword">end</span>; 
+0107 <span class="keyword">if</span> isfield( linker, <span class="string">'node2'</span> ); <a href="#_sub9" class="code" title="subfunction update_symbol( h, pos, v, which_symbol, bp_spacing );">update_symbol</a>( linker.node2, end_pos2,v,1,plot_settings.bp_spacing*3 ); <span class="keyword">end</span>; 
+0108 <span class="keyword">if</span> any(strcmp(linker.type, {<span class="string">'tertcontact_interdomain'</span>,<span class="string">'tertcontact_intradomain'</span>} )); linker = <a href="#_sub11" class="code" title="subfunction linker = update_tertiary_contact( linker, plot_pos, plot_settings );">update_tertiary_contact</a>( linker, plot_pos, plot_settings ); <span class="keyword">end</span>;
+0109 <span class="keyword">if</span> strcmp( linker.type, <span class="string">'ligand'</span> ) <a href="#_sub16" class="code" title="subfunction update_ligand_linker( linker, plot_settings );">update_ligand_linker</a>( linker, plot_settings ); <span class="keyword">end</span>;
+0110 <span class="keyword">if</span> isfield( linker, <span class="string">'motif_tag'</span> ) linker = <a href="#_sub18" class="code" title="subfunction linker = update_motif_linker( linker, plot_settings );">update_motif_linker</a>( linker, plot_settings ); <span class="keyword">end</span>;
+0111 
+0112 <span class="comment">% if there are vertex symbols at end points, re-draw them.</span>
+0113 <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
+0114     set( linker.vtx{1}  , <span class="string">'XData'</span>, plot_pos(1,1)  , <span class="string">'YData'</span>, plot_pos(1,2) );
+0115     set( linker.vtx{end}, <span class="string">'XData'</span>, plot_pos(<span class="keyword">end</span>,1), <span class="string">'YData'</span>, plot_pos(<span class="keyword">end</span>,2) );
+0116 <span class="keyword">end</span>
 0117 
-0118 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0119 <a name="_sub1" href="#_subfunctions" class="code">function linker = draw_default_linker( linker );</a>
-0120 <span class="comment">% already drawn?</span>
-0121 <span class="keyword">if</span> isfield( linker, <span class="string">'line_handle'</span> ) &amp; isvalid( linker.line_handle ); <span class="keyword">return</span>; <span class="keyword">end</span>;
-0122 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0123 <span class="keyword">switch</span> linker.type
-0124     <span class="keyword">case</span> <span class="string">'stem_pair'</span>
-0125         residue1 = getappdata( gca, linker.residue1 );
-0126         residue2 = getappdata( gca, linker.residue2 );
-0127         bp = [residue1.nucleotide,residue2.nucleotide];
-0128         linker.line_handle = plot( [0,0],[0,0],<span class="string">'k'</span>,<span class="string">'linewidth'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0129         <span class="keyword">switch</span> bp
-0130             <span class="keyword">case</span> {<span class="string">'AU'</span>,<span class="string">'UA'</span>,<span class="string">'GC'</span>,<span class="string">'CG'</span> } <span class="comment">% could also show double lines for G-C. Not my preference.</span>
-0131                 set( linker.line_handle, <span class="string">'visible'</span>, <span class="string">'on'</span> );
-0132             <span class="keyword">case</span> {<span class="string">'GU'</span>,<span class="string">'UG'</span>}
-0133                 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0134                 linker.symbol = <a href="create_LW_symbol.html" class="code" title="function h = create_LW_symbol( edge, orientation, bp_spacing );">create_LW_symbol</a>( <span class="string">'W'</span>, <span class="string">'C'</span>, plot_settings.bp_spacing );
-0135                 set( linker.line_handle, <span class="string">'visible'</span>, <span class="string">'off'</span> ); <span class="comment">% convention for G*U in stems is to not show line.</span>
-0136         <span class="keyword">end</span>
-0137         setappdata( gca, linker.linker_tag, linker );
-0138     <span class="keyword">case</span> { <span class="string">'noncanonical_pair'</span>, <span class="string">'long_range_stem_pair'</span> }
-0139         linker.line_handle = plot( [0,0],[0,0],<span class="string">'k'</span>,<span class="string">'linewidth'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span>); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0140         <span class="keyword">if</span> ( linker.edge1 == linker.edge2 )
-0141             linker.symbol = <a href="create_LW_symbol.html" class="code" title="function h = create_LW_symbol( edge, orientation, bp_spacing );">create_LW_symbol</a>( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
-0142         <span class="keyword">else</span>
-0143             linker.symbol1 = <a href="create_LW_symbol.html" class="code" title="function h = create_LW_symbol( edge, orientation, bp_spacing );">create_LW_symbol</a>( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
-0144             linker.symbol2 = <a href="create_LW_symbol.html" class="code" title="function h = create_LW_symbol( edge, orientation, bp_spacing );">create_LW_symbol</a>( linker.edge2, linker.LW_orientation, plot_settings.bp_spacing );
-0145         <span class="keyword">end</span>
-0146         setappdata( gca, linker.linker_tag, linker );
-0147     <span class="keyword">case</span> <span class="string">'arrow'</span>
-0148         linker.line_handle = plot( [0,0],[0,0],<span class="string">'k'</span>,<span class="string">'linewidth'</span>,1.0,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0149         linker.arrow = patch( [0,0,0],[0,0,0],<span class="string">'k'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> );
-0150         set( linker.line_handle, <span class="string">'linewidth'</span>, <a href="get_arrow_linewidth.html" class="code" title="function arrow_linewidth = get_arrow_linewidth( fontsize );">get_arrow_linewidth</a>( plot_settings.fontsize ) ); 
-0151         setappdata( gca, linker.linker_tag, linker );
-0152     <span class="keyword">case</span> <span class="string">'stack'</span>
-0153         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.8 0.8 0.8],<span class="string">'linestyle'</span>,<span class="string">':'</span>,<span class="string">'linewidth'</span>,1.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0154         setappdata( gca, linker.linker_tag, linker );
-0155     <span class="keyword">case</span> <span class="string">'other_contact'</span>
-0156         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.5 0.5 1],<span class="string">'linestyle'</span>,<span class="string">':'</span>,<span class="string">'linewidth'</span>,1.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0157         setappdata( gca, linker.linker_tag, linker );
-0158     <span class="keyword">case</span> <span class="string">'ligand'</span>
-0159         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.8 0.8 0.8],<span class="string">'linestyle'</span>,<span class="string">'-'</span>,<span class="string">'linewidth'</span>,1.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0160         setappdata( gca, linker.linker_tag, linker );
-0161         send_to_back( linker.line_handle );
-0162     <span class="keyword">case</span> {<span class="string">'tertcontact_interdomain'</span>,<span class="string">'tertiary_contact_interdomain'</span>}
-0163         linker.type = <span class="string">'tertcontact_interdomain'</span>;
-0164         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.8 0.8 0.8],<span class="string">'linestyle'</span>,<span class="string">'-'</span>,<span class="string">'linewidth'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0165         linker.node1 = <a href="#_sub2" class="code" title="subfunction h = create_undercircle( bp_spacing );">create_undercircle</a>( plot_settings.bp_spacing );
-0166         linker.node2 = <a href="#_sub2" class="code" title="subfunction h = create_undercircle( bp_spacing );">create_undercircle</a>( plot_settings.bp_spacing );
-0167         linker.side_line1 = patch( [0,0],[0,0],[0.8 0.8 0.8],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0168         linker.side_line2 = patch( [0,0],[0,0],[0.8 0.8 0.8],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0169         linker.outarrow1  = patch( [0,0],[0,0],[0.8 0.8 0.8],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0170         linker.outarrow2  = patch( [0,0],[0,0],[0.8 0.8 0.8],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0171         setappdata( gca, linker.linker_tag, linker );
-0172         send_to_back( linker.line_handle );
-0173         send_to_back( linker.side_line1 );
-0174         send_to_back( linker.side_line2 );
-0175         send_to_back( linker.outarrow1 );
-0176         send_to_back( linker.outarrow2 );
-0177     <span class="keyword">case</span> {<span class="string">'tertcontact_intradomain'</span>,<span class="string">'tertiary_contact_intradomain'</span>}
-0178         linker.type = <span class="string">'tertcontact_intradomain'</span>;
-0179         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.8 0.8 0.8],<span class="string">'linestyle'</span>,<span class="string">'-'</span>,<span class="string">'linewidth'</span>,2.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
-0180         <span class="comment">% don't need to make node1 -- should be covered by interdomain.</span>
-0181         linker.node2 = <a href="#_sub2" class="code" title="subfunction h = create_undercircle( bp_spacing );">create_undercircle</a>( plot_settings.bp_spacing );
-0182         setappdata( gca, linker.linker_tag, linker );
-0183         send_to_back( linker.line_handle );
-0184 <span class="keyword">end</span>
-0185 
-0186 
-0187 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0188 <a name="_sub2" href="#_subfunctions" class="code">function h = create_undercircle( bp_spacing );</a>
-0189 t = linspace(0, 2*pi);
-0190 r = 10 * bp_spacing/2;
-0191 x = r*cos(t);
-0192 y = r*sin(t);
-0193 h = patch( x,y,<span class="string">'w'</span>,<span class="string">'edgecolor'</span>,[0.8,0.8,0.8],<span class="string">'facecolor'</span>,<span class="string">'w'</span>,<span class="string">'linewidth'</span>,1);
-0194 send_to_back( h );
-0195 
-0196 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0197 <span class="comment">% Linkers (base pairs &amp; arrow connectors)</span>
-0198 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0199 <a name="_sub3" href="#_subfunctions" class="code">function too_short = linker_is_too_short_for_display( linker, plot_settings )</a>
-0200 too_short = 0;
-0201 residue1 = getappdata( gca, linker.residue1 );
-0202 residue2 = getappdata( gca, linker.residue2 );
-0203 <span class="keyword">if</span> ~isfield( linker, <span class="string">'relpos1'</span> ); linker = <a href="#_sub4" class="code" title="subfunction linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );">set_linker_endpos</a>( linker, linker.residue1, <span class="string">'relpos1'</span>,  1 ); <span class="keyword">end</span>;
-0204 <span class="keyword">if</span> ~isfield( linker, <span class="string">'relpos2'</span> ); linker = <a href="#_sub4" class="code" title="subfunction linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );">set_linker_endpos</a>( linker, linker.residue2, <span class="string">'relpos2'</span>, -1 ); <span class="keyword">end</span>;
-0205 <span class="keyword">if</span> isfield( linker, <span class="string">'relpos1'</span> ) &amp;&amp; isfield( linker, <span class="string">'relpos2'</span> )
-0206     <span class="keyword">if</span> ~isfield( residue1, <span class="string">'plot_pos'</span> )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); <span class="keyword">end</span>;
-0207     <span class="keyword">if</span> ~isfield( residue2, <span class="string">'plot_pos'</span> )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(<span class="keyword">end</span>,:) ); <span class="keyword">end</span>;
-0208     <span class="comment">%if strcmp(linker.type,'arrow' ) [norm( residue1.plot_pos - residue2.plot_pos ), 1.5 * plot_settings.spacing ]; end</span>
-0209     <span class="keyword">if</span> strcmp(linker.type,<span class="string">'stack'</span> )
-0210         <span class="keyword">if</span> ( norm( residue1.plot_pos - residue2.plot_pos ) &lt; 1.5 * plot_settings.bp_spacing ) too_short = 1; <span class="keyword">return</span>; <span class="keyword">end</span>;
-0211     <span class="keyword">end</span>
-0212     <span class="keyword">if</span> strcmp(linker.type,<span class="string">'arrow'</span> )
-0213         <span class="keyword">if</span> ( norm( residue1.plot_pos - residue2.plot_pos ) &lt; 1.5 * plot_settings.spacing ) too_short = 1;  <span class="keyword">return</span>; <span class="keyword">end</span>;
-0214     <span class="keyword">end</span>
-0215 <span class="keyword">end</span>
-0216     
-0217 <a name="_sub4" href="#_subfunctions" class="code">function linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );</a>
-0218 <span class="keyword">if</span> ~isfield( linker, relpos_field )
-0219     linker = setfield( linker, relpos_field, [0,0]);
-0220 <span class="keyword">end</span>;
-0221 relpos = getfield( linker, relpos_field );
-0222 residue = getappdata( gca, res_tag );
-0223 <span class="keyword">if</span> isfield( residue,<span class="string">'relpos'</span> )
-0224     <span class="keyword">if</span> ( at_start &gt; 0) relpos(1,:)   = residue.relpos;
-0225     <span class="keyword">else</span>               relpos(<span class="keyword">end</span>,:) = residue.relpos;
-0226     <span class="keyword">end</span>
-0227 <span class="keyword">end</span>
-0228 linker = setfield( linker, relpos_field, relpos);
-0229 <span class="comment">% does not seem necessary...</span>
-0230 <span class="comment">%setappdata( gca, linker.linker_tag, linker );</span>
-0231 
-0232 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0233 <a name="_sub5" href="#_subfunctions" class="code">function update_arrow( h, ctr, v, spacing, add_stem );</a>
-0234 x = v * 1.5 * [0 1; -1 0]; <span class="comment">% cross direction</span>
-0235 a  = [ <span class="keyword">...</span>
-0236     ctr - spacing/3*v+spacing/5*x;
-0237     ctr - spacing/6*v+spacing/10*x;
-0238     ctr + spacing*0*v+spacing/15*x;
-0239     ctr + spacing/6*v+spacing/20*x;
-0240     ctr + spacing/2*v;
-0241     ctr + spacing/6*v-spacing/20*x;
-0242     ctr - spacing*0*v-spacing/15*x;
-0243     ctr - spacing/6*v-spacing/10*x;
-0244     ctr - spacing/3*v-spacing/5*x <span class="keyword">...</span>
-0245     ];
-0246 <span class="keyword">if</span> exist( <span class="string">'add_stem'</span>, <span class="string">'var'</span> ) &amp; add_stem
-0247     a = [ a; <span class="keyword">...</span>
-0248         ctr - spacing/3*v-spacing*0.075*x; 
-0249         ctr - spacing/2*v-spacing*0.075*x; 
-0250         ctr - spacing/2*v+spacing*0.075*x; 
-0251         ctr - spacing/3*v+spacing*0.075*x <span class="keyword">...</span>
-0252         ];
-0253 <span class="keyword">end</span>
-0254     
-0255 set( h, <span class="string">'xdata'</span>, <span class="keyword">...</span>
-0256     a(:,1) );
-0257 set( h, <span class="string">'ydata'</span>, <span class="keyword">...</span>
-0258     a(:,2) );
-0259 
-0260 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0261 <a name="_sub6" href="#_subfunctions" class="code">function linker = update_arrow_style( linker, plot_settings )</a>
-0262 color = <span class="string">'k'</span>;  <span class="comment">%black is default</span>
-0263 residue1 = getappdata(gca,linker.residue1);
-0264 <span class="keyword">if</span> ( isfield( plot_settings, <span class="string">'color_arrows'</span> ) &amp; plot_settings.color_arrows &amp; isfield( residue1, <span class="string">'rgb_color'</span> ) ); color = residue1.rgb_color; <span class="keyword">end</span>
-0265 set( linker.line_handle, <span class="string">'color'</span>,color);
-0266 set( linker.arrow, <span class="string">'edgecolor'</span>,color );
-0267 set( linker.arrow, <span class="string">'facecolor'</span>,color );
-0268 arrow_linewidth = <a href="get_arrow_linewidth.html" class="code" title="function arrow_linewidth = get_arrow_linewidth( fontsize );">get_arrow_linewidth</a>( plot_settings.fontsize );
-0269 set( linker.line_handle, <span class="string">'linewidth'</span>, arrow_linewidth );
-0270 
-0271 
-0272 
-0273 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0274 <a name="_sub7" href="#_subfunctions" class="code">function linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings );</a>
-0275 num_extra_arrows = size(plot_pos,1)-2;
-0276 <span class="keyword">if</span> ~isfield( linker, <span class="string">'extra_arrows'</span> )
-0277     linker.extra_arrows = {};
-0278     <span class="keyword">for</span> i = 1:num_extra_arrows
-0279         linker.extra_arrows{i} = patch( [0,0,0],[0,0,0],<span class="string">'k'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> );;
-0280     <span class="keyword">end</span>
-0281 <span class="keyword">end</span>
-0282 
-0283 <span class="comment">% make the right number of extra arrows</span>
-0284 <span class="keyword">for</span> i = num_extra_arrows+1: length( linker.extra_arrows ); delete( linker.extra_arrows{i} ); <span class="keyword">end</span>
-0285 <span class="keyword">for</span> i = length( linker.extra_arrows )+1 : num_extra_arrows;  linker.extra_arrows{i} = patch( [0,0,0],[0,0,0],<span class="string">'k'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="keyword">end</span>;
-0286 linker.extra_arrows = linker.extra_arrows(1:num_extra_arrows);
-0287 
-0288 <span class="comment">% These are extra_arrows. Skip the 'usual' arrow that connects plot_pos1 and plot_pos2.</span>
-0289 which_segment = [1:(num_pos1-1), (num_pos1+1):size(plot_pos,1)-1];
-0290 assert( num_extra_arrows == length( which_segment) );
-0291 <span class="keyword">for</span> i = 1:num_extra_arrows;
-0292     pos1 = plot_pos( which_segment(i), : );
-0293     pos2 = plot_pos( which_segment(i)+1, : );
-0294     ctr = (pos1+pos2)/2; <span class="comment">% center of connecting line</span>
-0295     v = pos2 - pos1; v = v/norm(v); <span class="comment">% unit vector from res1 to res2</span>
-0296     show_arrow = plot_settings.show_extra_arrows &amp; norm( pos2 - pos1 ) &gt;= 5 * plot_settings.bp_spacing;
-0297     <span class="keyword">if</span> ( show_arrow )  
-0298         set( linker.extra_arrows{i}, <span class="string">'visible'</span>,<span class="string">'on'</span> );
-0299         <a href="#_sub5" class="code" title="subfunction update_arrow( h, ctr, v, spacing, add_stem );">update_arrow</a>( linker.extra_arrows{ i }, ctr, v, plot_settings.spacing ); 
-0300     <span class="keyword">else</span>; 
-0301         set( linker.extra_arrows{i}, <span class="string">'visible'</span>,<span class="string">'off'</span> );
-0302     <span class="keyword">end</span>;
-0303 <span class="keyword">end</span>
-0304 
-0305 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0306 <a name="_sub8" href="#_subfunctions" class="code">function pos1 = nudge_pos( pos1, pos2, bp_spacing );</a>
-0307 v = pos2 - pos1; 
-0308 v = v/norm(v);
-0309 pos1 = pos1 +  (bp_spacing/5)*v;
+0118 setappdata( gca, linker.linker_tag, linker );
+0119 
+0120 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0121 <a name="_sub1" href="#_subfunctions" class="code">function linker = draw_default_linker( linker );</a>
+0122 <span class="comment">% already drawn?</span>
+0123 <span class="keyword">if</span> isfield( linker, <span class="string">'line_handle'</span> ) &amp; isvalid( linker.line_handle ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0124 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0125 <span class="keyword">switch</span> linker.type
+0126     <span class="keyword">case</span> <span class="string">'stem_pair'</span>
+0127         residue1 = getappdata( gca, linker.residue1 );
+0128         residue2 = getappdata( gca, linker.residue2 );
+0129         bp = [residue1.name,residue2.name];
+0130         linker.line_handle = plot( [0,0],[0,0],<span class="string">'k'</span>,<span class="string">'linewidth'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0131         <span class="keyword">switch</span> bp
+0132             <span class="keyword">case</span> {<span class="string">'AU'</span>,<span class="string">'UA'</span>,<span class="string">'GC'</span>,<span class="string">'CG'</span> } <span class="comment">% could also show double lines for G-C. Not my preference.</span>
+0133                 set( linker.line_handle, <span class="string">'visible'</span>, <span class="string">'on'</span> );
+0134             <span class="keyword">case</span> {<span class="string">'GU'</span>,<span class="string">'UG'</span>}
+0135                 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0136                 linker.symbol = <a href="create_LW_symbol.html" class="code" title="function h = create_LW_symbol( edge, orientation, bp_spacing );">create_LW_symbol</a>( <span class="string">'W'</span>, <span class="string">'C'</span>, plot_settings.bp_spacing );
+0137                 set( linker.line_handle, <span class="string">'visible'</span>, <span class="string">'off'</span> ); <span class="comment">% convention for G*U in stems is to not show line.</span>
+0138         <span class="keyword">end</span>
+0139         setappdata( gca, linker.linker_tag, linker );
+0140     <span class="keyword">case</span> { <span class="string">'noncanonical_pair'</span>, <span class="string">'long_range_stem_pair'</span> }
+0141         linker.line_handle = plot( [0,0],[0,0],<span class="string">'k'</span>,<span class="string">'linewidth'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span>); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0142         <span class="keyword">if</span> ( linker.edge1 == linker.edge2 )
+0143             linker.symbol = <a href="create_LW_symbol.html" class="code" title="function h = create_LW_symbol( edge, orientation, bp_spacing );">create_LW_symbol</a>( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
+0144         <span class="keyword">else</span>
+0145             linker.symbol1 = <a href="create_LW_symbol.html" class="code" title="function h = create_LW_symbol( edge, orientation, bp_spacing );">create_LW_symbol</a>( linker.edge1, linker.LW_orientation, plot_settings.bp_spacing );
+0146             linker.symbol2 = <a href="create_LW_symbol.html" class="code" title="function h = create_LW_symbol( edge, orientation, bp_spacing );">create_LW_symbol</a>( linker.edge2, linker.LW_orientation, plot_settings.bp_spacing );
+0147         <span class="keyword">end</span>
+0148         setappdata( gca, linker.linker_tag, linker );
+0149     <span class="keyword">case</span> <span class="string">'arrow'</span>
+0150         linker.line_handle = plot( [0,0],[0,0],<span class="string">'k'</span>,<span class="string">'linewidth'</span>,1.0,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0151         linker.arrow = patch( [0,0,0],[0,0,0],<span class="string">'k'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0152         set( linker.line_handle, <span class="string">'linewidth'</span>, <a href="get_arrow_linewidth.html" class="code" title="function arrow_linewidth = get_arrow_linewidth( fontsize );">get_arrow_linewidth</a>( plot_settings.fontsize ) ); 
+0153         setappdata( gca, linker.linker_tag, linker );
+0154     <span class="keyword">case</span> <span class="string">'stack'</span>
+0155         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.8 0.8 0.8],<span class="string">'linestyle'</span>,<span class="string">':'</span>,<span class="string">'linewidth'</span>,1.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0156         setappdata( gca, linker.linker_tag, linker );
+0157     <span class="keyword">case</span> <span class="string">'other_contact'</span>
+0158         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.5 0.5 1],<span class="string">'linestyle'</span>,<span class="string">':'</span>,<span class="string">'linewidth'</span>,1.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0159         setappdata( gca, linker.linker_tag, linker );
+0160     <span class="keyword">case</span> <span class="string">'ligand'</span>
+0161         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.8 0.8 0.8],<span class="string">'linestyle'</span>,<span class="string">'-'</span>,<span class="string">'linewidth'</span>,1.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0162         setappdata( gca, linker.linker_tag, linker );
+0163         send_to_back( linker.line_handle );
+0164     <span class="keyword">case</span> {<span class="string">'tertcontact_interdomain'</span>,<span class="string">'tertiary_contact_interdomain'</span>}
+0165         linker.type = <span class="string">'tertcontact_interdomain'</span>;
+0166         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.8 0.8 0.8],<span class="string">'linestyle'</span>,<span class="string">'-'</span>,<span class="string">'linewidth'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0167         linker.node1 = <a href="#_sub2" class="code" title="subfunction h = create_undercircle( bp_spacing );">create_undercircle</a>( plot_settings.bp_spacing );
+0168         linker.node2 = <a href="#_sub2" class="code" title="subfunction h = create_undercircle( bp_spacing );">create_undercircle</a>( plot_settings.bp_spacing );
+0169         linker.side_line1 = patch( [0,0],[0,0],[0.8 0.8 0.8],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0170         linker.side_line2 = patch( [0,0],[0,0],[0.8 0.8 0.8],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0171         linker.outarrow1  = patch( [0,0],[0,0],[0.8 0.8 0.8],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0172         linker.outarrow2  = patch( [0,0],[0,0],[0.8 0.8 0.8],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0173         setappdata( gca, linker.linker_tag, linker );
+0174         send_to_back( linker.line_handle );
+0175         send_to_back( linker.side_line1 );
+0176         send_to_back( linker.side_line2 );
+0177         send_to_back( linker.outarrow1 );
+0178         send_to_back( linker.outarrow2 );
+0179     <span class="keyword">case</span> {<span class="string">'tertcontact_intradomain'</span>,<span class="string">'tertiary_contact_intradomain'</span>}
+0180         linker.type = <span class="string">'tertcontact_intradomain'</span>;
+0181         linker.line_handle = plot( [0,0],[0,0],<span class="string">'color'</span>,[0.8 0.8 0.8],<span class="string">'linestyle'</span>,<span class="string">'-'</span>,<span class="string">'linewidth'</span>,2.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0182         <span class="comment">% don't need to make node1 -- should be covered by interdomain.</span>
+0183         linker.node2 = <a href="#_sub2" class="code" title="subfunction h = create_undercircle( bp_spacing );">create_undercircle</a>( plot_settings.bp_spacing );
+0184         setappdata( gca, linker.linker_tag, linker );
+0185         send_to_back( linker.line_handle );
+0186 <span class="keyword">end</span>
+0187 
+0188 <span class="keyword">if</span> isfield( linker, <span class="string">'line_handle'</span> ) &amp; isfield( plot_settings, <span class="string">'line_color'</span> )
+0189     set( linker.line_handle, <span class="string">'color'</span>, plot_settings.line_color );
+0190 <span class="keyword">end</span>
+0191 
+0192 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0193 <a name="_sub2" href="#_subfunctions" class="code">function h = create_undercircle( bp_spacing );</a>
+0194 t = linspace(0, 2*pi);
+0195 r = 10 * bp_spacing/2;
+0196 x = r*cos(t);
+0197 y = r*sin(t);
+0198 h = patch( x,y,<span class="string">'w'</span>,<span class="string">'edgecolor'</span>,[0.8,0.8,0.8],<span class="string">'facecolor'</span>,<span class="string">'w'</span>,<span class="string">'linewidth'</span>,1);
+0199 send_to_back( h );
+0200 
+0201 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0202 <span class="comment">% Linkers (base pairs &amp; arrow connectors)</span>
+0203 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0204 <a name="_sub3" href="#_subfunctions" class="code">function too_short = linker_is_too_short_for_display( linker, plot_settings )</a>
+0205 too_short = 0;
+0206 residue1 = getappdata( gca, linker.residue1 );
+0207 residue2 = getappdata( gca, linker.residue2 );
+0208 <span class="keyword">if</span> ~isfield( linker, <span class="string">'relpos1'</span> ); linker = <a href="#_sub4" class="code" title="subfunction linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );">set_linker_endpos</a>( linker, linker.residue1, <span class="string">'relpos1'</span>,  1 ); <span class="keyword">end</span>;
+0209 <span class="keyword">if</span> ~isfield( linker, <span class="string">'relpos2'</span> ); linker = <a href="#_sub4" class="code" title="subfunction linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );">set_linker_endpos</a>( linker, linker.residue2, <span class="string">'relpos2'</span>, -1 ); <span class="keyword">end</span>;
+0210 <span class="keyword">if</span> isfield( linker, <span class="string">'relpos1'</span> ) &amp;&amp; isfield( linker, <span class="string">'relpos2'</span> )
+0211     <span class="keyword">if</span> ~isfield( residue1, <span class="string">'plot_pos'</span> )  residue1.plot_pos = get_plot_pos( residue1, linker.relpos1(1,:) ); <span class="keyword">end</span>;
+0212     <span class="keyword">if</span> ~isfield( residue2, <span class="string">'plot_pos'</span> )  residue2.plot_pos = get_plot_pos( residue2, linker.relpos2(<span class="keyword">end</span>,:) ); <span class="keyword">end</span>;
+0213     <span class="comment">%if strcmp(linker.type,'arrow' ) [norm( residue1.plot_pos - residue2.plot_pos ), 1.5 * plot_settings.spacing ]; end</span>
+0214     <span class="keyword">if</span> strcmp(linker.type,<span class="string">'stack'</span> )
+0215         <span class="keyword">if</span> ( norm( residue1.plot_pos - residue2.plot_pos ) &lt; 1.5 * plot_settings.bp_spacing ) too_short = 1; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0216     <span class="keyword">end</span>
+0217     <span class="keyword">if</span> strcmp(linker.type,<span class="string">'arrow'</span> )
+0218         <span class="keyword">if</span> ( norm( residue1.plot_pos - residue2.plot_pos ) &lt; 1.5 * plot_settings.spacing ) too_short = 1;  <span class="keyword">return</span>; <span class="keyword">end</span>;
+0219     <span class="keyword">end</span>
+0220 <span class="keyword">end</span>
+0221     
+0222 <a name="_sub4" href="#_subfunctions" class="code">function linker = set_linker_endpos( linker, res_tag, relpos_field, at_start );</a>
+0223 <span class="keyword">if</span> ~isfield( linker, relpos_field )
+0224     linker = setfield( linker, relpos_field, [0,0]);
+0225 <span class="keyword">end</span>;
+0226 relpos = getfield( linker, relpos_field );
+0227 residue = getappdata( gca, res_tag );
+0228 <span class="keyword">if</span> isfield( residue,<span class="string">'relpos'</span> )
+0229     <span class="keyword">if</span> ( at_start &gt; 0) relpos(1,:)   = residue.relpos;
+0230     <span class="keyword">else</span>               relpos(<span class="keyword">end</span>,:) = residue.relpos;
+0231     <span class="keyword">end</span>
+0232 <span class="keyword">end</span>
+0233 linker = setfield( linker, relpos_field, relpos);
+0234 <span class="comment">% does not seem necessary...</span>
+0235 <span class="comment">%setappdata( gca, linker.linker_tag, linker );</span>
+0236 
+0237 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0238 <a name="_sub5" href="#_subfunctions" class="code">function update_arrow( h, ctr, v, spacing, add_stem );</a>
+0239 x = v * 1.5 * [0 1; -1 0]; <span class="comment">% cross direction</span>
+0240 a  = [ <span class="keyword">...</span>
+0241     ctr - spacing/3*v+spacing/5*x;
+0242     ctr - spacing/6*v+spacing/10*x;
+0243     ctr + spacing*0*v+spacing/15*x;
+0244     ctr + spacing/6*v+spacing/20*x;
+0245     ctr + spacing/2*v;
+0246     ctr + spacing/6*v-spacing/20*x;
+0247     ctr - spacing*0*v-spacing/15*x;
+0248     ctr - spacing/6*v-spacing/10*x;
+0249     ctr - spacing/3*v-spacing/5*x <span class="keyword">...</span>
+0250     ];
+0251 <span class="keyword">if</span> exist( <span class="string">'add_stem'</span>, <span class="string">'var'</span> ) &amp; add_stem
+0252     a = [ a; <span class="keyword">...</span>
+0253         ctr - spacing/3*v-spacing*0.075*x; 
+0254         ctr - spacing/2*v-spacing*0.075*x; 
+0255         ctr - spacing/2*v+spacing*0.075*x; 
+0256         ctr - spacing/3*v+spacing*0.075*x <span class="keyword">...</span>
+0257         ];
+0258 <span class="keyword">end</span>
+0259     
+0260 set( h, <span class="string">'xdata'</span>, <span class="keyword">...</span>
+0261     a(:,1) );
+0262 set( h, <span class="string">'ydata'</span>, <span class="keyword">...</span>
+0263     a(:,2) );
+0264 
+0265 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0266 <a name="_sub6" href="#_subfunctions" class="code">function linker = update_arrow_style( linker, plot_settings )</a>
+0267 color = <span class="string">'k'</span>;  <span class="comment">%black is default</span>
+0268 <span class="keyword">if</span> isfield( plot_settings, <span class="string">'line_color'</span> ); color = plot_settings.line_color; <span class="keyword">end</span>;
+0269 residue1 = getappdata(gca,linker.residue1);
+0270 <span class="keyword">if</span> ( isfield( plot_settings, <span class="string">'color_arrows'</span> ) &amp; plot_settings.color_arrows &amp; isfield( residue1, <span class="string">'rgb_color'</span> ) ); color = residue1.rgb_color; <span class="keyword">end</span>
+0271 set( linker.line_handle, <span class="string">'color'</span>,color);
+0272 set( linker.arrow, <span class="string">'edgecolor'</span>,color );
+0273 set( linker.arrow, <span class="string">'facecolor'</span>,color );
+0274 arrow_linewidth = <a href="get_arrow_linewidth.html" class="code" title="function arrow_linewidth = get_arrow_linewidth( fontsize );">get_arrow_linewidth</a>( plot_settings.fontsize );
+0275 set( linker.line_handle, <span class="string">'linewidth'</span>, arrow_linewidth );
+0276 
+0277 
+0278 
+0279 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0280 <a name="_sub7" href="#_subfunctions" class="code">function linker = update_extra_arrows( linker, plot_pos, num_pos1, plot_settings );</a>
+0281 num_extra_arrows = size(plot_pos,1)-2;
+0282 <span class="keyword">if</span> ~isfield( linker, <span class="string">'extra_arrows'</span> )
+0283     linker.extra_arrows = {};
+0284     <span class="keyword">for</span> i = 1:num_extra_arrows
+0285         linker.extra_arrows{i} = patch( [0,0,0],[0,0,0],<span class="string">'k'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> );;
+0286     <span class="keyword">end</span>
+0287 <span class="keyword">end</span>
+0288 
+0289 <span class="comment">% make the right number of extra arrows</span>
+0290 <span class="keyword">for</span> i = num_extra_arrows+1: length( linker.extra_arrows ); delete( linker.extra_arrows{i} ); <span class="keyword">end</span>
+0291 <span class="keyword">for</span> i = length( linker.extra_arrows )+1 : num_extra_arrows;  linker.extra_arrows{i} = patch( [0,0,0],[0,0,0],<span class="string">'k'</span>,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="keyword">end</span>;
+0292 linker.extra_arrows = linker.extra_arrows(1:num_extra_arrows);
+0293 
+0294 <span class="comment">% These are extra_arrows. Skip the 'usual' arrow that connects plot_pos1 and plot_pos2.</span>
+0295 which_segment = [1:(num_pos1-1), (num_pos1+1):size(plot_pos,1)-1];
+0296 assert( num_extra_arrows == length( which_segment) );
+0297 <span class="keyword">for</span> i = 1:num_extra_arrows;
+0298     pos1 = plot_pos( which_segment(i), : );
+0299     pos2 = plot_pos( which_segment(i)+1, : );
+0300     ctr = (pos1+pos2)/2; <span class="comment">% center of connecting line</span>
+0301     v = pos2 - pos1; v = v/norm(v); <span class="comment">% unit vector from res1 to res2</span>
+0302     show_arrow = plot_settings.show_extra_arrows &amp; norm( pos2 - pos1 ) &gt;= 5 * plot_settings.bp_spacing;
+0303     <span class="keyword">if</span> ( show_arrow )  
+0304         set( linker.extra_arrows{i}, <span class="string">'visible'</span>,<span class="string">'on'</span> );
+0305         <a href="#_sub5" class="code" title="subfunction update_arrow( h, ctr, v, spacing, add_stem );">update_arrow</a>( linker.extra_arrows{ i }, ctr, v, plot_settings.spacing ); 
+0306     <span class="keyword">else</span>; 
+0307         set( linker.extra_arrows{i}, <span class="string">'visible'</span>,<span class="string">'off'</span> );
+0308     <span class="keyword">end</span>;
+0309 <span class="keyword">end</span>
 0310 
 0311 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0312 <a name="_sub9" href="#_subfunctions" class="code">function update_symbol( h, pos, v, which_symbol, bp_spacing );</a>
-0313 vertices = get(h,<span class="string">'Vertices'</span>);
-0314 numv = size(vertices,1);
-0315 rot = atan2( v(2), v(1) ); <span class="comment">% rotate so that symbol 'aligns' with line.</span>
-0316 <span class="keyword">if</span> which_symbol == 1; rot = rot + pi; <span class="keyword">end</span>;
-0317 <span class="keyword">switch</span> numv
-0318     <span class="keyword">case</span> 3 <span class="comment">% triangle</span>
-0319         t = rot+[0 2*pi/3 2*pi*2/3];
-0320         r = bp_spacing/10 * 1.5*sqrt(3)/2;
-0321     <span class="keyword">case</span> 4 <span class="comment">% square</span>
-0322         t = rot+[0 pi/2 pi 3*pi/2]+pi/4;
-0323         r = bp_spacing/10 * sqrt(2);
-0324     <span class="keyword">otherwise</span> <span class="comment">% circle</span>
-0325         t = rot+linspace(0, 2*pi);
-0326         r = bp_spacing/10;
-0327 <span class="keyword">end</span>
-0328 vertices = [r*cos(t); r*sin(t) ]' + repmat( pos, size(vertices,1), 1 );
-0329 assert( numv == size( vertices, 1 ) );
-0330 set( h, <span class="string">'xdata'</span>, vertices(:,1) );
-0331 set( h, <span class="string">'ydata'</span>, vertices(:,2) );
-0332 
-0333 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0334 <a name="_sub10" href="#_subfunctions" class="code">function base_paired = check_for_base_pair( res_tag1, res_tag2 )</a>
-0335 residue1 = getappdata( gca, res_tag1 );
-0336 base_paired = false;
-0337 <span class="keyword">for</span> i = 1:length( residue1.linkers )
-0338     linker_tag = residue1.linkers{i};
-0339     <span class="keyword">if</span> ~isappdata( gca, linker_tag ) fprintf( <span class="string">'Could not find linker %s\n'</span>, linker_tag ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
-0340     linker = getappdata( gca, linker_tag );
-0341     <span class="keyword">if</span> strcmp( linker.type,<span class="string">'noncanonical_pair'</span> ) | strcmp( linker.type,<span class="string">'stem_pair'</span> )
-0342         <span class="keyword">if</span> ( strcmp( linker.residue1 , res_tag1 ) &amp;&amp; strcmp( linker.residue2, res_tag2 ) ) 
-0343             base_paired = true; <span class="keyword">return</span>;
-0344         <span class="keyword">end</span>
-0345         <span class="keyword">if</span> ( strcmp( linker.residue1 , res_tag2 ) &amp;&amp; strcmp( linker.residue2, res_tag1 ) ) 
-0346             base_paired = true; <span class="keyword">return</span>;
-0347         <span class="keyword">end</span>
-0348     <span class="keyword">end</span>
-0349 <span class="keyword">end</span>
-0350 
-0351 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0352 <a name="_sub11" href="#_subfunctions" class="code">function linker = update_tertiary_contact( linker, plot_pos, plot_settings );</a>
-0353 <span class="keyword">if</span> ~isfield( linker, <span class="string">'tertiary_contact'</span> ) linker
-0354 <span class="keyword">end</span>
-0355 tertiary_contact = getappdata( gca, linker.tertiary_contact );
-0356 <span class="keyword">if</span> isfield( plot_settings, <span class="string">'show_tertiary_contacts'</span> )
-0357     <span class="keyword">if</span> plot_settings.show_tertiary_contacts; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0358     linker = set_linker_visibility( linker, visible );
-0359 <span class="keyword">end</span>
-0360 
-0361 residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
-0362 residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
-0363 
-0364 <span class="keyword">if</span> strcmp( linker.type, <span class="string">'tertcontact_interdomain'</span> )
-0365     segwidth = plot_settings.bp_spacing/16;
-0366     <span class="keyword">if</span> isfield( tertiary_contact,<span class="string">'linkers'</span>);
-0367         segwidth = length(tertiary_contact.linkers) * plot_settings.bp_spacing/160;
-0368     <span class="keyword">end</span>
-0369     
-0370     <span class="comment">% double color lines for interdomain;</span>
-0371     side_line1_pos = []; side_line2_pos = [];
-0372     <span class="keyword">for</span> i = 1:length( plot_pos ) - 1
-0373         segv = plot_pos(i+1,:) - plot_pos(i,:);
-0374         segv = segv/norm(segv);
-0375         segv = segv * [0 1; -1 0] * segwidth; <span class="comment">% rotate</span>
-0376         side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
-0377         side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
-0378     <span class="keyword">end</span>
-0379     set( linker.side_line1, <span class="string">'xdata'</span>, [side_line1_pos(:,1); plot_pos(end:-1:1,1)], <span class="string">'ydata'</span>, [side_line1_pos(:,2); plot_pos(end:-1:1,2)] );
-0380     set( linker.side_line2, <span class="string">'xdata'</span>, [side_line2_pos(:,1); plot_pos(end:-1:1,1)], <span class="string">'ydata'</span>, [side_line2_pos(:,2); plot_pos(end:-1:1,2)] );
-0381 
-0382     <span class="keyword">if</span> ( isfield( linker, <span class="string">'show_split_arrows'</span> )  &amp;&amp; linker.show_split_arrows ) arrow_visible = <span class="string">'on'</span>; <span class="keyword">else</span>; arrow_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0383     outarrow_size = 1.5*plot_settings.spacing;
-0384     linker = <a href="#_sub13" class="code" title="subfunction linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )">update_outarrow</a>( linker, plot_pos, residue1, outarrow_size,  <span class="string">'outarrow1'</span>,<span class="string">'outarrow_label1'</span>, arrow_visible, plot_settings, 1 );
-0385     linker = <a href="#_sub13" class="code" title="subfunction linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )">update_outarrow</a>( linker, plot_pos, residue2, outarrow_size,  <span class="string">'outarrow2'</span>,<span class="string">'outarrow_label2'</span>, arrow_visible, plot_settings, 2 );
-0386     <span class="keyword">if</span> ( isfield( linker, <span class="string">'show_split_arrows'</span> )  &amp;&amp; linker.show_split_arrows &amp;&amp; isfield( plot_settings,<span class="string">'show_split_arrow_lines'</span>) )
-0387         <span class="keyword">if</span> ( plot_settings.show_split_arrow_lines ) line_visible = <span class="string">'on'</span>; <span class="keyword">else</span>; line_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0388         set( linker.line_handle, <span class="string">'visible'</span>,line_visible );
-0389         <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
-0390             vtx_visible = line_visible;
-0391             <span class="keyword">if</span> isfield( plot_settings, <span class="string">'show_linker_controls'</span>) &amp; ~plot_settings.show_linker_controls;  vtx_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0392             <span class="keyword">for</span> i = 1:length( linker.vtx ), set( linker.vtx{i}, <span class="string">'visible'</span>, vtx_visible ); <span class="keyword">end</span>;
-0393         <span class="keyword">end</span>;
-0394     <span class="keyword">end</span>
-0395 <span class="keyword">end</span>
-0396 
-0397 <span class="comment">% colors</span>
-0398 set( linker.line_handle, <span class="string">'xdata'</span>, plot_pos(:,1), <span class="string">'ydata'</span>, plot_pos(:,2) );
-0399 
-0400 <span class="keyword">if</span> isfield( residue1, <span class="string">'rgb_color'</span> ) rescolor1 = residue1.rgb_color; <span class="keyword">else</span>; rescolor1 = [0,0,0]; <span class="keyword">end</span>;
-0401 <span class="keyword">if</span> isfield( residue2, <span class="string">'rgb_color'</span> ) rescolor2 = residue2.rgb_color; <span class="keyword">else</span>; rescolor2 = [0,0,0]; <span class="keyword">end</span>;
-0402 <span class="comment">% make color informative about *other* domain</span>
-0403 color1 = fade_color( rescolor2 );
-0404 color2 = fade_color( rescolor1 );
-0405 <span class="keyword">if</span> isfield( residue1, <span class="string">'ligand_partners'</span> ) 
-0406     color1 = <a href="#_sub17" class="code" title="subfunction linecolor = get_single_color_for_ligand_linker( residue1, residue2 );">get_single_color_for_ligand_linker</a>( residue1, residue2 );
-0407     color2 = color1;
-0408 <span class="keyword">end</span>
-0409 
-0410 <span class="keyword">if</span> isfield(plot_settings,<span class="string">'tertiary_contact_domain_coloring'</span> ) &amp; ~plot_settings.tertiary_contact_domain_coloring
-0411     color1 = [0.9 0.9 0.9];
-0412     color2 = [0.9 0.9 0.9];
-0413 <span class="keyword">end</span>
-0414 
-0415 <span class="keyword">if</span> strcmp( linker.type, <span class="string">'tertcontact_interdomain'</span> )
-0416     set( linker.node1, <span class="string">'edgecolor'</span>,color1);
-0417     set( linker.node2, <span class="string">'edgecolor'</span>,color2);
-0418     set( linker.side_line1, <span class="string">'facecolor'</span>, color1 );
-0419     set( linker.side_line2, <span class="string">'facecolor'</span>, color2 );
-0420     <span class="keyword">if</span> isfield( linker, <span class="string">'outarrow1'</span> ); set( linker.outarrow1, <span class="string">'facecolor'</span>,rescolor2 ); <span class="keyword">end</span>;  
-0421     <span class="keyword">if</span> isfield( linker, <span class="string">'outarrow2'</span> ); set( linker.outarrow2, <span class="string">'facecolor'</span>,rescolor1 ); <span class="keyword">end</span>;
-0422     <span class="keyword">if</span> isfield( linker, <span class="string">'outarrow_label1'</span> ); set( linker.outarrow_label1, <span class="string">'color'</span>,rescolor2 ); <span class="keyword">end</span>;  
-0423     <span class="keyword">if</span> isfield( linker, <span class="string">'outarrow_label2'</span> ); set( linker.outarrow_label2, <span class="string">'color'</span>,rescolor1 ); <span class="keyword">end</span>;
-0424     linker_visible = get(linker.node1,<span class="string">'visible'</span>);
-0425     <span class="keyword">if</span> isfield( linker, <span class="string">'show_split_arrows'</span> ) &amp; linker.show_split_arrows
-0426         set( linker.outarrow1, <span class="string">'visible'</span>, linker_visible );
-0427         set( linker.outarrow2, <span class="string">'visible'</span>, linker_visible );
-0428         set( linker.side_line1, <span class="string">'visible'</span>,<span class="string">'off'</span>);
-0429         set( linker.side_line2, <span class="string">'visible'</span>,<span class="string">'off'</span>);
-0430     <span class="keyword">else</span>
-0431         set( linker.outarrow1, <span class="string">'visible'</span>, <span class="string">'off'</span> );
-0432         set( linker.outarrow2, <span class="string">'visible'</span>, <span class="string">'off'</span> );
-0433         set( linker.side_line1, <span class="string">'visible'</span>,linker_visible );
-0434         set( linker.side_line2, <span class="string">'visible'</span>,linker_visible );
-0435     <span class="keyword">end</span>
-0436 <span class="keyword">else</span>
-0437     assert( strcmp( linker.type, <span class="string">'tertcontact_intradomain'</span> ) );
-0438     set( linker.line_handle, <span class="string">'linewidth'</span>, <a href="get_arrow_linewidth.html" class="code" title="function arrow_linewidth = get_arrow_linewidth( fontsize );">get_arrow_linewidth</a>( plot_settings.fontsize ) );
-0439     <span class="keyword">if</span> any( strcmp( tertiary_contact.associated_residues1, linker.residue1 ) ) <span class="comment">% in domain 1</span>
-0440         set( linker.node2, <span class="string">'edgecolor'</span>,color1);
-0441         set( linker.line_handle, <span class="string">'color'</span>,color1);
-0442     <span class="keyword">else</span> <span class="comment">% in domain 2</span>
-0443         assert( any( strcmp( tertiary_contact.associated_residues2, linker.residue1 ) ) );
-0444         set( linker.node2, <span class="string">'edgecolor'</span>,color2);
-0445         set( linker.line_handle, <span class="string">'color'</span>,color2);
-0446     <span class="keyword">end</span>
-0447 <span class="keyword">end</span>
-0448 
-0449 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0450 <a name="_sub12" href="#_subfunctions" class="code">function linker = update_tertiary_arrow_label( linker, arrow_label, default_plot_pos, arrow_visible, plot_settings );</a>
-0451 <span class="keyword">if</span> ~isfield( linker, arrow_label )
-0452     h = text( 0, 0, <span class="string">'.'</span> );
-0453     linker = setfield( linker, arrow_label, h );
-0454     setappdata( gca, linker.linker_tag, linker );
-0455 <span class="keyword">end</span>
-0456 tertiary_contact = getappdata( gca, linker.tertiary_contact );
-0457 h = getfield(linker, arrow_label);
-0458 <span class="keyword">if</span> ~isvalid( h ) <span class="keyword">return</span>; <span class="keyword">end</span>;
-0459 <span class="keyword">if</span> ~isfield( tertiary_contact, <span class="string">'name'</span> ) tertiary_contact = update_tertiary_contact_name( tertiary_contact, 0 ); <span class="keyword">end</span>;
-0460 set( h, <span class="string">'string'</span>, strrep(tertiary_contact.name,<span class="string">'_'</span>,<span class="string">'-'</span>), <span class="string">'Position'</span>, default_plot_pos, <span class="string">'visible'</span>,arrow_visible,<span class="string">'fontsize'</span>, plot_settings.fontsize*0.75 );
-0461 
-0462 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0463 <a name="_sub13" href="#_subfunctions" class="code">function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )</a>
-0464 <span class="keyword">if</span> (isfield(plot_settings,<span class="string">'image_representation'</span>) &amp; ~strcmp(plot_settings.image_representation,<span class="string">'image_boundary'</span>) ) <span class="keyword">return</span>; <span class="keyword">end</span>;
-0465 <span class="keyword">if</span> ~isfield( linker, outarrow_fieldname ) <span class="keyword">return</span>; <span class="keyword">end</span>;
-0466 
-0467 <span class="comment">% if this is the ligand side of an interdomain outarrow,</span>
-0468 <span class="comment">% only show arrow if its the first split one.</span>
-0469 <span class="keyword">if</span> which_res == 1 &amp;&amp; isfield( residue, <span class="string">'ligand_partners'</span> ) arrow_visible = <a href="#_sub14" class="code" title="subfunction  arrow_visible = check_first_linker_outarrow( linker, residue, arrow_visible );">check_first_linker_outarrow</a>( linker, residue, arrow_visible ); <span class="keyword">end</span>;
-0470 
-0471 <span class="keyword">if</span> ( which_res == 2 ) plot_pos = plot_pos(end:-1:1,:); <span class="keyword">end</span>;
-0472 <span class="keyword">if</span> isfield( residue, <span class="string">'image_handle'</span> )
-0473     [v,start_pos,pointing_out_of_polygon] = <a href="first_crossing.html" class="code" title="function [v,start_pos,pointing_out_of_polygon] = first_crossing( polygon, plot_pos );">first_crossing</a>( [get(residue.image_handle,<span class="string">'XData'</span>),get(residue.image_handle,<span class="string">'YData'</span>)], plot_pos );
-0474     <span class="keyword">if</span> ( ~pointing_out_of_polygon ) arrow_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0475 <span class="keyword">else</span>
-0476     v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
-0477     start_pos = plot_pos(1,:);
-0478 <span class="keyword">end</span>
-0479 outarrow = getfield( linker, outarrow_fieldname );
-0480 <span class="keyword">if</span> ~arrow_visible; set( outarrow, <span class="string">'visible'</span>,<span class="string">'on'</span> ); <span class="keyword">else</span>;  set( outarrow, <span class="string">'visible'</span>,<span class="string">'off'</span> ); <span class="keyword">end</span>;
-0481 <a href="#_sub5" class="code" title="subfunction update_arrow( h, ctr, v, spacing, add_stem );">update_arrow</a>( getfield(linker,outarrow_fieldname), start_pos + v*outarrow_size*0.5, v, outarrow_size, 1 );
-0482 linker = <a href="#_sub12" class="code" title="subfunction linker = update_tertiary_arrow_label( linker, arrow_label, default_plot_pos, arrow_visible, plot_settings );">update_tertiary_arrow_label</a>( linker, outarrow_label_fieldname, start_pos + v*outarrow_size, arrow_visible, plot_settings );
-0483 set_text_alignment( getfield( linker, outarrow_label_fieldname ), v );
-0484 
-0485 
-0486 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0487 <a name="_sub14" href="#_subfunctions" class="code">function  arrow_visible = check_first_linker_outarrow( linker, residue, arrow_visible );</a>
-0488 sister_linker_tags = get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span>,residue.linkers );
-0489 <span class="keyword">for</span> i = 1:length( sister_linker_tags )
-0490     sister_linker = getappdata( gca, sister_linker_tags{i} );
-0491     <span class="keyword">if</span> ~isfield( sister_linker, <span class="string">'show_split_arrows'</span> ) || ~sister_linker.show_split_arrows; <span class="keyword">continue</span>; <span class="keyword">end</span>
-0492     <span class="keyword">if</span> ~strcmp(sister_linker.linker_tag,linker.linker_tag);
-0493         arrow_visible = <span class="string">'off'</span>;
-0494     <span class="keyword">end</span>
-0495     <span class="keyword">return</span>;
-0496 <span class="keyword">end</span>
-0497 
-0498 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0499 <a name="_sub15" href="#_subfunctions" class="code">function setting = show_tertiary_noncanonical_pair( linker, plot_settings )</a>
-0500 <span class="comment">% for show/hide interdomain_noncanonical_pairs</span>
-0501 setting = 1;
-0502 <span class="keyword">if</span> ~isfield( plot_settings, <span class="string">'show_tertiary_noncanonical_pairs'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
-0503 <span class="keyword">if</span> ~plot_settings.show_tertiary_noncanonical_pairs
-0504     <span class="keyword">if</span> isfield( linker, <span class="string">'tertiary_contact'</span> ) &amp;&amp; length(linker.tertiary_contact) &gt; 0
-0505         setting = 0;
-0506     <span class="keyword">end</span>
-0507 <span class="keyword">end</span>
-0508 <span class="keyword">return</span>;
-0509 
-0510 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0511 <a name="_sub16" href="#_subfunctions" class="code">function update_ligand_linker( linker, plot_settings );</a>
-0512 <span class="keyword">if</span> ~isfield( plot_settings, <span class="string">'show_ligand_linkers'</span> ); <span class="keyword">return</span>; <span class="keyword">end</span>;
-0513 <span class="keyword">if</span> ( plot_settings.show_ligand_linkers ) visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
-0514 set( linker.line_handle, <span class="string">'visible'</span>, visible );
-0515 residue1 = getappdata( gca, linker.residue1 );
-0516 residue2 = getappdata( gca, linker.residue2 );
-0517 linecolor = <a href="#_sub17" class="code" title="subfunction linecolor = get_single_color_for_ligand_linker( residue1, residue2 );">get_single_color_for_ligand_linker</a>( residue1, residue2 );
-0518 set( linker.line_handle, <span class="string">'color'</span>, linecolor );
-0519 
-0520 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0521 <a name="_sub17" href="#_subfunctions" class="code">function linecolor = get_single_color_for_ligand_linker( residue1, residue2 );</a>
-0522 <span class="keyword">if</span> isfield( residue1, <span class="string">'rgb_color'</span> ) rescolor1 = residue1.rgb_color; <span class="keyword">else</span>; rescolor1 = [0,0,0]; <span class="keyword">end</span>;
-0523 <span class="keyword">if</span> isfield( residue2, <span class="string">'rgb_color'</span> ) rescolor2 = residue2.rgb_color; <span class="keyword">else</span>; rescolor2 = [0,0,0]; <span class="keyword">end</span>;
-0524 linecolor = rescolor1;
-0525 <span class="keyword">if</span> all( rescolor1 == 0 ); linecolor = rescolor2; <span class="keyword">end</span>; 
-0526 linecolor = fade_color( linecolor );
-0527 
-0528 
-0529     
-0530</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0312 <a name="_sub8" href="#_subfunctions" class="code">function pos1 = nudge_pos( pos1, pos2, bp_spacing );</a>
+0313 v = pos2 - pos1; 
+0314 v = v/norm(v);
+0315 pos1 = pos1 +  (bp_spacing/5)*v;
+0316 
+0317 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0318 <a name="_sub9" href="#_subfunctions" class="code">function update_symbol( h, pos, v, which_symbol, bp_spacing );</a>
+0319 vertices = get(h,<span class="string">'Vertices'</span>);
+0320 numv = size(vertices,1);
+0321 rot = atan2( v(2), v(1) ); <span class="comment">% rotate so that symbol 'aligns' with line.</span>
+0322 <span class="keyword">if</span> which_symbol == 1; rot = rot + pi; <span class="keyword">end</span>;
+0323 <span class="keyword">switch</span> numv
+0324     <span class="keyword">case</span> 3 <span class="comment">% triangle</span>
+0325         t = rot+[0 2*pi/3 2*pi*2/3];
+0326         r = bp_spacing/10 * 1.5*sqrt(3)/2;
+0327     <span class="keyword">case</span> 4 <span class="comment">% square</span>
+0328         t = rot+[0 pi/2 pi 3*pi/2]+pi/4;
+0329         r = bp_spacing/10 * sqrt(2);
+0330     <span class="keyword">otherwise</span> <span class="comment">% circle</span>
+0331         t = rot+linspace(0, 2*pi);
+0332         r = bp_spacing/10;
+0333 <span class="keyword">end</span>
+0334 vertices = [r*cos(t); r*sin(t) ]' + repmat( pos, size(vertices,1), 1 );
+0335 assert( numv == size( vertices, 1 ) );
+0336 set( h, <span class="string">'xdata'</span>, vertices(:,1) );
+0337 set( h, <span class="string">'ydata'</span>, vertices(:,2) );
+0338 
+0339 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0340 <a name="_sub10" href="#_subfunctions" class="code">function base_paired = check_for_base_pair( res_tag1, res_tag2 )</a>
+0341 residue1 = getappdata( gca, res_tag1 );
+0342 base_paired = false;
+0343 <span class="keyword">for</span> i = 1:length( residue1.linkers )
+0344     linker_tag = residue1.linkers{i};
+0345     <span class="keyword">if</span> ~isappdata( gca, linker_tag ) fprintf( <span class="string">'Could not find linker %s\n'</span>, linker_tag ); <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0346     linker = getappdata( gca, linker_tag );
+0347     <span class="keyword">if</span> strcmp( linker.type,<span class="string">'noncanonical_pair'</span> ) | strcmp( linker.type,<span class="string">'stem_pair'</span> )
+0348         <span class="keyword">if</span> ( strcmp( linker.residue1 , res_tag1 ) &amp;&amp; strcmp( linker.residue2, res_tag2 ) ) 
+0349             base_paired = true; <span class="keyword">return</span>;
+0350         <span class="keyword">end</span>
+0351         <span class="keyword">if</span> ( strcmp( linker.residue1 , res_tag2 ) &amp;&amp; strcmp( linker.residue2, res_tag1 ) ) 
+0352             base_paired = true; <span class="keyword">return</span>;
+0353         <span class="keyword">end</span>
+0354     <span class="keyword">end</span>
+0355 <span class="keyword">end</span>
+0356     
+0357 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0358 <a name="_sub11" href="#_subfunctions" class="code">function linker = update_tertiary_contact( linker, plot_pos, plot_settings );</a>
+0359 <span class="keyword">if</span> ~isfield( linker, <span class="string">'tertiary_contact'</span> ) linker
+0360 <span class="keyword">end</span>
+0361 tertiary_contact = getappdata( gca, linker.tertiary_contact );
+0362 <span class="keyword">if</span> isfield( plot_settings, <span class="string">'show_tertiary_contacts'</span> )
+0363     <span class="keyword">if</span> plot_settings.show_tertiary_contacts; visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0364     linker = set_linker_visibility( linker, visible );
+0365 <span class="keyword">end</span>
+0366 
+0367 residue1 = getappdata( gca, tertiary_contact.associated_residues1{1} );
+0368 residue2 = getappdata( gca, tertiary_contact.associated_residues2{1} );
+0369 
+0370 <span class="keyword">if</span> strcmp( linker.type, <span class="string">'tertcontact_interdomain'</span> )
+0371     segwidth = plot_settings.bp_spacing/16;
+0372     <span class="keyword">if</span> isfield( tertiary_contact,<span class="string">'linkers'</span>);
+0373         segwidth = length(tertiary_contact.linkers) * plot_settings.bp_spacing/160;
+0374     <span class="keyword">end</span>
+0375     
+0376     <span class="comment">% double color lines for interdomain;</span>
+0377     side_line1_pos = []; side_line2_pos = [];
+0378     <span class="keyword">for</span> i = 1:length( plot_pos ) - 1
+0379         segv = plot_pos(i+1,:) - plot_pos(i,:);
+0380         segv = segv/norm(segv);
+0381         segv = segv * [0 1; -1 0] * segwidth; <span class="comment">% rotate</span>
+0382         side_line1_pos = [side_line1_pos; plot_pos(i,:)-segv; plot_pos(i+1,:)-segv ];
+0383         side_line2_pos = [side_line2_pos; plot_pos(i,:)+segv; plot_pos(i+1,:)+segv ];
+0384     <span class="keyword">end</span>
+0385     set( linker.side_line1, <span class="string">'xdata'</span>, [side_line1_pos(:,1); plot_pos(end:-1:1,1)], <span class="string">'ydata'</span>, [side_line1_pos(:,2); plot_pos(end:-1:1,2)] );
+0386     set( linker.side_line2, <span class="string">'xdata'</span>, [side_line2_pos(:,1); plot_pos(end:-1:1,1)], <span class="string">'ydata'</span>, [side_line2_pos(:,2); plot_pos(end:-1:1,2)] );
+0387 
+0388     <span class="keyword">if</span> ( isfield( linker, <span class="string">'show_split_arrows'</span> )  &amp;&amp; linker.show_split_arrows ) arrow_visible = <span class="string">'on'</span>; <span class="keyword">else</span>; arrow_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0389     outarrow_size = 1.5*plot_settings.spacing;
+0390     linker = <a href="#_sub13" class="code" title="subfunction linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )">update_outarrow</a>( linker, plot_pos, residue1, outarrow_size,  <span class="string">'outarrow1'</span>,<span class="string">'outarrow_label1'</span>, arrow_visible, plot_settings, 1 );
+0391     linker = <a href="#_sub13" class="code" title="subfunction linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )">update_outarrow</a>( linker, plot_pos, residue2, outarrow_size,  <span class="string">'outarrow2'</span>,<span class="string">'outarrow_label2'</span>, arrow_visible, plot_settings, 2 );
+0392     <span class="keyword">if</span> ( isfield( linker, <span class="string">'show_split_arrows'</span> )  &amp;&amp; linker.show_split_arrows &amp;&amp; isfield( plot_settings,<span class="string">'show_split_arrow_lines'</span>) )
+0393         <span class="keyword">if</span> ( plot_settings.show_split_arrow_lines ) line_visible = <span class="string">'on'</span>; <span class="keyword">else</span>; line_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0394         set( linker.line_handle, <span class="string">'visible'</span>,line_visible );
+0395         <span class="keyword">if</span> isfield( linker, <span class="string">'vtx'</span> )
+0396             vtx_visible = line_visible;
+0397             <span class="keyword">if</span> isfield( plot_settings, <span class="string">'show_linker_controls'</span>) &amp; ~plot_settings.show_linker_controls;  vtx_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0398             <span class="keyword">for</span> i = 1:length( linker.vtx ), set( linker.vtx{i}, <span class="string">'visible'</span>, vtx_visible ); <span class="keyword">end</span>;
+0399         <span class="keyword">end</span>;
+0400     <span class="keyword">end</span>
+0401 <span class="keyword">end</span>
+0402 
+0403 <span class="comment">% colors</span>
+0404 set( linker.line_handle, <span class="string">'xdata'</span>, plot_pos(:,1), <span class="string">'ydata'</span>, plot_pos(:,2) );
+0405 
+0406 <span class="keyword">if</span> isfield( residue1, <span class="string">'rgb_color'</span> ) rescolor1 = residue1.rgb_color; <span class="keyword">else</span>; rescolor1 = [0,0,0]; <span class="keyword">end</span>;
+0407 <span class="keyword">if</span> isfield( residue2, <span class="string">'rgb_color'</span> ) rescolor2 = residue2.rgb_color; <span class="keyword">else</span>; rescolor2 = [0,0,0]; <span class="keyword">end</span>;
+0408 <span class="comment">% make color informative about *other* domain</span>
+0409 color1 = fade_color( rescolor2 );
+0410 color2 = fade_color( rescolor1 );
+0411 <span class="keyword">if</span> isfield( residue1, <span class="string">'ligand_partners'</span> ) 
+0412     color1 = <a href="#_sub17" class="code" title="subfunction linecolor = get_single_color_for_ligand_linker( residue1, residue2 );">get_single_color_for_ligand_linker</a>( residue1, residue2 );
+0413     color2 = color1;
+0414 <span class="keyword">end</span>
+0415 
+0416 <span class="keyword">if</span> isfield(plot_settings,<span class="string">'tertiary_contact_domain_coloring'</span> ) &amp; ~plot_settings.tertiary_contact_domain_coloring
+0417     color1 = [0.9 0.9 0.9];
+0418     color2 = [0.9 0.9 0.9];
+0419 <span class="keyword">end</span>
+0420 
+0421 <span class="keyword">if</span> strcmp( linker.type, <span class="string">'tertcontact_interdomain'</span> )
+0422     set( linker.node1, <span class="string">'edgecolor'</span>,color1);
+0423     set( linker.node2, <span class="string">'edgecolor'</span>,color2);
+0424     set( linker.side_line1, <span class="string">'facecolor'</span>, color1 );
+0425     set( linker.side_line2, <span class="string">'facecolor'</span>, color2 );
+0426     <span class="keyword">if</span> isfield( linker, <span class="string">'outarrow1'</span> ); set( linker.outarrow1, <span class="string">'facecolor'</span>,rescolor2 ); <span class="keyword">end</span>;  
+0427     <span class="keyword">if</span> isfield( linker, <span class="string">'outarrow2'</span> ); set( linker.outarrow2, <span class="string">'facecolor'</span>,rescolor1 ); <span class="keyword">end</span>;
+0428     <span class="keyword">if</span> isfield( linker, <span class="string">'outarrow_label1'</span> ); set( linker.outarrow_label1, <span class="string">'color'</span>,rescolor2 ); <span class="keyword">end</span>;  
+0429     <span class="keyword">if</span> isfield( linker, <span class="string">'outarrow_label2'</span> ); set( linker.outarrow_label2, <span class="string">'color'</span>,rescolor1 ); <span class="keyword">end</span>;
+0430     linker_visible = get(linker.node1,<span class="string">'visible'</span>);
+0431     <span class="keyword">if</span> isfield( linker, <span class="string">'show_split_arrows'</span> ) &amp; linker.show_split_arrows
+0432         set( linker.outarrow1, <span class="string">'visible'</span>, linker_visible );
+0433         set( linker.outarrow2, <span class="string">'visible'</span>, linker_visible );
+0434         set( linker.side_line1, <span class="string">'visible'</span>,<span class="string">'off'</span>);
+0435         set( linker.side_line2, <span class="string">'visible'</span>,<span class="string">'off'</span>);
+0436     <span class="keyword">else</span>
+0437         set( linker.outarrow1, <span class="string">'visible'</span>, <span class="string">'off'</span> );
+0438         set( linker.outarrow2, <span class="string">'visible'</span>, <span class="string">'off'</span> );
+0439         set( linker.side_line1, <span class="string">'visible'</span>,linker_visible );
+0440         set( linker.side_line2, <span class="string">'visible'</span>,linker_visible );
+0441     <span class="keyword">end</span>
+0442 <span class="keyword">else</span>
+0443     assert( strcmp( linker.type, <span class="string">'tertcontact_intradomain'</span> ) );
+0444     set( linker.line_handle, <span class="string">'linewidth'</span>, <a href="get_arrow_linewidth.html" class="code" title="function arrow_linewidth = get_arrow_linewidth( fontsize );">get_arrow_linewidth</a>( plot_settings.fontsize ) );
+0445     <span class="keyword">if</span> any( strcmp( tertiary_contact.associated_residues1, linker.residue1 ) ) <span class="comment">% in domain 1</span>
+0446         set( linker.node2, <span class="string">'edgecolor'</span>,color1);
+0447         set( linker.line_handle, <span class="string">'color'</span>,color1);
+0448     <span class="keyword">else</span> <span class="comment">% in domain 2</span>
+0449         assert( any( strcmp( tertiary_contact.associated_residues2, linker.residue1 ) ) );
+0450         set( linker.node2, <span class="string">'edgecolor'</span>,color2);
+0451         set( linker.line_handle, <span class="string">'color'</span>,color2);
+0452     <span class="keyword">end</span>
+0453 <span class="keyword">end</span>
+0454 
+0455 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0456 <a name="_sub12" href="#_subfunctions" class="code">function linker = update_tertiary_arrow_label( linker, arrow_label, default_plot_pos, arrow_visible, plot_settings );</a>
+0457 <span class="keyword">if</span> ~isfield( linker, arrow_label )
+0458     h = text( 0, 0, <span class="string">'.'</span> );
+0459     linker = setfield( linker, arrow_label, h );
+0460     setappdata( gca, linker.linker_tag, linker );
+0461 <span class="keyword">end</span>
+0462 tertiary_contact = getappdata( gca, linker.tertiary_contact );
+0463 h = getfield(linker, arrow_label);
+0464 <span class="keyword">if</span> ~isvalid( h ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0465 <span class="keyword">if</span> ~isfield( tertiary_contact, <span class="string">'name'</span> ) tertiary_contact = update_tertiary_contact_name( tertiary_contact, 0 ); <span class="keyword">end</span>;
+0466 set( h, <span class="string">'string'</span>, strrep(tertiary_contact.name,<span class="string">'_'</span>,<span class="string">'-'</span>), <span class="string">'Position'</span>, default_plot_pos, <span class="string">'visible'</span>,arrow_visible,<span class="string">'fontsize'</span>, plot_settings.fontsize*0.75 );
+0467 
+0468 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0469 <a name="_sub13" href="#_subfunctions" class="code">function linker = update_outarrow( linker, plot_pos, residue, outarrow_size, outarrow_fieldname, outarrow_label_fieldname, arrow_visible, plot_settings, which_res )</a>
+0470 <span class="keyword">if</span> (isfield(plot_settings,<span class="string">'image_representation'</span>) &amp; ~strcmp(plot_settings.image_representation,<span class="string">'image_boundary'</span>) ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0471 <span class="keyword">if</span> ~isfield( linker, outarrow_fieldname ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0472 
+0473 <span class="comment">% if this is the ligand side of an interdomain outarrow,</span>
+0474 <span class="comment">% only show arrow if its the first split one.</span>
+0475 <span class="keyword">if</span> which_res == 1 &amp;&amp; isfield( residue, <span class="string">'ligand_partners'</span> ) arrow_visible = <a href="#_sub14" class="code" title="subfunction  arrow_visible = check_first_linker_outarrow( linker, residue, arrow_visible );">check_first_linker_outarrow</a>( linker, residue, arrow_visible ); <span class="keyword">end</span>;
+0476 
+0477 <span class="keyword">if</span> ( which_res == 2 ) plot_pos = plot_pos(end:-1:1,:); <span class="keyword">end</span>;
+0478 <span class="keyword">if</span> isfield( residue, <span class="string">'image_handle'</span> )
+0479     [v,start_pos,pointing_out_of_polygon] = <a href="first_crossing.html" class="code" title="function [v,start_pos,pointing_out_of_polygon] = first_crossing( polygon, plot_pos );">first_crossing</a>( [get(residue.image_handle,<span class="string">'XData'</span>),get(residue.image_handle,<span class="string">'YData'</span>)], plot_pos );
+0480     <span class="keyword">if</span> ( ~pointing_out_of_polygon ) arrow_visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0481 <span class="keyword">else</span>
+0482     v = plot_pos(2,:) - plot_pos(1,:);  v = v /norm(v);
+0483     start_pos = plot_pos(1,:);
+0484 <span class="keyword">end</span>
+0485 outarrow = getfield( linker, outarrow_fieldname );
+0486 <span class="keyword">if</span> ~arrow_visible; set( outarrow, <span class="string">'visible'</span>,<span class="string">'on'</span> ); <span class="keyword">else</span>;  set( outarrow, <span class="string">'visible'</span>,<span class="string">'off'</span> ); <span class="keyword">end</span>;
+0487 <a href="#_sub5" class="code" title="subfunction update_arrow( h, ctr, v, spacing, add_stem );">update_arrow</a>( getfield(linker,outarrow_fieldname), start_pos + v*outarrow_size*0.5, v, outarrow_size, 1 );
+0488 linker = <a href="#_sub12" class="code" title="subfunction linker = update_tertiary_arrow_label( linker, arrow_label, default_plot_pos, arrow_visible, plot_settings );">update_tertiary_arrow_label</a>( linker, outarrow_label_fieldname, start_pos + v*outarrow_size, arrow_visible, plot_settings );
+0489 set_text_alignment( getfield( linker, outarrow_label_fieldname ), v );
+0490 
+0491 
+0492 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0493 <a name="_sub14" href="#_subfunctions" class="code">function  arrow_visible = check_first_linker_outarrow( linker, residue, arrow_visible );</a>
+0494 sister_linker_tags = get_tags( <span class="string">'Linker'</span>,<span class="string">'interdomain'</span>,residue.linkers );
+0495 <span class="keyword">for</span> i = 1:length( sister_linker_tags )
+0496     sister_linker = getappdata( gca, sister_linker_tags{i} );
+0497     <span class="keyword">if</span> ~isfield( sister_linker, <span class="string">'show_split_arrows'</span> ) || ~sister_linker.show_split_arrows; <span class="keyword">continue</span>; <span class="keyword">end</span>
+0498     <span class="keyword">if</span> ~strcmp(sister_linker.linker_tag,linker.linker_tag);
+0499         arrow_visible = <span class="string">'off'</span>;
+0500     <span class="keyword">end</span>
+0501     <span class="keyword">return</span>;
+0502 <span class="keyword">end</span>
+0503 
+0504 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0505 <a name="_sub15" href="#_subfunctions" class="code">function setting = show_tertiary_noncanonical_pair( linker, plot_settings )</a>
+0506 <span class="comment">% for show/hide interdomain_noncanonical_pairs</span>
+0507 setting = 1;
+0508 <span class="keyword">if</span> ~isfield( plot_settings, <span class="string">'show_tertiary_noncanonical_pairs'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0509 <span class="keyword">if</span> isfield(linker, <span class="string">'motif_tag'</span> ) &amp;&amp; isfield( plot_settings, <span class="string">'show_motifs'</span> ) &amp;&amp; plot_settings.show_motifs; <span class="keyword">return</span>; <span class="keyword">end</span>; <span class="comment">% over-ride if show_motifs and linker is part of motif.</span>
+0510 <span class="keyword">if</span> ~plot_settings.show_tertiary_noncanonical_pairs
+0511     <span class="keyword">if</span> isfield( linker, <span class="string">'tertiary_contact'</span> ) &amp;&amp; length(linker.tertiary_contact) &gt; 0
+0512         setting = 0;
+0513     <span class="keyword">end</span>
+0514 <span class="keyword">end</span>
+0515 <span class="keyword">return</span>;
+0516 
+0517 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0518 <a name="_sub16" href="#_subfunctions" class="code">function update_ligand_linker( linker, plot_settings );</a>
+0519 <span class="keyword">if</span> ~isfield( plot_settings, <span class="string">'show_ligand_linkers'</span> ); <span class="keyword">return</span>; <span class="keyword">end</span>;
+0520 <span class="keyword">if</span> ( plot_settings.show_ligand_linkers ) visible = <span class="string">'on'</span>; <span class="keyword">else</span>; visible = <span class="string">'off'</span>; <span class="keyword">end</span>;
+0521 set( linker.line_handle, <span class="string">'visible'</span>, visible );
+0522 residue1 = getappdata( gca, linker.residue1 );
+0523 residue2 = getappdata( gca, linker.residue2 );
+0524 linecolor = <a href="#_sub17" class="code" title="subfunction linecolor = get_single_color_for_ligand_linker( residue1, residue2 );">get_single_color_for_ligand_linker</a>( residue1, residue2 );
+0525 set( linker.line_handle, <span class="string">'color'</span>, linecolor );
+0526 
+0527 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0528 <a name="_sub17" href="#_subfunctions" class="code">function linecolor = get_single_color_for_ligand_linker( residue1, residue2 );</a>
+0529 <span class="keyword">if</span> isfield( residue1, <span class="string">'rgb_color'</span> ) rescolor1 = residue1.rgb_color; <span class="keyword">else</span>; rescolor1 = [0,0,0]; <span class="keyword">end</span>;
+0530 <span class="keyword">if</span> isfield( residue2, <span class="string">'rgb_color'</span> ) rescolor2 = residue2.rgb_color; <span class="keyword">else</span>; rescolor2 = [0,0,0]; <span class="keyword">end</span>;
+0531 linecolor = rescolor1;
+0532 <span class="keyword">if</span> all( rescolor1 == 0 ); linecolor = rescolor2; <span class="keyword">end</span>; 
+0533 linecolor = fade_color( linecolor );
+0534 
+0535     
+0536 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0537 <a name="_sub18" href="#_subfunctions" class="code">function linker = update_motif_linker( linker, plot_settings );</a>
+0538 assert( isfield( linker, <span class="string">'motif_tag'</span> ) );
+0539 <span class="keyword">if</span> ( ~isfield( plot_settings, <span class="string">'show_motifs'</span> ) || plot_settings.show_motifs == 0 );
+0540     <span class="keyword">if</span> isfield( linker, <span class="string">'motif_line_handle'</span> )
+0541         delete( linker.motif_line_handle );
+0542         linker = rmfield( linker, <span class="string">'motif_line_handle'</span> );
+0543     <span class="keyword">end</span>
+0544     <span class="keyword">return</span>;
+0545 <span class="keyword">end</span>
+0546     
+0547 <span class="keyword">if</span> ~isfield( linker, <span class="string">'motif_line_handle'</span> )
+0548    linker.motif_line_handle = plot( [0,0],[0,0],<span class="string">'k'</span>,<span class="string">'linewidth'</span>,0.5,<span class="string">'clipping'</span>,<span class="string">'off'</span> ); <span class="comment">% dummy for now -- will get redrawn later.</span>
+0549    [ rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels ] = get_rna_motif_info();
+0550    motif = gd( linker.motif_tag );
+0551    set( linker.motif_line_handle, <span class="string">'color'</span>, pymol_RGB(rna_motif_colors( motif.motif_type )) );
+0552    setappdata( linker.motif_line_handle, <span class="string">'layer_level'</span>, rna_motif_layer_levels( motif.motif_type ) );
+0553 <span class="keyword">end</span>
+0554 set( linker.motif_line_handle, <span class="string">'linewidth'</span>, 1.5*<a href="get_arrow_linewidth.html" class="code" title="function arrow_linewidth = get_arrow_linewidth( fontsize );">get_arrow_linewidth</a>( plot_settings.fontsize ) );
+0555 set( linker.motif_line_handle, <span class="string">'xdata'</span>, get(linker.line_handle, <span class="string">'xdata'</span> ) );
+0556 set( linker.motif_line_handle, <span class="string">'ydata'</span>, get(linker.line_handle, <span class="string">'ydata'</span> ) );
+0557 
+0558</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

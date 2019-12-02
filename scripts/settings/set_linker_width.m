@@ -9,7 +9,7 @@ function set_linker_width( fontsize )
 % (C) R. Das, Stanford University.
 
 arrow_linewidth = get_arrow_linewidth( fontsize );
-        
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Actually go and fix up lines
 tags = get_tags( 'Linker_','arrow');
@@ -17,5 +17,13 @@ for i = 1:length( tags );
     linker = getappdata( gca, tags{i} );
     if isfield( linker, 'line_handle' ) && isvalid( linker.line_handle )
         set( linker.line_handle, 'linewidth', arrow_linewidth );
+    end
+end
+
+tags = get_tags( 'Linker_');
+for i = 1:length( tags );
+    linker = getappdata( gca, tags{i} );
+    if isfield( linker, 'motif_line_handle' ) && isvalid( linker.motif_line_handle )        
+        set( linker.motif_line_handle, 'linewidth', 1.5*arrow_linewidth );
     end
 end

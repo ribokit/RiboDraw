@@ -1,6 +1,6 @@
 # RiboDraw Tutorial
 Layout of the P4-P6 tertiary structure, showing noncanonical pairs  
-_(C) Rhiju Das, Stanford University, 2018_
+_(C) Rhiju Das, Stanford University, 2018-2019_
 
 Please e-mail questions to `ribokit.info@gmail.com`
 
@@ -26,7 +26,7 @@ You can also try to follow the commands in [P4P6\_drawing\_commands.m](P4P6_draw
 ## Before you start the tutorial
 First, check out the [getting started](../README.md) page for RiboDraw & Rosetta installation instructions.
 
-You might want to sketch out a drawing of your RNA 3D structure. For this tutorial, we're choosing to make the P4-P6 RNA, for which numerous representations are already floating around the literature (or passed around labs), though most leave out noncanonical pairs. Here's a picture one 'legacy' diagram that was passed to me by Rick Russell, with some handwritten annotations:
+You might want to sketch out a drawing of your RNA 3D structure. For this tutorial, we're choosing to make the P4-P6 RNA, for which numerous representations are already floating around the literature (or passed around labs), though most leave out noncanonical pairs. Here's a picture of one 'legacy' diagram that was passed to me by Rick Russell, with some handwritten annotations:
 ![P4P6 legacy image](images/P4P6_Legacy_Secstruct.JPG)
 
 Note that the P5abc section (left-hand side of this legacy ) is flipped horizontally compared to the final drawing at the top of this document -- one of the nice things about RiboDraw is that such flipping is pretty straightforward to do at any stage, and this tutorial will illustrate that action.
@@ -35,9 +35,9 @@ Note that the P5abc section (left-hand side of this legacy ) is flipped horizont
 
 ### Step 0. Initialize the drawing
 
-You'll first need to download the 3D structure from the PDB, cut out the bits you want to look at, and run the `rna_motif` Rosetta application. 
+You'll first need to download the 3D structure from the PDB, cut out the bits you want to look at, and run the `rna_motif` Rosetta application. See [README.md](../README.md) for Rosetta instructions.  [If you don't have a 3D structure and don't care about noncanonical pairs, etc., you can get away with just having you sequence in a `.fasta` file and your stems defined in a `stems.txt` file; for examples of such a 'minimal' starting point, see [drawings/ribozymes/tC19Z/](https://github.com/ribokit/RiboDraw/tree/master/drawings/ribozymes/tC19Z).]
 
-I've alread done this in [1gid_RNAA.pdb](1gid_RNAA.pdb). This is chain A from the PDB entry [1GID](https://www.rcsb.org/structure/1gid). I think I used `make_rna_rosetta_ready.py` and `extract_chain.py` in Rosetta's `rna_tools`, but you can also just prepare a similar file by hand.
+I've already done the Rosetta `rna_motif` stuff in [1gid_RNAA.pdb](1gid_RNAA.pdb). This is chain A from the PDB entry [1GID](https://www.rcsb.org/structure/1gid). I think I used `make_rna_rosetta_ready.py` and `extract_chain.py` in Rosetta's `rna_tools`, but you can also just prepare a similar file by hand.
 
 Put this file into a new directory called `rna_motif`, and go into that directory:
 

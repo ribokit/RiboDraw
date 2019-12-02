@@ -13,10 +13,8 @@ function send_to_top_of_back( h  )
 % what we used to do. Extremely slow MATLAB function.
 %uistack( h, 'bottom' );
 
-setappdata( h, 'send_to_top_of_back', 1 );
-if isappdata( h, 'send_to_back' )
-    rmappdata(h,'send_to_back' );
-end
+%setappdata( h, 'send_to_back', 1 );
+setappdata( h, 'layer_level', 1 );
 
 
 

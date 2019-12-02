@@ -100,22 +100,23 @@ This function is called by:
 0029 <span class="comment">%</span>
 0030 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
 0031 
-0032 fid = fopen( base_pairs_file );
-0033 base_pairs = {};
-0034 <span class="keyword">while</span> ~feof( fid )
-0035     line = fgetl( fid );
-0036     <span class="comment">% C:QA:1347 C:QA:1599 W W C</span>
-0037     cols = strsplit( line, <span class="string">' '</span> );
-0038     <span class="keyword">if</span> length( cols ) &gt;= 5        
-0039         [base_pair.resnum1,base_pair.chain1,base_pair.segid1] = get_one_resnum_from_tag( cols{1} );
-0040         [base_pair.resnum2,base_pair.chain2,base_pair.segid2] = get_one_resnum_from_tag( cols{2} );
-0041         base_pair.edge1 = cols{3};
-0042         base_pair.edge2 = cols{4};
-0043         base_pair.LW_orientation = cols{5};
-0044         base_pairs = [base_pairs,ordered_base_pair(base_pair)];
-0045     <span class="keyword">end</span>;
-0046 <span class="keyword">end</span>
-0047</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0032 base_pairs = {};
+0033 <span class="keyword">if</span> ~exist( base_pairs_file, <span class="string">'file'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0034 fid = fopen( base_pairs_file );
+0035 <span class="keyword">while</span> ~feof( fid )
+0036     line = fgetl( fid );
+0037     <span class="comment">% C:QA:1347 C:QA:1599 W W C</span>
+0038     cols = strsplit( line, <span class="string">' '</span> );
+0039     <span class="keyword">if</span> length( cols ) &gt;= 5        
+0040         [base_pair.resnum1,base_pair.chain1,base_pair.segid1] = get_one_resnum_from_tag( cols{1} );
+0041         [base_pair.resnum2,base_pair.chain2,base_pair.segid2] = get_one_resnum_from_tag( cols{2} );
+0042         base_pair.edge1 = cols{3};
+0043         base_pair.edge2 = cols{4};
+0044         base_pair.LW_orientation = cols{5};
+0045         base_pairs = [base_pairs,ordered_base_pair(base_pair)];
+0046     <span class="keyword">end</span>;
+0047 <span class="keyword">end</span>
+0048</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

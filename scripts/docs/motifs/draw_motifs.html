@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draw_motifs</title>
+  <meta name="keywords" content="draw_motifs">
+  <meta name="description" content="draw_motifs( motifs );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html motifs -->
+<h1>draw_motifs
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>draw_motifs( motifs );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function draw_motifs( motifs ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> draw_motifs( motifs );
+ draw_motifs( motif );
+ draw_motifs( motif_string );
+
+  Draws motifs as rounded rectangles. Assumes order of residues
+    tracks what is in Rosetta core::scoring::rna::RNA_Motif function.
+
+  This function is in charge of drawing the initial
+   graphics if they don't exist, or revising them if
+   they already do exist.
+
+ INPUT:
+  motifs = cell of tag strings or motif objects, or a
+                     single one of those tag strings or motif objects
+
+ (C) R. Das, Stanford University, 2017</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="get_rna_motif_info.html" class="code" title="function [ rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels ] = get_rna_motif_info();">get_rna_motif_info</a>	</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+<h2><a name="_subfunctions"></a>SUBFUNCTIONS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="#_sub1" class="code">function motif = draw_motif( motif, plot_settings, rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels )</a></li><li><a href="#_sub2" class="code">function motif = draw_highlight_box_handles( motif, num_handles );</a></li><li><a href="#_sub3" class="code">function motif = draw_linker_handle( motif, motif_residue_sets );</a></li><li><a href="#_sub4" class="code">function box_pos = get_box_pos( res_tags, plot_settings )</a></li></ul>
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function draw_motifs( motifs );</a>
+0002 <span class="comment">% draw_motifs( motifs );</span>
+0003 <span class="comment">% draw_motifs( motif );</span>
+0004 <span class="comment">% draw_motifs( motif_string );</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">%  Draws motifs as rounded rectangles. Assumes order of residues</span>
+0007 <span class="comment">%    tracks what is in Rosetta core::scoring::rna::RNA_Motif function.</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%  This function is in charge of drawing the initial</span>
+0010 <span class="comment">%   graphics if they don't exist, or revising them if</span>
+0011 <span class="comment">%   they already do exist.</span>
+0012 <span class="comment">%</span>
+0013 <span class="comment">% INPUT:</span>
+0014 <span class="comment">%  motifs = cell of tag strings or motif objects, or a</span>
+0015 <span class="comment">%                     single one of those tag strings or motif objects</span>
+0016 <span class="comment">%</span>
+0017 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0018 
+0019 <span class="keyword">if</span> ~exist( <span class="string">'motifs'</span>, <span class="string">'var'</span> ); motifs = get_tags( <span class="string">'Motif'</span> ); <span class="keyword">end</span>
+0020 <span class="keyword">if</span> ~iscell( motifs ) &amp; ischar( motifs ); motifs = { motifs }; <span class="keyword">end</span>
+0021 
+0022 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0023 
+0024 [rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels ] = <a href="get_rna_motif_info.html" class="code" title="function [ rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels ] = get_rna_motif_info();">get_rna_motif_info</a>();
+0025 
+0026 spacing = plot_settings.spacing;
+0027 <span class="keyword">for</span> i = 1:length( motifs )
+0028     motif_tag = motifs{i};
+0029     <span class="keyword">if</span> ~isappdata( gca, motif_tag ); fprintf( <span class="string">'Problem with %s\n'</span>, motif_tag ); <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% some cleanup</span>
+0030     motif = getappdata( gca, motif_tag );
+0031     motif = <a href="#_sub1" class="code" title="subfunction motif = draw_motif( motif, plot_settings, rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels )">draw_motif</a>( motif, plot_settings, rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels );
+0032 <span class="keyword">end</span>
+0033 
+0034 <span class="comment">%%%%%%%%%%%%</span>
+0035 <a name="_sub1" href="#_subfunctions" class="code">function motif = draw_motif( motif, plot_settings, rna_motif_residue_sets, rna_motif_colors, rna_motif_layer_levels )</a>
+0036 
+0037 <span class="comment">% input is motif object.</span>
+0038 motif_residue_sets = rna_motif_residue_sets( motif.motif_type );
+0039 <span class="keyword">if</span> length( motif_residue_sets ) == 0; motif_residue_sets{1} = [1:length(motif.associated_residues)]; <span class="keyword">end</span>;
+0040 num_motifs = length( motif_residue_sets );
+0041 <span class="keyword">if</span> ~isfield( plot_settings, <span class="string">'show_motifs'</span> ) || plot_settings.show_motifs == 0; num_motifs = 0; <span class="keyword">end</span>; 
+0042 motif = <a href="#_sub2" class="code" title="subfunction motif = draw_highlight_box_handles( motif, num_handles );">draw_highlight_box_handles</a>( motif, num_motifs );
+0043 motif = <a href="#_sub3" class="code" title="subfunction motif = draw_linker_handle( motif, motif_residue_sets );">draw_linker_handle</a>( motif, motif_residue_sets );
+0044 
+0045 <span class="keyword">for</span> n = 1:num_motifs
+0046     set( motif.highlight_box_handles{n}, <span class="string">'facecolor'</span>, pymol_RGB( rna_motif_colors( motif.motif_type) ) );
+0047     set( motif.highlight_box_handles{n}, <span class="string">'position'</span>, <a href="#_sub4" class="code" title="subfunction box_pos = get_box_pos( res_tags, plot_settings )">get_box_pos</a>( motif.associated_residues( motif_residue_sets{n} ), plot_settings ) );
+0048     <span class="keyword">for</span> n = 1:length( motif.highlight_box_handles )
+0049         setappdata( motif.highlight_box_handles{n}, <span class="string">'layer_level'</span>, rna_motif_layer_levels( motif.motif_type ) ); 
+0050     <span class="keyword">end</span>
+0051 <span class="keyword">end</span>
+0052      <span class="comment">%[ motif.motif_type, rna_motif_colors( motif.motif_type) ]</span>
+0053 
+0054 
+0055 <span class="comment">%%%%%%%%%%%%%%%%%%%%%</span>
+0056 <a name="_sub2" href="#_subfunctions" class="code">function motif = draw_highlight_box_handles( motif, num_handles );</a>
+0057 <span class="comment">% adjust number of rounded rectangle graphics objects associated with motif</span>
+0058 <span class="comment">%   to match the number needed. Create or delete objects as necessary, and</span>
+0059 <span class="comment">%   if that occurs, update motif object in gca 'namespace'.</span>
+0060 <span class="keyword">if</span> ~exist( <span class="string">'num_handles'</span>, <span class="string">'var'</span> ) num_handles = 1 ; <span class="keyword">end</span>;
+0061 <span class="keyword">if</span> ~isfield( motif, <span class="string">'highlight_box_handles'</span> ) motif.highlight_box_handles = {}; <span class="keyword">end</span>;
+0062 
+0063 original_handles = motif.highlight_box_handles;
+0064 <span class="keyword">for</span> i = (length(  motif.highlight_box_handles )+1) :num_handles
+0065     motif.highlight_box_handles{i} = rectangle( <span class="string">'Position'</span>,<span class="keyword">...</span>
+0066         [0, 0,0,0],<span class="string">'curvature'</span>,[0.5 0.5],<span class="string">'edgecolor'</span>,<span class="string">'none'</span>,<span class="string">'facecolor'</span>,[0.5 0.5 1],<span class="string">'linewidth'</span>,1,<span class="string">'clipping'</span>,<span class="string">'off'</span> );
+0067 <span class="keyword">end</span>
+0068 <span class="keyword">for</span> i = (num_handles+1):length(  motif.highlight_box_handles )
+0069     h = motif.highlight_box_handles{i};
+0070     <span class="keyword">if</span> isvalid( h ) delete(h); <span class="keyword">end</span>;
+0071 <span class="keyword">end</span>
+0072 motif.highlight_box_handles = motif.highlight_box_handles(1:num_handles);
+0073     
+0074 <span class="keyword">if</span> length( original_handles ) ~= length( motif.highlight_box_handles )
+0075     <span class="keyword">if</span> ( num_handles == 0 &amp;&amp; isfield( motif, <span class="string">'highlight_box_handles'</span>) ) motif = rmfield( motif, <span class="string">'highlight_box_handles'</span> ); <span class="keyword">end</span>;
+0076     setappdata( gca, motif.motif_tag, motif );
+0077 <span class="keyword">end</span>
+0078 
+0079 
+0080 <span class="comment">%%%%%%%%%%%%%%%%%%%%%</span>
+0081 <a name="_sub3" href="#_subfunctions" class="code">function motif = draw_linker_handle( motif, motif_residue_sets );</a>
+0082 
+0083 <span class="comment">% if no rounded rectangles, no linkers either.</span>
+0084 <span class="keyword">if</span> ~isfield( motif, <span class="string">'highlight_box_handles'</span> ) 
+0085     <span class="keyword">if</span> isfield( motif, <span class="string">'linker_tag'</span> ); draw_linker( motif.linker_tag ); <span class="keyword">end</span>; <span class="comment">% will wipe it out</span>
+0086     <span class="keyword">return</span>; 
+0087 <span class="keyword">end</span>; 
+0088 <span class="keyword">if</span> length( motif_residue_sets ) &lt; 2; <span class="keyword">return</span>; <span class="keyword">end</span>;
+0089 assert( length( motif_residue_sets ) == 2 );
+0090 tags = get_tags( <span class="string">'Linker'</span> );
+0091 motif_residues{1} = motif.associated_residues( motif_residue_sets{1} );
+0092 motif_residues{2} = motif.associated_residues( motif_residue_sets{2} );
+0093 <span class="keyword">for</span> i = 1:length( tags )
+0094     linker = gd( tags{i} );
+0095     <span class="keyword">if</span> strcmp( linker.type, <span class="string">'arrow'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>;
+0096     <span class="keyword">if</span> ( ( any(strcmp( linker.residue1, motif_residues{1} ) ) &amp;&amp; <span class="keyword">...</span>
+0097             any(strcmp( linker.residue2, motif_residues{2} ) ) ) || <span class="keyword">...</span>
+0098          ( any(strcmp( linker.residue1, motif_residues{2} ) ) &amp;&amp; <span class="keyword">...</span>
+0099             any(strcmp( linker.residue2, motif_residues{1} ) ) ) )
+0100         motif.linker_tag = linker.linker_tag;
+0101         <span class="comment">% fprintf( [motif.motif_tag, ' ', motif.linker_tag, '\n'] );</span>
+0102         setappdata( gca, motif.motif_tag, motif );
+0103 
+0104         linker.motif_tag = motif.motif_tag;
+0105         setappdata( gca, linker.linker_tag, linker );
+0106         draw_linker( linker );
+0107         <span class="keyword">break</span>;
+0108     <span class="keyword">end</span>
+0109 <span class="keyword">end</span>
+0110     
+0111 <span class="comment">%%%%%%%%%%%%%%%%%%%%%</span>
+0112 <a name="_sub4" href="#_subfunctions" class="code">function box_pos = get_box_pos( res_tags, plot_settings ) </a>
+0113 [minpos, maxpos ] = get_minpos_maxpos( res_tags );  
+0114 <span class="keyword">if</span> length( minpos ) == 0; box_pos = [0,0,0,0];<span class="keyword">return</span>;<span class="keyword">end</span>;
+0115 spacing = 0.5 * plot_settings.spacing;
+0116 box_pos = [ minpos(1)-spacing, minpos(2)-spacing, <span class="keyword">...</span>
+0117     maxpos(1) - minpos(1)+2*spacing, maxpos(2) - minpos(2)+2*spacing ];
+0118     
+0119 
+0120</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

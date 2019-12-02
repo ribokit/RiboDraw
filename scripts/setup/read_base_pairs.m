@@ -29,8 +29,9 @@ function base_pairs = read_base_pairs( base_pairs_file )
 % 
 % (C) R. Das, Stanford University, 2017
 
-fid = fopen( base_pairs_file );
 base_pairs = {};
+if ~exist( base_pairs_file, 'file' ) return; end;
+fid = fopen( base_pairs_file );
 while ~feof( fid )
     line = fgetl( fid );
     % C:QA:1347 C:QA:1599 W W C 

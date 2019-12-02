@@ -129,7 +129,7 @@ This function is called by:
 0066 rgb = [0,0,0];
 0067 <span class="keyword">if</span> isfield( residue, <span class="string">'ligand_partners'</span> );
 0068     <span class="keyword">if</span> isfield( residue, <span class="string">'rgb_color'</span> ) rgb = residue.rgb_color; <span class="keyword">end</span>;
-0069     name = residue.nucleotide;
+0069     name = residue.name;
 0070     <span class="keyword">return</span>;
 0071 <span class="keyword">elseif</span> isfield( residue, <span class="string">'helix_tag'</span> )
 0072     helix = getappdata( gca, residue.helix_tag );
@@ -164,6 +164,6 @@ This function is called by:
 0101 name = sprintf( <span class="string">'%s%s%d'</span>, residue.chain,residue.segid, residue.resnum );
 0102 
 0103</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -28,6 +28,8 @@
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> [sequence,resnum,chains,segid, non_standard_residues] = get_sequence( fasta_file )
 
+   or if no fasta_file specified, get_sequence_from_drawing()
+
  read sequence from FASTA file ? and figure out chain/numbering from tags
  like &quot;A:4-89&quot; in header. Allow sequence to include &quot;Z[1MA]&quot; to define 
  non-standard residues, like in Rosetta.
@@ -50,56 +52,63 @@ This function is called by:
 <div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function [sequence,resnum,chains,segid,non_standard_residues] = get_sequence( fasta_file )</a>
 0002 <span class="comment">% [sequence,resnum,chains,segid, non_standard_residues] = get_sequence( fasta_file )</span>
 0003 <span class="comment">%</span>
-0004 <span class="comment">% read sequence from FASTA file ? and figure out chain/numbering from tags</span>
-0005 <span class="comment">% like &quot;A:4-89&quot; in header. Allow sequence to include &quot;Z[1MA]&quot; to define</span>
-0006 <span class="comment">% non-standard residues, like in Rosetta.</span>
-0007 <span class="comment">%</span>
-0008 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
-0009 
-0010 fasta = fastaread( fasta_file );
-0011 raw_sequence = fasta.Sequence;
-0012 
-0013 resnum = [];
-0014 chains = <span class="string">''</span>;
-0015 segid  = {};
-0016 sequence = <span class="string">''</span>;
-0017 non_standard_residues.index = [];
-0018 non_standard_residues.name  = {};
-0019 i = 1;
-0020 <span class="keyword">while</span> (i &lt;= length(raw_sequence) )
-0021     sequence = [sequence, raw_sequence(i) ];
-0022     <span class="keyword">if</span> i &lt; length( raw_sequence ) &amp; strcmp(raw_sequence(i+1),<span class="string">'['</span>)
-0023         non_standard_name = <span class="string">''</span>;
-0024         i = i+2;
-0025         <span class="keyword">while</span> ( i &lt;= length( raw_sequence ) &amp; ~strcmp(raw_sequence(i),<span class="string">']'</span> ) )
-0026             non_standard_name = [non_standard_name, raw_sequence(i)];
-0027             i = i+1;
-0028         <span class="keyword">end</span>
-0029         non_standard_residues.index = [non_standard_residues.index,length(sequence)];
-0030         non_standard_residues.name  = [non_standard_residues.name,non_standard_name];
-0031     <span class="keyword">end</span>
-0032     i = i+1;
-0033 <span class="keyword">end</span>
-0034 
-0035 cols = strsplit( fasta.Header );
-0036 <span class="keyword">for</span> i = 1:length( cols )
-0037     [tag_resnum, tag_chains, tag_segids, ok ] = get_resnum_from_tag( cols{i} );
-0038     <span class="keyword">if</span> ( ok ) 
-0039         resnum = [resnum, tag_resnum ];
-0040         chains = [chains, tag_chains ];
-0041         segid  = [segid, tag_segids ];
-0042     <span class="keyword">end</span>
-0043 <span class="keyword">end</span>
-0044 
-0045 <span class="keyword">if</span> length( chains ) == 0
-0046     chains = repmat( <span class="string">' '</span>, [1 length(sequence)] );
-0047     resnum = [1:length(sequence)];
-0048 <span class="keyword">end</span>
-0049 
-0050 assert( length( chains ) == length( resnum ) );
-0051 assert( length( chains ) == length( sequence ) );
-0052 assert( length( chains ) == length( segid ) );
-0053</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0004 <span class="comment">%   or if no fasta_file specified, get_sequence_from_drawing()</span>
+0005 <span class="comment">%</span>
+0006 <span class="comment">% read sequence from FASTA file ? and figure out chain/numbering from tags</span>
+0007 <span class="comment">% like &quot;A:4-89&quot; in header. Allow sequence to include &quot;Z[1MA]&quot; to define</span>
+0008 <span class="comment">% non-standard residues, like in Rosetta.</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
+0011 
+0012 <span class="keyword">if</span> ~exist( <span class="string">'fasta_file'</span> )
+0013     sequence = get_sequence_from_drawing();
+0014     <span class="keyword">return</span>;
+0015 <span class="keyword">end</span>
+0016 
+0017 fasta = fastaread( fasta_file );
+0018 raw_sequence = fasta.Sequence;
+0019 
+0020 resnum = [];
+0021 chains = <span class="string">''</span>;
+0022 segid  = {};
+0023 sequence = <span class="string">''</span>;
+0024 non_standard_residues.index = [];
+0025 non_standard_residues.name  = {};
+0026 i = 1;
+0027 <span class="keyword">while</span> (i &lt;= length(raw_sequence) )
+0028     sequence = [sequence, raw_sequence(i) ];
+0029     <span class="keyword">if</span> i &lt; length( raw_sequence ) &amp; strcmp(raw_sequence(i+1),<span class="string">'['</span>)
+0030         non_standard_name = <span class="string">''</span>;
+0031         i = i+2;
+0032         <span class="keyword">while</span> ( i &lt;= length( raw_sequence ) &amp; ~strcmp(raw_sequence(i),<span class="string">']'</span> ) )
+0033             non_standard_name = [non_standard_name, raw_sequence(i)];
+0034             i = i+1;
+0035         <span class="keyword">end</span>
+0036         non_standard_residues.index = [non_standard_residues.index,length(sequence)];
+0037         non_standard_residues.name  = [non_standard_residues.name,non_standard_name];
+0038     <span class="keyword">end</span>
+0039     i = i+1;
+0040 <span class="keyword">end</span>
+0041 
+0042 cols = strsplit( fasta.Header );
+0043 <span class="keyword">for</span> i = 1:length( cols )
+0044     [tag_resnum, tag_chains, tag_segids, ok ] = get_resnum_from_tag( cols{i} );
+0045     <span class="keyword">if</span> ( ok ) 
+0046         resnum = [resnum, tag_resnum ];
+0047         chains = [chains, tag_chains ];
+0048         segid  = [segid, tag_segids ];
+0049     <span class="keyword">end</span>
+0050 <span class="keyword">end</span>
+0051 
+0052 <span class="keyword">if</span> length( chains ) == 0
+0053     chains = repmat( <span class="string">' '</span>, [1 length(sequence)] );
+0054     resnum = [1:length(sequence)];
+0055 <span class="keyword">end</span>
+0056 
+0057 assert( length( chains ) == length( resnum ) );
+0058 assert( length( chains ) == length( sequence ) );
+0059 assert( length( chains ) == length( segid ) );
+0060</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

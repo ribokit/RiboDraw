@@ -1,7 +1,7 @@
 function set_fontsize( fontsize )
 % set_fontsize( fontsize )
 %
-% Set fontsize for nucleotides, and also rescale all other
+% Set fontsize for names, and also rescale all other
 %   text labels in figure based on hard-wired proportions.
 % 
 % (C) R. Das, Stanford University, 2017
@@ -17,7 +17,7 @@ for i = 1:length( residue_tags );
     residue = getappdata( gca, residue_tags{i} );
     if isfield( residue, 'handle' )
         set( residue.handle, 'fontsize', plot_settings.fontsize );
-        if ( length( residue.nucleotide ) > 1 ) set( residue.handle, 'fontsize', plot_settings.fontsize*4/5); end;
+        if ( length( residue.name ) > 1 ) set( residue.handle, 'fontsize', plot_settings.fontsize*4/5); end;
         if isfield( residue, 'image_boundary' ) 
             set( residue.handle, 'fontsize', plot_settings.fontsize*1.5  ); 
              if isfield( residue, 'label' ) set( residue.label, 'fontsize', plot_settings.fontsize*14/10  ); end;

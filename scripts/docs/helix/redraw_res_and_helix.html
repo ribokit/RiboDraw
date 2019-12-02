@@ -40,7 +40,7 @@
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-<li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li><li><a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>	relpos = get_relpos( plot_pos, helix )</li></ul>
+<li><a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>	relpos = get_relpos( plot_pos, helix )</li><li><a href="update_residue_after_helix_reassignment.html" class="code" title="function update_residue_after_helix_reassignment( residue )">update_residue_after_helix_reassignment</a>	update_residue_after_helix_reassignment( residue )</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
 <li><a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>	helix = draw_helix( helix )</li></ul>
@@ -95,122 +95,103 @@ This function is called by:
 0042 
 0043 helix = getappdata( gca, residue.helix_tag );
 0044 <a href="#_sub1" class="code" title="subfunction blink_helix_rectangle( helix );">blink_helix_rectangle</a>( helix );
-0045 
-0046 <span class="comment">% need to figure out rel_pos back in the 'frame' of the helix.</span>
-0047 <span class="comment">% for that I need to figure out rotation matrix.</span>
-0048 residue.relpos = <a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>( residue.plot_pos, helix );
-0049 linker_tags = residue.linkers;
-0050 <span class="keyword">for</span> k = 1 : length( linker_tags )
-0051     linker = getappdata( gca, linker_tags{k} );
-0052     <span class="keyword">if</span> ~isfield( linker, <span class="string">'line_handle'</span> ) <span class="keyword">continue</span>; <span class="keyword">end</span>; <span class="comment">% may not have been rendered yet.</span>
-0053     <span class="keyword">if</span> strcmp(linker.residue1, res_tag )
-0054         n1 = size(linker.relpos1,1);
-0055         linker.relpos1 = <a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>( linker.plot_pos(1:n1,:), helix );
-0056     <span class="keyword">end</span>
-0057     <span class="keyword">if</span> strcmp(linker.residue2, res_tag )
-0058         n2 = size(linker.relpos2,1);
-0059         linker.relpos2 = <a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>( linker.plot_pos(end-n2+1:<span class="keyword">end</span>,:), helix );
-0060     <span class="keyword">end</span>
-0061     setappdata( gca, linker_tags{k}, linker );
-0062 <span class="keyword">end</span>
-0063 <span class="keyword">if</span> isfield( residue, <span class="string">'label_relpos'</span> ); 
-0064     label_plot_pos = label_plot_pos + residue.plot_pos - original_plot_pos;
-0065     residue.label_relpos = <a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>( label_plot_pos, helix );
-0066 <span class="keyword">end</span>
-0067 setappdata( gca, res_tag, residue );
-0068 <a href="draw_helix.html" class="code" title="function helix = draw_helix( helix )">draw_helix</a>( helix );
-0069 
-0070 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0071 <a name="_sub1" href="#_subfunctions" class="code">function blink_helix_rectangle( helix );</a>
-0072 <span class="comment">% provide some visual feedback to user.</span>
-0073 <span class="keyword">if</span> isfield(helix,<span class="string">'rectangle'</span>)
-0074     color = get( helix.rectangle, <span class="string">'edgecolor'</span> );
-0075     linew = get( helix.rectangle,<span class="string">'linewidth'</span>);
-0076     set( helix.rectangle,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>,<span class="string">'linewidth'</span>,linew*3 );
-0077     pause(0.1)
-0078     set( helix.rectangle,<span class="string">'edgecolor'</span>,color,<span class="string">'linewidth'</span>,linew );
-0079 <span class="keyword">end</span>
+0045 <span class="keyword">if</span> isfield( residue, <span class="string">'label_relpos'</span> ); 
+0046     label_plot_pos = label_plot_pos + residue.plot_pos - original_plot_pos;
+0047     residue.label_relpos = <a href="get_relpos.html" class="code" title="function relpos = get_relpos( plot_pos, helix )">get_relpos</a>( label_plot_pos, helix );
+0048 <span class="keyword">end</span>
+0049 <a href="update_residue_after_helix_reassignment.html" class="code" title="function update_residue_after_helix_reassignment( residue )">update_residue_after_helix_reassignment</a>( residue );
+0050 
+0051 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0052 <a name="_sub1" href="#_subfunctions" class="code">function blink_helix_rectangle( helix );</a>
+0053 <span class="comment">% provide some visual feedback to user.</span>
+0054 <span class="keyword">if</span> isfield(helix,<span class="string">'rectangle'</span>)
+0055     color = get( helix.rectangle, <span class="string">'edgecolor'</span> );
+0056     linew = get( helix.rectangle,<span class="string">'linewidth'</span>);
+0057     set( helix.rectangle,<span class="string">'edgecolor'</span>,<span class="string">'k'</span>,<span class="string">'linewidth'</span>,linew*3 );
+0058     pause(0.1)
+0059     set( helix.rectangle,<span class="string">'edgecolor'</span>,color,<span class="string">'linewidth'</span>,linew );
+0060 <span class="keyword">end</span>
+0061 
+0062 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0063 <a name="_sub2" href="#_subfunctions" class="code">function [residue,switched_helix] = reassign_parent_helix( residue )</a>
+0064 <span class="comment">% If residue is far from parent helix and inside the rectangle for</span>
+0065 <span class="comment">% another helix, switch its parent.</span>
+0066 <span class="comment">%</span>
+0067 <span class="comment">% Relies on plotpos.</span>
+0068 <span class="comment">%</span>
+0069 <span class="comment">% Does *not* handle relpos</span>
+0070 <span class="comment">%</span>
+0071 <span class="comment">% possible helix parents -- judge based on sequence.</span>
+0072 <span class="comment">%</span>
+0073 
+0074      
+0075 switched_helix = 0;
+0076 
+0077 <span class="comment">% Don't do this for ligands if helix controls are off</span>
+0078 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0079 <span class="keyword">if</span> ~plot_settings.show_helix_controls &amp;&amp; isfield( residue, <span class="string">'ligand_partners'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
 0080 
-0081 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0082 <a name="_sub2" href="#_subfunctions" class="code">function [residue,switched_helix] = reassign_parent_helix( residue )</a>
-0083 <span class="comment">% If residue is far from parent helix and inside the rectangle for</span>
-0084 <span class="comment">% another helix, switch its parent.</span>
-0085 <span class="comment">%</span>
-0086 <span class="comment">% Relies on plotpos.</span>
-0087 <span class="comment">%</span>
-0088 <span class="comment">% Does *not* handle relpos</span>
-0089 <span class="comment">%</span>
-0090 <span class="comment">% possible helix parents -- judge based on sequence.</span>
-0091 <span class="comment">%</span>
-0092 
-0093      
-0094 switched_helix = 0;
-0095 
-0096 <span class="comment">% Don't do this for ligands if helix controls are off</span>
-0097 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0098 <span class="keyword">if</span> ~plot_settings.show_helix_controls &amp;&amp; isfield( residue, <span class="string">'ligand_partners'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
-0099 
-0100 <span class="comment">% if the residue was moved into its current helix, don't do anything...</span>
-0101 current_helix = getappdata( gca, residue.helix_tag );
-0102 <span class="keyword">if</span> ( <a href="#_sub3" class="code" title="subfunction ok = check_in_helix_rectangle( residue, helix )">check_in_helix_rectangle</a>( residue, current_helix ) )
-0103     switched_helix = 1;
-0104     <span class="keyword">return</span>;
-0105 <span class="keyword">end</span>
-0106 
-0107 stems = <a href="#_sub4" class="code" title="subfunction stems = get_stems();">get_stems</a>();   
-0108 <span class="keyword">for</span> n = 1:length( stems )
-0109     other_helix = stems{n};
-0110     <span class="keyword">if</span> ( <a href="#_sub3" class="code" title="subfunction ok = check_in_helix_rectangle( residue, helix )">check_in_helix_rectangle</a>( residue, other_helix ) )
-0111         switched_helix = 1;
-0112         <span class="comment">% do the switch</span>
-0113         current_helix.associated_residues = setdiff( current_helix.associated_residues, residue.res_tag );
-0114         setappdata( gca, current_helix.helix_tag, current_helix );
-0115         
-0116         other_helix.associated_residues = sort( [other_helix.associated_residues, residue.res_tag] );
-0117         setappdata( gca, other_helix.helix_tag, other_helix );
-0118         
-0119         residue.helix_tag = other_helix.helix_tag;
-0120          <span class="keyword">return</span>;
-0121     <span class="keyword">end</span>
-0122 <span class="keyword">end</span>
-0123 
-0124 
-0125 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0126 <span class="comment">% function ok = check_neighbor( residue, helix )</span>
-0127 <span class="comment">% ok = 0;</span>
-0128 <span class="comment">% plot_settings = getappdata( gca, 'plot_settings' );</span>
-0129 <span class="comment">% nbr_spacing = plot_settings.bp_spacing;</span>
-0130 <span class="comment">% for i = 1:length( helix.associated_residues )</span>
-0131 <span class="comment">%     other_res_tag = helix.associated_residues{i};</span>
-0132 <span class="comment">%     if strcmp( other_res_tag, residue.res_tag ) continue; end;</span>
-0133 <span class="comment">%     other_residue = getappdata( gca, other_res_tag);</span>
-0134 <span class="comment">%     dist = norm( other_residue.plot_pos - residue.plot_pos );</span>
-0135 <span class="comment">%     if ( dist &lt;= nbr_spacing )</span>
-0136 <span class="comment">%         ok = 1;</span>
-0137 <span class="comment">%         return;</span>
-0138 <span class="comment">%     end</span>
-0139 <span class="comment">% end</span>
-0140 
-0141 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0142 <a name="_sub3" href="#_subfunctions" class="code">function ok = check_in_helix_rectangle( residue, helix )</a>
-0143 <span class="keyword">if</span> ~isfield( helix, <span class="string">'rectangle'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
-0144 pos = get( helix.rectangle, <span class="string">'Position'</span> );
-0145 ok = ( <span class="keyword">...</span>
-0146     residue.plot_pos(1) &gt;= pos(1) &amp; <span class="keyword">...</span>
-0147     residue.plot_pos(1) &lt;= pos(1)+pos(3) &amp; <span class="keyword">...</span>
-0148     residue.plot_pos(2) &gt;= pos(2) &amp; <span class="keyword">...</span>
-0149     residue.plot_pos(2) &lt;= pos(2)+pos(4) );
-0150 
-0151 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
-0152 <a name="_sub4" href="#_subfunctions" class="code">function stems = get_stems();</a>
-0153 vals = getappdata( gca );
-0154 objnames = fields( vals );
-0155 stems = {};
-0156 <span class="keyword">for</span> n = 1:length( objnames )
-0157     <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
-0158         stems = [stems, getappdata( gca, objnames{n} ) ];
-0159     <span class="keyword">end</span>
-0160 <span class="keyword">end</span></pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0081 <span class="comment">% if the residue was moved into its current helix, don't do anything...</span>
+0082 current_helix = getappdata( gca, residue.helix_tag );
+0083 <span class="keyword">if</span> ( <a href="#_sub3" class="code" title="subfunction ok = check_in_helix_rectangle( residue, helix )">check_in_helix_rectangle</a>( residue, current_helix ) )
+0084     switched_helix = 1;
+0085     <span class="keyword">return</span>;
+0086 <span class="keyword">end</span>
+0087 
+0088 stems = <a href="#_sub4" class="code" title="subfunction stems = get_stems();">get_stems</a>();   
+0089 <span class="keyword">for</span> n = 1:length( stems )
+0090     other_helix = stems{n};
+0091     <span class="keyword">if</span> ( <a href="#_sub3" class="code" title="subfunction ok = check_in_helix_rectangle( residue, helix )">check_in_helix_rectangle</a>( residue, other_helix ) )
+0092         switched_helix = 1;
+0093         <span class="comment">% do the switch</span>
+0094         current_helix.associated_residues = setdiff( current_helix.associated_residues, residue.res_tag );
+0095         setappdata( gca, current_helix.helix_tag, current_helix );
+0096         
+0097         other_helix.associated_residues = sort( [other_helix.associated_residues, residue.res_tag] );
+0098         setappdata( gca, other_helix.helix_tag, other_helix );
+0099         
+0100         residue.helix_tag = other_helix.helix_tag;
+0101          <span class="keyword">return</span>;
+0102     <span class="keyword">end</span>
+0103 <span class="keyword">end</span>
+0104 
+0105 
+0106 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0107 <span class="comment">% function ok = check_neighbor( residue, helix )</span>
+0108 <span class="comment">% ok = 0;</span>
+0109 <span class="comment">% plot_settings = getappdata( gca, 'plot_settings' );</span>
+0110 <span class="comment">% nbr_spacing = plot_settings.bp_spacing;</span>
+0111 <span class="comment">% for i = 1:length( helix.associated_residues )</span>
+0112 <span class="comment">%     other_res_tag = helix.associated_residues{i};</span>
+0113 <span class="comment">%     if strcmp( other_res_tag, residue.res_tag ) continue; end;</span>
+0114 <span class="comment">%     other_residue = getappdata( gca, other_res_tag);</span>
+0115 <span class="comment">%     dist = norm( other_residue.plot_pos - residue.plot_pos );</span>
+0116 <span class="comment">%     if ( dist &lt;= nbr_spacing )</span>
+0117 <span class="comment">%         ok = 1;</span>
+0118 <span class="comment">%         return;</span>
+0119 <span class="comment">%     end</span>
+0120 <span class="comment">% end</span>
+0121 
+0122 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0123 <a name="_sub3" href="#_subfunctions" class="code">function ok = check_in_helix_rectangle( residue, helix )</a>
+0124 <span class="keyword">if</span> ~isfield( helix, <span class="string">'rectangle'</span> ) <span class="keyword">return</span>; <span class="keyword">end</span>;
+0125 pos = get( helix.rectangle, <span class="string">'Position'</span> );
+0126 ok = ( <span class="keyword">...</span>
+0127     residue.plot_pos(1) &gt;= pos(1) &amp; <span class="keyword">...</span>
+0128     residue.plot_pos(1) &lt;= pos(1)+pos(3) &amp; <span class="keyword">...</span>
+0129     residue.plot_pos(2) &gt;= pos(2) &amp; <span class="keyword">...</span>
+0130     residue.plot_pos(2) &lt;= pos(2)+pos(4) );
+0131 
+0132 <span class="comment">%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</span>
+0133 <a name="_sub4" href="#_subfunctions" class="code">function stems = get_stems();</a>
+0134 vals = getappdata( gca );
+0135 objnames = fields( vals );
+0136 stems = {};
+0137 <span class="keyword">for</span> n = 1:length( objnames )
+0138     <span class="keyword">if</span> ~isempty( strfind( objnames{n}, <span class="string">'Helix_'</span> ) );
+0139         stems = [stems, getappdata( gca, objnames{n} ) ];
+0140     <span class="keyword">end</span>
+0141 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="box"><strong>set_artboards();</strong></div>
 
 <h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="box"><strong>function set_artboards(); </strong></div>
+<div class="box"><strong>function set_artboards( N ); </strong></div>
 
 <h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 <div class="fragment"><pre class="comment"> set_artboards();
@@ -31,77 +31,91 @@
  Reset the axis limits of the figure based on the minimum and
   maximum position of the residues. (Plus an extra +/- 2.5% margin.)
 
- (C) R. Das, Stanford University, 2017</pre></div>
+ Inputs:
+
+   N = number of times to rerun [default 2]
+
+ (C) R. Das, Stanford University, 2017-2019</pre></div>
 
 <!-- crossreference -->
 <h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
 This function calls:
 <ul style="list-style-image:url(../matlabicon.gif)">
-</ul>
+<li><a href="set_artboards.html" class="code" title="function set_artboards( N );">set_artboards</a>	set_artboards();</li></ul>
 This function is called by:
 <ul style="list-style-image:url(../matlabicon.gif)">
-</ul>
+<li><a href="set_artboards.html" class="code" title="function set_artboards( N );">set_artboards</a>	set_artboards();</li><li><a href="set_default_theme.html" class="code" title="function set_default_theme();">set_default_theme</a>	</li></ul>
 <!-- crossreference -->
 
 
 
 <h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
-<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_artboards();</a>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function set_artboards( N );</a>
 0002 <span class="comment">% set_artboards();</span>
 0003 <span class="comment">%</span>
 0004 <span class="comment">% Reset the axis limits of the figure based on the minimum and</span>
 0005 <span class="comment">%  maximum position of the residues. (Plus an extra +/- 2.5% margin.)</span>
 0006 <span class="comment">%</span>
-0007 <span class="comment">% (C) R. Das, Stanford University, 2017</span>
-0008 
-0009 all_pos = [];
-0010 
-0011 res_tags = get_tags( <span class="string">'Residue_'</span> );
-0012 <span class="keyword">for</span> i = 1:length( res_tags )
-0013     residue = getappdata( gca, res_tags{i} );
-0014     <span class="keyword">if</span> isfield( residue, <span class="string">'plot_pos'</span> )
-0015         all_pos = [all_pos; residue.plot_pos ];
-0016     <span class="keyword">end</span>
-0017 <span class="keyword">end</span>
-0018 <span class="comment">%</span>
-0019 <span class="comment">% Maybe we should restore this (at least look over visible linkers) and</span>
-0020 <span class="comment">%  also look over text labels.</span>
-0021 <span class="comment">%</span>
-0022 <span class="comment">%     if isfield( residue, 'linkers' )</span>
-0023 <span class="comment">%         for j = 1:length( residue.linkers )</span>
-0024 <span class="comment">%             linker = getappdata( gca, residue.linkers{j} );</span>
-0025 <span class="comment">%             if isfield( linker, 'vtx' )</span>
-0026 <span class="comment">%                 for k = 1:length( linker.vtx )</span>
-0027 <span class="comment">%                     vtx_x = get( linker.vtx{k}, 'XData' );</span>
-0028 <span class="comment">%                     vtx_y = get( linker.vtx{k}, 'YData' );</span>
-0029 <span class="comment">%                     all_pos = [all_pos; vtx_x, vtx_y ];</span>
-0030 <span class="comment">%                 end</span>
-0031 <span class="comment">%             end</span>
-0032 <span class="comment">%         end</span>
-0033 <span class="comment">%     end</span>
-0034 
-0035 tags = fields(getappdata(gca));
-0036 <span class="keyword">for</span> i = 1:length( tags )
-0037      obj = getappdata( gca, tags{i} );
-0038      <span class="keyword">if</span> isfield( obj, <span class="string">'label'</span> ) 
-0039          <span class="keyword">if</span> strcmp(get(obj.label,<span class="string">'visible'</span>),<span class="string">'on'</span>)
-0040              label_pos =  get(obj.label,<span class="string">'position'</span>);
-0041              all_pos = [all_pos; label_pos(1:2)];
-0042          <span class="keyword">end</span>
-0043      <span class="keyword">end</span>
-0044  <span class="keyword">end</span>
-0045 
-0046 min_pos = min( all_pos );
-0047 max_pos = max( all_pos );
-0048 dims = (max_pos - min_pos);
-0049 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
-0050 fontsize_in_axis_units = plot_settings.fontsize / get_fontsize_over_axisunits();
-0051 nudge_pos = max( dims*0.025, 2*fontsize_in_axis_units * [1 1]);
-0052 axes =  [min_pos - nudge_pos; min_pos + dims + nudge_pos ];
-0053  
-0054 axis( reshape( axes, [1 4] ) );
-0055 update_artboards();
-0056 update_graphics_size();</pre></div>
-<hr><address>Generated on Sat 14-Jul-2018 16:23:59 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+0007 <span class="comment">% Inputs:</span>
+0008 <span class="comment">%</span>
+0009 <span class="comment">%   N = number of times to rerun [default 2]</span>
+0010 <span class="comment">%</span>
+0011 <span class="comment">% (C) R. Das, Stanford University, 2017-2019</span>
+0012 
+0013 all_pos = [];
+0014 <span class="keyword">if</span> ~exist( <span class="string">'N'</span>, <span class="string">'var'</span> ); N = 2; <span class="keyword">end</span>
+0015 
+0016 res_tags = get_tags( <span class="string">'Residue_'</span> );
+0017 <span class="keyword">for</span> i = 1:length( res_tags )
+0018     residue = getappdata( gca, res_tags{i} );
+0019     <span class="keyword">if</span> isfield( residue, <span class="string">'plot_pos'</span> )
+0020         all_pos = [all_pos; residue.plot_pos ];
+0021         <span class="keyword">if</span> isfield( <span class="string">'residue'</span>, <span class="string">'tick_label'</span> ) &amp;&amp; isfield( residue.tick_label, <span class="string">'labelpos'</span> )
+0022             all_pos = [all_pos; labelpos ];
+0023         <span class="keyword">end</span>
+0024     <span class="keyword">end</span>
+0025 <span class="keyword">end</span>
+0026 <span class="comment">%</span>
+0027 <span class="comment">% Maybe we should restore this (at least look over visible linkers) and</span>
+0028 <span class="comment">%  also look over text labels.</span>
+0029 <span class="comment">%</span>
+0030 <span class="comment">%     if isfield( residue, 'linkers' )</span>
+0031 <span class="comment">%         for j = 1:length( residue.linkers )</span>
+0032 <span class="comment">%             linker = getappdata( gca, residue.linkers{j} );</span>
+0033 <span class="comment">%             if isfield( linker, 'vtx' )</span>
+0034 <span class="comment">%                 for k = 1:length( linker.vtx )</span>
+0035 <span class="comment">%                     vtx_x = get( linker.vtx{k}, 'XData' );</span>
+0036 <span class="comment">%                     vtx_y = get( linker.vtx{k}, 'YData' );</span>
+0037 <span class="comment">%                     all_pos = [all_pos; vtx_x, vtx_y ];</span>
+0038 <span class="comment">%                 end</span>
+0039 <span class="comment">%             end</span>
+0040 <span class="comment">%         end</span>
+0041 <span class="comment">%     end</span>
+0042 
+0043 tags = fields(getappdata(gca));
+0044 <span class="keyword">for</span> i = 1:length( tags )
+0045     obj = getappdata( gca, tags{i} );
+0046     <span class="keyword">if</span> isfield( obj, <span class="string">'label'</span> )
+0047         <span class="keyword">if</span> strcmp(get(obj.label,<span class="string">'visible'</span>),<span class="string">'on'</span>)
+0048             label_pos =  get(obj.label,<span class="string">'position'</span>);
+0049             all_pos = [all_pos; label_pos(1:2)];
+0050         <span class="keyword">end</span>
+0051     <span class="keyword">end</span>
+0052 <span class="keyword">end</span>
+0053 
+0054 min_pos = min( all_pos );
+0055 max_pos = max( all_pos );
+0056 dims = (max_pos - min_pos);
+0057 plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> );
+0058 fontsize_in_axis_units = plot_settings.fontsize / get_fontsize_over_axisunits();
+0059 nudge_pos = max( dims*0.025, 2.5*fontsize_in_axis_units * [1 1]);
+0060 axes =  [min_pos - nudge_pos; min_pos + dims + nudge_pos ];
+0061 
+0062 axis( reshape( axes, [1 4] ) );
+0063 update_artboards();
+0064 update_graphics_size();
+0065 
+0066 <span class="keyword">if</span> ( N &gt; 1 ); <a href="set_artboards.html" class="code" title="function set_artboards( N );">set_artboards</a>( N - 1 ); <span class="keyword">end</span>;</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
 </body>
 </html>

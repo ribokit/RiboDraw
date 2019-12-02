@@ -13,7 +13,7 @@ for i = 1:length(ligands)
     ligand = ligands{i};
     ligand.resnum = 0; % fitting ligand into 'residue' framework.
     ligand.res_tag = sprintf( 'Residue_%s%s%d', ligand.chain,ligand.segid,ligand.resnum);
-    ligand.nucleotide = [ligand.name,' ',ligand.chain,ligand.segid];
+    ligand.name = [ligand.original_name,' ',ligand.chain,ligand.segid];
 
     % get this ligand into global data (gca)
     if ~isappdata( gca, ligand.res_tag ) setappdata( gca, ligand.res_tag, ligand ); end

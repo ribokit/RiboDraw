@@ -12,7 +12,6 @@ plot_settings = getappdata( gca, 'plot_settings' );
 plot_settings.show_stacks = setting;
 setappdata( gca, 'plot_settings', plot_settings );
 
-if setting; visible = 'on'; else; visible = 'off'; end;
 linker_tags = get_tags( 'Linker_', 'stack' );
 for i = 1:length( linker_tags )
     draw_linker( linker_tags{i} );

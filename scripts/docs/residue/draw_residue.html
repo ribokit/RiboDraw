@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of draw_residue</title>
+  <meta name="keywords" content="draw_residue">
+  <meta name="description" content="residue = draw_residue( residue );">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- menu.html residue -->
+<h1>draw_residue
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>residue = draw_residue( residue );</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="box"><strong>function     residue = draw_residue( residue, plot_settings ); </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre class="comment"> residue = draw_residue( residue );
+
+  Render residue &amp; any fill circles and rings.
+  Called by DRAW_HELIX
+
+  INPUT:
+    residue = residue object
+
+ (C) R. Das, Stanford University 2019.</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="draw_fill_and_ring_circle.html" class="code" title="function residue = draw_fill_and_ring_circle( residue, plot_settings )">draw_fill_and_ring_circle</a>	residue = draw_fill_and_ring_circle( residue, plot_settings )</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../matlabicon.gif)">
+<li><a href="display_IUPAC_names.html" class="code" title="function display_IUPAC_names( residue_string, IUPAC_symbols )">display_IUPAC_names</a>	display_IUPAC_names( residue_string, IUPAC_symbols )</li><li><a href="draw_residues.html" class="code" title="function     draw_residues();">draw_residues</a>	draw_residues();</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../up.png"></a></h2>
+<div class="fragment"><pre>0001 <a name="_sub0" href="#_subfunctions" class="code">function     residue = draw_residue( residue, plot_settings );</a>
+0002 <span class="comment">% residue = draw_residue( residue );</span>
+0003 <span class="comment">%</span>
+0004 <span class="comment">%  Render residue &amp; any fill circles and rings.</span>
+0005 <span class="comment">%  Called by DRAW_HELIX</span>
+0006 <span class="comment">%</span>
+0007 <span class="comment">%  INPUT:</span>
+0008 <span class="comment">%    residue = residue object</span>
+0009 <span class="comment">%</span>
+0010 <span class="comment">% (C) R. Das, Stanford University 2019.</span>
+0011 <span class="keyword">if</span> ~exist( <span class="string">'plot_settings'</span>,<span class="string">'var'</span> ) plot_settings = getappdata( gca, <span class="string">'plot_settings'</span> ); <span class="keyword">end</span>;
+0012 <span class="keyword">if</span> ~isfield( residue, <span class="string">'handle'</span> ) | ~isvalid( residue.handle )
+0013     residue.handle = text( <span class="keyword">...</span>
+0014         0, 0,<span class="keyword">...</span>
+0015         residue.name,<span class="keyword">...</span>
+0016         <span class="string">'fontsize'</span>, plot_settings.fontsize, <span class="keyword">...</span>
+0017         <span class="string">'fontname'</span>,<span class="string">'helvetica'</span>,<span class="string">'horizontalalign'</span>,<span class="string">'center'</span>,<span class="string">'verticalalign'</span>,<span class="string">'middle'</span>,<span class="keyword">...</span>
+0018         <span class="string">'clipping'</span>,<span class="string">'off'</span>);
+0019     <span class="keyword">if</span> isfield( plot_settings, <span class="string">'boldface'</span> )
+0020         <span class="keyword">if</span> plot_settings.boldface == 1; fontweight = <span class="string">'bold'</span>; <span class="keyword">else</span>; fontweight = <span class="string">'normal'</span>; <span class="keyword">end</span>;
+0021         set( residue.handle, <span class="string">'fontweight'</span>,fontweight );
+0022     <span class="keyword">end</span>
+0023 <span class="keyword">end</span>
+0024 <span class="keyword">if</span> ( plot_settings.fontsize ~= get( residue.handle, <span class="string">'fontsize'</span> ) ) set( residue.handle, <span class="string">'fontsize'</span>, plot_settings.fontsize ); <span class="keyword">end</span>;
+0025 h = residue.handle;
+0026 <span class="keyword">if</span> ( length( residue.name ) &gt; 1 ) set( h, <span class="string">'fontsize'</span>, plot_settings.fontsize*4/5); <span class="keyword">end</span>;
+0027 <span class="keyword">if</span> ( ~strcmp(residue.name, h.String) ) set( h, <span class="string">'String'</span>, residue.name); <span class="keyword">end</span>;
+0028 <span class="keyword">if</span> isfield( residue, <span class="string">'rgb_color'</span> ) set(h,<span class="string">'color'</span>,residue.rgb_color ); <span class="keyword">end</span>;
+0029 <span class="keyword">if</span> any(isfield( residue, {<span class="string">'image_boundary'</span>,<span class="string">'image_radius'</span>} )); residue = draw_image( residue, plot_settings ); <span class="keyword">end</span>
+0030 <span class="keyword">if</span> any(isfield( residue, {<span class="string">'fill_color'</span>,<span class="string">'ring_color'</span>} )); residue = <a href="draw_fill_and_ring_circle.html" class="code" title="function residue = draw_fill_and_ring_circle( residue, plot_settings )">draw_fill_and_ring_circle</a>( residue, plot_settings ); <span class="keyword">end</span>
+0031 setappdata( gca, residue.res_tag, residue );</pre></div>
+<hr><address>Generated on Thu 31-Oct-2019 15:46:50 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

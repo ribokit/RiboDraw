@@ -11,7 +11,7 @@ setappdata( gca, 'plot_settings', plot_settings );
 linker_tags = get_tags( 'Linker_' );
 for i = 1:length( linker_tags );
     linker = getappdata( gca, linker_tags{i} );
-    if ~isfield( linker, 'line_handle' ); continue; end;
+    if ~isfield( linker, 'line_handle' ) | ~isvalid( linker.line_handle); continue; end;
     set( linker.line_handle, 'color', color );
 end
 

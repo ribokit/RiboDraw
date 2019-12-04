@@ -65,7 +65,6 @@ for i = 1:length(res_tags)
 
     residue.helix_tag = stems{n}.helix_tag;
     setappdata( gca, res_tag, residue );
-
     update_residue_after_helix_reassignment( residue );
 end
 

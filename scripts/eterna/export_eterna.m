@@ -161,7 +161,7 @@ plot_settings = get_plot_settings();
 coords = coords * (4 / plot_settings.spacing);  % grid spacing.
 
 % center coordinates. Eterna will re-center.
-%coords = coords - round(mean( coords ));
+coords = coords - round(mean( coords ));
 
 
 N = size( coords, 1 );

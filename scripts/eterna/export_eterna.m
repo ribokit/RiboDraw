@@ -54,15 +54,19 @@ end
 fprintf( '\nCopy this secstruct into puzzle maker:\n\n %s\n\n', strrep(strrep(secstruct,']','.'),'[','.') );
 fprintf( '\nCopy this sequence into puzzle maker:\n\n %s\n\n', sequence );
 fprintf( '\nAfter saving puzzle maker puzzle, edit puzzle via admin.\nPaste following into Puzzle-objective JSON:\n\n');
+fprintf('[{\n"secstruct":"%s"\n', strrep(strrep(secstruct,']','.'),'[','.'))
+fprintf(',"type":"single"\n');
 fprintf( ',"custom-numbering":"%s"\n',strrep(ribodraw_make_tag_with_dashes(resnum),'NaN','null') )
 if length(strfind( IUPAC,'N'))<length(IUPAC)
     fprintf( ',"IUPAC":"%s"\n',IUPAC );
 end
-if any( do_care == 0 )
+if any( do_care == 0 ) 
     structure_constrained_bases = get_structure_constrained_bases( do_care );
-    fprintf( ',"structure_constrained_bases":[%d',structure_constrained_bases(1))
-    for i = structure_constrained_bases(2:end); fprintf(',%d',i);end;
-    fprintf( ']\n' );
+    if length( structure_constrained_bases ) > 0
+        fprintf( ',"structure_constrained_bases":[%d',structure_constrained_bases(1))
+        for i = structure_constrained_bases(2:end); fprintf(',%d',i);end;
+        fprintf( ']\n' );
+    end
 end
 fprintf( ',"custom-layout":[' );
 plot_settings = get_plot_settings();
@@ -76,7 +80,8 @@ for i = 1:N
     if ( i < N ) fprintf( ','); end;
     if ( mod(i,200) == 0 ) fprintf( '\n' ); end;
 end
-fprintf( ']\n\n' );
+fprintf( ']\n' );
+fprintf( '}]\n' );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

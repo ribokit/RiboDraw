@@ -1,4 +1,4 @@
-function initialize_drawing( tag )
+function initialize_drawing(tag )
 % initialize_drawing( tag )
 %
 %  Master function for starting RiboDraw, based on output of

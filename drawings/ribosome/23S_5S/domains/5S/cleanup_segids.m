@@ -1,4 +1,6 @@
 function cleanup_segids();
+% cleanup_segids();
+
 tags = get_tags( 'Residue' );
 for i = 1:length( tags )
     obj = getappdata( gca, tags{i} );

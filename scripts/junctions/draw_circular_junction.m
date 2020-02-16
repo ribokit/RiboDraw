@@ -22,10 +22,10 @@ if ~exist( 'junction_res_tags', 'var' )
 end
 
 res_start = getappdata( gca, junction_res_tags{1} );
-res_tagA = sprintf('Residue_%s%s%d',res_start.chain, res_start.segid, res_start.resnum - 1);
+res_tagA = sanitize_tag(sprintf('Residue_%s%s%d',res_start.chain, res_start.segid, res_start.resnum - 1));
 
 res_end = getappdata( gca,  junction_res_tags{end} );
-res_tagB = sprintf('Residue_%s%s%d',res_end.chain, res_end.segid, res_end.resnum + 1);
+res_tagB = sanitize_tag(sprintf('Residue_%s%s%d',res_end.chain, res_end.segid, res_end.resnum + 1));
 
 resA = getappdata( gca, res_tagA );
 resB = getappdata( gca, res_tagB );

@@ -35,12 +35,12 @@ bp_spacing = plot_settings.bp_spacing;
 helix_res_tags = {};
 for k = 1:N
     % first partner of base pair -- will draw below.
-    res_tag = sprintf( 'Residue_%s%s%d', helix.chain1(k), helix.segid1{k}, helix.resnum1(k) );
+    res_tag = sanitize_tag(sprintf( 'Residue_%s%s%d', helix.chain1(k), helix.segid1{k}, helix.resnum1(k) ));
     pos1 = update_residue_pos( res_tag, [ spacing*((k-1)-(N-1)/2), -bp_spacing/2], helix.center, R );
     helix_res_tags = [helix_res_tags, res_tag ];
     
     % second partner of base pair -- will draw below.
-    res_tag = sprintf( 'Residue_%s%s%d', helix.chain2(N-k+1), helix.segid1{N-k+1}, helix.resnum2(N-k+1) );
+    res_tag = sanitize_tag(sprintf( 'Residue_%s%s%d', helix.chain2(N-k+1), helix.segid1{N-k+1}, helix.resnum2(N-k+1) ));
     pos2 = update_residue_pos( res_tag, [ spacing*((k-1)-(N-1)/2), +bp_spacing/2], helix.center, R );
     helix_res_tags = [helix_res_tags, res_tag ];
     

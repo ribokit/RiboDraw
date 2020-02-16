@@ -15,11 +15,11 @@ if ~exist( 'fasta_file' )
 end
 
 fasta = fastaread( fasta_file );
+ fasta.Header 
+[resnum,chains,segid] = get_resnum_from_tag( fasta.Header );
+
 raw_sequence = fasta.Sequence;
 
-resnum = [];
-chains = '';
-segid  = {};
 sequence = '';
 non_standard_residues.index = [];
 non_standard_residues.name  = {};
@@ -39,18 +39,9 @@ while (i <= length(raw_sequence) )
     i = i+1;
 end
 
-cols = strsplit( fasta.Header );
-for i = 1:length( cols )
-    [tag_resnum, tag_chains, tag_segids, ok ] = get_resnum_from_tag( cols{i} );
-    if ( ok ) 
-        resnum = [resnum, tag_resnum ];
-        chains = [chains, tag_chains ];
-        segid  = [segid, tag_segids ];
-    end
-end
-
 if length( chains ) == 0
     chains = repmat( ' ', [1 length(sequence)] );
+    segid = repmat( {''}, [1 length(sequence)] );
     resnum = [1:length(sequence)];
 end
 

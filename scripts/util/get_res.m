@@ -30,7 +30,7 @@ else
     [resnum,chains,segid,ok] = get_resnum_from_tag( selection );
     if ok 
         for i = 1:length( resnum )
-            res_tag = sprintf( 'Residue_%s%s%d', chains(i), segid{i}, resnum(i) );
+            res_tag = sanitize_tag(sprintf( 'Residue_%s%s%d', chains(i), segid{i}, resnum(i) ));
             if isappdata( gca, res_tag )
                 res_tags = [res_tags, res_tag ];
             end

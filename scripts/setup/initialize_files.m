@@ -18,11 +18,6 @@ fid = fopen( stems_file,'w' );
 stem_assignment = ribodraw_figure_out_stem_assignment( secstruct );
 for i = 1:max( stem_assignment )
     idx = find( stem_assignment == i );
-    idx
-    resnum(idx)
-    chain(idx)
-    segid(idx)
-    ribodraw_make_tag_with_dashes(resnum(idx),chain(idx),segid(idx))
     fprintf( fid, '%s\n', ribodraw_make_tag_with_dashes(resnum(idx),chain(idx),segid(idx)) );
 end
 fclose(fid);

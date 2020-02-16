@@ -17,7 +17,7 @@ for i = 1:length(sequence)
     chain = chains(i);
     res   = resnum(i);
     seg   = segid{i};
-    res_tag = sprintf('Residue_%s%s%d',chain,seg,res);
+    res_tag = sanitize_tag(sprintf('Residue_%s%s%d',chain,seg,res));
     if ~isappdata( gca, res_tag ); continue; end;
     residue = getappdata( gca, res_tag );
     seqpos = intersect( intersect(strfind(chains,chain), find(resnum==res)), ...

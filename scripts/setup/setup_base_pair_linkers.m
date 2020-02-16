@@ -8,7 +8,7 @@ function setup_base_pair_linkers( base_pairs )
 % (C) Rhiju Das, Stanford University, 2017
 
 for i = 1:length( base_pairs )
-    base_pair = base_pairs{i}
+    base_pair = base_pairs{i};
     res_tag1 = sanitize_tag(sprintf('Residue_%s%s%d',base_pair.chain1,base_pair.segid1,base_pair.resnum1));
     res_tag2 = sanitize_tag(sprintf('Residue_%s%s%d',base_pair.chain2,base_pair.segid2,base_pair.resnum2));
     clear linker

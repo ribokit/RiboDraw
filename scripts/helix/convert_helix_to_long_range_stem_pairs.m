@@ -5,10 +5,10 @@ helix = getappdata( gca, helix_tag );
 N = length( helix.resnum1 );
 res_tags = {};
 for j = 1:N
-    linker_tag = sprintf('Linker_%s%s%d_%s%s%d_stem_pair', helix.chain1(j), helix.segid1{j}, helix.resnum1(j),...
+    linker_tag = sanitize_tag(sprintf('Linker_%s%s%d_%s%s%d_stem_pair', helix.chain1(j), helix.segid1{j}, helix.resnum1(j),...
         helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1) );
-%     res_tags = [res_tags, {sprintf('Residue_%s%s%d',helix.chain1(j), helix.segid1{j}, helix.resnum1(j))} ];
-%     res_tags = [res_tags, {sprintf('Residue_%s%s%d', helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1))} ];
+%     res_tags = [res_tags, {sanitize_tag(sprintf('Residue_%s%s%d',helix.chain1(j), helix.segid1{j}, helix.resnum1(j))} ];
+%     res_tags = [res_tags, {sanitize_tag(sprintf('Residue_%s%s%d', helix.chain2(N-j+1), helix.segid2{j}, helix.resnum2(N-j+1))} ];
     if isappdata( gca, linker_tag )
         linker = getappdata( gca, linker_tag );
         linker.type = 'long_range_stem_pair';

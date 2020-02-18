@@ -22,10 +22,10 @@ if ~exist( 'junction_res_tags', 'var' )
 end
 
 res_start = getappdata( gca, junction_res_tags{1} );
-res_tagA = sprintf('Residue_%s%s%d',res_start.chain, res_start.segid, res_start.resnum - 1);
+res_tagA = sanitize_tag(sprintf('Residue_%s%s%d',res_start.chain, res_start.segid, res_start.resnum - 1));
 
 res_end = getappdata( gca,  junction_res_tags{end} );
-res_tagB = sprintf('Residue_%s%s%d',res_end.chain, res_end.segid, res_end.resnum + 1);
+res_tagB = sanitize_tag(sprintf('Residue_%s%s%d',res_end.chain, res_end.segid, res_end.resnum + 1));
 
 resA = getappdata( gca, res_tagA );
 resB = getappdata( gca, res_tagB );
@@ -36,9 +36,9 @@ cross = ( resA.plot_pos - resB.plot_pos );
 cross = cross/norm( cross );
 go = [cross(2), -cross(1)];
 
-res_tag_prev = sprintf('Residue_%s%s%d',res_start.chain, res_start.segid, res_start.resnum - 2);
+res_tag_prev = sanitize_tag(sprintf('Residue_%s%s%d',res_start.chain, res_start.segid, res_start.resnum - 2));
 if ~isappdata( gca, res_tag_prev )
-    res_tag_prev = sprintf('Residue_%s%s%d',res_end.chain, res_end.segid, res_end.resnum + 1);
+    res_tag_prev = sanitize_tag(sprintf('Residue_%s%s%d',res_end.chain, res_end.segid, res_end.resnum + 1));
 end
 if isappdata( gca, res_tag_prev );
     res_prev = getappdata( gca, res_tag_prev );

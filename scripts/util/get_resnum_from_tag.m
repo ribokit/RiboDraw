@@ -29,9 +29,6 @@ if length( residue_tags ) > 1
             resnum = [ resnum, tag_resnum ];
             chains = [ chains, tag_chains ];
             segid  = [ segid, tag_segid ];
-        else
-            ok = false;
-            return
         end
     end
     return;
@@ -50,13 +47,13 @@ if length( elems ) == 3
     elems = elems([1,3]);
 end
 dashes = strfind( elems{2}, '-' );
-if length( dashes ) == 0 | dashes(1) == 1;
+if length( dashes ) == 0 | ( length(dashes) == 1 && dashes(1) == 1);
     resnum = str2num( elems{2} );
     ok = true;
     return;
 end
 dash = dashes(1);
-if dash == 1; assert( length( dashes ) > 1 ); dash == dashes(2); end;
+if dash == 1; assert( length( dashes ) > 1 ); dash = dashes(2); end;
 start_res = str2num( elems{2}(1:dash-1) );
 if isempty ( start_res ); return; end;
 stop_res = str2num( elems{2}((dash+1):end) );

@@ -104,7 +104,7 @@ for i = 1:length( datafields )
     setappdata( gca, datafield, datum );
 end
 cleanup_associated_residues();
-loaddata = cleanup_segids( loaddata );
+cleanup_segids();
 cleanup_stray_linkers();
 cleanup_stack_linkers();
 cleanup_domains();

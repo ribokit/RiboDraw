@@ -11,12 +11,12 @@ for i = 1:length(resnum)
     if ( j > length( resnum ) ) continue; end;
     if ( chains(j) ~= chains(i) ) continue; end;    
     if ( resnum(j) ~= resnum(i)+1 ) 
-        res_tag_i = sprintf('Residue_%s%d',chains(i),resnum(i));
-        res_tag_j = sprintf('Residue_%s%d',chains(j),resnum(j));
+        res_tag_i = sanitize_tag(sprintf('Residue_%s%d',chains(i),resnum(i)));
+        res_tag_j = sanitize_tag(sprintf('Residue_%s%d',chains(j),resnum(j)));
         linker.residue1 = res_tag_i;
         linker.residue2 = res_tag_j;
         linker.type = 'arrow';
-        linker_tag = sprintf('Linker_%s%d_%s%d_%s', chains(i),resnum(i),chains(j),resnum(j),linker.type);
+        linker_tag = sanitize_tag(sprintf('Linker_%s%d_%s%d_%s', chains(i),resnum(i),chains(j),resnum(j),linker.type));
         linker.linker_tag = linker_tag
 
         residue = getappdata( gca, res_tag_i );

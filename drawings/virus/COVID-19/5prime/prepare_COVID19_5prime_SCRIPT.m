@@ -8,7 +8,7 @@ tag = 'COVID19_5prime';
 %initialize_drawing(tag);
 %update_helix_names( 'COVID19_5prime.stems.txt' );
 
-setup_domain( 'A:107-109', 'uORF' ); color_drawing( 'pink','uORF');
+setup_domain( 'A:107-136', 'uORF' ); color_drawing( 'pink','uORF');
 setup_domain( 'A:266-268', 'ORF1a' ); color_drawing( 'red','ORF1a');
-
 setup_domain( 'A:66-71', 'TRS' ); color_drawing( 'forest','TRS');
+setup_domain( 'A:295-450', 'uncertain' ); color_drawing( 'gray60','uncertain'); hide_domain_label( 'uncertain' );

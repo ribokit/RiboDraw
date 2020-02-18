@@ -21,8 +21,8 @@ N = length( stem.resnum1 );
 associated_residues = {};
 centers = [];
 for k = 1:N
-    res_tag1 = sanitize_tag(sprintf( 'Residue_%s%s%d', stem.chain1(k), stem.segid1{k}, stem.resnum1(k) );
-    res_tag2 = sanitize_tag(sprintf( 'Residue_%s%s%d', stem.chain2(N-k+1), stem.segid2{N-k+1}, stem.resnum2(N-k+1) );
+    res_tag1 = sanitize_tag(sprintf( 'Residue_%s%s%d', stem.chain1(k), stem.segid1{k}, stem.resnum1(k) ));
+    res_tag2 = sanitize_tag(sprintf( 'Residue_%s%s%d', stem.chain2(N-k+1), stem.segid2{N-k+1}, stem.resnum2(N-k+1) ));
     associated_residues = [associated_residues, {res_tag1,res_tag2}];
     residue1 = getappdata(gca,res_tag1);
     residue2 = getappdata(gca,res_tag2);
@@ -36,7 +36,7 @@ stem.associated_residues = associated_residues;
 stem.helix_tag = sanitize_tag(sprintf('Helix_%s%s%d',...
     stem.chain1(1),...
     stem.segid1{1},...
-    stem.resnum1(1));% this better be a unique identifier
+    stem.resnum1(1)));% this better be a unique identifier
 
 setappdata( gca, stem.helix_tag, stem );
 cleanup_associated_residues();

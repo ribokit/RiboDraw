@@ -18,7 +18,7 @@ nbrs = [];
 for i = 1:length( res_tags )
     residue = getappdata( gca, res_tags{i} );
     % look for sequence neighbor
-    partner_tag = sanitize_tag(sprintf('Residue_%s%s%d',residue.chain,residue.segid,residue.resnum+1);
+    partner_tag = sanitize_tag(sprintf('Residue_%s%s%d',residue.chain,residue.segid,residue.resnum+1));
     j = find(strcmp( res_tags, partner_tag ));
     if ~isempty( j )
         assert( length( j ) == 1 );

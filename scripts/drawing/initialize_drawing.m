@@ -19,7 +19,7 @@ function initialize_drawing(tag )
 %
 % (C) R. Das, Stanford University, 2017
 
-[sequence,resnum,chains,segid,non_standard_residues] = get_sequence( [tag,'.fasta'])
+[sequence,resnum,chains,segid,non_standard_residues] = get_sequence( [tag,'.fasta']);
 base_pairs = read_base_pairs( [tag,'.base_pairs.txt'] ); % includes noncanonical pairs.
 base_stacks = read_base_stacks( [tag,'.stacks.txt'] ); % includes noncanonical pairs.
 other_contacts = read_other_contacts( [tag,'.other_contacts.txt'] );

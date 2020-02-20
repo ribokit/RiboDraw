@@ -1,11 +1,11 @@
 % prepare_COVID19_3prime_SCRIPT
 
 sequence = 'GUUUUUAAACGGGUUUGCGGUGUAAGUGCAGCCCGUCUUACACCGUGCGGCACAGGCACUAGUACUGAUGUCGUAUACAGGGCUUUUG';
-secstruct= '................(((((((((((..[[[[[))))))))))(((((((((((.........))).))))))))...]]]]]....';
+secstruct= '...............(((((((((((...[[[[[[[)))))))))))((((((((.........))).)))))...]].]]]]]....';
 resnum_string = 'A:13459-13546';
 tag = 'COVID19_frameshift';
-% initialize_files( sequence, secstruct, resnum_string, tag );
-% initialize_drawing(tag);
+initialize_files( sequence, secstruct, resnum_string, tag );
+initialize_drawing(tag);
 % update_helix_names( 'COVID19_3prime.stems.txt' );
 
 %%

@@ -44,3 +44,5 @@ for i = 1:length(structure )
   end
 end
 
+assert( isempty(LEFT_BRACKET) );
+

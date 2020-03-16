@@ -50,3 +50,5 @@ assert( ~isfield(  motif, 'highlight_box_handles' ) )
 motif = gd( 'Motif_INTERCALATED_T_LOOP_A53' );
 assert( ~isfield(  motif, 'highlight_box_handles' ) )
 
+%% should be able to find parse_stems_from_bps command
+assert( length( parse_stems_from_bps([ 1 10 ; 2 9 ; 5 12 ; 6 11 ; 3 8 ; 4 7 ]) ) == 3 )

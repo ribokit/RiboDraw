@@ -1,0 +1,2 @@
+sequence  = 'CGGCACAGGCACUAGUACUGAUGUCG,CGGCACAGGCACUAGUACUGAUGUCG';
+structure = '((((((((..{{{{{{.))).))))),((((((((..}}}}}}.))).)))))';

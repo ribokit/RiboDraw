@@ -18,7 +18,7 @@ else % assume partner vector is given
     end
 end
 
-stems = ribodraw_parse_stems_from_bps( bps );
+stems = parse_stems_from_bps( bps );
 
 stem_assignment = zeros(1,length(secstruct));
 for i = 1:length( stems )

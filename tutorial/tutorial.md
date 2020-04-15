@@ -98,6 +98,8 @@ A:227-235 A:239-247 P6b
 
 A note here: By convention the entire stretch of 107-112 and 208-214, which is interrupted by a bulge at A210 is usually called P4. Rosetta and RiboDraw go ahead and split these into two helices. We'll call the second helical segment `P4*` for now, and hide this label later. Ditto for P5a.
 
+(If you forgot to do this step and/or need to change the names later, edit the file as above, and run `update_helix_names('1gid_RNAA.pdb.stems.txt')`.)
+
 Now, go into MATLAB and get into this `tutorial` directory. Type:
 
 ```Matlab

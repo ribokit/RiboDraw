@@ -30,7 +30,7 @@ for i = 1:length( res_tags )
     residue = getappdata( gca, res_tags{i} );
     
     if isempty( floats )
-        rgb_color = 0xFFFFFF; 
+        rgb_color = '0xFFFFFF'; 
     else
         rgb_color = rgb_colors(i);
     end

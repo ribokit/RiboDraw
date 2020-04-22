@@ -12,6 +12,23 @@ r = getappdata( gca, 'Residue_A45' );
 assert( strcmp( r.res_tag, 'Residue_A45' ) );
 assert( strcmp( r.handle.Type,'text') );
 
+%% Can we make this residue bold?
+set_boldface(1, 'Residue_A45')
+assert(r.handle.fontweight == 'bold')
+set_boldface(0, 'Residue_A45')
+assert(r.handle.fontweight == 'normal')
+set_boldface(2, 'Residue_A45') % odd but desired
+assert(r.handle.fontweight == 'normal')
+
+%% Can we color it?
+set_fontcolor('marine', 'Residue_A45')
+assert(r.handle.color == pymol_RGB('marine'))
+
+%% Can we give it a ring_color according to some float data?
+color_rings_by_float_data('A:45', [1])
+assert( r.ring_color == [1 0 0] ) % pure red
+
+
 %% hide noncanonical pairs
 assert( length( nc_pairs ) > 0 );
 nc_pair = getappdata(gca,nc_pairs{1});

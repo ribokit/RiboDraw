@@ -6,15 +6,14 @@ function color_rings_by_float_data( residue_string, floats )
 % INPUTS
 %
 %  residue_string = format specifying chain[:segid]:res1-res2 like  'A:1-4' or 'C:RA:1-119'
-%  IUPAC_symbols  = ABCDGHUVSWRYKMNX symbols for each residue -- length of string must match
-%                      residue_string
+%  flaots         = arbitrary float data, currently assumed chemical reactivities
 %
 % May be redundant with GET_RES().
 %
 % (C) R. Das, Stanford University, 2019
 
-
 res_tags = get_res_tags( residue_string );
+
 if  ~isempty( floats ) && length( res_tags ) ~= length( floats ) 
     fprintf( '\nProblem! Number of residues found for residue_string %s is %d, but does not match length of IUPAC_symbols, %d\n', residue_string,length(res_tags),length(floats))
     return;

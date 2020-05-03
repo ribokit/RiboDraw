@@ -47,7 +47,7 @@ draggable( h_new, 'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @redraw_lin
 function h = create_endpoint_linker_vertex( pos, linker_tag )
 h = create_linker_vertex( pos, linker_tag );
 plot_settings = getappdata( gca, 'plot_settings' );
-set( h, 'markerfacecolor','w','markersize',plot_settings.spacing);
+set( h, 'markerfacecolor','w','markersize',plot_settings.spacing*1.5);
 draggable( h,  'n',[-inf inf -inf inf], @move_snapgrid, 'endfcn', @new_linker_vtx );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

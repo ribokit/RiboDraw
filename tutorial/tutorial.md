@@ -403,4 +403,30 @@ save 1gidA_pymol.png
 ![1gidA Pymol](images/1gidA_pymol.png)
 
 
+### Step 8.  Other color schemes
 
+What if you have experimental data you want to visualize on your secondary structure? 
+
+For example, papers that discover new conserved ncRNA elements follow a certain visual language to convey sequence conservation: nucleotides may be red or gray to indicate sequence frequnecy, or replaced wholesale by colored circles if deletions are possible.
+
+Structural studies that use chemical reagents to support or invalidate a hypothesized secondary structure may wish to visualize relative reactivity to chemical reagents. RiboDraw makes both easy.
+
+Initialize a drawing from sequence and secondary structure, such as the [COVID19 frameshift element](chemical_mapping/COVID19_FSE_tutorial.m). Arrange the helices as you prefer. You can bold all 100% conserved residues with:
+
+```
+set_boldface(1, get_res_tags( 'A:13459-13487 A:13489-13509 A:13511-13516 A:13518-13520 A:13522-13532 A:13534-13535 A:13537-13547' ) )
+```
+
+or set their font color via `set_fontcolor`, which is an alternative to `color_drawing` that takes a set of residue tags directly, rather than a predefined domain.
+
+![FSE](images/FSE_cons.png)
+
+Coloring by reactivity is straightforward as well, but you use a command like:
+
+```
+color_rings_by_float_data('A:13459-13547', SHAPE_normalized);
+```
+
+where `SHAPE_normalized` is a 1D array of normalized reactivity data. The result will be colored from white to yellow to red.
+
+![stem5](images/stem5.png)

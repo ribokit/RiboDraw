@@ -327,16 +327,16 @@ And strive for a layout that looks like this:
 ![](images/step06_refine_ribodraw.png)
 
 ### Step 7.  Color as you like it
-Typically for these 2D layouts its best to not have rainbow coloring in the final image – too many colors. Its more conventional to have the structures colored by helices or stacks of helices. Here's how you can do that.
+Typically for these 2D layouts it's best to not have rainbow coloring in the final image – too many colors. It's more conventional to have the structures colored by helices or stacks of helices. Here's how you can do that.
 
-Get rid of some of the control features so that its easier to see the final result.
+Get rid of some of the control features so that it's easier to see the final result.
 
 ```
 hide_linker_controls
 hide_helix_controls
 ```
 
-Then its a matter of setting up domains, and choosing colors. Conveniently, all the colors available in Pymol ("salmon", "teal", "marine", etc.) can be used in RiboDraw, as well as RGB values, as described in the [color_drawing](..//scripts/color/color_drawing.m) documentation.
+Then it's a matter of setting up domains, and choosing colors. Conveniently, all the colors available in Pymol ("salmon", "teal", "marine", etc.) can be used in RiboDraw, as well as RGB values, as described in the [color_drawing](..//scripts/color/color_drawing.m) documentation.
 
 Start by making the whole thing gray:
 

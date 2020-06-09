@@ -1,0 +1,1244 @@
+****************************************************************************
+              DSSR: an Integrated Software Tool for
+             Dissecting the Spatial Structure of RNA
+             v1.9.10-2020apr23, by xiangjun@x3dna.org
+
+DSSR has been made possible by the NIH grant R01GM096889 (to X.J.Lu).
+It is being actively maintained and developed. As always, I greatly
+appreciate your feedback. Please report all DSSR-related issues on
+the 3DNA Forum (forum.x3dna.org). I strive to respond promptly to any
+questions posted there. DSSR is free of charge for NON-COMMERCIAL
+purposes, and it comes with ABSOLUTELY NO WARRANTY.
+
+****************************************************************************
+Note: By default, each nucleotide is identified by chainId.name#. So a
+      common case would be B.A1689, meaning adenosine #1689 on chain B.
+      One-letter base names for modified nucleotides are put in lower
+      case (e.g., 'c' for 5MC). For further information about the output
+      notation, please refer to the DSSR User Manual.
+    Questions and suggestions are *always* welcome on the 3DNA Forum.
+
+Command: x3dna-dssr -i=../4ybb_PTC.pdb -o=4ybb_PTC.pdb.dssr.out
+Date and time: Mon Jun  8 13:31:19 2020
+File name: 4ybb_PTC.pdb
+    no. of DNA/RNA chains: 1 [C=280]
+    no. of nucleotides:    280
+    no. of atoms:          5991
+    no. of waters:         0
+    no. of metals:         0
+
+****************************************************************************
+List of 7 types of 10 modified nucleotides
+      nt    count  list
+   1 2MA-a    1    C.2MA2503
+   2 2MG-g    1    C.2MG2445
+   3 G7M-g    1    C.G7M2069
+   4 OMC-c    1    C.OMC2498
+   5 OMG-g    1    C.OMG2251
+   6 OMU-u    1    C.OMU2552
+   7 PSU-P    4    C.PSU2457,C.PSU2504,C.PSU2580,C.PSU2605
+
+****************************************************************************
+List of 139 base pairs
+     nt1            nt2            bp  name        Saenger   LW   DSSR
+   1 C.C2043        C.G2625        C-G WC          19-XIX    cWW  cW-W
+   2 C.C2044        C.G2624        C-G WC          19-XIX    cWW  cW-W
+   3 C.C2045        C.G2623        C-G WC          19-XIX    cWW  cW-W
+   4 C.G2046        C.U2622        G-U Wobble      28-XXVIII cWW  cW-W
+   5 C.C2047        C.G2621        C-G WC          19-XIX    cWW  cW-W
+   6 C.G2048        C.C2620        G-C WC          19-XIX    cWW  cW-W
+   7 C.G2049        C.C2619        G-C WC          19-XIX    cWW  cW-W
+   8 C.C2050        C.G2618        C-G WC          19-XIX    cWW  cW-W
+   9 C.A2051        C.A2052        A+A Platform    n/a       cSH  cm+M
+  10 C.A2052        C.U2617        A-U WC          20-XX     cWW  cW-W
+  11 C.G2053        C.C2616        G-C WC          19-XIX    cWW  cW-W
+  12 C.A2054        C.A2577        A-A --          05-V      tHW  tM-W
+  13 C.A2054        C.U2615        A-U WC          20-XX     cWW  cW-W
+  14 C.G2056        C.C2612        G-C WC          19-XIX    cWW  cW-W
+  15 C.G2057        C.C2611        G-C WC          19-XIX    cWW  cW-W
+  16 C.G2061        C.A2451        G-A Imino       08-VIII   cWW  cW-W
+  17 C.G2061        C.PSU2504      G-P --          n/a       cHH  cM-M
+  18 C.C2063        C.A2450        C-A ~Wobble     n/a       cWW  cW-W
+  19 C.C2063        C.C2501        C+C --          n/a       tWW  tW+W
+  20 C.C2064        C.G2446        C-G WC          19-XIX    cWW  cW-W
+  21 C.C2065        C.2MG2445      C-g WC          19-XIX    cWW  cW-W
+  22 C.C2065        C.U2449        C-U --          n/a       cSW  cm-W
+  23 C.C2066        C.G2444        C-G WC          19-XIX    cWW  cW-W
+  24 C.G2067        C.C2443        G-C WC          19-XIX    cWW  cW-W
+  25 C.U2068        C.A2430        U-A rHoogsteen  24-XXIV   tWH  tW-M
+  26 C.G7M2069      C.C2442        g-C WC          19-XIX    cWW  cW-W
+  27 C.A2070        C.U2441        A-U WC          20-XX     cWW  cW-W
+  28 C.A2071        C.U2438        A-U WC          20-XX     cWW  cW-W
+  29 C.C2072        C.G2437        C-G WC          19-XIX    cWW  cW-W
+  30 C.C2073        C.G2436        C-G WC          19-XIX    cWW  cW-W
+  31 C.U2074        C.A2435        U-A WC          20-XX     cWW  cW-W
+  32 C.U2074        C.G2597        U-G --          n/a       cSS  cm-m
+  33 C.U2075        C.A2077        U+A Hoogsteen   23-XXIII  cWH  cW+M
+  34 C.A2077        C.U2243        A-U WC          20-XX     cWW  cW-W
+  35 C.C2078        C.G2238        C+G --          n/a       tHH  tM+M
+  36 C.C2078        C.G2242        C-G WC          19-XIX    cWW  cW-W
+  37 C.U2079        C.A2241        U-A WC          20-XX     cWW  cW-W
+  38 C.A2080        C.U2240        A-U WC          20-XX     cWW  cW-W
+  39 C.U2081        C.G2239        U-G Wobble      28-XXVIII cWW  cW-W
+  40 C.A2082        C.G2237        A-G Sheared     11-XI     tHS  tM-m
+  41 C.G2083        C.U2236        G-U Wobble      28-XXVIII cWW  cW-W
+  42 C.C2084        C.G2235        C-G WC          19-XIX    cWW  cW-W
+  43 C.U2085        C.G2234        U-G Wobble      28-XXVIII cWW  cW-W
+  44 C.U2086        C.U2233        U-U --          16-XVI    cWW  cW-W
+  45 C.G2087        C.C2232        G-C WC          19-XIX    cWW  cW-W
+  46 C.A2088        C.U2231        A-U WC          20-XX     cWW  cW-W
+  47 C.C2089        C.G2230        C-G WC          19-XIX    cWW  cW-W
+  48 C.A2090        C.U2229        A-U WC          20-XX     cWW  cW-W
+  49 C.C2091        C.G2228        C-G WC          19-XIX    cWW  cW-W
+  50 C.G2238        C.A2241        G-A --          n/a       cHH  cM-M
+  51 C.U2244        C.A2435        U+A Hoogsteen   23-XXIII  cWH  cW+M
+  52 C.U2245        C.G2436        U+G ~Hoogsteen  n/a       cWH  cW+M
+  53 C.G2246        C.C2258        G-C WC          19-XIX    cWW  cW-W
+  54 C.A2247        C.U2257        A-U WC          20-XX     cWW  cW-W
+  55 C.C2248        C.G2256        C-G WC          19-XIX    cWW  cW-W
+  56 C.U2431        C.A2433        U-A --          n/a       tSH  tm-M
+  57 C.G2436        C.A2598        G+A Linker      n/a       tSW  tm+W
+  58 C.U2438        C.C2440        U+C --          n/a       cSH  cm+M
+  59 C.G2447        C.A2451        G+A --          n/a       cWH  cW+M
+  60 C.G2447        C.C2452        G+C --          n/a       tW.  tW+.
+  61 C.G2447        C.PSU2504      G-P --          n/a       cHH  cM-M
+  62 C.A2450        C.C2501        A-C ~rHoogsteen 25-XXV    tHW  tM-W
+  63 C.C2452        C.PSU2504      C-P --          n/a       cWW  cW-W
+  64 C.A2453        C.U2500        A-U WC          20-XX     cWW  cW-W
+  65 C.G2454        C.OMC2498      G-c WC          19-XIX    cWW  cW-W
+  66 C.G2455        C.C2496        G-C WC          19-XIX    cWW  cW-W
+  67 C.C2456        C.G2495        C-G WC          19-XIX    cWW  cW-W
+  68 C.PSU2457      C.G2494        P-G --          n/a       cWW  cW-W
+  69 C.G2458        C.A2459        G+A Platform    n/a       cSH  cm+M
+  70 C.G2458        C.U2492        G-U --          n/a       t.H  t.-M
+  71 C.G2458        C.U2493        G-U --          n/a       c.W  c.-W
+  72 C.A2459        C.U2493        A-U WC          20-XX     cWW  cW-W
+  73 C.U2460        C.G2490        U-G --          n/a       cWW  cW-W
+  74 C.U2460        C.U2492        U-U --          16-XVI    cWW  cW-W
+  75 C.A2461        C.U2489        A-U WC          20-XX     cWW  cW-W
+  76 C.C2462        C.G2488        C-G WC          19-XIX    cWW  cW-W
+  77 C.C2462        C.U2491        C-U --          n/a       cSW  cm-W
+  78 C.C2463        C.G2487        C-G WC          19-XIX    cWW  cW-W
+  79 C.G2464        C.C2486        G-C WC          19-XIX    cWW  cW-W
+  80 C.C2465        C.G2485        C-G WC          19-XIX    cWW  cW-W
+  81 C.C2466        C.G2484        C-G WC          19-XIX    cWW  cW-W
+  82 C.C2467        C.C2483        C-C --          n/a       cWW  cW-W
+  83 C.A2468        C.A2482        A-A ~Sheared    n/a       tSH  tm-M
+  84 C.A2469        C.G2481        A-G Sheared     11-XI     tHS  tM-m
+  85 C.G2470        C.C2480        G-C WC          19-XIX    cWW  cW-W
+  86 C.A2471        C.U2479        A-U WC          20-XX     cWW  cW-W
+  87 C.G2472        C.A2478        G-A Sheared     11-XI     tSH  tm-M
+  88 C.C2475        C.G2529        C+G rWC         22-XXII   tWW  tW+W
+  89 C.A2476        C.G2481        A-G --          n/a       cSW  cm-W
+  90 C.G2490        C.U2492        G+U --          n/a       cSH  cm+M
+  91 C.U2491        C.A2518        U+A --          n/a       cHH  cM+M
+  92 C.A2497        C.OMC2498      A+c Platform    n/a       cSH  cm+M
+  93 C.G2505        C.U2506        G+U Platform    n/a       cSH  cm+M
+  94 C.G2505        C.C2610        G+C rWC         22-XXII   tWW  tW+W
+  95 C.U2506        C.G2583        U-G Wobble      28-XXVIII cWW  cW-W
+  96 C.C2507        C.G2553        C+G --          n/a       tWS  tW+m
+  97 C.C2507        C.G2582        C-G WC          19-XIX    cWW  cW-W
+  98 C.G2508        C.PSU2580      G-P --          n/a       cWW  cW-W
+  99 C.G2509        C.C2579        G-C WC          19-XIX    cWW  cW-W
+ 100 C.C2510        C.G2578        C-G WC          19-XIX    cWW  cW-W
+ 101 C.U2511        C.C2575        U-C --          n/a       cWW  cW-W
+ 102 C.C2512        C.G2574        C-G WC          19-XIX    cWW  cW-W
+ 103 C.A2513        C.U2571        A-U WC          20-XX     cWW  cW-W
+ 104 C.U2514        C.G2570        U-G Wobble      28-XXVIII cWW  cW-W
+ 105 C.C2515        C.G2569        C-G WC          19-XIX    cWW  cW-W
+ 106 C.A2516        C.U2568        A-U WC          20-XX     cWW  cW-W
+ 107 C.C2517        C.G2567        C-G WC          19-XIX    cWW  cW-W
+ 108 C.U2519        C.C2521        U+C --          n/a       cWH  cW+M
+ 109 C.C2520        C.A2542        C-A --          n/a       t.W  t.-W
+ 110 C.C2520        C.G2545        C-G WC          19-XIX    cWW  cW-W
+ 111 C.C2521        C.G2544        C-G WC          19-XIX    cWW  cW-W
+ 112 C.U2522        C.G2543        U-G Wobble      28-XXVIII cWW  cW-W
+ 113 C.G2523        C.C2540        G-C WC          19-XIX    cWW  cW-W
+ 114 C.G2524        C.C2539        G-C WC          19-XIX    cWW  cW-W
+ 115 C.G2525        C.C2538        G-C WC          19-XIX    cWW  cW-W
+ 116 C.G2526        C.U2537        G-U Wobble      28-XXVIII cWW  cW-W
+ 117 C.C2527        C.G2536        C-G WC          19-XIX    cWW  cW-W
+ 118 C.U2528        C.G2535        U-G Wobble      28-XXVIII cWW  cW-W
+ 119 C.G2545        C.A2565        G+A Linker      n/a       tSW  tm+W
+ 120 C.U2546        C.G2567        U+G ~Hoogsteen  n/a       cWH  cW+M
+ 121 C.A2547        C.U2561        A-U WC          20-XX     cWW  cW-W
+ 122 C.U2548        C.A2560        U-A WC          20-XX     cWW  cW-W
+ 123 C.G2549        C.C2559        G-C WC          19-XIX    cWW  cW-W
+ 124 C.G2550        C.C2558        G-C WC          19-XIX    cWW  cW-W
+ 125 C.C2551        C.G2557        C-G WC          19-XIX    cWW  cW-W
+ 126 C.OMU2552      C.C2556        u-C --          n/a       tWH  tW-M
+ 127 C.G2553        C.G2582        G-G --          n/a       cSS  cm-m
+ 128 C.U2562        C.A2566        U-A rHoogsteen  24-XXIV   tWH  tW-M
+ 129 C.G2581        C.G2582        G-G Platform    n/a       cSH  cm-M
+ 130 C.A2587        C.G2608        A-G Sheared     11-XI     tHS  tM-m
+ 131 C.G2588        C.C2606        G-C WC          19-XIX    cWW  cW-W
+ 132 C.A2589        C.PSU2605      A-P --          n/a       cWW  cW-W
+ 133 C.A2590        C.U2604        A-U WC          20-XX     cWW  cW-W
+ 134 C.C2591        C.G2603        C-G WC          19-XIX    cWW  cW-W
+ 135 C.G2592        C.C2601        G-C WC          19-XIX    cWW  cW-W
+ 136 C.U2593        C.A2600        U-A WC          20-XX     cWW  cW-W
+ 137 C.C2594        C.G2599        C-G WC          19-XIX    cWW  cW-W
+ 138 C.G2595        C.A2598        G-A Sheared     11-XI     tSH  tm-M
+ 139 C.A2614        C.C2616        A+C --          n/a       cSH  cm+M
+
+****************************************************************************
+List of 23 multiplets
+   1 nts=3 AAU C.A2051,C.A2052,C.U2617
+   2 nts=3 GAC C.G2053,C.A2614,C.C2616
+   3 nts=3 AAU C.A2054,C.A2577,C.U2615
+   4 nts=3 CAC C.C2063,C.A2450,C.C2501
+   5 nts=3 CgU C.C2065,C.2MG2445,C.U2449
+   6 nts=3 AUC C.A2071,C.U2438,C.C2440
+   7 nts=3 UAU C.U2075,C.A2077,C.U2243
+   8 nts=3 CGG C.C2078,C.G2238,C.G2242
+   9 nts=3 UGA C.U2079,C.G2238,C.A2241
+  10 nts=3 GAc C.G2454,C.A2497,C.OMC2498
+  11 nts=3 GAU C.G2458,C.A2459,C.U2493
+  12 nts=3 UGU C.U2460,C.G2490,C.U2492
+  13 nts=3 AAG C.A2469,C.A2476,C.G2481
+  14 nts=3 CUG C.C2517,C.U2546,C.G2567
+  15 nts=3 UCG C.U2519,C.C2521,C.G2544
+  16 nts=4 GGAP C.G2061,C.G2447,C.A2451,C.PSU2504
+  17 nts=4 GGCP C.G2061,C.G2447,C.C2452,C.PSU2504
+  18 nts=4 UUAG C.U2074,C.U2244,C.A2435,C.G2597
+  19 nts=4 CGUA C.C2462,C.G2488,C.U2491,C.A2518
+  20 nts=4 GUGC C.G2505,C.U2506,C.G2583,C.C2610
+  21 nts=4 CGGG C.C2507,C.G2553,C.G2581,C.G2582
+  22 nts=4 CAGA C.C2520,C.A2542,C.G2545,C.A2565
+  23 nts=5 CUGGA C.C2073,C.U2245,C.G2436,C.G2595,C.A2598
+
+****************************************************************************
+List of 8 helices
+  Note: a helix is defined by base-stacking interactions, regardless of bp
+        type and backbone connectivity, and may contain more than one stem.
+      helix#number[stems-contained] bps=number-of-base-pairs in the helix
+      bp-type: '|' for a canonical WC/wobble pair, '.' otherwise
+      helix-form: classification of a dinucleotide step comprising the bp
+        above the given designation and the bp that follows it. Types
+        include 'A', 'B' or 'Z' for the common A-, B- and Z-form helices,
+        '.' for an unclassified step, and 'x' for a step without a
+        continuous backbone.
+      --------------------------------------------------------------------
+  helix#1[2] bps=11
+      strand-1 5'-CCCGCGGCAGA-3'
+       bp-type    |||||||||||
+      strand-2 3'-GGGUGCCGUCU-5'
+      helix-form  AA.....xAA
+   1 C.C2043        C.G2625        C-G WC           19-XIX    cWW  cW-W
+   2 C.C2044        C.G2624        C-G WC           19-XIX    cWW  cW-W
+   3 C.C2045        C.G2623        C-G WC           19-XIX    cWW  cW-W
+   4 C.G2046        C.U2622        G-U Wobble       28-XXVIII cWW  cW-W
+   5 C.C2047        C.G2621        C-G WC           19-XIX    cWW  cW-W
+   6 C.G2048        C.C2620        G-C WC           19-XIX    cWW  cW-W
+   7 C.G2049        C.C2619        G-C WC           19-XIX    cWW  cW-W
+   8 C.C2050        C.G2618        C-G WC           19-XIX    cWW  cW-W
+   9 C.A2052        C.U2617        A-U WC           20-XX     cWW  cW-W
+  10 C.G2053        C.C2616        G-C WC           19-XIX    cWW  cW-W
+  11 C.A2054        C.U2615        A-U WC           20-XX     cWW  cW-W
+  --------------------------------------------------------------------------
+  helix#2[1] bps=2
+      strand-1 5'-GG-3'
+       bp-type    ||
+      strand-2 3'-CC-5'
+      helix-form  .
+   1 C.G2056        C.C2612        G-C WC           19-XIX    cWW  cW-W
+   2 C.G2057        C.C2611        G-C WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  helix#3[6] bps=27
+      strand-1 5'-GCCCCGgAACCUACUAUAGCUUGACAC-3'
+       bp-type    ..|||||||||||||||.|||.|||||
+      strand-2 3'-AAGgGCCUUGGAUGAUGGUGGUCUGUG-5'
+      helix-form  xx...x.xA..x....x.....AAAA
+   1 C.G2061        C.A2451        G-A Imino        08-VIII   cWW  cW-W
+   2 C.C2501        C.A2450        C-A ~rHoogsteen  25-XXV    tWH  tW-M
+   3 C.C2064        C.G2446        C-G WC           19-XIX    cWW  cW-W
+   4 C.C2065        C.2MG2445      C-g WC           19-XIX    cWW  cW-W
+   5 C.C2066        C.G2444        C-G WC           19-XIX    cWW  cW-W
+   6 C.G2067        C.C2443        G-C WC           19-XIX    cWW  cW-W
+   7 C.G7M2069      C.C2442        g-C WC           19-XIX    cWW  cW-W
+   8 C.A2070        C.U2441        A-U WC           20-XX     cWW  cW-W
+   9 C.A2071        C.U2438        A-U WC           20-XX     cWW  cW-W
+  10 C.C2072        C.G2437        C-G WC           19-XIX    cWW  cW-W
+  11 C.C2073        C.G2436        C-G WC           19-XIX    cWW  cW-W
+  12 C.U2074        C.A2435        U-A WC           20-XX     cWW  cW-W
+  13 C.A2077        C.U2243        A-U WC           20-XX     cWW  cW-W
+  14 C.C2078        C.G2242        C-G WC           19-XIX    cWW  cW-W
+  15 C.U2079        C.A2241        U-A WC           20-XX     cWW  cW-W
+  16 C.A2080        C.U2240        A-U WC           20-XX     cWW  cW-W
+  17 C.U2081        C.G2239        U-G Wobble       28-XXVIII cWW  cW-W
+  18 C.A2082        C.G2237        A-G Sheared      11-XI     tHS  tM-m
+  19 C.G2083        C.U2236        G-U Wobble       28-XXVIII cWW  cW-W
+  20 C.C2084        C.G2235        C-G WC           19-XIX    cWW  cW-W
+  21 C.U2085        C.G2234        U-G Wobble       28-XXVIII cWW  cW-W
+  22 C.U2086        C.U2233        U-U --           16-XVI    cWW  cW-W
+  23 C.G2087        C.C2232        G-C WC           19-XIX    cWW  cW-W
+  24 C.A2088        C.U2231        A-U WC           20-XX     cWW  cW-W
+  25 C.C2089        C.G2230        C-G WC           19-XIX    cWW  cW-W
+  26 C.A2090        C.U2229        A-U WC           20-XX     cWW  cW-W
+  27 C.C2091        C.G2228        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  helix#4[1] bps=3
+      strand-1 5'-GAC-3'
+       bp-type    |||
+      strand-2 3'-CUG-5'
+      helix-form  A.
+   1 C.G2246        C.C2258        G-C WC           19-XIX    cWW  cW-W
+   2 C.A2247        C.U2257        A-U WC           20-XX     cWW  cW-W
+   3 C.C2248        C.G2256        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  helix#5[3] bps=21
+      strand-1 5'-CAGGCPAUACCGCCCAAGAGC-3'
+       bp-type    .||||.|.||||||...||..
+      strand-2 3'-PUcCGGUUUGGCGGCAGCUAG-5'
+      helix-form  xxxAAx.xAAAA.......x
+   1 C.C2452        C.PSU2504      C-P --           n/a       cWW  cW-W
+   2 C.A2453        C.U2500        A-U WC           20-XX     cWW  cW-W
+   3 C.G2454        C.OMC2498      G-c WC           19-XIX    cWW  cW-W
+   4 C.G2455        C.C2496        G-C WC           19-XIX    cWW  cW-W
+   5 C.C2456        C.G2495        C-G WC           19-XIX    cWW  cW-W
+   6 C.PSU2457      C.G2494        P-G --           n/a       cWW  cW-W
+   7 C.A2459        C.U2493        A-U WC           20-XX     cWW  cW-W
+   8 C.U2460        C.U2492        U-U --           16-XVI    cWW  cW-W
+   9 C.A2461        C.U2489        A-U WC           20-XX     cWW  cW-W
+  10 C.C2462        C.G2488        C-G WC           19-XIX    cWW  cW-W
+  11 C.C2463        C.G2487        C-G WC           19-XIX    cWW  cW-W
+  12 C.G2464        C.C2486        G-C WC           19-XIX    cWW  cW-W
+  13 C.C2465        C.G2485        C-G WC           19-XIX    cWW  cW-W
+  14 C.C2466        C.G2484        C-G WC           19-XIX    cWW  cW-W
+  15 C.C2467        C.C2483        C-C --           n/a       cWW  cW-W
+  16 C.A2468        C.A2482        A-A ~Sheared     n/a       tSH  tm-M
+  17 C.A2469        C.G2481        A-G Sheared      11-XI     tHS  tM-m
+  18 C.G2470        C.C2480        G-C WC           19-XIX    cWW  cW-W
+  19 C.A2471        C.U2479        A-U WC           20-XX     cWW  cW-W
+  20 C.G2472        C.A2478        G-A Sheared      11-XI     tSH  tm-M
+  21 C.C2475        C.G2529        C+G rWC          22-XXII   tWW  tW+W
+  --------------------------------------------------------------------------
+  helix#6[5] bps=21
+      strand-1 5'-UCGGCUCAUCACCCUGGGGCU-3'
+       bp-type    ||.||.|||||||||||||||
+      strand-2 3'-GGPCGCGUGGUGGGGCCCUGG-5'
+      helix-form  .x.Ax.x..AAxA.x.....
+   1 C.U2506        C.G2583        U-G Wobble       28-XXVIII cWW  cW-W
+   2 C.C2507        C.G2582        C-G WC           19-XIX    cWW  cW-W
+   3 C.G2508        C.PSU2580      G-P --           n/a       cWW  cW-W
+   4 C.G2509        C.C2579        G-C WC           19-XIX    cWW  cW-W
+   5 C.C2510        C.G2578        C-G WC           19-XIX    cWW  cW-W
+   6 C.U2511        C.C2575        U-C --           n/a       cWW  cW-W
+   7 C.C2512        C.G2574        C-G WC           19-XIX    cWW  cW-W
+   8 C.A2513        C.U2571        A-U WC           20-XX     cWW  cW-W
+   9 C.U2514        C.G2570        U-G Wobble       28-XXVIII cWW  cW-W
+  10 C.C2515        C.G2569        C-G WC           19-XIX    cWW  cW-W
+  11 C.A2516        C.U2568        A-U WC           20-XX     cWW  cW-W
+  12 C.C2517        C.G2567        C-G WC           19-XIX    cWW  cW-W
+  13 C.C2520        C.G2545        C-G WC           19-XIX    cWW  cW-W
+  14 C.C2521        C.G2544        C-G WC           19-XIX    cWW  cW-W
+  15 C.U2522        C.G2543        U-G Wobble       28-XXVIII cWW  cW-W
+  16 C.G2523        C.C2540        G-C WC           19-XIX    cWW  cW-W
+  17 C.G2524        C.C2539        G-C WC           19-XIX    cWW  cW-W
+  18 C.G2525        C.C2538        G-C WC           19-XIX    cWW  cW-W
+  19 C.G2526        C.U2537        G-U Wobble       28-XXVIII cWW  cW-W
+  20 C.C2527        C.G2536        C-G WC           19-XIX    cWW  cW-W
+  21 C.U2528        C.G2535        U-G Wobble       28-XXVIII cWW  cW-W
+  --------------------------------------------------------------------------
+  helix#7[1] bps=7
+      strand-1 5'-CGCCAUU-3'
+       bp-type    .|||||.
+      strand-2 3'-uCGGUAA-5'
+      helix-form  .A..Ax
+   1 C.C2556        C.OMU2552      C-u --           n/a       tHW  tM-W
+   2 C.G2557        C.C2551        G-C WC           19-XIX    cWW  cW-W
+   3 C.C2558        C.G2550        C-G WC           19-XIX    cWW  cW-W
+   4 C.C2559        C.G2549        C-G WC           19-XIX    cWW  cW-W
+   5 C.A2560        C.U2548        A-U WC           20-XX     cWW  cW-W
+   6 C.U2561        C.A2547        U-A WC           20-XX     cWW  cW-W
+   7 C.U2562        C.A2566        U-A rHoogsteen   24-XXIV   tWH  tW-M
+  --------------------------------------------------------------------------
+  helix#8[2] bps=9
+      strand-1 5'-AGAACGUCG-3'
+       bp-type    .|.|||||.
+      strand-2 3'-GCPUGCAGA-5'
+      helix-form  xA.AxAA.
+   1 C.A2587        C.G2608        A-G Sheared      11-XI     tHS  tM-m
+   2 C.G2588        C.C2606        G-C WC           19-XIX    cWW  cW-W
+   3 C.A2589        C.PSU2605      A-P --           n/a       cWW  cW-W
+   4 C.A2590        C.U2604        A-U WC           20-XX     cWW  cW-W
+   5 C.C2591        C.G2603        C-G WC           19-XIX    cWW  cW-W
+   6 C.G2592        C.C2601        G-C WC           19-XIX    cWW  cW-W
+   7 C.U2593        C.A2600        U-A WC           20-XX     cWW  cW-W
+   8 C.C2594        C.G2599        C-G WC           19-XIX    cWW  cW-W
+   9 C.G2595        C.A2598        G-A Sheared      11-XI     tSH  tm-M
+
+****************************************************************************
+List of 21 stems
+  Note: a stem is defined as a helix consisting of only canonical WC/wobble
+        pairs, with a continuous backbone.
+      stem#number[#helix-number containing this stem]
+      Other terms are defined as in the above Helix section.
+      --------------------------------------------------------------------
+  stem#1[#1] bps=8
+      strand-1 5'-CCCGCGGC-3'
+       bp-type    ||||||||
+      strand-2 3'-GGGUGCCG-5'
+      helix-form  AA.....
+   1 C.C2043        C.G2625        C-G WC           19-XIX    cWW  cW-W
+   2 C.C2044        C.G2624        C-G WC           19-XIX    cWW  cW-W
+   3 C.C2045        C.G2623        C-G WC           19-XIX    cWW  cW-W
+   4 C.G2046        C.U2622        G-U Wobble       28-XXVIII cWW  cW-W
+   5 C.C2047        C.G2621        C-G WC           19-XIX    cWW  cW-W
+   6 C.G2048        C.C2620        G-C WC           19-XIX    cWW  cW-W
+   7 C.G2049        C.C2619        G-C WC           19-XIX    cWW  cW-W
+   8 C.C2050        C.G2618        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#2[#1] bps=3
+      strand-1 5'-AGA-3'
+       bp-type    |||
+      strand-2 3'-UCU-5'
+      helix-form  AA
+   1 C.A2052        C.U2617        A-U WC           20-XX     cWW  cW-W
+   2 C.G2053        C.C2616        G-C WC           19-XIX    cWW  cW-W
+   3 C.A2054        C.U2615        A-U WC           20-XX     cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#3[#2] bps=2
+      strand-1 5'-GG-3'
+       bp-type    ||
+      strand-2 3'-CC-5'
+      helix-form  .
+   1 C.G2056        C.C2612        G-C WC           19-XIX    cWW  cW-W
+   2 C.G2057        C.C2611        G-C WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#4[#3] bps=4
+      strand-1 5'-CCCG-3'
+       bp-type    ||||
+      strand-2 3'-GgGC-5'
+      helix-form  ...
+   1 C.C2064        C.G2446        C-G WC           19-XIX    cWW  cW-W
+   2 C.C2065        C.2MG2445      C-g WC           19-XIX    cWW  cW-W
+   3 C.C2066        C.G2444        C-G WC           19-XIX    cWW  cW-W
+   4 C.G2067        C.C2443        G-C WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#5[#3] bps=2
+      strand-1 5'-gA-3'
+       bp-type    ||
+      strand-2 3'-CU-5'
+      helix-form  .
+   1 C.G7M2069      C.C2442        g-C WC           19-XIX    cWW  cW-W
+   2 C.A2070        C.U2441        A-U WC           20-XX     cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#6[#3] bps=4
+      strand-1 5'-ACCU-3'
+       bp-type    ||||
+      strand-2 3'-UGGA-5'
+      helix-form  A..
+   1 C.A2071        C.U2438        A-U WC           20-XX     cWW  cW-W
+   2 C.C2072        C.G2437        C-G WC           19-XIX    cWW  cW-W
+   3 C.C2073        C.G2436        C-G WC           19-XIX    cWW  cW-W
+   4 C.U2074        C.A2435        U-A WC           20-XX     cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#7[#3] bps=5
+      strand-1 5'-ACUAU-3'
+       bp-type    |||||
+      strand-2 3'-UGAUG-5'
+      helix-form  ....
+   1 C.A2077        C.U2243        A-U WC           20-XX     cWW  cW-W
+   2 C.C2078        C.G2242        C-G WC           19-XIX    cWW  cW-W
+   3 C.U2079        C.A2241        U-A WC           20-XX     cWW  cW-W
+   4 C.A2080        C.U2240        A-U WC           20-XX     cWW  cW-W
+   5 C.U2081        C.G2239        U-G Wobble       28-XXVIII cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#8[#3] bps=3
+      strand-1 5'-GCU-3'
+       bp-type    |||
+      strand-2 3'-UGG-5'
+      helix-form  ..
+   1 C.G2083        C.U2236        G-U Wobble       28-XXVIII cWW  cW-W
+   2 C.C2084        C.G2235        C-G WC           19-XIX    cWW  cW-W
+   3 C.U2085        C.G2234        U-G Wobble       28-XXVIII cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#9[#3] bps=5
+      strand-1 5'-GACAC-3'
+       bp-type    |||||
+      strand-2 3'-CUGUG-5'
+      helix-form  AAAA
+   1 C.G2087        C.C2232        G-C WC           19-XIX    cWW  cW-W
+   2 C.A2088        C.U2231        A-U WC           20-XX     cWW  cW-W
+   3 C.C2089        C.G2230        C-G WC           19-XIX    cWW  cW-W
+   4 C.A2090        C.U2229        A-U WC           20-XX     cWW  cW-W
+   5 C.C2091        C.G2228        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#10[#4] bps=3
+      strand-1 5'-GAC-3'
+       bp-type    |||
+      strand-2 3'-CUG-5'
+      helix-form  A.
+   1 C.G2246        C.C2258        G-C WC           19-XIX    cWW  cW-W
+   2 C.A2247        C.U2257        A-U WC           20-XX     cWW  cW-W
+   3 C.C2248        C.G2256        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#11[#5] bps=2
+      strand-1 5'-GC-3'
+       bp-type    ||
+      strand-2 3'-CG-5'
+      helix-form  A
+   1 C.G2455        C.C2496        G-C WC           19-XIX    cWW  cW-W
+   2 C.C2456        C.G2495        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#12[#5] bps=6
+      strand-1 5'-ACCGCC-3'
+       bp-type    ||||||
+      strand-2 3'-UGGCGG-5'
+      helix-form  AAAA.
+   1 C.A2461        C.U2489        A-U WC           20-XX     cWW  cW-W
+   2 C.C2462        C.G2488        C-G WC           19-XIX    cWW  cW-W
+   3 C.C2463        C.G2487        C-G WC           19-XIX    cWW  cW-W
+   4 C.G2464        C.C2486        G-C WC           19-XIX    cWW  cW-W
+   5 C.C2465        C.G2485        C-G WC           19-XIX    cWW  cW-W
+   6 C.C2466        C.G2484        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#13[#5] bps=2
+      strand-1 5'-GA-3'
+       bp-type    ||
+      strand-2 3'-CU-5'
+      helix-form  .
+   1 C.G2470        C.C2480        G-C WC           19-XIX    cWW  cW-W
+   2 C.A2471        C.U2479        A-U WC           20-XX     cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#14[#6] bps=2
+      strand-1 5'-UC-3'
+       bp-type    ||
+      strand-2 3'-GG-5'
+      helix-form  .
+   1 C.U2506        C.G2583        U-G Wobble       28-XXVIII cWW  cW-W
+   2 C.C2507        C.G2582        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#15[#6] bps=2
+      strand-1 5'-GC-3'
+       bp-type    ||
+      strand-2 3'-CG-5'
+      helix-form  A
+   1 C.G2509        C.C2579        G-C WC           19-XIX    cWW  cW-W
+   2 C.C2510        C.G2578        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#16[#6] bps=5
+      strand-1 5'-AUCAC-3'
+       bp-type    |||||
+      strand-2 3'-UGGUG-5'
+      helix-form  ..AA
+   1 C.A2513        C.U2571        A-U WC           20-XX     cWW  cW-W
+   2 C.U2514        C.G2570        U-G Wobble       28-XXVIII cWW  cW-W
+   3 C.C2515        C.G2569        C-G WC           19-XIX    cWW  cW-W
+   4 C.A2516        C.U2568        A-U WC           20-XX     cWW  cW-W
+   5 C.C2517        C.G2567        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#17[#6] bps=3
+      strand-1 5'-CCU-3'
+       bp-type    |||
+      strand-2 3'-GGG-5'
+      helix-form  A.
+   1 C.C2520        C.G2545        C-G WC           19-XIX    cWW  cW-W
+   2 C.C2521        C.G2544        C-G WC           19-XIX    cWW  cW-W
+   3 C.U2522        C.G2543        U-G Wobble       28-XXVIII cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#18[#6] bps=6
+      strand-1 5'-GGGGCU-3'
+       bp-type    ||||||
+      strand-2 3'-CCCUGG-5'
+      helix-form  .....
+   1 C.G2523        C.C2540        G-C WC           19-XIX    cWW  cW-W
+   2 C.G2524        C.C2539        G-C WC           19-XIX    cWW  cW-W
+   3 C.G2525        C.C2538        G-C WC           19-XIX    cWW  cW-W
+   4 C.G2526        C.U2537        G-U Wobble       28-XXVIII cWW  cW-W
+   5 C.C2527        C.G2536        C-G WC           19-XIX    cWW  cW-W
+   6 C.U2528        C.G2535        U-G Wobble       28-XXVIII cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#19[#7] bps=5
+      strand-1 5'-AUGGC-3'
+       bp-type    |||||
+      strand-2 3'-UACCG-5'
+      helix-form  A..A
+   1 C.A2547        C.U2561        A-U WC           20-XX     cWW  cW-W
+   2 C.U2548        C.A2560        U-A WC           20-XX     cWW  cW-W
+   3 C.G2549        C.C2559        G-C WC           19-XIX    cWW  cW-W
+   4 C.G2550        C.C2558        G-C WC           19-XIX    cWW  cW-W
+   5 C.C2551        C.G2557        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#20[#8] bps=2
+      strand-1 5'-AC-3'
+       bp-type    ||
+      strand-2 3'-UG-5'
+      helix-form  A
+   1 C.A2590        C.U2604        A-U WC           20-XX     cWW  cW-W
+   2 C.C2591        C.G2603        C-G WC           19-XIX    cWW  cW-W
+  --------------------------------------------------------------------------
+  stem#21[#8] bps=3
+      strand-1 5'-GUC-3'
+       bp-type    |||
+      strand-2 3'-CAG-5'
+      helix-form  AA
+   1 C.G2592        C.C2601        G-C WC           19-XIX    cWW  cW-W
+   2 C.U2593        C.A2600        U-A WC           20-XX     cWW  cW-W
+   3 C.C2594        C.G2599        C-G WC           19-XIX    cWW  cW-W
+
+****************************************************************************
+List of 5 isolated WC/wobble pairs
+  Note: isolated WC/wobble pairs are assigned negative indices to
+        differentiate them from the stem numbers, which are positive.
+        --------------------------------------------------------------------
+[#5]     -1 C.A2453        C.U2500        A-U WC           20-XX     cWW  cW-W
+[#5]     -2 C.G2454        C.OMC2498      G-c WC           19-XIX    cWW  cW-W
+[#5]     -3 C.A2459        C.U2493        A-U WC           20-XX     cWW  cW-W
+[#6]     -4 C.C2512        C.G2574        C-G WC           19-XIX    cWW  cW-W
+[#8]     -5 C.G2588        C.C2606        G-C WC           19-XIX    cWW  cW-W
+
+****************************************************************************
+List of 5 coaxial stacks
+   1 Helix#1 contains 2 stems: [#1,#2]
+   2 Helix#3 contains 6 stems: [#4,#5,#6,#7,#8,#9]
+   3 Helix#5 contains 3 stems: [#11,#12,#13]
+   4 Helix#6 contains 5 stems: [#14,#15,#16,#17,#18]
+   5 Helix#8 contains 2 stems: [#20,#21]
+
+****************************************************************************
+List of 50 stacks
+  Note: a stack is an ordered list of nucleotides assembled together via
+        base-stacking interactions, regardless of backbone connectivity.
+        Stacking interactions within a stem are *not* included.
+   1 nts=2 AG C.A2060,C.G2502
+   2 nts=2 Gg C.G2067,C.G7M2069
+   3 nts=2 AA C.A2070,C.A2071
+   4 nts=2 AA C.A2077,C.A2435
+   5 nts=2 CU C.C2232,C.U2233
+   6 nts=2 GA C.G2246,C.A2426
+   7 nts=2 CU C.C2248,C.U2249
+   8 nts=2 AA C.A2432,C.A2433
+   9 nts=2 CU C.C2440,C.U2441
+  10 nts=2 CG C.C2480,C.G2481
+  11 nts=2 UU C.U2492,C.U2493
+  12 nts=2 CA C.C2496,C.A2497
+  13 nts=2 GG C.G2505,C.G2576
+  14 nts=2 CG C.C2520,C.G2567
+  15 nts=2 UA C.U2528,C.A2530
+  16 nts=2 GU C.G2545,C.U2546
+  17 nts=2 Cu C.C2551,C.OMU2552
+  18 nts=2 UU C.U2562,C.U2563
+  19 nts=2 GU C.G2583,C.U2584
+  20 nts=2 UA C.U2586,C.A2587
+  21 nts=2 GG C.G2592,C.G2603
+  22 nts=2 GG C.G2595,C.G2599
+  23 nts=2 UG C.U2617,C.G2618
+  24 nts=3 UUG C.U2074,C.U2075,C.G2238
+  25 nts=3 UGU C.U2081,C.G2237,C.U2236
+  26 nts=3 GAG C.G2083,C.A2082,C.G2239
+  27 nts=3 GUG C.G2087,C.U2086,C.G2234
+  28 nts=3 UUU C.U2243,C.U2244,C.U2245
+  29 nts=3 UAG C.U2479,C.A2478,C.G2529
+  30 nts=3 CGG C.C2507,C.G2508,C.G2509
+  31 nts=3 CUC C.C2510,C.U2511,C.C2512
+  32 nts=3 AGC C.A2513,C.G2574,C.C2575
+  33 nts=3 UPC C.U2604,C.PSU2605,C.C2606
+  34 nts=4 UUGA C.U2076,C.U2596,C.G2597,C.A2598
+  35 nts=4 AAAA C.A2547,C.A2566,C.A2565,C.A2564
+  36 nts=4 GUCG C.G2553,C.U2554,C.C2556,C.G2557
+  37 nts=4 CPGC C.C2579,C.PSU2580,C.G2581,C.C2610
+  38 nts=5 CAAAG C.C2050,C.A2051,C.A2614,C.A2577,C.G2056
+  39 nts=5 GCGUC C.G2446,C.C2501,C.G2447,C.U2500,C.C2499
+  40 nts=5 CPGGU C.C2456,C.PSU2457,C.G2458,C.G2490,C.U2489
+  41 nts=5 AUAGG C.A2461,C.U2460,C.A2459,C.G2494,C.G2495
+  42 nts=5 CCAAU C.C2466,C.C2467,C.A2468,C.A2476,C.U2477
+  43 nts=5 GAACG C.G2470,C.A2469,C.A2482,C.C2483,C.G2484
+  44 nts=5 AGCUU C.A2471,C.G2472,C.C2475,C.U2474,C.U2473
+  45 nts=5 CAUAC C.C2517,C.A2542,C.U2519,C.A2541,C.C2540
+  46 nts=5 AGUAG C.A2531,C.G2532,C.U2533,C.A2534,C.G2535
+  47 nts=5 AAGGG C.A2590,C.A2589,C.G2588,C.G2607,C.G2608
+  48 nts=6 GAAaGC C.G2057,C.A2058,C.A2059,C.2MA2503,C.G2061,C.C2063
+  49 nts=6 gGGCGG C.OMG2251,C.G2252,C.G2253,C.C2254,C.G2255,C.G2256
+  50 nts=7 CAACAGG C.C2064,C.A2450,C.A2451,C.C2452,C.A2453,C.G2454,C.G2455
+
+****************************************************************************
+Nucleotides not involved in stacking interactions
+     nts=26 CCAUGCGGAUAAAUUPUAACUAUUUC C.C2043,C.C2055,C.A2062,C.U2068,C.G2250,C.C2427,C.G2428,C.G2429,C.A2430,C.U2431,C.A2434,C.A2439,C.A2448,C.U2449,C.U2491,C.PSU2504,C.U2506,C.A2518,C.A2572,C.C2573,C.U2585,C.A2602,C.U2609,C.U2613,C.U2615,C.C2616
+
+****************************************************************************
+List of 15 atom-base capping interactions
+    dv: vertical distance of the atom above the nucleotide base
+    -----------------------------------------------------------
+     type       atom                 nt             dv
+   1 phosphate  OP1@C.G2252          C.U2249        3.28
+   2 sugar      O2'@C.A2450          C.OMG2251      3.42
+   3 phosphate  OP2@C.A2433          C.U2431        3.05
+   4 sugar      O4'@C.U2244          C.A2434        3.31
+   5 sugar      O2'@C.U2244          C.A2434        3.14
+   6 sugar      O4'@C.U2441          C.C2440        3.35
+   7 sugar      O2'@C.A2468          C.A2476        3.25
+   8 sugar      O4'@C.G2061          C.2MA2503      2.99
+   9 phosphate  O5'@C.U2554          C.OMU2552      3.16
+  10 phosphate  OP2@C.U2554          C.OMU2552      3.04
+  11 sugar      O2'@C.G2583          C.G2553        3.35
+  12 phosphate  OP2@C.A2565          C.U2563        3.20
+  13 sugar      O4'@C.A2547          C.A2566        2.87
+  14 sugar      O4'@C.G2574          C.U2571        3.08
+  15 phosphate  OP2@C.G2597          C.G2595        3.16
+
+****************************************************************************
+Note: for the various types of loops listed below, numbers within the first
+      set of brackets are the number of loop nts, and numbers in the second
+      set of brackets are the identities of the stems (positive number) or
+      isolated WC/wobble pairs (negative numbers) to which they are linked.
+
+****************************************************************************
+List of 5 hairpin loops
+   1 hairpin loop: nts=9; [7]; linked by [#10]
+     summary: [1] 7 [C.2248 C.2256] 3
+     nts=9 CUGgGGCGG C.C2248,C.U2249,C.G2250,C.OMG2251,C.G2252,C.G2253,C.C2254,C.G2255,C.G2256
+       nts=7 UGgGGCG C.U2249,C.G2250,C.OMG2251,C.G2252,C.G2253,C.C2254,C.G2255
+   2 hairpin loop: nts=9; [7]; linked by [#13]
+     summary: [1] 7 [C.2471 C.2479] 2
+     nts=9 AGUUCAUAU C.A2471,C.G2472,C.U2473,C.U2474,C.C2475,C.A2476,C.U2477,C.A2478,C.U2479
+       nts=7 GUUCAUA C.G2472,C.U2473,C.U2474,C.C2475,C.A2476,C.U2477,C.A2478
+   3 hairpin loop: nts=8; [6]; linked by [#18]
+     summary: [1] 6 [C.2528 C.2535] 6
+     nts=8 UGAAGUAG C.U2528,C.G2529,C.A2530,C.A2531,C.G2532,C.U2533,C.A2534,C.G2535
+       nts=6 GAAGUA C.G2529,C.A2530,C.A2531,C.G2532,C.U2533,C.A2534
+   4 hairpin loop: nts=7; [5]; linked by [#19]
+     summary: [1] 5 [C.2551 C.2557] 5
+     nts=7 CuGUUCG C.C2551,C.OMU2552,C.G2553,C.U2554,C.U2555,C.C2556,C.G2557
+       nts=5 uGUUC C.OMU2552,C.G2553,C.U2554,C.U2555,C.C2556
+   5 hairpin loop: nts=6; [4]; linked by [#21]
+     summary: [1] 4 [C.2594 C.2599] 3
+     nts=6 CGUGAG C.C2594,C.G2595,C.U2596,C.G2597,C.A2598,C.G2599
+       nts=4 GUGA C.G2595,C.U2596,C.G2597,C.A2598
+
+****************************************************************************
+List of 8 bulges
+   1 bulge: nts=5; [1,0]; linked by [#1,#2]
+     summary: [2] 1 0 [C.2050 C.2618 C.2052 C.2617] 8 3
+     nts=5 CAAUG C.C2050,C.A2051,C.A2052,C.U2617,C.G2618
+       nts=1 A C.A2051
+       nts=0
+   2 bulge: nts=5; [1,0]; linked by [#4,#5]
+     summary: [2] 1 0 [C.2067 C.2443 C.2069 C.2442] 4 2
+     nts=5 GUgCC C.G2067,C.U2068,C.G7M2069,C.C2442,C.C2443
+       nts=1 U C.U2068
+       nts=0
+   3 bulge: nts=5; [0,1]; linked by [#-1,#-2]
+     summary: [2] 0 1 [C.2453 C.2500 C.2454 C.2498] 1 1
+     nts=5 AGcCU C.A2453,C.G2454,C.OMC2498,C.C2499,C.U2500
+       nts=0
+       nts=1 C C.C2499
+   4 bulge: nts=5; [0,1]; linked by [#-2,#11]
+     summary: [2] 0 1 [C.2454 C.2498 C.2455 C.2496] 1 2
+     nts=5 GGCAc C.G2454,C.G2455,C.C2496,C.A2497,C.OMC2498
+       nts=0
+       nts=1 A C.A2497
+   5 bulge: nts=5; [0,1]; linked by [#20,#21]
+     summary: [2] 0 1 [C.2591 C.2603 C.2592 C.2601] 2 3
+     nts=5 CGCAG C.C2591,C.G2592,C.C2601,C.A2602,C.G2603
+       nts=0
+       nts=1 A C.A2602
+   6 bulge: nts=6; [0,2]; linked by [#5,#6]
+     summary: [2] 0 2 [C.2070 C.2441 C.2071 C.2438] 2 4
+     nts=6 AAUACU C.A2070,C.A2071,C.U2438,C.A2439,C.C2440,C.U2441
+       nts=0
+       nts=2 AC C.A2439,C.C2440
+   7 bulge: nts=6; [0,2]; linked by [#-4,#16]
+     summary: [2] 0 2 [C.2512 C.2574 C.2513 C.2571] 1 5
+     nts=6 CAUACG C.C2512,C.A2513,C.U2571,C.A2572,C.C2573,C.G2574
+       nts=0
+       nts=2 AC C.A2572,C.C2573
+   8 bulge: nts=6; [0,2]; linked by [#17,#18]
+     summary: [2] 0 2 [C.2522 C.2543 C.2523 C.2540] 3 6
+     nts=6 UGCAAG C.U2522,C.G2523,C.C2540,C.A2541,C.A2542,C.G2543
+       nts=0
+       nts=2 AA C.A2541,C.A2542
+
+****************************************************************************
+List of 9 internal loops
+   1 symmetric internal loop: nts=6; [1,1]; linked by [#8,#9]
+     summary: [2] 1 1 [C.2085 C.2234 C.2087 C.2232] 3 5
+     nts=6 UUGCUG C.U2085,C.U2086,C.G2087,C.C2232,C.U2233,C.G2234
+       nts=1 U C.U2086
+       nts=1 U C.U2233
+   2 symmetric internal loop: nts=6; [1,1]; linked by [#-5,#20]
+     summary: [2] 1 1 [C.2588 C.2606 C.2590 C.2604] 1 2
+     nts=6 GAAUPC C.G2588,C.A2589,C.A2590,C.U2604,C.PSU2605,C.C2606
+       nts=1 A C.A2589
+       nts=1 P C.PSU2605
+   3 asymmetric internal loop: nts=7; [1,2]; linked by [#2,#3]
+     summary: [2] 1 2 [C.2054 C.2615 C.2056 C.2612] 3 2
+     nts=7 ACGCUAU C.A2054,C.C2055,C.G2056,C.C2612,C.U2613,C.A2614,C.U2615
+       nts=1 C C.C2055
+       nts=2 UA C.U2613,C.A2614
+   4 asymmetric internal loop: nts=7; [1,2]; linked by [#7,#8]
+     summary: [2] 1 2 [C.2081 C.2239 C.2083 C.2236] 5 3
+     nts=7 UAGUGGG C.U2081,C.A2082,C.G2083,C.U2236,C.G2237,C.G2238,C.G2239
+       nts=1 A C.A2082
+       nts=2 GG C.G2237,C.G2238
+   5 asymmetric internal loop: nts=7; [2,1]; linked by [#11,#-3]
+     summary: [2] 2 1 [C.2456 C.2495 C.2459 C.2493] 2 1
+     nts=7 CPGAUGG C.C2456,C.PSU2457,C.G2458,C.A2459,C.U2493,C.G2494,C.G2495
+       nts=2 PG C.PSU2457,C.G2458
+       nts=1 G C.G2494
+   6 asymmetric internal loop: nts=7; [1,2]; linked by [#14,#15]
+     summary: [2] 1 2 [C.2507 C.2582 C.2509 C.2579] 2 2
+     nts=7 CGGCPGG C.C2507,C.G2508,C.G2509,C.C2579,C.PSU2580,C.G2581,C.G2582
+       nts=1 G C.G2508
+       nts=2 PG C.PSU2580,C.G2581
+   7 asymmetric internal loop: nts=8; [1,3]; linked by [#-3,#12]
+     summary: [2] 1 3 [C.2459 C.2493 C.2461 C.2489] 1 6
+     nts=8 AUAUGUUU C.A2459,C.U2460,C.A2461,C.U2489,C.G2490,C.U2491,C.U2492,C.U2493
+       nts=1 U C.U2460
+       nts=3 GUU C.G2490,C.U2491,C.U2492
+   8 asymmetric internal loop: nts=8; [1,3]; linked by [#15,#-4]
+     summary: [2] 1 3 [C.2510 C.2578 C.2512 C.2574] 2 1
+     nts=8 CUCGCGAG C.C2510,C.U2511,C.C2512,C.G2574,C.C2575,C.G2576,C.A2577,C.G2578
+       nts=1 U C.U2511
+       nts=3 CGA C.C2575,C.G2576,C.A2577
+   9 symmetric internal loop: nts=10; [3,3]; linked by [#12,#13]
+     summary: [2] 3 3 [C.2466 C.2484 C.2470 C.2480] 6 2
+     nts=10 CCAAGCGACG C.C2466,C.C2467,C.A2468,C.A2469,C.G2470,C.C2480,C.G2481,C.A2482,C.C2483,C.G2484
+       nts=3 CAA C.C2467,C.A2468,C.A2469
+       nts=3 GAC C.G2481,C.A2482,C.C2483
+
+****************************************************************************
+List of 2 junctions
+   1 3-way junction: nts=14; [2,1,5]; linked by [#16,#17,#19]
+     summary: [3] 2 1 5 [C.2517 C.2567 C.2520 C.2545 C.2547 C.2561] 5 3 5
+     nts=14 CAUCGUAUUUAAAG C.C2517,C.A2518,C.U2519,C.C2520,C.G2545,C.U2546,C.A2547,C.U2561,C.U2562,C.U2563,C.A2564,C.A2565,C.A2566,C.G2567
+       nts=2 AU C.A2518,C.U2519
+       nts=1 U C.U2546
+       nts=5 UUAAA C.U2562,C.U2563,C.A2564,C.A2565,C.A2566
+   2 5-way junction: nts=35; [6,6,5,4,4]; linked by [#3,#4,#-1,#14,#-5]
+     summary: [5] 6 6 5 4 4 [C.2057 C.2611 C.2064 C.2446 C.2453 C.2500 C.2506 C.2583 C.2588 C.2606] 2 4 1 2 1
+     nts=35 GAAAGACCGGAUAACAUCGaPGUGUUUAGCGGUCC C.G2057,C.A2058,C.A2059,C.A2060,C.G2061,C.A2062,C.C2063,C.C2064,C.G2446,C.G2447,C.A2448,C.U2449,C.A2450,C.A2451,C.C2452,C.A2453,C.U2500,C.C2501,C.G2502,C.2MA2503,C.PSU2504,C.G2505,C.U2506,C.G2583,C.U2584,C.U2585,C.U2586,C.A2587,C.G2588,C.C2606,C.G2607,C.G2608,C.U2609,C.C2610,C.C2611
+       nts=6 AAAGAC C.A2058,C.A2059,C.A2060,C.G2061,C.A2062,C.C2063
+       nts=6 GAUAAC C.G2447,C.A2448,C.U2449,C.A2450,C.A2451,C.C2452
+       nts=5 CGaPG C.C2501,C.G2502,C.2MA2503,C.PSU2504,C.G2505
+       nts=4 UUUA C.U2584,C.U2585,C.U2586,C.A2587
+       nts=4 GGUC C.G2607,C.G2608,C.U2609,C.C2610
+
+****************************************************************************
+List of 3 non-loop single-stranded segments
+   1 nts=2 UU C.U2075,C.U2076
+   2 nts=2 UU C.U2244,C.U2245
+   3 nts=9 ACGGAUAAA C.A2426,C.C2427,C.G2428,C.G2429,C.A2430,C.U2431,C.A2432,C.A2433,C.A2434
+
+****************************************************************************
+List of 5 A-minor motifs (types I, II, or X)
+   1  type=I A|A-U	C.A2434|C.A2077,C.U2243 WC
+        -C.A2077	H-bonds[2]: "O3'-O2'(hydroxyl)[3.59],O2'(hydroxyl)-N3[3.00]"
+        +C.U2243	H-bonds[1]: "N1-O2'(hydroxyl)[2.92]"
+   2  type=II A|C-G	C.A2564|C.C2521,C.G2544 WC
+        -C.C2521	H-bonds[2]: "O2'(hydroxyl)-O2'(hydroxyl)[2.49],N3-O2'(hydroxyl)[2.90]"
+        +C.G2544	H-bonds[0]: ""
+   3  type=I A|C-G	C.A2565|C.C2520,C.G2545 WC
+        -C.C2520	H-bonds[1]: "O2'(hydroxyl)-O2'(hydroxyl)[2.66]"
+        +C.G2545	H-bonds[2]: "N1-O2'(hydroxyl)[2.69],N3-N2(amino)[3.03]"
+   4  type=X A|C-P	C.A2572|C.C2452,C.PSU2504 --
+        -C.C2452	H-bonds[0]: ""
+        +C.PSU2504	H-bonds[2]: "N1-O2'(hydroxyl)[2.94],N6(amino)-O2'(hydroxyl)[3.30]"
+   5  type=I A|C-G	C.A2598|C.C2073,C.G2436 WC
+        -C.C2073	H-bonds[1]: "O2'(hydroxyl)-O2'(hydroxyl)[2.90]"
+        +C.G2436	H-bonds[2]: "N1-O2'(hydroxyl)[2.83],N3-N2(amino)[3.29]"
+
+****************************************************************************
+List of 3 ribose zippers
+   1 nts=4 CUGA C.C2073,C.U2074,C.G2597,C.A2598
+   2 nts=4 ACAA C.A2077,C.C2078,C.A2433,C.A2434
+   3 nts=4 CCAA C.C2520,C.C2521,C.A2564,C.A2565
+
+****************************************************************************
+List of 46 splayed-apart dinucleotides
+   1 C.A2054   C.C2055   angle=140    distance=18.8     ratio=0.94
+   2 C.C2055   C.G2056   angle=136    distance=17.3     ratio=0.93
+   3 C.A2059   C.A2060   angle=111    distance=17.5     ratio=0.82
+   4 C.A2060   C.G2061   angle=122    distance=18.4     ratio=0.88
+   5 C.A2062   C.C2063   angle=93     distance=14.0     ratio=0.72
+   6 C.G2067   C.U2068   angle=120    distance=18.2     ratio=0.87
+   7 C.U2068   C.G7M2069 angle=148    distance=19.4     ratio=0.96
+   8 C.U2075   C.U2076   angle=99     distance=13.5     ratio=0.76
+   9 C.U2076   C.A2077   angle=149    distance=16.7     ratio=0.96
+  10 C.G2237   C.G2238   angle=94     distance=12.8     ratio=0.74
+  11 C.U2245   C.G2246   angle=167    distance=18.5     ratio=0.99
+  12 C.U2249   C.G2250   angle=154    distance=18.6     ratio=0.97
+  13 C.G2250   C.OMG2251 angle=165    distance=19.1     ratio=0.99
+  14 C.A2426   C.C2427   angle=116    distance=16.8     ratio=0.85
+  15 C.C2427   C.G2428   angle=142    distance=18.0     ratio=0.94
+  16 C.G2429   C.A2430   angle=177    distance=17.9     ratio=1.00
+  17 C.U2438   C.A2439   angle=176    distance=17.1     ratio=1.00
+  18 C.A2439   C.C2440   angle=131    distance=17.8     ratio=0.91
+  19 C.G2447   C.A2448   angle=135    distance=18.2     ratio=0.92
+  20 C.G2472   C.U2473   angle=100    distance=12.9     ratio=0.77
+  21 C.C2475   C.A2476   angle=96     distance=15.5     ratio=0.74
+  22 C.U2477   C.A2478   angle=133    distance=16.8     ratio=0.92
+  23 C.C2501   C.G2502   angle=154    distance=19.6     ratio=0.98
+  24 C.G2502   C.2MA2503 angle=106    distance=15.2     ratio=0.80
+  25 C.2MA2503 C.PSU2504 angle=99     distance=14.6     ratio=0.76
+  26 C.PSU2504 C.G2505   angle=112    distance=15.5     ratio=0.83
+  27 C.A2518   C.U2519   angle=118    distance=16.8     ratio=0.86
+  28 C.U2528   C.G2529   angle=128    distance=15.5     ratio=0.90
+  29 C.G2529   C.A2530   angle=99     distance=16.0     ratio=0.76
+  30 C.A2530   C.A2531   angle=124    distance=15.7     ratio=0.88
+  31 C.U2546   C.A2547   angle=133    distance=17.7     ratio=0.92
+  32 C.A2566   C.G2567   angle=114    distance=17.3     ratio=0.84
+  33 C.U2571   C.A2572   angle=138    distance=17.4     ratio=0.93
+  34 C.A2572   C.C2573   angle=136    distance=16.6     ratio=0.93
+  35 C.C2573   C.G2574   angle=139    distance=16.6     ratio=0.94
+  36 C.C2575   C.G2576   angle=114    distance=13.4     ratio=0.85
+  37 C.G2576   C.A2577   angle=134    distance=15.6     ratio=0.92
+  38 C.A2577   C.G2578   angle=118    distance=17.3     ratio=0.86
+  39 C.U2585   C.U2586   angle=129    distance=17.1     ratio=0.90
+  40 C.C2601   C.A2602   angle=141    distance=18.4     ratio=0.94
+  41 C.A2602   C.G2603   angle=140    distance=19.0     ratio=0.94
+  42 C.G2608   C.U2609   angle=118    distance=16.2     ratio=0.86
+  43 C.U2609   C.C2610   angle=124    distance=17.7     ratio=0.88
+  44 C.C2610   C.C2611   angle=92     distance=13.6     ratio=0.72
+  45 C.C2612   C.U2613   angle=119    distance=16.7     ratio=0.86
+  46 C.U2613   C.A2614   angle=128    distance=17.4     ratio=0.90
+----------------------------------------------------------------
+Summary of 26 splayed-apart units
+   1 nts=3 ACG C.A2054,C.C2055,C.G2056
+   2 nts=3 AAG C.A2059,C.A2060,C.G2061
+   3 nts=2 AC C.A2062,C.C2063
+   4 nts=3 GUg C.G2067,C.U2068,C.G7M2069
+   5 nts=3 UUA C.U2075,C.U2076,C.A2077
+   6 nts=2 GG C.G2237,C.G2238
+   7 nts=2 UG C.U2245,C.G2246
+   8 nts=3 UGg C.U2249,C.G2250,C.OMG2251
+   9 nts=3 ACG C.A2426,C.C2427,C.G2428
+  10 nts=2 GA C.G2429,C.A2430
+  11 nts=3 UAC C.U2438,C.A2439,C.C2440
+  12 nts=2 GA C.G2447,C.A2448
+  13 nts=2 GU C.G2472,C.U2473
+  14 nts=2 CA C.C2475,C.A2476
+  15 nts=2 UA C.U2477,C.A2478
+  16 nts=5 CGaPG C.C2501,C.G2502,C.2MA2503,C.PSU2504,C.G2505
+  17 nts=2 AU C.A2518,C.U2519
+  18 nts=4 UGAA C.U2528,C.G2529,C.A2530,C.A2531
+  19 nts=2 UA C.U2546,C.A2547
+  20 nts=2 AG C.A2566,C.G2567
+  21 nts=4 UACG C.U2571,C.A2572,C.C2573,C.G2574
+  22 nts=4 CGAG C.C2575,C.G2576,C.A2577,C.G2578
+  23 nts=2 UU C.U2585,C.U2586
+  24 nts=3 CAG C.C2601,C.A2602,C.G2603
+  25 nts=4 GUCC C.G2608,C.U2609,C.C2610,C.C2611
+  26 nts=3 CUA C.C2612,C.U2613,C.A2614
+
+****************************************************************************
+Secondary structures in dot-bracket notation (dbn) as a whole and per chain
+>4ybb_PTC nts=280 [whole]
+CCCGCGGCAAGACGGAAAGACCCCGUgAACCUUUACUAUAGCUUGACAC&GUGUCUGGUGGGUAGUUUGACUGgGGCGGUC&ACGGAUAAAAGGUACUCCGgGGAUAACAGGCPGAUACCGCCCAAGAGUUCAUAUCGACGGCGGUGUUUGGCAcCUCGaPGUCGGCUCAUCACAUCCUGGGGCUGAAGUAGGUCCCAAGGGUAUGGCuGUUCGCCAUUUAAAGUGGUACGCGAGCPGGGUUUAGAACGUCGUGAGACAGUPCGGUCCCUAUCUGCCGUGGG
+((((((((.(((.((......((((.((((((..(((((.(((.(((((&))))).)))..)))))..(((.......)))&.........))))..))))))......((((..(.((((((...((.......))...))))))...).)).).).....((.((.((((((..(((((((((......))))))..))).(((((.....))))).....)))))..)...))..))....(.(((((....))).)).)....))..)))))))))))
+>4ybb_PTC-C #1 nts=280 0.02(3.52) [chain] RNA*
+CCCGCGGCAAGACGGAAAGACCCCGUgAACCUUUACUAUAGCUUGACAC&GUGUCUGGUGGGUAGUUUGACUGgGGCGGUC&ACGGAUAAAAGGUACUCCGgGGAUAACAGGCPGAUACCGCCCAAGAGUUCAUAUCGACGGCGGUGUUUGGCAcCUCGaPGUCGGCUCAUCACAUCCUGGGGCUGAAGUAGGUCCCAAGGGUAUGGCuGUUCGCCAUUUAAAGUGGUACGCGAGCPGGGUUUAGAACGUCGUGAGACAGUPCGGUCCCUAUCUGCCGUGGG
+((((((((.(((.((......((((.((((((..(((((.(((.(((((&))))).)))..)))))..(((.......)))&.........))))..))))))......((((..(.((((((...((.......))...))))))...).)).).).....((.((.((((((..(((((((((......))))))..))).(((((.....))))).....)))))..)...))..))....(.(((((....))).)).)....))..)))))))))))
+
+****************************************************************************
+Summary of structural features of 280 nucleotides
+  Note: the first five columns are: (1) serial number, (2) one-letter
+    shorthand name, (3) dbn, (4) id string, (5) rmsd (~zero) of base
+    ring atoms fitted against those in a standard base reference
+    frame. The sixth (last) column contains a comma-separated list of
+    features whose meanings are mostly self-explanatory, except for:
+      turn: angle C1'(i-1)--C1'(i)--C1'(i+1) < 90 degrees
+      break: no backbone linkage between O3'(i-1) and P(i)
+   1  C ( C.C2043   0.010  anti,~C3'-endo,BI,non-stack,canonical,helix-end,stem-end,coaxial-stack
+   2  C ( C.C2044   0.014  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+   3  C ( C.C2045   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+   4  G ( C.G2046   0.019  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+   5  C ( C.C2047   0.014  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+   6  G ( C.G2048   0.026  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+   7  G ( C.G2049   0.010  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+   8  C ( C.C2050   0.017  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+   9  A . C.A2051   0.013  anti,~C2'-endo,BII,non-canonical,non-pair-contact,multiplet,bulge
+  10  A ( C.A2052   0.014  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,bulge
+  11  G ( C.G2053   0.013  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet
+  12  A ( C.A2054   0.018  turn,anti,~C3'-endo,canonical,non-canonical,non-pair-contact,helix-end,stem-end,coaxial-stack,multiplet,internal-loop,phosphate,splayed-apart
+  13  C . C.C2055   0.012  turn,anti,~C3'-endo,BII,non-stack,non-pair-contact,internal-loop,splayed-apart
+  14  G ( C.G2056   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,internal-loop,splayed-apart
+  15  G ( C.G2057   0.015  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,junction-loop
+  16  A . C.A2058   0.015  anti,~C3'-endo,non-pair-contact,junction-loop
+  17  A . C.A2059   0.008  anti,~C3'-endo,BI,non-pair-contact,junction-loop,splayed-apart
+  18  A . C.A2060   0.014  turn,anti,~C2'-endo,non-pair-contact,junction-loop,splayed-apart
+  19  G . C.G2061   0.010  anti,~C2'-endo,BII,non-canonical,non-pair-contact,helix-end,multiplet,junction-loop,cap-donor,phosphate,splayed-apart
+  20  A . C.A2062   0.017  turn,anti,~C2'-endo,non-stack,non-pair-contact,junction-loop,phosphate,splayed-apart
+  21  C . C.C2063   0.020  anti,~C3'-endo,non-canonical,non-pair-contact,multiplet,junction-loop,splayed-apart
+  22  C ( C.C2064   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,junction-loop
+  23  C ( C.C2065   0.006  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet
+  24  C ( C.C2066   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  25  G ( C.G2067   0.012  anti,~C2'-endo,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge,splayed-apart
+  26  U . C.U2068   0.011  turn,anti,~C3'-endo,non-stack,non-canonical,bulge,splayed-apart
+  27  g ( C.G7M2069 0.071  modified,anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge,splayed-apart
+  28  A ( C.A2070   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+  29  A ( C.A2071   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,bulge
+  30  C ( C.C2072   0.014  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  31  C ( C.C2073   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet,A-minor,ribose-zipper
+  32  U ( C.U2074   0.008  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,ribose-zipper
+  33  U . C.U2075   0.013  anti,~C3'-endo,BI,non-canonical,non-pair-contact,multiplet,ss-non-loop,phosphate,splayed-apart
+  34  U . C.U2076   0.015  turn,anti,~C3'-endo,non-pair-contact,ss-non-loop,phosphate,splayed-apart
+  35  A ( C.A2077   0.009  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,A-minor,ribose-zipper,phosphate,splayed-apart
+  36  C ( C.C2078   0.017  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet,ribose-zipper
+  37  U ( C.U2079   0.022  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet
+  38  A ( C.A2080   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  39  U ( C.U2081   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+  40  A . C.A2082   0.012  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+  41  G ( C.G2083   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+  42  C ( C.C2084   0.005  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  43  U ( C.U2085   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+  44  U . C.U2086   0.020  anti,~C3'-endo,non-canonical,non-pair-contact,helix,internal-loop
+  45  G ( C.G2087   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+  46  A ( C.A2088   0.017  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  47  C ( C.C2089   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  48  A ( C.A2090   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  49  C ( C.C2091   0.008  break,anti,~C3'-endo,canonical,non-pair-contact,helix-end,stem-end,coaxial-stack
+  50  G ) C.G2228   0.014  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,coaxial-stack
+  51  U ) C.U2229   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  52  G ) C.G2230   0.016  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  53  U ) C.U2231   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  54  C ) C.C2232   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+  55  U . C.U2233   0.018  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+  56  G ) C.G2234   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+  57  G ) C.G2235   0.020  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  58  U ) C.U2236   0.017  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+  59  G . C.G2237   0.012  anti,~C3'-endo,non-canonical,non-pair-contact,helix,internal-loop,splayed-apart
+  60  G . C.G2238   0.011  turn,syn,~C2'-endo,non-canonical,non-pair-contact,multiplet,internal-loop,splayed-apart
+  61  G ) C.G2239   0.015  turn,anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+  62  U ) C.U2240   0.016  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  63  A ) C.A2241   0.016  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet
+  64  G ) C.G2242   0.018  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet
+  65  U ) C.U2243   0.022  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,A-minor
+  66  U . C.U2244   0.021  anti,~C3'-endo,BI,non-canonical,non-pair-contact,multiplet,ss-non-loop,cap-donor
+  67  U . C.U2245   0.007  anti,~C3'-endo,non-canonical,non-pair-contact,multiplet,ss-non-loop,phosphate,splayed-apart
+  68  G ( C.G2246   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,splayed-apart
+  69  A ( C.A2247   0.013  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem
+  70  C ( C.C2248   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,hairpin-loop
+  71  U . C.U2249   0.012  anti,~C2'-endo,non-pair-contact,hairpin-loop,cap-acceptor,splayed-apart
+  72  G . C.G2250   0.032  turn,anti,~C2'-endo,non-stack,non-pair-contact,hairpin-loop,splayed-apart
+  73  g . C.OMG2251 0.074  modified,anti,~C3'-endo,non-pair-contact,hairpin-loop,cap-acceptor,splayed-apart
+  74  G . C.G2252   0.012  anti,~C3'-endo,BI,non-pair-contact,hairpin-loop,cap-donor,phosphate
+  75  G . C.G2253   0.014  anti,~C3'-endo,BI,non-pair-contact,hairpin-loop,phosphate
+  76  C . C.C2254   0.005  anti,~C3'-endo,BI,non-pair-contact,hairpin-loop
+  77  G . C.G2255   0.017  anti,~C3'-endo,BI,non-pair-contact,hairpin-loop
+  78  G ) C.G2256   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,hairpin-loop
+  79  U ) C.U2257   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem
+  80  C ) C.C2258   0.011  break,anti,~C2'-endo,canonical,non-pair-contact,helix-end,stem-end
+  81  A . C.A2426   0.012  anti,~C2'-endo,non-pair-contact,ss-non-loop,splayed-apart
+  82  C . C.C2427   0.013  turn,anti,~C3'-endo,BII,non-stack,non-pair-contact,ss-non-loop,phosphate,splayed-apart
+  83  G . C.G2428   0.005  turn,anti,~C3'-endo,non-stack,non-pair-contact,ss-non-loop,splayed-apart
+  84  G . C.G2429   0.010  anti,~C3'-endo,non-stack,non-pair-contact,ss-non-loop,splayed-apart
+  85  A . C.A2430   0.021  syn,non-stack,non-canonical,non-pair-contact,ss-non-loop,splayed-apart
+  86  U . C.U2431   0.008  u-turn,anti,~C3'-endo,BI,non-stack,non-canonical,non-pair-contact,ss-non-loop,cap-acceptor
+  87  A . C.A2432   0.014  turn,u-turn,anti,~C3'-endo,BI,non-pair-contact,ss-non-loop
+  88  A . C.A2433   0.010  u-turn,anti,~C3'-endo,BII,non-canonical,non-pair-contact,ss-non-loop,ribose-zipper,cap-donor,phosphate
+  89  A . C.A2434   0.011  u-turn,anti,~C3'-endo,non-stack,non-pair-contact,ss-non-loop,A-minor,ribose-zipper,cap-acceptor,phosphate
+  90  A ) C.A2435   0.010  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet
+  91  G ) C.G2436   0.010  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet,A-minor,phosphate
+  92  G ) C.G2437   0.013  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+  93  U ) C.U2438   0.010  anti,~C3'-endo,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,bulge,splayed-apart
+  94  A . C.A2439   0.009  turn,anti,~C2'-endo,non-stack,non-pair-contact,bulge,splayed-apart
+  95  C . C.C2440   0.009  turn,anti,~C3'-endo,non-canonical,non-pair-contact,multiplet,bulge,cap-acceptor,phosphate,splayed-apart
+  96  U ) C.U2441   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge,cap-donor,phosphate
+  97  C ) C.C2442   0.005  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+  98  C ) C.C2443   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+  99  G ) C.G2444   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 100  g ) C.2MG2445 0.073  modified,anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet
+ 101  G ) C.G2446   0.007  anti,~C3'-endo,canonical,non-pair-contact,helix,stem-end,coaxial-stack,junction-loop
+ 102  G . C.G2447   0.014  turn,u-turn,anti,~C2'-endo,non-canonical,non-pair-contact,multiplet,junction-loop,splayed-apart
+ 103  A . C.A2448   0.011  turn,u-turn,anti,~C2'-endo,non-stack,non-pair-contact,junction-loop,splayed-apart
+ 104  U . C.U2449   0.010  u-turn,anti,~C2'-endo,BII,non-stack,non-canonical,non-pair-contact,multiplet,junction-loop
+ 105  A . C.A2450   0.010  u-turn,anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,multiplet,junction-loop,cap-donor,phosphate
+ 106  A . C.A2451   0.013  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix-end,multiplet,junction-loop,phosphate
+ 107  C . C.C2452   0.017  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix-end,multiplet,junction-loop,A-minor
+ 108  A ( C.A2453   0.011  anti,~C3'-endo,BI,isolated-canonical,non-pair-contact,helix,bulge,junction-loop
+ 109  G ( C.G2454   0.012  anti,~C3'-endo,BI,isolated-canonical,non-pair-contact,helix,multiplet,bulge
+ 110  G ( C.G2455   0.018  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 111  C ( C.C2456   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 112  P . C.PSU2457 0.043  modified,anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 113  G . C.G2458   0.016  anti,~C2'-endo,BII,non-canonical,non-pair-contact,multiplet,internal-loop
+ 114  A ( C.A2459   0.013  turn,anti,~C3'-endo,BI,isolated-canonical,non-canonical,non-pair-contact,helix,multiplet,internal-loop
+ 115  U . C.U2460   0.006  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,multiplet,internal-loop
+ 116  A ( C.A2461   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 117  C ( C.C2462   0.009  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet
+ 118  C ( C.C2463   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 119  G ( C.G2464   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 120  C ( C.C2465   0.015  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 121  C ( C.C2466   0.010  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 122  C . C.C2467   0.009  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 123  A . C.A2468   0.016  anti,~C2'-endo,non-canonical,non-pair-contact,helix,internal-loop,cap-donor,phosphate
+ 124  A . C.A2469   0.008  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,multiplet,internal-loop,phosphate
+ 125  G ( C.G2470   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 126  A ( C.A2471   0.009  anti,~C3'-endo,canonical,non-pair-contact,helix,stem-end,coaxial-stack,hairpin-loop
+ 127  G . C.G2472   0.007  anti,~C3'-endo,non-canonical,non-pair-contact,helix,hairpin-loop,splayed-apart
+ 128  U . C.U2473   0.012  turn,anti,~C3'-endo,non-pair-contact,hairpin-loop,phosphate,splayed-apart
+ 129  U . C.U2474   0.017  anti,~C3'-endo,non-pair-contact,hairpin-loop,phosphate
+ 130  C . C.C2475   0.011  anti,~C3'-endo,non-canonical,non-pair-contact,helix-end,hairpin-loop,splayed-apart
+ 131  A . C.A2476   0.008  anti,~C3'-endo,BI,non-canonical,non-pair-contact,multiplet,hairpin-loop,cap-acceptor,splayed-apart
+ 132  U . C.U2477   0.006  anti,~C3'-endo,non-pair-contact,hairpin-loop,phosphate,splayed-apart
+ 133  A . C.A2478   0.018  turn,anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,hairpin-loop,splayed-apart
+ 134  U ) C.U2479   0.015  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,hairpin-loop,phosphate
+ 135  C ) C.C2480   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 136  G . C.G2481   0.013  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,multiplet,internal-loop
+ 137  A . C.A2482   0.011  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 138  C . C.C2483   0.021  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 139  G ) C.G2484   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 140  G ) C.G2485   0.010  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 141  C ) C.C2486   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 142  G ) C.G2487   0.010  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 143  G ) C.G2488   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet
+ 144  U ) C.U2489   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 145  G . C.G2490   0.023  turn,anti,~C2'-endo,non-canonical,non-pair-contact,multiplet,internal-loop
+ 146  U . C.U2491   0.013  anti,~C2'-endo,BII,non-stack,non-canonical,non-pair-contact,multiplet,internal-loop
+ 147  U . C.U2492   0.010  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,multiplet,internal-loop
+ 148  U ) C.U2493   0.008  anti,~C3'-endo,BI,isolated-canonical,non-canonical,non-pair-contact,helix,multiplet,internal-loop
+ 149  G . C.G2494   0.008  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 150  G ) C.G2495   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 151  C ) C.C2496   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge,phosphate
+ 152  A . C.A2497   0.011  anti,~C2'-endo,non-canonical,non-pair-contact,multiplet,bulge,phosphate
+ 153  c ) C.OMC2498 0.027  modified,anti,~C3'-endo,BI,isolated-canonical,non-canonical,non-pair-contact,helix,multiplet,bulge
+ 154  C . C.C2499   0.013  anti,~C3'-endo,non-pair-contact,bulge
+ 155  U ) C.U2500   0.005  anti,~C3'-endo,isolated-canonical,non-pair-contact,helix,bulge,junction-loop,phosphate
+ 156  C . C.C2501   0.012  anti,BII,non-canonical,non-pair-contact,helix,multiplet,junction-loop,splayed-apart
+ 157  G . C.G2502   0.037  turn,anti,non-pair-contact,junction-loop,splayed-apart
+ 158  a . C.2MA2503 0.065  modified,syn,~C2'-endo,BII,non-pair-contact,junction-loop,cap-acceptor,splayed-apart
+ 159  P . C.PSU2504 0.040  modified,turn,anti,~C3'-endo,non-stack,non-canonical,non-pair-contact,helix-end,multiplet,junction-loop,A-minor,phosphate,splayed-apart
+ 160  G . C.G2505   0.014  anti,~C3'-endo,BI,non-canonical,non-pair-contact,multiplet,junction-loop,phosphate,splayed-apart
+ 161  U ( C.U2506   0.012  anti,~C3'-endo,BI,non-stack,canonical,non-canonical,non-pair-contact,helix-end,stem-end,coaxial-stack,multiplet,junction-loop,phosphate
+ 162  C ( C.C2507   0.008  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,internal-loop
+ 163  G . C.G2508   0.016  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 164  G ( C.G2509   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 165  C ( C.C2510   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 166  U . C.U2511   0.007  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 167  C ( C.C2512   0.008  anti,~C3'-endo,isolated-canonical,non-pair-contact,helix,bulge,internal-loop
+ 168  A ( C.A2513   0.008  anti,~C3'-endo,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 169  U ( C.U2514   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 170  C ( C.C2515   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 171  A ( C.A2516   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 172  C ( C.C2517   0.009  anti,~C2'-endo,BII,canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,junction-loop
+ 173  A . C.A2518   0.016  turn,syn,~C2'-endo,non-stack,non-canonical,non-pair-contact,multiplet,junction-loop,splayed-apart
+ 174  U . C.U2519   0.018  anti,~C2'-endo,BII,non-canonical,non-pair-contact,multiplet,junction-loop,splayed-apart
+ 175  C ( C.C2520   0.009  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,junction-loop,A-minor,ribose-zipper
+ 176  C ( C.C2521   0.014  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet,A-minor,ribose-zipper
+ 177  U ( C.U2522   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 178  G ( C.G2523   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 179  G ( C.G2524   0.010  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 180  G ( C.G2525   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 181  G ( C.G2526   0.003  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 182  C ( C.C2527   0.014  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 183  U ( C.U2528   0.007  anti,~C3'-endo,canonical,non-pair-contact,helix-end,stem-end,coaxial-stack,hairpin-loop,splayed-apart
+ 184  G . C.G2529   0.016  turn,anti,~C3'-endo,non-canonical,non-pair-contact,helix-end,hairpin-loop,splayed-apart
+ 185  A . C.A2530   0.009  anti,~C3'-endo,non-pair-contact,hairpin-loop,phosphate,splayed-apart
+ 186  A . C.A2531   0.011  anti,~C3'-endo,non-pair-contact,hairpin-loop,splayed-apart
+ 187  G . C.G2532   0.009  anti,~C3'-endo,BI,non-pair-contact,hairpin-loop,phosphate
+ 188  U . C.U2533   0.006  anti,~C3'-endo,BI,non-pair-contact,hairpin-loop
+ 189  A . C.A2534   0.010  anti,~C3'-endo,BI,non-pair-contact,hairpin-loop
+ 190  G ) C.G2535   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,coaxial-stack,hairpin-loop
+ 191  G ) C.G2536   0.016  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 192  U ) C.U2537   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 193  C ) C.C2538   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 194  C ) C.C2539   0.015  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 195  C ) C.C2540   0.007  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 196  A . C.A2541   0.016  anti,~C3'-endo,BI,non-pair-contact,bulge
+ 197  A . C.A2542   0.019  turn,anti,~C2'-endo,non-canonical,non-pair-contact,multiplet,bulge
+ 198  G ) C.G2543   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 199  G ) C.G2544   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack,multiplet,A-minor
+ 200  G ) C.G2545   0.010  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,junction-loop,A-minor
+ 201  U . C.U2546   0.008  anti,~C3'-endo,non-canonical,non-pair-contact,multiplet,junction-loop,splayed-apart
+ 202  A ( C.A2547   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,junction-loop,cap-donor,phosphate,splayed-apart
+ 203  U ( C.U2548   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem
+ 204  G ( C.G2549   0.014  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem
+ 205  G ( C.G2550   0.010  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem
+ 206  C ( C.C2551   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,hairpin-loop
+ 207  u . C.OMU2552 0.051  modified,anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix-end,hairpin-loop,cap-acceptor
+ 208  G . C.G2553   0.008  turn,anti,~C3'-endo,non-canonical,non-pair-contact,multiplet,hairpin-loop,cap-acceptor
+ 209  U . C.U2554   0.011  anti,~C3'-endo,non-pair-contact,hairpin-loop,cap-donor,phosphate
+ 210  U . C.U2555   0.006  anti,~C3'-endo,non-pair-contact,hairpin-loop
+ 211  C . C.C2556   0.009  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix-end,hairpin-loop
+ 212  G ) C.G2557   0.013  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,hairpin-loop
+ 213  C ) C.C2558   0.006  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem
+ 214  C ) C.C2559   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem
+ 215  A ) C.A2560   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem
+ 216  U ) C.U2561   0.005  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,junction-loop
+ 217  U . C.U2562   0.008  anti,~C3'-endo,non-canonical,non-pair-contact,helix-end,junction-loop
+ 218  U . C.U2563   0.011  u-turn,anti,~C3'-endo,BI,non-pair-contact,junction-loop,cap-acceptor
+ 219  A . C.A2564   0.013  turn,u-turn,anti,~C3'-endo,BI,non-pair-contact,junction-loop,A-minor,ribose-zipper
+ 220  A . C.A2565   0.016  u-turn,anti,~C3'-endo,non-canonical,non-pair-contact,multiplet,junction-loop,A-minor,ribose-zipper,cap-donor,phosphate
+ 221  A . C.A2566   0.013  turn,u-turn,anti,~C2'-endo,non-canonical,non-pair-contact,helix-end,junction-loop,cap-acceptor,phosphate,splayed-apart
+ 222  G ) C.G2567   0.010  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,junction-loop,phosphate,splayed-apart
+ 223  U ) C.U2568   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 224  G ) C.G2569   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 225  G ) C.G2570   0.010  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 226  U ) C.U2571   0.011  anti,~C3'-endo,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge,cap-acceptor,splayed-apart
+ 227  A . C.A2572   0.013  turn,anti,~C2'-endo,non-stack,non-pair-contact,bulge,A-minor,phosphate,splayed-apart
+ 228  C . C.C2573   0.006  turn,anti,~C3'-endo,non-stack,non-pair-contact,bulge,phosphate,splayed-apart
+ 229  G ) C.G2574   0.014  anti,~C3'-endo,BI,isolated-canonical,non-pair-contact,helix,bulge,internal-loop,cap-donor,splayed-apart
+ 230  C . C.C2575   0.009  anti,~C3'-endo,non-canonical,non-pair-contact,helix,internal-loop,phosphate,splayed-apart
+ 231  G . C.G2576   0.010  syn,~C3'-endo,non-pair-contact,internal-loop,splayed-apart
+ 232  A . C.A2577   0.010  turn,anti,~C3'-endo,non-canonical,non-pair-contact,multiplet,internal-loop,splayed-apart
+ 233  G ) C.G2578   0.010  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop,phosphate,splayed-apart
+ 234  C ) C.C2579   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop,phosphate
+ 235  P . C.PSU2580 0.040  modified,anti,~C3'-endo,non-canonical,non-pair-contact,helix,internal-loop,phosphate
+ 236  G . C.G2581   0.015  syn,~C2'-endo,non-canonical,non-pair-contact,multiplet,internal-loop,phosphate
+ 237  G ) C.G2582   0.010  anti,~C3'-endo,BI,canonical,non-canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,internal-loop
+ 238  G ) C.G2583   0.015  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,coaxial-stack,multiplet,junction-loop,cap-donor
+ 239  U . C.U2584   0.015  anti,~C3'-endo,non-pair-contact,junction-loop
+ 240  U . C.U2585   0.023  ~C2'-endo,non-stack,non-pair-contact,junction-loop,splayed-apart
+ 241  U . C.U2586   0.005  anti,~C3'-endo,BI,non-pair-contact,junction-loop,phosphate,splayed-apart
+ 242  A . C.A2587   0.018  anti,~C3'-endo,non-canonical,non-pair-contact,helix-end,junction-loop
+ 243  G ( C.G2588   0.018  anti,~C3'-endo,BI,isolated-canonical,non-pair-contact,helix,internal-loop,junction-loop
+ 244  A . C.A2589   0.009  anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 245  A ( C.A2590   0.016  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 246  C ( C.C2591   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 247  G ( C.G2592   0.014  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 248  U ( C.U2593   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 249  C ( C.C2594   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,hairpin-loop
+ 250  G . C.G2595   0.012  u-turn,anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix-end,multiplet,hairpin-loop,cap-acceptor
+ 251  U . C.U2596   0.010  turn,u-turn,anti,~C3'-endo,BI,non-pair-contact,hairpin-loop
+ 252  G . C.G2597   0.026  u-turn,anti,~C3'-endo,BI,non-canonical,non-pair-contact,multiplet,hairpin-loop,ribose-zipper,cap-donor,phosphate
+ 253  A . C.A2598   0.008  u-turn,anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix-end,multiplet,hairpin-loop,A-minor,ribose-zipper,phosphate
+ 254  G ) C.G2599   0.009  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,hairpin-loop
+ 255  A ) C.A2600   0.022  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack,phosphate
+ 256  C ) C.C2601   0.016  anti,~C3'-endo,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge,splayed-apart
+ 257  A . C.A2602   0.026  turn,anti,~C2'-endo,non-stack,bulge,splayed-apart
+ 258  G ) C.G2603   0.013  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge,splayed-apart
+ 259  U ) C.U2604   0.008  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,internal-loop
+ 260  P . C.PSU2605 0.043  modified,anti,~C3'-endo,BI,non-canonical,non-pair-contact,helix,internal-loop
+ 261  C ) C.C2606   0.014  anti,~C3'-endo,BI,isolated-canonical,non-pair-contact,helix,internal-loop,junction-loop
+ 262  G . C.G2607   0.012  anti,~C3'-endo,BI,non-pair-contact,junction-loop
+ 263  G . C.G2608   0.009  anti,~C3'-endo,non-canonical,non-pair-contact,helix-end,junction-loop,splayed-apart
+ 264  U . C.U2609   0.011  anti,~C2'-endo,non-stack,junction-loop,splayed-apart
+ 265  C . C.C2610   0.013  turn,anti,~C2'-endo,non-canonical,non-pair-contact,multiplet,junction-loop,splayed-apart
+ 266  C ) C.C2611   0.013  anti,~C3'-endo,BI,canonical,non-pair-contact,helix-end,stem-end,junction-loop,phosphate,splayed-apart
+ 267  C ) C.C2612   0.013  anti,~C3'-endo,BII,canonical,non-pair-contact,helix-end,stem-end,internal-loop,splayed-apart
+ 268  U . C.U2613   0.011  turn,anti,~C2'-endo,non-stack,internal-loop,splayed-apart
+ 269  A . C.A2614   0.017  anti,~C2'-endo,BII,non-canonical,non-pair-contact,multiplet,internal-loop,splayed-apart
+ 270  U ) C.U2615   0.013  anti,~C3'-endo,BI,non-stack,canonical,helix-end,stem-end,coaxial-stack,multiplet,internal-loop
+ 271  C ) C.C2616   0.018  anti,~C3'-endo,BI,non-stack,canonical,non-canonical,helix,stem,coaxial-stack,multiplet
+ 272  U ) C.U2617   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,multiplet,bulge
+ 273  G ) C.G2618   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem-end,coaxial-stack,bulge
+ 274  C ) C.C2619   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 275  C ) C.C2620   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 276  G ) C.G2621   0.005  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 277  U ) C.U2622   0.018  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 278  G ) C.G2623   0.012  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 279  G ) C.G2624   0.011  anti,~C3'-endo,BI,canonical,non-pair-contact,helix,stem,coaxial-stack
+ 280  G ) C.G2625   0.010  anti,~C3'-endo,canonical,non-pair-contact,helix-end,stem-end,coaxial-stack
+
+****************************************************************************
+List of 16 additional files
+   1 dssr-pairs.pdb -- an ensemble of base pairs
+   2 dssr-multiplets.pdb -- an ensemble of multiplets
+   3 dssr-stems.pdb -- an ensemble of stems
+   4 dssr-helices.pdb -- an ensemble of helices (coaxial stacking)
+   5 dssr-hairpins.pdb -- an ensemble of hairpin loops
+   6 dssr-bulges.pdb -- an ensemble of bulges
+   7 dssr-iloops.pdb -- an ensemble of internal loops
+   8 dssr-junctions.pdb -- an ensemble of junctions (multi-branch)
+   9 dssr-2ndstrs.bpseq -- secondary structure in bpseq format
+  10 dssr-2ndstrs.ct -- secondary structure in connectivity table format
+  11 dssr-2ndstrs.dbn -- secondary structure in dot-bracket notation
+  12 dssr-torsions.txt -- backbone torsion angles and suite names
+  13 dssr-splays.pdb -- an ensemble of splayed-apart units
+  14 dssr-Aminors.pdb -- an ensemble of A minor motifs (types I and II)
+  15 dssr-stacks.pdb -- an ensemble of stacks
+  16 dssr-atom2bases.pdb -- an ensemble of atom-base stacking interactions
+
+****************************************************************************
+Time used: 00:00:00:01

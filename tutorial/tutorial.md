@@ -366,13 +366,83 @@ hide_domain_label( 'P4P5' );
 hide_domain_label( 'P6' );
 ```
 
+### Step 8. Final touches
+As a matter of due diligence, e.g., if this will go into a paper, its helpful now to go through and inspect the base pairs. As it turns out different base pair annotation packages make different choices about what to count as a base pair. 
+
+Its helpful to therefore get a cross check for the base pairs that come from Rosetta/`rna_motif` and base pairs assigned by a totally independent package, here DSSR.
+
+Put your PDB into [Web-DSSR](http://wdssr.x3dna.org/index.php/visualize). Download the .csv file from the first block of output (should be called `tablePairs.csv`). 
+
+Note: You can also run DSSR locallyf from command-line and that can be important if you need `segid` information -- see docs for [check_drawing_against_dssr](..//scripts/drawing/dssr/check_drawing_against_dssr.m).
+
+Now run:
+```
+check_drawing_against_dssr( 'tablePairs.csv' );
+```
+
+Output should look like:
+
+```
+...
+A:A225 A:A226 cSH     Linker_A225_A226_noncanonical_pair
+A:A226 A:U249 cWW     Linker_A226_A249_noncanonical_pair
+
+
+Following drawing pairs are found by DSSR but with different Leontis-Westhof edge1/edge2/orientation
+A:A153 A:G250 tWS     Linker_A153_A250_noncanonical_pair
+A:U167 A:A173 tWW     Linker_A167_A173_noncanonical_pair
+A:A184 A:G212 tWS     Linker_A184_A212_noncanonical_pair
+
+
+Following drawing pairs are *not* found by DSSR
+A:U107 A:C260 cHW     Linker_A107_A260_noncanonical_pair
+A:C124 A:C197 tHW     Linker_A124_A197_noncanonical_pair
+A:A152 A:U224 cWS     Linker_A152_A224_noncanonical_pair
+A:A153 A:G251 tSS     Linker_A153_A251_noncanonical_pair
+A:G215 A:U259 cWW     Linker_A215_A259_noncanonical_pair
+A:A235 A:U236 tSH     Linker_A235_A236_noncanonical_pair
+
+...
+
+Number of matched pairs: 68
+Number of weak matched pairs: 3
+Number of drawing pairs that do not match DSSR: 6
+Number of DSSR pairs that do not match drawing: 10
+```
+
+Most of the base pairs (68 out of 77) match between Rosetta/Ribodraw and DSSR. An additional 3 Rosetta pairs are weak matches to DSSR -- the same residues are involved but the packages make a different choice of Watson-Crick edge (this issue arises often with pairs with single bifurcated hydrogen bonds where its not obvious which 'edge' is involved in the pair). There are 6 that are in Rosetta/Ribodraw, but not in DSSR. 
+
+Look at them one by one (coloring them black in pymol) with commands like 
+```
+color black, resi 124+197
+zoom resi 124+197
+```
+![checkDSSR_124_197](images/step08_checkDSSR_124_197.png)
+This pair `A:C124 A:C197 tHW` looks like potentially a legit C-C pair, and DSSR misses it due to a different choice in how far apart the bases. But now look at `A:G215 A:U259 cWW`:
+```
+color black, resi 215+259
+zoom resi 215+259
+```
+![checkDSSR_215_259](images/step08_checkDSSR_215_259.png)
+This looks like an artifact, so we should delete it.
+
+After inspection here I decided to remove three of the pairs, which I carried out through:
+
+```
+delete_linker( 'Linker_A235_A236_noncanonical_pair' )
+delete_linker( 'Linker_A107_A260_noncanonical_pair' )
+delete_linker( 'Linker_A215_A259_noncanonical_pair' )
+```
+
 Now let's save the drawing:
+
 ```
 save_drawing( '1gidA_drawing.mat' );
 export_drawing( '1gidA_drawing.png' );
 ```
 
 *Tip:* You can also export to PDF, PS and (maybe) SVG by changing the extension. Check out documentation for [export_drawing](..//scripts/drawing/export_drawing.m).
+
 
 Here's my final `.png` result, after a few more tweaks:
  
@@ -403,11 +473,11 @@ save 1gidA_pymol.png
 ![1gidA Pymol](images/1gidA_pymol.png)
 
 
-### Step 8.  Other color schemes
+### Step 9.  Other color schemes
 
 What if you have experimental data you want to visualize on your secondary structure? 
 
-For example, papers that discover new conserved ncRNA elements follow a certain visual language to convey sequence conservation: nucleotides may be red or gray to indicate sequence frequnecy, or replaced wholesale by colored circles if deletions are possible.
+For example, papers that discover new conserved ncRNA elements follow a certain visual language to convey sequence conservation: nucleotides may be red or gray to indicate sequence frequency, or replaced wholesale by colored circles if deletions are possible.
 
 Structural studies that use chemical reagents to support or invalidate a hypothesized secondary structure may wish to visualize relative reactivity to chemical reagents. RiboDraw makes both easy.
 
@@ -419,7 +489,7 @@ set_boldface(1, get_res_tags( 'A:13459-13487 A:13489-13509 A:13511-13516 A:13518
 
 or set their font color via `set_fontcolor`, which is an alternative to `color_drawing` that takes a set of residue tags directly, rather than a predefined domain.
 
-![FSE](images/FSE_cons.png)
+![FSE](chemical_mapping/FSE_cons.png)
 
 Coloring by reactivity is straightforward as well, but you use a command like:
 
@@ -429,4 +499,4 @@ color_rings_by_float_data('A:13459-13547', SHAPE_normalized);
 
 where `SHAPE_normalized` is a 1D array of normalized reactivity data. The result will be colored from white to yellow to red.
 
-![stem5](images/stem5.png)
+![stem5](chemical_mapping/stem5.png)

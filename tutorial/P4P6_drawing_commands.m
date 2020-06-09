@@ -123,7 +123,6 @@ export_drawing( 'steps/step06_refineall.png' );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Step 7 -- some recoloring in both ribodraw and pymol
-% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 hide_linker_controls
 hide_helix_controls
@@ -149,8 +148,19 @@ hide_domain_label( 'P6' );
 % color forest, P6
 % hide spheres
 % save /Users/rhiju/Desktop/1gid_RNAA.pse  
-save_drawing( 'steps/step07_final.mat' );
-export_drawing( 'steps/step07_final.png' );
+save_drawing( 'steps/step07_recolor.mat' );
+export_drawing( 'steps/step07_recolor.png' );
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Step 8 -- final touches
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+check_drawing_against_dssr( 'tablePairs.csv' );
+delete_linker( 'Linker_A235_A236_noncanonical_pair' )
+delete_linker( 'Linker_A107_A260_noncanonical_pair' )
+delete_linker( 'Linker_A215_A259_noncanonical_pair' )
+save_drawing( 'steps/step08_final.mat' );
+export_drawing( 'steps/step08_final.png' );
+
 
 save_drawing( '1gidA_drawing.mat' );
 export_drawing( '1gidA_drawing.png' );

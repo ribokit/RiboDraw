@@ -1,4 +1,5 @@
 function [match_drawing_pairs, weak_match_drawing_pairs, non_match_drawing_pairs] = check_drawing_against_dssr( dssr_pairs );
+% check_drawing_against_dssr( base_pairs_file );
 % check_drawing_against_dssr( dssr_pairs );
 %
 % Will read in DSSR output file and compare base pairs
@@ -8,17 +9,27 @@ function [match_drawing_pairs, weak_match_drawing_pairs, non_match_drawing_pairs
 % pairs.
 %
 % Input:
-%  pdb file 
+%  base_pairs_file = .csv formatted output from web-DSSR server
+%  (http://http://wdssr.x3dna.org/)
+%
+% Or output from  command-line like
+%  x3dna-dssr -i=../rna_motif/1gid_RNAA.pdb -o=1gid_RNAA.out
+% like
+%     nt1            nt2            bp  name        Saenger   LW   DSSR
+%   1 A.RG103        A.RC217        G-C WC          19-XIX    cWW  cW-W
+%   2 A.RG103        A.RA256        G+A --          n/a       cHW  cM+W%
+%
+% Or (for segids) output from
+%  x3dna-dssr -i=../rna_motif/1gid_RNAA.pdb -o=1gid_RNAA.out --idstr=long
+% like
+%     nt1            nt2            bp  name        Saenger   LW   DSSR
+%   1 ..A.RG.103.    ..A.RC.217.    G-C WC          19-XIX    cWW  cW-W
+%   2 ..A.RG.103.    ..A.RA.256.    G+A --          n/a       cHW  cM+W
+%   3 ..A.RA.104.    ..A.RC.216.    A-C --          n/a       cWW  cW-W
 %
 %    OR
 %
-% output file from DSSR from command line like:
-%  x3dna-dssr -i=../rna_motif/1gid_RNAA.pdb -o=1gid_RNAA.pdb.dssr.out  --idstr=long 
-%
-%    OR
-%
-% .csv formatted output from web-DSSR server http://web.x3dna.org/
-%
+%  dssr_pairs = cell of DSSR base pairs
 %
 % Outputs
 %
@@ -29,6 +40,9 @@ function [match_drawing_pairs, weak_match_drawing_pairs, non_match_drawing_pairs
 % non_match_drawing_pairs   = pairs in drawing that are *not* found in DSSR
 % 
 % (C) R. Das, Stanford University 2020.
+if ~iscell( dssr_pairs )
+    dssr_pairs = read_dssr_base_pairs( dssr_pairs );
+end
 
 linker_pairs = get_tags( 'Linker','pair' );
 drawing_pairs = {};
@@ -53,7 +67,6 @@ for i = 1:length( linker_pairs )
 end
 
 % First go through drawing and check against dssr
-
 [match_drawing_pairs,weak_match_drawing_pairs,non_match_drawing_pairs] = look_for_pairs( drawing_pairs, dssr_pairs, 'drawing','DSSR');
 [match_dssr_pairs,weak_match_dssr_pairs,non_match_dssr_pairs] = look_for_pairs( dssr_pairs, drawing_pairs, 'DSSR','drawing');
 assert( length( match_drawing_pairs ) == length( match_dssr_pairs ) );

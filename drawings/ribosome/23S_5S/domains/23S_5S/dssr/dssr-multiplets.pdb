@@ -1,5 +1,5 @@
 MODEL        1
-REMARK    model=1  nts=3  GCG C.G35,C.C445,C.G450
+REMARK    model=1  nts=3  GCG .QA.C.G.35.,.QA.C.C.445.,.QA.C.G.450.
 ATOM      1  P     G C  35       3.864   7.888   0.940  1.00134.07      QA   P  
 ATOM      2  C5'   G C  35       1.313   7.505   1.004  1.00129.02      QA   C  
 ATOM      3  O5'   G C  35       2.607   6.920   0.929  1.00129.69      QA   O  
@@ -68,7 +68,7 @@ ATOM     65  OP1   G C 450      -5.372  -8.873   2.963  1.00115.51      QA   O
 ATOM     66  OP2   G C 450      -7.296  -7.289   2.648  1.00110.24      QA   O1-
 ENDMDL
 MODEL        2
-REMARK    model=2  nts=3  AUC C.A44,C.U434,C.C435
+REMARK    model=2  nts=3  AUC .QA.C.A.44.,.QA.C.U.434.,.QA.C.C.435.
 ATOM      1  P     A C  44       4.090   8.288  -2.656  1.00152.07      QA   P  
 ATOM      2  C5'   A C  44       1.464   8.035  -2.812  1.00146.17      QA   C  
 ATOM      3  O5'   A C  44       2.688   7.698  -2.176  1.00146.07      QA   O  
@@ -133,7 +133,7 @@ ATOM     61  OP1   C C 435      -3.375  -8.914   0.019  1.00119.59      QA   O
 ATOM     62  OP2   C C 435      -3.310  -9.100  -2.514  1.00129.76      QA   O1-
 ENDMDL
 MODEL        3
-REMARK    model=3  nts=3  GAC C.G45,C.A181,C.C433
+REMARK    model=3  nts=3  GAC .QA.C.G.45.,.QA.C.A.181.,.QA.C.C.433.
 ATOM      1  P     G C  45       5.828   7.444  -2.057  1.00143.98      QA   P  
 ATOM      2  C5'   G C  45       3.318   7.920  -1.490  1.00141.32      QA   C  
 ATOM      3  O5'   G C  45       4.408   7.014  -1.495  1.00141.38      QA   O  
@@ -201,7 +201,7 @@ ATOM     64  OP1   C C 433      -3.411 -10.695   1.667  1.00125.37      QA   O
 ATOM     65  OP2   C C 433      -0.921 -10.045   1.516  1.00126.34      QA   O1-
 ENDMDL
 MODEL        4
-REMARK    model=4  nts=3  GCA C.G55,C.C115,C.A127
+REMARK    model=4  nts=3  GCA .QA.C.G.55.,.QA.C.C.115.,.QA.C.A.127.
 ATOM      1  P     G C  55       0.839   9.386   1.010  1.00124.80      QA   P  
 ATOM      2  C5'   G C  55      -0.285   7.036   1.488  1.00120.55      QA   C  
 ATOM      3  O5'   G C  55      -0.069   8.139   0.616  1.00120.45      QA   O  
@@ -269,7 +269,7 @@ ATOM     64  OP1   A C 127      -8.325  -6.493  -4.042  1.00114.60      QA   O
 ATOM     65  OP2   A C 127      -9.103  -4.246  -3.024  1.00115.71      QA   O1-
 ENDMDL
 MODEL        5
-REMARK    model=5  nts=3  CGA C.C57,C.G70,C.A71
+REMARK    model=5  nts=3  CGA .QA.C.C.57.,.QA.C.G.70.,.QA.C.A.71.
 ATOM      1  P     C C  57      -0.483   9.908   0.869  1.00118.90      QA   P  
 ATOM      2  C5'   C C  57      -2.765   8.585   0.839  1.00127.88      QA   C  
 ATOM      3  O5'   C C  57      -1.344   8.568   0.986  1.00128.72      QA   O  
@@ -337,7 +337,7 @@ ATOM     64  OP1   A C  71       0.031  -9.340   0.782  1.00153.08      QA   O
 ATOM     65  OP2   A C  71      -0.309  -9.440  -1.749  1.00154.09      QA   O1-
 ENDMDL
 MODEL        6
-REMARK    model=6  nts=3  GCA C.G58,C.C69,C.A73
+REMARK    model=6  nts=3  GCA .QA.C.G.58.,.QA.C.C.69.,.QA.C.A.73.
 ATOM      1  P     G C  58       1.672   8.113   1.856  1.00134.66      QA   P  
 ATOM      2  C5'   G C  58      -0.733   7.136   1.290  1.00137.58      QA   C  
 ATOM      3  O5'   G C  58       0.670   6.933   1.461  1.00134.76      QA   O  
@@ -405,7 +405,7 @@ ATOM     64  OP1   A C  73      -8.790  -6.785   0.838  1.00158.93      QA   O
 ATOM     65  OP2   A C  73      -9.321  -4.495  -0.191  1.00161.39      QA   O1-
 ENDMDL
 MODEL        7
-REMARK    model=7  nts=3  GCG C.G60,C.C66,C.G88
+REMARK    model=7  nts=3  GCG .QA.C.G.60.,.QA.C.C.66.,.QA.C.G.88.
 ATOM      1  P     G C  60     -11.213   2.642  -2.375  1.00154.28      QA   P  
 ATOM      2  C5'   G C  60     -10.167   0.249  -2.461  1.00150.10      QA   C  
 ATOM      3  O5'   G C  60     -10.114   1.574  -1.944  1.00149.49      QA   O  
@@ -474,7 +474,7 @@ ATOM     65  OP1   G C  88      -2.885  -7.642   2.609  1.00156.34      QA   O
 ATOM     66  OP2   G C  88      -3.895  -5.670   1.297  1.00153.76      QA   O1-
 ENDMDL
 MODEL        8
-REMARK    model=8  nts=3  UAU C.U62,C.A64,C.U90
+REMARK    model=8  nts=3  UAU .QA.C.U.62.,.QA.C.A.64.,.QA.C.U.90.
 ATOM      1  P     U C  62       7.424   9.043  -0.542  1.00147.82      QA   P  
 ATOM      2  C5'   U C  62       5.546   8.130  -2.136  1.00148.21      QA   C  
 ATOM      3  O5'   U C  62       6.378   7.937  -1.001  1.00147.95      QA   O  
@@ -539,7 +539,7 @@ ATOM     61  OP1   U C  90       1.530 -10.349  -1.681  1.00141.47      QA   O
 ATOM     62  OP2   U C  90       2.625  -8.074  -1.342  1.00144.50      QA   O1-
 ENDMDL
 MODEL        9
-REMARK    model=9  nts=3  GCA C.G80,C.C106,C.A294
+REMARK    model=9  nts=3  GCA .QA.C.G.80.,.QA.C.C.106.,.QA.C.A.294.
 ATOM      1  P     G C  80       0.339   8.820  -1.047  1.00185.42      QA   P  
 ATOM      2  C5'   G C  80      -0.931   7.054   0.436  1.00184.66      QA   C  
 ATOM      3  O5'   G C  80       0.117   7.349  -0.480  1.00184.47      QA   O  
@@ -607,7 +607,7 @@ ATOM     64  OP1   A C 294      -4.122  -9.132  -5.182  1.00155.66      QA   O
 ATOM     65  OP2   A C 294      -6.579  -8.396  -5.258  1.00157.57      QA   O1-
 ENDMDL
 MODEL       10
-REMARK    model=10  nts=3  AGA C.A182,C.G215,C.A432
+REMARK    model=10  nts=3  AGA .QA.C.A.182.,.QA.C.G.215.,.QA.C.A.432.
 ATOM      1  P     A C 182       7.314   8.190  -1.613  1.00114.92      QA   P  
 ATOM      2  C5'   A C 182       4.916   9.145  -1.965  1.00114.89      QA   C  
 ATOM      3  O5'   A C 182       5.772   8.264  -1.268  1.00116.43      QA   O  
@@ -677,7 +677,7 @@ ATOM     66  OP1   A C 432     -10.966   7.421   0.255  1.00129.50      QA   O
 ATOM     67  OP2   A C 432     -10.883   4.844   0.044  1.00129.48      QA   O1-
 ENDMDL
 MODEL       11
-REMARK    model=11  nts=3  CAA C.C183,C.A213,C.A432
+REMARK    model=11  nts=3  CAA .QA.C.C.183.,.QA.C.A.213.,.QA.C.A.432.
 ATOM      1  P     C C 183       4.212   8.011   0.115  1.00120.73      QA   P  
 ATOM      2  C5'   C C 183       1.641   8.202   0.444  1.00115.30      QA   C  
 ATOM      3  O5'   C C 183       2.805   7.387   0.515  1.00110.62      QA   O  
@@ -744,7 +744,7 @@ ATOM     63  OP1   A C 432      -8.973  11.093   0.527  1.00129.50      QA   O
 ATOM     64  OP2   A C 432      -9.912   8.760  -0.082  1.00129.48      QA   O1-
 ENDMDL
 MODEL       12
-REMARK    model=12  nts=3  GCA C.G187,C.C209,C.A1365
+REMARK    model=12  nts=3  GCA .QA.C.G.187.,.QA.C.C.209.,.QA.C.A.1365.
 ATOM      1  P     G C 187       5.434   6.972   1.483  1.00110.80      QA   P  
 ATOM      2  C5'   G C 187       3.291   7.644   0.100  1.00114.61      QA   C  
 ATOM      3  O5'   G C 187       4.082   6.636   0.711  1.00114.75      QA   O  
@@ -812,7 +812,7 @@ ATOM     64  OP1   A C1365     -10.462  10.398   1.307  1.00105.27      QA   O
 ATOM     65  OP2   A C1365      -9.888  10.701  -1.185  1.00104.91      QA   O1-
 ENDMDL
 MODEL       13
-REMARK    model=13  nts=3  AGU C.A190,C.G205,C.U206
+REMARK    model=13  nts=3  AGU .QA.C.A.190.,.QA.C.G.205.,.QA.C.U.206.
 ATOM      1  P     A C 190      -2.408   5.267  -0.091  1.00 98.77      QA   P  
 ATOM      2  C5'   A C 190      -2.651   2.936   1.114  1.00100.33      QA   C  
 ATOM      3  O5'   A C 190      -2.072   3.717   0.081  1.00100.63      QA   O  
@@ -880,7 +880,7 @@ ATOM     64  OP1   U C 206       8.803   0.537  -3.803  1.00110.17      QA   O
 ATOM     65  OP2   U C 206       6.228   0.925  -3.906  1.00113.05      QA   O1-
 ENDMDL
 MODEL       14
-REMARK    model=14  nts=3  AUG C.A196,C.U826,C.G831
+REMARK    model=14  nts=3  AUG .QA.C.A.196.,.QA.C.U.826.,.QA.C.G.831.
 ATOM      1  P     A C 196     -13.196  -1.386  -0.220  1.00109.76      QA   P  
 ATOM      2  C5'   A C 196     -11.091   0.056  -0.902  1.00105.46      QA   C  
 ATOM      3  O5'   A C 196     -12.197  -0.757  -1.299  1.00105.14      QA   O  
@@ -948,7 +948,7 @@ ATOM     64  OP1   G C 831       5.310   8.108  -0.678  1.00101.89      QA   O
 ATOM     65  OP2   G C 831       5.535   5.577  -1.121  1.00100.30      QA   O1-
 ENDMDL
 MODEL       15
-REMARK    model=15  nts=3  GAA C.G220,C.A221,C.A428
+REMARK    model=15  nts=3  GAA .QA.C.G.220.,.QA.C.A.221.,.QA.C.A.428.
 ATOM      1  P     G C 220       8.647   6.906  -2.837  1.00131.03      QA   P  
 ATOM      2  C5'   G C 220       6.126   7.630  -2.975  1.00131.87      QA   C  
 ATOM      3  O5'   G C 220       7.150   6.902  -2.315  1.00133.12      QA   O  
@@ -1018,7 +1018,7 @@ ATOM     66  OP1   A C 428       6.193  -6.355   0.141  1.00145.93      QA   O
 ATOM     67  OP2   A C 428       5.245  -4.162  -0.803  1.00141.38      QA   O1-
 ENDMDL
 MODEL       16
-REMARK    model=16  nts=3  AAU C.A221,C.A265,C.U427
+REMARK    model=16  nts=3  AAU .QA.C.A.221.,.QA.C.A.265.,.QA.C.U.427.
 ATOM      1  P     A C 221      -1.332   8.672  -1.571  1.00141.16      QA   P  
 ATOM      2  C5'   A C 221      -3.907   8.314  -1.345  1.00139.77      QA   C  
 ATOM      3  O5'   A C 221      -2.609   8.107  -0.809  1.00140.32      QA   O  
@@ -1085,7 +1085,7 @@ ATOM     63  OP1   U C 427      10.486   1.360   0.753  1.00141.54      QA   O
 ATOM     64  OP2   U C 427       8.890   3.309   0.304  1.00141.35      QA   O1-
 ENDMDL
 MODEL       17
-REMARK    model=17  nts=3  AGC C.A223,C.G407,C.C420
+REMARK    model=17  nts=3  AGC .QA.C.A.223.,.QA.C.G.407.,.QA.C.C.420.
 ATOM      1  P     A C 223       6.206   7.883  -4.031  1.00139.96      QA   P  
 ATOM      2  C5'   A C 223       5.859   6.258  -1.977  1.00135.97      QA   C  
 ATOM      3  O5'   A C 223       5.750   6.509  -3.373  1.00140.17      QA   O  
@@ -1153,7 +1153,7 @@ ATOM     64  OP1   C C 420      -4.402  11.810  -0.686  1.00151.19      QA   O
 ATOM     65  OP2   C C 420      -5.818   9.777  -0.125  1.00148.94      QA   O1-
 ENDMDL
 MODEL       18
-REMARK    model=18  nts=3  UGA C.U234,C.G263,C.A430
+REMARK    model=18  nts=3  UGA .QA.C.U.234.,.QA.C.G.263.,.QA.C.A.430.
 ATOM      1  P     U C 234      -1.543   8.560   2.817  1.00133.69      QA   P  
 ATOM      2  C5'   U C 234      -4.042   7.767   2.651  1.00134.41      QA   C  
 ATOM      3  O5'   U C 234      -2.664   7.484   2.457  1.00135.84      QA   O  
@@ -1221,7 +1221,7 @@ ATOM     64  OP1   A C 430      -4.852 -10.613  -1.320  1.00144.84      QA   O
 ATOM     65  OP2   A C 430      -6.045  -8.385  -0.977  1.00143.16      QA   O1-
 ENDMDL
 MODEL       19
-REMARK    model=19  nts=3  GUA C.G242,C.U243,C.A255
+REMARK    model=19  nts=3  GUA .QA.C.G.242.,.QA.C.U.243.,.QA.C.A.255.
 ATOM      1  P     G C 242       5.472   7.323  -3.985  1.00120.14      QA   P  
 ATOM      2  C5'   G C 242       6.704   6.969  -1.654  1.00115.68      QA   C  
 ATOM      3  O5'   G C 242       6.594   6.663  -3.053  1.00118.33      QA   O  
@@ -1289,7 +1289,7 @@ ATOM     64  OP1   A C 255       3.185  -5.383  -1.553  1.00109.35      QA   O
 ATOM     65  OP2   A C 255       5.010  -3.639  -0.965  1.00110.30      QA   O1-
 ENDMDL
 MODEL       20
-REMARK    model=20  nts=3  GCA C.G245,C.C253,C.A384
+REMARK    model=20  nts=3  GCA .QA.C.G.245.,.QA.C.C.253.,.QA.C.A.384.
 ATOM      1  P     G C 245       0.389   8.868  -0.744  1.00116.74      QA   P  
 ATOM      2  C5'   G C 245      -0.444   7.060   0.982  1.00113.77      QA   C  
 ATOM      3  O5'   G C 245      -0.687   7.859  -0.161  1.00117.59      QA   O  
@@ -1357,7 +1357,7 @@ ATOM     64  OP1   A C 384      -9.197  -3.598  -2.150  1.00116.01      QA   O
 ATOM     65  OP2   A C 384      -8.295  -5.320  -3.795  1.00118.35      QA   O1-
 ENDMDL
 MODEL       21
-REMARK    model=21  nts=3*  UCU C.U280,C.C281,C.U360
+REMARK    model=21  nts=3*  UCU .QA.C.U.280.,.QA.C.C.281.,.QA.C.U.360.
 ATOM      1  P     U C 280       0.251   9.322   0.129  1.00175.52      QA   P  
 ATOM      2  C5'   U C 280      -2.239   9.053  -0.560  1.00167.13      QA   C  
 ATOM      3  O5'   U C 280      -1.007   8.426  -0.249  1.00168.30      QA   O  
@@ -1420,7 +1420,7 @@ ATOM     59  OP1   U C 360       1.248  -8.350  -3.168  1.00167.27      QA   O
 ATOM     60  OP2   U C 360       2.948  -6.704  -2.115  1.00167.70      QA   O1-
 ENDMDL
 MODEL       22
-REMARK    model=22  nts=3  ACG C.A300,C.C318,C.G333
+REMARK    model=22  nts=3  ACG .QA.C.A.300.,.QA.C.C.318.,.QA.C.G.333.
 ATOM      1  P     A C 300       7.778   6.163  -0.902  1.00187.65      QA   P  
 ATOM      2  C5'   A C 300       5.289   6.853  -0.432  1.00188.55      QA   C  
 ATOM      3  O5'   A C 300       6.428   6.091  -0.064  1.00187.51      QA   O  
@@ -1488,7 +1488,7 @@ ATOM     64  OP1   G C 333      -2.107  -5.635   3.976  1.00163.31      QA   O
 ATOM     65  OP2   G C 333      -1.453  -8.070   3.358  1.00161.07      QA   O1-
 ENDMDL
 MODEL       23
-REMARK    model=23  nts=3  AAA C.A371,C.A402,C.A422
+REMARK    model=23  nts=3  AAA .QA.C.A.371.,.QA.C.A.402.,.QA.C.A.422.
 ATOM      1  P     A C 371      -5.186   3.490   5.739  1.00134.36      QA   P  
 ATOM      2  C5'   A C 371      -5.244   2.775   3.178  1.00134.60      QA   C  
 ATOM      3  O5'   A C 371      -5.752   3.581   4.242  1.00135.64      QA   O  
@@ -1557,7 +1557,7 @@ ATOM     65  OP1   A C 422       2.374  13.089   1.478  1.00142.58      QA   O
 ATOM     66  OP2   A C 422       2.948  10.661   2.011  1.00139.66      QA   O1-
 ENDMDL
 MODEL       24
-REMARK    model=24  nts=3  CUG C.C385,C.U390,C.G411
+REMARK    model=24  nts=3  CUG .QA.C.C.385.,.QA.C.U.390.,.QA.C.G.411.
 ATOM      1  P     C C 385       2.117   7.914   3.418  1.00113.25      QA   P  
 ATOM      2  C5'   C C 385      -0.252   7.437   2.339  1.00110.50      QA   C  
 ATOM      3  O5'   C C 385       1.021   6.961   2.766  1.00113.54      QA   O  
@@ -1623,7 +1623,7 @@ ATOM     62  OP1   G C 411       1.425 -10.613  -4.657  1.00123.41      QA   O
 ATOM     63  OP2   G C 411       2.127  -8.280  -5.467  1.00125.35      QA   O1-
 ENDMDL
 MODEL       25
-REMARK    model=25  nts=3  ACG C.A443,C.C1200,C.G1245
+REMARK    model=25  nts=3  ACG .QA.C.A.443.,.QA.C.C.1200.,.QA.C.G.1245.
 ATOM      1  P     A C 443       9.233   5.907  -0.066  1.00131.99      QA   P  
 ATOM      2  C5'   A C 443       6.799   6.714   0.489  1.00128.20      QA   C  
 ATOM      3  O5'   A C 443       7.824   5.752   0.652  1.00128.57      QA   O  
@@ -1691,7 +1691,7 @@ ATOM     64  OP1   G C1245       0.049  -9.654   1.085  1.00127.22      QA   O
 ATOM     65  OP2   G C1245      -2.125  -8.308   0.903  1.00127.69      QA   O1-
 ENDMDL
 MODEL       26
-REMARK    model=26  nts=3  GAA C.G446,C.A449,C.A454
+REMARK    model=26  nts=3  GAA .QA.C.G.446.,.QA.C.A.449.,.QA.C.A.454.
 ATOM      1  P     G C 446       7.027   4.285   0.858  1.00119.24      QA   P  
 ATOM      2  C5'   G C 446       4.507   4.858   1.202  1.00120.74      QA   C  
 ATOM      3  O5'   G C 446       5.579   3.941   1.421  1.00121.04      QA   O  
@@ -1761,7 +1761,7 @@ ATOM     66  OP1   A C 454      -6.971   6.082  -1.547  1.00111.35      QA   O
 ATOM     67  OP2   A C 454      -6.465   4.816  -3.702  1.00113.27      QA   O1-
 ENDMDL
 MODEL       27
-REMARK    model=27  nts=3  UAU C.U448,C.A582,C.U1258
+REMARK    model=27  nts=3  UAU .QA.C.U.448.,.QA.C.A.582.,.QA.C.U.1258.
 ATOM      1  P     U C 448       8.170   6.810   1.113  1.00117.91      QA   P  
 ATOM      2  C5'   U C 448       6.391   8.683   1.681  1.00109.24      QA   C  
 ATOM      3  O5'   U C 448       7.322   7.701   2.133  1.00112.77      QA   O  
@@ -1826,7 +1826,7 @@ ATOM     61  OP1   U C1258      -5.803   8.165  -2.596  1.00100.76      QA   O
 ATOM     62  OP2   U C1258      -6.252   5.650  -2.167  1.00 97.93      QA   O1-
 ENDMDL
 MODEL       28
-REMARK    model=28  nts=3  GAA C.G452,C.A457,C.A471
+REMARK    model=28  nts=3  GAA .QA.C.G.452.,.QA.C.A.457.,.QA.C.A.471.
 ATOM      1  P     G C 452       5.820   8.804   2.790  1.00108.22      QA   P  
 ATOM      2  C5'   G C 452       3.780   8.139   1.253  1.00109.52      QA   C  
 ATOM      3  O5'   G C 452       4.954   7.751   1.961  1.00112.19      QA   O  
@@ -1896,7 +1896,7 @@ ATOM     66  OP1   A C 471      -3.866   7.043   1.592  1.00114.98      QA   O
 ATOM     67  OP2   A C 471      -3.048   4.645   1.222  1.00109.05      QA   O1-
 ENDMDL
 MODEL       29
-REMARK    model=29  nts=3  GUA C.G458,C.U459,C.A470
+REMARK    model=29  nts=3  GUA .QA.C.G.458.,.QA.C.U.459.,.QA.C.A.470.
 ATOM      1  P     G C 458      -2.910   9.153  -3.146  1.00113.90      QA   P  
 ATOM      2  C5'   G C 458      -1.931   9.882  -0.802  1.00117.24      QA   C  
 ATOM      3  O5'   G C 458      -1.760   9.755  -2.215  1.00120.18      QA   O  
@@ -1964,7 +1964,7 @@ ATOM     64  OP1   A C 470       6.173  -0.198  -1.174  1.00100.58      QA   O
 ATOM     65  OP2   A C 470       5.789   2.106  -0.107  1.00105.21      QA   O1-
 ENDMDL
 MODEL       30
-REMARK    model=30  nts=3  GUA C.G465,C.U683,C.A794
+REMARK    model=30  nts=3  GUA .QA.C.G.465.,.QA.C.U.683.,.QA.C.A.794.
 ATOM      1  P     G C 465       8.962   8.888  -1.368  1.00103.94      QA   P  
 ATOM      2  C5'   G C 465       6.445   9.616  -1.622  1.00104.65      QA   C  
 ATOM      3  O5'   G C 465       7.405   8.724  -1.068  1.00104.31      QA   O  
@@ -2032,7 +2032,7 @@ ATOM     64  OP1   A C 794      -2.295  -9.389   4.438  1.00 94.98      QA   O
 ATOM     65  OP2   A C 794      -4.079  -7.871   3.315  1.00 93.51      QA   O1-
 ENDMDL
 MODEL       31
-REMARK    model=31  nts=3  AAA C.A482,C.A497,C.A507
+REMARK    model=31  nts=3  AAA .QA.C.A.482.,.QA.C.A.497.,.QA.C.A.507.
 ATOM      1  P     A C 482       0.937   5.325   0.302  1.00145.51      QA   P  
 ATOM      2  C5'   A C 482      -1.446   4.863  -0.675  1.00148.76      QA   C  
 ATOM      3  O5'   A C 482      -0.433   4.529   0.254  1.00146.90      QA   O  
@@ -2101,7 +2101,7 @@ ATOM     65  OP1   A C 507       8.967  -4.988  -0.908  1.00126.31      QA   O
 ATOM     66  OP2   A C 507       7.622  -4.536   1.258  1.00131.07      QA   O1-
 ENDMDL
 MODEL       32
-REMARK    model=32  nts=3  AAU C.A532,C.A2020,C.U2034
+REMARK    model=32  nts=3  AAU .QA.C.A.532.,.QA.C.A.2020.,.QA.C.U.2034.
 ATOM      1  P     A C 532      -4.832   7.084   7.330  1.00100.53      QA   P  
 ATOM      2  C5'   A C 532      -5.921   7.833   5.073  1.00102.82      QA   C  
 ATOM      3  O5'   A C 532      -4.959   8.068   6.092  1.00 99.95      QA   O  
@@ -2168,7 +2168,7 @@ ATOM     63  OP1   U C2034       8.514  -4.991   2.576  1.00 93.01      QA   O
 ATOM     64  OP2   U C2034      10.901  -4.147   1.945  1.00 95.78      QA   O1-
 ENDMDL
 MODEL       33
-REMARK    model=33  nts=3  UUA C.U562,C.U2028,C.A2033
+REMARK    model=33  nts=3  UUA .QA.C.U.562.,.QA.C.U.2028.,.QA.C.A.2033.
 ATOM      1  P     U C 562       3.974   8.362  -2.753  1.00100.63      QA   P  
 ATOM      2  C5'   U C 562       1.564   9.380  -2.468  1.00101.42      QA   C  
 ATOM      3  O5'   U C 562       2.663   8.669  -1.915  1.00100.44      QA   O  
@@ -2233,7 +2233,7 @@ ATOM     61  OP1   A C2033      -4.716  -6.168   0.290  1.00 98.72      QA   O
 ATOM     62  OP2   A C2033      -3.134  -5.215   2.093  1.00108.87      QA   O1-
 ENDMDL
 MODEL       34
-REMARK    model=34  nts=3  AGG C.A563,C.G578,C.G1252
+REMARK    model=34  nts=3  AGG .QA.C.A.563.,.QA.C.G.578.,.QA.C.G.1252.
 ATOM      1  P     A C 563      -1.546  11.543   1.440  1.00104.05      QA   P  
 ATOM      2  C5'   A C 563      -0.884   9.393   0.069  1.00103.34      QA   C  
 ATOM      3  O5'   A C 563      -1.890  10.173   0.709  1.00105.51      QA   O  
@@ -2304,7 +2304,7 @@ ATOM     67  OP1   G C1252      -9.848  -6.613   0.652  1.00101.59      QA   O
 ATOM     68  OP2   G C1252     -10.088  -8.043  -1.461  1.00100.12      QA   O1-
 ENDMDL
 MODEL       35
-REMARK    model=35  nts=3  CGA C.C564,C.G577,C.A1253
+REMARK    model=35  nts=3  CGA .QA.C.C.564.,.QA.C.G.577.,.QA.C.A.1253.
 ATOM      1  P     C C 564       1.052   8.370   0.506  1.00100.17      QA   P  
 ATOM      2  C5'   C C 564      -1.207   7.224  -0.134  1.00101.03      QA   C  
 ATOM      3  O5'   C C 564       0.175   7.097   0.146  1.00100.27      QA   O  
@@ -2372,7 +2372,7 @@ ATOM     64  OP1   A C1253      -8.123  -5.652  -5.410  1.00104.27      QA   O
 ATOM     65  OP2   A C1253     -10.418  -5.689  -4.279  1.00106.16      QA   O1-
 ENDMDL
 MODEL       36
-REMARK    model=36  nts=3  AUG C.A631,C.U2401,C.G2415
+REMARK    model=36  nts=3  AUG .QA.C.A.631.,.QA.C.U.2401.,.QA.C.G.2415.
 ATOM      1  P     A C 631       9.500   7.895  -0.625  1.00123.35      QA   P  
 ATOM      2  C5'   A C 631       7.553   9.371   0.394  1.00124.90      QA   C  
 ATOM      3  O5'   A C 631       8.313   8.165   0.411  1.00126.55      QA   O  
@@ -2440,7 +2440,7 @@ ATOM     64  OP1   G C2415      -3.584   8.534  -3.490  1.00117.49      QA   O
 ATOM     65  OP2   G C2415      -4.716   6.313  -2.824  1.00115.36      QA   O1-
 ENDMDL
 MODEL       37
-REMARK    model=37  nts=3  UCG C.U646,C.C2350,C.G2367
+REMARK    model=37  nts=3  UCG .QA.C.U.646.,.QA.C.C.2350.,.QA.C.G.2367.
 ATOM      1  P     U C 646     -10.156   8.010  -1.850  1.00139.74      QA   P  
 ATOM      2  C5'   U C 646      -9.884   5.802  -0.476  1.00136.36      QA   C  
 ATOM      3  O5'   U C 646     -10.126   6.421  -1.740  1.00138.54      QA   O  
@@ -2506,7 +2506,7 @@ ATOM     62  OP1   G C2367      -0.425  -9.158  -3.355  1.00138.64      QA   O
 ATOM     63  OP2   G C2367       1.546  -7.538  -3.118  1.00133.86      QA   O1-
 ENDMDL
 MODEL       38
-REMARK    model=38  nts=3  CUA C.C673,C.U807,C.A2060
+REMARK    model=38  nts=3  CUA .QA.C.C.673.,.QA.C.U.807.,.QA.C.A.2060.
 ATOM      1  P     C C 673      -1.029  11.783   1.798  1.00103.71      QA   P  
 ATOM      2  C5'   C C 673      -3.199  10.383   1.334  1.00101.24      QA   C  
 ATOM      3  O5'   C C 673      -1.844  10.413   1.750  1.00101.92      QA   O  
@@ -2571,7 +2571,7 @@ ATOM     61  OP1   A C2060     -10.068  -6.081   5.197  1.00 89.21      QA   O
 ATOM     62  OP2   A C2060     -11.332  -6.711   3.032  1.00 91.40      QA   O1-
 ENDMDL
 MODEL       39
-REMARK    model=39  nts=3  GGC C.G684,C.G775,C.C791
+REMARK    model=39  nts=3  GGC .QA.C.G.684.,.QA.C.G.775.,.QA.C.C.791.
 ATOM      1  P     G C 684      -7.535  10.901  -3.290  1.00 98.26      QA   P  
 ATOM      2  C5'   G C 684      -7.627   8.847  -1.672  1.00 96.48      QA   C  
 ATOM      3  O5'   G C 684      -7.847   9.365  -2.979  1.00 96.76      QA   O  
@@ -2640,7 +2640,7 @@ ATOM     65  OP1   C C 791      -2.419 -12.594  -2.250  1.00 92.40      QA   O
 ATOM     66  OP2   C C 791      -4.020 -10.809  -1.265  1.00 95.02      QA   O1-
 ENDMDL
 MODEL       40
-REMARK    model=40  nts=3  AUA C.A693,C.U769,C.A1353
+REMARK    model=40  nts=3  AUA .QA.C.A.693.,.QA.C.U.769.,.QA.C.A.1353.
 ATOM      1  P     A C 693       4.788   8.253  -0.231  1.00 99.15      QA   P  
 ATOM      2  C5'   A C 693       2.191   8.169  -0.289  1.00102.59      QA   C  
 ATOM      3  O5'   A C 693       3.406   7.576   0.157  1.00102.91      QA   O  
@@ -2707,7 +2707,7 @@ ATOM     63  OP1   A C1353      -7.657  12.089  -2.017  1.00113.37      QA   O
 ATOM     64  OP2   A C1353      -8.976   9.947  -2.547  1.00110.00      QA   O1-
 ENDMDL
 MODEL       41
-REMARK    model=41  nts=3  AGG C.A699,C.G733,C.G1633
+REMARK    model=41  nts=3  AGG .QA.C.A.699.,.QA.C.G.733.,.QA.C.G.1633.
 ATOM      1  P     A C 699       2.713   9.213  -0.112  1.00106.16      QA   P  
 ATOM      2  C5'   A C 699       0.173   9.266  -0.627  1.00107.41      QA   C  
 ATOM      3  O5'   A C 699       1.263   8.570  -0.055  1.00104.87      QA   O  
@@ -2778,7 +2778,7 @@ ATOM     67  OP1   G C1633      -9.614   4.805   5.579  1.00113.93      QA   O
 ATOM     68  OP2   G C1633      -9.913   2.302   5.040  1.00112.95      QA   O1-
 ENDMDL
 MODEL       42
-REMARK    model=42  nts=3  GCC C.G729,C.C1774,C.C1790
+REMARK    model=42  nts=3  GCC .QA.C.G.729.,.QA.C.C.1774.,.QA.C.C.1790.
 ATOM      1  P     G C 729      -8.299   5.629   1.137  1.00 97.94      QA   P  
 ATOM      2  C5'   G C 729      -8.528   6.518  -1.314  1.00 95.65      QA   C  
 ATOM      3  O5'   G C 729      -8.340   5.420  -0.438  1.00 97.23      QA   O  
@@ -2844,7 +2844,7 @@ ATOM     62  OP1   C C1790       9.321   5.165  -0.517  1.00 91.55      QA   O
 ATOM     63  OP2   C C1790       9.619   2.626  -0.622  1.00 81.58      QA   O1-
 ENDMDL
 MODEL       43
-REMARK    model=43  nts=3  GCA C.G738,C.C758,C.A1981
+REMARK    model=43  nts=3  GCA .QA.C.G.738.,.QA.C.C.758.,.QA.C.A.1981.
 ATOM      1  P     G C 738      -0.326   9.796   0.441  1.00 94.12      QA   P  
 ATOM      2  C5'   G C 738      -2.481   8.258   0.327  1.00 89.21      QA   C  
 ATOM      3  O5'   G C 738      -1.084   8.400   0.551  1.00 90.10      QA   O  
@@ -2912,7 +2912,7 @@ ATOM     64  OP1   A C1981      -8.475  -4.595  -3.861  1.00 86.15      QA   O
 ATOM     65  OP2   A C1981      -6.882  -5.380  -5.730  1.00 88.48      QA   O1-
 ENDMDL
 MODEL       44
-REMARK    model=44  nts=3  ACG C.A739,C.C740,C.G757
+REMARK    model=44  nts=3  ACG .QA.C.A.739.,.QA.C.C.740.,.QA.C.G.757.
 ATOM      1  P     A C 739       5.866   8.592  -0.689  1.00 86.78      QA   P  
 ATOM      2  C5'   A C 739       3.288   8.362  -1.143  1.00 88.34      QA   C  
 ATOM      3  O5'   A C 739       4.460   7.883  -0.488  1.00 84.91      QA   O  
@@ -2980,7 +2980,7 @@ ATOM     64  OP1   G C 757      -2.665 -11.401  -2.079  1.00 98.14      QA   O
 ATOM     65  OP2   G C 757      -1.210  -9.363  -1.358  1.00 94.46      QA   O1-
 ENDMDL
 MODEL       45
-REMARK    model=45  nts=3  UAA C.U744,C.A749,C.A753
+REMARK    model=45  nts=3  UAA .QA.C.U.744.,.QA.C.A.749.,.QA.C.A.753.
 ATOM      1  P     U C 744       6.424   8.734   0.346  1.00 95.85      QA   P  
 ATOM      2  C5'   U C 744       3.950   9.236  -0.307  1.00 89.33      QA   C  
 ATOM      3  O5'   U C 744       4.873   8.367   0.334  1.00 85.87      QA   O  
@@ -3047,7 +3047,7 @@ ATOM     63  OP1   A C 753       0.481  -9.262   0.165  1.00 89.57      QA   O
 ATOM     64  OP2   A C 753       2.214  -7.565  -0.755  1.00 94.47      QA   O1-
 ENDMDL
 MODEL       46
-REMARK    model=46  nts=3  tAA C.5MU747,C.A1265,C.A2014
+REMARK    model=46  nts=3  tAA .QA.C.5MU.747.,.QA.C.A.1265.,.QA.C.A.2014.
 HETATM    1  P   5MU C 747      12.037   6.813   0.886  1.00 95.95      QA   P  
 HETATM    2  C5' 5MU C 747       9.866   6.434   2.255  1.00 87.05      QA   C  
 HETATM    3  O5' 5MU C 747      10.555   7.186   1.279  1.00 82.09      QA   O  
@@ -3115,7 +3115,7 @@ ATOM     64  OP1   A C2014      -3.823   6.467  -1.650  1.00100.36      QA   O
 ATOM     65  OP2   A C2014      -4.139   3.950  -1.201  1.00 99.46      QA   O1-
 ENDMDL
 MODEL       47
-REMARK    model=47  nts=3  AUA C.A764,C.U1775,C.A1789
+REMARK    model=47  nts=3  AUA .QA.C.A.764.,.QA.C.U.1775.,.QA.C.A.1789.
 ATOM      1  P     A C 764      -9.178   4.346  -2.886  1.00 90.00      QA   P  
 ATOM      2  C5'   A C 764      -9.369   1.852  -2.182  1.00 94.27      QA   C  
 ATOM      3  O5'   A C 764      -8.913   3.153  -1.877  1.00 91.21      QA   O  
@@ -3182,7 +3182,7 @@ ATOM     63  OP1   A C1789       4.301  -9.365   0.380  1.00 86.75      QA   O
 ATOM     64  OP2   A C1789       6.005  -7.468   0.828  1.00 87.80      QA   O1-
 ENDMDL
 MODEL       48
-REMARK    model=48  nts=3  GGC C.G774,C.G777,C.C787
+REMARK    model=48  nts=3  GGC .QA.C.G.774.,.QA.C.G.777.,.QA.C.C.787.
 ATOM      1  P     G C 774       6.811   6.164  -2.064  1.00 96.59      QA   P  
 ATOM      2  C5'   G C 774       4.418   5.145  -1.837  1.00 94.29      QA   C  
 ATOM      3  O5'   G C 774       5.792   5.094  -1.504  1.00 93.63      QA   O  
@@ -3251,7 +3251,7 @@ ATOM     65  OP1   C C 787      -2.380  -9.470   0.980  1.00 92.56      QA   O
 ATOM     66  OP2   C C 787      -4.109  -7.635   0.493  1.00 93.25      QA   O1-
 ENDMDL
 MODEL       49
-REMARK    model=49  nts=3  AGC C.A781,C.G1776,C.C1788
+REMARK    model=49  nts=3  AGC .QA.C.A.781.,.QA.C.G.1776.,.QA.C.C.1788.
 ATOM      1  P     A C 781       8.728   6.189   0.069  1.00 84.43      QA   P  
 ATOM      2  C5'   A C 781       6.342   6.505  -0.936  1.00 90.16      QA   C  
 ATOM      3  O5'   A C 781       7.281   5.663  -0.300  1.00 94.17      QA   O  
@@ -3319,7 +3319,7 @@ ATOM     64  OP1   C C1788      -4.867  10.559  -1.843  1.00 81.67      QA   O
 ATOM     65  OP2   C C1788      -5.915   8.227  -1.432  1.00 77.37      QA   O1-
 ENDMDL
 MODEL       50
-REMARK    model=50  nts=3  UAG C.U813,C.A1194,C.G1225
+REMARK    model=50  nts=3  UAG .QA.C.U.813.,.QA.C.A.1194.,.QA.C.G.1225.
 ATOM      1  P     U C 813       3.980   9.453   0.006  1.00104.50      QA   P  
 ATOM      2  C5'   U C 813       1.461   8.731  -0.026  1.00107.29      QA   C  
 ATOM      3  O5'   U C 813       2.823   8.362   0.135  1.00105.17      QA   O  
@@ -3387,7 +3387,7 @@ ATOM     64  OP1   G C1225      -9.901   9.423   2.014  1.00113.51      QA   O
 ATOM     65  OP2   G C1225     -10.371   7.097   1.006  1.00116.26      QA   O1-
 ENDMDL
 MODEL       51
-REMARK    model=51  nts=3  AAG C.A820,C.A973,C.G1187
+REMARK    model=51  nts=3  AAG .QA.C.A.820.,.QA.C.A.973.,.QA.C.G.1187.
 ATOM      1  P     A C 820      -1.619   4.866   0.947  1.00108.57      QA   P  
 ATOM      2  C5'   A C 820      -3.901   5.628  -0.082  1.00116.07      QA   C  
 ATOM      3  O5'   A C 820      -3.160   4.633   0.623  1.00114.44      QA   O  
@@ -3457,7 +3457,7 @@ ATOM     66  OP1   G C1187      11.266  -7.287  -5.006  1.00110.34      QA   O
 ATOM     67  OP2   G C1187      11.918  -4.853  -4.634  1.00112.98      QA   O1-
 ENDMDL
 MODEL       52
-REMARK    model=52  nts=3  CGC C.C823,C.G834,C.C944
+REMARK    model=52  nts=3  CGC .QA.C.C.823.,.QA.C.G.834.,.QA.C.C.944.
 ATOM      1  P     C C 823      -3.317   9.078   0.888  1.00109.82      QA   P  
 ATOM      2  C5'   C C 823      -5.516   7.971  -0.007  1.00120.82      QA   C  
 ATOM      3  O5'   C C 823      -4.197   7.808   0.501  1.00121.19      QA   O  
@@ -3523,7 +3523,7 @@ ATOM     62  OP1   C C 944       9.475   8.312  -1.106  1.00104.40      QA   O
 ATOM     63  OP2   C C 944      10.048   5.812  -1.118  1.00105.85      QA   O1-
 ENDMDL
 MODEL       53
-REMARK    model=53  nts=3  UAC C.U824,C.A833,C.C944
+REMARK    model=53  nts=3  UAC .QA.C.U.824.,.QA.C.A.833.,.QA.C.C.944.
 ATOM      1  P     U C 824       4.817   8.874   0.323  1.00111.35      QA   P  
 ATOM      2  C5'   U C 824       2.298   9.438  -0.184  1.00119.84      QA   C  
 ATOM      3  O5'   U C 824       3.255   8.547   0.366  1.00119.75      QA   O  
@@ -3588,7 +3588,7 @@ ATOM     61  OP1   C C 944       9.907  -7.703  -1.144  1.00104.40      QA   O
 ATOM     62  OP2   C C 944       7.514  -8.611  -1.315  1.00105.85      QA   O1-
 ENDMDL
 MODEL       54
-REMARK    model=54  nts=3  GCC C.G864,C.C867,C.C912
+REMARK    model=54  nts=3  GCC .QA.C.G.864.,.QA.C.C.867.,.QA.C.C.912.
 ATOM      1  P     G C 864       6.229   8.380  -1.545  1.00127.57      QA   P  
 ATOM      2  C5'   G C 864       3.823   8.973  -2.431  1.00136.16      QA   C  
 ATOM      3  O5'   G C 864       4.673   8.099  -1.703  1.00134.52      QA   O  
@@ -3654,7 +3654,7 @@ ATOM     62  OP1   C C 912      -3.476  -9.376   2.919  1.00116.57      QA   O
 ATOM     63  OP2   C C 912      -5.039  -8.656   1.009  1.00120.20      QA   O1-
 ENDMDL
 MODEL       55
-REMARK    model=55  nts=3  CUA C.C865,C.U868,C.A909
+REMARK    model=55  nts=3  CUA .QA.C.C.865.,.QA.C.U.868.,.QA.C.A.909.
 ATOM      1  P     C C 865      -8.714   6.683  -1.702  1.00136.49      QA   P  
 ATOM      2  C5'   C C 865      -8.988   4.093  -1.968  1.00137.68      QA   C  
 ATOM      3  O5'   C C 865      -8.366   5.182  -1.296  1.00136.99      QA   O  
@@ -3719,7 +3719,7 @@ ATOM     61  OP1   A C 909       4.545   8.804  -0.644  1.00121.00      QA   O
 ATOM     62  OP2   A C 909       2.154   7.904  -0.629  1.00121.09      QA   O1-
 ENDMDL
 MODEL       56
-REMARK    model=56  nts=3  ACG C.A910,C.C2264,C.G2276
+REMARK    model=56  nts=3  ACG .QA.C.A.910.,.QA.C.C.2264.,.QA.C.G.2276.
 ATOM      1  P     A C 910       7.989  11.400  -2.667  1.00114.75      QA   P  
 ATOM      2  C5'   A C 910       6.630   9.198  -2.484  1.00118.92      QA   C  
 ATOM      3  O5'   A C 910       6.662  10.604  -2.323  1.00119.29      QA   O  
@@ -3787,7 +3787,7 @@ ATOM     64  OP1   G C2276       2.248 -10.996  -4.315  1.00 99.04      QA   O
 ATOM     65  OP2   G C2276       3.908 -10.267  -2.493  1.00100.80      QA   O1-
 ENDMDL
 MODEL       57
-REMARK    model=57  nts=3  ACG C.A911,C.C2263,C.G2277
+REMARK    model=57  nts=3  ACG .QA.C.A.911.,.QA.C.C.2263.,.QA.C.G.2277.
 ATOM      1  P     A C 911       9.149   5.382  -2.789  1.00120.57      QA   P  
 ATOM      2  C5'   A C 911       6.836   6.326  -1.910  1.00120.17      QA   C  
 ATOM      3  O5'   A C 911       7.851   5.333  -1.856  1.00118.88      QA   O  
@@ -3855,7 +3855,7 @@ ATOM     64  OP1   G C2277      -0.760  -9.307  -0.557  1.00104.38      QA   O
 ATOM     65  OP2   G C2277      -2.710  -7.676  -0.888  1.00104.11      QA   O1-
 ENDMDL
 MODEL       58
-REMARK    model=58  nts=3  UGU C.U931,C.G1166,C.U1183
+REMARK    model=58  nts=3  UGU .QA.C.U.931.,.QA.C.G.1166.,.QA.C.U.1183.
 ATOM      1  P     U C 931      -5.392   8.767  -1.971  1.00132.21      QA   P  
 ATOM      2  C5'   U C 931      -6.943   7.353  -3.551  1.00129.31      QA   C  
 ATOM      3  O5'   U C 931      -6.639   7.803  -2.236  1.00129.09      QA   O  
@@ -3921,7 +3921,7 @@ ATOM     62  OP1   U C1183       4.559   9.814  -1.070  1.00128.20      QA   O
 ATOM     63  OP2   U C1183       5.669   7.510  -1.261  1.00125.74      QA   O1-
 ENDMDL
 MODEL       59
-REMARK    model=59  nts=3  UCG C.U931,C.C1167,C.G1182
+REMARK    model=59  nts=3  UCG .QA.C.U.931.,.QA.C.C.1167.,.QA.C.G.1182.
 ATOM      1  P     U C 931      -8.398   5.179   1.203  1.00132.21      QA   P  
 ATOM      2  C5'   U C 931      -9.286   3.285  -0.386  1.00129.31      QA   C  
 ATOM      3  O5'   U C 931      -9.092   3.764   0.939  1.00129.09      QA   O  
@@ -3987,7 +3987,7 @@ ATOM     62  OP1   G C1182       4.858  10.198  -3.694  1.00135.23      QA   O
 ATOM     63  OP2   G C1182       5.537   7.963  -2.611  1.00131.87      QA   O1-
 ENDMDL
 MODEL       60
-REMARK    model=60  nts=3  AUA C.A947,C.U970,C.A984
+REMARK    model=60  nts=3  AUA .QA.C.A.947.,.QA.C.U.970.,.QA.C.A.984.
 ATOM      1  P     A C 947       7.031   5.563   1.256  1.00 98.76      QA   P  
 ATOM      2  C5'   A C 947       4.565   6.073   0.528  1.00105.88      QA   C  
 ATOM      3  O5'   A C 947       5.528   5.130   0.970  1.00103.72      QA   O  
@@ -4054,7 +4054,7 @@ ATOM     63  OP1   A C 984      -8.224  -3.214  -2.118  1.00104.30      QA   O
 ATOM     64  OP2   A C 984      -8.568  -0.825  -1.197  1.00103.37      QA   O1-
 ENDMDL
 MODEL       61
-REMARK    model=61  nts=3  PGG C.PSU955,C.G962,C.G2250
+REMARK    model=61  nts=3  PGG .QA.C.PSU.955.,.QA.C.G.962.,.QA.C.G.2250.
 HETATM    1  P   PSU C 955       6.492   6.987   1.850  1.00104.92      QA   P  
 HETATM    2  C5' PSU C 955       3.925   7.417   1.507  1.00109.46      QA   C  
 HETATM    3  O5' PSU C 955       4.998   6.484   1.642  1.00110.70      QA   O  
@@ -4123,7 +4123,7 @@ ATOM     65  OP1   G C2250      -8.850   8.946  -1.012  1.00 95.41      QA   O
 ATOM     66  OP2   G C2250      -8.272   8.590  -3.529  1.00 98.63      QA   O1-
 ENDMDL
 MODEL       62
-REMARK    model=62  nts=3  APG C.A959,C.PSU2457,C.G2494
+REMARK    model=62  nts=3  APG .QA.C.A.959.,.QA.C.PSU.2457.,.QA.C.G.2494.
 ATOM      1  P     A C 959       6.294  11.366  -2.906  1.00109.84      QA   P  
 ATOM      2  C5'   A C 959       5.790   9.814  -0.823  1.00103.45      QA   C  
 ATOM      3  O5'   A C 959       6.385   9.978  -2.108  1.00103.09      QA   O  
@@ -4191,7 +4191,7 @@ ATOM     64  OP1   G C2494       0.894 -12.109  -1.551  1.00 83.40      QA   O
 ATOM     65  OP2   G C2494      -0.975 -10.334  -1.429  1.00 89.59      QA   O1-
 ENDMDL
 MODEL       63
-REMARK    model=63  nts=3  AGC C.A981,C.G2027,C.C2036
+REMARK    model=63  nts=3  AGC .QA.C.A.981.,.QA.C.G.2027.,.QA.C.C.2036.
 ATOM      1  P     A C 981       8.636   5.890  -3.234  1.00 98.11      QA   P  
 ATOM      2  C5'   A C 981       6.190   6.518  -2.554  1.00104.70      QA   C  
 ATOM      3  O5'   A C 981       7.419   5.889  -2.209  1.00103.34      QA   O  
@@ -4259,7 +4259,7 @@ ATOM     64  OP1   C C2036      -3.982  10.842  -2.735  1.00 99.60      QA   O
 ATOM     65  OP2   C C2036      -4.982   8.496  -3.007  1.00 96.28      QA   O1-
 ENDMDL
 MODEL       64
-REMARK    model=64  nts=3  GAC C.G1003,C.A1010,C.C1152
+REMARK    model=64  nts=3  GAC .QA.C.G.1003.,.QA.C.A.1010.,.QA.C.C.1152.
 ATOM      1  P     G C1003       0.344   8.965   0.903  1.00108.29      QA   P  
 ATOM      2  C5'   G C1003      -1.261   6.947   1.380  1.00113.77      QA   C  
 ATOM      3  O5'   G C1003      -0.706   7.865   0.457  1.00113.82      QA   O  
@@ -4327,7 +4327,7 @@ ATOM     64  OP1   C C1152       4.884 -11.112  -1.666  1.00120.79      QA   O
 ATOM     65  OP2   C C1152       5.886  -8.835  -1.039  1.00118.32      QA   O1-
 ENDMDL
 MODEL       65
-REMARK    model=65  nts=3  CCG C.C1005,C.C1135,C.G1138
+REMARK    model=65  nts=3  CCG .QA.C.C.1005.,.QA.C.C.1135.,.QA.C.G.1138.
 ATOM      1  P     C C1005       2.332   9.664   0.968  1.00119.88      QA   P  
 ATOM      2  C5'   C C1005      -0.184   9.864   0.277  1.00115.47      QA   C  
 ATOM      3  O5'   C C1005       0.888   9.055   0.731  1.00118.45      QA   O  
@@ -4393,7 +4393,7 @@ ATOM     62  OP1   G C1138      -2.859  -8.976  -0.494  1.00 97.62      QA   O
 ATOM     63  OP2   G C1138      -0.910  -7.314  -0.328  1.00 97.63      QA   O1-
 ENDMDL
 MODEL       66
-REMARK    model=66  nts=3  GAC C.G1055,C.A1085,C.C1104
+REMARK    model=66  nts=3  GAC .QA.C.G.1055.,.QA.C.A.1085.,.QA.C.C.1104.
 ATOM      1  P     G C1055       1.941   8.269   0.357  1.00196.07      QA   P  
 ATOM      2  C5'   G C1055      -0.486   7.286   0.519  1.00195.89      QA   C  
 ATOM      3  O5'   G C1055       0.915   7.080   0.645  1.00195.66      QA   O  
@@ -4461,7 +4461,7 @@ ATOM     64  OP1   C C1104       4.721 -11.202  -1.301  1.00188.33      QA   O
 ATOM     65  OP2   C C1104       5.815  -8.887  -1.193  1.00190.31      QA   O1-
 ENDMDL
 MODEL       67
-REMARK    model=67  nts=3  GGC C.G1071,C.G1091,C.C1100
+REMARK    model=67  nts=3  GGC .QA.C.G.1071.,.QA.C.G.1091.,.QA.C.C.1100.
 ATOM      1  P     G C1071       0.916  10.398   1.912  1.00209.97      QA   P  
 ATOM      2  C5'   G C1071      -1.691  10.613   1.553  1.00208.04      QA   C  
 ATOM      3  O5'   G C1071      -0.562   9.804   1.870  1.00208.94      QA   O  
@@ -4530,7 +4530,7 @@ ATOM     65  OP1   C C1100      10.437  -0.962  -2.617  1.00201.57      QA   O
 ATOM     66  OP2   C C1100       8.682   0.751  -1.875  1.00203.84      QA   O1-
 ENDMDL
 MODEL       68
-REMARK    model=68  nts=3  CCG C.C1072,C.C1092,C.G1099
+REMARK    model=68  nts=3  CCG .QA.C.C.1072.,.QA.C.C.1092.,.QA.C.G.1099.
 ATOM      1  P     C C1072       9.023   5.238   2.308  1.00209.89      QA   P  
 ATOM      2  C5'   C C1072       7.300   7.197   2.061  1.00205.97      QA   C  
 ATOM      3  O5'   C C1072       7.563   5.852   2.436  1.00206.78      QA   O  
@@ -4596,7 +4596,7 @@ ATOM     62  OP1   G C1099       4.063  -9.525  -2.349  1.00207.26      QA   O
 ATOM     63  OP2   G C1099       4.667  -7.054  -1.998  1.00207.78      QA   O1-
 ENDMDL
 MODEL       69
-REMARK    model=69  nts=3  ACG C.A1127,C.C2463,C.G2487
+REMARK    model=69  nts=3  ACG .QA.C.A.1127.,.QA.C.C.2463.,.QA.C.G.2487.
 ATOM      1  P     A C1127     -12.285   4.624  -1.465  1.00 94.08      QA   P  
 ATOM      2  C5'   A C1127     -11.094   3.780   0.722  1.00100.55      QA   C  
 ATOM      3  O5'   A C1127     -11.380   3.606  -0.648  1.00103.20      QA   O  
@@ -4664,7 +4664,7 @@ ATOM     64  OP1   G C2487       4.620  11.931  -2.403  1.00100.89      QA   O
 ATOM     65  OP2   G C2487       5.660   9.605  -2.010  1.00 99.73      QA   O1-
 ENDMDL
 MODEL       70
-REMARK    model=70  nts=3  GAU C.G1128,C.A2516,C.U2568
+REMARK    model=70  nts=3  GAU .QA.C.G.1128.,.QA.C.A.2516.,.QA.C.U.2568.
 ATOM      1  P     G C1128       5.462   9.846  -4.396  1.00 95.09      QA   P  
 ATOM      2  C5'   G C1128       3.595   8.496  -3.215  1.00 97.44      QA   C  
 ATOM      3  O5'   G C1128       4.886   9.075  -3.138  1.00 96.35      QA   O  
@@ -4732,7 +4732,7 @@ ATOM     64  OP1   U C2568      -1.446 -10.553   1.786  1.00 88.38      QA   O
 ATOM     65  OP2   U C2568      -3.057  -8.565   2.114  1.00 90.29      QA   O1-
 ENDMDL
 MODEL       71
-REMARK    model=71  nts=3  ACG C.A1129,C.C2515,C.G2569
+REMARK    model=71  nts=3  ACG .QA.C.A.1129.,.QA.C.C.2515.,.QA.C.G.2569.
 ATOM      1  P     A C1129       6.577   6.389  -4.923  1.00 96.35      QA   P  
 ATOM      2  C5'   A C1129       5.951   6.630  -2.399  1.00 97.57      QA   C  
 ATOM      3  O5'   A C1129       5.716   7.016  -3.745  1.00 98.12      QA   O  
@@ -4800,7 +4800,7 @@ ATOM     64  OP1   G C2569      -0.534 -10.089   1.448  1.00 93.10      QA   O
 ATOM     65  OP2   G C2569      -2.011  -7.992   1.580  1.00 90.66      QA   O1-
 ENDMDL
 MODEL       72
-REMARK    model=72  nts=3  ACG C.A1133,C.C2025,C.G2038
+REMARK    model=72  nts=3  ACG .QA.C.A.1133.,.QA.C.C.2025.,.QA.C.G.2038.
 ATOM      1  P     A C1133     -11.218   5.945  -1.051  1.00104.89      QA   P  
 ATOM      2  C5'   A C1133     -10.291   5.442   1.267  1.00102.80      QA   C  
 ATOM      3  O5'   A C1133     -10.848   4.908   0.082  1.00104.26      QA   O  
@@ -4868,7 +4868,7 @@ ATOM     64  OP1   G C2038      -2.235 -11.087  -0.458  1.00101.78      QA   O
 ATOM     65  OP2   G C2038      -0.019  -9.850  -0.038  1.00100.52      QA   O1-
 ENDMDL
 MODEL       73
-REMARK    model=73  nts=3  UCG C.U1273,C.C1658,C.G2002
+REMARK    model=73  nts=3  UCG .QA.C.U.1273.,.QA.C.C.1658.,.QA.C.G.2002.
 ATOM      1  P     U C1273      -0.222  11.519  -2.678  1.00102.72      QA   P  
 ATOM      2  C5'   U C1273      -2.718  11.005  -2.133  1.00100.63      QA   C  
 ATOM      3  O5'   U C1273      -1.352  10.879  -1.775  1.00102.20      QA   O  
@@ -4934,7 +4934,7 @@ ATOM     62  OP1   G C2002     -10.987  -0.848  -1.851  1.00104.94      QA   O
 ATOM     63  OP2   G C2002      -8.994  -2.411  -2.351  1.00104.74      QA   O1-
 ENDMDL
 MODEL       74
-REMARK    model=74  nts=3  AGC C.A1274,C.G1296,C.C1644
+REMARK    model=74  nts=3  AGC .QA.C.A.1274.,.QA.C.G.1296.,.QA.C.C.1644.
 ATOM      1  P     A C1274      10.662   5.980  -0.153  1.00100.60      QA   P  
 ATOM      2  C5'   A C1274       8.331   6.711  -0.972  1.00104.53      QA   C  
 ATOM      3  O5'   A C1274       9.207   5.635  -0.683  1.00104.74      QA   O  
@@ -5002,7 +5002,7 @@ ATOM     64  OP1   C C1644       0.635 -10.012   1.140  1.00114.90      QA   O
 ATOM     65  OP2   C C1644      -1.012  -8.154   0.577  1.00114.57      QA   O1-
 ENDMDL
 MODEL       75
-REMARK    model=75  nts=3  GAA C.G1299,C.A1301,C.A1641
+REMARK    model=75  nts=3  GAA .QA.C.G.1299.,.QA.C.A.1301.,.QA.C.A.1641.
 ATOM      1  P     G C1299       7.864   1.621   1.578  1.00106.21      QA   P  
 ATOM      2  C5'   G C1299       5.448   2.502   0.892  1.00107.62      QA   C  
 ATOM      3  O5'   G C1299       6.265   1.531   1.538  1.00106.73      QA   O  
@@ -5072,7 +5072,7 @@ ATOM     66  OP1   A C1641      -4.820  -9.319  -0.738  1.00120.99      QA   O
 ATOM     67  OP2   A C1641      -2.647  -7.950  -0.742  1.00120.53      QA   O1-
 ENDMDL
 MODEL       76
-REMARK    model=76  nts=3  CCG C.C1305,C.C1607,C.G1623
+REMARK    model=76  nts=3  CCG .QA.C.C.1305.,.QA.C.C.1607.,.QA.C.G.1623.
 ATOM      1  P     C C1305      -1.373  12.103   0.380  1.00116.34      QA   P  
 ATOM      2  C5'   C C1305      -3.741  10.998   0.127  1.00112.18      QA   C  
 ATOM      3  O5'   C C1305      -2.365  10.852   0.436  1.00113.86      QA   O  
@@ -5138,7 +5138,7 @@ ATOM     62  OP1   G C1623      -1.367  -7.176  -3.362  1.00109.11      QA   O
 ATOM     63  OP2   G C1623       0.096  -5.348  -2.203  1.00 95.74      QA   O1-
 ENDMDL
 MODEL       77
-REMARK    model=77  nts=3  AAU C.A1308,C.A1608,C.U1621
+REMARK    model=77  nts=3  AAU .QA.C.A.1308.,.QA.C.A.1608.,.QA.C.U.1621.
 ATOM      1  P     A C1308      -5.741  10.255  -1.488  1.00111.53      QA   P  
 ATOM      2  C5'   A C1308      -7.562   8.509  -0.876  1.00102.42      QA   C  
 ATOM      3  O5'   A C1308      -6.265   9.027  -0.644  1.00 99.56      QA   O  
@@ -5205,7 +5205,7 @@ ATOM     63  OP1   U C1621      -7.904  -8.960  -3.369  1.00 97.16      QA   O
 ATOM     64  OP2   U C1621      -5.312  -9.257  -3.129  1.00102.69      QA   O1-
 ENDMDL
 MODEL       78
-REMARK    model=78  nts=3  GCA C.G1310,C.C1604,C.A1610
+REMARK    model=78  nts=3  GCA .QA.C.G.1310.,.QA.C.C.1604.,.QA.C.A.1610.
 ATOM      1  P     G C1310       5.475  10.181  -0.508  1.00108.08      QA   P  
 ATOM      2  C5'   G C1310       2.963  10.077   0.168  1.00106.77      QA   C  
 ATOM      3  O5'   G C1310       4.208   9.407   0.062  1.00107.03      QA   O  
@@ -5273,7 +5273,7 @@ ATOM     64  OP1   A C1610      -7.736   6.903  -5.178  1.00 99.26      QA   O
 ATOM     65  OP2   A C1610      -7.589   4.570  -4.098  1.00110.01      QA   O1-
 ENDMDL
 MODEL       79
-REMARK    model=79  nts=3  CGA C.C1314,C.G1338,C.A1393
+REMARK    model=79  nts=3  CGA .QA.C.C.1314.,.QA.C.G.1338.,.QA.C.A.1393.
 ATOM      1  P     C C1314       3.919   8.086   3.871  1.00122.44      QA   P  
 ATOM      2  C5'   C C1314       2.328   9.507   2.275  1.00118.54      QA   C  
 ATOM      3  O5'   C C1314       3.164   8.363   2.484  1.00122.99      QA   O  
@@ -5341,7 +5341,7 @@ ATOM     64  OP1   A C1393      -9.998   6.637   2.262  1.00128.18      QA   O
 ATOM     65  OP2   A C1393     -10.691   4.283   1.527  1.00133.67      QA   O1-
 ENDMDL
 MODEL       80
-REMARK    model=80  nts=3  CGA C.C1315,C.G1337,C.A1392
+REMARK    model=80  nts=3  CGA .QA.C.C.1315.,.QA.C.G.1337.,.QA.C.A.1392.
 ATOM      1  P     C C1315       4.582   8.510  -0.147  1.00125.16      QA   P  
 ATOM      2  C5'   C C1315       1.974   8.399  -0.352  1.00125.42      QA   C  
 ATOM      3  O5'   C C1315       3.200   7.722  -0.119  1.00124.87      QA   O  
@@ -5409,7 +5409,7 @@ ATOM     64  OP1   A C1392      -9.977   8.326   1.222  1.00138.92      QA   O
 ATOM     65  OP2   A C1392      -9.652  10.532  -0.073  1.00139.50      QA   O1-
 ENDMDL
 MODEL       81
-REMARK    model=81  nts=3  CAG C.C1319,C.A1322,C.G1333
+REMARK    model=81  nts=3  CAG .QA.C.C.1319.,.QA.C.A.1322.,.QA.C.G.1333.
 ATOM      1  P     C C1319       6.778   8.348  -2.459  1.00133.82      QA   P  
 ATOM      2  C5'   C C1319       4.224   8.665  -3.005  1.00134.69      QA   C  
 ATOM      3  O5'   C C1319       5.222   8.166  -2.115  1.00136.66      QA   O  
@@ -5477,7 +5477,7 @@ ATOM     64  OP1   G C1333      -1.404  -8.478  -2.308  1.00117.21      QA   O
 ATOM     65  OP2   G C1333       0.852  -7.349  -2.007  1.00117.60      QA   O1-
 ENDMDL
 MODEL       82
-REMARK    model=82  nts=3  CCG C.C1320,C.C1323,C.G1331
+REMARK    model=82  nts=3  CCG .QA.C.C.1320.,.QA.C.C.1323.,.QA.C.G.1331.
 ATOM      1  P     C C1320       2.429  10.664  -2.073  1.00131.20      QA   P  
 ATOM      2  C5'   C C1320       0.213   9.392  -2.654  1.00126.39      QA   C  
 ATOM      3  O5'   C C1320       1.378   9.487  -1.842  1.00128.10      QA   O  
@@ -5543,7 +5543,7 @@ ATOM     62  OP1   G C1331       9.961  -1.689   0.050  1.00120.85      QA   O
 ATOM     63  OP2   G C1331       8.437   0.326  -0.497  1.00120.71      QA   O1-
 ENDMDL
 MODEL       83
-REMARK    model=83  nts=3  GAC C.G1343,C.A1384,C.C1404
+REMARK    model=83  nts=3  GAC .QA.C.G.1343.,.QA.C.A.1384.,.QA.C.C.1404.
 ATOM      1  P     G C1343       0.722   6.260   4.459  1.00140.59      QA   P  
 ATOM      2  C5'   G C1343      -0.929   6.547   2.439  1.00135.72      QA   C  
 ATOM      3  O5'   G C1343       0.123   5.810   3.052  1.00137.64      QA   O  
@@ -5611,7 +5611,7 @@ ATOM     64  OP1   C C1404       5.329 -10.982  -0.677  1.00138.99      QA   O
 ATOM     65  OP2   C C1404       6.319  -8.619  -0.282  1.00138.64      QA   O1-
 ENDMDL
 MODEL       84
-REMARK    model=84  nts=3  AUA C.A1359,C.U1372,C.A2212
+REMARK    model=84  nts=3  AUA .QA.C.A.1359.,.QA.C.U.1372.,.QA.C.A.2212.
 ATOM      1  P     A C1359       4.523   7.364  -0.022  1.00113.12      QA   P  
 ATOM      2  C5'   A C1359       2.274   7.907  -1.243  1.00116.56      QA   C  
 ATOM      3  O5'   A C1359       3.078   6.949  -0.558  1.00117.59      QA   O  
@@ -5678,7 +5678,7 @@ ATOM     63  OP1   A C2212      -2.149 -12.286  -4.243  1.00121.96      QA   O
 ATOM     64  OP2   A C2212      -2.466 -10.004  -3.113  1.00124.50      QA   O1-
 ENDMDL
 MODEL       85
-REMARK    model=85  nts=3  AUA C.A1383,C.U1405,C.A1597
+REMARK    model=85  nts=3  AUA .QA.C.A.1383.,.QA.C.U.1405.,.QA.C.A.1597.
 ATOM      1  P     A C1383       8.210  11.344   0.084  1.00127.13      QA   P  
 ATOM      2  C5'   A C1383       7.608   8.789  -0.078  1.00123.33      QA   C  
 ATOM      3  O5'   A C1383       7.956   9.904   0.732  1.00121.96      QA   O  
@@ -5745,7 +5745,7 @@ ATOM     63  OP1   A C1597       1.151 -10.986  -0.547  1.00148.65      QA   O
 ATOM     64  OP2   A C1597      -1.021  -9.778   0.176  1.00151.31      QA   O1-
 ENDMDL
 MODEL       86
-REMARK    model=86  nts=3  GCC C.G1416,C.C1582,C.C1585
+REMARK    model=86  nts=3  GCC .QA.C.G.1416.,.QA.C.C.1582.,.QA.C.C.1585.
 ATOM      1  P     G C1416       1.383  10.828  -0.631  1.00154.25      QA   P  
 ATOM      2  C5'   G C1416       2.205   9.236   1.326  1.00145.50      QA   C  
 ATOM      3  O5'   G C1416       1.584   9.391   0.045  1.00148.26      QA   O  
@@ -5811,7 +5811,7 @@ ATOM     62  OP1   C C1585      -8.685   6.041  -4.191  1.00163.81      QA   O
 ATOM     63  OP2   C C1585      -7.842   4.495  -2.342  1.00159.75      QA   O1-
 ENDMDL
 MODEL       87
-REMARK    model=87  nts=3  AAU C.A1419,C.A1494,C.U1578
+REMARK    model=87  nts=3  AAU .QA.C.A.1419.,.QA.C.A.1494.,.QA.C.U.1578.
 ATOM      1  P     A C1419       3.262   9.338  -1.962  1.00141.58      QA   P  
 ATOM      2  C5'   A C1419       1.085   8.048  -1.196  1.00129.62      QA   C  
 ATOM      3  O5'   A C1419       1.749   8.877  -2.127  1.00135.71      QA   O  
@@ -5878,7 +5878,7 @@ ATOM     63  OP1   U C1578      10.505  -0.947   4.995  1.00141.77      QA   O
 ATOM     64  OP2   U C1578       9.145   0.640   3.519  1.00137.23      QA   O1-
 ENDMDL
 MODEL       88
-REMARK    model=88  nts=3  GAC C.G1421,C.A1495,C.C1577
+REMARK    model=88  nts=3  GAC .QA.C.G.1421.,.QA.C.A.1495.,.QA.C.C.1577.
 ATOM      1  P     G C1421       1.378   8.574   0.415  1.00133.91      QA   P  
 ATOM      2  C5'   G C1421      -1.203   8.226  -0.023  1.00124.48      QA   C  
 ATOM      3  O5'   G C1421       0.079   7.660   0.238  1.00126.90      QA   O  
@@ -5946,7 +5946,7 @@ ATOM     64  OP1   C C1577       6.072  -9.029   2.429  1.00137.68      QA   O
 ATOM     65  OP2   C C1577       7.118  -6.765   1.814  1.00136.75      QA   O1-
 ENDMDL
 MODEL       89
-REMARK    model=89  nts=3  CGA C.C1447,C.G1464,C.A1544
+REMARK    model=89  nts=3  CGA .QA.C.C.1447.,.QA.C.G.1464.,.QA.C.A.1544.
 ATOM      1  P     C C1447       4.913   8.104  -0.206  1.00147.14      QA   P  
 ATOM      2  C5'   C C1447       2.287   8.172  -0.194  1.00145.13      QA   C  
 ATOM      3  O5'   C C1447       3.487   7.576   0.268  1.00145.91      QA   O  
@@ -6014,7 +6014,7 @@ ATOM     64  OP1   A C1544      -8.503  11.448  -1.735  1.00153.64      QA   O
 ATOM     65  OP2   A C1544      -9.467   9.082  -2.003  1.00149.76      QA   O1-
 ENDMDL
 MODEL       90
-REMARK    model=90  nts=3  AAA C.A1652,C.A1655,C.A2005
+REMARK    model=90  nts=3  AAA .QA.C.A.1652.,.QA.C.A.1655.,.QA.C.A.2005.
 ATOM      1  P     A C1652       9.903   8.870  -3.948  1.00106.56      QA   P  
 ATOM      2  C5'   A C1652       7.436   8.885  -4.939  1.00105.12      QA   C  
 ATOM      3  O5'   A C1652       8.336   8.579  -3.875  1.00106.61      QA   O  
@@ -6083,7 +6083,7 @@ ATOM     65  OP1   A C2005       3.742  -6.587  -3.848  1.00104.65      QA   O
 ATOM     66  OP2   A C2005       4.541  -4.319  -2.911  1.00104.57      QA   O1-
 ENDMDL
 MODEL       91
-REMARK    model=91  nts=3  GCU C.G1660,C.C2000,C.U2689
+REMARK    model=91  nts=3  GCU .QA.C.G.1660.,.QA.C.C.2000.,.QA.C.U.2689.
 ATOM      1  P     G C1660       2.377   9.459   0.092  1.00103.87      QA   P  
 ATOM      2  C5'   G C1660       1.037   7.467   1.127  1.00100.58      QA   C  
 ATOM      3  O5'   G C1660       1.058   8.587   0.265  1.00102.99      QA   O  
@@ -6149,7 +6149,7 @@ ATOM     62  OP1   U C2689      -7.493  -8.175   3.623  1.00103.12      QA   O
 ATOM     63  OP2   U C2689      -7.670 -10.117   1.938  1.00110.92      QA   O1-
 ENDMDL
 MODEL       92
-REMARK    model=92  nts=3  AGC C.A1664,C.G1992,C.C1996
+REMARK    model=92  nts=3  AGC .QA.C.A.1664.,.QA.C.G.1992.,.QA.C.C.1996.
 ATOM      1  P     A C1664      -2.293   7.541   2.102  1.00100.68      QA   P  
 ATOM      2  C5'   A C1664      -4.569   7.563   0.789  1.00103.21      QA   C  
 ATOM      3  O5'   A C1664      -3.454   6.840   1.284  1.00104.16      QA   O  
@@ -6217,7 +6217,7 @@ ATOM     64  OP1   C C1996       1.266  -8.243  -0.318  1.00 96.43      QA   O
 ATOM     65  OP2   C C1996       3.122  -9.998  -0.597  1.00 96.77      QA   O1-
 ENDMDL
 MODEL       93
-REMARK    model=93  nts=3  GAU C.G1667,C.A1669,C.U1993
+REMARK    model=93  nts=3  GAU .QA.C.G.1667.,.QA.C.A.1669.,.QA.C.U.1993.
 ATOM      1  P     G C1667       5.159   6.718   1.772  1.00 96.94      QA   P  
 ATOM      2  C5'   G C1667       2.561   6.147   1.649  1.00100.17      QA   C  
 ATOM      3  O5'   G C1667       3.892   5.762   1.992  1.00102.08      QA   O  
@@ -6285,7 +6285,7 @@ ATOM     64  OP1   U C1993      -1.458  -8.446   0.465  1.00 97.25      QA   O
 ATOM     65  OP2   U C1993      -2.927  -9.904  -1.045  1.00 95.68      QA   O1-
 ENDMDL
 MODEL       94
-REMARK    model=94  nts=3  ACU C.A1668,C.C1675,C.U1991
+REMARK    model=94  nts=3  ACU .QA.C.A.1668.,.QA.C.C.1675.,.QA.C.U.1991.
 ATOM      1  P     A C1668      -0.469   9.772  -0.004  1.00 87.12      QA   P  
 ATOM      2  C5'   A C1668      -1.489   8.204  -1.823  1.00 93.29      QA   C  
 ATOM      3  O5'   A C1668      -1.421   8.588  -0.457  1.00 93.42      QA   O  
@@ -6350,7 +6350,7 @@ ATOM     61  OP1   U C1991      10.693   5.538   5.830  1.00103.64      QA   O
 ATOM     62  OP2   U C1991       8.872   6.409   4.216  1.00100.54      QA   O1-
 ENDMDL
 MODEL       95
-REMARK    model=95  nts=3  CGA C.C1793,C.G1826,C.A1900
+REMARK    model=95  nts=3  CGA .QA.C.C.1793.,.QA.C.G.1826.,.QA.C.A.1900.
 ATOM      1  P     C C1793       1.179   8.370   1.824  1.00 87.45      QA   P  
 ATOM      2  C5'   C C1793      -1.058   7.300   0.957  1.00 86.94      QA   C  
 ATOM      3  O5'   C C1793       0.313   7.134   1.294  1.00 91.53      QA   O  
@@ -6418,7 +6418,7 @@ ATOM     64  OP1   A C1900      -9.636  -5.353   4.247  1.00 85.01      QA   O
 ATOM     65  OP2   A C1900     -10.572  -6.756   2.290  1.00 89.35      QA   O1-
 ENDMDL
 MODEL       96
-REMARK    model=96  nts=3  CGA C.C1800,C.G1817,C.A1819
+REMARK    model=96  nts=3  CGA .QA.C.C.1800.,.QA.C.G.1817.,.QA.C.A.1819.
 ATOM      1  P     C C1800      -3.591   7.364   2.362  1.00 96.87      QA   P  
 ATOM      2  C5'   C C1800      -4.719   5.012   2.596  1.00 99.03      QA   C  
 ATOM      3  O5'   C C1800      -4.242   6.050   1.749  1.00 95.35      QA   O  
@@ -6486,7 +6486,7 @@ ATOM     64  OP1   A C1819       2.928  -3.809   7.129  1.00 97.31      QA   O
 ATOM     65  OP2   A C1819       2.328  -1.325   6.774  1.00 97.74      QA   O1-
 ENDMDL
 MODEL       97
-REMARK    model=97  nts=3  CGA C.C1836,C.G1904,C.A1928
+REMARK    model=97  nts=3  CGA .QA.C.C.1836.,.QA.C.G.1904.,.QA.C.A.1928.
 ATOM      1  P     C C1836       5.296   9.553   0.858  1.00 88.49      QA   P  
 ATOM      2  C5'   C C1836       2.887   9.633  -0.116  1.00 79.67      QA   C  
 ATOM      3  O5'   C C1836       3.915   8.877   0.474  1.00 80.95      QA   O  
@@ -6554,7 +6554,7 @@ ATOM     64  OP1   A C1928      -9.465   6.688   3.323  1.00 97.32      QA   O
 ATOM     65  OP2   A C1928     -10.145   4.278   2.724  1.00 96.05      QA   O1-
 ENDMDL
 MODEL       98
-REMARK    model=98  nts=3  CGG C.C1837,C.G1839,C.G1903
+REMARK    model=98  nts=3  CGG .QA.C.C.1837.,.QA.C.G.1839.,.QA.C.G.1903.
 ATOM      1  P     C C1837       4.206   8.918  -2.050  1.00 84.56      QA   P  
 ATOM      2  C5'   C C1837       1.674   8.376  -2.355  1.00 85.47      QA   C  
 ATOM      3  O5'   C C1837       2.990   7.887  -2.114  1.00 87.88      QA   O  
@@ -6623,7 +6623,7 @@ ATOM     65  OP1   G C1903       1.678 -11.585   0.552  1.00 93.03      QA   O
 ATOM     66  OP2   G C1903       3.135  -9.497   0.721  1.00 92.95      QA   O1-
 ENDMDL
 MODEL       99
-REMARK    model=99  nts=3  CUA C.C1838,C.U1841,C.A1901
+REMARK    model=99  nts=3  CUA .QA.C.C.1838.,.QA.C.U.1841.,.QA.C.A.1901.
 ATOM      1  P     C C1838       9.182   4.591  -3.491  1.00 85.92      QA   P  
 ATOM      2  C5'   C C1838       6.652   5.147  -3.091  1.00 92.18      QA   C  
 ATOM      3  O5'   C C1838       7.769   4.309  -2.820  1.00 95.11      QA   O  
@@ -6688,7 +6688,7 @@ ATOM     61  OP1   A C1901       1.947 -10.746   1.331  1.00 89.13      QA   O
 ATOM     62  OP2   A C1901      -0.437 -10.558   0.332  1.00 89.25      QA   O1-
 ENDMDL
 MODEL      100
-REMARK    model=100  nts=3  AAC C.A1847,C.A1848,C.C1894
+REMARK    model=100  nts=3  AAC .QA.C.A.1847.,.QA.C.A.1848.,.QA.C.C.1894.
 ATOM      1  P     A C1847       1.718   8.739  -2.006  1.00110.11      QA   P  
 ATOM      2  C5'   A C1847      -0.736   9.339  -1.257  1.00108.10      QA   C  
 ATOM      3  O5'   A C1847       0.595   9.020  -0.911  1.00107.05      QA   O  
@@ -6755,7 +6755,7 @@ ATOM     63  OP1   C C1894      -0.405 -10.962  -1.237  1.00102.29      QA   O
 ATOM     64  OP2   C C1894       1.717  -9.490  -1.215  1.00 93.76      QA   O1-
 ENDMDL
 MODEL      101
-REMARK    model=101  nts=3  CAG C.C1934,C.A1937,C.G1964
+REMARK    model=101  nts=3  CAG .QA.C.C.1934.,.QA.C.A.1937.,.QA.C.G.1964.
 ATOM      1  P     C C1934      -2.092   9.508   2.203  1.00 77.51      QA   P  
 ATOM      2  C5'   C C1934      -3.997   7.778   1.726  1.00 73.23      QA   C  
 ATOM      3  O5'   C C1934      -2.626   8.020   1.994  1.00 70.41      QA   O  
@@ -6823,7 +6823,7 @@ ATOM     64  OP1   G C1964       5.819  -4.276   3.586  1.00 84.31      QA   O
 ATOM     65  OP2   G C1964       4.143  -4.075   5.510  1.00 82.94      QA   O1-
 ENDMDL
 MODEL      102
-REMARK    model=102  nts=3  AUU C.A1936,C.U1943,C.U1963
+REMARK    model=102  nts=3  AUU .QA.C.A.1936.,.QA.C.U.1943.,.QA.C.U.1963.
 ATOM      1  P     A C1936      -1.846   8.670  -2.806  1.00 76.65      QA   P  
 ATOM      2  C5'   A C1936      -3.016   6.582  -3.926  1.00 74.57      QA   C  
 ATOM      3  O5'   A C1936      -2.006   7.109  -3.070  1.00 71.08      QA   O  
@@ -6888,7 +6888,7 @@ ATOM     61  OP1   U C1963      10.357   1.842  -2.821  1.00 87.68      QA   O
 ATOM     62  OP2   U C1963       9.689   1.798  -5.299  1.00 85.31      QA   O1-
 ENDMDL
 MODEL      103
-REMARK    model=103  nts=3  UCG C.U1944,C.C2551,C.G2557
+REMARK    model=103  nts=3  UCG .QA.C.U.1944.,.QA.C.C.2551.,.QA.C.G.2557.
 ATOM      1  P     U C1944      -9.222   5.372  -4.151  1.00 87.67      QA   P  
 ATOM      2  C5'   U C1944      -9.657   2.823  -3.676  1.00 84.08      QA   C  
 ATOM      3  O5'   U C1944      -9.033   4.042  -3.288  1.00 86.39      QA   O  
@@ -6954,7 +6954,7 @@ ATOM     62  OP1   G C2557       6.631   7.861   3.284  1.00 91.74      QA   O
 ATOM     63  OP2   G C2557       6.893   5.784   1.776  1.00 93.09      QA   O1-
 ENDMDL
 MODEL      104
-REMARK    model=104  nts=3  GCU C.G1945,C.C1961,C.U1963
+REMARK    model=104  nts=3  GCU .QA.C.G.1945.,.QA.C.C.1961.,.QA.C.U.1963.
 ATOM      1  P     G C1945       5.189   4.385   4.827  1.00 80.90      QA   P  
 ATOM      2  C5'   G C1945       3.206   6.115   4.715  1.00 82.72      QA   C  
 ATOM      3  O5'   G C1945       3.650   4.768   4.744  1.00 82.63      QA   O  
@@ -7020,7 +7020,7 @@ ATOM     62  OP1   U C1963      -8.488  -0.073  -5.987  1.00 87.68      QA   O
 ATOM     63  OP2   U C1963      -7.338   0.206  -8.264  1.00 85.31      QA   O1-
 ENDMDL
 MODEL      105
-REMARK    model=105  nts=3  AGC C.A1953,C.G2549,C.C2559
+REMARK    model=105  nts=3  AGC .QA.C.A.1953.,.QA.C.G.2549.,.QA.C.C.2559.
 ATOM      1  P     A C1953       7.885   6.662  -2.536  1.00 85.60      QA   P  
 ATOM      2  C5'   A C1953       5.445   7.004  -1.691  1.00 94.91      QA   C  
 ATOM      3  O5'   A C1953       6.666   6.297  -1.592  1.00 94.45      QA   O  
@@ -7088,7 +7088,7 @@ ATOM     64  OP1   C C2559      -5.023  10.878  -1.024  1.00 92.18      QA   O
 ATOM     65  OP2   C C2559      -6.035   8.574  -0.422  1.00 94.03      QA   O1-
 ENDMDL
 MODEL      106
-REMARK    model=106  nts=3  CGA C.C2047,C.G2621,C.A2823
+REMARK    model=106  nts=3  CGA .QA.C.C.2047.,.QA.C.G.2621.,.QA.C.A.2823.
 ATOM      1  P     C C2047       0.442   8.305   1.947  1.00103.92      QA   P  
 ATOM      2  C5'   C C2047      -1.694   7.304   0.798  1.00 99.53      QA   C  
 ATOM      3  O5'   C C2047      -0.468   7.088   1.473  1.00101.81      QA   O  
@@ -7156,7 +7156,7 @@ ATOM     64  OP1   A C2823      -6.745  -5.964  -0.442  1.00 94.98      QA   O
 ATOM     65  OP2   A C2823      -8.839  -7.455  -0.388  1.00 99.00      QA   O1-
 ENDMDL
 MODEL      107
-REMARK    model=107  nts=3  AAU C.A2051,C.A2052,C.U2617
+REMARK    model=107  nts=3  AAU .QA.C.A.2051.,.QA.C.A.2052.,.QA.C.U.2617.
 ATOM      1  P     A C2051       5.438   8.324  -1.820  1.00 86.16      QA   P  
 ATOM      2  C5'   A C2051       3.192   8.453  -0.515  1.00 93.81      QA   C  
 ATOM      3  O5'   A C2051       3.851   8.306  -1.762  1.00 91.63      QA   O  
@@ -7223,7 +7223,7 @@ ATOM     63  OP1   U C2617      -1.313  -9.930  -2.652  1.00 98.25      QA   O
 ATOM     64  OP2   U C2617       0.181  -7.998  -1.844  1.00 99.19      QA   O1-
 ENDMDL
 MODEL      108
-REMARK    model=108  nts=3  GAC C.G2053,C.A2614,C.C2616
+REMARK    model=108  nts=3  GAC .QA.C.G.2053.,.QA.C.A.2614.,.QA.C.C.2616.
 ATOM      1  P     G C2053       1.348   8.296  -0.075  1.00 88.25      QA   P  
 ATOM      2  C5'   G C2053      -1.254   8.338  -0.067  1.00 92.16      QA   C  
 ATOM      3  O5'   G C2053      -0.064   7.578  -0.136  1.00 94.41      QA   O  
@@ -7291,7 +7291,7 @@ ATOM     64  OP1   C C2616      -3.669  -9.993  -3.565  1.00 98.50      QA   O
 ATOM     65  OP2   C C2616      -1.596  -8.544  -3.116  1.00 98.85      QA   O1-
 ENDMDL
 MODEL      109
-REMARK    model=109  nts=3  AAU C.A2054,C.A2577,C.U2615
+REMARK    model=109  nts=3  AAU .QA.C.A.2054.,.QA.C.A.2577.,.QA.C.U.2615.
 ATOM      1  P     A C2054      -2.174   7.905   1.394  1.00 89.52      QA   P  
 ATOM      2  C5'   A C2054      -4.448   6.664   1.649  1.00 91.62      QA   C  
 ATOM      3  O5'   A C2054      -3.052   6.575   1.416  1.00 91.34      QA   O  
@@ -7358,7 +7358,7 @@ ATOM     63  OP1   U C2615       3.870  -8.053  -3.887  1.00 98.78      QA   O
 ATOM     64  OP2   U C2615       2.437  -7.745  -6.040  1.00 98.93      QA   O1-
 ENDMDL
 MODEL      110
-REMARK    model=110  nts=3  CAC C.C2063,C.A2450,C.C2501
+REMARK    model=110  nts=3  CAC .QA.C.C.2063.,.QA.C.A.2450.,.QA.C.C.2501.
 ATOM      1  P     C C2063       3.087   6.828   5.946  1.00 91.82      QA   P  
 ATOM      2  C5'   C C2063       1.473   7.820   4.070  1.00 88.09      QA   C  
 ATOM      3  O5'   C C2063       1.982   6.698   4.793  1.00 88.69      QA   O  
@@ -7423,7 +7423,7 @@ ATOM     61  OP1   C C2501       9.400  -5.569  -3.720  1.00 91.67      QA   O
 ATOM     62  OP2   C C2501       7.428  -7.186  -3.708  1.00 95.80      QA   O1-
 ENDMDL
 MODEL      111
-REMARK    model=111  nts=3  CgU C.C2065,C.2MG2445,C.U2449
+REMARK    model=111  nts=3  CgU .QA.C.C.2065.,.QA.C.2MG.2445.,.QA.C.U.2449.
 ATOM      1  P     C C2065       4.299   6.172   3.446  1.00 90.06      QA   P  
 ATOM      2  C5'   C C2065       1.751   6.725   3.565  1.00 96.39      QA   C  
 ATOM      3  O5'   C C2065       2.775   5.741   3.574  1.00 97.05      QA   O  
@@ -7490,7 +7490,7 @@ ATOM     63  OP1   U C2449      -9.841   7.712  -2.749  1.00 95.97      QA   O
 ATOM     64  OP2   U C2449      -8.094   6.894  -4.430  1.00 96.11      QA   O1-
 ENDMDL
 MODEL      112
-REMARK    model=112  nts=3  AUC C.A2071,C.U2438,C.C2440
+REMARK    model=112  nts=3  AUC .QA.C.A.2071.,.QA.C.U.2438.,.QA.C.C.2440.
 ATOM      1  P     A C2071       3.265   8.312   0.704  1.00 86.84      QA   P  
 ATOM      2  C5'   A C2071       0.715   8.006   0.995  1.00 91.34      QA   C  
 ATOM      3  O5'   A C2071       1.994   7.398   0.969  1.00 91.78      QA   O  
@@ -7555,7 +7555,7 @@ ATOM     61  OP1   C C2440      -3.168  -7.958   0.881  1.00 84.08      QA   O
 ATOM     62  OP2   C C2440      -5.132  -9.162   2.022  1.00 81.02      QA   O1-
 ENDMDL
 MODEL      113
-REMARK    model=113  nts=3  UAU C.U2075,C.A2077,C.U2243
+REMARK    model=113  nts=3  UAU .QA.C.U.2075.,.QA.C.A.2077.,.QA.C.U.2243.
 ATOM      1  P     U C2075       7.302   8.809   0.963  1.00 91.93      QA   P  
 ATOM      2  C5'   U C2075       5.011  10.061   0.741  1.00 92.38      QA   C  
 ATOM      3  O5'   U C2075       5.768   9.012   1.328  1.00 94.93      QA   O  
@@ -7620,7 +7620,7 @@ ATOM     61  OP1   U C2243       3.019 -12.456  -1.721  1.00 86.92      QA   O
 ATOM     62  OP2   U C2243       3.877 -10.043  -2.197  1.00 91.31      QA   O1-
 ENDMDL
 MODEL      114
-REMARK    model=114  nts=3  CGG C.C2078,C.G2238,C.G2242
+REMARK    model=114  nts=3  CGG .QA.C.C.2078.,.QA.C.G.2238.,.QA.C.G.2242.
 ATOM      1  P     C C2078       0.256   7.703   1.329  1.00 92.47      QA   P  
 ATOM      2  C5'   C C2078      -2.267   7.576   0.623  1.00 99.69      QA   C  
 ATOM      3  O5'   C C2078      -1.131   6.941   1.194  1.00100.87      QA   O  
@@ -7689,7 +7689,7 @@ ATOM     65  OP1   G C2242      -2.265 -11.604  -2.030  1.00 87.31      QA   O
 ATOM     66  OP2   G C2242      -0.711  -9.570  -1.982  1.00 89.56      QA   O1-
 ENDMDL
 MODEL      115
-REMARK    model=115  nts=3  UGA C.U2079,C.G2238,C.A2241
+REMARK    model=115  nts=3  UGA .QA.C.U.2079.,.QA.C.G.2238.,.QA.C.A.2241.
 ATOM      1  P     U C2079      -2.343   8.473   2.463  1.00 95.03      QA   P  
 ATOM      2  C5'   U C2079      -4.776   7.519   2.244  1.00101.63      QA   C  
 ATOM      3  O5'   U C2079      -3.423   7.319   2.628  1.00101.07      QA   O  
@@ -7757,7 +7757,7 @@ ATOM     64  OP1   A C2241      -1.505 -11.717  -1.836  1.00 89.78      QA   O
 ATOM     65  OP2   A C2241       0.298  -9.859  -1.761  1.00 92.86      QA   O1-
 ENDMDL
 MODEL      116
-REMARK    model=116  nts=3  UCG C.U2118,C.C2143,C.G2148
+REMARK    model=116  nts=3  UCG .QA.C.U.2118.,.QA.C.C.2143.,.QA.C.G.2148.
 ATOM      1  P     U C2118      -5.654   7.723  -2.177  1.00181.72      QA   P  
 ATOM      2  C5'   U C2118      -7.269   6.972  -0.210  1.00181.05      QA   C  
 ATOM      3  O5'   U C2118      -6.103   6.734  -1.004  1.00180.90      QA   O  
@@ -7823,7 +7823,7 @@ ATOM     62  OP1   G C2148       1.639  11.514  -2.750  1.00175.40      QA   O
 ATOM     63  OP2   G C2148       2.502   9.109  -2.621  1.00174.36      QA   O1-
 ENDMDL
 MODEL      117
-REMARK    model=117  nts=3  CGA C.C2261,C.G2279,C.A2327
+REMARK    model=117  nts=3  CGA .QA.C.C.2261.,.QA.C.G.2279.,.QA.C.A.2327.
 ATOM      1  P     C C2261       1.560   8.247   0.169  1.00113.65      QA   P  
 ATOM      2  C5'   C C2261      -0.833   7.225  -0.086  1.00116.59      QA   C  
 ATOM      3  O5'   C C2261       0.539   7.036   0.200  1.00114.63      QA   O  
@@ -7891,7 +7891,7 @@ ATOM     64  OP1   A C2327      -7.580  -5.773  -5.535  1.00122.22      QA   O
 ATOM     65  OP2   A C2327      -7.461  -8.180  -4.649  1.00121.14      QA   O1-
 ENDMDL
 MODEL      118
-REMARK    model=118  nts=3  AUA C.A2287,C.U2344,C.A2346
+REMARK    model=118  nts=3  AUA .QA.C.A.2287.,.QA.C.U.2344.,.QA.C.A.2346.
 ATOM      1  P     A C2287      -5.891   3.243   1.759  1.00124.29      QA   P  
 ATOM      2  C5'   A C2287      -6.437   2.747  -0.787  1.00124.91      QA   C  
 ATOM      3  O5'   A C2287      -5.661   2.466   0.379  1.00124.95      QA   O  
@@ -7958,7 +7958,7 @@ ATOM     63  OP1   A C2346       3.061  -4.150  -3.620  1.00124.72      QA   O
 ATOM     64  OP2   A C2346       4.248  -3.075  -5.617  1.00123.71      QA   O1-
 ENDMDL
 MODEL      119
-REMARK    model=119  nts=3  UAA C.U2296,C.A2322,C.A2335
+REMARK    model=119  nts=3  UAA .QA.C.U.2296.,.QA.C.A.2322.,.QA.C.A.2335.
 ATOM      1  P     U C2296      -5.790   9.214   3.541  1.00139.19      QA   P  
 ATOM      2  C5'   U C2296      -6.756   7.092   2.309  1.00137.04      QA   C  
 ATOM      3  O5'   U C2296      -5.696   7.698   3.040  1.00137.38      QA   O  
@@ -8025,7 +8025,7 @@ ATOM     63  OP1   A C2335       6.549   8.699  -0.318  1.00138.46      QA   O
 ATOM     64  OP2   A C2335       5.557   9.304   1.949  1.00138.08      QA   O1-
 ENDMDL
 MODEL      120
-REMARK    model=120  nts=3  AGU C.A2297,C.G2319,C.U2321
+REMARK    model=120  nts=3  AGU .QA.C.A.2297.,.QA.C.G.2319.,.QA.C.U.2321.
 ATOM      1  P     A C2297       1.281   8.649   1.438  1.00164.29      QA   P  
 ATOM      2  C5'   A C2297      -0.787   7.636   2.648  1.00166.65      QA   C  
 ATOM      3  O5'   A C2297      -0.043   8.790   2.312  1.00166.72      QA   O  
@@ -8093,7 +8093,7 @@ ATOM     64  OP1   U C2321      -8.758   0.097  -6.074  1.00158.03      QA   O
 ATOM     65  OP2   U C2321     -10.184   1.533  -4.486  1.00159.63      QA   O1-
 ENDMDL
 MODEL      121
-REMARK    model=121  nts=3  UGA C.U2324,C.G2331,C.A2336
+REMARK    model=121  nts=3  UGA .QA.C.U.2324.,.QA.C.G.2331.,.QA.C.A.2336.
 ATOM      1  P     U C2324       6.945   9.288  -1.118  1.00126.25      QA   P  
 ATOM      2  C5'   U C2324       4.393   9.281  -0.528  1.00125.65      QA   C  
 ATOM      3  O5'   U C2324       5.670   8.659  -0.405  1.00125.98      QA   O  
@@ -8161,7 +8161,7 @@ ATOM     64  OP1   A C2336      -9.613   6.060  -2.282  1.00128.80      QA   O
 ATOM     65  OP2   A C2336      -8.150   7.629  -3.669  1.00130.14      QA   O1-
 ENDMDL
 MODEL      122
-REMARK    model=122  nts=3  GAc C.G2454,C.A2497,C.OMC2498
+REMARK    model=122  nts=3  GAc .QA.C.G.2454.,.QA.C.A.2497.,.QA.C.OMC.2498.
 ATOM      1  P     G C2454      -1.705   8.883   2.024  1.00 83.30      QA   P  
 ATOM      2  C5'   G C2454      -4.228   8.396   1.808  1.00 93.56      QA   C  
 ATOM      3  O5'   G C2454      -2.918   7.879   1.874  1.00 92.41      QA   O  
@@ -8230,7 +8230,7 @@ HETATM   65  OP1 OMC C2498      -0.448  -9.505  -0.975  1.00 93.07      QA   O
 HETATM   66  OP2 OMC C2498      -1.476  -8.222  -3.044  1.00 90.00      QA   O  
 ENDMDL
 MODEL      123
-REMARK    model=123  nts=3  GAU C.G2458,C.A2459,C.U2493
+REMARK    model=123  nts=3  GAU .QA.C.G.2458.,.QA.C.A.2459.,.QA.C.U.2493.
 ATOM      1  P     G C2458       4.921   8.097   0.350  1.00 95.32      QA   P  
 ATOM      2  C5'   G C2458       2.340   7.733   0.513  1.00 99.89      QA   C  
 ATOM      3  O5'   G C2458       3.639   7.425   1.006  1.00101.33      QA   O  
@@ -8298,7 +8298,7 @@ ATOM     64  OP1   U C2493      -2.705 -10.002  -0.602  1.00 92.30      QA   O
 ATOM     65  OP2   U C2493      -0.996  -8.065  -0.736  1.00 89.25      QA   O1-
 ENDMDL
 MODEL      124
-REMARK    model=124  nts=3  UGU C.U2460,C.G2490,C.U2492
+REMARK    model=124  nts=3  UGU .QA.C.U.2460.,.QA.C.G.2490.,.QA.C.U.2492.
 ATOM      1  P     U C2460      -0.124   8.253   1.403  1.00 94.92      QA   P  
 ATOM      2  C5'   U C2460      -2.533   7.897   0.432  1.00 96.80      QA   C  
 ATOM      3  O5'   U C2460      -1.364   7.347   1.008  1.00 97.15      QA   O  
@@ -8364,7 +8364,7 @@ ATOM     62  OP1   U C2492      -4.750  -8.367  -1.414  1.00 94.75      QA   O
 ATOM     63  OP2   U C2492      -3.522  -6.561  -2.792  1.00 96.90      QA   O1-
 ENDMDL
 MODEL      125
-REMARK    model=125  nts=3  AAG C.A2469,C.A2476,C.G2481
+REMARK    model=125  nts=3  AAG .QA.C.A.2469.,.QA.C.A.2476.,.QA.C.G.2481.
 ATOM      1  P     A C2469      -5.953   2.482   0.101  1.00121.51      QA   P  
 ATOM      2  C5'   A C2469      -7.945   1.049  -0.824  1.00119.58      QA   C  
 ATOM      3  O5'   A C2469      -6.870   1.180   0.095  1.00120.66      QA   O  
@@ -8434,7 +8434,7 @@ ATOM     66  OP1   G C2481       8.021  -7.169  -0.912  1.00 98.99      QA   O
 ATOM     67  OP2   G C2481       8.097  -4.721  -0.161  1.00100.80      QA   O1-
 ENDMDL
 MODEL      126
-REMARK    model=126  nts=3  CUG C.C2517,C.U2546,C.G2567
+REMARK    model=126  nts=3  CUG .QA.C.C.2517.,.QA.C.U.2546.,.QA.C.G.2567.
 ATOM      1  P     C C2517       1.838  10.656   1.030  1.00 89.39      QA   P  
 ATOM      2  C5'   C C2517      -0.712  10.209   0.570  1.00 95.93      QA   C  
 ATOM      3  O5'   C C2517       0.476   9.876   1.281  1.00 94.41      QA   O  
@@ -8500,7 +8500,7 @@ ATOM     62  OP1   G C2567      -4.425  -9.408  -3.748  1.00 94.45      QA   O
 ATOM     63  OP2   G C2567      -2.123  -8.342  -3.266  1.00 87.17      QA   O1-
 ENDMDL
 MODEL      127
-REMARK    model=127  nts=3  UCG C.U2519,C.C2521,C.G2544
+REMARK    model=127  nts=3  UCG .QA.C.U.2519.,.QA.C.C.2521.,.QA.C.G.2544.
 ATOM      1  P     U C2519       7.894   8.552   0.061  1.00 92.60      QA   P  
 ATOM      2  C5'   U C2519       6.187   7.924  -1.808  1.00 95.25      QA   C  
 ATOM      3  O5'   U C2519       6.981   7.501  -0.706  1.00 96.35      QA   O  
@@ -8566,7 +8566,7 @@ ATOM     62  OP1   G C2544       2.217  -8.803  -4.861  1.00 94.94      QA   O
 ATOM     63  OP2   G C2544       2.744  -6.500  -3.889  1.00 96.77      QA   O1-
 ENDMDL
 MODEL      128
-REMARK    model=128  nts=3  AGA C.A2531,C.G2659,C.A2662
+REMARK    model=128  nts=3  AGA .QA.C.A.2531.,.QA.C.G.2659.,.QA.C.A.2662.
 ATOM      1  P     A C2531       2.261  11.340   1.241  1.00112.32      QA   P  
 ATOM      2  C5'   A C2531      -0.332  11.216   1.165  1.00110.09      QA   C  
 ATOM      3  O5'   A C2531       0.908  10.559   0.981  1.00109.23      QA   O  
@@ -8636,7 +8636,7 @@ ATOM     66  OP1   A C2662       0.416  -8.457  -0.952  1.00121.02      QA   O
 ATOM     67  OP2   A C2662      -0.090  -6.011  -0.355  1.00117.33      QA   O1-
 ENDMDL
 MODEL      129
-REMARK    model=129  nts=3  ACG C.A2564,C.C2646,C.G2674
+REMARK    model=129  nts=3  ACG .QA.C.A.2564.,.QA.C.C.2646.,.QA.C.G.2674.
 ATOM      1  P     A C2564      -5.997   7.135  -2.965  1.00 91.07      QA   P  
 ATOM      2  C5'   A C2564      -7.505   5.438  -4.368  1.00 99.75      QA   C  
 ATOM      3  O5'   A C2564      -6.852   5.796  -3.153  1.00102.66      QA   O  
@@ -8704,7 +8704,7 @@ ATOM     64  OP1   G C2674       7.026   9.222   2.067  1.00 95.73      QA   O
 ATOM     65  OP2   G C2674       7.485   6.991   0.949  1.00 95.43      QA   O1-
 ENDMDL
 MODEL      130
-REMARK    model=130  nts=3  CGU C.C2626,C.G2777,C.U2779
+REMARK    model=130  nts=3  CGU .QA.C.C.2626.,.QA.C.G.2777.,.QA.C.U.2779.
 ATOM      1  P     C C2626       5.176   8.340   1.570  1.00109.24      QA   P  
 ATOM      2  C5'   C C2626       2.539   8.341   1.673  1.00108.65      QA   C  
 ATOM      3  O5'   C C2626       3.770   7.661   1.904  1.00111.70      QA   O  
@@ -8770,7 +8770,7 @@ ATOM     62  OP1   U C2779      -6.217 -10.109   0.876  1.00103.80      QA   O
 ATOM     63  OP2   U C2779      -4.398  -9.798  -0.940  1.00100.52      QA   O1-
 ENDMDL
 MODEL      131
-REMARK    model=131  nts=3  GAG C.G2644,C.A2734,C.G2770
+REMARK    model=131  nts=3  GAG .QA.C.G.2644.,.QA.C.A.2734.,.QA.C.G.2770.
 ATOM      1  P     G C2644       8.911   8.912  -6.062  1.00 94.75      QA   P  
 ATOM      2  C5'   G C2644       6.378   8.654  -6.609  1.00 97.64      QA   C  
 ATOM      3  O5'   G C2644       7.425   8.508  -5.669  1.00 98.99      QA   O  
@@ -8841,7 +8841,7 @@ ATOM     67  OP1   G C2770       2.848  -7.986  -3.087  1.00106.23      QA   O
 ATOM     68  OP2   G C2770       3.742  -5.713  -2.226  1.00102.61      QA   O1-
 ENDMDL
 MODEL      132
-REMARK    model=132  nts=3  GUA C.G2655,C.U2656,C.A2665
+REMARK    model=132  nts=3  GUA .QA.C.G.2655.,.QA.C.U.2656.,.QA.C.A.2665.
 ATOM      1  P     G C2655       5.605   7.345  -3.679  1.00120.54      QA   P  
 ATOM      2  C5'   G C2655       6.698   7.089  -1.274  1.00112.23      QA   C  
 ATOM      3  O5'   G C2655       6.738   6.813  -2.681  1.00113.01      QA   O  
@@ -8909,7 +8909,7 @@ ATOM     64  OP1   A C2665       2.522  -5.496  -1.443  1.00109.48      QA   O
 ATOM     65  OP2   A C2665       4.100  -3.641  -0.647  1.00109.04      QA   O1-
 ENDMDL
 MODEL      133
-REMARK    model=133  nts=3  UCA C.U2680,C.C2683,C.A2727
+REMARK    model=133  nts=3  UCA .QA.C.U.2680.,.QA.C.C.2683.,.QA.C.A.2727.
 ATOM      1  P     U C2680       5.282   9.306  -2.074  1.00104.52      QA   P  
 ATOM      2  C5'   U C2680       2.692   9.448  -2.205  1.00108.62      QA   C  
 ATOM      3  O5'   U C2680       3.834   8.819  -1.650  1.00109.55      QA   O  
@@ -8974,7 +8974,7 @@ ATOM     61  OP1   A C2727      -1.609  -8.956   0.568  1.00103.51      QA   O
 ATOM     62  OP2   A C2727       0.437  -7.676  -0.343  1.00 99.47      QA   O1-
 ENDMDL
 MODEL      134
-REMARK    model=134  nts=3  CUA C.C2681,C.U2684,C.A2725
+REMARK    model=134  nts=3  CUA .QA.C.C.2681.,.QA.C.U.2684.,.QA.C.A.2725.
 ATOM      1  P     C C2681      -9.206   6.660  -2.446  1.00 97.88      QA   P  
 ATOM      2  C5'   C C2681      -9.336   4.117  -2.022  1.00105.36      QA   C  
 ATOM      3  O5'   C C2681      -8.649   5.334  -1.779  1.00102.27      QA   O  
@@ -9039,7 +9039,7 @@ ATOM     61  OP1   A C2725       4.467   8.572   0.000  1.00 97.18      QA   O
 ATOM     62  OP2   A C2725       2.335   7.349  -0.807  1.00 97.98      QA   O1-
 ENDMDL
 MODEL      135
-REMARK    model=135  nts=3  UUA C.U2746,C.U2756,C.A2758
+REMARK    model=135  nts=3  UUA .QA.C.U.2746.,.QA.C.U.2756.,.QA.C.A.2758.
 ATOM      1  P     U C2746       8.640   5.662  -0.655  1.00123.32      QA   P  
 ATOM      2  C5'   U C2746       6.250   6.758  -0.541  1.00120.27      QA   C  
 ATOM      3  O5'   U C2746       7.062   5.595  -0.433  1.00119.74      QA   O  
@@ -9104,7 +9104,7 @@ ATOM     61  OP1   A C2758      -4.796  -7.987  -2.323  1.00115.83      QA   O
 ATOM     62  OP2   A C2758      -2.441  -6.987  -1.988  1.00113.25      QA   O1-
 ENDMDL
 MODEL      136
-REMARK    model=136  nts=3  AGC C.A2835,C.G2838,C.C2880
+REMARK    model=136  nts=3  AGC .QA.C.A.2835.,.QA.C.G.2838.,.QA.C.C.2880.
 ATOM      1  P     A C2835       9.672   5.505  -5.318  1.00124.18      QA   P  
 ATOM      2  C5'   A C2835       8.434   6.004  -3.028  1.00116.72      QA   C  
 ATOM      3  O5'   A C2835       8.469   5.339  -4.282  1.00122.54      QA   O  
@@ -9172,7 +9172,7 @@ ATOM     64  OP1   C C2880       3.821  -7.440  -1.612  1.00127.58      QA   O
 ATOM     65  OP2   C C2880       2.886  -7.908  -3.957  1.00130.54      QA   O1-
 ENDMDL
 MODEL      137
-REMARK    model=137  nts=3  GGG C.G13,C.G69,C.G107
+REMARK    model=137  nts=3  GGG .RA.C.G.13.,.RA.C.G.69.,.RA.C.G.107.
 ATOM      1  P     G C  13       9.054   7.571   1.145  1.00143.36      RA   P  
 ATOM      2  C5'   G C  13       6.840   7.620  -0.229  1.00150.10      RA   C  
 ATOM      3  O5'   G C  13       7.740   6.876   0.576  1.00147.59      RA   O  
@@ -9244,7 +9244,7 @@ ATOM     68  OP1   G C 107      -8.859   9.483   3.384  1.00127.74      RA   O
 ATOM     69  OP2   G C 107      -9.840   7.155   3.825  1.00126.42      RA   O1-
 ENDMDL
 MODEL      138
-REMARK    model=138  nts=3  CGA C.C28,C.G56,C.A59
+REMARK    model=138  nts=3  CGA .RA.C.C.28.,.RA.C.G.56.,.RA.C.A.59.
 ATOM      1  P     C C  28       7.519   6.560  -0.346  1.00161.80      RA   P  
 ATOM      2  C5'   C C  28       5.167   7.438  -1.190  1.00160.07      RA   C  
 ATOM      3  O5'   C C  28       5.926   6.527  -0.406  1.00161.07      RA   O  
@@ -9312,7 +9312,7 @@ ATOM     64  OP1   A C  59     -13.365   3.937   1.266  1.00162.32      RA   O
 ATOM     65  OP2   A C  59     -11.997   1.949   0.410  1.00162.90      RA   O1-
 ENDMDL
 MODEL      139
-REMARK    model=139  nts=3  AUA C.A29,C.U55,C.A58
+REMARK    model=139  nts=3  AUA .RA.C.A.29.,.RA.C.U.55.,.RA.C.A.58.
 ATOM      1  P     A C  29       0.057   8.666  -1.017  1.00160.91      RA   P  
 ATOM      2  C5'   A C  29      -2.147   7.267  -1.325  1.00161.66      RA   C  
 ATOM      3  O5'   A C  29      -0.830   7.356  -0.808  1.00162.59      RA   O  
@@ -9379,7 +9379,7 @@ ATOM     63  OP1   A C  58     -11.337  -6.270  -3.978  1.00164.77      RA   O
 ATOM     64  OP2   A C  58      -8.867  -5.820  -4.403  1.00166.33      RA   O1-
 ENDMDL
 MODEL      140
-REMARK    model=140  nts=3  CGA C.C31,C.G51,C.A53
+REMARK    model=140  nts=3  CGA .RA.C.C.31.,.RA.C.G.51.,.RA.C.A.53.
 ATOM      1  P     C C  31       0.782   8.080   2.779  1.00165.25      RA   P  
 ATOM      2  C5'   C C  31      -1.598   7.279   1.952  1.00166.34      RA   C  
 ATOM      3  O5'   C C  31      -0.251   6.964   2.291  1.00166.78      RA   O  
@@ -9447,7 +9447,7 @@ ATOM     64  OP1   A C  53      -6.964  -7.351  -2.702  1.00169.12      RA   O
 ATOM     65  OP2   A C  53      -6.541  -7.083  -5.219  1.00168.41      RA   O1-
 ENDMDL
 MODEL      141
-REMARK    model=141  nts=3  GCC C.G33,C.C36,C.C49
+REMARK    model=141  nts=3  GCC .RA.C.G.33.,.RA.C.C.36.,.RA.C.C.49.
 ATOM      1  P     G C  33       5.819   9.106  -3.018  1.00169.03      RA   P  
 ATOM      2  C5'   G C  33       3.261   9.000  -3.689  1.00169.71      RA   C  
 ATOM      3  O5'   G C  33       4.292   8.708  -2.752  1.00169.87      RA   O  
@@ -9513,7 +9513,7 @@ ATOM     62  OP1   C C  49      -0.408  -9.566   1.244  1.00161.77      RA   O
 ATOM     63  OP2   C C  49       1.410  -7.807   1.176  1.00160.43      RA   O1-
 ENDMDL
 MODEL      142
-REMARK    model=142  nts=3  ACU C.A34,C.C37,C.U48
+REMARK    model=142  nts=3  ACU .RA.C.A.34.,.RA.C.C.37.,.RA.C.U.48.
 ATOM      1  P     A C  34       4.745  10.346  -0.572  1.00167.38      RA   P  
 ATOM      2  C5'   A C  34       2.185   9.845  -1.015  1.00168.16      RA   C  
 ATOM      3  O5'   A C  34       3.370   9.585  -0.265  1.00168.38      RA   O  
@@ -9578,7 +9578,7 @@ ATOM     61  OP1   U C  48      -2.915  -9.205  -0.076  1.00159.61      RA   O
 ATOM     62  OP2   U C  48      -0.397  -8.685  -0.127  1.00159.76      RA   O1-
 ENDMDL
 MODEL      143
-REMARK    model=143  nts=3  CGC C.C38,C.G44,C.C47
+REMARK    model=143  nts=3  CGC .RA.C.C.38.,.RA.C.G.44.,.RA.C.C.47.
 ATOM      1  P     C C  38      -2.308   9.948   0.446  1.00160.61      RA   P  
 ATOM      2  C5'   C C  38      -4.406   8.388   0.288  1.00161.58      RA   C  
 ATOM      3  O5'   C C  38      -3.071   8.580   0.728  1.00162.46      RA   O  
@@ -9644,7 +9644,7 @@ ATOM     62  OP1   C C  47     -10.013  -6.869  -2.504  1.00158.69      RA   O
 ATOM     63  OP2   C C  47      -7.485  -7.075  -2.169  1.00159.83      RA   O1-
 ENDMDL
 MODEL      144
-REMARK    model=144  nts=4  UACG C.U12,C.A526,C.C2043,C.G2625
+REMARK    model=144  nts=4  UACG .QA.C.U.12.,.QA.C.A.526.,.QA.C.C.2043.,.QA.C.G.2625.
 ATOM      1  P     U C  12       5.981  12.192  -0.221  1.00121.86      QA   P  
 ATOM      2  C5'   U C  12       3.800  12.339  -1.748  1.00115.09      QA   C  
 ATOM      3  O5'   U C  12       4.852  11.562  -1.166  1.00117.21      QA   O  
@@ -9732,7 +9732,7 @@ ATOM     84  OP1   G C2625      -9.476   2.811  -1.541  1.00108.35      QA   O
 ATOM     85  OP2   G C2625      -9.088   0.273  -1.984  1.00101.23      QA   O1-
 ENDMDL
 MODEL      145
-REMARK    model=145  nts=4  UAUA C.U25,C.A515,C.U580,C.A1260
+REMARK    model=145  nts=4  UAUA .QA.C.U.25.,.QA.C.A.515.,.QA.C.U.580.,.QA.C.A.1260.
 ATOM      1  P     U C  25      10.445   8.323  -2.636  1.00117.31      QA   P  
 ATOM      2  C5'   U C  25       8.106   8.017  -3.788  1.00114.08      QA   C  
 ATOM      3  O5'   U C  25       9.020   7.634  -2.771  1.00112.83      QA   O  
@@ -9819,7 +9819,7 @@ ATOM     83  OP1   A C1260      -4.213   9.425   0.927  1.00104.51      QA   O
 ATOM     84  OP2   A C1260      -5.953   7.571   0.686  1.00 99.06      QA   O1-
 ENDMDL
 MODEL      146
-REMARK    model=146  nts=4  GACG C.G26,C.A514,C.C581,C.G1259
+REMARK    model=146  nts=4  GACG .QA.C.G.26.,.QA.C.A.514.,.QA.C.C.581.,.QA.C.G.1259.
 ATOM      1  P     G C  26       8.079   4.016  -5.546  1.00115.16      QA   P  
 ATOM      2  C5'   G C  26       5.695   3.658  -4.475  1.00110.73      QA   C  
 ATOM      3  O5'   G C  26       7.109   3.567  -4.364  1.00114.96      QA   O  
@@ -9910,7 +9910,7 @@ ATOM     87  OP1   G C1259      -3.075  12.487   1.744  1.00101.89      QA   O
 ATOM     88  OP2   G C1259      -5.144  10.979   1.417  1.00102.78      QA   O1-
 ENDMDL
 MODEL      147
-REMARK    model=147  nts=4  GAGC C.G45,C.A182,C.G214,C.C433
+REMARK    model=147  nts=4  GAGC .QA.C.G.45.,.QA.C.A.182.,.QA.C.G.214.,.QA.C.C.433.
 ATOM      1  P     G C  45       0.556   8.943  -5.237  1.00143.98      QA   P  
 ATOM      2  C5'   G C  45      -1.628   7.725  -4.466  1.00141.32      QA   C  
 ATOM      3  O5'   G C  45      -0.212   7.748  -4.531  1.00141.38      QA   O  
@@ -10001,7 +10001,7 @@ ATOM     87  OP1   C C 433       5.597 -10.406   0.095  1.00125.37      QA   O
 ATOM     88  OP2   C C 433       7.046  -8.313  -0.310  1.00126.34      QA   O1-
 ENDMDL
 MODEL      148
-REMARK    model=148  nts=4  CAAG C.C47,C.A52,C.A119,C.G178
+REMARK    model=148  nts=4  CAAG .QA.C.C.47.,.QA.C.A.52.,.QA.C.A.119.,.QA.C.G.178.
 ATOM      1  P     C C  47       7.658   8.507   1.094  1.00145.22      QA   P  
 ATOM      2  C5'   C C  47       5.518   8.694  -0.409  1.00136.72      QA   C  
 ATOM      3  O5'   C C  47       6.364   7.887   0.406  1.00136.46      QA   O  
@@ -10091,7 +10091,7 @@ ATOM     86  OP1   G C 178       1.532  -9.496   2.169  1.00120.89      QA   O
 ATOM     87  OP2   G C 178       3.394  -7.710   2.532  1.00120.81      QA   O1-
 ENDMDL
 MODEL      149
-REMARK    model=149  nts=4  GUAC C.G60,C.U65,C.A89,C.C456
+REMARK    model=149  nts=4  GUAC .QA.C.G.60.,.QA.C.U.65.,.QA.C.A.89.,.QA.C.C.456.
 ATOM      1  P     G C  60      -9.734   7.846  -3.676  1.00154.28      QA   P  
 ATOM      2  C5'   G C  60     -10.301   5.347  -4.182  1.00150.10      QA   C  
 ATOM      3  O5'   G C  60      -9.501   6.286  -3.472  1.00149.49      QA   O  
@@ -10179,7 +10179,7 @@ ATOM     84  OP1   C C 456       9.414  -7.133   1.691  1.00123.65      QA   O
 ATOM     85  OP2   C C 456       9.650  -8.265  -0.608  1.00121.64      QA   O1-
 ENDMDL
 MODEL      150
-REMARK    model=150  nts=4  CGAA C.C79,C.G107,C.A345,C.A346
+REMARK    model=150  nts=4  CGAA .QA.C.C.79.,.QA.C.G.107.,.QA.C.A.345.,.QA.C.A.346.
 ATOM      1  P     C C  79       8.221   7.793   1.346  1.00183.03      QA   P  
 ATOM      2  C5'   C C  79       5.974   8.305   0.067  1.00184.32      QA   C  
 ATOM      3  O5'   C C  79       6.788   7.396   0.791  1.00183.31      QA   O  
@@ -10269,7 +10269,7 @@ ATOM     86  OP1   A C 346      -5.074   9.909   1.490  1.00184.47      QA   O
 ATOM     87  OP2   A C 346      -6.326   9.661  -0.727  1.00184.40      QA   O1-
 ENDMDL
 MODEL      151
-REMARK    model=151  nts=4  AGCA C.A83,C.G85,C.C97,C.A103
+REMARK    model=151  nts=4  AGCA .QA.C.A.83.,.QA.C.G.85.,.QA.C.C.97.,.QA.C.A.103.
 ATOM      1  P     A C  83       9.883   9.382   1.234  1.00180.33      QA   P  
 ATOM      2  C5'   A C  83       8.546   7.415   2.388  1.00184.65      QA   C  
 ATOM      3  O5'   A C  83       9.714   7.870   1.715  1.00184.12      QA   O  
@@ -10359,7 +10359,7 @@ ATOM     86  OP1   A C 103       7.384  -3.782   0.353  1.00183.16      QA   O
 ATOM     87  OP2   A C 103       5.497  -4.833   1.722  1.00184.15      QA   O1-
 ENDMDL
 MODEL      152
-REMARK    model=152  nts=4  AUCG C.A160,C.U166,C.C2208,C.G2216
+REMARK    model=152  nts=4  AUCG .QA.C.A.160.,.QA.C.U.166.,.QA.C.C.2208.,.QA.C.G.2216.
 ATOM      1  P     A C 160       0.862  11.938  -1.367  1.00135.77      QA   P  
 ATOM      2  C5'   A C 160       0.909   9.824   0.195  1.00135.32      QA   C  
 ATOM      3  O5'   A C 160       1.289  10.441  -1.027  1.00138.78      QA   O  
@@ -10447,7 +10447,7 @@ ATOM     84  OP1   G C2216       2.315 -12.482  -0.964  1.00111.95      QA   O
 ATOM     85  OP2   G C2216      -0.195 -11.846  -0.657  1.00110.05      QA   O1-
 ENDMDL
 MODEL      153
-REMARK    model=153  nts=4  AACG C.A161,C.A165,C.C2207,C.G2217
+REMARK    model=153  nts=4  AACG .QA.C.A.161.,.QA.C.A.165.,.QA.C.C.2207.,.QA.C.G.2217.
 ATOM      1  P     A C 161       3.885   8.124  -0.800  1.00127.61      QA   P  
 ATOM      2  C5'   A C 161       1.387   7.510  -0.298  1.00126.53      QA   C  
 ATOM      3  O5'   A C 161       2.766   7.248  -0.073  1.00127.82      QA   O  
@@ -10537,7 +10537,7 @@ ATOM     86  OP1   G C2217      -1.403  -9.742   0.009  1.00120.72      QA   O
 ATOM     87  OP2   G C2217      -3.657  -8.481  -0.047  1.00112.23      QA   O1-
 ENDMDL
 MODEL      154
-REMARK    model=154  nts=4  AACG C.A191,C.A204,C.C678,C.G799
+REMARK    model=154  nts=4  AACG .QA.C.A.191.,.QA.C.A.204.,.QA.C.C.678.,.QA.C.G.799.
 ATOM      1  P     A C 191       5.137   5.856  -1.200  1.00 97.40      QA   P  
 ATOM      2  C5'   A C 191       2.702   6.353  -0.406  1.00 97.60      QA   C  
 ATOM      3  O5'   A C 191       3.883   5.574  -0.262  1.00 98.68      QA   O  
@@ -10627,7 +10627,7 @@ ATOM     86  OP1   G C 799      -3.948 -10.128  -2.570  1.00106.60      QA   O
 ATOM     87  OP2   G C 799      -5.835  -8.421  -2.086  1.00102.18      QA   O1-
 ENDMDL
 MODEL      155
-REMARK    model=155  nts=4  ACGC C.A226,C.C229,C.G409,C.C418
+REMARK    model=155  nts=4  ACGC .QA.C.A.226.,.QA.C.C.229.,.QA.C.G.409.,.QA.C.C.418.
 ATOM      1  P     A C 226      -4.136   7.138   2.539  1.00132.82      QA   P  
 ATOM      2  C5'   A C 226      -6.381   5.761   2.344  1.00133.54      QA   C  
 ATOM      3  O5'   A C 226      -4.959   5.800   2.295  1.00131.48      QA   O  
@@ -10715,7 +10715,7 @@ ATOM     84  OP1   C C 418       2.618  -9.521  -0.683  1.00151.99      QA   O
 ATOM     85  OP2   C C 418       4.772  -8.116  -0.590  1.00147.85      QA   O1-
 ENDMDL
 MODEL      156
-REMARK    model=156  nts=4  ACGC C.A227,C.C228,C.G410,C.C417
+REMARK    model=156  nts=4  ACGC .QA.C.A.227.,.QA.C.C.228.,.QA.C.G.410.,.QA.C.C.417.
 ATOM      1  P     A C 227      -6.018  10.999  -0.593  1.00141.13      QA   P  
 ATOM      2  C5'   A C 227      -7.740   8.985  -0.931  1.00139.87      QA   C  
 ATOM      3  O5'   A C 227      -6.571   9.526  -0.331  1.00139.79      QA   O  
@@ -10803,7 +10803,7 @@ ATOM     84  OP1   C C 417      -2.313  -9.869   2.155  1.00146.69      QA   O
 ATOM     85  OP2   C C 417      -0.052  -8.657   2.002  1.00143.75      QA   O1-
 ENDMDL
 MODEL      157
-REMARK    model=157  nts=4  CGAG C.C237,C.G260,C.A609,C.G619
+REMARK    model=157  nts=4  CGAG .QA.C.C.237.,.QA.C.G.260.,.QA.C.A.609.,.QA.C.G.619.
 ATOM      1  P     C C 237       8.461   9.443  -0.113  1.00128.25      QA   P  
 ATOM      2  C5'   C C 237       6.069   9.277  -1.121  1.00127.57      QA   C  
 ATOM      3  O5'   C C 237       7.084   8.676  -0.326  1.00128.27      QA   O  
@@ -10894,7 +10894,7 @@ ATOM     87  OP1   G C 619      -9.133  -9.539  -2.010  1.00153.06      QA   O
 ATOM     88  OP2   G C 619     -10.783  -7.765  -1.184  1.00150.02      QA   O1-
 ENDMDL
 MODEL      158
-REMARK    model=158  nts=4  CGUA C.C238,C.G259,C.U607,C.A621
+REMARK    model=158  nts=4  CGUA .QA.C.C.238.,.QA.C.G.259.,.QA.C.U.607.,.QA.C.A.621.
 ATOM      1  P     C C 238       5.651   7.124  -3.809  1.00128.53      QA   P  
 ATOM      2  C5'   C C 238       3.064   6.863  -3.567  1.00124.84      QA   C  
 ATOM      3  O5'   C C 238       4.357   6.321  -3.363  1.00127.17      QA   O  
@@ -10982,7 +10982,7 @@ ATOM     84  OP1   A C 621      -7.653  -6.309   1.950  1.00145.81      QA   O
 ATOM     85  OP2   A C 621      -6.468  -4.979   3.850  1.00143.61      QA   O1-
 ENDMDL
 MODEL      159
-REMARK    model=159  nts=4  GUAA C.G372,C.U373,C.A401,C.A422
+REMARK    model=159  nts=4  GUAA .QA.C.G.372.,.QA.C.U.373.,.QA.C.A.401.,.QA.C.A.422.
 ATOM      1  P     G C 372       5.945   4.234  -5.833  1.00135.44      QA   P  
 ATOM      2  C5'   G C 372       7.901   3.603  -4.166  1.00128.93      QA   C  
 ATOM      3  O5'   G C 372       7.159   4.613  -4.866  1.00126.49      QA   O  
@@ -11072,7 +11072,7 @@ ATOM     86  OP1   A C 422      -8.763  12.620  -2.738  1.00142.58      QA   O
 ATOM     87  OP2   A C 422      -8.616  10.137  -3.306  1.00139.66      QA   O1-
 ENDMDL
 MODEL      160
-REMARK    model=160  nts=4  GAGC C.G463,C.A466,C.G682,C.C795
+REMARK    model=160  nts=4  GAGC .QA.C.G.463.,.QA.C.A.466.,.QA.C.G.682.,.QA.C.C.795.
 ATOM      1  P     G C 463      12.245   8.035   1.423  1.00 97.37      QA   P  
 ATOM      2  C5'   G C 463       9.704   7.530   1.290  1.00 92.88      QA   C  
 ATOM      3  O5'   G C 463      11.001   7.073   1.637  1.00 94.85      QA   O  
@@ -11163,7 +11163,7 @@ ATOM     87  OP1   C C 795      -4.535   9.269  -2.822  1.00 87.24      QA   O
 ATOM     88  OP2   C C 795      -6.283   7.377  -2.715  1.00 88.66      QA   O1-
 ENDMDL
 MODEL      161
-REMARK    model=161  nts=4  CAUA C.C475,C.A479,C.U499,C.A503
+REMARK    model=161  nts=4  CAUA .QA.C.C.475.,.QA.C.A.479.,.QA.C.U.499.,.QA.C.A.503.
 ATOM      1  P     C C 475       6.741   8.992   2.260  1.00132.11      QA   P  
 ATOM      2  C5'   C C 475       4.126   9.133   2.057  1.00133.18      QA   C  
 ATOM      3  O5'   C C 475       5.276   8.394   2.463  1.00135.37      QA   O  
@@ -11250,7 +11250,7 @@ ATOM     83  OP1   A C 503     -11.619   1.670   3.427  1.00141.50      QA   O
 ATOM     84  OP2   A C 503      -9.927  -0.193   3.833  1.00145.67      QA   O1-
 ENDMDL
 MODEL      162
-REMARK    model=162  nts=4  GAGA C.G476,C.A480,C.G500,C.A505
+REMARK    model=162  nts=4  GAGA .QA.C.G.476.,.QA.C.A.480.,.QA.C.G.500.,.QA.C.A.505.
 ATOM      1  P     G C 476       7.330   4.752   2.595  1.00132.42      QA   P  
 ATOM      2  C5'   G C 476       4.989   3.688   2.907  1.00139.79      QA   C  
 ATOM      3  O5'   G C 476       6.397   3.503   2.896  1.00137.81      QA   O  
@@ -11343,7 +11343,7 @@ ATOM     89  OP1   A C 505      -1.105   9.897   1.304  1.00138.79      QA   O
 ATOM     90  OP2   A C 505       0.473  11.436   2.658  1.00134.18      QA   O1-
 ENDMDL
 MODEL      163
-REMARK    model=163  nts=4  GGGC C.G481,C.G498,C.G506,C.C509
+REMARK    model=163  nts=4  GGGC .QA.C.G.481.,.QA.C.G.498.,.QA.C.G.506.,.QA.C.C.509.
 ATOM      1  P     G C 481       0.850   7.884  -0.045  1.00145.71      QA   P  
 ATOM      2  C5'   G C 481       2.822   6.176   0.323  1.00148.73      QA   C  
 ATOM      3  O5'   G C 481       2.046   7.277   0.821  1.00151.26      QA   O  
@@ -11435,7 +11435,7 @@ ATOM     88  OP1   C C 509       4.382 -13.402   0.233  1.00123.88      QA   O
 ATOM     89  OP2   C C 509       5.667 -11.384   1.208  1.00125.44      QA   O1-
 ENDMDL
 MODEL      164
-REMARK    model=164  nts=4  UCGA C.U569,C.C946,C.G971,C.A983
+REMARK    model=164  nts=4  UCGA .QA.C.U.569.,.QA.C.C.946.,.QA.C.G.971.,.QA.C.A.983.
 ATOM      1  P     U C 569       2.771   5.539   5.045  1.00 99.27      QA   P  
 ATOM      2  C5'   U C 569       1.110   3.873   3.890  1.00106.82      QA   C  
 ATOM      3  O5'   U C 569       2.410   4.176   4.327  1.00106.99      QA   O  
@@ -11523,7 +11523,7 @@ ATOM     84  OP1   A C 983       3.515 -13.210   3.413  1.00 98.74      QA   O
 ATOM     85  OP2   A C 983       1.460 -13.654   2.024  1.00103.12      QA   O1-
 ENDMDL
 MODEL      165
-REMARK    model=165  nts=4  GCGA C.G585,C.C672,C.G808,C.A1254
+REMARK    model=165  nts=4  GCGA .QA.C.G.585.,.QA.C.C.672.,.QA.C.G.808.,.QA.C.A.1254.
 ATOM      1  P     G C 585       9.101   7.729   0.656  1.00108.93      QA   P  
 ATOM      2  C5'   G C 585       7.074   7.045  -0.862  1.00102.58      QA   C  
 ATOM      3  O5'   G C 585       8.076   6.666   0.071  1.00 99.50      QA   O  
@@ -11614,7 +11614,7 @@ ATOM     87  OP1   A C1254       4.206  -8.657  -2.989  1.00 94.16      QA   O
 ATOM     88  OP2   A C1254       5.517  -6.494  -2.420  1.00 99.18      QA   O1-
 ENDMDL
 MODEL      166
-REMARK    model=166  nts=4  ACGC C.A586,C.C671,C.G809,C.C1251
+REMARK    model=166  nts=4  ACGC .QA.C.A.586.,.QA.C.C.671.,.QA.C.G.809.,.QA.C.C.1251.
 ATOM      1  P     A C 586       4.324   7.353  -1.890  1.00108.32      QA   P  
 ATOM      2  C5'   A C 586       1.877   7.605  -1.000  1.00102.22      QA   C  
 ATOM      3  O5'   A C 586       3.165   7.008  -0.857  1.00100.18      QA   O  
@@ -11702,7 +11702,7 @@ ATOM     84  OP1   C C1251      15.043   2.410   5.247  1.00111.27      QA   O
 ATOM     85  OP2   C C1251      14.014   4.005   3.507  1.00105.28      QA   O1-
 ENDMDL
 MODEL      167
-REMARK    model=167  nts=4  AUAG C.A643,C.U2348,C.A2369,C.G2382
+REMARK    model=167  nts=4  AUAG .QA.C.A.643.,.QA.C.U.2348.,.QA.C.A.2369.,.QA.C.G.2382.
 ATOM      1  P     A C 643      -6.504   8.770   0.409  1.00127.50      QA   P  
 ATOM      2  C5'   A C 643      -8.912   8.136  -0.382  1.00129.16      QA   C  
 ATOM      3  O5'   A C 643      -7.620   7.710   0.016  1.00126.69      QA   O  
@@ -11792,7 +11792,7 @@ ATOM     86  OP1   G C2382      13.795  -2.583   0.771  1.00129.17      QA   O
 ATOM     87  OP2   G C2382      11.999  -4.376   0.277  1.00128.27      QA   O1-
 ENDMDL
 MODEL      168
-REMARK    model=168  nts=4  AGCG C.A644,C.G2349,C.C2368,C.G2382
+REMARK    model=168  nts=4  AGCG .QA.C.A.644.,.QA.C.G.2349.,.QA.C.C.2368.,.QA.C.G.2382.
 ATOM      1  P     A C 644      -6.931  11.245  -1.924  1.00131.73      QA   P  
 ATOM      2  C5'   A C 644      -9.058   9.708  -1.888  1.00133.94      QA   C  
 ATOM      3  O5'   A C 644      -7.685   9.887  -1.544  1.00132.97      QA   O  
@@ -11883,7 +11883,7 @@ ATOM     87  OP1   G C2382      11.360  -7.788  -0.229  1.00129.17      QA   O
 ATOM     88  OP2   G C2382       9.002  -8.626  -0.884  1.00128.27      QA   O1-
 ENDMDL
 MODEL      169
-REMARK    model=169  nts=4  AUGC C.A675,C.U803,C.G2067,C.C2443
+REMARK    model=169  nts=4  AUGC .QA.C.A.675.,.QA.C.U.803.,.QA.C.G.2067.,.QA.C.C.2443.
 ATOM      1  P     A C 675       1.990  11.563  -1.782  1.00 93.12      QA   P  
 ATOM      2  C5'   A C 675       1.301   9.699  -0.039  1.00 91.16      QA   C  
 ATOM      3  O5'   A C 675       2.034  10.069  -1.205  1.00 89.56      QA   O  
@@ -11971,7 +11971,7 @@ ATOM     84  OP1   C C2443      -9.075   5.611   0.739  1.00 84.79      QA   O
 ATOM     85  OP2   C C2443      -9.549   3.031   0.972  1.00 82.39      QA   O1-
 ENDMDL
 MODEL      170
-REMARK    model=170  nts=4  AAgC C.A676,C.A802,C.G7M2069,C.C2442
+REMARK    model=170  nts=4  AAgC .QA.C.A.676.,.QA.C.A.802.,.QA.C.G7M.2069.,.QA.C.C.2442.
 ATOM      1  P     A C 676       3.910   8.393  -0.979  1.00101.69      QA   P  
 ATOM      2  C5'   A C 676       1.320   7.914  -0.553  1.00 88.98      QA   C  
 ATOM      3  O5'   A C 676       2.690   7.722  -0.189  1.00 90.20      QA   O  
@@ -12062,7 +12062,7 @@ ATOM     87  OP1   C C2442      -9.711   8.660  -0.825  1.00 89.57      QA   O
 ATOM     88  OP2   C C2442     -10.279   6.185  -0.405  1.00 83.99      QA   O1-
 ENDMDL
 MODEL      171
-REMARK    model=171  nts=4  AUGC C.A685,C.U688,C.G778,C.C786
+REMARK    model=171  nts=4  AUGC .QA.C.A.685.,.QA.C.U.688.,.QA.C.G.778.,.QA.C.C.786.
 ATOM      1  P     A C 685      -9.854   4.587  -6.714  1.00102.72      QA   P  
 ATOM      2  C5'   A C 685      -8.402   3.535  -4.819  1.00 98.45      QA   C  
 ATOM      3  O5'   A C 685      -9.664   3.628  -5.468  1.00 98.25      QA   O  
@@ -12150,7 +12150,7 @@ ATOM     84  OP1   C C 786       2.594 -10.792  -2.358  1.00 88.87      QA   O
 ATOM     85  OP2   C C 786       4.429  -8.966  -2.325  1.00 81.89      QA   O1-
 ENDMDL
 MODEL      172
-REMARK    model=172  nts=4  CGAG C.C692,C.G770,C.A1354,C.G1377
+REMARK    model=172  nts=4  CGAG .QA.C.C.692.,.QA.C.G.770.,.QA.C.A.1354.,.QA.C.G.1377.
 ATOM      1  P     C C 692       8.182   9.002   0.251  1.00 98.73      QA   P  
 ATOM      2  C5'   C C 692       5.798   8.848  -0.781  1.00 96.33      QA   C  
 ATOM      3  O5'   C C 692       6.871   8.201  -0.119  1.00 91.15      QA   O  
@@ -12241,7 +12241,7 @@ ATOM     87  OP1   G C1377     -10.827  -8.588  -0.750  1.00117.42      QA   O
 ATOM     88  OP2   G C1377     -11.683  -6.479   0.425  1.00114.51      QA   O1-
 ENDMDL
 MODEL      173
-REMARK    model=173  nts=4  CGGA C.C812,C.G1195,C.G1223,C.A1226
+REMARK    model=173  nts=4  CGGA .QA.C.C.812.,.QA.C.G.1195.,.QA.C.G.1223.,.QA.C.A.1226.
 ATOM      1  P     C C 812       3.360  11.632   0.931  1.00105.37      QA   P  
 ATOM      2  C5'   C C 812       3.801   9.181   0.108  1.00105.08      QA   C  
 ATOM      3  O5'   C C 812       3.605  10.077   1.195  1.00101.18      QA   O  
@@ -12332,7 +12332,7 @@ ATOM     87  OP1   A C1226      -6.759   5.258   1.795  1.00112.28      QA   O
 ATOM     88  OP2   A C1226      -7.168   2.831   1.075  1.00110.27      QA   O1-
 ENDMDL
 MODEL      174
-REMARK    model=174  nts=4  GCAU C.G952,C.C965,C.A2267,C.U2272
+REMARK    model=174  nts=4  GCAU .QA.C.G.952.,.QA.C.C.965.,.QA.C.A.2267.,.QA.C.U.2272.
 ATOM      1  P     G C 952       3.366  11.252   0.142  1.00110.98      QA   P  
 ATOM      2  C5'   G C 952       1.094   9.960  -0.036  1.00121.62      QA   C  
 ATOM      3  O5'   G C 952       2.478   9.940   0.286  1.00120.91      QA   O  
@@ -12420,7 +12420,7 @@ ATOM     84  OP1   U C2272      -6.089 -11.659   1.167  1.00114.35      QA   O
 ATOM     85  OP2   U C2272      -7.294  -9.395   1.139  1.00111.86      QA   O1-
 ENDMDL
 MODEL      175
-REMARK    model=175  nts=4  GCAA C.G953,C.C964,C.A2266,C.A2273
+REMARK    model=175  nts=4  GCAA .QA.C.G.953.,.QA.C.C.964.,.QA.C.A.2266.,.QA.C.A.2273.
 ATOM      1  P     G C 953      -0.975  11.823  -0.901  1.00115.04      QA   P  
 ATOM      2  C5'   G C 953      -0.438   9.697   0.618  1.00116.87      QA   C  
 ATOM      3  O5'   G C 953      -1.100  10.285  -0.496  1.00119.40      QA   O  
@@ -12510,7 +12510,7 @@ ATOM     86  OP1   A C2273      -5.353  -8.404  -2.657  1.00110.92      QA   O
 ATOM     87  OP2   A C2273      -5.854  -6.450  -1.075  1.00111.35      QA   O1-
 ENDMDL
 MODEL      176
-REMARK    model=176  nts=4  GUUA C.G954,C.U963,C.U2265,C.A2274
+REMARK    model=176  nts=4  GUUA .QA.C.G.954.,.QA.C.U.963.,.QA.C.U.2265.,.QA.C.A.2274.
 ATOM      1  P     G C 954       2.796   7.444   1.981  1.00110.81      QA   P  
 ATOM      2  C5'   G C 954       0.526   6.163   2.254  1.00114.98      QA   C  
 ATOM      3  O5'   G C 954       1.885   6.143   1.851  1.00114.42      QA   O  
@@ -12598,7 +12598,7 @@ ATOM     84  OP1   A C2274      -7.163  -7.874  -2.114  1.00105.54      QA   O
 ATOM     85  OP2   A C2274      -7.554  -5.397  -1.532  1.00103.72      QA   O1-
 ENDMDL
 MODEL      177
-REMARK    model=177  nts=4  GACG C.G956,C.A960,C.C2456,C.G2495
+REMARK    model=177  nts=4  GACG .QA.C.G.956.,.QA.C.A.960.,.QA.C.C.2456.,.QA.C.G.2495.
 ATOM      1  P     G C 956      10.134   8.016   1.465  1.00 96.36      QA   P  
 ATOM      2  C5'   G C 956       7.635   7.285   1.227  1.00105.14      QA   C  
 ATOM      3  O5'   G C 956       8.973   6.933   1.560  1.00105.68      QA   O  
@@ -12689,7 +12689,7 @@ ATOM     87  OP1   G C2495      -4.558   9.863  -1.011  1.00 92.90      QA   O
 ATOM     88  OP2   G C2495      -6.431   8.120  -0.844  1.00 88.00      QA   O1-
 ENDMDL
 MODEL      178
-REMARK    model=178  nts=4  GCUA C.G976,C.C987,C.U999,C.A1155
+REMARK    model=178  nts=4  GCUA .QA.C.G.976.,.QA.C.C.987.,.QA.C.U.999.,.QA.C.A.1155.
 ATOM      1  P     G C 976       4.323   9.968   1.488  1.00103.80      QA   P  
 ATOM      2  C5'   G C 976       2.052   9.870   0.146  1.00109.44      QA   C  
 ATOM      3  O5'   G C 976       3.186   9.200   0.678  1.00108.93      QA   O  
@@ -12777,7 +12777,7 @@ ATOM     84  OP1   A C1155      -8.158   6.294   2.710  1.00112.86      QA   O
 ATOM     85  OP2   A C1155      -9.387   4.392   1.494  1.00108.47      QA   O1-
 ENDMDL
 MODEL      179
-REMARK    model=179  nts=4  GCAG C.G977,C.C986,C.A1001,C.G1154
+REMARK    model=179  nts=4  GCAG .QA.C.G.977.,.QA.C.C.986.,.QA.C.A.1001.,.QA.C.G.1154.
 ATOM      1  P     G C 977       4.529   8.271  -0.349  1.00106.16      QA   P  
 ATOM      2  C5'   G C 977       2.114   7.323  -0.083  1.00112.50      QA   C  
 ATOM      3  O5'   G C 977       3.501   7.072  -0.229  1.00112.93      QA   O  
@@ -12868,7 +12868,7 @@ ATOM     87  OP1   G C1154      -8.537   9.509   0.387  1.00117.14      QA   O
 ATOM     88  OP2   G C1154      -9.890   7.701  -0.841  1.00113.74      QA   O1-
 ENDMDL
 MODEL      180
-REMARK    model=180  nts=4  GAAC C.G1002,C.A1008,C.A1009,C.C1153
+REMARK    model=180  nts=4  GAAC .QA.C.G.1002.,.QA.C.A.1008.,.QA.C.A.1009.,.QA.C.C.1153.
 ATOM      1  P     G C1002       3.440   9.932  -0.361  1.00112.36      QA   P  
 ATOM      2  C5'   G C1002       0.981   9.031  -0.689  1.00112.24      QA   C  
 ATOM      3  O5'   G C1002       2.316   8.803  -0.244  1.00112.06      QA   O  
@@ -12958,7 +12958,7 @@ ATOM     86  OP1   C C1153       8.166  -9.135  -1.740  1.00114.44      QA   O
 ATOM     87  OP2   C C1153       9.399  -6.942  -1.375  1.00112.34      QA   O1-
 ENDMDL
 MODEL      181
-REMARK    model=181  nts=4  UGGA C.U1012,C.G1025,C.G1139,C.A1143
+REMARK    model=181  nts=4  UGGA .QA.C.U.1012.,.QA.C.G.1025.,.QA.C.G.1139.,.QA.C.A.1143.
 ATOM      1  P     U C1012     -11.320  11.236  -4.311  1.00117.22      QA   P  
 ATOM      2  C5'   U C1012      -9.220  10.513  -2.900  1.00117.62      QA   C  
 ATOM      3  O5'   U C1012     -10.456  11.226  -2.968  1.00119.37      QA   O  
@@ -13049,7 +13049,7 @@ ATOM     87  OP1   A C1143      -7.278   5.040   2.808  1.00111.44      QA   O
 ATOM     88  OP2   A C1143      -9.610   4.463   1.876  1.00113.04      QA   O1-
 ENDMDL
 MODEL      182
-REMARK    model=182  nts=4  UAUA C.U1019,C.A1021,C.U1141,C.A1142
+REMARK    model=182  nts=4  UAUA .QA.C.U.1019.,.QA.C.A.1021.,.QA.C.U.1141.,.QA.C.A.1142.
 ATOM      1  P     U C1019       5.111   8.787   1.359  1.00111.86      QA   P  
 ATOM      2  C5'   U C1019       2.888   8.499  -0.006  1.00118.36      QA   C  
 ATOM      3  O5'   U C1019       3.891   7.916   0.820  1.00118.64      QA   O  
@@ -13136,7 +13136,7 @@ ATOM     83  OP1   A C1142       5.614  -6.505   2.251  1.00114.72      QA   O
 ATOM     84  OP2   A C1142       6.653  -4.609   0.858  1.00114.49      QA   O1-
 ENDMDL
 MODEL      183
-REMARK    model=183  nts=4  UGUA C.U1019,C.G1022,C.U1023,C.A1142
+REMARK    model=183  nts=4  UGUA .QA.C.U.1019.,.QA.C.G.1022.,.QA.C.U.1023.,.QA.C.A.1142.
 ATOM      1  P     U C1019      -4.665   9.391   3.174  1.00111.86      QA   P  
 ATOM      2  C5'   U C1019      -5.930   7.447   1.946  1.00118.36      QA   C  
 ATOM      3  O5'   U C1019      -4.790   7.882   2.682  1.00118.64      QA   O  
@@ -13224,7 +13224,7 @@ ATOM     84  OP1   A C1142       7.595   0.199   3.419  1.00114.72      QA   O
 ATOM     85  OP2   A C1142       6.672   2.163   2.038  1.00114.49      QA   O1-
 ENDMDL
 MODEL      184
-REMARK    model=184  nts=4  AGCG C.A1029,C.G1125,C.C2465,C.G2485
+REMARK    model=184  nts=4  AGCG .QA.C.A.1029.,.QA.C.G.1125.,.QA.C.C.2465.,.QA.C.G.2485.
 ATOM      1  P     A C1029       6.996   5.789  -0.213  1.00111.01      QA   P  
 ATOM      2  C5'   A C1029       4.678   6.854   0.472  1.00113.39      QA   C  
 ATOM      3  O5'   A C1029       5.553   5.727   0.477  1.00114.02      QA   O  
@@ -13315,7 +13315,7 @@ ATOM     87  OP1   G C2485      -8.422   9.478  -2.080  1.00102.89      QA   O
 ATOM     88  OP2   G C2485      -9.433   7.209  -1.479  1.00102.93      QA   O1-
 ENDMDL
 MODEL      185
-REMARK    model=185  nts=4  CAGG C.C1043,C.A1048,C.G1110,C.G1112
+REMARK    model=185  nts=4  CAGG .QA.C.C.1043.,.QA.C.A.1048.,.QA.C.G.1110.,.QA.C.G.1112.
 ATOM      1  P     C C1043       6.480   9.997   1.771  1.00180.93      QA   P  
 ATOM      2  C5'   C C1043       4.233   9.563   0.473  1.00181.38      QA   C  
 ATOM      3  O5'   C C1043       5.311   9.045   1.243  1.00181.62      QA   O  
@@ -13406,7 +13406,7 @@ ATOM     87  OP1   G C1112       1.248  -9.340   0.659  1.00180.69      QA   O
 ATOM     88  OP2   G C1112       3.286  -8.554   1.971  1.00179.81      QA   O1-
 ENDMDL
 MODEL      186
-REMARK    model=186  nts=4  ACGU C.A1127,C.C2462,C.G2488,C.U2491
+REMARK    model=186  nts=4  ACGU .QA.C.A.1127.,.QA.C.C.2462.,.QA.C.G.2488.,.QA.C.U.2491.
 ATOM      1  P     A C1127     -11.138   7.246  -4.635  1.00 94.08      QA   P  
 ATOM      2  C5'   A C1127      -9.788   6.694  -2.447  1.00100.55      QA   C  
 ATOM      3  O5'   A C1127     -10.342   6.266  -3.671  1.00103.20      QA   O  
@@ -13494,7 +13494,7 @@ ATOM     84  OP1   U C2491      -2.244   3.839  10.881  1.00 97.50      QA   O
 ATOM     85  OP2   U C2491      -0.227   3.165  12.353  1.00 89.72      QA   O1-
 ENDMDL
 MODEL      187
-REMARK    model=187  nts=4  GUAU C.G1266,C.U1267,C.A2013,C.U2613
+REMARK    model=187  nts=4  GUAU .QA.C.G.1266.,.QA.C.U.1267.,.QA.C.A.2013.,.QA.C.U.2613.
 ATOM      1  P     G C1266       9.357   5.453  -3.248  1.00102.90      QA   P  
 ATOM      2  C5'   G C1266      10.047   4.853  -0.767  1.00105.23      QA   C  
 ATOM      3  O5'   G C1266       9.683   5.840  -1.733  1.00108.31      QA   O  
@@ -13582,7 +13582,7 @@ ATOM     84  OP1   U C2613     -11.122   9.099   0.220  1.00 93.44      QA   O
 ATOM     85  OP2   U C2613      -9.763  10.515  -1.454  1.00 95.87      QA   O1-
 ENDMDL
 MODEL      188
-REMARK    model=188  nts=4  GUGA C.G1311,C.U1313,C.G1339,C.A1603
+REMARK    model=188  nts=4  GUGA .QA.C.G.1311.,.QA.C.U.1313.,.QA.C.G.1339.,.QA.C.A.1603.
 ATOM      1  P     G C1311       5.622   8.833   1.002  1.00111.82      QA   P  
 ATOM      2  C5'   G C1311       3.364   7.869   0.094  1.00113.35      QA   C  
 ATOM      3  O5'   G C1311       4.450   7.758   1.014  1.00112.84      QA   O  
@@ -13673,7 +13673,7 @@ ATOM     87  OP1   A C1603       2.538  -8.293  -3.577  1.00120.76      QA   O
 ATOM     88  OP2   A C1603       3.731  -6.267  -2.614  1.00117.84      QA   O1-
 ENDMDL
 MODEL      189
-REMARK    model=189  nts=4  GCAU C.G1324,C.C1330,C.A1616,C.U1647
+REMARK    model=189  nts=4  GCAU .QA.C.G.1324.,.QA.C.C.1330.,.QA.C.A.1616.,.QA.C.U.1647.
 ATOM      1  P     G C1324       2.776   8.961  -1.619  1.00108.65      QA   P  
 ATOM      2  C5'   G C1324       0.609   7.517  -2.077  1.00105.99      QA   C  
 ATOM      3  O5'   G C1324       1.870   7.654  -1.419  1.00107.77      QA   O  
@@ -13761,7 +13761,7 @@ ATOM     84  OP1   U C1647      -9.342   6.273   5.500  1.00106.88      QA   O
 ATOM     85  OP2   U C1647      -8.002   6.120   3.327  1.00106.26      QA   O1-
 ENDMDL
 MODEL      190
-REMARK    model=190  nts=4  CGGA C.C1350,C.G1381,C.G1426,C.A1572
+REMARK    model=190  nts=4  CGGA .QA.C.C.1350.,.QA.C.G.1381.,.QA.C.G.1426.,.QA.C.A.1572.
 ATOM      1  P     C C1350       9.428   8.535   0.161  1.00122.41      QA   P  
 ATOM      2  C5'   C C1350       7.391   8.769  -1.456  1.00122.37      QA   C  
 ATOM      3  O5'   C C1350       8.018   8.054  -0.397  1.00120.78      QA   O  
@@ -13852,7 +13852,7 @@ ATOM     87  OP1   A C1572      -6.112   7.499   0.718  1.00119.10      QA   O
 ATOM     88  OP2   A C1572      -6.357   4.965   0.848  1.00118.07      QA   O1-
 ENDMDL
 MODEL      191
-REMARK    model=191  nts=4  CGCA C.C1351,C.G1380,C.C1428,C.A1570
+REMARK    model=191  nts=4  CGCA .QA.C.C.1351.,.QA.C.G.1380.,.QA.C.C.1428.,.QA.C.A.1570.
 ATOM      1  P     C C1351       3.519  11.077  -2.851  1.00120.40      QA   P  
 ATOM      2  C5'   C C1351       1.386   9.547  -3.076  1.00120.17      QA   C  
 ATOM      3  O5'   C C1351       2.691   9.748  -2.533  1.00118.62      QA   O  
@@ -13940,7 +13940,7 @@ ATOM     84  OP1   A C1570     -11.632   1.233   2.969  1.00115.49      QA   O
 ATOM     85  OP2   A C1570     -10.036  -0.259   1.633  1.00115.38      QA   O1-
 ENDMDL
 MODEL      192
-REMARK    model=192  nts=4  GGUC C.G1360,C.G1371,C.U2210,C.C2214
+REMARK    model=192  nts=4  GGUC .QA.C.G.1360.,.QA.C.G.1371.,.QA.C.U.2210.,.QA.C.C.2214.
 ATOM      1  P     G C1360       6.633   8.068  -0.840  1.00124.14      QA   P  
 ATOM      2  C5'   G C1360       4.903   7.071   0.843  1.00119.05      QA   C  
 ATOM      3  O5'   G C1360       5.343   8.187   0.088  1.00121.48      QA   O  
@@ -14029,7 +14029,7 @@ ATOM     85  OP1   C C2214      -4.315  -8.780   2.920  1.00109.85      QA   O
 ATOM     86  OP2   C C2214      -5.274  -7.055   1.272  1.00112.49      QA   O1-
 ENDMDL
 MODEL      193
-REMARK    model=193  nts=4  CGGA C.C1362,C.G1369,C.G1807,C.A1810
+REMARK    model=193  nts=4  CGGA .QA.C.C.1362.,.QA.C.G.1369.,.QA.C.G.1807.,.QA.C.A.1810.
 ATOM      1  P     C C1362       8.071   9.579  -0.524  1.00118.58      QA   P  
 ATOM      2  C5'   C C1362       5.580   9.420  -1.288  1.00113.22      QA   C  
 ATOM      3  O5'   C C1362       6.701   8.802  -0.681  1.00114.39      QA   O  
@@ -14120,7 +14120,7 @@ ATOM     87  OP1   A C1810      -5.277   6.877   1.862  1.00104.18      QA   O
 ATOM     88  OP2   A C1810      -6.055   4.474   1.317  1.00100.75      QA   O1-
 ENDMDL
 MODEL      194
-REMARK    model=194  nts=4  GGCU C.G1422,C.G1492,C.C1498,C.U1576
+REMARK    model=194  nts=4  GGCU .QA.C.G.1422.,.QA.C.G.1492.,.QA.C.C.1498.,.QA.C.U.1576.
 ATOM      1  P     G C1422       5.621   7.514  -0.051  1.00125.18      QA   P  
 ATOM      2  C5'   G C1422       3.014   7.279  -0.274  1.00123.66      QA   C  
 ATOM      3  O5'   G C1422       4.253   6.719   0.127  1.00126.58      QA   O  
@@ -14209,7 +14209,7 @@ ATOM     85  OP1   U C1576       6.212 -11.746  -1.103  1.00137.68      QA   O
 ATOM     86  OP2   U C1576       7.932  -9.887  -1.539  1.00133.33      QA   O1-
 ENDMDL
 MODEL      195
-REMARK    model=195  nts=4  GAGC C.G1435,C.A1477,C.G1514,C.C1557
+REMARK    model=195  nts=4  GAGC .QA.C.G.1435.,.QA.C.A.1477.,.QA.C.G.1514.,.QA.C.C.1557.
 ATOM      1  P     G C1435      10.584   8.963  -1.573  1.00132.86      QA   P  
 ATOM      2  C5'   G C1435       7.960   9.223  -1.652  1.00134.29      QA   C  
 ATOM      3  O5'   G C1435       9.096   8.486  -1.214  1.00134.43      QA   O  
@@ -14300,7 +14300,7 @@ ATOM     87  OP1   C C1557       1.621  -9.337   1.037  1.00124.73      QA   O
 ATOM     88  OP2   C C1557       3.978  -8.448   0.546  1.00122.89      QA   O1-
 ENDMDL
 MODEL      196
-REMARK    model=196  nts=4  GUAC C.G1436,C.U1476,C.A1515,C.C1556
+REMARK    model=196  nts=4  GUAC .QA.C.G.1436.,.QA.C.U.1476.,.QA.C.A.1515.,.QA.C.C.1556.
 ATOM      1  P     G C1436       5.223   7.756  -0.887  1.00134.72      QA   P  
 ATOM      2  C5'   G C1436       2.641   7.364  -1.308  1.00138.18      QA   C  
 ATOM      3  O5'   G C1436       3.874   6.917  -0.747  1.00136.39      QA   O  
@@ -14388,7 +14388,7 @@ ATOM     84  OP1   C C1556       3.106 -12.031  -0.272  1.00122.27      QA   O
 ATOM     85  OP2   C C1556       4.958 -10.370  -0.897  1.00114.84      QA   O1-
 ENDMDL
 MODEL      197
-REMARK    model=197  nts=4  CGGA C.C1446,C.G1465,C.G1527,C.A1545
+REMARK    model=197  nts=4  CGGA .QA.C.C.1446.,.QA.C.G.1465.,.QA.C.G.1527.,.QA.C.A.1545.
 ATOM      1  P     C C1446       8.744   9.240   1.030  1.00145.02      QA   P  
 ATOM      2  C5'   C C1446       6.342   9.479  -0.050  1.00146.48      QA   C  
 ATOM      3  O5'   C C1446       7.257   8.739   0.750  1.00145.97      QA   O  
@@ -14479,7 +14479,7 @@ ATOM     87  OP1   A C1545      -5.065   8.199   0.547  1.00148.25      QA   O
 ATOM     88  OP2   A C1545      -6.068   5.900   0.060  1.00148.40      QA   O1-
 ENDMDL
 MODEL      198
-REMARK    model=198  nts=4  GUUA C.G1792,C.U1827,C.U1834,C.A1970
+REMARK    model=198  nts=4  GUUA .QA.C.G.1792.,.QA.C.U.1827.,.QA.C.U.1834.,.QA.C.A.1970.
 ATOM      1  P     G C1792      -0.067  11.042   0.358  1.00 83.59      QA   P  
 ATOM      2  C5'   G C1792      -2.178   9.654  -0.293  1.00 93.87      QA   C  
 ATOM      3  O5'   G C1792      -0.867   9.674   0.253  1.00 95.39      QA   O  
@@ -14567,7 +14567,7 @@ ATOM     84  OP1   A C1970       0.136 -11.256   2.121  1.00 85.57      QA   O
 ATOM     85  OP2   A C1970      -2.395 -11.150   2.630  1.00 82.36      QA   O1-
 ENDMDL
 MODEL      199
-REMARK    model=199  nts=4  GAGC C.G1797,C.A1803,C.G1814,C.C1822
+REMARK    model=199  nts=4  GAGC .QA.C.G.1797.,.QA.C.A.1803.,.QA.C.G.1814.,.QA.C.C.1822.
 ATOM      1  P     G C1797       9.857   8.196   0.445  1.00 88.44      QA   P  
 ATOM      2  C5'   G C1797       7.488   8.772  -0.542  1.00100.24      QA   C  
 ATOM      3  O5'   G C1797       8.340   7.840   0.114  1.00103.65      QA   O  
@@ -14658,7 +14658,7 @@ ATOM     87  OP1   C C1822       1.056  -9.655   0.526  1.00 96.14      QA   O
 ATOM     88  OP2   C C1822       3.434  -8.840   0.946  1.00 97.07      QA   O1-
 ENDMDL
 MODEL      200
-REMARK    model=200  nts=4  CAGG C.C1832,C.A1932,C.G1968,C.G1973
+REMARK    model=200  nts=4  CAGG .QA.C.C.1832.,.QA.C.A.1932.,.QA.C.G.1968.,.QA.C.G.1973.
 ATOM      1  P     C C1832      12.669   7.551  -0.254  1.00 82.54      QA   P  
 ATOM      2  C5'   C C1832      10.386   8.319  -1.211  1.00 81.18      QA   C  
 ATOM      3  O5'   C C1832      11.092   7.439  -0.349  1.00 80.94      QA   O  
@@ -14749,7 +14749,7 @@ ATOM     87  OP1   G C1973       0.479  -8.386  -2.406  1.00 79.28      QA   O
 ATOM     88  OP2   G C1973       2.901  -7.516  -2.233  1.00 79.89      QA   O1-
 ENDMDL
 MODEL      201
-REMARK    model=201  nts=4  UAUG C.U1852,C.A1890,C.U2085,C.G2234
+REMARK    model=201  nts=4  UAUG .QA.C.U.1852.,.QA.C.A.1890.,.QA.C.U.2085.,.QA.C.G.2234.
 ATOM      1  P     U C1852      11.699   8.261  -0.392  1.00106.62      QA   P  
 ATOM      2  C5'   U C1852       9.152   8.254  -1.031  1.00104.33      QA   C  
 ATOM      3  O5'   U C1852      10.212   7.708  -0.258  1.00104.26      QA   O  
@@ -14837,7 +14837,7 @@ ATOM     84  OP1   G C2234      -3.162   8.964   1.803  1.00103.12      QA   O
 ATOM     85  OP2   G C2234      -4.795   6.997   2.051  1.00103.29      QA   O1-
 ENDMDL
 MODEL      202
-REMARK    model=202  nts=4  AGGC C.A1854,C.G1888,C.G2087,C.C2232
+REMARK    model=202  nts=4  AGGC .QA.C.A.1854.,.QA.C.G.1888.,.QA.C.G.2087.,.QA.C.C.2232.
 ATOM      1  P     A C1854       5.329   5.855  -2.362  1.00102.05      QA   P  
 ATOM      2  C5'   A C1854       3.148   6.829  -1.212  1.00111.12      QA   C  
 ATOM      3  O5'   A C1854       4.235   5.908  -1.203  1.00109.00      QA   O  
@@ -14928,7 +14928,7 @@ ATOM     87  OP1   C C2232      -9.040  10.129   1.842  1.00103.13      QA   O
 ATOM     88  OP2   C C2232     -10.093   7.807   1.499  1.00 99.82      QA   O1-
 ENDMDL
 MODEL      203
-REMARK    model=203  nts=4  GGAP C.G2061,C.G2447,C.A2451,C.PSU2504
+REMARK    model=203  nts=4  GGAP .QA.C.G.2061.,.QA.C.G.2447.,.QA.C.A.2451.,.QA.C.PSU.2504.
 ATOM      1  P     G C2061      -4.434  11.852   4.469  1.00 93.04      QA   P  
 ATOM      2  C5'   G C2061      -3.792  10.018   2.694  1.00 92.16      QA   C  
 ATOM      3  O5'   G C2061      -3.674  10.525   4.021  1.00 95.28      QA   O  
@@ -15019,7 +15019,7 @@ HETATM   87  OP1 PSU C2504       3.175   8.143  -1.823  1.00 88.70      QA   O1-
 HETATM   88  OP2 PSU C2504       2.901   9.813  -3.689  1.00 85.89      QA   O  
 ENDMDL
 MODEL      204
-REMARK    model=204  nts=4  GGCP C.G2061,C.G2447,C.C2452,C.PSU2504
+REMARK    model=204  nts=4  GGCP .QA.C.G.2061.,.QA.C.G.2447.,.QA.C.C.2452.,.QA.C.PSU.2504.
 ATOM      1  P     G C2061      -8.490  10.975  -1.954  1.00 93.04      QA   P  
 ATOM      2  C5'   G C2061      -6.740   9.087  -2.504  1.00 92.16      QA   C  
 ATOM      3  O5'   G C2061      -7.537   9.768  -1.538  1.00 95.28      QA   O  
@@ -15108,7 +15108,7 @@ HETATM   85  OP1 PSU C2504       1.599   7.995  -1.194  1.00 88.70      QA   O1-
 HETATM   86  OP2 PSU C2504       2.485   9.341  -3.130  1.00 85.89      QA   O  
 ENDMDL
 MODEL      205
-REMARK    model=205  nts=4  UUAG C.U2074,C.U2244,C.A2435,C.G2597
+REMARK    model=205  nts=4  UUAG .QA.C.U.2074.,.QA.C.U.2244.,.QA.C.A.2435.,.QA.C.G.2597.
 ATOM      1  P     U C2074       5.183   8.685   1.821  1.00 88.32      QA   P  
 ATOM      2  C5'   U C2074       2.691   8.982   1.018  1.00 92.87      QA   C  
 ATOM      3  O5'   U C2074       3.754   8.114   1.394  1.00 91.30      QA   O  
@@ -15196,7 +15196,7 @@ ATOM     84  OP1   G C2597      -8.514  12.713   0.175  1.00 78.58      QA   O
 ATOM     85  OP2   G C2597      -9.352  10.473  -0.839  1.00 80.30      QA   O1-
 ENDMDL
 MODEL      206
-REMARK    model=206  nts=4  UGAG C.U2390,C.G2391,C.A2425,C.G2429
+REMARK    model=206  nts=4  UGAG .QA.C.U.2390.,.QA.C.G.2391.,.QA.C.A.2425.,.QA.C.G.2429.
 ATOM      1  P     U C2390       6.507   8.581  -1.063  1.00112.43      QA   P  
 ATOM      2  C5'   U C2390       4.017   8.611  -1.920  1.00117.38      QA   C  
 ATOM      3  O5'   U C2390       4.946   8.315  -0.883  1.00116.97      QA   O  
@@ -15287,7 +15287,7 @@ ATOM     87  OP1   G C2429      -9.427  -2.498  -3.150  1.00110.88      QA   O
 ATOM     88  OP2   G C2429     -11.049  -3.620  -1.523  1.00109.59      QA   O1-
 ENDMDL
 MODEL      207
-REMARK    model=207  nts=4  GUGC C.G2505,C.U2506,C.G2583,C.C2610
+REMARK    model=207  nts=4  GUGC .QA.C.G.2505.,.QA.C.U.2506.,.QA.C.G.2583.,.QA.C.C.2610.
 ATOM      1  P     G C2505       5.498  11.137  -2.703  1.00 95.54      QA   P  
 ATOM      2  C5'   G C2505       3.750  10.112  -1.019  1.00 87.91      QA   C  
 ATOM      3  O5'   G C2505       4.980   9.992  -1.721  1.00 90.84      QA   O  
@@ -15376,7 +15376,7 @@ ATOM     85  OP1   C C2610       9.629  -7.729  -3.338  1.00 86.48      QA   O
 ATOM     86  OP2   C C2610       7.062  -7.987  -3.583  1.00 85.33      QA   O1-
 ENDMDL
 MODEL      208
-REMARK    model=208  nts=4  CGGG C.C2507,C.G2553,C.G2581,C.G2582
+REMARK    model=208  nts=4  CGGG .QA.C.C.2507.,.QA.C.G.2553.,.QA.C.G.2581.,.QA.C.G.2582.
 ATOM      1  P     C C2507       4.076   8.022   0.472  1.00 89.73      QA   P  
 ATOM      2  C5'   C C2507       1.501   8.546   0.508  1.00 87.78      QA   C  
 ATOM      3  O5'   C C2507       2.540   7.580   0.386  1.00 88.02      QA   O  
@@ -15468,7 +15468,7 @@ ATOM     88  OP1   G C2582      -1.414  -8.364  -3.199  1.00 84.78      QA   O
 ATOM     89  OP2   G C2582      -2.397  -6.352  -4.391  1.00 83.79      QA   O1-
 ENDMDL
 MODEL      209
-REMARK    model=209  nts=4  CAGA C.C2520,C.A2542,C.G2545,C.A2565
+REMARK    model=209  nts=4  CAGA .QA.C.C.2520.,.QA.C.A.2542.,.QA.C.G.2545.,.QA.C.A.2565.
 ATOM      1  P     C C2520       4.934   7.923   1.154  1.00 92.44      QA   P  
 ATOM      2  C5'   C C2520       2.476   8.650   0.493  1.00 96.14      QA   C  
 ATOM      3  O5'   C C2520       3.357   7.749   1.137  1.00 95.27      QA   O  
@@ -15558,7 +15558,7 @@ ATOM     86  OP1   A C2565      -8.482   9.082   4.098  1.00 96.17      QA   O
 ATOM     87  OP2   A C2565      -9.999   7.313   3.120  1.00 92.74      QA   O1-
 ENDMDL
 MODEL      210
-REMARK    model=210  nts=4  GCAG C.G2524,C.C2539,C.A2741,C.G2763
+REMARK    model=210  nts=4  GCAG .QA.C.G.2524.,.QA.C.C.2539.,.QA.C.A.2741.,.QA.C.G.2763.
 ATOM      1  P     G C2524       4.310   8.468  -1.066  1.00105.27      QA   P  
 ATOM      2  C5'   G C2524       1.928   7.403  -1.086  1.00105.02      QA   C  
 ATOM      3  O5'   G C2524       3.332   7.215  -1.034  1.00103.86      QA   O  
@@ -15649,7 +15649,7 @@ ATOM     87  OP1   G C2763      -8.944   9.703   0.319  1.00109.90      QA   O
 ATOM     88  OP2   G C2763     -10.513   7.780  -0.385  1.00107.78      QA   O1-
 ENDMDL
 MODEL      211
-REMARK    model=211  nts=4  GCAG C.G2631,C.C2787,C.A2810,C.G2890
+REMARK    model=211  nts=4  GCAG .QA.C.G.2631.,.QA.C.C.2787.,.QA.C.A.2810.,.QA.C.G.2890.
 ATOM      1  P     G C2631       4.418   8.886  -0.408  1.00113.23      QA   P  
 ATOM      2  C5'   G C2631       2.040   7.815  -0.184  1.00112.95      QA   C  
 ATOM      3  O5'   G C2631       3.431   7.740   0.087  1.00112.48      QA   O  
@@ -15740,7 +15740,7 @@ ATOM     87  OP1   G C2890      -8.849   9.450   0.663  1.00121.03      QA   O
 ATOM     88  OP2   G C2890     -10.256   7.661  -0.565  1.00117.67      QA   O1-
 ENDMDL
 MODEL      212
-REMARK    model=212  nts=4  GCGA C.G2816,C.C2830,C.G2834,C.A2883
+REMARK    model=212  nts=4  GCGA .QA.C.G.2816.,.QA.C.C.2830.,.QA.C.G.2834.,.QA.C.A.2883.
 ATOM      1  P     G C2816       8.436   9.480   0.150  1.00116.89      QA   P  
 ATOM      2  C5'   G C2816       5.815   9.548   0.072  1.00113.29      QA   C  
 ATOM      3  O5'   G C2816       7.002   8.800   0.288  1.00112.89      QA   O  
@@ -15831,7 +15831,7 @@ ATOM     87  OP1   A C2883      -1.176   9.484  -1.759  1.00126.02      QA   O
 ATOM     88  OP2   A C2883      -3.682   9.636  -2.393  1.00124.63      QA   O1-
 ENDMDL
 MODEL      213
-REMARK    model=213  nts=4  GGAC C.G13,C.G16,C.A66,C.C68
+REMARK    model=213  nts=4  GGAC .RA.C.G.13.,.RA.C.G.16.,.RA.C.A.66.,.RA.C.C.68.
 ATOM      1  P     G C  13       1.787  10.859   6.137  1.00143.36      RA   P  
 ATOM      2  C5'   G C  13       0.162   9.768   4.415  1.00150.10      RA   C  
 ATOM      3  O5'   G C  13       1.264   9.613   5.295  1.00147.59      RA   O  
@@ -15922,7 +15922,7 @@ ATOM     87  OP1   C C  68       1.581 -10.645   3.471  1.00156.67      RA   O
 ATOM     88  OP2   C C  68      -0.322  -9.387   2.287  1.00157.78      RA   O1-
 ENDMDL
 MODEL      214
-REMARK    model=214  nts=4  CAGA C.C30,C.A52,C.G54,C.A57
+REMARK    model=214  nts=4  CAGA .RA.C.C.30.,.RA.C.A.52.,.RA.C.G.54.,.RA.C.A.57.
 ATOM      1  P     C C  30       1.414   7.567  -0.312  1.00164.31      RA   P  
 ATOM      2  C5'   C C  30      -0.998   7.307   0.728  1.00163.57      RA   C  
 ATOM      3  O5'   C C  30       0.312   6.777   0.536  1.00164.44      RA   O  
@@ -16012,7 +16012,7 @@ ATOM     86  OP1   A C  57     -10.430  -1.619  -7.591  1.00165.82      RA   O
 ATOM     87  OP2   A C  57     -10.750   0.790  -8.374  1.00162.50      RA   O1-
 ENDMDL
 MODEL      215
-REMARK    model=215  nts=5  GUGAG C.G194,C.U200,C.G247,C.A251,C.G386
+REMARK    model=215  nts=5  GUGAG .QA.C.G.194.,.QA.C.U.200.,.QA.C.G.247.,.QA.C.A.251.,.QA.C.G.386.
 ATOM      1  P     G C 194      11.415   8.973  -3.841  1.00 99.07      QA   P  
 ATOM      2  C5'   G C 194       8.892   9.125  -4.521  1.00103.23      QA   C  
 ATOM      3  O5'   G C 194       9.916   8.448  -3.823  1.00104.17      QA   O  
@@ -16126,7 +16126,7 @@ ATOM    110  OP1   G C 386      -4.768 -10.862  -5.711  1.00113.94      QA   O
 ATOM    111  OP2   G C 386      -6.573 -12.210  -4.479  1.00112.21      QA   O1-
 ENDMDL
 MODEL      216
-REMARK    model=216  nts=5  AGCAG C.A299,C.G319,C.C323,C.A324,C.G338
+REMARK    model=216  nts=5  AGCAG .QA.C.A.299.,.QA.C.G.319.,.QA.C.C.323.,.QA.C.A.324.,.QA.C.G.338.
 ATOM      1  P     A C 299      -2.445   9.891  -0.659  1.00184.25      QA   P  
 ATOM      2  C5'   A C 299      -5.046   9.826  -1.182  1.00184.84      QA   C  
 ATOM      3  O5'   A C 299      -3.917   9.299  -0.501  1.00182.12      QA   O  
@@ -16239,7 +16239,7 @@ ATOM    109  OP1   G C 338       8.525  11.999   0.098  1.00171.00      QA   O
 ATOM    110  OP2   G C 338       6.719  10.395   0.924  1.00168.67      QA   O1-
 ENDMDL
 MODEL      217
-REMARK    model=217  nts=5  ACGGU C.A819,C.C837,C.G942,C.G1187,C.U1188
+REMARK    model=217  nts=5  ACGGU .QA.C.A.819.,.QA.C.C.837.,.QA.C.G.942.,.QA.C.G.1187.,.QA.C.U.1188.
 ATOM      1  P     A C 819      -1.042   7.572   0.494  1.00108.15      QA   P  
 ATOM      2  C5'   A C 819       0.205   5.183   0.744  1.00115.67      QA   C  
 ATOM      3  O5'   A C 819      -0.356   6.359   1.288  1.00115.39      QA   O  
@@ -16350,7 +16350,7 @@ ATOM    107  OP1   U C1188      10.802   5.308  -5.009  1.00105.76      QA   O
 ATOM    108  OP2   U C1188       8.372   6.003  -4.505  1.00108.19      QA   O1-
 ENDMDL
 MODEL      218
-REMARK    model=218  nts=5  GUAGC C.G859,C.U860,C.A917,C.G79,C.C97
+REMARK    model=218  nts=5  GUAGC .QA.C.G.859.,.QA.C.U.860.,.QA.C.A.917.,.RA.C.G.79.,.RA.C.C.97.
 ATOM      1  P     G C 859      14.512   4.175  -1.117  1.00130.49      QA   P  
 ATOM      2  C5'   G C 859      12.506   5.849  -0.813  1.00128.62      QA   C  
 ATOM      3  O5'   G C 859      13.376   4.880  -0.243  1.00131.08      QA   O  
@@ -16461,7 +16461,7 @@ ATOM    107  OP1   C C  97      -6.643 -11.858  -3.751  1.00115.64      RA   O
 ATOM    108  OP2   C C  97      -8.339 -10.011  -3.134  1.00117.37      RA   O1-
 ENDMDL
 MODEL      219
-REMARK    model=219  nts=5  CGUAG C.C1833,C.G1930,C.U1931,C.A1969,C.G1972
+REMARK    model=219  nts=5  CGUAG .QA.C.C.1833.,.QA.C.G.1930.,.QA.C.U.1931.,.QA.C.A.1969.,.QA.C.G.1972.
 ATOM      1  P     C C1833       9.355   7.706  -0.993  1.00 78.25      QA   P  
 ATOM      2  C5'   C C1833       7.345   6.456   0.215  1.00 78.17      QA   C  
 ATOM      3  O5'   C C1833       7.968   6.930  -0.965  1.00 80.01      QA   O  
@@ -16572,7 +16572,7 @@ ATOM    107  OP1   G C1972      -2.309 -11.802  -2.009  1.00 87.78      QA   O
 ATOM    108  OP2   G C1972       0.201 -12.352  -1.770  1.00 84.59      QA   O1-
 ENDMDL
 MODEL      220
-REMARK    model=220  nts=5  CUGGA C.C2073,C.U2245,C.G2436,C.G2595,C.A2598
+REMARK    model=220  nts=5  CUGGA .QA.C.C.2073.,.QA.C.U.2245.,.QA.C.G.2436.,.QA.C.G.2595.,.QA.C.A.2598.
 ATOM      1  P     C C2073       6.902   8.891   2.522  1.00 90.58      QA   P  
 ATOM      2  C5'   C C2073       4.478   9.317   1.547  1.00 91.50      QA   C  
 ATOM      3  O5'   C C2073       5.442   8.444   2.104  1.00 94.41      QA   O  
@@ -16683,7 +16683,7 @@ ATOM    107  OP1   A C2598      -7.471   7.415   2.315  1.00 79.99      QA   O
 ATOM    108  OP2   A C2598      -7.965   5.075   1.315  1.00 84.98      QA   O1-
 ENDMDL
 MODEL      221
-REMARK    model=221  nts=5  CGCAG C.C2260,C.G2280,C.C2326,C.A2388,C.G2389
+REMARK    model=221  nts=5  CGCAG .QA.C.C.2260.,.QA.C.G.2280.,.QA.C.C.2326.,.QA.C.A.2388.,.QA.C.G.2389.
 ATOM      1  P     C C2260       5.992  11.040   3.641  1.00110.86      QA   P  
 ATOM      2  C5'   C C2260       3.611  10.489   2.612  1.00115.87      QA   C  
 ATOM      3  O5'   C C2260       4.885  10.032   3.080  1.00117.59      QA   O  
@@ -16794,7 +16794,7 @@ ATOM    107  OP1   G C2389      -1.931   9.328  -0.990  1.00113.65      QA   O
 ATOM    108  OP2   G C2389      -4.116   8.160  -0.365  1.00113.73      QA   O1-
 ENDMDL
 MODEL      222
-REMARK    model=222  nts=5  UAUAA C.U2817,C.A2829,C.U2836,C.A2879,C.A2882
+REMARK    model=222  nts=5  UAUAA .QA.C.U.2817.,.QA.C.A.2829.,.QA.C.U.2836.,.QA.C.A.2879.,.QA.C.A.2882.
 ATOM      1  P     U C2817       7.201   6.689  -0.124  1.00123.50      QA   P  
 ATOM      2  C5'   U C2817       4.646   6.096   0.103  1.00113.71      QA   C  
 ATOM      3  O5'   U C2817       6.001   5.670   0.119  1.00116.76      QA   O  
@@ -16903,7 +16903,7 @@ ATOM    105  OP1   A C2882      -2.767  13.482  -3.005  1.00127.76      QA   O
 ATOM    106  OP2   A C2882      -4.397  11.506  -2.908  1.00126.09      QA   O1-
 ENDMDL
 MODEL      223
-REMARK    model=223  nts=6  GCCGGG C.G194,C.C201,C.C246,C.G250,C.G252,C.G386
+REMARK    model=223  nts=6  GCCGGG .QA.C.G.194.,.QA.C.C.201.,.QA.C.C.246.,.QA.C.G.250.,.QA.C.G.252.,.QA.C.G.386.
 ATOM      1  P     G C 194       7.150  12.281  -2.793  1.00 99.07      QA   P  
 ATOM      2  C5'   G C 194       4.843  11.388  -3.645  1.00103.23      QA   C  
 ATOM      3  O5'   G C 194       5.969  11.219  -2.811  1.00104.17      QA   O  

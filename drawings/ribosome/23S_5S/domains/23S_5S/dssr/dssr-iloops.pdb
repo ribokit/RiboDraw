@@ -1,7 +1,7 @@
 MODEL        1
 REMARK    model=1  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#-13,#-14]
-REMARK    CCUAUG C.C564,C.C565,C.U566,C.A575,C.U576,C.G577
+REMARK    CCUAUG .QA.C.C.564.,.QA.C.C.565.,.QA.C.U.566.,.QA.C.A.575.,.QA.C.U.576.,.QA.C.G.577.
 ATOM      1  P     C C 564      -7.934  -2.304  -5.465  1.00100.17      QA   P  
 ATOM      2  C5'   C C 564      -9.023  -2.769  -3.136  1.00101.03      QA   C  
 ATOM      3  O5'   C C 564      -7.851  -2.665  -3.921  1.00100.27      QA   O  
@@ -131,7 +131,7 @@ ENDMDL
 MODEL        2
 REMARK    model=2  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#40,#-15]
-REMARK    CCGCUG C.C672,C.C673,C.G674,C.C806,C.U807,C.G808
+REMARK    CCGCUG .QA.C.C.672.,.QA.C.C.673.,.QA.C.G.674.,.QA.C.C.806.,.QA.C.U.807.,.QA.C.G.808.
 ATOM      1  P     C C 672      -8.664  -1.323  -5.512  1.00 95.85      QA   P  
 ATOM      2  C5'   C C 672      -9.618  -2.381  -3.298  1.00102.31      QA   C  
 ATOM      3  O5'   C C 672      -8.489  -1.886  -4.023  1.00 97.57      QA   O  
@@ -262,7 +262,7 @@ ENDMDL
 MODEL        3
 REMARK    model=3  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#54,#55]
-REMARK    UUUAUG C.U870,C.U871,C.U872,C.A905,C.U906,C.G907
+REMARK    UUUAUG .QA.C.U.870.,.QA.C.U.871.,.QA.C.U.872.,.QA.C.A.905.,.QA.C.U.906.,.QA.C.G.907.
 ATOM      1  P     U C 870     -10.213  -1.693  -4.915  1.00119.98      QA   P  
 ATOM      2  C5'   U C 870     -10.625  -2.559  -2.479  1.00122.57      QA   C  
 ATOM      3  O5'   U C 870      -9.760  -1.929  -3.410  1.00124.01      QA   O  
@@ -392,7 +392,7 @@ ENDMDL
 MODEL        4
 REMARK    model=4  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#105,#106]
-REMARK    GAAUCC C.G1663,C.A1664,C.A1665,C.U1995,C.C1996,C.C1997
+REMARK    GAAUCC .QA.C.G.1663.,.QA.C.A.1664.,.QA.C.A.1665.,.QA.C.U.1995.,.QA.C.C.1996.,.QA.C.C.1997.
 ATOM      1  P     G C1663      -9.707  -0.792  -5.678  1.00109.29      QA   P  
 ATOM      2  C5'   G C1663      -9.263  -1.398  -3.222  1.00107.30      QA   C  
 ATOM      3  O5'   G C1663      -8.712  -1.155  -4.498  1.00106.62      QA   O  
@@ -524,7 +524,7 @@ ENDMDL
 MODEL        5
 REMARK    model=5  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#129,#130]
-REMARK    UUGCUG C.U2085,C.U2086,C.G2087,C.C2232,C.U2233,C.G2234
+REMARK    UUGCUG .QA.C.U.2085.,.QA.C.U.2086.,.QA.C.G.2087.,.QA.C.C.2232.,.QA.C.U.2233.,.QA.C.G.2234.
 ATOM      1  P     U C2085      -9.105  -0.963  -5.564  1.00107.18      QA   P  
 ATOM      2  C5'   U C2085      -9.549  -1.478  -3.047  1.00101.92      QA   C  
 ATOM      3  O5'   U C2085      -8.635  -1.465  -4.128  1.00104.93      QA   O  
@@ -655,7 +655,7 @@ ENDMDL
 MODEL        6
 REMARK    model=6  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#131,#-40]
-REMARK    CCUAUG C.C2103,C.C2104,C.U2105,C.A2184,C.U2185,C.G2186
+REMARK    CCUAUG .QA.C.C.2103.,.QA.C.C.2104.,.QA.C.U.2105.,.QA.C.A.2184.,.QA.C.U.2185.,.QA.C.G.2186.
 ATOM      1  P     C C2103      -7.496  -0.913  -5.755  1.00165.84      QA   P  
 ATOM      2  C5'   C C2103      -8.199  -1.928  -3.443  1.00162.28      QA   C  
 ATOM      3  O5'   C C2103      -7.192  -1.334  -4.249  1.00162.06      QA   O  
@@ -785,7 +785,7 @@ ENDMDL
 MODEL        7
 REMARK    model=7  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#-41,#-42]
-REMARK    AUGCUU C.A2108,C.U2109,C.G2110,C.C2179,C.U2180,C.U2181
+REMARK    AUGCUU .QA.C.A.2108.,.QA.C.U.2109.,.QA.C.G.2110.,.QA.C.C.2179.,.QA.C.U.2180.,.QA.C.U.2181.
 ATOM      1  P     A C2108      -8.382  -1.195  -4.375  1.00175.02      QA   P  
 ATOM      2  C5'   A C2108      -9.258  -1.304  -1.896  1.00173.62      QA   C  
 ATOM      3  O5'   A C2108      -8.160  -1.278  -2.797  1.00174.41      QA   O  
@@ -915,7 +915,7 @@ ENDMDL
 MODEL        8
 REMARK    model=8  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#-47,#142]
-REMARK    CAAUAG C.C2326,C.A2327,C.A2328,C.U2387,C.A2388,C.G2389
+REMARK    CAAUAG .QA.C.C.2326.,.QA.C.A.2327.,.QA.C.A.2328.,.QA.C.U.2387.,.QA.C.A.2388.,.QA.C.G.2389.
 ATOM      1  P     C C2326      -8.031  -1.347  -5.177  1.00121.90      QA   P  
 ATOM      2  C5'   C C2326      -8.557  -2.542  -2.926  1.00118.73      QA   C  
 ATOM      3  O5'   C C2326      -7.696  -1.666  -3.655  1.00118.67      QA   O  
@@ -1049,7 +1049,7 @@ ENDMDL
 MODEL        9
 REMARK    model=9  nts=6
 REMARK    symmetric internal loop: nts=6; [1,1]; linked by [#-53,#157]
-REMARK    GAAUPC C.G2588,C.A2589,C.A2590,C.U2604,C.PSU2605,C.C2606
+REMARK    GAAUPC .QA.C.G.2588.,.QA.C.A.2589.,.QA.C.A.2590.,.QA.C.U.2604.,.QA.C.PSU.2605.,.QA.C.C.2606.
 ATOM      1  P     G C2588      -8.776  -1.128  -4.979  1.00 83.91      QA   P  
 ATOM      2  C5'   G C2588     -10.004  -2.322  -2.985  1.00 86.89      QA   C  
 ATOM      3  O5'   G C2588      -8.794  -2.069  -3.688  1.00 88.84      QA   O  
@@ -1181,7 +1181,7 @@ ENDMDL
 MODEL       10
 REMARK    model=10  nts=7
 REMARK    asymmetric internal loop: nts=7; [2,1]; linked by [#64,#65]
-REMARK    GAUGCGC C.G1031,C.A1032,C.U1033,C.G1034,C.C1121,C.G1122,C.C1123
+REMARK    GAUGCGC .QA.C.G.1031.,.QA.C.A.1032.,.QA.C.U.1033.,.QA.C.G.1034.,.QA.C.C.1121.,.QA.C.G.1122.,.QA.C.C.1123.
 ATOM      1  P     G C1031     -10.072  -3.257  -6.483  1.00111.16      QA   P  
 ATOM      2  C5'   G C1031     -11.107  -3.872  -4.166  1.00114.40      QA   C  
 ATOM      3  O5'   G C1031      -9.958  -3.532  -4.924  1.00113.13      QA   O  
@@ -1337,7 +1337,7 @@ ENDMDL
 MODEL       11
 REMARK    model=11  nts=7
 REMARK    asymmetric internal loop: nts=7; [1,2]; linked by [#-28,#72]
-REMARK    CGUAGUG C.C1196,C.G1197,C.U1198,C.A1247,C.G1248,C.U1249,C.G1250
+REMARK    CGUAGUG .QA.C.C.1196.,.QA.C.G.1197.,.QA.C.U.1198.,.QA.C.A.1247.,.QA.C.G.1248.,.QA.C.U.1249.,.QA.C.G.1250.
 ATOM      1  P     C C1196      -8.436  -0.814  -5.547  1.00121.04      QA   P  
 ATOM      2  C5'   C C1196      -9.565  -1.470  -3.275  1.00117.21      QA   C  
 ATOM      3  O5'   C C1196      -8.372  -1.253  -4.014  1.00118.61      QA   O  
@@ -1493,7 +1493,7 @@ ENDMDL
 MODEL       12
 REMARK    model=12  nts=7
 REMARK    asymmetric internal loop: nts=7; [1,2]; linked by [#123,#124]
-REMARK    ACGCUAU C.A2054,C.C2055,C.G2056,C.C2612,C.U2613,C.A2614,C.U2615
+REMARK    ACGCUAU .QA.C.A.2054.,.QA.C.C.2055.,.QA.C.G.2056.,.QA.C.C.2612.,.QA.C.U.2613.,.QA.C.A.2614.,.QA.C.U.2615.
 ATOM      1  P     A C2054      -8.222  -0.690  -1.260  1.00 89.52      QA   P  
 ATOM      2  C5'   A C2054      -9.034  -0.596   1.211  1.00 91.62      QA   C  
 ATOM      3  O5'   A C2054      -7.950  -0.742   0.309  1.00 91.34      QA   O  
@@ -1645,7 +1645,7 @@ ENDMDL
 MODEL       13
 REMARK    model=13  nts=7
 REMARK    asymmetric internal loop: nts=7; [1,2]; linked by [#128,#129]
-REMARK    UAGUGGG C.U2081,C.A2082,C.G2083,C.U2236,C.G2237,C.G2238,C.G2239
+REMARK    UAGUGGG .QA.C.U.2081.,.QA.C.A.2082.,.QA.C.G.2083.,.QA.C.U.2236.,.QA.C.G.2237.,.QA.C.G.2238.,.QA.C.G.2239.
 ATOM      1  P     U C2081      -5.941  -1.514  -5.959  1.00 97.33      QA   P  
 ATOM      2  C5'   U C2081      -7.234  -1.824  -3.688  1.00 97.19      QA   C  
 ATOM      3  O5'   U C2081      -6.021  -1.557  -4.368  1.00 98.31      QA   O  
@@ -1804,7 +1804,7 @@ ENDMDL
 MODEL       14
 REMARK    model=14  nts=7
 REMARK    asymmetric internal loop: nts=7; [2,1]; linked by [#148,#-51]
-REMARK    CPGAUGG C.C2456,C.PSU2457,C.G2458,C.A2459,C.U2493,C.G2494,C.G2495
+REMARK    CPGAUGG .QA.C.C.2456.,.QA.C.PSU.2457.,.QA.C.G.2458.,.QA.C.A.2459.,.QA.C.U.2493.,.QA.C.G.2494.,.QA.C.G.2495.
 ATOM      1  P     C C2456      -8.164  -1.499  -7.754  1.00 92.52      QA   P  
 ATOM      2  C5'   C C2456      -9.621  -2.482  -5.819  1.00 97.72      QA   C  
 ATOM      3  O5'   C C2456      -8.412  -1.848  -6.222  1.00 96.36      QA   O  
@@ -1960,7 +1960,7 @@ ENDMDL
 MODEL       15
 REMARK    model=15  nts=7
 REMARK    asymmetric internal loop: nts=7; [1,2]; linked by [#151,#152]
-REMARK    CGGCPGG C.C2507,C.G2508,C.G2509,C.C2579,C.PSU2580,C.G2581,C.G2582
+REMARK    CGGCPGG .QA.C.C.2507.,.QA.C.G.2508.,.QA.C.G.2509.,.QA.C.C.2579.,.QA.C.PSU.2580.,.QA.C.G.2581.,.QA.C.G.2582.
 ATOM      1  P     C C2507      -7.434  -1.530  -5.480  1.00 89.73      QA   P  
 ATOM      2  C5'   C C2507      -8.954  -2.060  -3.402  1.00 87.78      QA   C  
 ATOM      3  O5'   C C2507      -7.650  -2.026  -3.973  1.00 88.02      QA   O  
@@ -2117,7 +2117,7 @@ ENDMDL
 MODEL       16
 REMARK    model=16  nts=8
 REMARK    symmetric internal loop: nts=8; [2,2]; linked by [#-2,#10]
-REMARK    CUAAUAUG C.C61,C.U62,C.A63,C.A64,C.U90,C.A91,C.U92,C.G93
+REMARK    CUAAUAUG .QA.C.C.61.,.QA.C.U.62.,.QA.C.A.63.,.QA.C.A.64.,.QA.C.U.90.,.QA.C.A.91.,.QA.C.U.92.,.QA.C.G.93.
 ATOM      1  P     C C  61      -8.240  -1.069  -6.654  1.00154.47      QA   P  
 ATOM      2  C5'   C C  61      -9.696  -2.254  -4.806  1.00157.88      QA   C  
 ATOM      3  O5'   C C  61      -8.490  -1.602  -5.180  1.00156.57      QA   O  
@@ -2291,7 +2291,7 @@ ENDMDL
 MODEL       17
 REMARK    model=17  nts=8
 REMARK    symmetric internal loop: nts=8; [2,2]; linked by [#14,#-3]
-REMARK    GUGUACAC C.G134,C.U135,C.G136,C.U137,C.A142,C.C143,C.A144,C.C145
+REMARK    GUGUACAC .QA.C.G.134.,.QA.C.U.135.,.QA.C.G.136.,.QA.C.U.137.,.QA.C.A.142.,.QA.C.C.143.,.QA.C.A.144.,.QA.C.C.145.
 ATOM      1  P     G C 134      -7.543  -2.268  -7.296  1.00157.61      QA   P  
 ATOM      2  C5'   G C 134      -8.807  -3.882  -5.641  1.00154.57      QA   C  
 ATOM      3  O5'   G C 134      -7.643  -3.120  -5.950  1.00154.51      QA   O  
@@ -2466,7 +2466,7 @@ ENDMDL
 MODEL       18
 REMARK    model=18  nts=8
 REMARK    asymmetric internal loop: nts=8; [1,3]; linked by [#-7,#21]
-REMARK    CAGCGAUG C.C269,C.A270,C.G271,C.C366,C.G367,C.A368,C.U369,C.G370
+REMARK    CAGCGAUG .QA.C.C.269.,.QA.C.A.270.,.QA.C.G.271.,.QA.C.C.366.,.QA.C.G.367.,.QA.C.A.368.,.QA.C.U.369.,.QA.C.G.370.
 ATOM      1  P     C C 269      -5.764   0.809  -2.797  1.00156.10      QA   P  
 ATOM      2  C5'   C C 269      -6.816   0.041  -0.514  1.00156.30      QA   C  
 ATOM      3  O5'   C C 269      -5.695   0.049  -1.393  1.00156.46      QA   O  
@@ -2644,7 +2644,7 @@ ENDMDL
 MODEL       19
 REMARK    model=19  nts=8
 REMARK    asymmetric internal loop: nts=8; [1,3]; linked by [#22,#23]
-REMARK    UAGCAAAA C.U293,C.A294,C.G295,C.C343,C.A344,C.A345,C.A346,C.A347
+REMARK    UAGCAAAA .QA.C.U.293.,.QA.C.A.294.,.QA.C.G.295.,.QA.C.C.343.,.QA.C.A.344.,.QA.C.A.345.,.QA.C.A.346.,.QA.C.A.347.
 ATOM      1  P     U C 293      -7.351  -1.015  -2.287  1.00162.57      QA   P  
 ATOM      2  C5'   U C 293      -8.751  -1.688  -0.173  1.00157.94      QA   C  
 ATOM      3  O5'   U C 293      -7.495  -1.279  -0.718  1.00162.77      QA   O  
@@ -2822,7 +2822,7 @@ ENDMDL
 MODEL       20
 REMARK    model=20  nts=8
 REMARK    symmetric internal loop: nts=8; [2,2]; linked by [#32,#33]
-REMARK    GGAGUGAC C.G536,C.G537,C.A538,C.G539,C.U554,C.G555,C.A556,C.C557
+REMARK    GGAGUGAC .QA.C.G.536.,.QA.C.G.537.,.QA.C.A.538.,.QA.C.G.539.,.QA.C.U.554.,.QA.C.G.555.,.QA.C.A.556.,.QA.C.C.557.
 ATOM      1  P     G C 536      -8.014  -4.082  -6.567  1.00109.62      QA   P  
 ATOM      2  C5'   G C 536      -9.357  -4.624  -4.370  1.00116.60      QA   C  
 ATOM      3  O5'   G C 536      -8.117  -4.317  -4.991  1.00116.56      QA   O  
@@ -3003,7 +3003,7 @@ ENDMDL
 MODEL       21
 REMARK    model=21  nts=8
 REMARK    asymmetric internal loop: nts=8; [1,3]; linked by [#-19,#47]
-REMARK    GGGCAAUC C.G775,C.G776,C.G777,C.C787,C.A788,C.A789,C.U790,C.C791
+REMARK    GGGCAAUC .QA.C.G.775.,.QA.C.G.776.,.QA.C.G.777.,.QA.C.C.787.,.QA.C.A.788.,.QA.C.A.789.,.QA.C.U.790.,.QA.C.C.791.
 ATOM      1  P     G C 775      -2.807   0.528   9.001  1.00 98.50      QA   P  
 ATOM      2  C5'   G C 775      -1.284   2.384   7.850  1.00 89.72      QA   C  
 ATOM      3  O5'   G C 775      -1.402   1.194   8.633  1.00 90.22      QA   O  
@@ -3181,7 +3181,7 @@ ENDMDL
 MODEL       22
 REMARK    model=22  nts=8
 REMARK    symmetric internal loop: nts=8; [2,2]; linked by [#65,#66]
-REMARK    GAAGCGGC C.G1038,C.A1039,C.A1040,C.G1041,C.C1114,C.G1115,C.G1116,C.C1117
+REMARK    GAAGCGGC .QA.C.G.1038.,.QA.C.A.1039.,.QA.C.A.1040.,.QA.C.G.1041.,.QA.C.C.1114.,.QA.C.G.1115.,.QA.C.G.1116.,.QA.C.C.1117.
 ATOM      1  P     G C1038      -9.351  -4.332  -6.036  1.00131.70      QA   P  
 ATOM      2  C5'   G C1038     -10.306  -5.192  -3.749  1.00131.91      QA   C  
 ATOM      3  O5'   G C1038      -9.301  -4.483  -4.453  1.00131.20      QA   O  
@@ -3362,7 +3362,7 @@ ENDMDL
 MODEL       23
 REMARK    model=23  nts=8
 REMARK    symmetric internal loop: nts=8; [2,2]; linked by [#68,#69]
-REMARK    GUUGCAUC C.G1059,C.U1060,C.U1061,C.G1062,C.C1076,C.A1077,C.U1078,C.C1079
+REMARK    GUUGCAUC .QA.C.G.1059.,.QA.C.U.1060.,.QA.C.U.1061.,.QA.C.G.1062.,.QA.C.C.1076.,.QA.C.A.1077.,.QA.C.U.1078.,.QA.C.C.1079.
 ATOM      1  P     G C1059     -12.818  -2.081  -0.210  1.00208.61      QA   P  
 ATOM      2  C5'   G C1059     -12.127  -2.241   2.302  1.00211.02      QA   C  
 ATOM      3  O5'   G C1059     -11.728  -2.016   0.955  1.00210.55      QA   O  
@@ -3535,7 +3535,7 @@ ENDMDL
 MODEL       24
 REMARK    model=24  nts=8
 REMARK    asymmetric internal loop: nts=8; [3,1]; linked by [#-27,#70]
-REMARK    GAAAGCUC C.G1087,C.A1088,C.A1089,C.A1090,C.G1091,C.C1100,C.U1101,C.C1102
+REMARK    GAAAGCUC .QA.C.G.1087.,.QA.C.A.1088.,.QA.C.A.1089.,.QA.C.A.1090.,.QA.C.G.1091.,.QA.C.C.1100.,.QA.C.U.1101.,.QA.C.C.1102.
 ATOM      1  P     G C1087      -7.771  -6.958  -5.735  1.00198.53      QA   P  
 ATOM      2  C5'   G C1087      -9.591  -6.442  -3.897  1.00197.87      QA   C  
 ATOM      3  O5'   G C1087      -8.505  -6.003  -4.698  1.00197.68      QA   O  
@@ -3712,7 +3712,7 @@ ENDMDL
 MODEL       25
 REMARK    model=25  nts=8
 REMARK    asymmetric internal loop: nts=8; [3,1]; linked by [#80,#81]
-REMARK    CCAACGGG C.C1319,C.C1320,C.A1321,C.A1322,C.C1323,C.G1331,C.G1332,C.G1333
+REMARK    CCAACGGG .QA.C.C.1319.,.QA.C.C.1320.,.QA.C.A.1321.,.QA.C.A.1322.,.QA.C.C.1323.,.QA.C.G.1331.,.QA.C.G.1332.,.QA.C.G.1333.
 ATOM      1  P     C C1319      -4.121  -2.635 -10.758  1.00133.82      QA   P  
 ATOM      2  C5'   C C1319      -5.827  -3.328  -8.879  1.00134.69      QA   C  
 ATOM      3  O5'   C C1319      -4.815  -2.427  -9.328  1.00136.66      QA   O  
@@ -3890,7 +3890,7 @@ ENDMDL
 MODEL       26
 REMARK    model=26  nts=8
 REMARK    symmetric internal loop: nts=8; [2,2]; linked by [#-40,#-41]
-REMARK    UUGAUUAA C.U2105,C.U2106,C.G2107,C.A2108,C.U2181,C.U2182,C.A2183,C.A2184
+REMARK    UUGAUUAA .QA.C.U.2105.,.QA.C.U.2106.,.QA.C.G.2107.,.QA.C.A.2108.,.QA.C.U.2181.,.QA.C.U.2182.,.QA.C.A.2183.,.QA.C.A.2184.
 ATOM      1  P     U C2105      -7.820  -2.523  -5.892  1.00168.21      QA   P  
 ATOM      2  C5'   U C2105      -9.416  -2.801  -3.810  1.00166.86      QA   C  
 ATOM      3  O5'   U C2105      -8.169  -2.366  -4.341  1.00166.90      QA   O  
@@ -4064,7 +4064,7 @@ ENDMDL
 MODEL       27
 REMARK    model=27  nts=8
 REMARK    symmetric internal loop: nts=8; [2,2]; linked by [#143,#144]
-REMARK    CGAGCGAG C.C2350,C.G2351,C.A2352,C.G2353,C.C2364,C.G2365,C.A2366,C.G2367
+REMARK    CGAGCGAG .QA.C.C.2350.,.QA.C.G.2351.,.QA.C.A.2352.,.QA.C.G.2353.,.QA.C.C.2364.,.QA.C.G.2365.,.QA.C.A.2366.,.QA.C.G.2367.
 ATOM      1  P     C C2350      -9.203  -4.663  -7.854  1.00128.12      QA   P  
 ATOM      2  C5'   C C2350      -8.125  -3.773  -5.605  1.00128.81      QA   C  
 ATOM      3  O5'   C C2350      -8.872  -4.751  -6.301  1.00129.02      QA   O  
@@ -4245,7 +4245,7 @@ ENDMDL
 MODEL       28
 REMARK    model=28  nts=8
 REMARK    asymmetric internal loop: nts=8; [1,3]; linked by [#-51,#149]
-REMARK    AUAUGUUU C.A2459,C.U2460,C.A2461,C.U2489,C.G2490,C.U2491,C.U2492,C.U2493
+REMARK    AUAUGUUU .QA.C.A.2459.,.QA.C.U.2460.,.QA.C.A.2461.,.QA.C.U.2489.,.QA.C.G.2490.,.QA.C.U.2491.,.QA.C.U.2492.,.QA.C.U.2493.
 ATOM      1  P     A C2459      -4.508   0.622  -4.661  1.00 99.19      QA   P  
 ATOM      2  C5'   A C2459      -6.947   0.229  -3.730  1.00100.74      QA   C  
 ATOM      3  O5'   A C2459      -5.561   0.446  -3.477  1.00 98.66      QA   O  
@@ -4417,7 +4417,7 @@ ENDMDL
 MODEL       29
 REMARK    model=29  nts=8
 REMARK    asymmetric internal loop: nts=8; [1,3]; linked by [#152,#-52]
-REMARK    CUCGCGAG C.C2510,C.U2511,C.C2512,C.G2574,C.C2575,C.G2576,C.A2577,C.G2578
+REMARK    CUCGCGAG .QA.C.C.2510.,.QA.C.U.2511.,.QA.C.C.2512.,.QA.C.G.2574.,.QA.C.C.2575.,.QA.C.G.2576.,.QA.C.A.2577.,.QA.C.G.2578.
 ATOM      1  P     C C2510      -7.448  -1.474  -5.299  1.00 89.05      QA   P  
 ATOM      2  C5'   C C2510      -8.587  -2.136  -3.045  1.00 91.40      QA   C  
 ATOM      3  O5'   C C2510      -7.394  -1.913  -3.769  1.00 90.56      QA   O  
@@ -4593,7 +4593,7 @@ ENDMDL
 MODEL       30
 REMARK    model=30  nts=8
 REMARK    asymmetric internal loop: nts=8; [3,1]; linked by [#162,#163]
-REMARK    UCACUAAA C.U2680,C.C2681,C.A2682,C.C2683,C.U2684,C.A2725,C.A2726,C.A2727
+REMARK    UCACUAAA .QA.C.U.2680.,.QA.C.C.2681.,.QA.C.A.2682.,.QA.C.C.2683.,.QA.C.U.2684.,.QA.C.A.2725.,.QA.C.A.2726.,.QA.C.A.2727.
 ATOM      1  P     U C2680      -4.493  -2.680 -10.671  1.00104.52      QA   P  
 ATOM      2  C5'   U C2680      -6.248  -2.861  -8.765  1.00108.62      QA   C  
 ATOM      3  O5'   U C2680      -4.982  -2.386  -9.191  1.00109.55      QA   O  
@@ -4766,7 +4766,7 @@ ENDMDL
 MODEL       31
 REMARK    model=31  nts=9
 REMARK    asymmetric internal loop: nts=9; [3,2]; linked by [#53,#54]
-REMARK    GCACUAAAC C.G864,C.C865,C.A866,C.C867,C.U868,C.A909,C.A910,C.A911,C.C912
+REMARK    GCACUAAAC .QA.C.G.864.,.QA.C.C.865.,.QA.C.A.866.,.QA.C.C.867.,.QA.C.U.868.,.QA.C.A.909.,.QA.C.A.910.,.QA.C.A.911.,.QA.C.C.912.
 ATOM      1  P     G C 864      -3.749  -1.960 -10.409  1.00127.57      QA   P  
 ATOM      2  C5'   G C 864      -5.699  -2.859  -8.887  1.00136.16      QA   C  
 ATOM      3  O5'   G C 864      -4.430  -2.230  -8.999  1.00134.52      QA   O  
@@ -4962,7 +4962,7 @@ ENDMDL
 MODEL       32
 REMARK    model=32  nts=9
 REMARK    asymmetric internal loop: nts=9; [3,2]; linked by [#72,#73]
-REMARK    GUAAGUAUC C.G1202,C.U1203,C.A1204,C.A1205,C.G1206,C.U1240,C.A1241,C.U1242,C.C1243
+REMARK    GUAAGUAUC .QA.C.G.1202.,.QA.C.U.1203.,.QA.C.A.1204.,.QA.C.A.1205.,.QA.C.G.1206.,.QA.C.U.1240.,.QA.C.A.1241.,.QA.C.U.1242.,.QA.C.C.1243.
 ATOM      1  P     G C1202      -6.388  -3.631  -3.218  1.00132.63      QA   P  
 ATOM      2  C5'   G C1202      -7.017  -4.619  -0.880  1.00137.54      QA   C  
 ATOM      3  O5'   G C1202      -6.058  -3.970  -1.699  1.00137.00      QA   O  
@@ -5159,7 +5159,7 @@ ENDMDL
 MODEL       33
 REMARK    model=33  nts=9
 REMARK    asymmetric internal loop: nts=9; [2,3]; linked by [#91,#92]
-REMARK    GAAGCCUGC C.G1432,C.A1433,C.A1434,C.G1435,C.C1557,C.C1558,C.U1559,C.G1560,C.C1561
+REMARK    GAAGCCUGC .QA.C.G.1432.,.QA.C.A.1433.,.QA.C.A.1434.,.QA.C.G.1435.,.QA.C.C.1557.,.QA.C.C.1558.,.QA.C.U.1559.,.QA.C.G.1560.,.QA.C.C.1561.
 ATOM      1  P     G C1432      -8.639  -4.335  -7.524  1.00102.02      QA   P  
 ATOM      2  C5'   G C1432      -9.593  -5.052  -5.197  1.00110.57      QA   C  
 ATOM      3  O5'   G C1432      -8.648  -4.288  -5.931  1.00109.25      QA   O  
@@ -5357,7 +5357,7 @@ ENDMDL
 MODEL       34
 REMARK    model=34  nts=9
 REMARK    asymmetric internal loop: nts=9; [2,3]; linked by [#92,#93]
-REMARK    CUAUAAAUG C.C1437,C.U1438,C.A1439,C.U1440,C.A1551,C.A1552,C.A1553,C.U1554,C.G1555
+REMARK    CUAUAAAUG .QA.C.C.1437.,.QA.C.U.1438.,.QA.C.A.1439.,.QA.C.U.1440.,.QA.C.A.1551.,.QA.C.A.1552.,.QA.C.A.1553.,.QA.C.U.1554.,.QA.C.G.1555.
 ATOM      1  P     C C1437      -4.069  -3.864  -8.316  1.00135.54      QA   P  
 ATOM      2  C5'   C C1437      -4.591  -3.144  -5.872  1.00135.32      QA   C  
 ATOM      3  O5'   C C1437      -4.957  -3.916  -7.000  1.00135.43      QA   O  
@@ -5553,7 +5553,7 @@ ENDMDL
 MODEL       35
 REMARK    model=35  nts=9
 REMARK    asymmetric internal loop: nts=9; [2,3]; linked by [#96,#97]
-REMARK    UAAGUGAUG C.U1468,C.A1469,C.A1470,C.G1471,C.U1520,C.G1521,C.A1522,C.U1523,C.G1524
+REMARK    UAAGUGAUG .QA.C.U.1468.,.QA.C.A.1469.,.QA.C.A.1470.,.QA.C.G.1471.,.QA.C.U.1520.,.QA.C.G.1521.,.QA.C.A.1522.,.QA.C.U.1523.,.QA.C.G.1524.
 ATOM      1  P     U C1468      -7.413  -5.150  -6.458  1.00134.58      QA   P  
 ATOM      2  C5'   U C1468      -6.125  -4.137  -4.431  1.00130.13      QA   C  
 ATOM      3  O5'   U C1468      -6.820  -5.241  -4.985  1.00129.80      QA   O  
@@ -5753,7 +5753,7 @@ ENDMDL
 MODEL       36
 REMARK    model=36  nts=9
 REMARK    asymmetric internal loop: nts=9; [2,3]; linked by [#-32,#101]
-REMARK    CGAGUGAAG C.C1526,C.G1527,C.A1528,C.G1529,C.U1542,C.G1543,C.A1544,C.A1545,C.G1546
+REMARK    CGAGUGAAG .QA.C.C.1526.,.QA.C.G.1527.,.QA.C.A.1528.,.QA.C.G.1529.,.QA.C.U.1542.,.QA.C.G.1543.,.QA.C.A.1544.,.QA.C.A.1545.,.QA.C.G.1546.
 ATOM      1  P     C C1526      -4.617  -2.341  -6.010  1.00144.53      QA   P  
 ATOM      2  C5'   C C1526      -6.623  -2.649  -4.327  1.00136.12      QA   C  
 ATOM      3  O5'   C C1526      -5.232  -2.512  -4.552  1.00139.00      QA   O  
@@ -5956,7 +5956,7 @@ ENDMDL
 MODEL       37
 REMARK    model=37  nts=9
 REMARK    asymmetric internal loop: nts=9; [4,1]; linked by [#104,#105]
-REMARK    GAGAACGAC C.G1651,C.A1652,C.G1653,C.A1654,C.A1655,C.C1656,C.G2004,C.A2005,C.C2006
+REMARK    GAGAACGAC .QA.C.G.1651.,.QA.C.A.1652.,.QA.C.G.1653.,.QA.C.A.1654.,.QA.C.A.1655.,.QA.C.C.1656.,.QA.C.G.2004.,.QA.C.A.2005.,.QA.C.C.2006.
 ATOM      1  P     G C1651      -5.243  -3.839 -13.187  1.00104.53      QA   P  
 ATOM      2  C5'   G C1651      -6.620  -3.534 -10.909  1.00108.51      QA   C  
 ATOM      3  O5'   G C1651      -6.143  -4.361 -11.975  1.00111.85      QA   O  
@@ -6158,7 +6158,7 @@ ENDMDL
 MODEL       38
 REMARK    model=38  nts=9
 REMARK    asymmetric internal loop: nts=9; [2,3]; linked by [#117,#118]
-REMARK    UUAGCGAAG C.U1864,C.U1865,C.A1866,C.G1867,C.C1874,C.G1875,C.A1876,C.A1877,C.G1878
+REMARK    UUAGCGAAG .QA.C.U.1864.,.QA.C.U.1865.,.QA.C.A.1866.,.QA.C.G.1867.,.QA.C.C.1874.,.QA.C.G.1875.,.QA.C.A.1876.,.QA.C.A.1877.,.QA.C.G.1878.
 ATOM      1  P     U C1864      -3.472  -3.056  -7.183  1.00131.00      QA   P  
 ATOM      2  C5'   U C1864      -5.558  -3.555  -5.653  1.00131.83      QA   C  
 ATOM      3  O5'   U C1864      -4.194  -3.153  -5.760  1.00132.44      QA   O  
@@ -6358,7 +6358,7 @@ ENDMDL
 MODEL       39
 REMARK    model=39  nts=9
 REMARK    asymmetric internal loop: nts=9; [2,3]; linked by [#172,#173]
-REMARK    GGUGCUAAC C.G2843,C.G2844,C.U2845,C.G2846,C.C2870,C.U2871,C.A2872,C.A2873,C.C2874
+REMARK    GGUGCUAAC .QA.C.G.2843.,.QA.C.G.2844.,.QA.C.U.2845.,.QA.C.G.2846.,.QA.C.C.2870.,.QA.C.U.2871.,.QA.C.A.2872.,.QA.C.A.2873.,.QA.C.C.2874.
 ATOM      1  P     G C2843      -5.381  -3.318  -7.150  1.00124.90      QA   P  
 ATOM      2  C5'   G C2843      -7.298  -3.710  -5.404  1.00121.34      QA   C  
 ATOM      3  O5'   G C2843      -5.924  -3.429  -5.650  1.00121.30      QA   O  
@@ -6556,7 +6556,7 @@ ENDMDL
 MODEL       40
 REMARK    model=40  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#36,#37]
-REMARK    UUAACGGGAG C.U606,C.U607,C.A608,C.A609,C.C610,C.G618,C.G619,C.G620,C.A621,C.G622
+REMARK    UUAACGGGAG .QA.C.U.606.,.QA.C.U.607.,.QA.C.A.608.,.QA.C.A.609.,.QA.C.C.610.,.QA.C.G.618.,.QA.C.G.619.,.QA.C.G.620.,.QA.C.A.621.,.QA.C.G.622.
 ATOM      1  P     U C 606      -2.796  -4.246 -10.095  1.00137.64      QA   P  
 ATOM      2  C5'   U C 606      -4.549  -3.757  -8.212  1.00136.45      QA   C  
 ATOM      3  O5'   U C 606      -3.206  -4.029  -8.573  1.00138.23      QA   O  
@@ -6779,7 +6779,7 @@ ENDMDL
 MODEL       41
 REMARK    model=41  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#-17,#44]
-REMARK    UGAAGUGGAG C.U703,C.G704,C.A705,C.A706,C.G707,C.U724,C.G725,C.G726,C.A727,C.G728
+REMARK    UGAAGUGGAG .QA.C.U.703.,.QA.C.G.704.,.QA.C.A.705.,.QA.C.A.706.,.QA.C.G.707.,.QA.C.U.724.,.QA.C.G.725.,.QA.C.G.726.,.QA.C.A.727.,.QA.C.G.728.
 ATOM      1  P     U C 703      -4.231  -5.491  -8.901  1.00108.97      QA   P  
 ATOM      2  C5'   U C 703      -6.278  -5.485  -7.251  1.00110.47      QA   C  
 ATOM      3  O5'   U C 703      -4.872  -5.357  -7.443  1.00113.85      QA   O  
@@ -7005,7 +7005,7 @@ ENDMDL
 MODEL       42
 REMARK    model=42  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#55,#56]
-REMARK    GCAAGCAACC C.G875,C.C876,C.A877,C.A878,C.G879,C.C898,C.A899,C.A900,C.C901,C.C902
+REMARK    GCAAGCAACC .QA.C.G.875.,.QA.C.C.876.,.QA.C.A.877.,.QA.C.A.878.,.QA.C.G.879.,.QA.C.C.898.,.QA.C.A.899.,.QA.C.A.900.,.QA.C.C.901.,.QA.C.C.902.
 ATOM      1  P     G C 875      -5.096  -5.790  -7.848  1.00145.25      QA   P  
 ATOM      2  C5'   G C 875      -7.163  -6.324  -6.316  1.00149.26      QA   C  
 ATOM      3  O5'   G C 875      -5.770  -6.042  -6.425  1.00147.57      QA   O  
@@ -7224,7 +7224,7 @@ ENDMDL
 MODEL       43
 REMARK    model=43  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#60,#61]
-REMARK    CUAAGCGAAG C.C998,C.U999,C.A1000,C.A1001,C.G1002,C.C1153,C.G1154,C.A1155,C.A1156,C.G1157
+REMARK    CUAAGCGAAG .QA.C.C.998.,.QA.C.U.999.,.QA.C.A.1000.,.QA.C.A.1001.,.QA.C.G.1002.,.QA.C.C.1153.,.QA.C.G.1154.,.QA.C.A.1155.,.QA.C.A.1156.,.QA.C.G.1157.
 ATOM      1  P     C C 998      -0.460  -3.490  -9.132  1.00117.70      QA   P  
 ATOM      2  C5'   C C 998      -2.971  -3.942  -8.508  1.00124.00      QA   C  
 ATOM      3  O5'   C C 998      -1.629  -3.753  -8.085  1.00123.41      QA   O  
@@ -7446,7 +7446,7 @@ ENDMDL
 MODEL       44
 REMARK    model=44  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#84,#85]
-REMARK    CUAAGCGAUG C.C1351,C.U1352,C.A1353,C.A1354,C.G1355,C.C1376,C.G1377,C.A1378,C.U1379,C.G1380
+REMARK    CUAAGCGAUG .QA.C.C.1351.,.QA.C.U.1352.,.QA.C.A.1353.,.QA.C.A.1354.,.QA.C.G.1355.,.QA.C.C.1376.,.QA.C.G.1377.,.QA.C.A.1378.,.QA.C.U.1379.,.QA.C.G.1380.
 ATOM      1  P     C C1351      -2.830  -2.063  -9.520  1.00120.40      QA   P  
 ATOM      2  C5'   C C1351      -4.739  -2.888  -7.902  1.00120.17      QA   C  
 ATOM      3  O5'   C C1351      -3.367  -2.546  -8.094  1.00118.62      QA   O  
@@ -7666,7 +7666,7 @@ ENDMDL
 MODEL       45
 REMARK    model=45  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#85,#86]
-REMARK    CGAGGCGUAG C.C1357,C.G1358,C.A1359,C.G1360,C.G1361,C.C1370,C.G1371,C.U1372,C.A1373,C.G1374
+REMARK    CGAGGCGUAG .QA.C.C.1357.,.QA.C.G.1358.,.QA.C.A.1359.,.QA.C.G.1360.,.QA.C.G.1361.,.QA.C.C.1370.,.QA.C.G.1371.,.QA.C.U.1372.,.QA.C.A.1373.,.QA.C.G.1374.
 ATOM      1  P     C C1357      -1.568  -2.672  -8.494  1.00107.58      QA   P  
 ATOM      2  C5'   C C1357      -3.850  -3.438  -7.424  1.00104.87      QA   C  
 ATOM      3  O5'   C C1357      -2.539  -2.927  -7.248  1.00107.69      QA   O  
@@ -7890,7 +7890,7 @@ ENDMDL
 MODEL       46
 REMARK    model=46  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#89,#90]
-REMARK    CGAAGCUAAG C.C1417,C.G1418,C.A1419,C.A1420,C.G1421,C.C1577,C.U1578,C.A1579,C.A1580,C.G1581
+REMARK    CGAAGCUAAG .QA.C.C.1417.,.QA.C.G.1418.,.QA.C.A.1419.,.QA.C.A.1420.,.QA.C.G.1421.,.QA.C.C.1577.,.QA.C.U.1578.,.QA.C.A.1579.,.QA.C.A.1580.,.QA.C.G.1581.
 ATOM      1  P     C C1417      -2.799  -3.243  -9.913  1.00146.06      QA   P  
 ATOM      2  C5'   C C1417      -4.121  -2.347  -7.804  1.00140.33      QA   C  
 ATOM      3  O5'   C C1417      -3.104  -3.187  -8.344  1.00144.79      QA   O  
@@ -8112,7 +8112,7 @@ ENDMDL
 MODEL       47
 REMARK    model=47  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#97,#98]
-REMARK    UGUAGUGAGG C.U1474,C.G1475,C.U1476,C.A1477,C.G1478,C.U1513,C.G1514,C.A1515,C.G1516,C.G1517
+REMARK    UGUAGUGAGG .QA.C.U.1474.,.QA.C.G.1475.,.QA.C.U.1476.,.QA.C.A.1477.,.QA.C.G.1478.,.QA.C.U.1513.,.QA.C.G.1514.,.QA.C.A.1515.,.QA.C.G.1516.,.QA.C.G.1517.
 ATOM      1  P     U C1474      -3.583  -5.623  -9.222  1.00147.06      QA   P  
 ATOM      2  C5'   U C1474      -5.571  -5.693  -7.495  1.00147.98      QA   C  
 ATOM      3  O5'   U C1474      -4.197  -5.440  -7.759  1.00145.44      QA   O  
@@ -8336,7 +8336,7 @@ ENDMDL
 MODEL       48
 REMARK    model=48  nts=10
 REMARK    asymmetric internal loop: nts=10; [4,2]; linked by [#-34,#-35]
-REMARK    ACUAGGCUGU C.A1669,C.C1670,C.U1671,C.A1672,C.G1673,C.G1674,C.C1990,C.U1991,C.G1992,C.U1993
+REMARK    ACUAGGCUGU .QA.C.A.1669.,.QA.C.C.1670.,.QA.C.U.1671.,.QA.C.A.1672.,.QA.C.G.1673.,.QA.C.G.1674.,.QA.C.C.1990.,.QA.C.U.1991.,.QA.C.G.1992.,.QA.C.U.1993.
 ATOM      1  P     A C1669      -7.251   1.280   0.255  1.00 82.94      QA   P  
 ATOM      2  C5'   A C1669      -8.718  -0.677  -0.679  1.00 92.11      QA   C  
 ATOM      3  O5'   A C1669      -7.432  -0.150  -0.422  1.00 92.31      QA   O  
@@ -8554,7 +8554,7 @@ ENDMDL
 MODEL       49
 REMARK    model=49  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#149,#150]
-REMARK    CCAAGCGACG C.C2466,C.C2467,C.A2468,C.A2469,C.G2470,C.C2480,C.G2481,C.A2482,C.C2483,C.G2484
+REMARK    CCAAGCGACG .QA.C.C.2466.,.QA.C.C.2467.,.QA.C.A.2468.,.QA.C.A.2469.,.QA.C.G.2470.,.QA.C.C.2480.,.QA.C.G.2481.,.QA.C.A.2482.,.QA.C.C.2483.,.QA.C.G.2484.
 ATOM      1  P     C C2466      -5.223  -4.038  -7.763  1.00103.95      QA   P  
 ATOM      2  C5'   C C2466      -7.022  -5.478  -6.500  1.00109.83      QA   C  
 ATOM      3  O5'   C C2466      -5.733  -4.875  -6.504  1.00108.70      QA   O  
@@ -8774,7 +8774,7 @@ ENDMDL
 MODEL       50
 REMARK    model=50  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#163,#164]
-REMARK    UGUUCGGUAG C.U2687,C.G2688,C.U2689,C.U2690,C.C2691,C.G2718,C.G2719,C.U2720,C.A2721,C.G2722
+REMARK    UGUUCGGUAG .QA.C.U.2687.,.QA.C.G.2688.,.QA.C.U.2689.,.QA.C.U.2690.,.QA.C.C.2691.,.QA.C.G.2718.,.QA.C.G.2719.,.QA.C.U.2720.,.QA.C.A.2721.,.QA.C.G.2722.
 ATOM      1  P     U C2687      -1.555  -3.261  -7.610  1.00107.96      QA   P  
 ATOM      2  C5'   U C2687      -3.891  -3.757  -6.541  1.00101.20      QA   C  
 ATOM      3  O5'   U C2687      -2.532  -3.390  -6.354  1.00101.41      QA   O  
@@ -8993,7 +8993,7 @@ ENDMDL
 MODEL       51
 REMARK    model=51  nts=10
 REMARK    asymmetric internal loop: nts=10; [4,2]; linked by [#-57,#169]
-REMARK    CUGAAGCGUG C.C2806,C.U2807,C.G2808,C.A2809,C.A2810,C.G2811,C.C2889,C.G2890,C.U2891,C.G2892
+REMARK    CUGAAGCGUG .QA.C.C.2806.,.QA.C.U.2807.,.QA.C.G.2808.,.QA.C.A.2809.,.QA.C.A.2810.,.QA.C.G.2811.,.QA.C.C.2889.,.QA.C.G.2890.,.QA.C.U.2891.,.QA.C.G.2892.
 ATOM      1  P     C C2806      -5.408  -4.763 -11.284  1.00144.52      QA   P  
 ATOM      2  C5'   C C2806      -7.562  -5.157  -9.812  1.00144.40      QA   C  
 ATOM      3  O5'   C C2806      -6.149  -4.959  -9.883  1.00144.17      QA   O  
@@ -9214,7 +9214,7 @@ ENDMDL
 MODEL       52
 REMARK    model=52  nts=10
 REMARK    symmetric internal loop: nts=10; [3,3]; linked by [#179,#-58]
-REMARK    ACCCCGAACU C.A34,C.C35,C.C36,C.C37,C.C38,C.G44,C.A45,C.A46,C.C47,C.U48
+REMARK    ACCCCGAACU .RA.C.A.34.,.RA.C.C.35.,.RA.C.C.36.,.RA.C.C.37.,.RA.C.C.38.,.RA.C.G.44.,.RA.C.A.45.,.RA.C.A.46.,.RA.C.C.47.,.RA.C.U.48.
 ATOM      1  P     A C  34      -3.503  -1.385  -9.581  1.00167.38      RA   P  
 ATOM      2  C5'   A C  34      -4.925  -1.838  -7.397  1.00168.16      RA   C  
 ATOM      3  O5'   A C  34      -3.864  -1.136  -8.042  1.00168.38      RA   O  
@@ -9428,7 +9428,7 @@ ENDMDL
 MODEL       53
 REMARK    model=53  nts=11
 REMARK    asymmetric internal loop: nts=11; [4,3]; linked by [#173,#174]
-REMARK    UGUAAGUUGAG C.U2847,C.G2848,C.U2849,C.A2850,C.A2851,C.G2852,C.U2865,C.U2866,C.G2867,C.A2868,C.G2869
+REMARK    UGUAAGUUGAG .QA.C.U.2847.,.QA.C.G.2848.,.QA.C.U.2849.,.QA.C.A.2850.,.QA.C.A.2851.,.QA.C.G.2852.,.QA.C.U.2865.,.QA.C.U.2866.,.QA.C.G.2867.,.QA.C.A.2868.,.QA.C.G.2869.
 ATOM      1  P     U C2847      -8.230  -6.550 -12.290  1.00113.03      QA   P  
 ATOM      2  C5'   U C2847      -9.597  -5.820 -10.185  1.00114.14      QA   C  
 ATOM      3  O5'   U C2847      -8.359  -5.799 -10.892  1.00115.20      QA   O  
@@ -9671,7 +9671,7 @@ ENDMDL
 MODEL       54
 REMARK    model=54  nts=11
 REMARK    asymmetric internal loop: nts=11; [4,3]; linked by [#177,#178]
-REMARK    GGUCCCGAAAC C.G23,C.G24,C.U25,C.C26,C.C27,C.C28,C.G56,C.A57,C.A58,C.A59,C.C60
+REMARK    GGUCCCGAAAC .RA.C.G.23.,.RA.C.G.24.,.RA.C.U.25.,.RA.C.C.26.,.RA.C.C.27.,.RA.C.C.28.,.RA.C.G.56.,.RA.C.A.57.,.RA.C.A.58.,.RA.C.A.59.,.RA.C.C.60.
 ATOM      1  P     G C  23       1.214  -5.002  -8.401  1.00163.98      RA   P  
 ATOM      2  C5'   G C  23      -0.808  -6.257  -7.210  1.00163.13      RA   C  
 ATOM      3  O5'   G C  23      -0.309  -5.130  -7.924  1.00162.78      RA   O  
@@ -9911,7 +9911,7 @@ ENDMDL
 MODEL       55
 REMARK    model=55  nts=12
 REMARK    asymmetric internal loop: nts=12; [5,3]; linked by [#63,#-25]
-REMARK    UUAAGUGCUAAA C.U1018,C.U1019,C.A1020,C.A1021,C.G1022,C.U1023,C.G1024,C.C1140,C.U1141,C.A1142,C.A1143,C.A1144
+REMARK    UUAAGUGCUAAA .QA.C.U.1018.,.QA.C.U.1019.,.QA.C.A.1020.,.QA.C.A.1021.,.QA.C.G.1022.,.QA.C.U.1023.,.QA.C.G.1024.,.QA.C.C.1140.,.QA.C.U.1141.,.QA.C.A.1142.,.QA.C.A.1143.,.QA.C.A.1144.
 ATOM      1  P     U C1018      -8.285   5.391  10.382  1.00119.68      QA   P  
 ATOM      2  C5'   U C1018      -6.160   4.391  11.550  1.00121.21      QA   C  
 ATOM      3  O5'   U C1018      -6.852   4.699  10.352  1.00123.19      QA   O  
@@ -10172,7 +10172,7 @@ ENDMDL
 MODEL       56
 REMARK    model=56  nts=12
 REMARK    symmetric internal loop: nts=12; [4,4]; linked by [#166,#167]
-REMARK    GAUAAGCGAAAC C.G2737,C.A2738,C.U2739,C.A2740,C.A2741,C.G2742,C.C2762,C.G2763,C.A2764,C.A2765,C.A2766,C.C2767
+REMARK    GAUAAGCGAAAC .QA.C.G.2737.,.QA.C.A.2738.,.QA.C.U.2739.,.QA.C.A.2740.,.QA.C.A.2741.,.QA.C.G.2742.,.QA.C.C.2762.,.QA.C.G.2763.,.QA.C.A.2764.,.QA.C.A.2765.,.QA.C.A.2766.,.QA.C.C.2767.
 ATOM      1  P     G C2737      -0.357  -5.057   9.558  1.00112.02      QA   P  
 ATOM      2  C5'   G C2737       2.206  -5.481   9.237  1.00109.44      QA   C  
 ATOM      3  O5'   G C2737       0.927  -5.315   8.646  1.00109.81      QA   O  
@@ -10438,7 +10438,7 @@ ENDMDL
 MODEL       57
 REMARK    model=57  nts=13
 REMARK    asymmetric internal loop: nts=13; [5,4]; linked by [#18,#19]
-REMARK    CCAGUAGCGAACG C.C239,C.C240,C.A241,C.G242,C.U243,C.A244,C.G245,C.C253,C.G254,C.A255,C.A256,C.C257,C.G258
+REMARK    CCAGUAGCGAACG .QA.C.C.239.,.QA.C.C.240.,.QA.C.A.241.,.QA.C.G.242.,.QA.C.U.243.,.QA.C.A.244.,.QA.C.G.245.,.QA.C.C.253.,.QA.C.G.254.,.QA.C.A.255.,.QA.C.A.256.,.QA.C.C.257.,.QA.C.G.258.
 ATOM      1  P     C C 239      -5.458  -9.272  -6.597  1.00119.15      QA   P  
 ATOM      2  C5'   C C 239      -6.092  -8.153  -4.290  1.00125.70      QA   C  
 ATOM      3  O5'   C C 239      -6.266  -9.204  -5.229  1.00123.93      QA   O  
@@ -10723,7 +10723,7 @@ ENDMDL
 MODEL       58
 REMARK    model=58  nts=13
 REMARK    asymmetric internal loop: nts=13; [6,3]; linked by [#21,#22]
-REMARK    CCUGAAUCGUGAG C.C274,C.C275,C.U276,C.G277,C.A278,C.A279,C.U280,C.C281,C.G359,C.U360,C.G361,C.A362,C.G363
+REMARK    CCUGAAUCGUGAG .QA.C.C.274.,.QA.C.C.275.,.QA.C.U.276.,.QA.C.G.277.,.QA.C.A.278.,.QA.C.A.279.,.QA.C.U.280.,.QA.C.C.281.,.QA.C.G.359.,.QA.C.U.360.,.QA.C.G.361.,.QA.C.A.362.,.QA.C.G.363.
 ATOM      1  P     C C 274      -4.945  -9.504 -12.658  1.00186.98      QA   P  
 ATOM      2  C5'   C C 274      -7.226 -10.283 -11.606  1.00188.08      QA   C  
 ATOM      3  O5'   C C 274      -6.082  -9.441 -11.550  1.00187.19      QA   O  
@@ -11006,7 +11006,7 @@ ENDMDL
 MODEL       59
 REMARK    model=59  nts=13
 REMARK    asymmetric internal loop: nts=13; [3,6]; linked by [#-15,#41]
-REMARK    GAAACGAGAUAGC C.G674,C.A675,C.A676,C.A677,C.C678,C.G799,C.A800,C.G801,C.A802,C.U803,C.A804,C.G805,C.C806
+REMARK    GAAACGAGAUAGC .QA.C.G.674.,.QA.C.A.675.,.QA.C.A.676.,.QA.C.A.677.,.QA.C.C.678.,.QA.C.G.799.,.QA.C.A.800.,.QA.C.G.801.,.QA.C.A.802.,.QA.C.U.803.,.QA.C.A.804.,.QA.C.G.805.,.QA.C.C.806.
 ATOM      1  P     G C 674      -3.115  -5.725  -6.018  1.00 93.02      QA   P  
 ATOM      2  C5'   G C 674      -5.260  -5.804  -4.542  1.00 93.51      QA   C  
 ATOM      3  O5'   G C 674      -3.853  -5.664  -4.611  1.00 94.06      QA   O  
@@ -11295,7 +11295,7 @@ ENDMDL
 MODEL       60
 REMARK    model=60  nts=13
 REMARK    asymmetric internal loop: nts=13; [6,3]; linked by [#73,#74]
-REMARK    CUGCGAAGUGGAG C.C1208,C.U1209,C.G1210,C.C1211,C.G1212,C.A1213,C.A1214,C.G1215,C.U1234,C.G1235,C.G1236,C.A1237,C.G1238
+REMARK    CUGCGAAGUGGAG .QA.C.C.1208.,.QA.C.U.1209.,.QA.C.G.1210.,.QA.C.C.1211.,.QA.C.G.1212.,.QA.C.A.1213.,.QA.C.A.1214.,.QA.C.G.1215.,.QA.C.U.1234.,.QA.C.G.1235.,.QA.C.G.1236.,.QA.C.A.1237.,.QA.C.G.1238.
 ATOM      1  P     C C1208      -3.835   0.249 -14.583  1.00143.37      QA   P  
 ATOM      2  C5'   C C1208      -4.640   0.236 -12.074  1.00147.00      QA   C  
 ATOM      3  O5'   C C1208      -3.623  -0.026 -13.027  1.00148.92      QA   O  
@@ -11584,7 +11584,7 @@ ENDMDL
 MODEL       61
 REMARK    model=61  nts=13
 REMARK    asymmetric internal loop: nts=13; [6,3]; linked by [#132,#133]
-REMARK    CUUUGAAGUGGAG C.C2129,C.U2130,C.U2131,C.U2132,C.G2133,C.A2134,C.A2135,C.G2136,C.U2155,C.G2156,C.G2157,C.A2158,C.G2159
+REMARK    CUUUGAAGUGGAG .QA.C.C.2129.,.QA.C.U.2130.,.QA.C.U.2131.,.QA.C.U.2132.,.QA.C.G.2133.,.QA.C.A.2134.,.QA.C.A.2135.,.QA.C.G.2136.,.QA.C.U.2155.,.QA.C.G.2156.,.QA.C.G.2157.,.QA.C.A.2158.,.QA.C.G.2159.
 ATOM      1  P     C C2129      -3.646   0.810 -13.990  1.00181.39      QA   P  
 ATOM      2  C5'   C C2129      -4.960  -0.382 -12.047  1.00180.12      QA   C  
 ATOM      3  O5'   C C2129      -3.873   0.441 -12.452  1.00181.02      QA   O  
@@ -11870,7 +11870,7 @@ ENDMDL
 MODEL       62
 REMARK    model=62  nts=13
 REMARK    asymmetric internal loop: nts=13; [5,4]; linked by [#161,#-55]
-REMARK    CUAGUACGGACCG C.C2652,C.U2653,C.A2654,C.G2655,C.U2656,C.A2657,C.C2658,C.G2663,C.G2664,C.A2665,C.C2666,C.C2667,C.G2668
+REMARK    CUAGUACGGACCG .QA.C.C.2652.,.QA.C.U.2653.,.QA.C.A.2654.,.QA.C.G.2655.,.QA.C.U.2656.,.QA.C.A.2657.,.QA.C.C.2658.,.QA.C.G.2663.,.QA.C.G.2664.,.QA.C.A.2665.,.QA.C.C.2666.,.QA.C.C.2667.,.QA.C.G.2668.
 ATOM      1  P     C C2652      -4.785  -6.117  -6.585  1.00113.27      QA   P  
 ATOM      2  C5'   C C2652      -6.773  -7.158  -5.235  1.00106.84      QA   C  
 ATOM      3  O5'   C C2652      -5.403  -6.810  -5.290  1.00106.06      QA   O  
@@ -12153,7 +12153,7 @@ ENDMDL
 MODEL       63
 REMARK    model=63  nts=14
 REMARK    symmetric internal loop: nts=14; [5,5]; linked by [#2,#-1]
-REMARK    GUGGAUGCUGAAAC C.G24,C.U25,C.G26,C.G27,C.A28,C.U29,C.G30,C.C510,C.U511,C.G512,C.A513,C.A514,C.A515,C.C516
+REMARK    GUGGAUGCUGAAAC .QA.C.G.24.,.QA.C.U.25.,.QA.C.G.26.,.QA.C.G.27.,.QA.C.A.28.,.QA.C.U.29.,.QA.C.G.30.,.QA.C.C.510.,.QA.C.U.511.,.QA.C.G.512.,.QA.C.A.513.,.QA.C.A.514.,.QA.C.A.515.,.QA.C.C.516.
 ATOM      1  P     G C  24       0.423  -7.667   7.573  1.00124.01      QA   P  
 ATOM      2  C5'   G C  24       2.871  -8.551   7.830  1.00117.15      QA   C  
 ATOM      3  O5'   G C  24       1.846  -8.053   6.982  1.00115.18      QA   O  
@@ -12461,7 +12461,7 @@ ENDMDL
 MODEL       64
 REMARK    model=64  nts=14
 REMARK    asymmetric internal loop: nts=14; [3,7]; linked by [#11,#12]
-REMARK    GUAAGCGUUAUAAC C.G81,C.U82,C.A83,C.A84,C.G85,C.C97,C.G98,C.U99,C.U100,C.A101,C.U102,C.A103,C.A104,C.C105
+REMARK    GUAAGCGUUAUAAC .QA.C.G.81.,.QA.C.U.82.,.QA.C.A.83.,.QA.C.A.84.,.QA.C.G.85.,.QA.C.C.97.,.QA.C.G.98.,.QA.C.U.99.,.QA.C.U.100.,.QA.C.A.101.,.QA.C.U.102.,.QA.C.A.103.,.QA.C.A.104.,.QA.C.C.105.
 ATOM      1  P     G C  81     -10.234   1.117  12.584  1.00183.80      QA   P  
 ATOM      2  C5'   G C  81      -8.290  -0.046  13.900  1.00181.77      QA   C  
 ATOM      3  O5'   G C  81      -8.792   0.448  12.665  1.00183.87      QA   O  
@@ -12765,7 +12765,7 @@ ENDMDL
 MODEL       65
 REMARK    model=65  nts=14
 REMARK    symmetric internal loop: nts=14; [5,5]; linked by [#52,#-22]
-REMARK    GGGGUAGCGAAUAC C.G856,C.G857,C.G858,C.G859,C.U860,C.A861,C.G862,C.C915,C.G916,C.A917,C.A918,C.U919,C.A920,C.C921
+REMARK    GGGGUAGCGAAUAC .QA.C.G.856.,.QA.C.G.857.,.QA.C.G.858.,.QA.C.G.859.,.QA.C.U.860.,.QA.C.A.861.,.QA.C.G.862.,.QA.C.C.915.,.QA.C.G.916.,.QA.C.A.917.,.QA.C.A.918.,.QA.C.U.919.,.QA.C.A.920.,.QA.C.C.921.
 ATOM      1  P     G C 856      -1.304 -10.691  10.350  1.00145.33      QA   P  
 ATOM      2  C5'   G C 856       0.473  -9.498   8.874  1.00145.10      QA   C  
 ATOM      3  O5'   G C 856       0.169 -10.560   9.771  1.00146.14      QA   O  
@@ -13076,7 +13076,7 @@ ENDMDL
 MODEL       66
 REMARK    model=66  nts=14
 REMARK    asymmetric internal loop: nts=14; [7,3]; linked by [#66,#67]
-REMARK    CCCAGACAGUCGAG C.C1043,C.C1044,C.C1045,C.A1046,C.G1047,C.A1048,C.C1049,C.A1050,C.G1051,C.U1108,C.C1109,C.G1110,C.A1111,C.G1112
+REMARK    CCCAGACAGUCGAG .QA.C.C.1043.,.QA.C.C.1044.,.QA.C.C.1045.,.QA.C.A.1046.,.QA.C.G.1047.,.QA.C.A.1048.,.QA.C.C.1049.,.QA.C.A.1050.,.QA.C.G.1051.,.QA.C.U.1108.,.QA.C.C.1109.,.QA.C.G.1110.,.QA.C.A.1111.,.QA.C.G.1112.
 ATOM      1  P     C C1043      -3.480   1.424 -13.628  1.00180.93      QA   P  
 ATOM      2  C5'   C C1043      -3.907   0.126 -11.380  1.00181.38      QA   C  
 ATOM      3  O5'   C C1043      -3.221   1.160 -12.075  1.00181.62      QA   O  
@@ -13381,7 +13381,7 @@ ENDMDL
 MODEL       67
 REMARK    model=67  nts=14
 REMARK    asymmetric internal loop: nts=14; [3,7]; linked by [#159,#160]
-REMARK    CUGAGCGAGAUGAG C.C2636,C.U2637,C.G2638,C.A2639,C.G2640,C.C2774,C.G2775,C.A2776,C.G2777,C.A2778,C.U2779,C.G2780,C.A2781,C.G2782
+REMARK    CUGAGCGAGAUGAG .QA.C.C.2636.,.QA.C.U.2637.,.QA.C.G.2638.,.QA.C.A.2639.,.QA.C.G.2640.,.QA.C.C.2774.,.QA.C.G.2775.,.QA.C.A.2776.,.QA.C.G.2777.,.QA.C.A.2778.,.QA.C.U.2779.,.QA.C.G.2780.,.QA.C.A.2781.,.QA.C.G.2782.
 ATOM      1  P     C C2636      -4.215  -5.475  -9.776  1.00103.81      QA   P  
 ATOM      2  C5'   C C2636      -4.810  -4.725  -7.348  1.00104.63      QA   C  
 ATOM      3  O5'   C C2636      -5.103  -5.540  -8.465  1.00102.40      QA   O  
@@ -13692,7 +13692,7 @@ ENDMDL
 MODEL       68
 REMARK    model=68  nts=15
 REMARK    asymmetric internal loop: nts=15; [5,6]; linked by [#16,#-5]
-REMARK    GGAACUGCUAAGUAC C.G188,C.G189,C.A190,C.A191,C.C192,C.U193,C.G194,C.C201,C.U202,C.A203,C.A204,C.G205,C.U206,C.A207,C.C208
+REMARK    GGAACUGCUAAGUAC .QA.C.G.188.,.QA.C.G.189.,.QA.C.A.190.,.QA.C.A.191.,.QA.C.C.192.,.QA.C.U.193.,.QA.C.G.194.,.QA.C.C.201.,.QA.C.U.202.,.QA.C.A.203.,.QA.C.A.204.,.QA.C.G.205.,.QA.C.U.206.,.QA.C.A.207.,.QA.C.C.208.
 ATOM      1  P     G C 188      -2.386 -10.870 -12.579  1.00110.94      QA   P  
 ATOM      2  C5'   G C 188      -3.628  -9.843 -10.525  1.00104.06      QA   C  
 ATOM      3  O5'   G C 188      -3.572 -10.854 -11.510  1.00105.43      QA   O  
@@ -14019,7 +14019,7 @@ ENDMDL
 MODEL       69
 REMARK    model=69  nts=15
 REMARK    asymmetric internal loop: nts=15; [6,5]; linked by [#-29,#75]
-REMARK    AUAAGUAAUGAAAUU C.A1262,C.U1263,C.A1264,C.A1265,C.G1266,C.U1267,C.A1268,C.A1269,C.U2011,C.G2012,C.A2013,C.A2014,C.A2015,C.U2016,C.U2017
+REMARK    AUAAGUAAUGAAAUU .QA.C.A.1262.,.QA.C.U.1263.,.QA.C.A.1264.,.QA.C.A.1265.,.QA.C.G.1266.,.QA.C.U.1267.,.QA.C.A.1268.,.QA.C.A.1269.,.QA.C.U.2011.,.QA.C.G.2012.,.QA.C.A.2013.,.QA.C.A.2014.,.QA.C.A.2015.,.QA.C.U.2016.,.QA.C.U.2017.
 ATOM      1  P     A C1262       1.416  -7.858   7.187  1.00 98.80      QA   P  
 ATOM      2  C5'   A C1262       2.895  -7.915   5.031  1.00103.13      QA   C  
 ATOM      3  O5'   A C1262       2.351  -8.598   6.140  1.00105.50      QA   O  
@@ -14346,7 +14346,7 @@ ENDMDL
 MODEL       70
 REMARK    model=70  nts=15
 REMARK    asymmetric internal loop: nts=15; [10,1]; linked by [#-42,#-43]
-REMARK    GUGUAGGAUAGGCCC C.G2110,C.U2111,C.G2112,C.U2113,C.A2114,C.G2115,C.G2116,C.A2117,C.U2118,C.A2119,C.G2120,C.G2121,C.C2177,C.C2178,C.C2179
+REMARK    GUGUAGGAUAGGCCC .QA.C.G.2110.,.QA.C.U.2111.,.QA.C.G.2112.,.QA.C.U.2113.,.QA.C.A.2114.,.QA.C.G.2115.,.QA.C.G.2116.,.QA.C.A.2117.,.QA.C.U.2118.,.QA.C.A.2119.,.QA.C.G.2120.,.QA.C.G.2121.,.QA.C.C.2177.,.QA.C.C.2178.,.QA.C.C.2179.
 ATOM      1  P     G C2110     -10.385  -7.167  -4.970  1.00177.86      QA   P  
 ATOM      2  C5'   G C2110     -10.545  -5.435  -2.998  1.00176.40      QA   C  
 ATOM      3  O5'   G C2110     -11.004  -6.641  -3.600  1.00175.25      QA   O  
@@ -14675,7 +14675,7 @@ ENDMDL
 MODEL       71
 REMARK    model=71  nts=16
 REMARK    asymmetric internal loop: nts=16; [5,7]; linked by [#110,#111]
-REMARK    UGCAAACGGACGUAUA C.U1798,C.G1799,C.C1800,C.A1801,C.A1802,C.A1803,C.C1804,C.G1813,C.G1814,C.A1815,C.C1816,C.G1817,C.U1818,C.A1819,C.U1820,C.A1821
+REMARK    UGCAAACGGACGUAUA .QA.C.U.1798.,.QA.C.G.1799.,.QA.C.C.1800.,.QA.C.A.1801.,.QA.C.A.1802.,.QA.C.A.1803.,.QA.C.C.1804.,.QA.C.G.1813.,.QA.C.G.1814.,.QA.C.A.1815.,.QA.C.C.1816.,.QA.C.G.1817.,.QA.C.U.1818.,.QA.C.A.1819.,.QA.C.U.1820.,.QA.C.A.1821.
 ATOM      1  P     U C1798       1.810   2.535  -9.964  1.00 96.90      QA   P  
 ATOM      2  C5'   U C1798       0.297   1.938  -7.921  1.00 96.71      QA   C  
 ATOM      3  O5'   U C1798       1.381   2.697  -8.438  1.00 95.96      QA   O  
@@ -15024,7 +15024,7 @@ ENDMDL
 MODEL       72
 REMARK    model=72  nts=18
 REMARK    asymmetric internal loop: nts=18; [2,12]; linked by [#-10,#31]
-REMARK    GAACGAGUGAAAAAGAAC C.G481,C.A482,C.A483,C.C484,C.G496,C.A497,C.G498,C.U499,C.G500,C.A501,C.A502,C.A503,C.A504,C.A505,C.G506,C.A507,C.A508,C.C509
+REMARK    GAACGAGUGAAAAAGAAC .QA.C.G.481.,.QA.C.A.482.,.QA.C.A.483.,.QA.C.C.484.,.QA.C.G.496.,.QA.C.A.497.,.QA.C.G.498.,.QA.C.U.499.,.QA.C.G.500.,.QA.C.A.501.,.QA.C.A.502.,.QA.C.A.503.,.QA.C.A.504.,.QA.C.A.505.,.QA.C.G.506.,.QA.C.A.507.,.QA.C.A.508.,.QA.C.C.509.
 ATOM      1  P     G C 481      -5.924  -4.584  -1.365  1.00145.71      QA   P  
 ATOM      2  C5'   G C 481      -5.180  -3.875  -3.790  1.00148.73      QA   C  
 ATOM      3  O5'   G C 481      -5.973  -3.605  -2.625  1.00151.26      QA   O  
@@ -15424,7 +15424,7 @@ ENDMDL
 MODEL       73
 REMARK    model=73  nts=18
 REMARK    symmetric internal loop: nts=18; [7,7]; linked by [#180,#181]
-REMARK    CGAUGGUAGCGAGAGUAG C.C71,C.G72,C.A73,C.U74,C.G75,C.G76,C.U77,C.A78,C.G79,C.C97,C.G98,C.A99,C.G100,C.A101,C.G102,C.U103,C.A104,C.G105
+REMARK    CGAUGGUAGCGAGAGUAG .RA.C.C.71.,.RA.C.G.72.,.RA.C.A.73.,.RA.C.U.74.,.RA.C.G.75.,.RA.C.G.76.,.RA.C.U.77.,.RA.C.A.78.,.RA.C.G.79.,.RA.C.C.97.,.RA.C.G.98.,.RA.C.A.99.,.RA.C.G.100.,.RA.C.A.101.,.RA.C.G.102.,.RA.C.U.103.,.RA.C.A.104.,.RA.C.G.105.
 ATOM      1  P     C C  71      -7.081 -10.075   4.503  1.00121.17      RA   P  
 ATOM      2  C5'   C C  71      -5.048 -10.558   6.088  1.00123.09      RA   C  
 ATOM      3  O5'   C C  71      -5.520 -10.226   4.787  1.00123.64      RA   O  
@@ -15823,7 +15823,7 @@ ENDMDL
 MODEL       74
 REMARK    model=74  nts=20
 REMARK    symmetric internal loop: nts=20; [8,8]; linked by [#116,#117]
-REMARK    UUAAUUGAUGUUGAUCGAAG C.U1851,C.U1852,C.A1853,C.A1854,C.U1855,C.U1856,C.G1857,C.A1858,C.U1859,C.G1860,C.U1882,C.U1883,C.G1884,C.A1885,C.U1886,C.C1887,C.G1888,C.A1889,C.A1890,C.G1891
+REMARK    UUAAUUGAUGUUGAUCGAAG .QA.C.U.1851.,.QA.C.U.1852.,.QA.C.A.1853.,.QA.C.A.1854.,.QA.C.U.1855.,.QA.C.U.1856.,.QA.C.G.1857.,.QA.C.A.1858.,.QA.C.U.1859.,.QA.C.G.1860.,.QA.C.U.1882.,.QA.C.U.1883.,.QA.C.G.1884.,.QA.C.A.1885.,.QA.C.U.1886.,.QA.C.C.1887.,.QA.C.G.1888.,.QA.C.A.1889.,.QA.C.A.1890.,.QA.C.G.1891.
 ATOM      1  P     U C1851      -5.282 -11.427   0.139  1.00111.10      QA   P  
 ATOM      2  C5'   U C1851      -3.774 -11.298   2.237  1.00102.33      QA   C  
 ATOM      3  O5'   U C1851      -3.848 -11.349   0.824  1.00103.75      QA   O  
@@ -16255,7 +16255,7 @@ ENDMDL
 MODEL       75
 REMARK    model=75  nts=24
 REMARK    asymmetric internal loop: nts=24; [5,15]; linked by [#-43,#132]
-REMARK    GUGGGAGCGACCUUGAAAUACCAC C.G2121,C.U2122,C.G2123,C.G2124,C.G2125,C.A2126,C.G2127,C.C2161,C.G2162,C.A2163,C.C2164,C.C2165,C.U2166,C.U2167,C.G2168,C.A2169,C.A2170,C.A2171,C.U2172,C.A2173,C.C2174,C.C2175,C.A2176,C.C2177
+REMARK    GUGGGAGCGACCUUGAAAUACCAC .QA.C.G.2121.,.QA.C.U.2122.,.QA.C.G.2123.,.QA.C.G.2124.,.QA.C.G.2125.,.QA.C.A.2126.,.QA.C.G.2127.,.QA.C.C.2161.,.QA.C.G.2162.,.QA.C.A.2163.,.QA.C.C.2164.,.QA.C.C.2165.,.QA.C.U.2166.,.QA.C.U.2167.,.QA.C.G.2168.,.QA.C.A.2169.,.QA.C.A.2170.,.QA.C.A.2171.,.QA.C.U.2172.,.QA.C.A.2173.,.QA.C.C.2174.,.QA.C.C.2175.,.QA.C.A.2176.,.QA.C.C.2177.
 ATOM      1  P     G C2121      -9.524   0.448  11.235  1.00187.69      QA   P  
 ATOM      2  C5'   G C2121      -7.648   1.497  12.766  1.00188.46      QA   C  
 ATOM      3  O5'   G C2121      -8.621   0.477  12.554  1.00188.08      QA   O  

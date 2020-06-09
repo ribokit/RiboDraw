@@ -1,7 +1,7 @@
 MODEL        1
 REMARK    model=1  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#4,#5]
-REMARK    GCGAC C.G36,C.C37,C.G442,C.A443,C.C444
+REMARK    GCGAC .QA.C.G.36.,.QA.C.C.37.,.QA.C.G.442.,.QA.C.A.443.,.QA.C.C.444.
 ATOM      1  P     G C  36     -10.273  -1.137  -3.511  1.00123.68      QA   P  
 ATOM      2  C5'   G C  36      -9.042  -0.398  -1.276  1.00126.95      QA   C  
 ATOM      3  O5'   G C  36      -9.977  -1.232  -1.946  1.00128.03      QA   O  
@@ -114,7 +114,7 @@ ENDMDL
 MODEL        2
 REMARK    model=2  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#5,#6]
-REMARK    GAUCC C.G43,C.A44,C.U434,C.C435,C.C436
+REMARK    GAUCC .QA.C.G.43.,.QA.C.A.44.,.QA.C.U.434.,.QA.C.C.435.,.QA.C.C.436.
 ATOM      1  P     G C  43      -8.874  -2.939  -3.693  1.00153.14      QA   P  
 ATOM      2  C5'   G C  43      -8.380  -2.322  -1.186  1.00149.10      QA   C  
 ATOM      3  O5'   G C  43      -8.226  -3.223  -2.263  1.00149.87      QA   O  
@@ -224,7 +224,7 @@ ENDMDL
 MODEL        3
 REMARK    model=3  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#-4,#16]
-REMARK    CCGAG C.C183,C.C184,C.G212,C.A213,C.G214
+REMARK    CCGAG .QA.C.C.183.,.QA.C.C.184.,.QA.C.G.212.,.QA.C.A.213.,.QA.C.G.214.
 ATOM      1  P     C C 183      -8.730   0.865  -2.100  1.00120.73      QA   P  
 ATOM      2  C5'   C C 183      -9.366   0.515   0.395  1.00115.30      QA   C  
 ATOM      3  O5'   C C 183      -8.335   0.687  -0.570  1.00110.62      QA   O  
@@ -337,7 +337,7 @@ ENDMDL
 MODEL        4
 REMARK    model=4  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#42,#-16]
-REMARK    GCGAC C.G697,C.C698,C.G763,C.A764,C.C765
+REMARK    GCGAC .QA.C.G.697.,.QA.C.C.698.,.QA.C.G.763.,.QA.C.A.764.,.QA.C.C.765.
 ATOM      1  P     G C 697      -8.974  -0.920  -3.758  1.00109.09      QA   P  
 ATOM      2  C5'   G C 697      -9.295  -1.666  -1.272  1.00108.21      QA   C  
 ATOM      3  O5'   G C 697      -8.431  -1.180  -2.286  1.00106.83      QA   O  
@@ -450,7 +450,7 @@ ENDMDL
 MODEL        5
 REMARK    model=5  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#43,#-17]
-REMARK    UUGGA C.U702,C.U703,C.G728,C.G729,C.A730
+REMARK    UUGGA .QA.C.U.702.,.QA.C.U.703.,.QA.C.G.728.,.QA.C.G.729.,.QA.C.A.730.
 ATOM      1  P     U C 702     -10.601  -2.598  -3.498  1.00115.78      QA   P  
 ATOM      2  C5'   U C 702      -9.078  -1.646  -1.584  1.00114.11      QA   C  
 ATOM      3  O5'   U C 702     -10.067  -2.578  -1.996  1.00116.33      QA   O  
@@ -563,7 +563,7 @@ ENDMDL
 MODEL        6
 REMARK    model=6  nts=5
 REMARK    bulge: nts=5; [1,0]; linked by [#45,#46]
-REMARK    GACGC C.G738,C.A739,C.C740,C.G757,C.C758
+REMARK    GACGC .QA.C.G.738.,.QA.C.A.739.,.QA.C.C.740.,.QA.C.G.757.,.QA.C.C.758.
 ATOM      1  P     G C 738      -9.828  -1.499  -7.038  1.00 94.12      QA   P  
 ATOM      2  C5'   G C 738     -10.277  -1.673  -4.432  1.00 89.21      QA   C  
 ATOM      3  O5'   G C 738      -9.389  -1.406  -5.509  1.00 90.10      QA   O  
@@ -676,7 +676,7 @@ ENDMDL
 MODEL        7
 REMARK    model=7  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#-20,#50]
-REMARK    CCGAG C.C837,C.C838,C.G940,C.A941,C.G942
+REMARK    CCGAG .QA.C.C.837.,.QA.C.C.838.,.QA.C.G.940.,.QA.C.A.941.,.QA.C.G.942.
 ATOM      1  P     C C 837      -8.581   1.320  -3.696  1.00119.22      QA   P  
 ATOM      2  C5'   C C 837      -9.258   1.069  -1.167  1.00119.95      QA   C  
 ATOM      3  O5'   C C 837      -8.236   1.165  -2.146  1.00121.64      QA   O  
@@ -789,7 +789,7 @@ ENDMDL
 MODEL        8
 REMARK    model=8  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#51,#52]
-REMARK    UCGAA C.U850,C.C851,C.G926,C.A927,C.A928
+REMARK    UCGAA .QA.C.U.850.,.QA.C.C.851.,.QA.C.G.926.,.QA.C.A.927.,.QA.C.A.928.
 ATOM      1  P     U C 850      -8.291   0.292  -3.224  1.00134.64      QA   P  
 ATOM      2  C5'   U C 850      -8.954  -0.300  -0.744  1.00133.88      QA   C  
 ATOM      3  O5'   U C 850      -8.022   0.277  -1.653  1.00135.47      QA   O  
@@ -901,7 +901,7 @@ ENDMDL
 MODEL        9
 REMARK    model=9  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#-22,#53]
-REMARK    GAUGC C.G862,C.A863,C.U913,C.G914,C.C915
+REMARK    GAUGC .QA.C.G.862.,.QA.C.A.863.,.QA.C.U.913.,.QA.C.G.914.,.QA.C.C.915.
 ATOM      1  P     G C 862      -7.874  -0.934  -4.081  1.00119.17      QA   P  
 ATOM      2  C5'   G C 862      -8.848  -1.172  -1.668  1.00127.14      QA   C  
 ATOM      3  O5'   G C 862      -7.742  -0.836  -2.498  1.00125.41      QA   O  
@@ -1014,7 +1014,7 @@ ENDMDL
 MODEL       10
 REMARK    model=10  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#56,#-23]
-REMARK    GGUAC C.G880,C.G881,C.U895,C.A896,C.C897
+REMARK    GGUAC .QA.C.G.880.,.QA.C.G.881.,.QA.C.U.895.,.QA.C.A.896.,.QA.C.C.897.
 ATOM      1  P     G C 880     -10.363   0.050  -2.142  1.00158.37      QA   P  
 ATOM      2  C5'   G C 880      -9.243   1.217  -0.036  1.00154.94      QA   C  
 ATOM      3  O5'   G C 880      -9.949   0.116  -0.601  1.00155.03      QA   O  
@@ -1127,7 +1127,7 @@ ENDMDL
 MODEL       11
 REMARK    model=11  nts=5
 REMARK    bulge: nts=5; [1,0]; linked by [#59,#60]
-REMARK    CCAUG C.C994,C.C995,C.A996,C.U1159,C.G1160
+REMARK    CCAUG .QA.C.C.994.,.QA.C.C.995.,.QA.C.A.996.,.QA.C.U.1159.,.QA.C.G.1160.
 ATOM      1  P     C C 994      -9.601  -2.295  -5.053  1.00116.54      QA   P  
 ATOM      2  C5'   C C 994      -9.856  -2.815  -2.474  1.00115.65      QA   C  
 ATOM      3  O5'   C C 994      -9.026  -2.488  -3.575  1.00115.95      QA   O  
@@ -1237,7 +1237,7 @@ ENDMDL
 MODEL       12
 REMARK    model=12  nts=5
 REMARK    bulge: nts=5; [1,0]; linked by [#-24,#63]
-REMARK    GUCGC C.G1011,C.U1012,C.C1013,C.G1149,C.C1150
+REMARK    GUCGC .QA.C.G.1011.,.QA.C.U.1012.,.QA.C.C.1013.,.QA.C.G.1149.,.QA.C.C.1150.
 ATOM      1  P     G C1011      -8.744  -6.776   3.876  1.00116.56      QA   P  
 ATOM      2  C5'   G C1011      -7.503  -5.045   2.349  1.00117.48      QA   C  
 ATOM      3  O5'   G C1011      -8.731  -5.628   2.773  1.00117.32      QA   O  
@@ -1348,7 +1348,7 @@ ENDMDL
 MODEL       13
 REMARK    model=13  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#94,#-31]
-REMARK    GCGUC C.G1450,C.C1451,C.G1459,C.U1460,C.C1461
+REMARK    GCGUC .QA.C.G.1450.,.QA.C.C.1451.,.QA.C.G.1459.,.QA.C.U.1460.,.QA.C.C.1461.
 ATOM      1  P     G C1450      -9.395  -1.586  -2.802  1.00147.03      QA   P  
 ATOM      2  C5'   G C1450      -9.273  -2.611  -0.425  1.00139.80      QA   C  
 ATOM      3  O5'   G C1450      -8.590  -1.978  -1.492  1.00140.35      QA   O  
@@ -1459,7 +1459,7 @@ ENDMDL
 MODEL       14
 REMARK    model=14  nts=5
 REMARK    bulge: nts=5; [1,0]; linked by [#99,#100]
-REMARK    CAGCG C.C1489,C.A1490,C.G1491,C.C1499,C.G1500
+REMARK    CAGCG .QA.C.C.1489.,.QA.C.A.1490.,.QA.C.G.1491.,.QA.C.C.1499.,.QA.C.G.1500.
 ATOM      1  P     C C1489      -9.116   0.060  -5.828  1.00141.93      QA   P  
 ATOM      2  C5'   C C1489      -9.559  -1.095  -3.508  1.00138.00      QA   C  
 ATOM      3  O5'   C C1489      -8.640  -0.530  -4.426  1.00139.78      QA   O  
@@ -1572,7 +1572,7 @@ ENDMDL
 MODEL       15
 REMARK    model=15  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#107,#108]
-REMARK    GCGAU C.G1770,C.C1771,C.G1980,C.A1981,C.U1982
+REMARK    GCGAU .QA.C.G.1770.,.QA.C.C.1771.,.QA.C.G.1980.,.QA.C.A.1981.,.QA.C.U.1982.
 ATOM      1  P     G C1770      -8.460  -0.905  -3.320  1.00 83.01      QA   P  
 ATOM      2  C5'   G C1770      -9.081  -1.652  -0.881  1.00 78.34      QA   C  
 ATOM      3  O5'   G C1770      -8.063  -1.317  -1.824  1.00 83.04      QA   O  
@@ -1685,7 +1685,7 @@ ENDMDL
 MODEL       16
 REMARK    model=16  nts=5
 REMARK    bulge: nts=5; [1,0]; linked by [#122,#123]
-REMARK    CAAUG C.C2050,C.A2051,C.A2052,C.U2617,C.G2618
+REMARK    CAAUG .QA.C.C.2050.,.QA.C.A.2051.,.QA.C.A.2052.,.QA.C.U.2617.,.QA.C.G.2618.
 ATOM      1  P     C C2050      -8.911  -2.114  -6.716  1.00 86.66      QA   P  
 ATOM      2  C5'   C C2050      -9.150  -3.190  -4.333  1.00 98.14      QA   C  
 ATOM      3  O5'   C C2050      -8.467  -2.284  -5.199  1.00 97.70      QA   O  
@@ -1797,7 +1797,7 @@ ENDMDL
 MODEL       17
 REMARK    model=17  nts=5
 REMARK    bulge: nts=5; [1,0]; linked by [#125,#126]
-REMARK    GUgCC C.G2067,C.U2068,C.G7M2069,C.C2442,C.C2443
+REMARK    GUgCC .QA.C.G.2067.,.QA.C.U.2068.,.QA.C.G7M.2069.,.QA.C.C.2442.,.QA.C.C.2443.
 ATOM      1  P     G C2067     -10.260  -1.511  -2.291  1.00 90.58      QA   P  
 ATOM      2  C5'   G C2067      -9.876  -2.796  -0.062  1.00 95.82      QA   C  
 ATOM      3  O5'   G C2067      -9.422  -1.805  -0.978  1.00 96.72      QA   O  
@@ -1909,7 +1909,7 @@ ENDMDL
 MODEL       18
 REMARK    model=18  nts=5
 REMARK    bulge: nts=5; [1,0]; linked by [#134,#135]
-REMARK    UUGUG C.U2202,C.U2203,C.G2204,C.U2220,C.G2221
+REMARK    UUGUG .QA.C.U.2202.,.QA.C.U.2203.,.QA.C.G.2204.,.QA.C.U.2220.,.QA.C.G.2221.
 ATOM      1  P     U C2202      -9.024   0.001  -5.243  1.00101.54      QA   P  
 ATOM      2  C5'   U C2202      -9.149  -0.275  -2.655  1.00107.41      QA   C  
 ATOM      3  O5'   U C2202      -8.347  -0.093  -3.810  1.00109.07      QA   O  
@@ -2020,7 +2020,7 @@ ENDMDL
 MODEL       19
 REMARK    model=19  nts=5
 REMARK    bulge: nts=5; [1,0]; linked by [#146,#147]
-REMARK    UUCGG C.U2401,C.U2402,C.C2403,C.G2414,C.G2415
+REMARK    UUCGG .QA.C.U.2401.,.QA.C.U.2402.,.QA.C.C.2403.,.QA.C.G.2414.,.QA.C.G.2415.
 ATOM      1  P     U C2401      -8.235  -2.537  -6.106  1.00126.73      QA   P  
 ATOM      2  C5'   U C2401      -8.568  -3.262  -3.595  1.00123.45      QA   C  
 ATOM      3  O5'   U C2401      -7.990  -2.356  -4.535  1.00124.13      QA   O  
@@ -2131,7 +2131,7 @@ ENDMDL
 MODEL       20
 REMARK    model=20  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#-49,#-50]
-REMARK    AGcCU C.A2453,C.G2454,C.OMC2498,C.C2499,C.U2500
+REMARK    AGcCU .QA.C.A.2453.,.QA.C.G.2454.,.QA.C.OMC.2498.,.QA.C.C.2499.,.QA.C.U.2500.
 ATOM      1  P     A C2453      -9.190  -0.895  -1.840  1.00 85.35      QA   P  
 ATOM      2  C5'   A C2453      -9.501  -0.406   0.731  1.00 91.15      QA   C  
 ATOM      3  O5'   A C2453      -8.638  -0.598  -0.384  1.00 93.18      QA   O  
@@ -2242,7 +2242,7 @@ ENDMDL
 MODEL       21
 REMARK    model=21  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#-50,#148]
-REMARK    GGCAc C.G2454,C.G2455,C.C2496,C.A2497,C.OMC2498
+REMARK    GGCAc .QA.C.G.2454.,.QA.C.G.2455.,.QA.C.C.2496.,.QA.C.A.2497.,.QA.C.OMC.2498.
 ATOM      1  P     G C2454      -8.149   1.449  -3.364  1.00 83.30      QA   P  
 ATOM      2  C5'   G C2454      -8.978   0.937  -0.976  1.00 93.56      QA   C  
 ATOM      3  O5'   G C2454      -7.883   1.044  -1.859  1.00 92.41      QA   O  
@@ -2356,7 +2356,7 @@ ENDMDL
 MODEL       22
 REMARK    model=22  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#157,#158]
-REMARK    CGCAG C.C2591,C.G2592,C.C2601,C.A2602,C.G2603
+REMARK    CGCAG .QA.C.C.2591.,.QA.C.G.2592.,.QA.C.C.2601.,.QA.C.A.2602.,.QA.C.G.2603.
 ATOM      1  P     C C2591      -8.667   0.155  -3.297  1.00 76.87      QA   P  
 ATOM      2  C5'   C C2591      -9.166  -0.610  -0.851  1.00 84.02      QA   C  
 ATOM      3  O5'   C C2591      -8.242  -0.048  -1.778  1.00 85.94      QA   O  
@@ -2469,7 +2469,7 @@ ENDMDL
 MODEL       23
 REMARK    model=23  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#171,#172]
-REMARK    GGUAC C.G2838,C.G2839,C.U2878,C.A2879,C.C2880
+REMARK    GGUAC .QA.C.G.2838.,.QA.C.G.2839.,.QA.C.U.2878.,.QA.C.A.2879.,.QA.C.C.2880.
 ATOM      1  P     G C2838      -8.294   0.777  -3.418  1.00108.78      QA   P  
 ATOM      2  C5'   G C2838      -8.878   0.297  -0.903  1.00110.10      QA   C  
 ATOM      3  O5'   G C2838      -7.889   0.560  -1.888  1.00111.77      QA   O  
@@ -2582,7 +2582,7 @@ ENDMDL
 MODEL       24
 REMARK    model=24  nts=5
 REMARK    bulge: nts=5; [0,1]; linked by [#176,#177]
-REMARK    CGUAG C.C17,C.G18,C.U65,C.A66,C.G67
+REMARK    CGUAG .RA.C.C.17.,.RA.C.G.18.,.RA.C.U.65.,.RA.C.A.66.,.RA.C.G.67.
 ATOM      1  P     C C  17      -8.868  -0.623  -2.642  1.00157.61      RA   P  
 ATOM      2  C5'   C C  17      -8.427   0.549  -0.341  1.00157.59      RA   C  
 ATOM      3  O5'   C C  17      -9.279  -0.230  -1.157  1.00157.07      RA   O  
@@ -2695,7 +2695,7 @@ ENDMDL
 MODEL       25
 REMARK    model=25  nts=6
 REMARK    bulge: nts=6; [2,0]; linked by [#50,#-21]
-REMARK    AAUUAU C.A844,C.A845,C.U846,C.U847,C.A933,C.U934
+REMARK    AAUUAU .QA.C.A.844.,.QA.C.A.845.,.QA.C.U.846.,.QA.C.U.847.,.QA.C.A.933.,.QA.C.U.934.
 ATOM      1  P     A C 844      -8.399  -7.331  -3.050  1.00134.21      QA   P  
 ATOM      2  C5'   A C 844      -9.284  -6.162  -0.893  1.00133.70      QA   C  
 ATOM      3  O5'   A C 844      -8.202  -6.367  -1.799  1.00133.95      QA   O  
@@ -2826,7 +2826,7 @@ ENDMDL
 MODEL       26
 REMARK    model=26  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#-21,#51]
-REMARK    UCGUUA C.U847,C.C848,C.G930,C.U931,C.U932,C.A933
+REMARK    UCGUUA .QA.C.U.847.,.QA.C.C.848.,.QA.C.G.930.,.QA.C.U.931.,.QA.C.U.932.,.QA.C.A.933.
 ATOM      1  P     U C 847     -10.267   0.049  -3.279  1.00144.09      QA   P  
 ATOM      2  C5'   U C 847      -9.672   0.325  -0.740  1.00138.20      QA   C  
 ATOM      3  O5'   U C 847      -9.774  -0.548  -1.868  1.00140.71      QA   O  
@@ -2956,7 +2956,7 @@ ENDMDL
 MODEL       27
 REMARK    model=27  nts=6
 REMARK    bulge: nts=6; [2,0]; linked by [#79,#-30]
-REMARK    GGUUAC C.G1310,C.G1311,C.U1312,C.U1313,C.A1603,C.C1604
+REMARK    GGUUAC .QA.C.G.1310.,.QA.C.G.1311.,.QA.C.U.1312.,.QA.C.U.1313.,.QA.C.A.1603.,.QA.C.C.1604.
 ATOM      1  P     G C1310      -8.863  -0.380  -6.915  1.00108.08      QA   P  
 ATOM      2  C5'   G C1310      -9.435  -0.480  -4.378  1.00106.77      QA   C  
 ATOM      3  O5'   G C1310      -8.457  -0.265  -5.381  1.00107.03      QA   O  
@@ -3089,7 +3089,7 @@ ENDMDL
 MODEL       28
 REMARK    model=28  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#98,#99]
-REMARK    UGCAAG C.U1481,C.G1482,C.C1507,C.A1508,C.A1509,C.G1510
+REMARK    UGCAAG .QA.C.U.1481.,.QA.C.G.1482.,.QA.C.C.1507.,.QA.C.A.1508.,.QA.C.A.1509.,.QA.C.G.1510.
 ATOM      1  P     U C1481       3.554  -2.343 -10.978  1.00139.60      QA   P  
 ATOM      2  C5'   U C1481       1.526  -3.140  -9.470  1.00140.76      QA   C  
 ATOM      3  O5'   U C1481       2.909  -2.840  -9.609  1.00141.51      QA   O  
@@ -3224,7 +3224,7 @@ ENDMDL
 MODEL       29
 REMARK    model=29  nts=6
 REMARK    bulge: nts=6; [2,0]; linked by [#106,#-34]
-REMARK    GGAAUC C.G1666,C.G1667,C.A1668,C.A1669,C.U1993,C.C1994
+REMARK    GGAAUC .QA.C.G.1666.,.QA.C.G.1667.,.QA.C.A.1668.,.QA.C.A.1669.,.QA.C.U.1993.,.QA.C.C.1994.
 ATOM      1  P     G C1666      -9.453  -0.632  -6.280  1.00 99.13      QA   P  
 ATOM      2  C5'   G C1666      -9.543  -0.571  -3.668  1.00 98.84      QA   C  
 ATOM      3  O5'   G C1666      -8.769  -0.486  -4.854  1.00 99.94      QA   O  
@@ -3359,7 +3359,7 @@ ENDMDL
 MODEL       30
 REMARK    model=30  nts=6
 REMARK    bulge: nts=6; [2,0]; linked by [#113,#114]
-REMARK    CCGGCG C.C1837,C.C1838,C.G1839,C.G1840,C.C1902,C.G1903
+REMARK    CCGGCG .QA.C.C.1837.,.QA.C.C.1838.,.QA.C.G.1839.,.QA.C.G.1840.,.QA.C.C.1902.,.QA.C.G.1903.
 ATOM      1  P     C C1837      -7.848  -2.212  -8.201  1.00 84.56      QA   P  
 ATOM      2  C5'   C C1837      -8.431  -2.630  -5.694  1.00 85.47      QA   C  
 ATOM      3  O5'   C C1837      -7.421  -2.432  -6.680  1.00 87.88      QA   O  
@@ -3493,7 +3493,7 @@ ENDMDL
 MODEL       31
 REMARK    model=31  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#114,#115]
-REMARK    UGUAAA C.U1841,C.G1842,C.U1898,C.A1899,C.A1900,C.A1901
+REMARK    UGUAAA .QA.C.U.1841.,.QA.C.G.1842.,.QA.C.U.1898.,.QA.C.A.1899.,.QA.C.A.1900.,.QA.C.A.1901.
 ATOM      1  P     U C1841      -8.875   0.735  -2.850  1.00 98.09      QA   P  
 ATOM      2  C5'   U C1841      -9.217   0.021  -0.373  1.00 93.05      QA   C  
 ATOM      3  O5'   U C1841      -8.378   0.620  -1.342  1.00 91.94      QA   O  
@@ -3627,7 +3627,7 @@ ENDMDL
 MODEL       32
 REMARK    model=32  nts=6
 REMARK    bulge: nts=6; [2,0]; linked by [#115,#116]
-REMARK    GAAGCC C.G1846,C.A1847,C.A1848,C.G1849,C.C1893,C.C1894
+REMARK    GAAGCC .QA.C.G.1846.,.QA.C.A.1847.,.QA.C.A.1848.,.QA.C.G.1849.,.QA.C.C.1893.,.QA.C.C.1894.
 ATOM      1  P     G C1846      -7.617  -2.661  -8.788  1.00108.32      QA   P  
 ATOM      2  C5'   G C1846      -8.313  -3.884  -6.557  1.00100.03      QA   C  
 ATOM      3  O5'   G C1846      -7.394  -3.046  -7.255  1.00102.63      QA   O  
@@ -3762,7 +3762,7 @@ ENDMDL
 MODEL       33
 REMARK    model=33  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#-36,#-37]
-REMARK    GCGCAC C.G1933,C.C1934,C.G1964,C.C1965,C.A1966,C.C1967
+REMARK    GCGCAC .QA.C.G.1933.,.QA.C.C.1934.,.QA.C.G.1964.,.QA.C.C.1965.,.QA.C.A.1966.,.QA.C.C.1967.
 ATOM      1  P     G C1933      -8.962  -0.320  -3.168  1.00 85.33      QA   P  
 ATOM      2  C5'   G C1933      -9.436   0.154  -0.608  1.00 79.94      QA   C  
 ATOM      3  O5'   G C1933      -8.515  -0.128  -1.648  1.00 80.66      QA   O  
@@ -3895,7 +3895,7 @@ ENDMDL
 MODEL       34
 REMARK    model=34  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#126,#127]
-REMARK    AAUACU C.A2070,C.A2071,C.U2438,C.A2439,C.C2440,C.U2441
+REMARK    AAUACU .QA.C.A.2070.,.QA.C.A.2071.,.QA.C.U.2438.,.QA.C.A.2439.,.QA.C.C.2440.,.QA.C.U.2441.
 ATOM      1  P     A C2070      -9.301  -1.387  -3.497  1.00 92.84      QA   P  
 ATOM      2  C5'   A C2070      -9.260  -1.990  -0.948  1.00 92.95      QA   C  
 ATOM      3  O5'   A C2070      -8.551  -1.529  -2.092  1.00 93.84      QA   O  
@@ -4026,7 +4026,7 @@ ENDMDL
 MODEL       35
 REMARK    model=35  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#-52,#153]
-REMARK    CAUACG C.C2512,C.A2513,C.U2571,C.A2572,C.C2573,C.G2574
+REMARK    CAUACG .QA.C.C.2512.,.QA.C.A.2513.,.QA.C.U.2571.,.QA.C.A.2572.,.QA.C.C.2573.,.QA.C.G.2574.
 ATOM      1  P     C C2512     -10.939  -1.927  -0.510  1.00 92.34      QA   P  
 ATOM      2  C5'   C C2512     -10.346  -1.400   1.981  1.00 95.49      QA   C  
 ATOM      3  O5'   C C2512      -9.932  -1.484   0.631  1.00 93.00      QA   O  
@@ -4158,7 +4158,7 @@ ENDMDL
 MODEL       36
 REMARK    model=36  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#154,#155]
-REMARK    UGCAAG C.U2522,C.G2523,C.C2540,C.A2541,C.A2542,C.G2543
+REMARK    UGCAAG .QA.C.U.2522.,.QA.C.G.2523.,.QA.C.C.2540.,.QA.C.A.2541.,.QA.C.A.2542.,.QA.C.G.2543.
 ATOM      1  P     U C2522      -8.299   0.116  -3.386  1.00 97.93      QA   P  
 ATOM      2  C5'   U C2522      -8.850  -0.148  -0.840  1.00 98.56      QA   C  
 ATOM      3  O5'   U C2522      -7.877  -0.130  -1.873  1.00 97.09      QA   O  
@@ -4293,7 +4293,7 @@ ENDMDL
 MODEL       37
 REMARK    model=37  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#164,#165]
-REMARK    UUACUG C.U2695,C.U2696,C.A2711,C.C2712,C.U2713,C.G2714
+REMARK    UUACUG .QA.C.U.2695.,.QA.C.U.2696.,.QA.C.A.2711.,.QA.C.C.2712.,.QA.C.U.2713.,.QA.C.G.2714.
 ATOM      1  P     U C2695      -9.928  -0.585  -4.169  1.00111.34      QA   P  
 ATOM      2  C5'   U C2695      -9.636  -1.067  -1.618  1.00117.59      QA   C  
 ATOM      3  O5'   U C2695      -9.085  -0.575  -2.823  1.00118.42      QA   O  
@@ -4423,7 +4423,7 @@ ENDMDL
 MODEL       38
 REMARK    model=38  nts=6
 REMARK    bulge: nts=6; [0,2]; linked by [#178,#179]
-REMARK    CCGAAG C.C30,C.C31,C.G51,C.A52,C.A53,C.G54
+REMARK    CCGAAG .RA.C.C.30.,.RA.C.C.31.,.RA.C.G.51.,.RA.C.A.52.,.RA.C.A.53.,.RA.C.G.54.
 ATOM      1  P     C C  30      -7.343  -0.074  -3.262  1.00164.31      RA   P  
 ATOM      2  C5'   C C  30      -8.280   0.785  -0.948  1.00163.57      RA   C  
 ATOM      3  O5'   C C  30      -7.157   0.487  -1.775  1.00164.44      RA   O  
@@ -4558,7 +4558,7 @@ ENDMDL
 MODEL       39
 REMARK    model=39  nts=8
 REMARK    bulge: nts=8; [0,4]; linked by [#88,#89]
-REMARK    UGCAUCAG C.U1415,C.G1416,C.C1582,C.A1583,C.U1584,C.C1585,C.A1586,C.G1587
+REMARK    UGCAUCAG .QA.C.U.1415.,.QA.C.G.1416.,.QA.C.C.1582.,.QA.C.A.1583.,.QA.C.U.1584.,.QA.C.C.1585.,.QA.C.A.1586.,.QA.C.G.1587.
 ATOM      1  P     U C1415       5.934  -0.771 -10.040  1.00160.09      QA   P  
 ATOM      2  C5'   U C1415       3.625  -1.974  -9.641  1.00149.91      QA   C  
 ATOM      3  O5'   U C1415       4.706  -1.215  -9.116  1.00150.71      QA   O  

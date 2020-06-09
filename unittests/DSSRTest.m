@@ -1,3 +1,8 @@
+%%
+dssr_pairs = read_dssr_base_pairs( 'testdata/tablePairs.csv' );
+assert( length( dssr_pairs ) == 81 );
+assert( ~isempty(dssr_pairs{1}.resnum1) );
+assert( ~isempty(dssr_pairs{1}.chain1) );
 
 %%
 dssr_pairs = read_dssr_base_pairs( 'testdata/1gid_RNAA.pdb.dssr.out' );

@@ -1,7 +1,7 @@
 MODEL        1
 REMARK    model=1  nts=10
 REMARK    hairpin loop: nts=10; [8]; linked by [#9]
-REMARK    UGCUAAUCUG C.U59,C.G60,C.C61,C.U62,C.A63,C.A64,C.U65,C.C66,C.U67,C.G68
+REMARK    UGCUAAUCUG .QA.C.U.59.,.QA.C.G.60.,.QA.C.C.61.,.QA.C.U.62.,.QA.C.A.63.,.QA.C.A.64.,.QA.C.U.65.,.QA.C.C.66.,.QA.C.U.67.,.QA.C.G.68.
 ATOM      1  P     U C  59      -8.955  -0.231  -2.146  1.00137.82      QA   P  
 ATOM      2  C5'   U C  59      -8.476  -0.538   0.428  1.00142.45      QA   C  
 ATOM      3  O5'   U C  59      -8.011  -0.214  -0.868  1.00140.26      QA   O  
@@ -216,7 +216,7 @@ ENDMDL
 MODEL        2
 REMARK    model=2  nts=23
 REMARK    hairpin loop: nts=23; [21]; linked by [#10]
-REMARK    CUGCGAUAAGCGUCGGUAAGGUG C.C66,C.U67,C.G68,C.C69,C.G70,C.A71,C.U72,C.A73,C.A74,C.G75,C.C76,C.G77,C.U78,C.C79,C.G80,C.G81,C.U82,C.A83,C.A84,C.G85,C.G86,C.U87,C.G88
+REMARK    CUGCGAUAAGCGUCGGUAAGGUG .QA.C.C.66.,.QA.C.U.67.,.QA.C.G.68.,.QA.C.C.69.,.QA.C.G.70.,.QA.C.A.71.,.QA.C.U.72.,.QA.C.A.73.,.QA.C.A.74.,.QA.C.G.75.,.QA.C.C.76.,.QA.C.G.77.,.QA.C.U.78.,.QA.C.C.79.,.QA.C.G.80.,.QA.C.G.81.,.QA.C.U.82.,.QA.C.A.83.,.QA.C.A.84.,.QA.C.G.85.,.QA.C.G.86.,.QA.C.U.87.,.QA.C.G.88.
 ATOM      1  P     C C  66      -8.672   2.234  -1.082  1.00136.24      QA   P  
 ATOM      2  C5'   C C  66      -8.326   2.027   1.507  1.00128.77      QA   C  
 ATOM      3  O5'   C C  66      -7.759   2.080   0.208  1.00131.26      QA   O  
@@ -718,7 +718,7 @@ ENDMDL
 MODEL        3
 REMARK    model=3  nts=9
 REMARK    hairpin loop: nts=9; [7]; linked by [#12]
-REMARK    UGAUAUGAA C.U87,C.G88,C.A89,C.U90,C.A91,C.U92,C.G93,C.A94,C.A95
+REMARK    UGAUAUGAA .QA.C.U.87.,.QA.C.G.88.,.QA.C.A.89.,.QA.C.U.90.,.QA.C.A.91.,.QA.C.U.92.,.QA.C.G.93.,.QA.C.A.94.,.QA.C.A.95.
 ATOM      1  P     U C  87      -9.497   0.785  -1.906  1.00157.81      QA   P  
 ATOM      2  C5'   U C  87      -8.777   0.257   0.570  1.00162.30      QA   C  
 ATOM      3  O5'   U C  87      -8.532   0.944  -0.650  1.00162.70      QA   O  
@@ -917,7 +917,7 @@ ENDMDL
 MODEL        4
 REMARK    model=4  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#13]
-REMARK    GGAAAC C.G123,C.G124,C.A125,C.A126,C.A127,C.C128
+REMARK    GGAAAC .QA.C.G.123.,.QA.C.G.124.,.QA.C.A.125.,.QA.C.A.126.,.QA.C.A.127.,.QA.C.C.128.
 ATOM      1  P     G C 123      -9.157  -0.512  -0.558  1.00123.17      QA   P  
 ATOM      2  C5'   G C 123      -8.589  -0.973   1.952  1.00119.21      QA   C  
 ATOM      3  O5'   G C 123      -8.152  -0.521   0.678  1.00121.65      QA   O  
@@ -1054,7 +1054,7 @@ ENDMDL
 MODEL        5
 REMARK    model=5  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#-3]
-REMARK    UUUCGA C.U137,C.U138,C.U139,C.C140,C.G141,C.A142
+REMARK    UUUCGA .QA.C.U.137.,.QA.C.U.138.,.QA.C.U.139.,.QA.C.C.140.,.QA.C.G.141.,.QA.C.A.142.
 ATOM      1  P     U C 137      -8.535  -2.793  -1.151  1.00178.75      QA   P  
 ATOM      2  C5'   U C 137      -8.439  -1.782   1.339  1.00177.89      QA   C  
 ATOM      3  O5'   U C 137      -7.788  -2.109   0.096  1.00178.89      QA   O  
@@ -1184,7 +1184,7 @@ ENDMDL
 MODEL        6
 REMARK    model=6  nts=11
 REMARK    hairpin loop: nts=11; [9]; linked by [#15]
-REMARK    UGAAUCCAUAG C.U158,C.G159,C.A160,C.A161,C.U162,C.C163,C.C164,C.A165,C.U166,C.A167,C.G168
+REMARK    UGAAUCCAUAG .QA.C.U.158.,.QA.C.G.159.,.QA.C.A.160.,.QA.C.A.161.,.QA.C.U.162.,.QA.C.C.163.,.QA.C.C.164.,.QA.C.A.165.,.QA.C.U.166.,.QA.C.A.167.,.QA.C.G.168.
 ATOM      1  P     U C 158      -8.677   1.051  -2.476  1.00150.60      QA   P  
 ATOM      2  C5'   U C 158      -8.365   1.305   0.169  1.00148.62      QA   C  
 ATOM      3  O5'   U C 158      -7.821   1.062  -1.120  1.00149.87      QA   O  
@@ -1423,7 +1423,7 @@ ENDMDL
 MODEL        7
 REMARK    model=7  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#-5]
-REMARK    GAAACAUC C.G194,C.A195,C.A196,C.A197,C.C198,C.A199,C.U200,C.C201
+REMARK    GAAACAUC .QA.C.G.194.,.QA.C.A.195.,.QA.C.A.196.,.QA.C.A.197.,.QA.C.C.198.,.QA.C.A.199.,.QA.C.U.200.,.QA.C.C.201.
 ATOM      1  P     G C 194      -9.404  -1.238  -0.390  1.00 99.07      QA   P  
 ATOM      2  C5'   G C 194      -8.570  -1.964   1.981  1.00103.23      QA   C  
 ATOM      3  O5'   G C 194      -8.299  -1.335   0.747  1.00104.17      QA   O  
@@ -1599,7 +1599,7 @@ ENDMDL
 MODEL        8
 REMARK    model=8  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#17]
-REMARK    CAACCG C.C225,C.A226,C.A227,C.C228,C.C229,C.G230
+REMARK    CAACCG .QA.C.C.225.,.QA.C.A.226.,.QA.C.A.227.,.QA.C.C.228.,.QA.C.C.229.,.QA.C.G.230.
 ATOM      1  P     C C 225     -10.503   0.676  -0.010  1.00133.31      QA   P  
 ATOM      2  C5'   C C 225      -8.396   1.748   1.191  1.00131.36      QA   C  
 ATOM      3  O5'   C C 225      -9.352   0.701   1.094  1.00132.32      QA   O  
@@ -1731,7 +1731,7 @@ ENDMDL
 MODEL        9
 REMARK    model=9  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#19]
-REMARK    CGGCGAG C.C246,C.G247,C.G248,C.C249,C.G250,C.A251,C.G252
+REMARK    CGGCGAG .QA.C.C.246.,.QA.C.G.247.,.QA.C.G.248.,.QA.C.C.249.,.QA.C.G.250.,.QA.C.A.251.,.QA.C.G.252.
 ATOM      1  P     C C 246      -8.890   1.752  -1.618  1.00114.98      QA   P  
 ATOM      2  C5'   C C 246      -8.619   1.065   0.909  1.00112.50      QA   C  
 ATOM      3  O5'   C C 246      -8.021   1.513  -0.305  1.00113.06      QA   O  
@@ -1890,7 +1890,7 @@ ENDMDL
 MODEL       10
 REMARK    model=10  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#24]
-REMARK    CUGGAAAG C.C305,C.U306,C.G307,C.G308,C.A309,C.A310,C.A311,C.G312
+REMARK    CUGGAAAG .QA.C.C.305.,.QA.C.U.306.,.QA.C.G.307.,.QA.C.G.308.,.QA.C.A.309.,.QA.C.A.310.,.QA.C.A.311.,.QA.C.G.312.
 ATOM      1  P     C C 305      -9.152   0.025  -1.639  1.00178.95      QA   P  
 ATOM      2  C5'   C C 305      -8.673  -0.514   0.897  1.00176.27      QA   C  
 ATOM      3  O5'   C C 305      -8.248   0.087  -0.322  1.00176.13      QA   O  
@@ -2070,7 +2070,7 @@ ENDMDL
 MODEL       11
 REMARK    model=11  nts=5
 REMARK    hairpin loop: nts=5; [3]; linked by [#-8]
-REMARK    GAUAC C.G319,C.A320,C.U321,C.A322,C.C323
+REMARK    GAUAC .QA.C.G.319.,.QA.C.A.320.,.QA.C.U.321.,.QA.C.A.322.,.QA.C.C.323.
 ATOM      1  P     G C 319      -9.430   1.648  -1.489  1.00190.96      QA   P  
 ATOM      2  C5'   G C 319      -8.907   0.735   0.887  1.00188.49      QA   C  
 ATOM      3  O5'   G C 319      -8.448   1.420  -0.266  1.00187.74      QA   O  
@@ -2182,7 +2182,7 @@ ENDMDL
 MODEL       12
 REMARK    model=12  nts=9
 REMARK    hairpin loop: nts=9; [7]; linked by [#26]
-REMARK    GUGACAGCC C.G327,C.U328,C.G329,C.A330,C.C331,C.A332,C.G333,C.C334,C.C335
+REMARK    GUGACAGCC .QA.C.G.327.,.QA.C.U.328.,.QA.C.G.329.,.QA.C.A.330.,.QA.C.C.331.,.QA.C.A.332.,.QA.C.G.333.,.QA.C.C.334.,.QA.C.C.335.
 ATOM      1  P     G C 327      -9.387  -0.077  -0.506  1.00142.69      QA   P  
 ATOM      2  C5'   G C 327      -8.902  -0.193   2.067  1.00146.98      QA   C  
 ATOM      3  O5'   G C 327      -8.465   0.152   0.762  1.00146.78      QA   O  
@@ -2380,7 +2380,7 @@ ENDMDL
 MODEL       13
 REMARK    model=13  nts=11
 REMARK    hairpin loop: nts=11; [9]; linked by [#27]
-REMARK    ACACGUGGUAU C.A382,C.C383,C.A384,C.C385,C.G386,C.U387,C.G388,C.G389,C.U390,C.A391,C.U392
+REMARK    ACACGUGGUAU .QA.C.A.382.,.QA.C.C.383.,.QA.C.A.384.,.QA.C.C.385.,.QA.C.G.386.,.QA.C.U.387.,.QA.C.G.388.,.QA.C.G.389.,.QA.C.U.390.,.QA.C.A.391.,.QA.C.U.392.
 ATOM      1  P     A C 382      -9.833  -0.368  -0.617  1.00108.34      QA   P  
 ATOM      2  C5'   A C 382      -8.903  -0.735   1.780  1.00103.27      QA   C  
 ATOM      3  O5'   A C 382      -8.639  -0.394   0.429  1.00103.87      QA   O  
@@ -2620,7 +2620,7 @@ ENDMDL
 MODEL       14
 REMARK    model=14  nts=27
 REMARK    hairpin loop: nts=27; [25]; linked by [#-9]
-REMARK    CGUGGUAUCCUGUCUGAAUAUGGGGGG C.C385,C.G386,C.U387,C.G388,C.G389,C.U390,C.A391,C.U392,C.C393,C.C394,C.U395,C.G396,C.U397,C.C398,C.U399,C.G400,C.A401,C.A402,C.U403,C.A404,C.U405,C.G406,C.G407,C.G408,C.G409,C.G410,C.G411
+REMARK    CGUGGUAUCCUGUCUGAAUAUGGGGGG .QA.C.C.385.,.QA.C.G.386.,.QA.C.U.387.,.QA.C.G.388.,.QA.C.G.389.,.QA.C.U.390.,.QA.C.A.391.,.QA.C.U.392.,.QA.C.C.393.,.QA.C.C.394.,.QA.C.U.395.,.QA.C.G.396.,.QA.C.U.397.,.QA.C.C.398.,.QA.C.U.399.,.QA.C.G.400.,.QA.C.A.401.,.QA.C.A.402.,.QA.C.U.403.,.QA.C.A.404.,.QA.C.U.405.,.QA.C.G.406.,.QA.C.G.407.,.QA.C.G.408.,.QA.C.G.409.,.QA.C.G.410.,.QA.C.G.411.
 ATOM      1  P     C C 385      -9.171   0.991  -1.373  1.00113.25      QA   P  
 ATOM      2  C5'   C C 385      -8.767  -0.146   0.983  1.00110.50      QA   C  
 ATOM      3  O5'   C C 385      -8.247   0.514  -0.167  1.00113.54      QA   O  
@@ -3206,7 +3206,7 @@ ENDMDL
 MODEL       15
 REMARK    model=15  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#28]
-REMARK    GGACCAUC C.G410,C.G411,C.A412,C.C413,C.C414,C.A415,C.U416,C.C417
+REMARK    GGACCAUC .QA.C.G.410.,.QA.C.G.411.,.QA.C.A.412.,.QA.C.C.413.,.QA.C.C.414.,.QA.C.A.415.,.QA.C.U.416.,.QA.C.C.417.
 ATOM      1  P     G C 410      -8.786   0.575  -1.669  1.00123.34      QA   P  
 ATOM      2  C5'   G C 410      -8.714   0.526   0.947  1.00128.04      QA   C  
 ATOM      3  O5'   G C 410      -8.042   0.800  -0.279  1.00130.46      QA   O  
@@ -3381,7 +3381,7 @@ ENDMDL
 MODEL       16
 REMARK    model=16  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#30]
-REMARK    CGUGAG C.C462,C.G463,C.U464,C.G465,C.A466,C.G467
+REMARK    CGUGAG .QA.C.C.462.,.QA.C.G.463.,.QA.C.U.464.,.QA.C.G.465.,.QA.C.A.466.,.QA.C.G.467.
 ATOM      1  P     C C 462      -9.344   0.901  -0.893  1.00111.36      QA   P  
 ATOM      2  C5'   C C 462      -8.744   0.446   1.606  1.00101.04      QA   C  
 ATOM      3  O5'   C C 462      -8.342   0.932   0.335  1.00104.13      QA   O  
@@ -3517,7 +3517,7 @@ ENDMDL
 MODEL       17
 REMARK    model=17  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#31]
-REMARK    CGGCGAG C.C487,C.G488,C.G489,C.C490,C.G491,C.A492,C.G493
+REMARK    CGGCGAG .QA.C.C.487.,.QA.C.G.488.,.QA.C.G.489.,.QA.C.C.490.,.QA.C.G.491.,.QA.C.A.492.,.QA.C.G.493.
 ATOM      1  P     C C 487      -9.294   0.581  -1.015  1.00143.35      QA   P  
 ATOM      2  C5'   C C 487      -8.831   0.736   1.574  1.00142.26      QA   C  
 ATOM      3  O5'   C C 487      -8.351   0.863   0.241  1.00143.69      QA   O  
@@ -3676,7 +3676,7 @@ ENDMDL
 MODEL       18
 REMARK    model=18  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#33]
-REMARK    GCUUAGGC C.G543,C.C544,C.U545,C.U546,C.A547,C.G548,C.G549,C.C550
+REMARK    GCUUAGGC .QA.C.G.543.,.QA.C.C.544.,.QA.C.U.545.,.QA.C.U.546.,.QA.C.A.547.,.QA.C.G.548.,.QA.C.G.549.,.QA.C.C.550.
 ATOM      1  P     G C 543      -9.793  -2.196  -2.747  1.00138.46      QA   P  
 ATOM      2  C5'   G C 543      -8.169  -1.351  -0.941  1.00131.18      QA   C  
 ATOM      3  O5'   G C 543      -9.488  -1.752  -1.251  1.00134.25      QA   O  
@@ -3852,7 +3852,7 @@ ENDMDL
 MODEL       19
 REMARK    model=19  nts=10
 REMARK    hairpin loop: nts=10; [8]; linked by [#-14]
-REMARK    UUUUGUAUAA C.U566,C.U567,C.U568,C.U569,C.G570,C.U571,C.A572,C.U573,C.A574,C.A575
+REMARK    UUUUGUAUAA .QA.C.U.566.,.QA.C.U.567.,.QA.C.U.568.,.QA.C.U.569.,.QA.C.G.570.,.QA.C.U.571.,.QA.C.A.572.,.QA.C.U.573.,.QA.C.A.574.,.QA.C.A.575.
 ATOM      1  P     U C 566      -9.265  -0.935  -0.915  1.00 95.86      QA   P  
 ATOM      2  C5'   U C 566      -8.677  -0.876   1.616  1.00100.68      QA   C  
 ATOM      3  O5'   U C 566      -8.284  -0.607   0.285  1.00 97.36      QA   O  
@@ -4066,7 +4066,7 @@ ENDMDL
 MODEL       20
 REMARK    model=20  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#37]
-REMARK    CGAAUAG C.C611,C.G612,C.A613,C.A614,C.U615,C.A616,C.G617
+REMARK    CGAAUAG .QA.C.C.611.,.QA.C.G.612.,.QA.C.A.613.,.QA.C.A.614.,.QA.C.U.615.,.QA.C.A.616.,.QA.C.G.617.
 ATOM      1  P     C C 611      -9.512   0.926  -0.766  1.00145.14      QA   P  
 ATOM      2  C5'   C C 611      -8.701   0.831   1.723  1.00146.71      QA   C  
 ATOM      3  O5'   C C 611      -8.378   0.781   0.346  1.00144.74      QA   O  
@@ -4223,7 +4223,7 @@ ENDMDL
 MODEL       21
 REMARK    model=21  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#38]
-REMARK    GGAAAC C.G629,C.G630,C.A631,C.A632,C.A633,C.C634
+REMARK    GGAAAC .QA.C.G.629.,.QA.C.G.630.,.QA.C.A.631.,.QA.C.A.632.,.QA.C.A.633.,.QA.C.C.634.
 ATOM      1  P     G C 629      -9.187   0.115  -1.463  1.00124.44      QA   P  
 ATOM      2  C5'   G C 629      -8.733   0.158   1.136  1.00129.37      QA   C  
 ATOM      3  O5'   G C 629      -8.290   0.469  -0.187  1.00130.86      QA   O  
@@ -4360,7 +4360,7 @@ ENDMDL
 MODEL       22
 REMARK    model=22  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#39]
-REMARK    UUAACUG C.U641,C.U642,C.A643,C.A644,C.C645,C.U646,C.G647
+REMARK    UUAACUG .QA.C.U.641.,.QA.C.U.642.,.QA.C.A.643.,.QA.C.A.644.,.QA.C.C.645.,.QA.C.U.646.,.QA.C.G.647.
 ATOM      1  P     U C 641      -8.668  -0.480  -3.357  1.00127.00      QA   P  
 ATOM      2  C5'   U C 641      -8.414  -0.648  -0.740  1.00126.38      QA   C  
 ATOM      3  O5'   U C 641      -7.867  -0.252  -1.992  1.00125.83      QA   O  
@@ -4512,7 +4512,7 @@ ENDMDL
 MODEL       23
 REMARK    model=23  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#44]
-REMARK    GGUAACAC C.G712,C.G713,C.U714,C.A715,C.A716,C.C717,C.A718,C.C719
+REMARK    GGUAACAC .QA.C.G.712.,.QA.C.G.713.,.QA.C.U.714.,.QA.C.A.715.,.QA.C.A.716.,.QA.C.C.717.,.QA.C.A.718.,.QA.C.C.719.
 ATOM      1  P     G C 712      -8.797   0.438  -1.811  1.00129.92      QA   P  
 ATOM      2  C5'   G C 712      -8.681  -0.331   0.710  1.00126.94      QA   C  
 ATOM      3  O5'   G C 712      -8.112   0.403  -0.371  1.00127.12      QA   O  
@@ -4689,7 +4689,7 @@ ENDMDL
 MODEL       24
 REMARK    model=24  nts=10
 REMARK    hairpin loop: nts=10; [8]; linked by [#46]
-REMARK    UgPtGAAAAA C.U744,C.1MG745,C.PSU746,C.5MU747,C.G748,C.A749,C.A750,C.A751,C.A752,C.A753
+REMARK    UgPtGAAAAA .QA.C.U.744.,.QA.C.1MG.745.,.QA.C.PSU.746.,.QA.C.5MU.747.,.QA.C.G.748.,.QA.C.A.749.,.QA.C.A.750.,.QA.C.A.751.,.QA.C.A.752.,.QA.C.A.753.
 ATOM      1  P     U C 744      -8.991   1.153  -1.562  1.00 95.85      QA   P  
 ATOM      2  C5'   U C 744      -8.679   0.925   1.017  1.00 89.33      QA   C  
 ATOM      3  O5'   U C 744      -8.115   1.283  -0.237  1.00 85.87      QA   O  
@@ -4912,7 +4912,7 @@ ENDMDL
 MODEL       25
 REMARK    model=25  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#47]
-REMARK    UGAAAGG C.U779,C.G780,C.A781,C.A782,C.A783,C.G784,C.G785
+REMARK    UGAAAGG .QA.C.U.779.,.QA.C.G.780.,.QA.C.A.781.,.QA.C.A.782.,.QA.C.A.783.,.QA.C.G.784.,.QA.C.G.785.
 ATOM      1  P     U C 779      -8.836   0.393  -2.244  1.00 97.09      QA   P  
 ATOM      2  C5'   U C 779      -8.342   0.592   0.337  1.00 95.39      QA   C  
 ATOM      3  O5'   U C 779      -7.874   0.679  -1.007  1.00 97.85      QA   O  
@@ -5072,7 +5072,7 @@ ENDMDL
 MODEL       26
 REMARK    model=26  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#49]
-REMARK    UUUAGG C.U826,C.U827,C.U828,C.A829,C.G830,C.G831
+REMARK    UUUAGG .QA.C.U.826.,.QA.C.U.827.,.QA.C.U.828.,.QA.C.A.829.,.QA.C.G.830.,.QA.C.G.831.
 ATOM      1  P     U C 826      -8.947   1.103  -2.076  1.00114.24      QA   P  
 ATOM      2  C5'   U C 826      -8.419   1.288   0.497  1.00110.43      QA   C  
 ATOM      3  O5'   U C 826      -7.955   1.288  -0.846  1.00111.97      QA   O  
@@ -5205,7 +5205,7 @@ ENDMDL
 MODEL       27
 REMARK    model=27  nts=10
 REMARK    hairpin loop: nts=10; [8]; linked by [#57]
-REMARK    GPGCUAACGU C.G954,C.PSU955,C.G956,C.C957,C.U958,C.A959,C.A960,C.C961,C.G962,C.U963
+REMARK    GPGCUAACGU .QA.C.G.954.,.QA.C.PSU.955.,.QA.C.G.956.,.QA.C.C.957.,.QA.C.U.958.,.QA.C.A.959.,.QA.C.A.960.,.QA.C.C.961.,.QA.C.G.962.,.QA.C.U.963.
 ATOM      1  P     G C 954      -8.895   1.510   0.455  1.00110.81      QA   P  
 ATOM      2  C5'   G C 954      -8.456   0.689   2.905  1.00114.98      QA   C  
 ATOM      3  O5'   G C 954      -7.953   0.930   1.602  1.00114.42      QA   O  
@@ -5423,7 +5423,7 @@ ENDMDL
 MODEL       28
 REMARK    model=28  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#58]
-REMARK    GAAACAAC C.G978,C.A979,C.A980,C.A981,C.C982,C.A983,C.A984,C.C985
+REMARK    GAAACAAC .QA.C.G.978.,.QA.C.A.979.,.QA.C.A.980.,.QA.C.A.981.,.QA.C.C.982.,.QA.C.A.983.,.QA.C.A.984.,.QA.C.C.985.
 ATOM      1  P     G C 978      -9.348  -0.212  -0.985  1.00112.08      QA   P  
 ATOM      2  C5'   G C 978      -8.800  -0.750   1.510  1.00114.06      QA   C  
 ATOM      3  O5'   G C 978      -8.326  -0.412   0.215  1.00115.41      QA   O  
@@ -5601,7 +5601,7 @@ ENDMDL
 MODEL       29
 REMARK    model=29  nts=11
 REMARK    hairpin loop: nts=11; [9]; linked by [#69]
-REMARK    CUUAGAAGCAG C.C1064,C.U1065,C.U1066,C.A1067,C.G1068,C.A1069,C.A1070,C.G1071,C.C1072,C.A1073,C.G1074
+REMARK    CUUAGAAGCAG .QA.C.C.1064.,.QA.C.U.1065.,.QA.C.U.1066.,.QA.C.A.1067.,.QA.C.G.1068.,.QA.C.A.1069.,.QA.C.A.1070.,.QA.C.G.1071.,.QA.C.C.1072.,.QA.C.A.1073.,.QA.C.G.1074.
 ATOM      1  P     C C1064      -9.546   0.144  -0.598  1.00221.83      QA   P  
 ATOM      2  C5'   C C1064      -8.747  -0.164   1.876  1.00219.11      QA   C  
 ATOM      3  O5'   C C1064      -8.451   0.276   0.557  1.00219.35      QA   O  
@@ -5843,7 +5843,7 @@ ENDMDL
 MODEL       30
 REMARK    model=30  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#70]
-REMARK    CGUAAUAG C.C1092,C.G1093,C.U1094,C.A1095,C.A1096,C.U1097,C.A1098,C.G1099
+REMARK    CGUAAUAG .QA.C.C.1092.,.QA.C.G.1093.,.QA.C.U.1094.,.QA.C.A.1095.,.QA.C.A.1096.,.QA.C.U.1097.,.QA.C.A.1098.,.QA.C.G.1099.
 ATOM      1  P     C C1092      -9.377   1.160  -0.642  1.00199.29      QA   P  
 ATOM      2  C5'   C C1092      -8.659   0.941   1.878  1.00198.95      QA   C  
 ATOM      3  O5'   C C1092      -8.307   0.880   0.505  1.00199.25      QA   O  
@@ -6020,7 +6020,7 @@ ENDMDL
 MODEL       31
 REMARK    model=31  nts=12
 REMARK    hairpin loop: nts=12; [10]; linked by [#71]
-REMARK    ACGCUUAUGCGU C.A1169,C.C1170,C.G1171,C.C1172,C.U1173,C.U1174,C.A1175,C.U1176,C.G1177,C.C1178,C.G1179,C.U1180
+REMARK    ACGCUUAUGCGU .QA.C.A.1169.,.QA.C.C.1170.,.QA.C.G.1171.,.QA.C.C.1172.,.QA.C.U.1173.,.QA.C.U.1174.,.QA.C.A.1175.,.QA.C.U.1176.,.QA.C.G.1177.,.QA.C.C.1178.,.QA.C.G.1179.,.QA.C.U.1180.
 ATOM      1  P     A C1169      -9.552  -0.110  -2.280  1.00133.81      QA   P  
 ATOM      2  C5'   A C1169      -8.884   0.885   0.089  1.00132.19      QA   C  
 ATOM      3  O5'   A C1169      -8.677  -0.082  -0.943  1.00131.03      QA   O  
@@ -6278,7 +6278,7 @@ ENDMDL
 MODEL       32
 REMARK    model=32  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#74]
-REMARK    UGUGAG C.U1222,C.G1223,C.U1224,C.G1225,C.A1226,C.G1227
+REMARK    UGUGAG .QA.C.U.1222.,.QA.C.G.1223.,.QA.C.U.1224.,.QA.C.G.1225.,.QA.C.A.1226.,.QA.C.G.1227.
 ATOM      1  P     U C1222      -9.172   0.771  -1.616  1.00124.57      QA   P  
 ATOM      2  C5'   U C1222      -8.548   0.678   0.929  1.00124.61      QA   C  
 ATOM      3  O5'   U C1222      -8.120   0.844  -0.420  1.00123.45      QA   O  
@@ -6414,7 +6414,7 @@ ENDMDL
 MODEL       33
 REMARK    model=33  nts=9
 REMARK    hairpin loop: nts=9; [7]; linked by [#76]
-REMARK    GUGAAAAGC C.G1281,C.U1282,C.G1283,C.A1284,C.A1285,C.A1286,C.A1287,C.G1288,C.C1289
+REMARK    GUGAAAAGC .QA.C.G.1281.,.QA.C.U.1282.,.QA.C.G.1283.,.QA.C.A.1284.,.QA.C.A.1285.,.QA.C.A.1286.,.QA.C.A.1287.,.QA.C.G.1288.,.QA.C.C.1289.
 ATOM      1  P     G C1281      -9.369  -0.016  -1.437  1.00134.39      QA   P  
 ATOM      2  C5'   G C1281      -8.861  -0.318   1.111  1.00136.10      QA   C  
 ATOM      3  O5'   G C1281      -8.390   0.030  -0.180  1.00135.63      QA   O  
@@ -6616,7 +6616,7 @@ ENDMDL
 MODEL       34
 REMARK    model=34  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#81]
-REMARK    GUUAAUC C.G1324,C.U1325,C.U1326,C.A1327,C.A1328,C.U1329,C.C1330
+REMARK    GUUAAUC .QA.C.G.1324.,.QA.C.U.1325.,.QA.C.U.1326.,.QA.C.A.1327.,.QA.C.A.1328.,.QA.C.U.1329.,.QA.C.C.1330.
 ATOM      1  P     G C1324     -10.151  -0.636   0.478  1.00108.65      QA   P  
 ATOM      2  C5'   G C1324      -8.502  -1.112   2.490  1.00105.99      QA   C  
 ATOM      3  O5'   G C1324      -8.735  -0.503   1.218  1.00107.77      QA   O  
@@ -6768,7 +6768,7 @@ ENDMDL
 MODEL       35
 REMARK    model=35  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#86]
-REMARK    CGAAAG C.C1363,C.G1364,C.A1365,C.A1366,C.A1367,C.G1368
+REMARK    CGAAAG .QA.C.C.1363.,.QA.C.G.1364.,.QA.C.A.1365.,.QA.C.A.1366.,.QA.C.A.1367.,.QA.C.G.1368.
 ATOM      1  P     C C1363      -9.509   0.858  -0.835  1.00106.46      QA   P  
 ATOM      2  C5'   C C1363      -8.629   0.521   1.592  1.00106.91      QA   C  
 ATOM      3  O5'   C C1363      -8.329   0.779   0.234  1.00110.05      QA   O  
@@ -6905,7 +6905,7 @@ ENDMDL
 MODEL       36
 REMARK    model=36  nts=10
 REMARK    hairpin loop: nts=10; [8]; linked by [#87]
-REMARK    GUUAAUAUUC C.G1389,C.U1390,C.U1391,C.A1392,C.A1393,C.U1394,C.A1395,C.U1396,C.U1397,C.C1398
+REMARK    GUUAAUAUUC .QA.C.G.1389.,.QA.C.U.1390.,.QA.C.U.1391.,.QA.C.A.1392.,.QA.C.A.1393.,.QA.C.U.1394.,.QA.C.A.1395.,.QA.C.U.1396.,.QA.C.U.1397.,.QA.C.C.1398.
 ATOM      1  P     G C1389      -8.890   0.122  -2.273  1.00140.82      QA   P  
 ATOM      2  C5'   G C1389      -8.722  -0.054   0.354  1.00136.47      QA   C  
 ATOM      3  O5'   G C1389      -8.070   0.149  -0.896  1.00134.88      QA   O  
@@ -7119,7 +7119,7 @@ ENDMDL
 MODEL       37
 REMARK    model=37  nts=9
 REMARK    hairpin loop: nts=9; [7]; linked by [#-31]
-REMARK    CGACGGUUG C.C1451,C.G1452,C.A1453,C.C1454,C.G1455,C.G1456,C.U1457,C.U1458,C.G1459
+REMARK    CGACGGUUG .QA.C.C.1451.,.QA.C.G.1452.,.QA.C.A.1453.,.QA.C.C.1454.,.QA.C.G.1455.,.QA.C.G.1456.,.QA.C.U.1457.,.QA.C.U.1458.,.QA.C.G.1459.
 ATOM      1  P     C C1451      -9.705  -2.033   0.069  1.00141.91      QA   P  
 ATOM      2  C5'   C C1451      -8.608  -0.157   1.565  1.00142.15      QA   C  
 ATOM      3  O5'   C C1451      -8.748  -1.527   1.234  1.00140.29      QA   O  
@@ -7318,7 +7318,7 @@ ENDMDL
 MODEL       38
 REMARK    model=38  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#100]
-REMARK    GCAAAUC C.G1492,C.C1493,C.A1494,C.A1495,C.A1496,C.U1497,C.C1498
+REMARK    GCAAAUC .QA.C.G.1492.,.QA.C.C.1493.,.QA.C.A.1494.,.QA.C.A.1495.,.QA.C.A.1496.,.QA.C.U.1497.,.QA.C.C.1498.
 ATOM      1  P     G C1492      -9.442  -0.612  -0.482  1.00129.57      QA   P  
 ATOM      2  C5'   G C1492      -8.543  -1.113   1.901  1.00124.59      QA   C  
 ATOM      3  O5'   G C1492      -8.298  -0.562   0.621  1.00127.27      QA   O  
@@ -7472,7 +7472,7 @@ ENDMDL
 MODEL       39
 REMARK    model=39  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#101]
-REMARK    CUACGG C.C1533,C.U1534,C.A1535,C.C1536,C.G1537,C.G1538
+REMARK    CUACGG .QA.C.C.1533.,.QA.C.U.1534.,.QA.C.A.1535.,.QA.C.C.1536.,.QA.C.G.1537.,.QA.C.G.1538.
 ATOM      1  P     C C1533      -9.972   1.596   0.023  1.00173.56      QA   P  
 ATOM      2  C5'   C C1533      -8.086   2.457   1.639  1.00165.46      QA   C  
 ATOM      3  O5'   C C1533      -9.329   1.780   1.479  1.00169.10      QA   O  
@@ -7605,7 +7605,7 @@ ENDMDL
 MODEL       40
 REMARK    model=40  nts=4
 REMARK    hairpin loop: nts=4; [2]; linked by [#-33]
-REMARK    CAGG C.C1565,C.A1566,C.G1567,C.G1568
+REMARK    CAGG .QA.C.C.1565.,.QA.C.A.1566.,.QA.C.G.1567.,.QA.C.G.1568.
 ATOM      1  P     C C1565      -9.265   0.025  -0.541  1.00108.04      QA   P  
 ATOM      2  C5'   C C1565      -8.660   0.140   2.002  1.00105.91      QA   C  
 ATOM      3  O5'   C C1565      -8.344   0.532   0.661  1.00107.57      QA   O  
@@ -7698,7 +7698,7 @@ ENDMDL
 MODEL       41
 REMARK    model=41  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#102]
-REMARK    CGACACaG C.C1612,C.G1613,C.A1614,C.C1615,C.A1616,C.C1617,C.6MZ1618,C.G1619
+REMARK    CGACACaG .QA.C.C.1612.,.QA.C.G.1613.,.QA.C.A.1614.,.QA.C.C.1615.,.QA.C.A.1616.,.QA.C.C.1617.,.QA.C.6MZ.1618.,.QA.C.G.1619.
 ATOM      1  P     C C1612      -9.098   1.270  -1.470  1.00106.56      QA   P  
 ATOM      2  C5'   C C1612      -8.664   0.579   1.009  1.00100.39      QA   C  
 ATOM      3  O5'   C C1612      -8.135   0.979  -0.240  1.00102.19      QA   O  
@@ -7876,7 +7876,7 @@ ENDMDL
 MODEL       42
 REMARK    model=42  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#103]
-REMARK    AGAGAAU C.A1630,C.G1631,C.A1632,C.G1633,C.A1634,C.A1635,C.U1636
+REMARK    AGAGAAU .QA.C.A.1630.,.QA.C.G.1631.,.QA.C.A.1632.,.QA.C.G.1633.,.QA.C.A.1634.,.QA.C.A.1635.,.QA.C.U.1636.
 ATOM      1  P     A C1630      -9.725   0.912   0.426  1.00120.97      QA   P  
 ATOM      2  C5'   A C1630      -8.650   1.284   2.774  1.00120.99      QA   C  
 ATOM      3  O5'   A C1630      -8.484   1.233   1.366  1.00119.49      QA   O  
@@ -8035,7 +8035,7 @@ ENDMDL
 MODEL       43
 REMARK    model=43  nts=11
 REMARK    hairpin loop: nts=11; [9]; linked by [#109]
-REMARK    UUUAUUAAAAA C.U1777,C.U1778,C.U1779,C.A1780,C.U1781,C.U1782,C.A1783,C.A1784,C.A1785,C.A1786,C.A1787
+REMARK    UUUAUUAAAAA .QA.C.U.1777.,.QA.C.U.1778.,.QA.C.U.1779.,.QA.C.A.1780.,.QA.C.U.1781.,.QA.C.U.1782.,.QA.C.A.1783.,.QA.C.A.1784.,.QA.C.A.1785.,.QA.C.A.1786.,.QA.C.A.1787.
 ATOM      1  P     U C1777      -9.220   0.649  -0.053  1.00 89.78      QA   P  
 ATOM      2  C5'   U C1777      -8.566  -0.361   2.260  1.00 86.60      QA   C  
 ATOM      3  O5'   U C1777      -8.167   0.306   1.080  1.00 89.96      QA   O  
@@ -8272,7 +8272,7 @@ ENDMDL
 MODEL       44
 REMARK    model=44  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#111]
-REMARK    CGAAAG C.C1806,C.G1807,C.A1808,C.A1809,C.A1810,C.G1811
+REMARK    CGAAAG .QA.C.C.1806.,.QA.C.G.1807.,.QA.C.A.1808.,.QA.C.A.1809.,.QA.C.A.1810.,.QA.C.G.1811.
 ATOM      1  P     C C1806      -9.601   0.350  -1.074  1.00 93.81      QA   P  
 ATOM      2  C5'   C C1806      -8.868   0.176   1.439  1.00 96.16      QA   C  
 ATOM      3  O5'   C C1806      -8.551   0.531   0.100  1.00 94.11      QA   O  
@@ -8409,7 +8409,7 @@ ENDMDL
 MODEL       45
 REMARK    model=45  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#118]
-REMARK    CGCAAG C.C1868,C.G1869,C.C1870,C.A1871,C.A1872,C.G1873
+REMARK    CGCAAG .QA.C.C.1868.,.QA.C.G.1869.,.QA.C.C.1870.,.QA.C.A.1871.,.QA.C.A.1872.,.QA.C.G.1873.
 ATOM      1  P     C C1868      -9.534  -1.675  -0.588  1.00160.64      QA   P  
 ATOM      2  C5'   C C1868      -8.539  -1.586   1.877  1.00149.84      QA   C  
 ATOM      3  O5'   C C1868      -8.391  -1.338   0.477  1.00151.79      QA   O  
@@ -8544,7 +8544,7 @@ ENDMDL
 MODEL       46
 REMARK    model=46  nts=11
 REMARK    hairpin loop: nts=11; [9]; linked by [#119]
-REMARK    GPAACpAPAAC C.G1910,C.PSU1911,C.A1912,C.A1913,C.C1914,C.3TD1915,C.A1916,C.PSU1917,C.A1918,C.A1919,C.C1920
+REMARK    GPAACpAPAAC .QA.C.G.1910.,.QA.C.PSU.1911.,.QA.C.A.1912.,.QA.C.A.1913.,.QA.C.C.1914.,.QA.C.3TD.1915.,.QA.C.A.1916.,.QA.C.PSU.1917.,.QA.C.A.1918.,.QA.C.A.1919.,.QA.C.C.1920.
 ATOM      1  P     G C1910      -9.168   1.239  -1.459  1.00113.30      QA   P  
 ATOM      2  C5'   G C1910      -8.573   1.688   1.054  1.00111.47      QA   C  
 ATOM      3  O5'   G C1910      -8.139   1.605  -0.296  1.00113.36      QA   O  
@@ -8783,7 +8783,7 @@ ENDMDL
 MODEL       47
 REMARK    model=47  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#-38]
-REMARK    AAAtUCCU C.A1936,C.A1937,C.A1938,C.5MU1939,C.U1940,C.C1941,C.C1942,C.U1943
+REMARK    AAAtUCCU .QA.C.A.1936.,.QA.C.A.1937.,.QA.C.A.1938.,.QA.C.5MU.1939.,.QA.C.U.1940.,.QA.C.C.1941.,.QA.C.C.1942.,.QA.C.U.1943.
 ATOM      1  P     A C1936      -9.104   1.231   3.940  1.00 76.65      QA   P  
 ATOM      2  C5'   A C1936      -7.318  -0.632   4.507  1.00 74.57      QA   C  
 ATOM      3  O5'   A C1936      -7.785   0.395   3.637  1.00 71.08      QA   O  
@@ -8955,7 +8955,7 @@ ENDMDL
 MODEL       48
 REMARK    model=48  nts=9
 REMARK    hairpin loop: nts=9; [7]; linked by [#120]
-REMARK    GGUAAGUUC C.G1949,C.G1950,C.U1951,C.A1952,C.A1953,C.G1954,C.U1955,C.U1956,C.C1957
+REMARK    GGUAAGUUC .QA.C.G.1949.,.QA.C.G.1950.,.QA.C.U.1951.,.QA.C.A.1952.,.QA.C.A.1953.,.QA.C.G.1954.,.QA.C.U.1955.,.QA.C.U.1956.,.QA.C.C.1957.
 ATOM      1  P     G C1949      -9.454  -1.255  -1.327  1.00 80.77      QA   P  
 ATOM      2  C5'   G C1949      -8.814  -1.673   1.202  1.00 93.03      QA   C  
 ATOM      3  O5'   G C1949      -8.447  -1.209  -0.092  1.00 90.58      QA   O  
@@ -9153,7 +9153,7 @@ ENDMDL
 MODEL       49
 REMARK    model=49  nts=15
 REMARK    hairpin loop: nts=15; [13]; linked by [#-39]
-REMARK    ACUCGCUGUGaAGAU C.A2020,C.C2021,C.U2022,C.C2023,C.G2024,C.C2025,C.U2026,C.G2027,C.U2028,C.G2029,C.6MZ2030,C.A2031,C.G2032,C.A2033,C.U2034
+REMARK    ACUCGCUGUGaAGAU .QA.C.A.2020.,.QA.C.C.2021.,.QA.C.U.2022.,.QA.C.C.2023.,.QA.C.G.2024.,.QA.C.C.2025.,.QA.C.U.2026.,.QA.C.G.2027.,.QA.C.U.2028.,.QA.C.G.2029.,.QA.C.6MZ.2030.,.QA.C.A.2031.,.QA.C.G.2032.,.QA.C.A.2033.,.QA.C.U.2034.
 ATOM      1  P     A C2020     -10.862  -0.013   0.463  1.00101.44      QA   P  
 ATOM      2  C5'   A C2020      -8.669   1.043   1.402  1.00 98.56      QA   C  
 ATOM      3  O5'   A C2020      -9.433  -0.129   1.159  1.00101.36      QA   O  
@@ -9479,7 +9479,7 @@ ENDMDL
 MODEL       50
 REMARK    model=50  nts=10
 REMARK    hairpin loop: nts=10; [8]; linked by [#121]
-REMARK    GUGaAGAUGC C.G2027,C.U2028,C.G2029,C.6MZ2030,C.A2031,C.G2032,C.A2033,C.U2034,C.G2035,C.C2036
+REMARK    GUGaAGAUGC .QA.C.G.2027.,.QA.C.U.2028.,.QA.C.G.2029.,.QA.C.6MZ.2030.,.QA.C.A.2031.,.QA.C.G.2032.,.QA.C.A.2033.,.QA.C.U.2034.,.QA.C.G.2035.,.QA.C.C.2036.
 ATOM      1  P     G C2027      -9.188  -0.108  -0.932  1.00 95.42      QA   P  
 ATOM      2  C5'   G C2027      -8.658  -0.398   1.640  1.00 96.69      QA   C  
 ATOM      3  O5'   G C2027      -8.213  -0.058   0.332  1.00 95.85      QA   O  
@@ -9703,7 +9703,7 @@ ENDMDL
 MODEL       51
 REMARK    model=51  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#133]
-REMARK    CGCCAG C.C2143,C.G2144,C.C2145,C.C2146,C.A2147,C.G2148
+REMARK    CGCCAG .QA.C.C.2143.,.QA.C.G.2144.,.QA.C.C.2145.,.QA.C.C.2146.,.QA.C.A.2147.,.QA.C.G.2148.
 ATOM      1  P     C C2143      -9.395   0.782  -1.088  1.00155.74      QA   P  
 ATOM      2  C5'   C C2143      -8.733   0.901   1.432  1.00161.67      QA   C  
 ATOM      3  O5'   C C2143      -8.367   1.110   0.080  1.00160.29      QA   O  
@@ -9836,7 +9836,7 @@ ENDMDL
 MODEL       52
 REMARK    model=52  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#135]
-REMARK    GUAAUCC C.G2209,C.U2210,C.A2211,C.A2212,C.U2213,C.C2214,C.C2215
+REMARK    GUAAUCC .QA.C.G.2209.,.QA.C.U.2210.,.QA.C.A.2211.,.QA.C.A.2212.,.QA.C.U.2213.,.QA.C.C.2214.,.QA.C.C.2215.
 ATOM      1  P     G C2209      -9.223   0.894  -1.734  1.00127.39      QA   P  
 ATOM      2  C5'   G C2209      -8.795   0.647   0.838  1.00125.46      QA   C  
 ATOM      3  O5'   G C2209      -8.300   1.018  -0.441  1.00125.21      QA   O  
@@ -9988,7 +9988,7 @@ ENDMDL
 MODEL       53
 REMARK    model=53  nts=9
 REMARK    hairpin loop: nts=9; [7]; linked by [#136]
-REMARK    CUGgGGCGG C.C2248,C.U2249,C.G2250,C.OMG2251,C.G2252,C.G2253,C.C2254,C.G2255,C.G2256
+REMARK    CUGgGGCGG .QA.C.C.2248.,.QA.C.U.2249.,.QA.C.G.2250.,.QA.C.OMG.2251.,.QA.C.G.2252.,.QA.C.G.2253.,.QA.C.C.2254.,.QA.C.G.2255.,.QA.C.G.2256.
 ATOM      1  P     C C2248      -9.020   0.882  -1.450  1.00104.33      QA   P  
 ATOM      2  C5'   C C2248      -8.660   0.202   1.078  1.00102.72      QA   C  
 ATOM      3  O5'   C C2248      -8.126   0.697  -0.142  1.00101.55      QA   O  
@@ -10192,7 +10192,7 @@ ENDMDL
 MODEL       54
 REMARK    model=54  nts=21
 REMARK    hairpin loop: nts=21; [19]; linked by [#-44]
-REMARK    GGUCUCCUCCUAAAGAGUAAC C.G2255,C.G2256,C.U2257,C.C2258,C.U2259,C.C2260,C.C2261,C.U2262,C.C2263,C.C2264,C.U2265,C.A2266,C.A2267,C.A2268,C.G2269,C.A2270,C.G2271,C.U2272,C.A2273,C.A2274,C.C2275
+REMARK    GGUCUCCUCCUAAAGAGUAAC .QA.C.G.2255.,.QA.C.G.2256.,.QA.C.U.2257.,.QA.C.C.2258.,.QA.C.U.2259.,.QA.C.C.2260.,.QA.C.C.2261.,.QA.C.U.2262.,.QA.C.C.2263.,.QA.C.C.2264.,.QA.C.U.2265.,.QA.C.A.2266.,.QA.C.A.2267.,.QA.C.A.2268.,.QA.C.G.2269.,.QA.C.A.2270.,.QA.C.G.2271.,.QA.C.U.2272.,.QA.C.A.2273.,.QA.C.A.2274.,.QA.C.C.2275.
 ATOM      1  P     G C2255      -8.749   2.880  -0.931  1.00 97.49      QA   P  
 ATOM      2  C5'   G C2255      -8.294   2.995   1.638  1.00 94.41      QA   C  
 ATOM      3  O5'   G C2255      -7.777   3.056   0.317  1.00 95.21      QA   O  
@@ -10641,7 +10641,7 @@ ENDMDL
 MODEL       55
 REMARK    model=55  nts=13
 REMARK    hairpin loop: nts=13; [11]; linked by [#137]
-REMARK    CUAAAGAGUAACG C.C2264,C.U2265,C.A2266,C.A2267,C.A2268,C.G2269,C.A2270,C.G2271,C.U2272,C.A2273,C.A2274,C.C2275,C.G2276
+REMARK    CUAAAGAGUAACG .QA.C.C.2264.,.QA.C.U.2265.,.QA.C.A.2266.,.QA.C.A.2267.,.QA.C.A.2268.,.QA.C.G.2269.,.QA.C.A.2270.,.QA.C.G.2271.,.QA.C.U.2272.,.QA.C.A.2273.,.QA.C.A.2274.,.QA.C.C.2275.,.QA.C.G.2276.
 ATOM      1  P     C C2264      -9.158   1.383  -1.107  1.00113.15      QA   P  
 ATOM      2  C5'   C C2264      -8.578   1.204   1.441  1.00122.21      QA   C  
 ATOM      3  O5'   C C2264      -8.155   1.507   0.121  1.00123.46      QA   O  
@@ -10927,7 +10927,7 @@ ENDMDL
 MODEL       56
 REMARK    model=56  nts=11
 REMARK    hairpin loop: nts=11; [9]; linked by [#140]
-REMARK    GGUCGGACAUC C.G2303,C.G2304,C.U2305,C.C2306,C.G2307,C.G2308,C.A2309,C.C2310,C.A2311,C.U2312,C.C2313
+REMARK    GGUCGGACAUC .QA.C.G.2303.,.QA.C.G.2304.,.QA.C.U.2305.,.QA.C.C.2306.,.QA.C.G.2307.,.QA.C.G.2308.,.QA.C.A.2309.,.QA.C.C.2310.,.QA.C.A.2311.,.QA.C.U.2312.,.QA.C.C.2313.
 ATOM      1  P     G C2303      -9.684   1.239  -0.494  1.00171.91      QA   P  
 ATOM      2  C5'   G C2303      -8.883   0.923   1.987  1.00172.65      QA   C  
 ATOM      3  O5'   G C2303      -8.547   1.160   0.624  1.00172.86      QA   O  
@@ -11168,7 +11168,7 @@ ENDMDL
 MODEL       57
 REMARK    model=57  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#141]
-REMARK    UGCAAUGG C.U2324,C.G2325,C.C2326,C.A2327,C.A2328,C.U2329,C.G2330,C.G2331
+REMARK    UGCAAUGG .QA.C.U.2324.,.QA.C.G.2325.,.QA.C.C.2326.,.QA.C.A.2327.,.QA.C.A.2328.,.QA.C.U.2329.,.QA.C.G.2330.,.QA.C.G.2331.
 ATOM      1  P     U C2324      -9.209  -0.072  -2.361  1.00126.25      QA   P  
 ATOM      2  C5'   U C2324      -8.596  -0.354   0.170  1.00125.65      QA   C  
 ATOM      3  O5'   U C2324      -8.293   0.228  -1.096  1.00125.98      QA   O  
@@ -11346,7 +11346,7 @@ ENDMDL
 MODEL       58
 REMARK    model=58  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#144]
-REMARK    UGACGG C.U2356,C.G2357,C.A2358,C.C2359,C.G2360,C.G2361
+REMARK    UGACGG .QA.C.U.2356.,.QA.C.G.2357.,.QA.C.A.2358.,.QA.C.C.2359.,.QA.C.G.2360.,.QA.C.G.2361.
 ATOM      1  P     U C2356      -9.737  -0.679  -1.834  1.00127.14      QA   P  
 ATOM      2  C5'   U C2356      -8.860  -0.554   0.611  1.00127.41      QA   C  
 ATOM      3  O5'   U C2356      -8.625  -0.307  -0.762  1.00127.84      QA   O  
@@ -11482,7 +11482,7 @@ ENDMDL
 MODEL       59
 REMARK    model=59  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#145]
-REMARK    CGAAAG C.C2374,C.G2375,C.A2376,C.A2377,C.A2378,C.G2379
+REMARK    CGAAAG .QA.C.C.2374.,.QA.C.G.2375.,.QA.C.A.2376.,.QA.C.A.2377.,.QA.C.A.2378.,.QA.C.G.2379.
 ATOM      1  P     C C2374      -9.311   0.541  -1.923  1.00132.18      QA   P  
 ATOM      2  C5'   C C2374      -8.772   0.655   0.635  1.00133.89      QA   C  
 ATOM      3  O5'   C C2374      -8.401   0.988  -0.695  1.00136.22      QA   O  
@@ -11619,7 +11619,7 @@ ENDMDL
 MODEL       60
 REMARK    model=60  nts=10
 REMARK    hairpin loop: nts=10; [8]; linked by [#147]
-REMARK    UGAAUGGAAG C.U2404,C.G2405,C.A2406,C.A2407,C.U2408,C.G2409,C.G2410,C.A2411,C.A2412,C.G2413
+REMARK    UGAAUGGAAG .QA.C.U.2404.,.QA.C.G.2405.,.QA.C.A.2406.,.QA.C.A.2407.,.QA.C.U.2408.,.QA.C.G.2409.,.QA.C.G.2410.,.QA.C.A.2411.,.QA.C.A.2412.,.QA.C.G.2413.
 ATOM      1  P     U C2404      -9.237   0.220  -1.041  1.00131.25      QA   P  
 ATOM      2  C5'   U C2404      -8.400   0.319   1.416  1.00124.99      QA   C  
 ATOM      3  O5'   U C2404      -8.078   0.423   0.033  1.00125.76      QA   O  
@@ -11844,7 +11844,7 @@ ENDMDL
 MODEL       61
 REMARK    model=61  nts=9
 REMARK    hairpin loop: nts=9; [7]; linked by [#150]
-REMARK    AGUUCAUAU C.A2471,C.G2472,C.U2473,C.U2474,C.C2475,C.A2476,C.U2477,C.A2478,C.U2479
+REMARK    AGUUCAUAU .QA.C.A.2471.,.QA.C.G.2472.,.QA.C.U.2473.,.QA.C.U.2474.,.QA.C.C.2475.,.QA.C.A.2476.,.QA.C.U.2477.,.QA.C.A.2478.,.QA.C.U.2479.
 ATOM      1  P     A C2471      -9.398   0.749  -0.649  1.00113.87      QA   P  
 ATOM      2  C5'   A C2471      -8.612   0.340   1.835  1.00111.61      QA   C  
 ATOM      3  O5'   A C2471      -8.275   0.528   0.465  1.00113.99      QA   O  
@@ -12038,7 +12038,7 @@ ENDMDL
 MODEL       62
 REMARK    model=62  nts=8
 REMARK    hairpin loop: nts=8; [6]; linked by [#155]
-REMARK    UGAAGUAG C.U2528,C.G2529,C.A2530,C.A2531,C.G2532,C.U2533,C.A2534,C.G2535
+REMARK    UGAAGUAG .QA.C.U.2528.,.QA.C.G.2529.,.QA.C.A.2530.,.QA.C.A.2531.,.QA.C.G.2532.,.QA.C.U.2533.,.QA.C.A.2534.,.QA.C.G.2535.
 ATOM      1  P     U C2528      -8.990  -0.065  -2.552  1.00113.12      QA   P  
 ATOM      2  C5'   U C2528      -8.454  -0.091   0.027  1.00109.93      QA   C  
 ATOM      3  O5'   U C2528      -7.989   0.076  -1.309  1.00110.38      QA   O  
@@ -12218,7 +12218,7 @@ ENDMDL
 MODEL       63
 REMARK    model=63  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#156]
-REMARK    CuGUUCG C.C2551,C.OMU2552,C.G2553,C.U2554,C.U2555,C.C2556,C.G2557
+REMARK    CuGUUCG .QA.C.C.2551.,.QA.C.OMU.2552.,.QA.C.G.2553.,.QA.C.U.2554.,.QA.C.U.2555.,.QA.C.C.2556.,.QA.C.G.2557.
 ATOM      1  P     C C2551      -9.744   0.064  -1.397  1.00 87.67      QA   P  
 ATOM      2  C5'   C C2551      -9.013   0.095   1.111  1.00 89.10      QA   C  
 ATOM      3  O5'   C C2551      -8.733   0.449  -0.233  1.00 90.45      QA   O  
@@ -12370,7 +12370,7 @@ ENDMDL
 MODEL       64
 REMARK    model=64  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#158]
-REMARK    CGUGAG C.C2594,C.G2595,C.U2596,C.G2597,C.A2598,C.G2599
+REMARK    CGUGAG .QA.C.C.2594.,.QA.C.G.2595.,.QA.C.U.2596.,.QA.C.G.2597.,.QA.C.A.2598.,.QA.C.G.2599.
 ATOM      1  P     C C2594      -9.438   0.995  -1.159  1.00 85.28      QA   P  
 ATOM      2  C5'   C C2594      -8.761   0.817   1.354  1.00 84.37      QA   C  
 ATOM      3  O5'   C C2594      -8.384   1.137   0.026  1.00 89.12      QA   O  
@@ -12506,7 +12506,7 @@ ENDMDL
 MODEL       65
 REMARK    model=65  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#-55]
-REMARK    CGAGAG C.C2658,C.G2659,C.A2660,C.G2661,C.A2662,C.G2663
+REMARK    CGAGAG .QA.C.C.2658.,.QA.C.G.2659.,.QA.C.A.2660.,.QA.C.G.2661.,.QA.C.A.2662.,.QA.C.G.2663.
 ATOM      1  P     C C2658      -9.116   0.402  -1.553  1.00114.61      QA   P  
 ATOM      2  C5'   C C2658      -8.711   0.371   1.057  1.00109.94      QA   C  
 ATOM      3  O5'   C C2658      -8.212   0.624  -0.252  1.00111.94      QA   O  
@@ -12644,7 +12644,7 @@ ENDMDL
 MODEL       66
 REMARK    model=66  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#165]
-REMARK    UGCCAA C.U2701,C.G2702,C.C2703,C.C2704,C.A2705,C.A2706
+REMARK    UGCCAA .QA.C.U.2701.,.QA.C.G.2702.,.QA.C.C.2703.,.QA.C.C.2704.,.QA.C.A.2705.,.QA.C.A.2706.
 ATOM      1  P     U C2701      -9.235   1.363  -1.756  1.00122.23      QA   P  
 ATOM      2  C5'   U C2701      -8.695   1.316   0.813  1.00121.55      QA   C  
 ATOM      3  O5'   U C2701      -8.256   1.580  -0.515  1.00121.47      QA   O  
@@ -12776,7 +12776,7 @@ ENDMDL
 MODEL       67
 REMARK    model=67  nts=15
 REMARK    hairpin loop: nts=15; [13]; linked by [#167]
-REMARK    CUGAAAGCAUCUAAG C.C2745,C.U2746,C.G2747,C.A2748,C.A2749,C.A2750,C.G2751,C.C2752,C.A2753,C.U2754,C.C2755,C.U2756,C.A2757,C.A2758,C.G2759
+REMARK    CUGAAAGCAUCUAAG .QA.C.C.2745.,.QA.C.U.2746.,.QA.C.G.2747.,.QA.C.A.2748.,.QA.C.A.2749.,.QA.C.A.2750.,.QA.C.G.2751.,.QA.C.C.2752.,.QA.C.A.2753.,.QA.C.U.2754.,.QA.C.C.2755.,.QA.C.U.2756.,.QA.C.A.2757.,.QA.C.A.2758.,.QA.C.G.2759.
 ATOM      1  P     C C2745      -9.533   0.887  -0.143  1.00117.59      QA   P  
 ATOM      2  C5'   C C2745      -8.811   0.162   2.261  1.00117.70      QA   C  
 ATOM      3  O5'   C C2745      -8.427   0.520   0.940  1.00117.97      QA   O  
@@ -13102,7 +13102,7 @@ ENDMDL
 MODEL       68
 REMARK    model=68  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#168]
-REMARK    CUUUAAG C.C2795,C.U2796,C.U2797,C.U2798,C.A2799,C.A2800,C.G2801
+REMARK    CUUUAAG .QA.C.C.2795.,.QA.C.U.2796.,.QA.C.U.2797.,.QA.C.U.2798.,.QA.C.A.2799.,.QA.C.A.2800.,.QA.C.G.2801.
 ATOM      1  P     C C2795      -8.848   1.273  -0.772  1.00154.42      QA   P  
 ATOM      2  C5'   C C2795      -8.747   0.677   1.846  1.00144.64      QA   C  
 ATOM      3  O5'   C C2795      -8.129   1.139   0.648  1.00145.24      QA   O  
@@ -13254,7 +13254,7 @@ ENDMDL
 MODEL       69
 REMARK    model=69  nts=9
 REMARK    hairpin loop: nts=9; [7]; linked by [#170]
-REMARK    GAAGACGAC C.G2819,C.A2820,C.A2821,C.G2822,C.A2823,C.C2824,C.G2825,C.A2826,C.C2827
+REMARK    GAAGACGAC .QA.C.G.2819.,.QA.C.A.2820.,.QA.C.A.2821.,.QA.C.G.2822.,.QA.C.A.2823.,.QA.C.C.2824.,.QA.C.G.2825.,.QA.C.A.2826.,.QA.C.C.2827.
 ATOM      1  P     G C2819      -9.305  -0.958  -0.833  1.00119.11      QA   P  
 ATOM      2  C5'   G C2819      -8.673  -1.611   1.642  1.00114.52      QA   C  
 ATOM      3  O5'   G C2819      -8.293  -1.028   0.396  1.00117.91      QA   O  
@@ -13456,7 +13456,7 @@ ENDMDL
 MODEL       70
 REMARK    model=70  nts=6
 REMARK    hairpin loop: nts=6; [4]; linked by [#174]
-REMARK    AGCGAU C.A2856,C.G2857,C.C2858,C.G2859,C.A2860,C.U2861
+REMARK    AGCGAU .QA.C.A.2856.,.QA.C.G.2857.,.QA.C.C.2858.,.QA.C.G.2859.,.QA.C.A.2860.,.QA.C.U.2861.
 ATOM      1  P     A C2856      -9.374   0.644  -1.733  1.00139.40      QA   P  
 ATOM      2  C5'   A C2856      -8.806   0.450   0.794  1.00141.47      QA   C  
 ATOM      3  O5'   A C2856      -8.383   0.829  -0.506  1.00139.85      QA   O  
@@ -13591,7 +13591,7 @@ ENDMDL
 MODEL       71
 REMARK    model=71  nts=7
 REMARK    hairpin loop: nts=7; [5]; linked by [#-58]
-REMARK    CAUGCCG C.C38,C.A39,C.U40,C.G41,C.C42,C.C43,C.G44
+REMARK    CAUGCCG .RA.C.C.38.,.RA.C.A.39.,.RA.C.U.40.,.RA.C.G.41.,.RA.C.C.42.,.RA.C.C.43.,.RA.C.G.44.
 ATOM      1  P     C C  38      -9.294   1.986  -1.121  1.00160.61      RA   P  
 ATOM      2  C5'   C C  38      -8.842   1.646   1.437  1.00161.58      RA   C  
 ATOM      3  O5'   C C  38      -8.375   2.093   0.174  1.00162.46      RA   O  
@@ -13744,7 +13744,7 @@ ENDMDL
 MODEL       72
 REMARK    model=72  nts=5
 REMARK    hairpin loop: nts=5; [3]; linked by [#181]
-REMARK    GUCUC C.G86,C.U87,C.C88,C.U89,C.C90
+REMARK    GUCUC .RA.C.G.86.,.RA.C.U.87.,.RA.C.C.88.,.RA.C.U.89.,.RA.C.C.90.
 ATOM      1  P     G C  86      -9.235   0.861  -1.297  1.00102.09      RA   P  
 ATOM      2  C5'   G C  86      -8.738   0.540   1.258  1.00108.06      RA   C  
 ATOM      3  O5'   G C  86      -8.301   0.975  -0.019  1.00107.13      RA   O  

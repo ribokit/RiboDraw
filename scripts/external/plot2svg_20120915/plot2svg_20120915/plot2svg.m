@@ -1833,7 +1833,11 @@ for i=length(axchild):-1:1
         rect = [min(x) min(y) max(x)-min(x) max(y)-min(y)];
         curvature = get(axchild(i),'Curvature');
         curvature(1) = curvature(1)*rect(3)*0.5;
-        curvature(2) = curvature(2)*rect(4)*0.5;
+        if (length(curvature) > 1)
+            curvature(2) = curvature(2)*rect(4)*0.5;
+        else
+            curvature(2) = curvature(1)*rect(4)*0.5;
+        end
         markerOverlap = 0;
         if ~strcmp(linestyle, 'none')
             markerOverlap = max(markerOverlap, convertunit(linewidth*0.5, 'points', 'pixels', axpos(4)));    

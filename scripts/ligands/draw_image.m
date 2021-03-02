@@ -16,11 +16,18 @@ if ( ~isfield( plot_settings, 'show_images') || plot_settings.show_images );
     if ~isfield( ligand, 'image_offset' ) ligand.image_offset = [0,0]; end;
     switch plot_settings.image_representation
         case 'image_boundary'
-            if ( ~isfield( ligand, 'image_handle2' ) | ~isvalid( ligand.image_handle2 ) )
+            % Also reset the image_handle and image_handle2 if either
+            % is now a rectangle -- as that will prevent setting of XData
+            % and YData later on. (This is, I assume, something that can
+            % happen if the image representation gets switched from
+            % rectangle to image_boundary.)
+            if ( ~isfield( ligand, 'image_handle2' ) | ~isvalid( ligand.image_handle2 ) | isa( ligand.image_handle2, 'matlab.graphics.primitive.Rectangle' ) )
+                ligand = rmgraphics( ligand, {'image_handle2'} );
                 ligand.image_handle2 = patch(0,0,[0,0,0],'edgecolor','none');
                 send_to_top_of_back( ligand.image_handle2 );
             end
-            if( ~isfield( ligand, 'image_handle' ) | ~isvalid( ligand.image_handle ) )
+            if( ~isfield( ligand, 'image_handle' ) | ~isvalid( ligand.image_handle ) | isa( ligand.image_handle, 'matlab.graphics.primitive.Rectangle' ) )
+                ligand = rmgraphics( ligand, {'image_handle'} );
                 ligand.image_handle = patch(0,0,[0,0,0],'edgecolor','none');
                 send_to_top_of_back( ligand.image_handle );
                 setappdata( ligand.image_handle, 'res_tag', ligand.res_tag );

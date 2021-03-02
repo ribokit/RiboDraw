@@ -289,7 +289,19 @@ draw_helix( helix );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function residue = draw_tick( residue, plot_settings, R )
 
-if ( mod(residue.resnum,10) ~= 0 ); return; end;
+if ( mod(residue.resnum, plot_settings.tick_frequency) ~= 0 ); 
+    % in case tick frequency has changed, we need to clear stuff out
+    if isfield( residue, 'tickrot' );
+        residue = rmfield( residue, 'tickrot' );
+    end;
+    if isfield( residue, 'tick_handle' );
+        residue = rmfield( residue, 'tick_handle' );
+    end;
+    if isfield( residue, 'tick_label' );
+        residue = rmfield( residue, 'tick_label' );
+    end;
+    return;
+end;
 if isfield(residue,'ligand_partners'); return; end;
 
 if ~isfield( residue, 'tickrot' ) residue.tickrot = nan; end; % nan means set later based on how helix is rotated.

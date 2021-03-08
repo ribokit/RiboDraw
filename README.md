@@ -31,6 +31,8 @@ Follow the [**Tutorial**](tutorial/tutorial.md), which teaches you how to make a
 
 It takes about 30 minutes (or more, depending on how much you want to refine the drawing).
 
+A brief account of key steps in the tutorial is [![video thumbnail](http://img.youtube.com/vi/gLcxN6HxEjQ/0.jpg)](http://www.youtube.com/watch?v=gLcxN6HxEjQ "available on YouTube").
+
 ### Eterna
 It is also possible to use RiboDraw to generate `customLayout`'s for Eterna puzzles -- this is a preliminary solution for conveying 3D information and resolving overlaps in ribosome-scale problems in Eterna. Here's an example for P4-P6, 
 

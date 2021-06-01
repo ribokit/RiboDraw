@@ -22,3 +22,4 @@ plot_settings.show_domain_controls = 1;
 plot_settings.show_linker_controls = 0;
 plot_settings.show_ring_circles = 0;
 plot_settings.show_fill_circles = 0;
+plot_settings.chain_ticks = 0;

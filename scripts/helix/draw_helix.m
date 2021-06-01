@@ -314,9 +314,20 @@ if ~isfield( residue, 'tick_handle' ) | ~isvalid( residue.tick_handle )
     setappdata( gca, residue.res_tag, residue );
 end
 
-if ~isfield( residue, 'tick_label' ) | ~isvalid( residue.tick_label )
-    residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', plot_settings.fontsize,...
+if ( plot_settings.chain_ticks == 1 ) 
+    residue.tick_label = text( 0, 0, sprintf('%d(%s)', residue.resnum, residue.chain), 'fontsize', plot_settings.fontsize,...
         'horizontalalign','center','verticalalign','middle','clipping','off','color',color );
+        setappdata( gca, residue.res_tag, residue );
+end
+
+if ~isfield( residue, 'tick_label' ) | ~isvalid( residue.tick_label )
+    if ( plot_settings.chain_ticks == 1 ) 
+        residue.tick_label = text( 0, 0, sprintf('%d(%s)', residue.resnum, residue.chain), 'fontsize', plot_settings.fontsize,...
+            'horizontalalign','center','verticalalign','middle','clipping','off','color',color );
+    else
+        residue.tick_label = text( 0, 0, num2str(residue.resnum), 'fontsize', plot_settings.fontsize,...
+            'horizontalalign','center','verticalalign','middle','clipping','off','color',color );
+    end
     setappdata( gca, residue.res_tag, residue );
 end
 

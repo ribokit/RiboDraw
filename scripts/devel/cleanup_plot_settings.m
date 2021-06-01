@@ -21,3 +21,9 @@ if ~isfield( plot_settings, 'tick_frequency' )
     plot_settings.tick_frequency = 10;
     setappdata( gca, 'plot_settings', plot_settings );
 end
+
+if ~isfield( plot_settings, 'chain_ticks' )
+    % old tacit default
+    plot_settings.chain_ticks = 0;
+    setappdata( gca, 'plot_settings', plot_settings );
+end

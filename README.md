@@ -5,6 +5,11 @@ _(C) Rhiju Das, Stanford University, 2017-2019_
 
 Please e-mail questions to `ribokit.info@gmail.com`
 
+## Citation
+If you use RiboDraw, please cite:   
+
+Rhiju Das, Andrew M Watkins, RiboDraw: semiautomated two-dimensional drawing of RNA tertiary structure diagrams, NAR Genomics and Bioinformatics, Volume 3, Issue 4, December 2021, lqab091, [https://doi.org/10.1093/nargab/lqab091](https://dx.doi.org/10.1093/nargab/lqab091)
+
 ## Getting Started
 ### Installation of RiboDraw
 Ribodraw has been tested on MATLAB R2016a and MATLAB 2017b. 

@@ -11,9 +11,10 @@ function residue = draw_fill_and_ring_circle( residue, plot_settings )
 assert( isfield( residue, 'fill_color') || isfield( residue, 'ring_color') );
 if ~exist( 'plot_settings', 'var' ) plot_settings = getappdata(gca, 'plot_settings' ); end;
 
-residue = draw_circle( residue, 'show_fill_circles', 'fill_color','fill_circle_handle', 2.3, plot_settings, 0.8 );
-residue = draw_circle( residue, 'show_ring_circles', 'ring_color','ring_circle_handle', 3.5, plot_settings, 0.9 );
-
+% residue = draw_circle( residue, 'show_fill_circles', 'fill_color','fill_circle_handle', 2.3, plot_settings, 0.8 );
+% residue = draw_circle( residue, 'show_ring_circles', 'ring_color','ring_circle_handle', 3.5, plot_settings, 0.9 );
+residue = draw_circle( residue, 'show_fill_circles', 'fill_color','fill_circle_handle', 1.5, plot_settings, 0.8 );
+residue = draw_circle( residue, 'show_ring_circles', 'ring_color','ring_circle_handle', 2.7, plot_settings, 0.9 );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function residue = draw_circle( residue, setting_name, color_field_name, handle_field_name, circle_size, plot_settings, layer_level );

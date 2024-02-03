@@ -39,6 +39,7 @@ if ( ~isfield( plot_settings, setting_name) || getfield( plot_settings, setting_
             'YData', y + residue.plot_pos(:,2) );
         set( h, 'facecolor', getfield(residue, color_field_name ) );
         set( h, 'edgecolor', 'none');
+        set( h, 'clipping', 'off');
     end
 else
     if isfield( residue, handle_field_name );

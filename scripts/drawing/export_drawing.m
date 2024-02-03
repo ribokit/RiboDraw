@@ -43,6 +43,7 @@ hide_helix_controls;
 hide_domain_controls;
 hide_selection_controls;
 hide_linker_controls;
+if strcmp(opt,'SVG'); set(gcf,'color','none'); end
 
 tic
 if strcmp(opt, 'SVG') == 1
@@ -68,6 +69,7 @@ show_helix_controls ( plot_settings.show_helix_controls );
 show_domain_controls( plot_settings.show_domain_controls );
 show_coax_controls( plot_settings.show_coax_controls );
 show_linker_controls( plot_settings.show_linker_controls );
+if strcmp(opt,'SVG'); set(gcf,'color','white'); end
 
 if system( 'which open' ) == 0; system( ['open ',filename] ); end;
 

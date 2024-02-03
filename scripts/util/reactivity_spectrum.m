@@ -14,6 +14,7 @@ function hex = reactivity_spectrum( float_vals )
         %     0.1:#FFFFFF
         %     0.8:#FF8800
         %       1:#FF0000
+        float_vals = min(max(float_vals,0),1);
 
         for i = 1:length( float_vals )
             if (float_vals(i) < 0)
@@ -33,6 +34,7 @@ function hex = reactivity_spectrum( float_vals )
             end
         end
     else
+        float_vals = min(max(float_vals,0),1);
         for i = 1:length( float_vals )
             if (float_vals(i) < 0.1)
                 hex{i} = '#FFFFFF';
